@@ -1,4 +1,4 @@
-# BMW Advanced Tools
+# <img src="images/bmw_m_50th_logo.png" width="50" height="50" /> BMW Advanced Tools
 ## About
 
 ### Included software
