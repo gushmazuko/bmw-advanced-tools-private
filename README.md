@@ -29,6 +29,9 @@
 | MSD80 2.023 | German | English | [Weblate](https://weblate.gushmazuko.dev/projects/inpa-msd80-loader-2-023/) |
 
 
+## Download Installer
+Go to [Releases](https://github.com/gushmazuko/bmw-advanced-tools/releases) page and download the latest `.msi` package.
+
 ## Silent Install
 ```batch
 BMW_Advanced_Tools_1.0_Install.msi /quiet
