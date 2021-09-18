@@ -1,0 +1,92 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E87.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 11.02.2004 rd V0.01 Erstellung
+//* 16.02.2004 rd V0.90 Umstellung auf 32-Bit INPA
+//* 17.03.2004 rd V0.92 Kommunikationssysteme überarbeitet
+//* 04.04.2005 GA V0.93 MSV80 dazu
+//* 29.04.2005 gr V0.94 MSV70 dazu
+//* 12.08.2005 GA V0.95 FAS_PLX, BFS_PLX dazu
+//* 06.02.2006 gr V0.96 FRM_70, JBBF70 added
+//* 28.03.2006 GA V0.97 RDC_GEN2 dazu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E87 V0.97
+ENTRY=     EXX,Functional jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=  D50M47,DDE 5.0  for M47 TÜ,
+ENTRY= DDE6M47,DDE 6.0  for M47 TÜ2,
+ENTRY=,,
+ENTRY=ME9NG4TU,ME9.2 / MEV9 for N45 / N46,
+ENTRY=   MSV70,MSV 70.0     für N52 (NG6),
+ENTRY=   MSV80,MSV 80.0 for N52KP (NG6),
+ENTRY=,,
+ENTRY=EKPM60_2,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=    GS19,Gearbox Control Module GS19,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY=  DSC_87,Dynamic Stability Control,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=    MRS5,Airbag,
+ENTRY= AHM_E65,Trailer Module,
+ENTRY=     CAS,Car Access System,
+ENTRY= DWA_E65,Alarm System,
+ENTRY= SINE_65,DWA Sirens and Tilt Sensor,
+ENTRY= ZBE_E87,Ergo Commander,
+ENTRY=  FRM_87,Footwell module driver,
+ENTRY=  FRM_70,Footwell Module Driver II (FRM_70, from 03/07),
+ENTRY=  KOMB87,Instrument cluster,
+ENTRY=  JBBF87,Junction Box Passenger,
+ENTRY=  JBBF70,Junction Box Passenger II (DCAN),
+ENTRY=  IHKA87,Air conditioning control,
+ENTRY= PDC_E87,Park distance control,
+ENTRY=PGS_65_2,Passive go system,
+ENTRY=  FZD_87,Functional center roof,
+ENTRY=  RLS_87,Rain and light sensor,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Seat Modules
+ENTRY= FAS_PLX,Seat Module Driver (new),
+ENTRY= BFS_PLX,Seat Module Passenger (new),
+ENTRY= FAS_87,Seat Module Driver,
+ENTRY= BFS_87,Seat Module Passenger,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  MCGW60,MOST/CAN-Gateway MASK,
+ENTRY=  CCCG60,MOST/CAN-Gateway CCC,
+ENTRY= RAD2_GW,MOST/CAN-Gateway Radio 2,
+ENTRY=  CCC_60,Car Communication Computer CCC,
+ENTRY=  CCCA60,Car Communication Computer (Application),
+ENTRY=  ASK_60,Audio System Controller CCC,
+ENTRY=  ANT_60,Aerial Tuner,
+;ENTRY=  SVS_60,Voice Processing System,
+ENTRY=  CID_87,Central information display color,
+ENTRY=  MASK60,Audio System Controller MASK,
+ENTRY=    RAD1,Radio 1/2,
+ENTRY=  DAB_60,Digital radio terrestrial DAB,
+ENTRY=  IBOC60,Hybrid radio USA IBOC,
+ENTRY=  SAT_60,Digital Satellite Radio USA,
+ENTRY= CDC_E65,Audio CD Changer,
+ENTRY=  NAV_60,Navigation System CCC ECE/US,
+ENTRY= TEL_E65,Telephone,
+ENTRY=  AMP_60,Top hi-fi Amplifier,
+;ENTRY= VID_E65,Video Module,
+

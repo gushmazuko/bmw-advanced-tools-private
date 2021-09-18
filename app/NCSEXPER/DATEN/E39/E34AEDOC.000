@@ -1,0 +1,331 @@
+// Žnderungsdokumentation: E34
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 359 224.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   ET-130    KARL JOCHEN              V-1-T-22  WERTHER CHRISTIAN
+//   ET-421    HIRSCH THOMAS            V-2-S-2   HUNDHAMMER MAX
+//   PD-142    BAUER VITUS              VK-24     HERRMANN WERNER
+//   TD-1010   MATHE GERHARD            VK-24     KLOETZER THOMAS
+//   TD-140    HILPERT WERNER           VT-30     GORNY RAIMUND
+//   TD-450    ARNDT ROBERT             ZA-T-30   RAAB VOLKER
+//   TD-460    BACHHUBER JOHANN         ZA-TL-5   POSSIN WOLF-RUEDIGER
+//   TD-P-51   MAIER, MAXIMILIAN        ZA-TP-40  NEUDOLD MARIO
+//   V-1-T-22  LEINTHALER JOSEF         ZS-M-6    HUEBNER WOLFGANG
+//   V-1-T-22  WEISS PAUL
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (ge„nderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E34AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+NAEL E5055.D  a      26.06.91   EE-73   Obrman
+                E34VN.000       -Tabellen neu erstellt
+                                 Solange das E34-Low-Kombi eingesetzt wird,
+                                 drfen die ersten beiden Stellen im SA-
+                                 Schlssel nicht vergeben werden!
+
+NAEL E5050.D  b      24.07.91   EE-73   Obrman
+                                -Typschlssel fr PU-90-Limousinen hinzu
+                                -Ausblendung der HW 01 fr M51-Diesel-Typen bei IHKR.
+                                 Erweiterung auf HW 02 bei IHKR fr brige Typen
+                                -DWA-SW-Stand 51 hinzu
+                                -Lichtdimmung ZVME36 ausschalten, da GME34 auch
+                                 keine Lichtdimmung kann.
+
+NAEL E5149.D  c      31.07.91   EE_73   Obrman
+                                -Typschlssel fr Allrad hinzu
+
+NEAL E5230.D  d      10.09.91   EE-73   Obrman
+                                -Alpina-Codierumf„nge hinzu
+                                -Zentralschlsseltabelle aktualisierte
+
+NEAL E5049.D  e      11.11.93   EE-73   Kn”chel
+                                -Neue Teilenummern fr Low-Kombi in VERNR.*
+                                -E34DWAU.000 ge„ndert
+                                -Aktualisierte E34VN.000
+                                -E34EDC.000 und E34EDCU.000 hinzu
+                                -E34ST.001 und E34ST.003 mit EDC erg„nzt
+                                -Aktualisierte ZTRSCHL.000
+                                -Einbau Codierindex
+                                -Kombi low: Adr. 2E wird nicht mehr codiert
+                                -HC91/92, M5Mš integriert
+                                -ZVM Versionsnr. 03 dazu
+                                -Einbau HD22 Jap. (GT.000)
+
+NAEL E0051.E  f      27.01.92   EE-73   Kn”chel
+                                -Neue Teilenummer fr Low-Kombi (SA Airbag fr RL)
+                                -Žnderung der VERNR.000 und der VN.000 fr 525tds
+                                 => Umschaltung auf KMBL.001
+                                -Žnd. der KMBLU.000 =>..104=>..105, ..106=>..107
+
+NAEL E0126.E  g      18.02.92    EE-73  Kn”chel
+                                 -E34/2 M5 Mš S38B38 hinzu ECE LL HJ91
+                                 -E34 M5  HC91 LA Japan
+                                 -E34 M5 HC91, HD91 81l-Tank (Stahl) statt 80l Kunstst.
+
+NAEL E0233.E  h      24.04.92   EE-73   Kn”chel
+                                -E34 M60 Basis LL/RL hinzu, RL auch mit km-Tacho
+                                 und LA CND HE11/12/13, HE21/22/23, HE51/52/53, HE61/62/63
+                                -E34/2 M60 Basis LL hinzu, HK11, HK21
+                                -E34 und E34/2 tds LL Basis mit High-Kombi hinzu
+                                 HA91/01, HG71/81 in GT.000 (Steuerung ber Teilenr. des Low-Kombi)
+                                -Aktualisierung ZTRSCHL.000
+                                !!!!!!!!! Achtung Optimierte Darstellung der Codierdaten !!!!!!!
+
+NAEL E0234.E  i      15.05.92   EE-73   Kn”chel
+                                -E34/M5Mš wg. Durchg„ngigkeit in E34VERNR.000 mit
+                                 Touring-Schlssel versehen => Einarbeitung EDCIII+ in E34ST.005 und .007
+                                -Integration der E34M60 L„ndervarianten J,Aus,D„n,
+                                 Skand.,Golf,ZA,CH,DATO (alle freizugebende LA's)
+                                -Alpina-Fzg'e mit franz.
+                                -akt. ZTRSCHL.000 mit den E34M60 ZA und den E34/2
+                                 M60 RL und US Typschlssel
+                                -neue Steigung Einspritzkennlinie M60 (C0 fr D1)
+
+NAEL E0423.E  k      07.08.92   EK-540  Kn”chel
+                                -Integration CKD Brasilien HD56 (Pauschalfreigabe
+                                 bereits erfolgt mit E0280.E)
+                                -Verl„ngerung Weginspektionsintervall US/CDN M60
+                                 Adr.1F Wert A1 fr 96 hex
+                                -Integration SA 306 in den ST-Tabellen mit ZV-Modul
+                                 (IB an bei ER mit IRF)
+                                -SA 302 neu beinhaltet die SA 303 Innenrsch. u. NG
+                                 => ST.016 - ST.031
+                                -Integration HJ58/HJ68 (Pauschalfreigabe bereits
+                                 erfolgt mit E0196.E)
+                                -Integration HA21/22  Freigabe mit E 0423.E
+                                -Integration HA71/81 und HG91/01 (Pauschalfreigabe
+                                 mit E 0029.E)
+                                -LA 804 (CH) mit allen Sprachen
+                                -LA 822 (Golf) mit frz.
+                                -Entfernung der 20l C9 hex Codierung in Adr. 1E fr
+                                 die Tankrestberechnung  (Standard 16l) Low-Kombi
+                                 VERNR ..4000 fr Low-Kombi
+                                -Alpina-Fzg'e mit korrigierten Daten und
+                                 Erweiterung der Palette
+                                -Aktualisierte ZTRSCHL.000
+
+NAEL E0485.E l       04.09.92   EK-540  Kn”chel
+                                -Integration LA Skandinavien fr alle M51 Fzg'e
+
+NAEL E0641.E m       11.01.93   EK-540  Kn”chel
+                                -Korrektur Zeile 33 GTK.000 37????2? statt 36????2?
+                                -Neue SW 6.0 und Codierindex 26 im Low-Kombi
+                                -Neue Versionsnr. xxxx8xxx fr neue TKL in VERNR.000
+                                 und in VN.000 ohne Tabellenumschaltung fr Codierung in HO
+                                -Integration HG31 (518i T) mit Freigabe + L„nder
+                                -Integration HK31,32,41,42  (540i/A T) mit Freigabe
+                                 und L„ndervarianten
+                                -Integration und Freigabe HA92/02 (525tds/A)
+                                 HA72/82 (525td/A) und HG72,82 (525tds/A T)
+                                -Žnd. Steig. s von 8,2 (EC) auf 6,8 (C3) bei S38B38
+                                 M5Mš (HC91, HC92, HJ91)
+                                -HB59 (520i) LL Philippinen integriert+Freigabe
+                                -Aktualisierte Zentralschlsseltab.
+
+NAEL E2912.F n       01.03.93   EK-540  Kn”chel
+                                -Neue SW 7.0 im Low-Kombi
+                                -Neue Teilenr. Low-Kombi
+                                -HA02,72,82,92 in VERNR
+                                -HA92 Tacho korrigiert
+                                -neue Grundzeile ..2020 (Integr. SA303 in 302)
+                                -ZA-Fahrzeuge auch mit DWA+IR-Fernbed. SA302 n. 306
+                                 Einsatz abgestimmt mit den Produktmaánahmen 03/93
+
+NAEL E2852.F o  15.05.93        EK-540  Kn”chel
+                                -Umstellung auf Datensatz mit SG-Ermittlungstabelle
+                                 Reduzierung der ST-Tabellen von 32 auf 4, GT-Tabellen von 4 auf 3
+                                -Integration der DWA4 als Ersatzteil fr DWA3 mit
+                                 unver„nderter Funktion VN ...10000
+
+                                -Integration der DWA4 Serie mit PU93 Maánahmen VN ...20000
+                                -Integration Airbag ZAE/BAE
+                                 VN ...20000  => BAE, VN ...60000  => ZAE
+                                -Integration ABS/ASC5 VN ...20000,  SA ...40
+                                -SA529 Mikrofilter Serie
+                                -neue Steigung M40  Adr.0B jetzt 33h statt 37h
+                                -IHKA codierelevant SA-Schl.: 0000080000000000
+                                -Integration HE51/61 M60 fr Alpina und erste
+                                 Abvariante (Zusatztank)
+                                 !! Einsatz nur mit neuer Codiersoftware fr SG-Ermittlung !!
+
+NAEL E3687.F p       01.07.93   EK-540  Kn”chel
+                                -Žnd. der ASC5-Codierung:
+                                 -beim M50B25 mit Schlupfschwellenoffset
+                                 -beim M60B40 ohneSchlupfschwellenoffset
+                                -Žnd. der Temperaturanzeige im Kombi high, Tableau von 75-105øC auf
+                                 75-110øC  Žnd. der Werte Adr.0C von 26hex auf 1Ehex
+                                 Adr.24 von 1Ahex auf 17hex
+                                -Korrektur und Aktivierung der Airbag-Codierung:
+                                 ZA-Fzg. ohne neuem ABG-SG,
+                                 neue BAE Daten, Žnd. der VN.000 und der SGERM.000
+                                -Airbag zun„chst ohne SBE
+                                -Airbag mit SBE: Versionsnr.: ...80000  durch Teilenummer SBE
+                                -525ix Lim. und Tour. auch als Alpina-Fzg. mit ge„nderter
+                                 Einspritzsteigung in Adr. 23 statt 78h hier 96h
+
+NAEL E3963.F q      30.08.93    EE-12   Kn”chel
+                                -Neue Zentralschlsseltabelle mit PU93-Maánahmen
+
+NAEL E4267.F r       29.09.93   EE-12   Obrman
+                                -Entfall der ZAE-US-Gurtschloácodierung Fahrer, Beifahrer.
+                                (Keine Dokumentation im  VN-Schlssel!)
+
+NAEL E4521.F s       11.10.93   EE-12   Kn”chel
+                                -Žnderung der Layouttabelle und VM-Gerst Airbag.
+                                 Speicher schreiben statt Codierdaten schreiben.
+                                -Žnderung der Tabellenbytes bei BAE Adr. B632 u. B633
+                                 von 05 u. 06 in 03 u.04
+
+NAEL E4629.F t       01.11.93   EE-12   Kn”chel
+                                -ZVM mit ZS-direkt: Adr: 01,20h (001-----b)
+                                -ZVM mit neuer Software: Codierindex 41
+                                -Individual: 90l-Stahltank fr LL   M60 und M50B25
+                                 Lim., Touring, Allrad ber Teilenr. Tank 2226476
+                                -Versionsnr. xxxx8xxx aus der VN.000 entfernt, da
+                                 keine neue TKL einsetzt!
+                                -Integr. M43 (HG11/12 und HA31/32/41/42)
+                                -Žnd. der Temperaturanzeige Tableau von 75-105øC auf
+                                 75-110øC  fr Low-Kombi: Adr. 88-8C, 98-9C, A8-AD
+                                -Korrektur des 16l-Wertes fr die Tankrestberechnung
+                                 (war auf 18l)  Adr. 68 Wert alt: 39h   neu: 33h
+                                -Aktualisierte Zentralschlsseltabelle
+
+NAEL E4923.F u       12.12.93   EE-12   Kn”chel
+                                -Integr. HE17, HE27 530i/A Lim. Indonesien
+                                -neue Grundzeile ..22020 (Integr. PU93)
+                                -Aktualisierte Zentralschlsseltabelle
+
+NAEL E5002.G v       11.02.94   EE-12   Kn”chel
+                                -Integr. HD69 525i Vietnam Achtung! Handschalter!! GM = 33590003
+                                -Wiederaufnahme der ZAE-US-Gurtschloácodierung zusam.
+                                 mit SBE  => ab 1.6.94 ist VN 0000080000 zu setzen
+                                -EDC fr M60 (ber Teilenr. VN 0000200000) Individual!
+                                -ZA-Fzg. mit BAE
+                                -LA Japan mit Gurtwarnung => neue Kombi-Codierung
+                                 durch KMBG, VN 0000400000
+                                -LA Austr. durch LA-Žnder. in ZTRSCHL.000 =>  1.5.94
+                                -šberdrehzahlschwelle hinzu Adr. 82+83
+                                -Aktualisierte Zentralschlsseltabelle
+
+NAEL E5185.G w       11.03.94   EE-12   Kn”chel
+                                -HighKombi TKL 80l-Kunststofftank:
+                                 Adr. 03: alt B7, neu B6 Adr. 05: alt 75, neu 74
+                                 Temperatur-Kennlinie Adr. 12: alt D3, neu D2
+                                -Verl„ngerung Weginspektionsintervall US/CDN M50
+                                 Adr.1F Wert A1 fr 96 hex
+                                -T 0010694 statt T 0010394 fr SBE und Gurtschloáwarnung
+                                 => Žnderung der E34VN.000 VN 0000080000 nur in Verbindung mit VN 0000400000
+
+NAEL E5339.G  x      20.06.94  EE-12   Kn”chel
+                                -525ix Alpina Lim. und Tour auch mit LA 804 Schweiz
+                                -Kombi low SW-Nr. 68 und SW 80 hinzu
+                                -IHKR HW-Nr. 03 hinzu
+                                -Khlmitteltemperaturkennlinie fr M43 modifiziert
+                                -Einspritzkennlinie M40/M43 berarbeitet
+                                -PU 94-Maánahmen (Einsatz 05/94) in G-Zeile integriert
+                                -SA 897, DATO, als frei verfgbare SA integriert
+                                -SA 899, opt. Alarm DWA, als frei verfgbare SA hinzu
+
+NAEL E5581.G  y      19.09.94   EE-12   Haller
+                                -SW-Nr. 0Ahex fr Nachcodierung Codierstecker Kombi in der HO hinzu
+                                -EWS-SG fr alle hinzu. Neue Versionsnummer fr EWS-SG hinzu
+                                -Žnderung Kombi low fr E34/M51 mit DDE2.1:
+                                 Steigung Einspritzkennlinie und Motorfaktor
+                                 Einsatz DDE2.1 gekoppelt mit Einsatz EWS-SG!
+                                -06/94-Maánahme (SBE, Gurtschloákontakt) im G-Zeile integriert
+                                -ge„nderte Funktionalit„t der SA DWA opt. Alarm (Abblendlicht)
+                                 fr Einsatz hinzu. Gekoppelt an VN-Bit des EWS-SG.
+                           003   Signalisierung DWA D„nemark wie ECE. Žnderung zu
+                           005   01/95 nur wenn kein Entfall der LA 809 zu 03/95
+
+
+NAEL E5846.G  z      14.10.94   EE-12   Haller
+                                -Codierindex um 51h erg„nzt
+
+NAEL E5937.G  aa     28.02.95   EE-12   Haller
+                                -540i/A Touring Fa. Alpina hinzu.
+                                -neue A-Zeile: LA 812, ab PU95 mit Temperaturanzeige in øC
+                                -Kombi high mit øC fr LA England integriert
+                                -CNG-Fahrzeug integriert
+
+NAEL E5270.H  ab     20.03.95   EE-12   Haller
+                                -Žnderung Temperaturkennlinie fr M60 wegen Žnderung
+                                 Thermostatventil von 85øC auf 95øC (E6323.H)
+                                 Neue Daten sind rckwirkend gltig.
+
+NAEL E5467.H  ac     22.05.95   EE-12   Haller
+                                -Tabelle fr neues Codiersystem erstellt
+                                -SIA Dieselmotor ™lservice-Intervall von 2 auf 1 reduziert
+                                -Airbag-SG ZAE2 erg„nzt.
+                E34ZST.000      -E-Wort fr Auswahl ZAE2: E ZAE2 N0995
+                                -Gastankkennlinie fr CNG-Kombi ge„ndert
+                                -E-Wort: E PU95 N0995  -> Steuerung SIA-Verl„ngerung
+                                    auf 15.000/30.000 km fr alle E34/2
+
+NAEL E5768.H  ad     16.10.95   EE-12   Haller
+                E34CVT.000      -Codierung EWS 2.3 hinzu
+                E34ZST.000      -E-Zeile fr PU95 entf„llt, in G-Zeile integriert
+                                 A-Zeilen fr Dieselfahrzeuge entfallen
+                                 E-Zeile EWS2 N0196 hinzu, Umschaltung auf EWS 2.3 CI 02, SE ca. KW 01/96
+                                 SA 768 Atlanta Olympia Edition hinzu
+
+NAEL E5866.H  ae     25.10.95   EE-12   Haller
+                KMB_E34.C27     -Tankkennlinie fr Gastank ge„ndert
+
+NAEL E5959.H  af     04.12.95   EE-12   Haller
+                KMB_E34.C27     -Khlmitteltemperaturkennlinie fr CNG-Fahrzeug ge„ndert
+
+NAEL E6141.J  ag     09.04.96   EE-12   Haller
+                ZAE2.C05        -ZAE2.C05 integriert, SE ab 09/96 und fr Ersatz
+                E34CVT.000
+                E34SGET.000
+                E34ZCSUT.000
+
+NAEL E6747.k  ah     30.09.97   EE-92 Haller
+                                -Dateien neu bersetzt wegen Hinweis auf
+                                 "keine Individualisierung"
+                                -Deaktivierung Fahrer- und Beifahrerairbag integriert
+                                 --> siehe Projektnachtrag 8001/099 vom 29.07.1997
+
+NAEL E6551.L  aj     27.02.98   EE-92 Haller
+                ZAE2.C03/C05    -FSW ZUENDKREISx_1/2 ge„ndert in SIDEBAG_xxx wg.
+                E34CVT.000       Angleichung der Airbag-CBDs
+
+NAEL E3679.M  ak     29.01.99   EE-92 Haller
+                - Neue Konvertierung wegen neuer Datei E34SGVT.000,
+                  neue Konvertiervorschrift für E34_CONF.BAP und E34ZCSUT
+                  E34_CONF.alt für Codiersoftware 1.x.y
+                  E34_CONF.neu für Codiersoftware 2.x.y
+                  E34ZCSUT.alt für Codiersoftware 1.x.y
+                  E38ZCSUT.neu für Codiersoftware 2.x.y
+
+NAEL E6E96.N  al     26.01.01   EE-82 Haller
+                -Neue Konvertierung wegen Änderung Codier-SW auf 3.xx
+                 SWT-Tabelle geändert von SWT nach SWT01
+                 Folgende Dateien wegen Codier-SW 3.xx geändert:
+                 E34_CONF.bap
+                 E34SGFAM.dat
+                 BR_REF.dat
+                -Wegen Probleme bei der Ersatzteilcodierung des CNG-Kombi in 
+                 Datei KMB_E34.C27 Codierindex 00h hinzu, 
+                 E34ZCSUT.000 ergänzt

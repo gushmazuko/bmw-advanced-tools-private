@@ -1,0 +1,272 @@
+#line 1 "D_0014.B2G"
+ecu     : D_0014;
+origin  : BMW AG VP-34 K.Weissert;
+revision: 1.22;
+author  : BMW TP-421 Weber, BMW TI-538 Drexel;
+comment : DM17_2L1, DM5212L0, DM5212L2, DM5212L3, DME17_2R, DME5212L, DM5212R3;
+
+/* ------------------------------------------------------------------
+   Liste aller Varianten:
+
+   DM17_2L1   aktuell
+   DM5212L0   Alpina
+   DM5212L2   aktuell
+   DME17_2R   -
+   DME5212L   -
+   ------------------------------------------------------------------ */
+
+/* ****************************  SGBD  *********************************
+;%V VERSION
+;%V ********************************************************************
+;%V Gruppendatei : D_0014
+;%V Steuergeraet : -
+;%V gueltig fuer : 2. DME-SG fuer 12 Zyl. Motoren
+;%V Bezug Lastenh: 
+;%V Diagnoseindex: -
+;%V Codierindex  : -
+;%V ...          : -
+;%V EDIABAS      : 3.0.0
+;%V --------------------------------------------------------------------
+;%V History:       01.10.92   Erstellung                                    Ta
+;%V                29.03.93   open_communication() wird erste Fkt.          Ta
+;%V    25.10.94   Erweiterung EWS SG                                   We
+;%V               {"1740208",     "DM5212L1"}  // E38M73  Serie PU
+;%V               {"4380542",     "DM5212L1"}  // E38M73  EWS Versuch
+;%V               {"1744697",     "DM5212L1"}  // E38M73  EWS Serie
+;%V
+;%V    28.10.94   Diagnoseende entfernt                                            V.1.11 We
+;%V               Freigabe fuer EWS
+;%V
+;%V
+;%V    28.11.94   Umstellung SGBD Serie auf EWS                                    V. 1.12 We
+;%V               {"4380542",     "DM5212L2"}, // E38M73  EWS Versuch
+;%V               {"1744697",     "DM5212L2"}  // E38M73  EWS Serie
+;%V
+;%V    18.01.95   {"1743247",     "DME17_2L1"}   // sollte M70 850 CSI  sein ?     V 1.13 We
+;%V
+;%V    19.01.95   {"1404738",     "DM17_2L1"}   // M70 850 CSI mit EWS             V 1.14 We
+;%V    21.03.95   {"1427684",     "DM5212L2"}   // M73 nach E 6548.H   //EB
+;%V 05.12.95  TT  V1.16 1429554, 1429559 1429560 DM5212L2 Alpina hinzu
+;%V 06.12.95  gh  V1.16 'comment: DM17_2L1, DM5212L2;' eingetragen
+;%V 16.02.96  We  V1.17 {   "1429633",     "DM5212L3"  }       //Programmstand 14 3/96 Serie
+;%V 16.02.96  We  V1.18 {   "4341013",     "DM5212L3"  }       //Programmstand 14 Vorserie
+;%V 08.08.96  We  V1.19 Eigene SGBD fuer Alpina B12 DM5212L0
+;%V 09.12.96  We  V1.20 Erweiterung SG-Parameter Nr. 9
+;%V 12.02.04  MP  V1.21 Änderung des Origin
+;%V 15.12.10  rd  V1.22 1740208 DM5212L1 auf DM5212L2 geändert
+;%V               V1.22 Im Auftrag von VH-55 Steffen Frank
+;%V ********************************************************************
+*/
+
+/* ****************************************************************** *
+ * ************************ SG - PARAMETER ************************** *
+ * ****************************************************************** *
+
+;%I Fuer die Kommunikation notwendige Parameter.
+;%I
+;%I        PARAMETER                                HIER
+;%I   *    Konzept                                  2
+;%I           BMW-Konzept 1 / DS1      1
+;%I           BMW-Konzept 2 ISO 9141   2
+;%I           BMW-Konzept IHK          3
+;%I           BMW-Konzept 2 DDE        4
+;%I           BMW-Konzept DS2          6
+;%I   *    Baudrate                                 0
+;%I   *    Reizadresse                              $14
+;%I   *    Wakeup-Zeit in ms                        0
+;%I           0, wenn kein Wakeup
+;%I   *    Idle-Zeit in ms                          0
+;%I   *    Timeout-Zeit                             2000
+;%I           In dieser Zeit muss SG antworten
+;%I   *    Regenerations-Zeit                       500
+;%I           Zeit zwischen den Telegrammen
+;%I PICO:  Telegrammende-Zeit                       500
+;%I           Wartezeit nach dem letzte Byte,
+;%I           nach der auf Telegrammende
+;%I           entschieden wird
+ * .................................................................. */
+
+ int parameter[] = {2,0,0x14,0,0,2000,100,20,0};
+ int awlen[]     = {1,0};
+
+
+/* ****************************************************************** */
+/* ************************ SG - TELEGRAMME ************************* */
+/* ****************************************************************** */
+
+/* ****************************************************************** */
+/* ************************ SG - TABELLEN *************************** */
+/* ****************************************************************** */
+
+table HW_Tabelle[2][] =
+      {
+      {"HARDWARENR",  "VARIANTE"},
+
+// DME M 1.7 12-Zyl M70
+
+      {"1731991",     "DME17_2R"},
+      {"1731823",     "DME17_2R"},
+      {"1733300",     "DME17_2R"},
+      {"1733404",     "DME17_2R"},
+      {"1736370",     "DME17_2R"},
+      {"1736376",     "DME17_2R"},
+      {"1736586",     "DME17_2R"},
+      {"1736587",     "DME17_2R"},
+      {"1736635",     "DME17_2R"},
+      {"1736636",     "DME17_2R"},
+      {"1736637",     "DME17_2R"},
+      {"1736638",     "DME17_2R"},
+      {"1738703",     "DME17_2R"},
+      {"1738706",     "DME17_2R"},
+      {"1401125",     "DME17_2R"},  // 850CSi
+      {"1403611",     "DME17_2R"},  // 850CSi  US/CH/A
+      {"1740341",     "DME5212L"},  // E38M73
+      {"1740208",     "DM5212L2"},  // E38M73  Serie PU
+      {"4380542",     "DM5212L2"},  // E38M73  EWS Versuch
+      {"1744697",     "DM5212L2"},  // E38M73  EWS Serie
+      {"1427684",     "DM5212L2"},  // E38/E31 Bezugsmarkengeber 
+      {"1404738",     "DM17_2L1"},  // M70 850 CSI mit EWS
+      {"1429554",     "DM5212L0"},  //DME E38  EWS 2 Alpina
+      {"1429559",     "DM5212L0"},  //DME E38  EWS 2 Alpina
+      {"1429560",     "DM5212L0"},  //DME E38  EWS 2 Alpina
+      {"1429633",     "DM5212L3"},  //Programmstand 14 3/96 Serie
+      {"4341013",     "DM5212R3"}   //Programmstand 14 Vorserie
+
+      };
+
+/* ****************************************************************** */
+/* ************************ SG - JOBS ******************************* */
+/* ****************************************************************** */
+
+/* JOB ************************************************************** *
+
+;%N Jobname   : INITIALISIERUNG
+;%J Parameter : keine
+;%J Ergebnis  : DONE
+;%J    Werte  : 0 : Fehler bei der Initialisierung
+;%J    Werte  : 1 : Initialisierung erfolgreich durchgefuehrt
+;%J
+;%I Zweck : Dieser Job wird vom EDIABAS automatisch beim erstem
+;%I         Zugriff auf eine SGBD aufgerufen. Bei weitern Zugriffen
+;%I         auf die selbe SGBD wird dieser Job nicht mehr aufgerufen.
+;%I         In der INITIALISIERUNG werden alle Funktionen aufgerufen,
+;%I         die nur einmal, vor der Kommunikation mit einem SG
+;%I         notwendig sind.
+;%I
+;%I Hier : 1. Verbindung zum Interface aufbauen
+;%I        2. Setzen des Wiederholungszaehlers fuer Fehler (gleich 2)
+;%I        3. Setzen der SG-Kommunikationsparameter
+;%I
+;%E Auftraggeber      : TP-42
+;%E Autor             : Roland Taubert
+;%E Entwicklungsstand : fertig
+;%E Teststand         : SIMED
+;%E Freigabeverantw.  : 
+;%E Freigabedatum     : 
+;%E History           : Erstellung
+;%E
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+job( name      : INITIALISIERUNG;
+     comment   : Einstellen der Kommunikationsparameter;
+     result    : DONE;
+       type    : int;
+       defrslt : ;
+       comment : 1, wenn i.O.;
+   ) {
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .*/
+
+  
+  open_communication();
+  stop_frequent();
+  set_repeat_counter(2);       
+  set_communication_pars(parameter);
+  DONE = 1;               
+   }
+
+
+/* JOB ************************************************************** *
+
+;%N Jobname   : IDENTIFIKATION
+;%J Parameter : keine
+;%J Ergebnis  : VARIANTE
+;%J    Werte  : Name der Varianten SGBD
+;%J
+;%I Zweck : Mit Hilfe dieses Jobs wird die Steuergeraete-Variante aus
+;%I         einer Steuergeraete-Gruppe (Datei: *.grp) festgestellt.
+;%I         Dieser Job ist zwingender Bestandteil der zugehoerigen
+;%I         Gruppen-Datei.
+;%I
+;%I   z.B.: Familie:      DME;
+;%I         Variante:     DME M 1.7 12-Zyl M70;
+;%I
+;%I Hier wird das 2. SG von 12-Zylindermotoren identifiziert.
+;%I
+;%I Antwort der DME's auf Keybytes lesen (im S0 Register):
+;%I (bei "Keybytes lesen" kommen die Bloecke mit ETX am Ende)
+;%I
+;%I           Block    Daten
+;%I Bosch:    0 -  3 ( 0 -  1): Keybytes
+;%I           4 - 17 ( 7 - 16): HW-Nr. Zulieferer
+;%I          18 - 31 (21 - 30): SW-Nr. Zulieferer
+;%I          32 - 42 (35 - 41): BMW-Teilenummer
+;%I          43 - 49 (46 - 48): BMW-Softwarenummer
+;%I          50 - 56 (53 - 55): Fertigungsdatum
+;%I
+;%I Siemens:  0 -  3 ( 0 -  1): Keybytes
+;%I           4 - 18 ( 7 - 17): HW-Nr. Zulieferer
+;%I          19 - 33 (22 - 32): SW-Nr. Zulieferer
+;%I          34 - 47 (37 - 46): Generationsnummer
+;%I          48 - 58 (51 - 57): laufende Nummer
+;%I          59 - 66 (62 - 65): Fertigungsdatum
+;%I          67 - 77 (70 - 76): BMW-Teilenummer
+;%I
+;%E Auftraggeber      : TP-42
+;%E Autor             : Roland Taubert
+;%E Entwicklungsstand : fertig
+;%E Teststand         : SIMED
+;%E Freigabeverantw.  : 
+;%E Freigabedatum     : 
+;%E History           : Erstellung
+;%E
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+job( name      : IDENTIFIKATION;
+     comment   : Ermittlung der SG Variante;
+     comment   : Zur Gruppe gehoerende Varianten:;
+     comment   : DME17_2R : Konzept 2 (Keyb. xx xx);
+     result    : VARIANTE;
+       type    : string;
+       defrslt : ;
+       comment : Der zurueckgelieferte Name entspricht dem Namen der;
+       comment : Datei fuer die Varianten-SGBD;
+
+   ) {
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .*/
+
+   unsigned char  answer[];    /* SG-Antwort */
+   char           hwNummer[];
+   char           variante[];
+
+   recv_keybytes(answer);
+   
+   if (answer[6] == 0xf6)
+     {
+     tabset("HW_Tabelle");
+
+     datacopy(hwNummer, answer, 35, 7);
+     datarevers(hwNummer);
+
+     if (tabseek("HARDWARENR",hwNummer))
+       {
+       tabget(variante,"VARIANTE");
+
+       VARIANTE = variante;
+       return;
+       }
+     } // If answer
+   }
+
+/* ****************************************************************** */

@@ -1,0 +1,229 @@
+;*************************************************
+; NCS-EXPERTENTOOL
+;
+; Aenderungen
+; Datum     Name          Aenderungsdokumentation
+; 10.05.96  Stei Softing  Ersterstellung
+;
+;*************************************************
+; Achtung: Die Texte links von "=" nicht aendern!!
+; Leerzeichen vor und nach "=" werden ignoriert!!
+;*************************************************
+
+[SYSTEM]
+; ------- System-Texte ----------------------
+BAUREIHE:           = CHASSIS:
+Nael-Nr.:           = NRCL-No.:
+FG                  = VIN
+Kein Profil geladen = No profile loaded
+Dateiende erreicht  = End of file reached
+Codiert werden:     = Get coded:
+Codiert wird:       = Get coded:
+Codierung aktiv     = Coding active
+Codierung OK        = Coding ended
+Cod OK/ZCS Neu      = Coding ended. ZCS was changed
+Codierung NOK       = Coding is faulty
+ZCSUT aktiv         = ZCS changing is active
+ZCS-Löschen aktiv   = ZCS deleting is active
+ZCS-Schreiben aktiv = ZCS writing is active
+Kernfkt OK = Basic function perfect ended
+Job aktiv  = Job active
+Job OK     = Job ended
+Job NOK    = Error by running job
+Betriebsart: = MODE OF OPERATION:
+Funktionen: = FUNCTIONS:
+Parameter: = PARAMETER:
+;
+; ------- Texte fuer Fileopen-Dialogbox --
+Steuerdateien = Controlling files (*.ssd)
+Alle Dateien  = All files
+Profildateien = Profiles
+;
+[FKEYS]
+; ------- Texte fuer Funktionstasten --------
+FG/ZCS           = VIN/ZCS
+FG/ZCS/FA        = Start
+FG/ZCS OK        = Back
+Baureihe         = CHASSIS
+Datei öffnen     = Open file
+Datei schliessen = Close file
+ZCS eingeben     = Enter ZCS
+FA eingeben      = Edit VO/FA
+ZCS aus Datei    = ZCS/FA f. file
+ZCS aus SG       = Chassis
+BR auswählen     = Choose BR
+SG auswählen     = Choose ECU
+SGET ändern      = Change SGET
+Job ändern       = Change job
+SG codieren      = Process ECU
+FZG codieren     = Process car
+SG-Cod-Start     = Execute job
+FZG-Cod-Start    = Code car
+Kernfunktionen   = Basic functions
+Individ.         = Car/Key Memory
+Zurück           = Back to main
+Auslesen         = read
+Übernehmen       = take over
+Löschen          = delete
+Übertragen       = broadcast
+SG auslesen      = Read ECU
+SG/SGET ändern   = Change ECU
+;
+[DIALOG]
+; ------- Texte fuer Dialogboxen ------------
+BAUREIHE = Chassis:
+FG:              = Vin:
+SG auslesen      = Read ECU2
+NCS-Expertentool = NCS-Expert Tool
+FG eingeben  = Enter VIN
+ZCS eingeben = Enter ZCS
+FA eingeben  = Enter FA
+SGET eingeben  = Enter SGET data
+BR auswählen = Choose CHASSIS
+SG auswählen = Choose ECU
+Job auswählen = Choose job
+Profil auswählen = Choose profile
+Profil-Editor = Profile editor
+Profil-Bezeichnung = Profile name:
+Profil-Kommentar = Profile comment:
+Profil-Info = Profile info
+Profil-Version = Profile format version:
+Profil-Dateiname = Profile filename:
+FG/ZCS/Baureihe = VIN/ZCS/CHASSIS
+FG/ZCS/FA/Baureihe = VIN/ZCS/FA/Chassis
+ASW = ASW
+SGET-Daten = SGET-Data
+FSW/PSW = FSW/PSW
+Codierung = Coding
+ASW einlesen = Read ASW:
+ASW inaktiv = ASW processing inactive
+aus ZST/SGVT = From ZST/SGVT
+FSW/PSW einlesen = Read FSW/PSW:
+FSW/PSW inaktiv = FSW/PSW processing inactive
+aus ZST = from ZST
+aus CVT = from CVT
+aus Datei = From file
+ASW Trace = ASW-Trace
+FSW/PSW Trace = FSW-/PSW-Trace
+Netto Trace = Nettodata-Trace
+Individ. Trace = Car/Key Memory-Trace
+FSW/PSW Manipulieren = FSW-/PSW-Manipulate with FSW_PSW.MAN
+SGET einlesen = Read SGET
+SG-Auswahl = Choose ECU
+SGET eingeben = Enter/change SGET
+FG/ZCS-Optionen = Enter VIN/ZCS options:
+CS-berechnen anzeigen = Show button calculate checksum
+Vor Eingabe löschen = Delete before input
+Kernfunktion auswählen = Choose basic function
+Dateinamen eingeben = Enter file name
+Checksumme berechnen = Calculate checksum
+Dateiname 1 = filename 1:
+Dateiname 2 = filename 2:
+SG-Bez = ECU short name:
+Baureihe = CHASSIS:
+CBD-Name = CBD name:
+CABD-Name = CABD name:
+SGBD-Name = SGBD name:
+NCD-Name = Nettodata file:
+Funktionstasten = Function keys:
+FG/ZCS eingeben = Enter VIN/ZCS
+FG/ZCS aus Datei= VIN/ZCS from file
+FG/ZCS aus SG   = VIN/ZCS from car
+FG/ZCS/FA eingeben   = Enter VIN/ZCS
+FG/ZCS/FA aus SG   = Read VIN/ZCS from car
+FG/ZCS/FA aus datei   = Read VIN/ZCS from file
+BR auswählen    = Choose CHASSIS
+ZCS löschen/schreiben = Delete/Change/Write ZCS:
+ZCS vor Cod. löschen = Delete ZCS before coding
+ZCSUT verarbeiten = ZCSUT processing active
+ZCS nach Cod. nicht schreiben = Don't write ZCS after coding
+ZCS nach Cod. immer schreiben = Write ZCS after coding always
+ZCS nach Cod. Änd. schreiben = Write ZCS only after changing
+Spezial-CABD-Job = Special-CABD-job:
+Job ändern = Change job
+Kernfunktionen = Basic functions
+SG-Cod = Process ECU
+FZG-Cod = Code car
+FKey-Text = Text of function key:
+Änderungen speichern = Save changes in the actual profile file?
+Konsistenzcheck = Consistency Check
+Konsistenzcheck OK = Consistency Check OK
+Trace individ. FSW-/PSW = Trace individualizable FSW-/PSW
+Individ.: = Car/Key Memory:
+Individ. inaktiv = Car/Key Memory inactive
+Individ. aktiv = Car/Key Memory active
+Individ. = Car/Key Memory FSW-/PSW-Trace
+Keine ind. FSW/PSW = no individualizable FSW/PSW found
+Ind.typ: = Individualizing type:
+Individualisierungs = Car/Key Memory
+Individualisierung = Car Memory
+Pers. 1 = Key Memory 1
+Pers. 2 = Key Memory 2
+Pers. 3 = Key Memory 3
+Pers. 4 = Key Memory 4
+Pers. 5 = Key Memory 5
+Pers. 6 = Key Memory 6
+Pers. 7 = Key Memory 7
+Pers. 8 = Key Memory 8
+Pers. 9 = Key Memory 9
+-FSW = -FSW
+Ref.angabe = Reference statement
+Ref. = Reference
+FSW/PSW = FSW/PSW
+Ref. und FSW/PSW = Reference and FSW/PSW
+Ind.parameter = Individualizing parameter
+Merkmale:   = Feature:
+
+[ERROR]
+; ------- Fehler-Texte ----------------------
+Fehler = Error
+Memoryfehler = Not enough memory
+Datei schreiben = file couldn't be opened for writing
+Datei nicht gefunden = file not found
+Datei offen = some file is opened
+Steuerdateizeile = Error in line of controlling file (*.ssd):
+FG-Fehler = VIN is faulty
+ZCS-Fehler = Central Coding key is faulty
+ZCS-SG-Fehler = ZCS-ECU error
+ZCSUT-Fehler = error at changing ZCS
+BR-Fehler = CHASSIS is faulty
+coapiInit-Fehler = error at initializing COAPI
+CABD-Fehler = Error in CABD! Look at CABI.ERR and ERROR.LOG!
+Keine CABD-Par = No CABD parameter set!
+CABD-Par = CABD parameter is faulty!
+CBD-Name = CBD name is faulty
+SG-Bez = SG short name is faulty
+SGET setzen = Error by setting SGET data
+SG setzen = Error by setting a ECU
+Keine Profile gefunden = No Profile files found!
+Interner Fehler = Internal error
+Profil-Speichern Fehler = Error by saving the profile file
+keine PSW geändert = no PSW changed
+Ind.Ausl.notwendig = first process reading
+Fehler Multi Ind = more than one FSW
+Ind. Daten übertragen = Car/Key Memory data were broadcast
+PFH-ERR-001 = There is no profile name
+ASW-ERR-001 = There is no filename of the ASW reading file
+ASW-ERR-002 = No function keys for entering ZCS active! The ZCS is necessary to read the ZST file.
+FSW-ERR-001 = There is no filename of the FSW/PSW reading file
+FSW-ERR-002 = There are no ASW data! ASW data are necessary to read the CVT file.
+SGET-ERR-002= There are no ASW data! ASW data are necessary to read the SGET file.
+COD-ERR-002 = There are no SGET data! SGET dat are necessary for coding.
+COD-ERR-003 = No function keys for entering ZCS active! The ZCS is necessary for processing the ZCSUT file.
+IND-ERR-002 = Car/Key Memory is not active! Car/Key Memory is necessary to generate the trace.
+REMOTE-001 = ECU couldn't switched on!
+REMOTE-002 = Following ECU couldn't
+REMOTE-003 = switched on:
+Unvalid Mark-1 = Following feature is
+Unvalid Mark-2 = invalid for FA:
+FA-ERROR = General FA error!
+[PROFILE_DESCRIPTION]
+; ------- Texte fuer die Beschreibung eines Profil ---------
+; Hier nur Englische-Texte eintragen!!
+; Deutsche Profilbeschreibung = Englische Profilbeschreibung
+Kein Eintrag        = No entry
+Default Profil      = Default profile
+
+;*************************************************
+; DATEI-ENDE
+;*************************************************

@@ -1,0 +1,122 @@
+b//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei SONDER.GER
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 15.03.95 rd V0.01 Erstellung
+//* 29.04.96 rd V1.04 SMG Adaption neu dazu
+//* 10.10.96 rd V1.05 Selektive SMG Adaption neu dazu
+//* 29.10.97 rd V1.06 AHK-Tests entfernt, Lenkwinkelabgleich neu dazu
+//* 04.11.97 rd V1.07 RDC-Pegelaufzeichnung neu dazu
+//* 18.11.98 rd V1.08 RDC Antennenprüfung
+//* 29.05.00 rd V1.09 S_SMG nach S_SMG2, S_SMG_NA nach S_SMG2A
+//* 17.01.01 rd V1.10 S_SMG2 entfernt
+//* 07.11.01 rd V1.11 S_GS30NA neu dazu
+//* 16.02.04 rd V2.00 Umstellung auf 32-Bit INPA
+//*                   Ausgelaufene Scripten entfernt
+//* 07.09.07 rd v2.01 Werner / Nitsche update
+//* 15.12.10 rd v2.01 Werner / update neue Strukturierung, EGS Erweiterung 
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Sondertests VP-41
+ENTRY=,,
+ENTRY= fsquick,Fehlerspeicher Quicktest,
+ENTRY= idquick,Identdaten     Quicktest,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=,,
+ENTRY=bms46_n,MS46/M43tu Überdrehzahl,
+ENTRY=,,
+ENTRY=ms42_n,MS42/M52lev Überdrehzahl,
+ENTRY=,,
+ENTRY=ms43_sp2,MS43/M54 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=ms450_n,MS45 Überdrehzahl und Motorüberhitzung,
+ENTRY=,,
+ENTRY=ms450,MS45 Überdrehzahl und Motorüberhitzung,
+ENTRY=,,
+ENTRY=msV70,MSV70 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=msV80,MSV80 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=msD80,MSD80 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=me72,ME7.2/M62 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=me9_6,ME9/N62 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=n73,N73 Überdrehzahl/Fusshebelfehlbedienung,
+ENTRY=,,
+ENTRY=MEV9N46,MEV9 (E46) Überdrehzahl/Fußhebelfehlbedienung,
+ENTRY=MEV9N46L,MEV9 (PL2) Überdrehzahl/Fußhebelfehlbedienung,
+ENTRY=ME9N45,ME9 N45 Überdrehzahl/Fußhebelfehlbedienung,
+ENTRY=,,
+ENTRY=N62_TUE,ME9.2.2 und ME9.2.3,
+ENTRY=,,
+ENTRY=N73_L0,MED9.2.1 - 1,
+ENTRY=,,
+ENTRY=N73_R0,MED9.2.1 - 2,
+ENTRY=,,
+ENTRY=MEX17_2N,MEX17 für N12 und N14 MINI Überdrehzahl,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=,,
+ENTRY=   s_smg,Automatische SMG Adaption für sequentelles M-Getriebe,
+ENTRY=s_smg_na,Selektive SMG Adaption für sequentelles M-Getriebe,
+ENTRY=s_smg2na,SMG Adaption für sequentelles M-Getriebe,
+ENTRY=s_gs30na,SSG Adaption für sequentelles Schaltgetriebe,
+ENTRY=  DKG436,DKG Oilabgleich,
+ENTRY=,,
+ENTRY=  GS19A_EA,GS-19 Sonder E65 ab MJ 2003;
+ENTRY=  GS1912_EA,Sonder GS1912 EA GM6 Getriebe,
+ENTRY=  GS19D_EA,Sonder GS19D EA TÜ Getriebe,
+ENTRY=  GS19_EA,GS-19 Sonder E65 bis MJ 2003,
+ENTRY=,,
+ENTRY=  GSB231,8HPXX F0X- F1X ohne Allrad J-Schiene
+ENTRY=  GSB233,8HPXX F0X- F1X mit Allrad K-Schiene
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=,,
+ENTRY=lws_abgl,Lenkwinkelabgleich E46,
+ENTRY=,,
+ENTRY=rdc_stat,RDC Pegelaufzeichnung,
+ENTRY= rdc_ant,RDC Antennenprüfung,
+ENTRY=,,
+ENTRY=s_absasc,ABS- / ASC Entlüftung,
+ENTRY=,,
+ENTRY=eml3_pwg,EML3 Pedalwertgeberadaption,
+ENTRY=,,
+ENTRY=  sahket,AHK Entlüftung,
+ENTRY=  sahkdt,AHK Dynamiktest,
+
+
+[ROOT_ELEKTRIK]
+DESCRIPTION=Elektrik_KI_EE
+ENTRY=,,
+ENTRY=pm_8x_6x,Powermanagement E6x
+ENTRY=pm65,Powermodul E65
+ENTRY=,,
+ENTRY=T_EE44,MOST,
+ENTRY=,,
+ENTRY=CVM6_E88_DBG,E88 CVM6 Cabrio Status Überblick
+
+
+[ROOT_SONSTIGES]
+DESCRIPTION=Sonstiges
+ENTRY=,,
+ENTRY=   s_lkm,Coding station for Rolls Royce air conditioning air flap module,
+ENTRY=,,
+ENTRY=s_funk_i,MDA Remote adapter initialisation,
+
+
+
+

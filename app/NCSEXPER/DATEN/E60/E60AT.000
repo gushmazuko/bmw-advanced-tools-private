@@ -1,0 +1,1402 @@
+// Auftragsdatei: E60AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 921 824.5
+DATUM 20.09.2012
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EG-75             Wagener
+// Geprueft:           EG-75             Wagener
+// Verantwortlicher:   EG-75             Haller
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EG-75
+//   TD-433
+//   TI-430
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             E60AT.000
+//
+
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevanz)
+Z #0310                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10          //PU 03/10
+//                        lt. Beschluß von L6-W vom Dez. 2009 nimmt der E6x nicht mehr an der I-Stufe 10-09 teil. Der E6x wird nach 10-03 als EOP-Projekt weitergeführt.
+
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0103                                                                                                                                                 //SOP PU03/03
+A #0903                 PU03                                                                                                                            //PU 09/03
+A #1203                 PU03 DEZ03                                                                                                                      //DEZEMBER 12/03 (BFD)
+A #0304                 PU03 DEZ03 MAERZ04                                                                                                              //MAERZ PU 03/04
+A #0404                 PU03 DEZ03 MAERZ04 APRIL04                                                                                                      //APRIL 04/04 (neue Endbeschlagstrammer mit SFZ-5*)
+A #0604                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04                                                                                               //JUNI 06/04
+A #0904                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04                                                                                          //PU 09/04
+A #0305                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05                                                                                  //MAERZ PU 03/05 (LM_AHL)
+A #0905                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05                                                                             //PU 09/05 (ACSM, KGM, SZL)
+A #0306                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06                                                                     //MAERZ PU 03/06
+A #0606                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06                                                              //JUNI06  06/06
+A #0906                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06                                                         //PU 09/06
+A #0307                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07                                                 //MAERZ PU 03/07
+A #0907                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07                                            //PU 09/07
+A #0308                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08                                    //MAERZ PU 03/08
+A #0908                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08 PU08                               //PU 09/08
+A #0309                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08 PU08 MAERZ09                       //MAERZ 03/09
+A #0909                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09                  //PU 09/09
+A #0310                 PU03 DEZ03 MAERZ04 APRIL04 JUNI04 PU04 MAERZ05 PU05 MAERZ06 JUNI06 PU06 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10          //PU 03/10
+
+//******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//E: aktive Ergaenzungszeilen (PUSY-Relevanz fuer Steuerung SA<100) nur WERK!
+E EWS4                  //EWS4                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+E NMUW                  NEUE_MUW                        //Einsatz neuer MUW Sensoren bei allen E63 und E64 (Akt. Innenraumschutz bei CANSINE CI03 && CI04)
+E B080                  BATTERIE_80AH                   //80 Ah-Batterie
+E B090                  BATTERIE_90AH                   //90 Ah-Batterie
+E B110                  BATTERIE_110AH                  //110 Ah-Batterie
+E A090                  BATT_AGM_90AH                   //90 Ah-AGM Batterie (SA536)
+E A080                  BATT_AGM_80AH                   //80 Ah-AGM Batterie 
+E ASIA                                                  //MASK-Asien-Muster frei neben der SA China & Korea
+E 701S                  SECURITY                        //Sondercodierung Sicherheitsfahrzeug Mexiko
+E 702S                  SECUR_SODER_W                   //Sondercodierung FH_HINTEN Sicherheitsfahrzeug Mexiko
+E 703S                  SECUR_A_KID                     //Sondercodierung Schlüsselabziehen in jeder Getriebeschalterstellung
+//E MASK                  RADIO_MASK                      //Fzg mit MASK anstelle CHAMP;Radio BMW Professional (SA663) with MASK
+E OACC                  OHNE_ACC                        //Steuerung von FZ mit ACC verbaut, aber Codierung nicht erfolgen soll!!  ACC inaktiv
+E LM2A                  LM2_ALTE_SW                     //Steuerung fuer LM2, wenn aber noch die alten Scheinwerfer verbaut sind
+E IGRX                  IGR_6BMOT                       //IRG-Codierung fuer 6Zyl. (MSV80.C05,MSD80.C10)
+E ULF2                  ULF2                            //Steuerung ULF2 in CCC_APP; SVS_MICRO  (most oder analog)
+E HOS3                                                  //Steuerung im Werk für den Aufbrauch von Teilen
+E EFZG                  MUSTERBAU                       //Steuerung im Werk der Funktion „CLASS_PWR“ im CAS
+//E CICT                                                  //Telediagnose im CIC
+E CAKK                  KEINE_CAK                       //Crash-Aktive-Kopfstütze nicht aktiv!
+E FITT                  FITT                            //Sondercodierung FIT
+E EBSE                  ENDBESCHL_ENTF                  //Steuerung im Werk zum Entfall vom Endbeschlagsstrammer Airbag bis 09/08
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+H EWS4                  //EWS4                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+H NNIC                  NACHRUEST_NIC                   //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"
+H BENI                                                  //Nachrüstung Video Benin
+H NMUW                  NEUE_MUW                        //Einsatz neuer MUW Sensoren bei allen E63 und E64 (Akt. Innenraumschutz bei CANSINE CI03 && CI04)
+H NKWI                  KLAPPE_WINKEL                   //KLAPPE_WINKEL wenn K-Wort  aktiviert bei E61 (noch in Planug)
+H MASK                                                  //Fzg mit MASK anstelle CHAMP;Radio BMW Professional (SA663) with MASK
+H TARN                  TARN                            //fuer alle E61 E63 und E64 PPP-Fzg. mit Tarnscheinwerfer
+H B080                  BATTERIE_80AH                   //80 Ah-Batterie
+H B090                  BATTERIE_90AH                   //90 Ah-Batterie
+H B110                  BATTERIE_110AH                  //110 Ah-Batterie
+H A090                  BATT_AGM_90AH                   //90 Ah-AGM Batterie (SA536)
+H A080                  BATT_AGM_80AH                   //80 Ah-AGM Batterie 
+H VSVL                                                  //fuer alle E64 PPP Fzg. im FIZ mit Vorserienvorlaeufer Verdeck Baustand BIS 31.03.2003!
+H LEDE                                                  //bei Lederausstattung setzen, wegen DWA Codierung
+H KB96                                                  //"9,6kBaud" fuer FZG mit FBD-Schluessel Teilenummer 6 931 666 (neue CAS2 Empfaenger)
+H OSIM                                                  //Aufbau mit SGM, SIM Codierung inaktiv
+H NBFD                  BREAK_FORCE_DP                  //Break Force Display fuer alle E63 Motortypen bis PU12/03 (ohne SA5AB!)
+H K536                  NACHRUEST_SHZH                  //Nachruestung Standheizung
+H OPSS                                                  //TEMPORAERES E-WORT spez. fuer CAS & KOMBI ab I-5.20! (nur FIT/Labcar)
+H AMP3                                                  //TEMPORAERES E-WORT MP3 Funktion im MASK fuer 04-03-450 (ab 04-03-500 Anlieferzustand) (nur FIT/Labcar)
+H VORZ                  ALC_LM_VORZEICH                 //TEMPORAERES E-WORT (Hoehenstandsseonsoren) Komplementbildung  Achssensoren (ALC/LM) (nur FIT/Labcar)
+H ASIA                                                  //MASK-Asien-Muster frei neben der SA China & Korea
+H 701S                  SECURITY                        //Sondercodierung Sicherheitsfahrzeug Mexiko
+H 702S                  SECUR_SODER_W                   //Sondercodierung FH_HINTEN Sicherheitsfahrzeug Mexiko
+H 703S                  SECUR_A_KID                     //Sondercodierung Schlüsselabziehen in jeder Getriebeschalterstellung
+H 240S                  SECUR_VMAX                      //Sondercodierung Aufhebung der Vmax-Begrenzung auf 240 km/h für E60 Security
+H KMP3                  NACHRUEST_MP3                   //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden)
+H OACC                  OHNE_ACC                        //Steuerung von FZ mit ACC verbaut, aber Codierung nicht erfolgen soll!!  ACC inaktiv
+H FITT                  //FITT                            //Extra-Steuerung nur fuers FIT
+H NHFM                                                  //Nachruestung HFM (Heiss-Film-Luftmassenmesser), dann die Motoren-SW vor 09/05 auf die N52B30 ECE ab 09/05 flashen (Steuerung nur fuer KMM)
+H LM2A                  LM2_ALTE_SW                     //Steuerung fuer LM2, wenn aber noch die alten Scheinwerfer verbaut sind
+H IGRX                  IGR_6BMOT                       //IRG-Codierung fuer 6Zyl. (MSV80.C05,MSD80.C10)
+H IPOD                  IPOD                            //Nachruestung iPod (gesteuert wie CD-Wechsler SA672 in den Headunits)
+H ULF2                  ULF2                            //Steuerung ULF2 in CCC_APP; SVS_MICRO  (most oder analog)
+H HOS3                                                  //Steuerung im Werk für den Aufbrauch von Teilen
+H SWUL                                                  //Software-Update Fuer die MULF1
+H 21TI                                                  //Nachrüstlösung KMM Steuerung
+H KONI                  KONTRAST                        //Umrüstung Nightvision Kontrast
+H EFZG                  MUSTERBAU                       //Steuerung im Werk der Funktion „CLASS_PWR“ im CAS
+H TEMP                  VERD_TEMP                       //Erhöhung der Verdampfertemp. in der IHKA bei Kundenbeanstandung
+H DOFF                  DSC_OFF                         //ab 09/07 wird für den M5 US Handschalter (SA 2MA) die Funktion DSC-OFF verfügbar sein.
+//H FSEA                  FUNKSCHLUESSEL                  //Aktivierung des neuen Funkschluessel Konzepts (Schluessel wird erst in KL15 verrastet, ELV verriegelt erst nach Tuer auf)
+H ZBEP                  PERF_CONT                       //Steuerung in der KMM zur Umrüstung von der ZBEH auf Performance Controller 
+H EBSE                  ENDBESCHL_ENTF                  //Steuerung im Werk zum Entfall vom Endbeschlagsstrammer Airbag bis 09/08
+H CAKK                  KEINE_CAK                       //Crash-Aktive-Kopfstütze nicht aktiv!
+H NKFB                  NACHRUEST_KFB                   //MASK-Funktionen ab 03/07
+H FITT                  FITT                            //Sondercodierung FIT
+H D2TR                                                  //Steuerung in der KMM "D2 nach R mit Stoß nach Stop-and-Go"
+H IBAC                                                  //Steuerung in der KMM "Kriechruckeln"
+H KLED                  LED_AHM                         //Nachruestung LED Leuchten für Anhänger
+H RUZU                                                  //Steuerung in der KMM "Drehzahlschwankungen"
+H FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal
+H FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich
+H WGAK                                                  //Bei Beanstandungen N54 Fhzg. 06/06 bis 08/07 per K-Wort "WGAK" eine DME SW (Vermeidung Wastegateklirren) aufzuspielen
+H HADS                                                  //Umrüstung im Beanstandungsfall EDS und DME (harsh down shift)
+H DIRU                                                  //Umrüstung / E6x N53 MSD80 Ruckeln
+H IRRE                  DEAK_ONESHOT                    //Nachrüstung Deaktivierung OneShot für Irland
+H OSAT                  OHNE_SATBILD                    //Deaktivierung SAtellitenbilder per Nachrüstung, Anforderung aus den Golfastaaten
+
+//******************************************************************************
+//K: Kundendienst-Ergaenzungszeilen (keine PUSY-Relevanz) NACH- / UMRUESTUNGEN IN DER HO (FALLS IDENTISCHES E-WORT VORHANDEN ZUERST ENTFERNEN!!!)
+//*******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+K 21TI                                                  //Nachrüstlösung KMM Steuerung
+K BENI                                                  //Nachruestung Video Benin
+K C107                  NACHR_CKM_A107                  //Umruestung der Aktivierung des mech. Verfahrens (CKM_A107) (keine Aktivierung/Akt. nach Entriegeln mit FB/Akt. nach Entriegeln mit FB und Tuer oeffnen)
+K CIFK                  CIC_FKD                         //CIC-Umrüstung FKD-Fahrzeuge
+K D2TR                                                  //Steuerung in der KMM "D2 nach R mit Stoß nach Stop-and-Go"
+K DIRU                                                  //Umrüstung / E6x N53 MSD80 Ruckeln
+K DOFF                  DSC_OFF                         //ab 09/07 wird für den M5 US Handschalter (SA 2MA) die Funktion DSC-OFF verfügbar sein.
+K FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal
+K FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich
+//K FSEA                  FUNKSCHLUESSEL                  //Aktivierung des neuen Funkschluessel Konzepts (Schluessel wird erst in KL15 verrastet, ELV verriegelt erst nach Tuer auf)
+K HADS                                                  //Umrüstung im Beanstandungsfall EDS und DME (harsh down shift)
+K IBAC                                                  //Steuerung in der KMM "Kriechruckeln"
+K ID4P                  ID_GEBER_4                      //4 ID-Geben für Passiv Access (VORHALT PU09/05)
+K IPOD                  IPOD                            //Nachruestung iPod (gesteuert wie CD-Wechsler SA672 in den Headunits)
+K IREG                  STROMREG                        //Stromkorrektur wegen kurzer Leitungslängen
+K IRRE                  DEAK_ONESHOT                    //Nachrüstung Deaktivierung OneShot für Irland
+K K302                  ALARMANLAGE                     //Nachruestung DWA mit INNENRAUMSCHUTZ UND NOTSTROMSIERENE (E60/E61) / CANSINE(E63/E64)
+K K536                  NACHRUEST_SHZH                  //Nachruestung Standheizung
+K K633                  BT_AKTIVIERUNG                  //Nachruestung BT Aktivierung bei TCU (nur bei SA639,SA641 und SA664) (Handy über BT) ab CI06
+K K639                  NACHRUEST_TCUUS                 //Nachruestung Everest-Plattform TEL_PROF(HANDY etc. nur US,kabelanbindung) (nur mit SA639 bis CI05)
+K K641                  NACHRUEST_STDUS                 //Aufruestsatz Universal Handyvorbereitung US Standard (Südamerika und Korea) nur bis 09/06 ab 09/06 SA664
+K KFDM                  NACHRUEST_FDM                   //Nachruestung Flexibles Diagnose Modul
+K KLED                  LED_AHM                         //Nachruestung LED Leuchten für Anhänger
+K KMP3                  NACHRUEST_MP3                   //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden)
+K KONI                  KONTRAST                        //Umrüstung Nightvision Kontrast
+K MO6H                                                  //Motorbedatung beim M54B22 in Heißländer beseitigung KMM-Probleme
+K MUEB                  MUE_BELEUCHTUNG                 //Nachruestung neue Beleuchtung (Front/Heck) für alte FZ
+K NADX                  NACHRUEST_ADX                   //Nachruestung Xenon Nebelscheinwerfer E60
+K NAUX                  NACHRUEST_AXIN                  //Nachruestung AUX-IN Buchse bei MASK/CCC Tuner
+K NBFD                  BREAK_FORCE_DP                  //Nachruestung Break Force Display fuer alle E60 von PU09/03 bis PU12/03(nur EU! bei Fzg. ohne SA5AB) (FALLS IDENTISCHES E-WORT VORHANDEN ZUERST ENTFERNEN!!!)
+K NDVD                  NACHRUEST_DVD                   //Nachruestung E60 FOND DVD PLAYER incl. E61 PD DWA MUW
+K NHFM                                                  //Nachruestung HFM (Heiss-Film-Luftmassenmesser), dann die Motoren-SW vor 09/05 auf die N52B30 ECE ab 09/05 flashen (Steuerung nur fuer KMM)
+K NKWI                  KLAPPE_WINKEL                   //KLAPPE_WINKEL wenn K-Wort  aktiviert bei E61 (BESCHLUSS NOCH OFFEN!!!)
+K NNIC                  NACHRUEST_NIC                   //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"
+K OEOE                  OEOE                            //  Oeffnen ohne Entriegeln
+K OI01                  OHNE_FA_AIRBAG                  //Deaktivierung Fahrerairbag
+K OI02                  OHNE_BF_AIRBAG                  //Deaktivierung Beifahrerairbag
+K OI03                  OHNE_SIDEBAG_VL                 //Deaktivierung Sidebag vorn links
+K OI04                  OHNE_SIDEBAG_VR                 //Deaktivierung Sidebag vorn rechts
+K OI05                  OHNE_AHPS_LI                    //HEAD Deaktivierung AHPS links
+K OI06                  OHNE_AHPS_RE                    //HEAD Deaktivierung AHPS rechts
+K OI07                  OHNE_SIDEBAG_HL                 //Thorax Deaktivierung Sidebag Fond links
+K OI08                  OHNE_SIDEBAG_HR                 //Thorax Deaktivierung Sidebag Fond rechts
+K OI09                  OHNE_KNIESCH_VL                 //Deaktivierung Knieschutz vorn links
+K OI10                  OHNE_KNIESCH_VR                 //Deaktivierung Knieschutz vorn rechts
+K OI11                  OHNE_FA_SBR                     //Deaktivierung FAHRER SEATBELTREMINDER (bis PU03/04 im KOMBI ab PU03/04 im SGM! ab PU09/05 im ACSM)
+K OI12                  OHNE_BF_SBR                     //Deaktivierung BEIFAHRER SEATBELTREMINDER (bis PU03/04 im KOMBI ab PU03/04 im SGM! ab PU09/05 im ACSM)
+K OSAT                  OHNE_SATBILD                    //Deaktivierung SAtellitenbilder per Nachrüstung, Anforderung aus den Golfastaaten
+K OSVS                  OHNE_SVS_LOW                    //Deaktivierung Funktion "Low Sprachverarbeitung" in MASK / M-ULF
+K PVCA                  AKT_PERS_V_CALL                 //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung
+K RASK                  MOST_RING_MASK                  //Aktivierung RING Bit im MASK/CHAMP
+K RUZU                                                  //Steuerung in der KMM "Drehzahlschwankungen"
+K SIGE                                                  //Umruestung/Nachruestung Anpassungen der Schaltkennlinien für Singapur NA32 + SA205
+K SWUL                                                  //Software-Update Fuer die MULF1
+K TELD                  TELEMATIC_DIS                   //Deaktivierung Funktion Telematic fuer TCU_MOST
+K TEMP                  VERD_TEMP                       //Erhöhung der Verdampfertemp. in der IHKA bei Kundenbeanstandung
+K TVHY                                                  //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul.
+K U638                                                  //Nachruestoption zur SA 638 ab 06/2003SA-638 Upgrade neue SIM Karten, zum erkennen der neuen Software
+K UEGS                                                  //Umrüstung EGS für NA38
+K WGAK                                                  //Bei Beanstandungen N54 Fhzg. 06/06 bis 08/07 per K-Wort "WGAK" eine DME SW (Vermeidung Wastegateklirren) aufzuspielen
+K ZBEP                  PERF_CONT                       //Steuerung in der KMM zur Umrüstung von der ZBEH auf Performance Controller 
+K OKOS                  O_KOMFORT_SCHL                  //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877          //NA 190652
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 100                                                   //NUTZLASTERHOEHUNG
+W 102                   LUFTKL                          //BEHOERDENFAHRWERK/-BREMSEN
+W 106                   SICHER                          //SECURITY (Basis NE71,NE72,NB51,NB52) ab 09/05 (in Klaerung!)
+W 108                   MOTORLAUF                       //Motorweiterlaufschaltung ab 03/07 (PA091/001)
+W 112                                                   //KONTRASTSTREIFEN LEUCHTROT
+W 113                                                   //KONTRASTSTREIFEN MINZGRAU
+W 114                                                   //BEKLEBUNG POLIZEI
+W 115                                                   //BEKLEBUNG NOTARZT NRW
+W 116                                                   //STANDARTENHALTER LINKS
+W 117                                                   //STANDARTENHALTER RECHTS
+W 121                                                   //VORB.F.UNTERBRINGUNG ANHALT
+W 122                                                   //VORB.F.UNTERBRINGUNG SCHLAG
+W 123                                                   //ZUSATZ-INNENSPIEGEL
+W 124                                                   //BEHOERDENDACHHIMMEL
+W 130                                                   //WAFFENHALTERUNG IN MITTELARMLEH.HI.
+W 145                                                   //ALARMSCHALTER M. FEUERWEHRSCHALTUNG
+W 146                   ENERGIE_PLUS LUFTKL             //ZUSAETZLICHE ENERGIEVERSORGUNG
+W 151                   WARN_KOM_ANL LUFTKL             //WARN- UND KOMMANDOANLAGE HELLA RTK-6
+W 152                                                   //VAMA-Sondersignalanlage(Modell 8000) (PA104/006)
+W 153                   WARN_KOM_ANL LUFTKL             //Dachaufsatz ohne Sondersignalanlage (PA091/001)
+W 165                                                   //DEAKTIVIERUNG ITS
+W 167                   //ABGASNORM_EU4                   //ABGASNORM EU4
+W 168                   MILANSTEUERUNG                  //ABGASNORM EU2 (MOTORSG!)Auslauf 09/02.05
+W 169                   ABGASNORM_EU3                   //ABGASNORM EU3
+W 178                                                   //VORB.F.HANDFUNKGERAET
+W 180                   DACHANTENNE                     //VB BZW. MONTAGE DACHANTENNE
+W 181                                                   //MONTAGE HECKANTENNE 2+  Tais 18.12.04
+W 185                   OFFENE_AUSFUEHR LUFTKL          //EINSATZFAHRZEUG OFFEN
+W 186                   GETARN_AUSFUEHR LUFTKL          //EINSATZFAHRZEUG GETARNT
+W 199                   MILANSTEUERUNG OHNE_KAT         //AUSSTATTUNG BLEIHALTIGER KRAFTSTOFF (MOTORSG!)Auslauf 09/02.05
+W 1CA                                                   //STEUERUNG COP/CO2 SELEKTION
+W 1CB                   ACEA_CO2                        //STEUERUNG ACEA/CO2 SPEZIFISCHER UMFANG (PA406/002)
+W 200                                                   //DIESEL-PARTIKELFILTER
+W 201                                                   //RAPSMETHYLESTER-AUSFUEHRUNG RME
+W 203                                                   //ALLRADSYSTEM (Tais am 23.09.04)
+W 205                   AUTOMATIK                       //AUTOMATIK-GETRIEBE (MIT STEPTRONIC 6-GANG)
+W 206                   SEQ_GETRIEBE                    //SEQUENZIELLES MANUELLES SCHALTGETRIEBE (SSG)(INKL. FDC Schalter) PU03/04 (NICHT M5 & M6!)
+//                                                        Auslauf zum 30.06.07 für E63/E64 PA623/301
+W 212                                                   //AUSSTATTUNG BREMSANLAGE LAENDER
+W 216                   SERVOTRONIC                     //SERVOTRONIC (ZWAKO -217)(seit 09/05 Serie bei E6x, ASW wird nur im SGM genutzt)
+W 217                   AFS                             //AKTIVE FRONT STEERING (ZWAKO -216 bei E60/E61 +229 +/-226)AKTIVLENKUNG (NICHT M5 & M6!)
+W 223                   EDC                             //EDC-K (ELEKTRONISCHE DAEMPFERKONTROLLE SPEZIELL FUER M5 u. M6)
+W 226                   SPORTFAHRWERK                   //SPORTLICHE FAHRWERKSABSTIMMUNG  (NICHT M5 & M6 & E63/E64 & nicht SA704)
+W 229                   ARS                             //DYNAMIC DRIVE (ARS) (ZWAKO +216 / +217) (NICHT M5 & M6!)
+W 230                   MIT_SBE                         //„EU spezifische Zusatzumfänge“ Entfall SBR-Matte auf der Beifahrerseite nur i.V.m. SA230
+W 235                   ANH_KUPPLUNG                    //ANHAENGERKUPPLUNG,KOPF ABNEHMBAR
+W 237                                                   //FAHRDYNAMIK-PAKET (E63/E64)
+W 248                   LENKRADHEIZUNG                  //LENKRADHEIZUNG
+W 255                                                   //SPORT-LEDERLENKRAD(SERIE E63/64)
+W 257                                                   //(ENTFAELLT beim E60/E61 ZUM SE lt PN PA190/090!) OHNE THORAXAIRBAG hinten, nur US, SEITENAIRBAG HINTEN DEAKTIVIRUNG
+W 261                   FONDSICHERHEIT                  //SEITENAIRBAG FUER FONDPASSAGIERE
+W 265                   RDC                             //REIFEN DRUCK CONTROL (RDC)UND (RPA)
+W 2B1                                                   //Leichtmetallräder Doppelspeiche 278 mit All Season Bereifung
+W 2BM                                                   //Leichtmetallraeder Doppelspeiche 116 SOP 03/07 (E-Mail 03.06. Haller/Poelt)
+W 2BU                                                   //Leichtmetallräder Doppelspeiche 120 mit All Season
+W 2BR                                                   //LEICHTMETALLRAEDER DOPPELSPEICHE 247 MIT NOTLAUF UND MISCHB.
+W 2BS                                                   //LEICHTMETALLRAEDER STERNSPEICHE 242
+W 2BV                                                   //LEICHTMETALLRAEDER DOPPELSPEICHE 266 MISCHB. (PA126/043 vom 09.08.06)
+W 2BY                                                   //„Leichtmetallräder Doppelspeiche 278 mit Notlaufeigenschaften“
+W 2C0                                                   //LM RAEDER STERNSP.MIT NOTLAUF 124
+W 2C7                                                   //LM RAEDER STERNSP.MIT MISCHB. UND NOTLAUF 218
+W 2CF                                                   //LM RAEDER STERNSP.ALU GUßrad 7.5J*17 138
+W 2CL                                                   //LM RAEDER 5-STAR ROCKE (15.12.04 TAIS)
+W 2HE                                                   //LM RAEDER RADIALSPEICHE STYLING 32 MIT 18" RUNFLAT MISCHB E60
+W 2HF                                                   //LM RAEDER RADIALSPEICHE STYLING 32 MIT 18" RUNFLAT MISCHB E61
+W 2HG                                                   //LEICHTMETALLRAEDER RADIALSPEICHE 244 
+W 2HH                                                   //LEICHTMETALLRAEDER RADIALSPEICHE 244 MIT NOTLAUFEIGENSCHAFTEN
+W 2KL                                                   //LEICHTMETALLRAEDER V-SPEICHE 245 
+W 2KM                                                   //LEICHTMETALLRAEDER V-SPEICHE 245 MIT NOTLAUFEIGENSCHAFTEN
+W 2KP                                                   //LEICHTMETALLRAEDER V-SPEICHE 248 (PA126/043 vom 09.08.06)
+W 2KT                                                   //Leichtmetallräder VSpeiche 277 mit Notlaufeigenschaften
+W 2KY                                                   //Leichtmetallräder V-Speiche 277 mit All Season Bereifung
+W 2MA                   M_GMBH_HANDSCH                  //6 GANG HANDSCHALTGETRIEBE US (NUR M5 M6 US ab PU03/07)
+W 2MB                                                   //LM RAEDER19", Gesch.
+W 2MC                                                   //M Leichtmetallräder Radialspeiche 166 M SOP 03/06 E-Mail 21.03 Dunja Poelt
+W 2M0                                                   //LM RAEDER 152 I
+W 2M1                                                   //LM RAEDER induv. R1 (Tais 19.01.04 E63)
+W 2M8                                                   //BMW Individual Leichtmetallräder V-Speiche
+W 2NN                                                   //M LM RAEDER DOPPELSP. 172M nicht Allrad
+W 2NP                                                   //M LM RAEDER DOPPELSP.
+W 2NR                                                   //Leichtmetallräder Doppelspeiche 172M
+W 2NS                                                   //Leichtmetallräder Doppelspeiche 288 19“ mit Mischbereifung
+W 2PA                                                   //Radschraubensicherung
+W 2RA                                                   //LM RAEDER TRAPEZSTYLING 134
+W 2R1                                                   //LM RAEDER STERNSPEICHE 138 SOP 03/07 (E-Mail 03.06. Haller/Poelt)
+W 2SA                                                   //ENTFALL RUNFLAT REIFEN (auswirkung auf 2CF und 587)
+W 2SB                                                   //LEICHTMETALLRAEDER STERNSPEICHE 242
+W 2SC                                                   //LEICHTMETALLRAEDER STERNSPEICHE 242
+W 2SD                                                   //LEICHTMETALLRAEDER STERNSPEICHE 243 MIT NOTLAUFEIGENSCHAFTEN
+W 2SE                                                   //LEICHTMETALLRAEDER STERNSPEICHE 246 MIT NOTLAUFEIGENSCHAFTEN
+W 2SF                                                   //LEICHTMETALLRAEDER STERNSPEICHE 249 (PA126/043 vom 09.08.06)
+W 2SN                                                   //LM RAEDER STERNSPEICHE 117
+W 2TB                   SPORT_AUTOMATIK                 //SPORT-AUTOMATIK-GETRIEBE 06/07 lt. PA623/320 (nur mit SA255 (Serie bei E63/64) und nie mit SA710)
+W 2UA                                                   //Winter-Komplettrad-Satz mit Stahlfelge
+W 2UC                                                   //Winter-Komplettrad-Satz Doppelspeiche 116
+W 2UD                                                   //Winter-Komplettrad-Satz Doppelspeiche 184 M
+W 2UT                                                   //Winter-Komplettrad-Satz Sternspeiche 138
+W 2U2                                                   //Winter-Komplettrad-Satz Radialspeiche 50
+W 2U3                                                   //Winter-Komplettrad-Satz Radialspeiche 118
+//W 2VA                   ADAPTIVE_DRIVE                  //FAHRWERKSABSTIMMUNG ADAPTIVE DRIVE ab 03/05 bei E65 (ARS,EHC)
+W 2VB                   DIRECT_RDC                      //DIREKTE REIFENDRUCKKONTROLLE (OHNE RPA) (PU09/05 US) (PA623/083)(PA623/098)(PA440/296)
+W 300                                                   //NOTRAD
+W 302                   ALARMANLAGE                     //ALARMANLAGE DWA MIT INNENRAUMSCHUTZ UND NOTSTROMSIERENE (E60/E61) / CANSINE(E63/E64)
+W 316                   AUTOM_HECKKL                    //AUTOMATISCHE HECKKLAPPENBETAETIGUNG (nur E61 ab PU06/04) (und E60 ab 03/07**entfällt gem PA623/176)
+W 319                                                   //INTEGRIERTE UNIVERSAL-FERNBEDIENUNG PA190/165 PA623/152
+W 320                                                   //MODELLSCHRIFTZUG ENTFALL
+W 322                   PASSIV_ACCESS                   //KOMFORT-ZUGANGSSYSTEM (COMFORT ACCESS) PU09/05
+W 323                                                   //SOFT-CLOSE-AUTOMATIK (SCA) FUER TUEREN PU03/06 PA623/041
+W 325                                                   //HECKSPOILER
+W 330                                                   //SPORTPAKET E63/E64 (lt. PN PA464/088 zu 03/05 NICHT US & ZWAKO SA481) (lt. PN623/019 Entfall zu PU03/05!)
+W 337                   M_SPORTPAKET                    //M TECHNIK SPORTPAKET (OHNE FDC Schalter!)(lt. PN PA190/179 zu PU09/04) (NICHT E63/64) mit SA704
+//                                                      //PR901/005 PA337 ist bei Allrad ohne SA704 ansonsten mit SA704
+//W 338                   M_SPORTPAKET_2 SPORTFAHRWERK      //M TECHNIK SPORTPAKET II(PL2)
+W 339                                                   //SHADOW LINE(E64 SERIE)
+W 346                                                   //CHROMLINE EXTERIEUR
+W 354                                                   //GRUENKEIL-FRONTSCHEIBE
+W 356                   KLIMAGLAS                       //IR KLIMAKOMFORT-VERBUNDVERGLASUNG (ZWAKO 534)SOP 05/05
+W 357                   SCHUTZGLAS                      //SCHUTZVERGLASUNG (nur Seitenscheiben?) (SE09/04 PA190/150)(lt. PA623/172 Entfall zu 09/05)
+W 358                   KLIMA_FRONTSCH                  //KLIMAKOMFORT-FRONTSCHE (PR704/114)E63 auschluss zur SA354
+W 386                                                   //DACHRELING
+W 387                                                   //WINDSCHOTT (NUR E64)
+W 388                                                   //VERDECK SCHWARZ
+W 389                                                   //VERDECK GRAU
+W 390                                                   //VERDECK KLASSISCHROT
+W 391                                                   //VERDECK DUNKELBLAU
+W 392                                                   //VERDECK DUNKELGRUEN
+W 393                                                   //STOFFVERDECK TUERKIS
+W 394                                                   //VERDECK DUNKELBEIGE
+W 3AC                   ANHK_KLAPPBAR ANH_KUPPLUNG      //ANHAENGERKUPPLUNG elektrisch schwenkbar SOP 03/07 lt.PN125/012 (ersetzt ab MUe 07 die SA235, ausser M-Fzg. und Fzg. mit SA337)
+W 3DY                                                   //Einstiegsleisten  Einsatztermin 3/09??? A42892 A623 / E61/E60
+W 402                   PANORAMA_SD                     //PANORAMA GLASDACH (NUR E61)
+W 403                   GLAS_SHD                        //GLASDACH-SCHIEBE-HEBDACH, ELEKTRISCH
+W 414                                                   //ABLAGENETZ BEIFAHRERSEITE
+W 415                   HECKROLLO                       //SONNENSCHUTZROLLO FUER HECKSCHEIBE ELEKTRISCH
+W 416                                                   //SONNENSCHUTZROLLO F.HECK-/HINT.SEITENSCH ELEKTRISCH (ZWAKO 415)
+W 417                                                   //SONNENSCHUTZROLLO F.HINT.SEITENSCH MECH.
+W 423                                                   //FUSSMATTEN IN VELOURS
+W 425                                                   //GITTERGALVANIK (SILBER) AUF KUNSTSTOFF (SCHWARZ)
+W 428                                                   //WARNDREIECK UND VERBANDSKASTEN
+W 430                   SPIEGELPAKET                    //INNEN-/AUSSENSPIEGEL AUT.ABBLENDEND (ZWAKO 431)
+W 431                                                   //INNENSPIEGEL AUT. ABBLENDEND(SERIE E63/64)
+W 433                                                   //INTERIEURLEISTEN LACK TITAN MATT
+W 434                                                   //INTERIEURLEISTEN GALVANIK PERLGLANZ Entfall gem Statusbericht 10_2007
+W 435                                                   //EDELHOLZAUSFUEHRUNG RIEGEL Bambus anthrazit
+W 436                                                   //EDELHOLZAUSFUEHRUNG BIRKE DUNKEL
+W 437                                                   //EDELHOLZAUSFUEHRUNG BIRKE HELL
+W 438                                                   //EDELHOLZAUSFUEHRUNG PAPPEL MASER
+W 439                                                   //INTERIEURLEISTEN (ALU MATT)
+W 441                                                   //RAUCHERPAKET
+W 442                                                   //GETRAENKEHALTER CUPHOLDER
+W 451                   AKTIVSITZ_FA LORDOSE            //AKTIVSITZ NUR BEIM FAHRER lt. TAIS am 08.12.05 keine SA fuer den E6x
+W 453                   SITZBELUEF_VORN SITZHEIZUNG_VO  //AKTIVE SITZBELUEFTUNG VORN
+W 455                   AKTIVSITZ_FA_BF LORDOSE         //AKTIVSITZ FUER FAHRER/BEIFAHRER
+W 456                   KOMFORTSITZ LORDOSE             //KOMFORTSITZE ELEKTRISCH VERSTELLBAR FUER FAHRER/BEIFAHRER (INKL. ELEKT. LENKSAEULE LT. PN PA190/073)
+W 459                   SITZMEMORY_FA                   //SITZVERST.ELEKTR.FAHRER MEMORY/BEIF.(INKL. ELEKT. LENKSAEULE LT. PN PA190/073) (SERIE E63/64)
+W 464                                                   //SKISACK
+W 465                                                   //DURCHLADESYSTEM
+W 470                   ISOFIX                          //KINDERSITZBEFESTIGUNG ISOFIX VORNE INKL. BEIFAHRERAIRBAG-DEAKTIVIERUNG nur E60/E61 (LT. PN PA190/108 AB 09/05 )
+W 473                                                   //ARMAUFLAGE VORN
+W 481                   SPORTSITZ                       //SPORTSITZE FUER FAHRER/BEIFAHRER (BIS 03/04 ZWAKO +459 LT. PN 8190/065)
+W 488                   LORDOSE                         //LORDOSENSTUETZE FAHRER/BEIFAHRER
+W 490                                                   //Individuallackierung
+W 493                                                   //ABLAGENPAKET (NUR E61)
+W 494                   SITZHEIZUNG_VO                  //SITZHEIZUNG FUER FAHRER/BEIFAHRER
+W 496                                                   //SITZHEIZUNG FUER FONDSITZE
+W 4AF                                                   //DACHHIMMEL BASALTGRAU
+W 4AT                                                   //INTERIEURLEISTEN Schwarz HOCHGLAENZEND 
+W 4AL                                                   //INTERIEURLEISTEN TITAN (Tais 23.09.04)
+W 4AS                                                   //„Edelholzausführung Pappel Maser grau“ nur i. V. mit PA 7MD „Edition Lifestyle“
+W 4BK                                                   //INTERIEURLEISTEN ALU Längsschliff
+W 4BW                                                   //INTERIEURLEISTEN EDELHOLZAUSFUEHRUNG AHORNMASER (lt. PA126/027)
+W 4BX                                                   //INTERIEURLEISTEN GRAU HOCHGLAENZEND (lt. A-Team Protokoll 28.07.05)
+W 4BY                                                   //EDELHOLZAUSFUEHRUNG BAMBUS MASER ANTHRAZIT (lt. A-Team Protokoll 28.07.05)
+W 4CD                                                   //„Interieurleiste Rutheniumgrau Metallic“ für den E63 und E64 zu 9/07
+W 4M2                                                   //INDIVIDUAL KLAPPTISCH
+W 4M3                                                   //INTENIERLEISTEN ALU CU
+W 4M5                                                   //INDIVIDUAL INSTRUMENTENTAFEL LEDER. NICHT US (PR808/005-09/05)
+W 4M8                                                   //BMW Individual Fond-Leseleuchten SOP 09/06 (E-Mail 03.06. Haller/Poelt)
+W 4M9                                                   //BMW Individual Fondkonsole SOP 09/06 (E-Mail 03.06. Haller/Poelt)
+W 4MA                   M_GMBH_MFKTSITZ                 //M MULTIFUNKTIONSSITZ (NUR M5 M6)
+W 4MC                                                   //INTERIEURLEISTE CARBON FIBRE (lt. PR704/120)
+W 4MD                                                   //INTERIEURLEISTE FIBRE NET
+W 4ME                                                   //EDELHOLZAUSFUEHRUNG MADEIRA
+W 4MF                   AKTIVE_LBV                      //AKTIVE LEHNENBREITENVERSTELLUNG ALBV(ZWAKO SA456 PU09/04)  PU03/05
+W 4MK                                                   //EDELHOLZAUSFUEHRUNG CA
+W 4ML                                                   //INDIVIDUAL LEISTE PIAN E63/64
+W 4MS                                                   //INTENIERLEISTEN ALU PENTAN
+W 4MV                                                   //Interieurleiste Aluminium Micro
+W 4UN                                                   //Durchladeoeffnung mit integriertem Ablagefach
+W 502                   SWA                             //SCHEINWERFER-WASCHANLAGE(REINIGUNGSANLAGE)(SERIE E63/64)
+W 508                   PDC                             //PDC-PARK DISTANCE CONTROL (8-Kanal!)
+W 521                                                   //REGENSENSOR (serie)
+W 522                   XENONLICHT                      //FRONTLEUCHTENKOMBINATION BI-XENONLICHT(SERIE E63/64)
+W 524                   ALC                             //ADAPTIVE LIGHT CONTROL (KURVENLICHT)
+W 534                   KLIMA_HIGH                      //KLIMAAUTOMATIK "HIGH" + GEK. ABLAGEFACH IN MITTELKONSOLE (BEI NB31,NB32,NB33; E63/64 SERIE)
+W 536                   STANDHEIZUNG                    //STANDHEIZUNG INCL. FERNBEDIENUNG (ab PU06/04 nur mir AGM-Batterie BATT_AGM_90AH)
+W 540                   GESCHW_REG                      //GESCHWINDIGKEITSREG. UEBER LENKSTOCKHEBEL(SERIE 8 ZYL.)
+W 541                   ACC ACC_STOPP                   //ADAPTIVE GESCHWINDIGKEITSREGELUNG ACCII (ACC2 bei E60/61 03/05, E63/64 09/04 PA623/011; jetzt fuer alle 6 Zyl. lt. PA623/143;kein Angebot fuer Handschalter ab 03/07 E60/61 und ab 09/07 E63/64 lt. PA623/150)
+W 544                   D_GESCHW_REG                    //CRUISE CONTROL WITH BRAKING FUNCTION  //Dynamische Geschwindigkeitsregelung
+W 548                   KM_TACHO                        //KM-TACHO FUER RL UND KANADA
+W 563                   LICHTPAKET                      //DESIGN LICHTPAKET LT. GM-3-G / H. Benz   (Serien-SA beim M6 PR704/040)
+W 571                                                   //„Stärkere Stromversorgung plus“ Einsatztermin: 09/08 Ausschluß der SA818
+W 577                   //MIETWAGEN                     //MIETWAGENVORBEREITUNG INLAND (CCC/MASK!!!)
+W 581                                                   //TAXIPAKET (ENTFALLEN lt. PN PA104/003)
+W 583                                                   //LM RAD AERO 90 MIT NOTLAUF
+W 587                                                   //LM RAD DOPPELSPEICHE 116
+W 588                                                   //LM RAD STERNSPEICHE 115.ALU GUßrad 7.5J*16
+W 589                                                   //LM RAD STERNSPEICHE 122 ALU GUßrad 78J*17
+W 590                                                   //LM RAD STERNSPEICHE 123 ALU GUßrad 8J*18 mit Notlauf
+W 591                                                   //LM RAD STERNSPEICHE 124 ALU GUßrad 8J/9J*18
+W 592                                                   //LM RAD RADIALSPEICHE 118(SERIE 8 ZYL.)
+W 593                                                   //LM RAD DOPPELSPEICHE 120
+W 594                                                   //LM RAD STERNSPEICHE 92
+W 595                                                   //LM RAD ELLIPSOIDSTYLING 121
+W 5AB                   OHNE_BFD                        //ZWEISTUFIGE BREMSLEUCHTEN ENTFALL (BFD) (PAK)
+W 5AC                   FLA XENONLICHT                  //FERNLICHTASSISTENT (PU09/05),(Zwako zu SA430oderSA431 und SA522 PA623/072)
+W 5AD                   TLC                             //SPURVERLASSENSWARNUNG SOP 03/07
+W 5DA                   DEAKT_BEIF_AIRB                 //BEIFAHRERAIRBAG-DEAKTIVIERUNG NUR E63/E64 (LT. PN PA190/108 AB 09/05 (MRS5!))
+W 5DF                   ACC_STOP_GO ACC_STOPP           //Aktive Geschwindigkeitsregelung mit Stop & Go Funktion in Planung (PA623...)
+W 5DS                   //NOT_RIEGEL                      //KOFFERRAUMNOTENTRIEGELUNG (PAK 02786)
+//W 5GA                                                 //ALARMANLAGEN VORBEREITUNG E83
+W 601   V0908           TV CCC                          //TV-FUNKTION INCL. VIDEORECORDER-ANSCHLUß 0304
+W 601   N0908           TV CIC                          //TV-FUNKTION INCL. VIDEORECORDER-ANSCHLUß 0304
+W 603   V0908           FONDMONITOR CCC                 //FONDBILDSCHIRM INKL. FOND-COMMANDER (lt PA623/051 Entfallen)
+W 603   N0908           FONDMONITOR CIC                 //FONDBILDSCHIRM INKL. FOND-COMMANDER (lt PA623/051 Entfallen)
+W 605                   VORB_TELEMATIK                  //TELEMATIK VORBEREITUNG
+W 606                   LOW_NAVIGATION                  //RADIO-NAVIGATIONSSYSTEM BUSINESS (PA021/315ZWAKO 969)NICHT MIT 663
+W 607                   VORB_TELESERVIC                 //TELESERVICE VORBEREITUNG (07/03)
+//W 609                   NAVIGATION CCC                  //NAVI-SYSTEM PROFESSIONAL OHNE TV (PA021/315ZWAKO 964)NICHT MIT 663
+W 609   V0908           NAVIGATION CCC                  //NAVI-SYSTEM PROFESSIONAL OHNE TV (PA021/315ZWAKO 964)NICHT MIT 663
+W 609   N0908           NAVIGATION CIC                  //
+W 610                   HUD RING_H                      //HEAD UP DISPLAY (ZWAKO +534)  (lt. PN PA190/118 NICHT MIT LA802 KOREA, HONKONG, CHINA) (SE 09/04 PA190/150)
+W 611                   NIGHT_VISION                    //NIGHT VISION (LT. PN PA440/123 AB 03/06(lt.PA623/103),ZWAKO SA502 lt. PA623/138)
+W 612                   BMW_ASSIST                      //BMW-ASSIST (PA190/195)
+W 613                   IN_DI                           //INTERNETBASIERTE DIENSTE (ZWAKO SA616) 0304(PA190/195 enfall ab 02/05)
+W 614                   IN_ZU                           //BMW Internetzugang zunächst nur für V1 (Zwangskoppelung der SA 614 an die SAs 609 oder 606 oder 601)
+W 615                   ONLINE_INFOWELT                 //Erweiterte BMW Online Information weltweit
+W 616   V0906           ON_PL CCC                       //ONLINE_PLATTFORM 0304
+W 616   N0906           ON_PL                           //ONLINE_PLATTFORM ,ab 09/07 kann auch mit MASK kommen
+W 619                                                   //NOTRUFSYSTEM
+W 620   V0307           SPRACHEINGABE CCC               //ERWEITERTE SPRACHVERARBEITUNG (ZWAKO SA601,SA609)(mit SA852Jap. 03/05) (ab 03/07 mit MASK lt. PN PA623/103)
+W 620   N0307           SPRACHEINGABE                   //ERWEITERTE SPRACHVERARBEITUNG (ZWAKO SA601,SA609)(mit SA852Jap. 03/05) (ab 03/07 mit MASK lt. PN PA623/103)
+W 630                   TELEFON RING_H                  //AUTOTELEFON SIEMENS M. (ENTFALLEN!)
+W 633                   VORB_TEL_BUSINE                 //HANDY VORBEREITUNG BUSINESS TELE-VERBAUT (BLUETOOTH + TELEMATIK PU03/05) einsatz 03/05 (PA190/195)
+W 638                   TEL_PROFESIONEL RING_H          //AUTOTELEFON PROFESSIONAL (ECE EVEREST) (auslauf 02/03 wird durch SA633 03/05 ersetzt werden)(PA190/195)
+W 639                   TEL_PROF_US RING_H              //KOMPLETTVORBEREITUNG HANDY US INCL.TELEMATIC (100%SA in US)
+W 640                   TELE_VORBE                      //AUTOTELEFONVORBEREITUNG
+W 641                   VORB_TEL_AMPS                   //UNIVERSAL HANDY VORBEREITUNG US STANDARD (SUEDAMERIKA)
+W 642                   //TELEFON_AMPS                    //VOLLINTERGRIERTES HANDY US (PN 8022/307)(US Standart,ohne Tel u. Mayday)
+W 644                   ULF RING_H                      //UNIVERSELLE LADE-/FREISPRECHEINRICHTUNG (MULF OHNE TELEMATIK MIT INTEGRIERTE BASIS SPRACHEINGABE 09/04) (E63 0604)(E64 0904)
+W 645                   RADIO_US                        //RADIOSTEUERUNG US
+W 646                   VORB_TEL_JAPAN                  //AUTOTELEFONVORBEREITUNG JAPAN
+W 650                                                   //CD-LAUFWERK-ZUSTEUERUNG             (SERIE)
+W 651                   MINIDISK                        //MD existiert bei E6X nicht! s. TAIS  MD-LAUFWERK-ZUSTEUERUNG (ENTFALL LT. PA190/081 GENERELL LA807?)
+W 653                   RADIO_DIGITAL RING_H            //BMW DIGITALRADIO US (IBOC) (DIGITALES TERRESTRISCHES RADIO US)
+W 654                   RADIO_DAB                       //DAB TUNER ECE (DIGITALES AUDIO BROADCAST) PU03/06 lt.PA623/103(s.PL2 E70 E65 etc.)
+W 655                   SATELITENRADIO RING_H           //BMW SATELITTENRADIO US 0904
+W 661                                                   //„BMW Radio Business“ ist mit einem Ausschluss zur SA 601, SA 606, SA 609 und SA 663 zu versehen
+W 663                   RADIO                           //RADIO BMW PROFESSIONAL  (E63/64 PU0904) +MP3 FUNKTION
+W 664                   HANDY_US_STANDA                 //HANDY US STANDARD (V60-Motorola) (lt. PN PA190/130 Ersatz fuer SA621 in Korea) (Handy Vorbereitung)nur bis 02/07 verbaut!
+W 672                   CD_WECHSLER RING_H              //AUDIO-CD-WECHSLER FUER 6 CD
+W 676                   HIFI_SYSTEM                     //HIFI-SYSTEM(SERIE E63/64)
+W 677                   TOP_HIFI RING_H                 //HIFI SYSTEM PROFESSIONAL DSP
+W 678                   FOND_KOPFHOERER RING_H          //KOPFHOERERANLAGE IM FOND (09/04)(lt.PA623/183 Entfall mit CCC und MASK zu 03/06)
+W 693                   VORB_SAT_RADIO                  //EINBAUVORBEREITUNG SATTELITENRADIO/SEP.TUNER US
+W 694                   VORB_CD_WECHLER                 //CD WECHSLER VORBEREITUNG
+W 696                   DVD_WECHSLER                    //DVD-WECHSLER  ****nie in Serie****
+W 697                   DVD_AREA_CODE_1 SETCODE         //DVD-AREA CODE 1 US/CAN
+W 698                   DVD_AREA_CODE_2 SETCODE         //DVD-AREA CODE 2 ECE/JP
+W 699                   DVD_AREA_CODE_3 SETCODE         //DVD-AREA CODE 3 PHI/MAI/OCN
+W 6AA                   //TELESERVICES                    //BMW Teleservices (SOP 09/05) lt PN PA623/124 (ZWAKO SA612)
+W 6AB                   TELESERVICES                    // Steuerung TeleServices 
+W 6FA                   //DVD_FOND                        //VORBEREITUNG REAR-SEAT ENTERTAINMENT--DVD-SYSTEM IM FOND
+W 6FE                   NEUSEELAND                      //MASK VARIANTE NEUSEELAND (PA623/057) 03\05
+W 6FL                   AUDIOPLAYER_USB                 //USB-/AUDIO- SCHNITTSTELLE
+W 6M1                   FOND_ENTERTAIN                  //BMW Individual Fond-Entertainment SOP 03/07 PA 064/018
+W 6M2                   FOND_INFOTAIN                   //BMW Individual Infotainment lt. TAIS
+W 6NF                   HANDYMP3                        //„Komfortanbindung des Music-Players im Handy“ in allen Produktlinien ab 09/08
+W 6S1                   TUERKISCH                       //„Sprachversion Türkisch“
+W 6S2                   GRIECHISCH                      //Sprachversion Griechisch
+W 6S3                   PORTUGIESISCH                   //„Sprachversion Portugiesisch“
+W 6S4                   SCHWEDISCH                      //„Sprachversion Schwedisch“
+W 6UA                                                   //VORBEREITUNG CCC (enfall 03/04 PA190/169)
+W 6UB                                                   //VORBEREITUNG (HIGH-)SPRACHVERARBEITUNG (vgl. SA620!)
+W 6UC                                                   //VORBEREITUNG TV (vgl. SA601!)
+W 6UD                   RUSSISCH                        //SPRACHPAKET RUSSISCH (ENGLISCH GB, DEUTSCH) PU09/05 (PA190/197 vom 06.07.04)09\05
+W 6UE                   DIEBSTAHLSCHUTZ                 //DIEBSTAHLSCHUTZ NAVI-DVD  entfall mit CIC (PA A39686)
+W 6UF                                                   //Navigationssystem Vorbereitung fuer China/Hongkong zu 03/06 (lt.PA623/181)
+W 6UH                   NAVI_INFO                       //"Verkehrsinfo für Navigation" Für die Zusteuerung der Funktion RTTI fuer die Navi in USA und nicht in Kanada
+W 6VA                   CIC                             //CIC Zusteuerung (03/08-09/08)(NK71 PU71 PV31 PV71 PW51 PX51 PX71 PX91 PY51)Alternativ zusteuerung CIC 
+W 6VB                   CCC_NACHSCHLAG                  //Zusteuerung CCC PA603/544
+W 700                   DVD_AREA_CODE_4 SETCODE         //DVD-AREA CODE 4 SAM/MEX/AUSTR
+W 701                   DVD_AREA_CODE_5 SETCODE         //DVD-AREA CODE 5 RUS/IND/AFG
+W 702                   DVD_AREA_CODE_6 SETCODE         //DVD-AREA CODE 6 CHINA
+W 703                                                   //SONDERPAKET-OE (UNGARN-PAKET)
+W 704                   M_SPORTFAHRWERK                 //M_SPORTFAHRWERK MIT TIEFERLEGUNG
+W 706                                                   //V-5 PAKET
+W 710                                                   //M LEDERLENKRAD MIT M GANGHEBELKNAUF 0904
+W 715                   M_AEROPAKET                     //M-TECHNIK AERODYNAMIKPAKET
+W 720                                                   //Sport Edition Limited
+W 722                                                   //Edition Lifestyle
+W 723                                                   //Edition Exclusive
+W 734                                                   //LEVANT PAKET
+W 735                                                   //Basic Package
+W 737                                                   //INTERIEURLEISTE ALU SH
+W 752                   INDIVID_AUDIO                   //INDIVIDUAL AUDIOSYSTEM
+W 754                                                   //M HECKSPOILER (ZWAKO SA715)
+W 760                                                   //HOCHGLANZ SHADOW LINE 0304
+W 761                                                   //INDIVIDUAL SONNENSCHUTZVERGLASUNG AB B-SAEULE NACH HINTEN
+W 770                                                   //INDIVIDUAL ALU CUBE SILBER
+W 772                                                   //INDIVIDUAL ALU CUBE SILBER
+W 775                                                   //INDIVIDUAL DACHHIMMEL ANTHRAZIT 0304
+W 776                                                   //INDIVIDUAL DACHHIMMEL ALCA
+W 777                                                   //INDIVIDUAL GEPAECKRAUMVERKLEIDUNG ALCA (SA-LISTE M5)
+W 778                                                   //EINSTIEGSLEISEN "BMW" BMW INDIVIDUAL SCHRIFTZUG 0404
+W 780                                                   //PA780 SINGAPUR PACKET
+W 785                                                   //INDIVIDUAL "WEIßE BLINKLEUCHTEN"(100%SA BEI E60)
+W 791                   KUEHLBOX_KOMPR                  //BMW INDIVIDUAL KUEHLBOX (MIT KOMPRESSOR)PR806/005
+W 7A2                                                   //Innovationspaket II (Licht+Sicht)
+W 7A3                                                   //Business Paket
+W 7A4                                                   //Innovationspaket Advantage und Innovation (E60,E61) (431,494,502,522,524,5AC,534,610)
+W 7A6                                                   //Innovationspaket i.V.m. Editionen
+W 7A7                                                   //Innovationspaket + Comforpaket i.V.m. Editionen
+W 7A8                                                   //Innovationspaket + Comforpaket i.V.m. Advantagepaket
+W 7A9                                                   //Innovatinospaket + Comforpaket i.V.m. Advantagepaket
+W 7AA                                                   //Dummy (PAKET SA)
+W 7AB                                                   //Dummy (PAKET SA)
+W 7AC                                                   //Dummy (PAKET SA)
+W 7AE                                                   //TAIWAN PAKET LOW
+W 7AG                                                   //INTERIEURPAKET BMW INDIVIDUAL
+W 7AH                                                   //INTERIEURPAKET BMW INDIVIDUAL RIEGELESCHE
+W 7AK                                                   //INTERIEURPAKET BMW INDIVIDUAL NUSSBAUM
+W 7CA                                                   //BMW Repair Inclusive (3 Jahre / 100.000 km)
+W 7CB                                                   //BMW Repair Inclusive (4 Jahre / 80.000 km)
+W 7CC                                                   //BMW Repair Inclusive (4 Jahre / 100.000 km)
+W 7CD                                                   //BMW Repair Inclusive (5 Jahre / 100.000 km)
+W 7CE                                                   //BMW Repair Inclusive (5 Jahre / 120.000 km)
+W 7CF                                                   //BMW Repair Inclusive (3 Jahre / 80.000 km)
+W 7CG                                                   //BMW Repair Inclusive 3-Jahrespaket
+W 7CH                                                   //BMW Repair Inclusive 4-Jahrespaket
+W 7CK                                                   //BMW Repair Inclusive 5-Jahrespaket
+W 7CL                                                   //BMW Repair Inclusive 4 Jahre / 120.000 km
+W 7D1                                                   //BMW Service Inclusive  5-Jahrespaket
+W 7D2                                                   //BMW Service + Repair Inclusive 1-Jahrespaket
+W 7D3                                                   //BMW Service + Repair Inclusive 2-Jahrespaket
+W 7D4                                                   //BMW Service + Repair Inclusive 3-Jahrespaket
+W 7D5                                                   //BMW Service + Repair Inclusive 4-Jahrespaket
+W 7D6                                                   //BMW Service + Repair Inclusive 5-Jahrespaket
+W 7D7                                                   //BMW Basic Service Inclusive (2 Jahre / 40.000km)BMW/ALPINA
+W 7D8                                                   //BMW Service Inclusive (2 Jahre / 40.000km)BMW/ALPINA
+W 7DA                                                   //BMW Basic Service Inclusive (3 Jahre / 90.000km)
+W 7DB                                                   //BMW Service Inclusive (3 Jahre / 90.000km)
+W 7DC                                                   //BMW Service + Repair Inclusive (3 Jahre / 90.000km)
+W 7DD                                                   //BMW Basic Service Inclusive" (4 Jahre / 60.000 km)
+W 7DE                                                   //BMW Service Inclusive (4 Jahre / 60.000 km)
+W 7DF                                                   //BMW Service + Repair Inclusive" (4 Jahre / 100.000 km)
+W 7DG                                                   //BMW ServicePaket (6 Jahre / 200.000 km) lt. PA623/160
+W 7DH                                                   //BMW Service+Repair Inclusive (3 Jahre / 150.000 km) lt. Mail vom 17.11.05 u. PA623/202
+W 7DK                                                   //BMW Service+Repair Inclusive (6 Jahre / 200.000 km) lt. Mail vom 20.03.06 u. PA603/XXX?
+W 7DL                                                   //BMW Basic Service Inclusive (10 Jahre / 100.000km)
+W 7DM                                                   //BMW Service Inclusive (10 Jahre / 100.000km)
+W 7DN                                                   //BMW Basic Service Inclusive (10 Jahre / 150.000km)
+W 7DP                                                   //BMW Service Inclusive (10 Jahre / 150.000km)
+W 7DR                                                   //BMW Basic Service Inclusive  1-Jahrespaket
+W 7DS                                                   //BMW Basic Service Inclusive  2-Jahrespaket
+W 7DT                                                   //BMW Basic Service Inclusive  3-Jahrespaket
+W 7DU                                                   //BMW Basic Service Inclusive  4-Jahrespaket
+W 7DV                                                   //BMW Basic Service Inclusive  5-Jahrespaket
+W 7DW                                                   //BMW Service Inclusive  1-Jahrespaket
+W 7DX                                                   //BMW Service Inclusive  2-Jahrespaket
+W 7DY                                                   //BMW Service Inclusive  3-Jahrespaket
+W 7DZ                                                   //BMW Service Inclusive  4-Jahrespaket
+W 7H1                                                   //Special Edition, Editionspaket V6 zu EOP E6x
+W 7H2                                                   //Edition APEC Black & White
+W 7H3                                                   //Limited Edition 5 Series
+W 7H4                                                   //Special Edition 8831
+W 7H5                                                   //Special Edition 8832
+W 7K1                                                   //Ausstattungspaket "standard"
+W 7K2                                                   //Ausstattungspaket "low"
+W 7K3                                                   //Ausstattungspaket "mid"
+W 7K4                                                   //Ausstattungspaket "high"
+W 7K5                                                   //Ausstattungspaket "top"
+W 7MA                   COMPETITION                     //„Competition Paket“ für E63 M zu 09/08 PR738/174
+W 7MC                                                   //„Edition Exclusive“
+W 7MD                                                   //„Edition Lifestyle“
+W 7ME                   OL                              //M DRIVERS PACKAGE ZWAKO SA754 (ab 09/05 TAIS)
+W 7MF                   EDITION_SPORT                   //„Edition Sport“ PR901 / 035 Einsatz 12/08
+W 7MP                                                   //Performence Package (E60 BASIS PA337 "M-Sportpaket") (SA:2NN;229;255;339;456;704;715)
+W 7MS                                                   //Limited Sport Edition (SA2NP,SA710,SA715) M-Sport
+W 7N1                                                   //BMW Basic Service Inclusive (4 Jahre / 100.000km)
+W 7N2                                                   //BMW Service Inclusive (4 Jahre / 100.000km)
+W 7N3                                                   //BMW Service + Repair Inclusive (4 Jahre / 100.000km)
+W 7N4                                                   //BMW Basic Service Inclusive (4 Jahre / 120.000km)
+W 7N5                                                   //BMW Service Inclusive (4 Jahre / 120.000km)
+W 7N6                                                   //BMW Service + Repair Inclusive (4 Jahre / 120.000km)
+W 7N7                                                   //BMW Basic Service Inclusive (5 Jahre / 80.000km)
+W 7N8                                                   //BMW Service Inclusive (5 Jahre / 80.000km)
+W 7N9                                                   //BMW Service + Repair Inclusive (5 Jahre / 80.000km)
+W 7NA                                                   //BMW SERVICE INCLUSIVE
+W 7NB                                                   //BMW SERVICE + REPAIR INCLUSIVE nicht mit SA920(PA623/062)
+W 7NC                                                   //BMW SERVICE INCLUSIVE (5 Jahre oder 120000km) mit SA920(PA623/062)
+W 7ND                                                   //BMW SERVICE + REPAIR INCLUSIVE (5 Jahre oder 120000km) mit SA920(PA623/062)
+W 7NE                                                   //BMW SERVICE INCLUSIVE (6 Jahre oder 150000km) mit SA920(PA623/062)
+W 7NF                                                   //BMW SERVICE + REPAIR INCLUSIVE (6 Jahre oder 150000km) mit SA920(PA623/062)
+W 7NG                                                   //BMW BASIC SERVICE INCLUSIVE (3 Jahre oder 60000km)(PA623/052) mit SA920(PA623/062)
+W 7NH                                                   //BMW BASIC SERVICE INCLUSIVE (5 Jahre oder 100000km)(PA623/052) mit SA920(PA623/062)
+W 7NK                                                   //BMW       SERVICE INCLUSIVE (5 Jahre oder 60000km)(PA623/052) mit SA920(PA623/062)
+W 7NL                                                   //BMW SERVICE + REPAIR INCLUSIVE (5 Jahre oder 60000km)(PA623/052) mit SA920(PA623/062)
+W 7NM                                                   //BMW       SERVICE INCLUSIVE (3 Jahre oder 60000km)(PA623/056) mit SA920(PA623/062)
+W 7NN                                                   //BMW SERVICE + REPAIR INCLUSIVE (3 Jahre oder 60000km)(PA623/056) mit SA920(PA623/062)
+W 7NP                                                   //BMW BASIC SERVICE INCLUSIVE (3 Jahre oder 100000km)
+W 7NR                                                   //BMW SERVICE INCLUSIVE (3 Jahre oder 100000km)
+W 7NS                                                   //BMW SERVICE + REPAIR INCLUSIVE (3 Jahre oder 100000km)
+W 7NT                                                   //BMW Basic Service Inclusive (3 Jahre / 80.000km)
+W 7NU                                                   //BMW Service Inclusive (3 Jahre / 80.000km)
+W 7NV                                                   //BMW Service + Repair Inclusive (3 Jahre / 80.000km)
+W 7NW                                                   //BMW Basic Service Inclusive" (5 Jahre / 60.000 km)
+W 7NX                                                   //BMW Basic Service Inclusive (4 Jahre / 80.000km)
+W 7NY                                                   //BMW Service Inclusive (4 Jahre / 80.000km)
+W 7NZ                                                   //BMW Service + Repair Inclusive (4 Jahre / 80.000km)
+W 7PA                                                   //MINI SERVICE INCLUSIVE
+W 7PB                                                   //MINI SERVICE+REPAIR IN
+W 7R1                                                   //NAVIGATION MIT HANDYVORBEREITUNG 09/05(enthalten SA609 & SA633  (SA936))
+W 7R3                                                   //OE-Paket Ukraine 01.05(205,302,431,435,494,502,508,522,672)
+W 7R7                                                   //Innovationspaket (SA 322,524,5AC)
+W 7R8                                                   //Innovationspaket Plus (SA 541,610)
+W 7R9                                                   //Edition Fleet (SA 843,320)
+W 7RN                                                   //DRIVERPACKAGE FUER GROSSKUNDEN
+W 7RP                                                   //ADVANTAGE PAKET (enthalten SA473&SA494&SA502&SA508&SA522&534)
+W 7RS                                                   //Comfort Paket
+W 7SC                                                   //Edition Fleet Plus
+W 7SN                                                   //Navigationssystem Business mit integrierter Handyvorbereitung Bluetooth (SA606,SA633(ECE),SA612,SA616 (nur E60/E61))
+W 7SP                                                   //Navigationssystem Professional mit integrierter Handyvorbereitung BluetoothSA (SA609,SA633(ECE),SA612,SA616 (nur E60/E61)PA603/562 PA603/645)
+W 7T1                                                   //Basis Service Inclusive      (5 Jahre / 120.000km)
+W 7T2                                                   //Basis Service Inclusive      (6 Jahre / 150.000km)
+W 7T3                                                   //Basis Service Inclusive      (6 Jahre / 200.000km)
+W 7T4                                                   //Basis Service Inclusive      (10 Jahre / 200.000km)
+W 7T5                                                   //Service Inclusive            (10 Jahre / 200.000km)
+W 7T6                                                   //BMW Service Inclusive        (6 Jahre / 110.000 km)
+W 7T7                                                   //BMW Service Plus             (6 Jahre / 110.000 km)
+W 7T8                                                   //BMW Service Ultimate         (6 Jahre / 110.000 km)
+W 7U9                                                   //"Entfall BMW Basic Service Inclusive" 
+W 7UA                                                   //BMW Service Inclusive        (6 Jahre / 120.000 km)
+W 7UB                                                   //BMW Service Plus             (6 Jahre / 120.000 km)
+W 7UC                                                   //BMW Service Ultimate         (6 Jahre / 120.000 km)
+W 7UD                                                   //BMW Service Inclusive        (7 Jahre / 140.000 km)
+W 7UE                                                   //BMW Service Plus             (7 Jahre / 140.000 km)
+W 7UF                                                   //BMW Service Inclusive        (8 Jahre / 160.000 km)
+W 7UG                                                   //BMW Service Plus             (8 Jahre / 160.000 km)
+W 7UH                                                   //BMW Service Inclusive        (9 Jahre / 180.000 km)
+W 7UK                                                   //BMW Service Plus             (9 Jahre / 180.000 km)
+// ******************************** L A E N D E R V A R I A N T E N ****************************************************
+W 801                   DEUTSCHLAND                     //DEUTSCHLAND-AUSFUEHRUNG
+W 802                   KOREA                           //KOREA-AUSFUEHRUNG
+W 807                   JAPAN                           //JAPAN-AUSFUEHRUNG (ZWAKO SA845)
+W 810                   AUSTRALIEN                      //AUSTRALIEN-AUSFUEHRUNG
+W 812                   ENGLAND                         //ENGLAND-AUSFUEHRUNG
+W 815                                                   //SCHLECHTWEGEPAKET (ENTFALLEN BEI E60 PA190/150)
+W 818                                                   //BATTERIEHAUPTSCHALTER IM GEPAECKRAUM
+W 821                   AEGYPTEN                        //AEGYPTEN-AUSFUEHRUNG (LA 821 laeuft zu 09/06 aus lt. PA623/198)
+W 822                   GOLF                            //GOLF-AUSFUEHRUNG (KUWAIT, ABU DHABI, BAHRAIN, KATAR, OMAN, SAUDI ARABIEN)ev-42
+W 823                   HEISSLAND                       //HEIßLAND-AUSFUEHRUNG (SA!!!)
+W 824                   SUEDAFRIKA                      //SUEDAFRIKA-AUSFUEHRUNG (Entfall ZU PU03/06 lt. PN PA623/120  --> SA5DS)
+W 825                   OZEANIEN                        //RADIO-STEUERUNG OZEANIEN  (SA!!!)
+W 828                                                   //STOSSFAENGER LAENDERVARIANTE
+W 833                                                   //SINGAPUR-AUSFUEHRUNG  entfall gem.PA 603/184 vom 05.04.06 Stand 28.04
+W 838                   KANADA                          //KANADA-AUSFUEHRUNG
+//W 840                   HIGH_SPEED     Nicht für E6X!                 //HOCHGESCHWINDIGKEITSABSTIMMUNG (PA623/013)
+W 842                   KALTLAND                        //KALTLANDAUSFUEHRUNG (FINNLAND, SCHWEDEN, NORWEGEN) (SA!!!)
+W 843                   MOTORAUSLEGUNG                  //MOTORAUSLEGUNG (LEISTUNGSREDUZIERUNG FUER BELGIEN PA623/102)
+W 845                   AK_GUWA                         //AKUSTISCHE GURTWARNUNG (CC-MELDUNG + GONG (6sec) KOMBI)
+W 846                   TAIWAN                          //TAIWAN-AUSFUEHRUNG
+W 8AA                   CHINA                           //CHINA-AUSFUEHRUNG (nur China SKD Fahrzeuge, ansonsten Steuerung ueber spez. CKD-Motortypen!)
+// ************************************* S P R A C H P A K E T E *******************************************************
+W 851                   DEUTSCH                         //SPRACHE DEUTSCH (ENGLISCH GB, FRANZOESISCH)
+W 852                   JAPANISCH                       //SPRACHE JAPANISCH (ENGLISCH GB, DEUTSCH)
+W 853                   ENGLISCH                        //SPRACHE ENGLISCH (FRANZOESISCH, SPANISCH)
+W 854                   FRANZOESISCH                    //SPRACHE FRANZÖSISCH (ENGLISCH GB, SPANISCH)
+W 855                   ITALIENISCH                     //SPRACHE ITALIENISCH (ENGLISCH GB, DEUTSCH)
+W 856                   SPANISCH                        //SPRACHE SPANISCH (ENGLISCH GB, FRANZOESISCH)
+W 858                                                   //MOTORAUSLEGUNG FUER MINDERWERTIGEN KRAFTSTOFF PA190/166 (PAK)
+//W 858                   FUSEL                           //MOTORAUSLEGUNG FUER MINDERWERTIGEN KRAFTSTOFF PA190/166 (PAK)
+W 859                   OHNE_TV_VORN                    //DECODIERUNG TV FUNKTION VORNE (lt. PN8190/048)
+W 861                   MILANSTEUERUNG1                 //AENDERUNG CODIERDATENSATZ "MIL-OFF" LAMPE (MOTORSG!)Auslauf 09/02.05
+W 863                                                   //SERVICE KONTAKT-FLYER EUROPA-HAENDLERVERZEICHNIS
+W 864                                                   //SERVICE KONTAKT-FLYER UEBERSEE
+W 866                   CHINESISCH_TRAD                 //SPRACHE CHINESISCH TRADITIONELL (CHINESISCH SIMPL., ENGLISCH GB)PA190_196
+W 867                   KOREANISCH                      //SPRACHE KOREANISCH (ENGLISCH GB, DEUTSCH)
+W 868                   NIEDERLAENDISCH                 //SPRACHE HOLLAENDISCH (ENGLISCH GB, FRANZOESISCH)
+W 869                   SCHWEIZ                         //SPRACHE SCHWEIZ-DEUTSCH (ITALIENISCH, FRANZOESISCH)
+W 8A1                   POLNISCH                        //Sprachversion Polnisch //Polnisch/Englisch/Deutsch
+W 8A2                   UNGARISCH                       //Sprachversion Ungarisch //Ungarisch/Englisch/Deutsch
+W 8A3                   ARABISCH                        //Sprachpaket Arabisch. arabisch, Englich UK, Französisch
+// *********************************************************************************************************************
+W 849                   OHNE_NOTRUF                     //ENTFALL AUTOMATISCHER NOTRUF (NUR SCHWEIZ)
+W 850                                                   //ZUSAETZLICHE TANKBEFUELLUNG EXPORT
+W 874                                                   //FUNKFREQUENZ 434,2 MHZ
+W 876                   //FUNK_FREQ_315                 //FUNKFREQUENZ 315 MHZ
+W 877                   ENTF_UEBERKREUZ                 //ENTFALL UEBERKREUZBEDIENUNG
+W 879                                                   //DEUTSCH/BETRIEBSANL./SERVICEHEFT
+W 880                                                   //ENGLISCH/BETRIEBSANL./SERVICEHEFT
+W 881                                                   //FRANZOESISCH/BETRIEBSANL./SERVICEHEFT
+W 883                                                   //SPANISCH/BETRIEBSANL./SERVICEHEFT
+W 884                                                   //ITALIENISCH/BETRIEBSANL./SERVICEHEFT
+W 885                                                   //SCHWEDISCH/BETRIEBSANL./SERVICEHEFT
+W 886                                                   //HOLLAENDISCH/BETRIEBSANL./SERVICEHEFT
+W 887                                                   //ARABISCH/BETRIEBSANL./SERVICEHEFT
+W 888                                                   //DAENISCH/BETRIEBSANL./SERVICEHEFT
+W 889                                                   //PORTUGIESISCH/BETRIEBSANL./SERVICEHEFT
+W 891                                                   //"Russisch/Betriebsanleitung/Serviceheft"
+W 892                                                   //CHINESISCH SIMPL./ BORDLITERATUR, SERVICEHEFT
+W 893                                                   //MO PAKET III
+W 894                                                   //HK-2 Paket
+W 896                   TAGFAHRLICHT                    //TAGFAHRLICHTSCHALTUNG
+W 8AB                   CHINA                           //CHINA JOINT VENTURE (ZWAKO LA8AA)
+W 8AE                                                   //GRIECHISCH BETRIEBSANL./SER  (TAIS 05.03.04) ab0904
+W 8AK                                                   //Slowakische Betriebsanleitung / Serviceheft
+W 8AL                                                   //Tscheschische Betriebsanleitung / Serviceheft
+W 8AF                                                   //Koreanisch/ Betriebsanleitung/ Serviceheft
+W 8AR                                                   //"Rumänisch/Betriebsanleitung/Serviceheft"
+W 8KA                   SIA__8KA                        // Wartungsintervall 30Tkm/24 Monate, ab SOP Sep 08 Basis SA?
+W 8KB                   SIA__8KB                        // Wartungsintervall 25Tkm/24 Monate, ab SOP Sep 08
+W 8KC                   SIA__8KC                        // Wartungsintervall 24Tkm/24 Monate, ab SOP Sep 08
+W 8KD                   SIA__8KD                        // Wartungsintervall 12Tkm/24 Monate, ab SOP Sep 08
+W 8KE                   SIA__8KE                        // Wartungsintervall 30Tkm/12 Monate, ab SOP Sep 08
+W 8KF                   SIA__8KF                        // Wartungsintervall 25Tkm/12 Monate, ab SOP Sep 08
+W 8KG                   SIA__8KG                        // Wartungsintervall 20Tkm/18 Monate, ab SOP Sep 08
+W 8KH                   SIA__8KH                        // Wartungsintervall 20Tkm/12 Monate, ab SOP Sep 08
+W 8KK                   SIA__8KK                        // Wartungsintervall 15Tkm/18 Monate, ab SOP Sep 08
+W 8KL                   SIA__8KL                        // Wartungsintervall 15Tkm/12 Monate, ab SOP Sep 08
+W 8KM                   SIA__8KM                        // Wartungsintervall 12Tkm/12 Monate, ab SOP Sep 08
+W 8KN                   SIA__8KN                        // Wartungsintervall 10Tkm/12 Monate, ab SOP Sep 08
+W 8KP                   SIA__8KP                        // Wartungsintervall 08Tkm/12 Monate, ab SOP Sep 08
+W 8LA                   INDIEN                          //Indien-Ausführung (Laendersteuerung)
+W 8LF                   LA_STEUERUNG                    //"Ländersteuerung 02331" 
+W 8LH                   HONGKONG                        //Laendersteuerung 04142 fuer Hongkong zu 03/06 (lt.PA623/181)
+W 8LR                                                   //Laendersteuerung 10323
+W 8LS                   SINGAPUR                        //SINGAPUR-AUSFUEHRUNG gem.PA 603/184 vom 05.04.06 Stand 28.04
+W 8LT                   TAIWAN_LAND                     //Laendersteuerung 04825 fuer Taiwan zu 03/06 (lt.PA623/181)
+W 8S1                   TAGFLICHT_AUS                   //Decodierung Tagfahrleuchten lt.PA252/329 (E60/61 ab 03/07, E63/64 ab 09/07)
+W 8S2                   ALARMSIGNAL                     //Codierung Alarmsignal (Verlaengerte Warntonausgabe fuer Niederlande) 09/05 (PA623/139 und TAIS)
+W 8S4                   DECO_V_LICHT                    //„Decodierung variable Lichtverteilung“ zu 09/07 siehe PA125/043 vom 19.09.06
+W 8S6                                                   //Vorverkauft fuer Export (lt. Statusbericht Nov.2005)
+W 8S7                   FUHRPARK_O_TV                   //„Fuhrparkfahrzeuge ohne TV Funktion“ Dekodierung TV im CCC analog SA 8LH bzw. SA 859 = Menu TV raus - für Reduzierung GEZ-Gebühr
+W 8S8                                                   // IN PLANUNG (ACC_STOP_GO)!!!Länderspezifische Navi Zusteuerung.Diese SA wird allen Ländern Europas zwangsweise zugesteuert. Sie hat keinen technischen Inhalt.
+W 8S9                                                   //Non Fuel Fahrzeuge (Nur für die Entwicklung;nicht vom Kunden wählbar)
+W 8SA                                                   //LAENDERSPEZ. NAVI.-FREISCHALTUNG
+W 8SB                                                   //LAENDERSPEZ. TELEMATIKFREISCHALTUNG
+W 8SC                                                   //LAENDERSPEZ. TELESERVICEFREISCHALTUNG
+W 8SD                                                   //UNTERFAHRSCHUTZ LAENDER (SE 12/03 PA190/150)
+W 8SE                                                   //4 SITZER AUSFUERHUNG (Entfall für E61 PA623/075)
+W 8SH                                                   //LEISTUNGSREDUZIERUNG MOTOR (CKD THAILAND) (LT. PN PA190/??? AB 12/03)
+W 8SL                                                   //VORBEREITUNG ANHAENGERKUPPLUNG(LT. PN PA190/152 AB 03/04)
+W 8SM                                                   //FAHRGESTELLNUMMER VON AUSSEN SICHTBAR 0304
+W 8SP                                                   //C02 STEUERUNG
+W 8ST                   SIA_EXTRA_KURZ                  //CODIERUNG WARTUNGSINTERVALL S3 - FUER 6000km (NUR BENZINMODELLE)(PA190/173)
+W 8SU                                                   //Fahrgestellnummer fuer Security; Die SA hat einen Zwang zu der SA106 Security (PA272/002)
+W 8SW                                                   //TRANSPORTSCHUTZFOLIE  PN PA411/030 vg PA021/???
+W 8SX                   PROVIDERZUORD                   //PROVIDERZUORDNUNG F.TELEM.ONLINE-D.(TAIS 05.08)
+W 8SY                                                   //BERECHTIGUNG GEBRAUCHTE AUTOMOBILE
+W 8TG                   ZENTR_SICHERUNG                 //Diebstahlsicherung
+W 901                                                   //SONDERKONTROLLE ALLGEMEIN
+W 902                                                   //SONDERKONTROLLE PRESSEWAGEN
+W 903                                                   //SONDERKONTROLLE STAND/FOTOWAGEN
+W 904                                                   //SONDERKONTROLLE TYPPRUEFWAGEN
+W 905                                                   //SONDERKONTROLLE VORFUEHRWAGEN
+W 906                                                   //SONDERKONTROLLE FOTOFAHRZ.B.NEUANL.
+W 908                                                   //SHORTEST POSSIBLE ORDER CYCLE (SPOC)
+W 909                   DIAGNOSEDOSE                    //DIAGNOSEANSCHLUSS IM FUSSRAUM (OBD PLUS)
+W 910                     //KEX                           //ENTWICKLUNGSFZG OHNE UEBERGABEINSP (KEX)
+W 911                     //KEX                           //ENTWICKLUNGSFZG MIT UEBERGABEINSP (KEX)
+W 912                                                   //OE-Paket (ISRAEL)
+W 914                                                   //LATEINAMERIKA PREMIUM-PAKET
+W 915                                                   //ENTFALL AUßENHAUTKONSERVIERUNG
+W 916                                                   //ENTWICKLUNGSFZG. OHNE KONSERVIERUNG
+W 917                                                   //UEBERSEEKONSERVIERUNG(=TRANSPACK)
+W 920                   ALPINA                          //ALPINA OHNE BRIEF
+W 925                                                   //VERSANDSCHUTZPAKET
+W 926                                                   //ERSATZRAD WIE LAUFRAD VORN (NUR M5 & M6!)
+W 928                                                   //REIFENSTEUERUNG
+W 930                                                   //BERUECKSICHTIGUNG PREISABHAENGK. E63
+W 931                                                   //WINTERRAEDER STATT SOMMERREIFEN (PA190/001)
+W 932                                                   //WINTERREIFEN ZUSAETZLICH
+W 933                                                   //RADKAPPEN FUER WINTERRAEDER
+W 934                                                   //WINTERREIFEN AUF LM-RAEDERN
+W 936                                                   //BMW HANDY BEI AUSLIEF.
+W 937                                                   //NAVI CD ROM BEI AUSLIEF. ANFO
+W 938                                                   //STEUERUNG ZS INDIVIDUAL
+W 940                                                   //SONDERWUNSCH AUSSTATTUNG
+W 941                                                   //EXTERNE NACHRUESTUNG
+W 942                                                   //SONDERWUNSCH  STORNO
+W 944                                                   //NACHTRAEGLICHER  UMBAU DURCH ZS (MULTIFKT. MITTELKONSOLE FOND)
+//W 945                                                   //BERUECKSICHTIGUNG PREISABHAENGIGK.
+W 948                                                   //KERNMODELLPAKET V5-KA
+W 949                                                   //SPORT-PAKET KW11-05
+W 950                                                   //LATEINAMERIKA-PAKET
+W 951                                                   //KOREA-PAKET
+W 952                                                   //CHINA-PAKET
+W 953                                                   //TAIWAN-PAKET
+W 955                                                   //MO PAKET II
+W 956                                                   //MO PAKET I
+W 957                                                   //HK-PAKET (HONK KONG)
+W 962                                                   //Kennzeichentraeger vorne Entfall (TAIS 25.11)MOBAC E-61
+W 964                                                   //NAVI DVD BEI AUSLIEFERUNG ANFORDERN (ZWAKO 609)
+W 969                                                   //NAVI DVD E60 BEI AUSL. ANFORDERN (ZWAKO 606)
+W 972                                                   //COMFORT PAKET
+W 973                                                   //Edition APEC Black & White, Singapur
+W 975                                                   //HIGH LINE PAKET
+W 976                                                   //PILOTPAKET ZAGREB
+W 977                                                   //V5-KA EXCLUSIVE LINE PAKET
+W 983                                                   //MODELLJAHRESCODE FUER EXPORT
+W 984                   SIA_INTERVALL                   //CODIERUNG WARTUNGSINTERVALL 15000km (MOTORSG!)(nur Diesel und N62) nicht M5 und M6
+W 986                                                   //TERMINPRUEFUNG  TAIS 08.04.05
+W 988                   SIA_INTERVALL2                  //CODIERUNG WARTUNGSINTERVALL S2 12000 km (MOTORSG!)(nur Diesel)(PA190/173) nicht M5 und M6
+W 990                                                   //STEUERUNG ANLAUFSERIE
+W 991                                                   //STEUERUNG VORSERIE
+W 992                                                   //STEUERUNG KENNZEICHENBEFESTGUNG
+W 993                                                   //MODELLJAHRESCODE fuer MJ2006
+//W 994                                                   //SONDERSTEUERUNG
+W 995                                                   //AENDERUNGSSPERRE
+W 997                                                   //HAENDLERPRAESENTATION EXPORT
+W 998                                                   //ANLAUFSTEUERUNG INTERNER BEDARF
+W 999                                                   //AUFTRAGSSTEUERUNG HEA
+W 9AA                                                   //AUSSENHAUTSCHUTZ (KONSERVIERWACHS) PA623/042
+W 9AB                                                   //AUSSENHAUTSCHUTZ ENTFALL SOKO PA623/080
+W 9AW                                                   //„Auslieferung BMW Welt“
+W 9BA                                                   //Premium Package
+W 9BD                                                   //Business Package
+W 9WR                                                   //„Winterräder BMW Welt“
+W XC4                                                   //Polster, Leiste, Lenkrad,Dachhimmel, Einstiegsleiste (SABI-Code siehe PR893/003)
+W XD5                                                   //DH Alcantara (SABI-Code siehe PR893/003)
+W XE1                                                   //Nussbaum amarone (SABI-Code siehe PR893/003)
+W XE3                                                   //Eukalyptus Riegel rotbraun (SABI-Code siehe PR893/003)
+W XE4                                                   //Olivesche rotbraun (SABI-Code siehe PR893/003)
+W XE7                                                   //Pianolack schwarz (SABI-Code siehe PR893/003)
+W XL1                                                   //Holzintarsie lt. Leiste (SABI-Code siehe PR893/003)
+//
+//
+//                                                        //Passiv entry
+//********************************************************************************************
+// ZUSAMMENFASSUNG ALLER TYPSCHLUESSEL
+//********************************************************************************************
+//************************************ L I M *************************************************
+//********************************************************************************************
+W NA31                  E60 M54B22 LL                                                       //Limousine 520i   //EUR      LL 03/03 - 03/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA32                  E60 M54B22 RL                                                       //Limousine 520i   //EUR      RL 07/03 - 03/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA34                  E60 M54B22 RL MALAYSIA                                              //Limousine 520i   //Malaysia RL 02/04 - 06/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA36                  E60 M54B22 LL AEGYPTEN                                              //Limousine 520i   //Aegypten LL 04/04 - 05/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA37                  E60 M54B22 RL INDONESIEN                                            //Limousine 520i   //Indonesi RL 02/04 - 06/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA38                  E60 M54B24 RL THAILAND                                              //Limousine 525i   //Thailand RL 12/03 - 12/05 /140kW
+//------------------------------------------------------------------------------------------
+W NA39                  E60 M54B22 LL CHINA                                                 //Limousine 520i   //CHINA    LL 12/03 - 06/05 /125kW
+//------------------------------------------------------------------------------------------
+W NA51                  E60 M54B25 OL LL                                                    //Limousine 525i   //EUR      LL 09/03 - 03/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA52                  E60 M54B25 OL RL                                                    //Limousine 525i   //EUR      RL 09/03 - 03/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA53                  E60 M54B25 OL LL US                                                 //Limousine 525i   //US       LL 09/03 - 03/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA71                  E60 M54B30 LL                                                       //Limousine 530i   //EUR      LL 03/03 - 03/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA72                  E60 M54B30 RL                                                       //Limousine 530i   //EUR      RL 07/03 - 03/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA73                  E60 M54B30 LL US                                                    //Limousine 530i   //US       LL 07/03 - 03/05 /170kW
+//------------------------------------------------------------------------------------------
+W NB11                  E60 N62B40 T1 LL OIL_LEVEL_1                                        //Limousine 540i TU//EUR      LL 09/05 - 03/07 /220kW
+//------------------------------------------------------------------------------------------
+W NB12                  E60 N62B40 T1 RL OIL_LEVEL_1                                        //Limousine 540i TU//EUR      RL 09/05 - 03/07 220kW
+//------------------------------------------------------------------------------------------
+W NB31                  E60 N62B44 LL                                                       //Limousine 545i   //EUR      LL 09/03 - 09/05 /245kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NB32                  E60 N62B44 RL                                                       //Limousine 545i   //EUR      RL 09/03 - 09/05 /245kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NB33                  E60 N62B44 LL US                                                    //Limousine 545i   //US       LL 09/03 - 09/05 /245kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NB51                  E60 N62B48 T1 LL OIL_LEVEL_1                                         //Limousine 550i TU//EUR      LL 09/05 - 03/07 /270kW (ALPINA BASIS) PA623/? 14.09.06
+//------------------------------------------------------------------------------------------
+W NB52                  E60 N62B48 T1 RL OIL_LEVEL_1                                         //Limousine 550i TU//EUR      RL 09/05 - 03/07 /270kW (ALPINA BASIS) PA623/? 14.09.06
+//------------------------------------------------------------------------------------------
+W NB53                  E60 N62B48 T1 LL US OIL_LEVEL_1                                      //Limousine 550i TU//US       LL 09/05 - 03/07 /270kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NW31                  E60 N62B40 T1 LL OIL_LEVEL_1                                         //Limousine 540i TU//EUR      LL 03/07 - 12/09 220kW
+//------------------------------------------------------------------------------------------
+W NW32                  E60 N62B40 T1 RL OIL_LEVEL_1                                         //Limousine 540i TU//EUR      RL 03/07 - 12/09 220kW
+//------------------------------------------------------------------------------------------
+W NW51                  E60 N62B48 T1 LL OIL_LEVEL_1                                         //Limousine 550i TU//EUR      LL 03/07 - 12/09 /270kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NW52                  E60 N62B48 T1 RL OIL_LEVEL_1                                         //Limousine 550i TU//EUR      RL 03/07 - 12/09 /270kW (ALPINA BASIS)
+//------------------------------------------------------------------------------------------
+W NW53                  E60 N62B48 T1 LL US OIL_LEVEL_1                                      //Limousine 550i TU//US       LL 03/07 - 12/09 /270kW
+//------------------------------------------------------------------------------------------
+//****************************M5**************************************************************
+//******************************************************************************************
+W NB91                  E60 M5 S85B50 LL                                                    //Limousine M5     //EUR      LL 09/04 - 12/09 /373kW
+//------------------------------------------------------------------------------------------
+W NB92                  E60 M5 S85B50 RL                                                    //Limousine M5     //EUR      RL 03/05 - 12/09 /373kW
+//------------------------------------------------------------------------------------------
+W NB93                  E60 M5 S85B50 LL US                                                 //Limousine M5     //US       RL 09/05 - 12/09 /373kW
+//------------------------------------------------------------------------------------------
+//*********************************DIESEL***************************************************
+//******************************************************************************************
+W NC31                  E60 M47D20 LL                                                       //Limousin 520d TUE2 OL //EUR      LL 09/05 - 03/07 /120kW
+//------------------------------------------------------------------------------------------
+W NC32                  E60 M47D20 RL                                                       //Limousin 520d TUE2 OL //EUR      RL 09/05 - 03/07 /120kW
+//------------------------------------------------------------------------------------------
+W NC37                  E60 M47D20 RL THAILAND                                              //Limousin 520d TUE2 OL //Thailand RL 08/06 - 03/07 /120kW
+//------------------------------------------------------------------------------------------
+W NC51                  E60 M57D25 LL                                                       //Limousin 525d TU //EUR      LL 03/04 - 03/07 /130kW
+//------------------------------------------------------------------------------------------
+W NC52                  E60 M57D25 RL                                                       //Limousin 525d TU //EUR      RL 03/04 - 03/07 /130kW
+//------------------------------------------------------------------------------------------
+W NC71                  E60 M57D30 UL LL                                                    //Limousin 530d TU //EUR      LL 03/03 - 09/05 /160KW
+//------------------------------------------------------------------------------------------
+W NC72                  E60 M57D30 UL RL                                                    //Limousin 530d TU //EUR      RL 07/03 - 09/05 /150KW
+//------------------------------------------------------------------------------------------
+W NC91                  E60 M57D30 OL TOP T1 LL KL15                                         //Limousine 535d TU TOP TUE1 //EUR LL  09/04 - 03/07 /200KW 560Nm M57X
+//------------------------------------------------------------------------------------------
+W NC92                  E60 M57D30 OL TOP T1 RL KL15                                        //Limousine 535d TU TOP TUE1 //EUR RL  09/04 - 03/07 /200KW 560Nm M57X
+//------------------------------------------------------------------------------------------
+//******************************************************************************************
+//******************************************************************************************
+W ND71                  E60 N53B30 OL LL OIL_LEVEL_1                                        //Limousine 530i   //EUR      LL 03/07 - 06/10 /200kW
+//------------------------------------------------------------------------------------------
+W ND72                  E60 N53B30 OL RL OIL_LEVEL_1                                        //Limousine 530i   //EUR      RL 03/07 - 06/10 /200kW
+//------------------------------------------------------------------------------------------
+W ND75                  E60 N52B30K OL RL OIL_LEVEL_1 //INDIEN                              /Limousine 530i   //INDIEN   RL 05/07 - 12/09 //200kW  N52K
+//------------------------------------------------------------------------------------------
+W ND79                  E60 N52B30K OL LL CHINA C_LWB OIL_LEVEL_1                           //Limousine 530li LWB CHINA  LL 03/07 - 04/10 //200kW  N52K
+//------------------------------------------------------------------------------------------
+W NE31                  E60 N52B25 LL OIL_LEVEL_1                                           //Limousine 523i UL//EUR      LL 03/05 - 03/07 /130kW (TS_NE31 war bis 07-03-520)
+//------------------------------------------------------------------------------------------
+W NE32                  E60 N52B25 UL RL OIL_LEVEL_1                                        //Limousine 523i UL//EUR      RL 03/05 - 03/07 /130kW
+//------------------------------------------------------------------------------------------
+W NE51                  E60 N52B25 OL LL EXT_KOREA OIL_LEVEL_1                              //Limousine 525i OL//EUR      LL 03/05 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NE52                  E60 N52B25 OL RL OIL_LEVEL_1                                        //Limousine 525i OL//EUR      RL 03/05 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NE53                  E60 N52B30 UL LL US OIL_LEVEL_1                                     //Limousine 525i UL//US       LL 03/05 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NE71                  E60 N52B30 OL LL OIL_LEVEL_1                                        //Limousine 530i   //EUR      LL 03/05 - 03/07 /190kW mit SMG SE 03/05
+//------------------------------------------------------------------------------------------
+W NE72                  E60 N52B30 OL RL OIL_LEVEL_1                                        //Limousine 530i   //EUR      RL 03/05 - 03/07 /190kW mit SMG SE 03/05
+//------------------------------------------------------------------------------------------
+W NE73                  E60 N52B30 OL LL US OIL_LEVEL_1                                     //Limousine 530i   //US       LL 03/05 - 03/07 /190kW mit SMG SE 03/05
+//------------------------------------------------------------------------------------------
+//---------------------------CKD TYPEN laut PA398/010---------------------------------------
+W NA54                  E60 M54B25 OL RL MALAYSIA                                           //Limousine 525i   //Malaysia RL 06/04 - 06/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA55                  E60 M54B25 OL LL //VIETNAM                                          //Limousine 525i   //Vietnam  LL 05/04 - 06/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA56                  E60 M54B25 OL LL AEGYPTEN                                           //Limousine 525i   //Aegypten LL 04/04 - 05/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA57                  E60 M54B25 OL RL INDONESIEN                                         //Limousine 525i   //Indonesi RL 05/04 - 06/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA58                  E60 M54B25 OL LL //RUSSLAND                                         //Limousine 525i   //Russland LL 12/03 - 05/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA59                  E60 M54B25 OL LL PHILIPPINEN                                        //Limousine 525i   //Philippinen LL 05/04 - 06/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA74                  E60 M54B30 RL MALAYSIA                                              //Limousine 530i   //Malaysia RL 02/04 - 06/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA76                  E60 M54B30 LL AEGYPTEN                                              //Limousine 530i   //Aegypten LL 05/04 - 03/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA77                  E60 M54B30 RL INDONESIEN                                            //Limousine 530i   //Indonesi RL 02/04 - 06/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA78                  E60 M54B30 LL //RUSSLAND                                            //Limousine 530i   //Russland LL 09/03 - 05/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA79                  E60 M54B30 LL CHINA                                                 //Limousine 530i   //CHINA    LL 12/03 - 06/05 /170kW
+//------------------------------------------------------------------------------------------
+W NA98                  E60 M54B25 OL LL CHINA                                              //Limousine 525i   //CHINA    LL 04/04 - 06/05 /141kW
+//------------------------------------------------------------------------------------------
+W NA99                  E60 M54B22 RL THAILAND         //Basistyp NA32                      //Limousine 520i   //Thailand RL 08/04 - 06/05 /125kW
+//------------------------------------------------------------------------------------------
+W NE34                  E60 N52B25 RL MALAYSIA OIL_LEVEL_1        //Basistyp NE32           //Limousine 523i UL  //Malaysia RL 03/05 - 06/07 /130KW
+//------------------------------------------------------------------------------------------
+W NE36                  E60 N52B25 LL AEGYPTEN OIL_LEVEL_1        //Basistyp NE31           //Limousine 523i UL //Aegypten LL 03/05 - 05/07 /130KW
+//------------------------------------------------------------------------------------------
+W NE37                  E60 N52B25 RL INDONESIEN OIL_LEVEL_1      //Basistyp NE32           //Limousine 523i UL //Indonesi RL 03/05 - 06/07 /130KW
+//------------------------------------------------------------------------------------------
+W NE38                  E60 N52B25 RL THAILAND OIL_LEVEL_1        //Basistyp NE32           //Limousine 523i UL //Thailand RL 03/05 - 06/07 /125KW
+//------------------------------------------------------------------------------------------
+W NE39                  E60 N52B25 LL CHINA OIL_LEVEL_1           //Basistyp NE31           //Limousine 523i UL //CHINA    LL 03/05 - 06/07 /130KW
+//------------------------------------------------------------------------------------------
+W NE54                  E60 N52B25 OL RL MALAYSIA OIL_LEVEL_1     //Basistyp NE52           //Limousine 525i   //Malaysia RL 04/05 - 06/07 /160KW
+//------------------------------------------------------------------------------------------
+W NE56                  E60 N52B25 OL LL AEGYPTEN OIL_LEVEL_1     //Basistyp NE51           //Limousine 525i   //Aegypten LL 03/05 - 05/07 /160KW
+//------------------------------------------------------------------------------------------
+W NE58                  E60 N52B25 OL RL THAILAND OIL_LEVEL_1      //Basistyp NA38***       //Limousine 525i   //Thailand RL 03/05 - 06/07 /145KW!!!
+//------------------------------------------------------------------------------------------
+W NE59                  E60 N52B25 OL LL OIL_LEVEL_1 //RUSSLAND    //Basistyp NE51          //Limousine 525i   //Russland LL 03/05 - 05/07 /160KW
+////----------------------------------------------------------------------------------------
+W NE74                  E60 N52B30 OL RL MALAYSIA OIL_LEVEL_1     //Basistyp NE72           //Limousine 530i   //Malaysia RL 03/05 - 06/07 /190kW
+//------------------------------------------------------------------------------------------
+W NE76                  E60 N52B30 OL LL AEGYPTEN OIL_LEVEL_1     //Basistyp NE71           //Limousine 530i   //Aegypten LL 03/05 - 06/07 /185kW
+//------------------------------------------------------------------------------------------
+W NE77                  E60 N52B30 OL RL INDONESIEN OIL_LEVEL_1   //Basistyp NE72           //Limousine 530i   //Indonesi RL 03/05 - 06/07 /190kW
+//------------------------------------------------------------------------------------------
+W NE78                  E60 N52B30 OL LL OIL_LEVEL_1 //RUSSLAND    //Basistyp NE71          //Limousine 530i   //Russland LL 03/05 - 05/07 /190kW
+//------------------------------------------------------------------------------------------
+W NE79                  E60 N52B30 OL LL CHINA OIL_LEVEL_1        //Basistyp NE71           //Limousine 530i   //CHINA    LL 03/05 - 06/07 /190kW
+//------------------------------------------------------------------------------------------
+W NE98                  E60 N52B25 OL LL CHINA OIL_LEVEL_1        //Basistyp NE51           //Limousine 525i   //CHINA    LL 03/05 - 06/07 /160KW
+//------------------------------------------------------------------------------------------
+//------E60 ALLRAD--------------------------------------------------------------------------
+W NF31                  E60 N52B25 OL LL ALLRAD EXT_NF31 OIL_LEVEL_1                        //Limousine 525xi  //EUR      LL 04/05 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NF33                  E60 N52B30 UL LL US ALLRAD OIL_LEVEL_1                              //Limousine 525xiUL//US       LL 04/05 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NF38                  E60 N52B25 OL LL ALLRAD OIL_LEVEL_1 //RUSSLAND                      //Limousine 525xiOL//Russland LL 03/06 - 03/07 /160kW
+//------------------------------------------------------------------------------------------
+W NF71                  E60 N52B30 OL LL ALLRAD OIL_LEVEL_1                                 //Limousine 530xi  //EUR      LL 04/05 - 03/07 /190kW
+//------------------------------------------------------------------------------------------
+W NF73                  E60 N52B30 OL LL US ALLRAD OIL_LEVEL_1                              //Limousine 530xi  //US       LL 04/05 - 03/07 /190kW
+//------------------------------------------------------------------------------------------
+W NF78                  E60 N52B30 OL LL ALLRAD OIL_LEVEL_1 //RUSSLAND                      //Limousine 530xi  //Russland LL 03/06 - 03/07 /190kW
+//------------------------------------------------------------------------------------------
+W NM71                  E60 M57D30 UL LL T2 ALLRAD VGS KL15                                 //Limousine 530xd TUE2//EUR     LL 09/05 - 03/07 /170KW
+//------------------------------------------------------------------------------------------
+W NV13                  E60 N52B30K ML LL US ALLRAD OIL_LEVEL_1                             //Limousine 528xi ML //US       LL 03/07 - 12/09 /172kW N52K
+//------------------------------------------------------------------------------------------
+W NV31                  E60 N53B30 UL LL ALLRAD OIL_LEVEL_1                                 //Limousine 525xi UL //EUR      LL 03/07 - 12/09 /160kW
+//------------------------------------------------------------------------------------------
+W NV35                  E60 N53B30 UL LL ALLRAD OIL_LEVEL_1 //RUSSLAND                      //Limousine 525xi UL //Russland   LL 11/08 - 12/09 /160kW
+//------------------------------------------------------------------------------------------
+W NV51                  E60 N52B30K OL LL ALLRAD OIL_LEVEL_1                                //Limousine 530xi OL //EUR      LL 03/07 - 12/09 /190kW  N52K
+//------------------------------------------------------------------------------------------
+W NV58                  E60 N52B30K OL LL ALLRAD OIL_LEVEL_1 //RUSSLAND                     //Limousine 530xi OL //EUR      LL 05/07 - 12/09 /190kW  N52K
+//------------------------------------------------------------------------------------------
+W NV71                  E60 N53B30 OL LL ALLRAD OIL_LEVEL_1                                 //Limousine 530xi OL //EUR      LL 03/07 - 12/09 /200kW
+//------------------------------------------------------------------------------------------
+W NY51                  E60 M57D30 UL T2 LL ALLRAD OIL_LEVEL_1                              //Limousin 525xd UL T2//EUR  LL 09/07 - 12/09 /150KW     alt 145KW
+//------------------------------------------------------------------------------------------
+W NY71                  E60 M57D30 OL LL T2 ALLRAD OIL_LEVEL_1 CLASS_DSC                    //Limousine 530xd T2 //EUR     LL 03/07 - 12/09 /170KW
+//------------------------------------------------------------------------------------------
+W NV93                  E60 N54B30 LL US ALLRAD OIL_LEVEL_1                                 //Limousine 535xi  //US       LL 03/07 - 12/09 /225kW
+//------------------------------------------------------------------------------------------
+W NR11                  E60 N52B25 LL C_LWB OIL_LEVEL_1                                     //Limousine 523li LWB//EUR      LL 09/06 - 09/07 /130kW
+//------------------------------------------------------------------------------------------
+W NR31                  E60 N52B25 OL LL C_LWB OIL_LEVEL_1                                  //Limousine 525li LWB//EUR      LL 09/06 - 09/07 /160kW
+//------------------------------------------------------------------------------------------
+W NR51                  E60 N52B30 OL LL C_LWB OIL_LEVEL_1                                  //Limousine 530li LWB//EUR      LL 09/06 - 09/07 /190kW
+//------------------------------------------------------------------------------------------
+W NR71                  E60 M57D30 UL T2 LL VGS KL15                                        //Limousine 530d TUE2//EUR     LL 09/05 - 03/07 /170KW
+//------------------------------------------------------------------------------------------
+W NR72                  E60 M57D30 UL T2 RL VGS KL15                                        //Limousine 530d TUE2//EUR     RL 09/05 - 03/07 /170KW
+//------------------------------------------------------------------------------------------
+W NX11                  E60 M47D20 LL                                                       //Limousin 520d TUE2 OL //EUR  LL 03/07 - 09/07 /120kW
+//------------------------------------------------------------------------------------------
+W NX12                  E60 M47D20 RL                                                       //Limousin 520d TUE2 OL //EUR  RL 03/07 - 09/07 /120kW
+//------------------------------------------------------------------------------------------
+W NX17                  E60 M47D20 RL THAILAND                                              //Limousin 520d TUE2 OL //THAILAND RL 06/07 - 02/08 /120kW
+//------------------------------------------------------------------------------------------
+W NX31                  E60 N47D20 OL LL OIL_LEVEL_1                                        //Limousin 520d OL      //EUR  LL 09/07 - 12/09 /130kW
+//------------------------------------------------------------------------------------------
+W NX32                  E60 N47D20 OL RL OIL_LEVEL_1                                        //Limousin 520d OL      //EUR  RL 09/07 - 12/09 /130kW
+//------------------------------------------------------------------------------------------
+W NX35                  E60 N47D20 OL RL OIL_LEVEL_1                                      //Limousin 520d OL INDIEN //EUR  RL 03/08 - 03/10 /130kW
+//------------------------------------------------------------------------------------------
+W NX37                  E60 N47D20 OL RL THAILAND OIL_LEVEL_1                               //Limousin 520d OL      //THAILAND  RL 06/08 - 12/09 /130kW
+//------------------------------------------------------------------------------------------
+W NX51                  E60 M57D30 UL T2 LL OIL_LEVEL_1                                     //Limousin 525d UL T2//EUR  LL 03/07 - 12/09 /150KW     alt 145KW
+//------------------------------------------------------------------------------------------
+W NX52                  E60 M57D30 UL T2 RL OIL_LEVEL_1                                     //Limousin 525d UL T2//EUR  RL 03/07 - 12/09 /150KW     alt 145KW
+//------------------------------------------------------------------------------------------
+W NX55                  E60 M57D30 UL T2 RL OIL_LEVEL_1 //INDIEN                            //Limousin 525d UL T2//INDIEN  RL 02/07 - 12/09 /145KW EOP 06/08
+//------------------------------------------------------------------------------------------
+W NX71                  E60 M57D30 OL T2 LL OIL_LEVEL_1 CLASS_DSC                            //Limousine 530d TUE2//EUR     LL 03/07 - 12/09 /170KW
+//------------------------------------------------------------------------------------------
+W NX72                  E60 M57D30 OL T2 RL OIL_LEVEL_1 CLASS_DSC                           //Limousine 530d TUE2//EUR     RL 03/07 - 12/09 /170KW
+//------------------------------------------------------------------------------------------
+W NX75                  E60 M57D30 OL T2 RL OIL_LEVEL_1 CLASS_DSC                         //Limousine 530d TUE2//EUR INDIEN  RL 03/08 - 03/10 /170KW
+//------------------------------------------------------------------------------------------
+W NX91                  E60 M57D30 TOP OL T2 LL OIL_LEVEL_1                                 //Limousine 535d M57Y//EUR     LL 03/07 - 12/09 /210KW M57Y
+//------------------------------------------------------------------------------------------
+W NX92                  E60 M57D30 TOP OL T2 RL OIL_LEVEL_1                                 //Limousine 535d M57Y//EUR     RL 03/07 - 12/09 /210KW M57Y
+//------------------------------------------------------------------------------------------
+W NT11                  E60 N46B20 OL LL OIL_LEVEL_1                                        //Limousine 520i OL //EUR      LL 09/07 - 12/09 /115kW
+//------------------------------------------------------------------------------------------
+W NT12                  E60 N46B20 OL RL OIL_LEVEL_1                                        //Limousine 520i OL //EUR      RL 09/07 - 12/09 /115kW
+//------------------------------------------------------------------------------------------
+W NT15                  E60 N46B20 OL LL OIL_LEVEL_1                                        //Limousine 520i OL //EUR      LL 03/08 - 03/10 /115kW
+//------------------------------------------------------------------------------------------
+W NT17                  E60 N46B20 OL LL CHINA C_LWB OIL_LEVEL_1                            //Limousine 520li LWB //China      LL 03/09 - 04/10 /115KW
+//------------------------------------------------------------------------------------------
+W NT31                  E60 N43B20 OL LL OIL_LEVEL_1                                        //Limousine 520i OL //EUR      LL 09/07 - 12/09 /125kW
+//------------------------------------------------------------------------------------------
+W NT32                  E60 N43B20 OL RL OIL_LEVEL_1                                        //Limousine 520i OL //EUR      RL 09/07 - 12/09 /125kW
+//------------------------------------------------------------------------------------------
+W NU11                  E60 N52B25K LL OIL_LEVEL_1                                          //Limousine 523i   //EUR      LL 03/07 - 12/09 /140kW  N52K
+//------------------------------------------------------------------------------------------
+W NU12                  E60 N52B25K RL OIL_LEVEL_1                                          //Limousine 523i   //EUR      RL 03/07 - 12/09 /140kW  N52K
+//------------------------------------------------------------------------------------------
+W NU14                  E60 N52B25K UL RL MALAYSIA OIL_LEVEL_1                              //Limousine 523i UL  //Malaysia   RL 03/07 - 03/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W NU15                  E60 N52B25 LL CHINA C_LWB OIL_LEVEL_1                               //Limousine 523li LWB //China       LL 05/06 - 09/07 /130KW
+//------------------------------------------------------------------------------------------
+W NU16                  E60 N52B25K UL LL AEGYPTEN OIL_LEVEL_1                              //Limousine 523i UL  //AEGYPTEN   LL 03/07 - 03/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W NU17                  E60 N52B25K UL RL INDONESIEN OIL_LEVEL_1                            //Limousine 523i UL  //INDONESIEN RL 03/07 - 03/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W NU18                  E60 N52B25K UL RL THAILAND OIL_LEVEL_1                              //Limousine 523i UL  //THAILAND   RL 03/07 - 03/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W NU31                  E60 N53B25 UL LL OIL_LEVEL_1                                        //Limousine 523i UL  //EUR      LL 03/07 - 12/09 /140kW
+//------------------------------------------------------------------------------------------
+W NU32                  E60 N53B25 UL RL OIL_LEVEL_1                                        //Limousine 523i UL  //EUR      RL 03/07 - 12/09 /140kW
+//------------------------------------------------------------------------------------------
+W NU35                  E60 N52B25K UL RL OIL_LEVEL_1 //INDIEN                              //Limousine 523i UL  //INDIEN   RL 06/07 - 12/09 /130KW  N52K  EOP 06/08
+//------------------------------------------------------------------------------------------
+W NU39                  E60 N52B25K LL CHINA C_LWB OIL_LEVEL_1                              //Limousine 523li LWB //China      LL 03/07 - 04/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W NU51                  E60 N52B25K OL LL NU51_KOREA OIL_LEVEL_1                            //Limousine 525i OL //EUR      LL 03/07 - 12/09 /160kW  N52K
+//------------------------------------------------------------------------------------------
+W NU52                  E60 N52B25K OL RL OIL_LEVEL_1                                       //Limousine 525i OL //EUR      RL 03/07 - 12/09 /160kW  N52K
+//------------------------------------------------------------------------------------------
+W NU53                  E60 N52B30K ML LL US OIL_LEVEL_1                                    //Limousine 528i ML//US       LL 03/07 - 12/09 /172kW  N52K
+//------------------------------------------------------------------------------------------
+W NU54                  E60 N52B25K OL RL MALAYSIA OIL_LEVEL_1                              //Limousine 525i OL  //Malaysia   RL 03/07 - 03/10 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W NU55                  E60 N52B25K OL LL OIL_LEVEL_1 //RUSSLAND                            //Limousine 525i OL  //RUSSLAND   LL 03/07 - 02/10 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W NU56                  E60 N52B25K OL LL AEGYPTEN OIL_LEVEL_1                              //Limousine 525i OL  //AEGYPTEN   LL 03/07 - 03/10 /160KW
+//------------------------------------------------------------------------------------------
+W NU57                  E60 N52B25 OL LL CHINA C_LWB OIL_LEVEL_1                            //Limousine 525Li LWB //China      LL 03/06 - 09/07 /160KW
+//------------------------------------------------------------------------------------------
+W NU58                  E60 N52B25K OL RL THAILAND OIL_LEVEL_1                              //Limousine 525i OL  //THAILAND   RL 03/07 - 03/10 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W NU71                  E60 N53B30 UL LL OIL_LEVEL_1                                        //Limousine 525i UL //EUR      LL 03/07 - 12/09 /160kW
+//------------------------------------------------------------------------------------------
+W NU72                  E60 N53B30 UL RL OIL_LEVEL_1                                        //Limousine 525i UL //EUR      RL 03/07 - 12/09 /160kW
+//------------------------------------------------------------------------------------------
+W NU75                  E60 N52B25K RL OL OIL_LEVEL_1 //INDIEN                              //Limousine 525i OL //Indien   RL 06/07 - 12/09 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W NU79                  E60 N52B25K LL OL CHINA C_LWB OIL_LEVEL_1                           //Limousine 525Li LWB //China  LL 03/07 - 04/10 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W NU91                  E60 N52B30K OL LL OIL_LEVEL_1                                       //Limousine 530i   //EUR      LL 03/07 - 12/09 /200kW  N52K
+//------------------------------------------------------------------------------------------
+W NU92                  E60 N52B30K OL RL OIL_LEVEL_1                                       //Limousine 530i   //EUR      RL 03/07 - 12/09 /200kW  N52K
+//------------------------------------------------------------------------------------------
+W NU94                  E60 N52B30K OL RL MALAYSIA OIL_LEVEL_1                              //Limousine 530i OL  //Malaysia   RL 03/07 - 03/10 /200KW  N52K
+//------------------------------------------------------------------------------------------
+W NU95                  E60 N52B30K OL LL OIL_LEVEL_1 //RUSSLAND                            //Limousine 530i OL  //RUSSLAND   LL 03/07 - 02/10 /200KW  N52K
+//------------------------------------------------------------------------------------------
+W NU96                  E60 N52B30K OL LL AEGYPTEN OIL_LEVEL_1                              //Limousine 530i OL  //AEGYPTEN   LL 03/07 - 03/10 /200KW  N52K
+//------------------------------------------------------------------------------------------
+W NU97                  E60 N52B30K OL RL INDONESIEN OIL_LEVEL_1                            //Limousine 530i OL  //Indonesien RL 03/07 - 03/10 /200KW  N52K
+//------------------------------------------------------------------------------------------
+W NU98                  E60 N52B30 OL LL CHINA C_LWB OIL_LEVEL_1                            //Limousine 530Li LWB //China      LL 05/06 - 09/07 /190KW
+//------------------------------------------------------------------------------------------
+W NW13                  E60 N54B30 LL US OIL_LEVEL_1                                        //Limousine 535i   //US       LL 03/07 - 12/09 /225kW
+//------------------------------------------------------------------------------------------
+W NZ11                  E60 N52B25K LL C_LWB OIL_LEVEL_1                                    //Limousine 523li LWB //EUR    LL 03/07 - 04/10 /130kW  N52K
+//------------------------------------------------------------------------------------------
+W NZ31                  E60 N52B25K OL LL C_LWB OIL_LEVEL_1                                 //Limousine 525li LWB //EUR    LL 03/07 - 04/10 /160kW  N52K
+//------------------------------------------------------------------------------------------
+W NZ51                  E60 N52B30K OL LL C_LWB OIL_LEVEL_1                                 //Limousine 530li LWB //EUR    LL 03/07 - 04/10 /200kW  N52K
+//------------------------------------------------------------------------------------------
+W PZ11                  E60 N46B20 OL LL CHINA C_LWB OIL_LEVEL_1                            //Limousine 520li LWB  China  LL 10/09 - 01/10 /115KW
+//------------------------------------------------------------------------------------------
+W PZ31                  E60 N52B25K LL CHINA C_LWB OIL_LEVEL_1                              //Limousine 523li LWB  China  LL 10/09 - 01/10 /130KW  N52K
+//------------------------------------------------------------------------------------------
+W PZ51                  E60 N52B25K LL OL CHINA C_LWB OIL_LEVEL_1                           //Limousine 525Li LWB  China  LL 10/08 - 01/10 /160KW  N52K
+//------------------------------------------------------------------------------------------
+W PZ71                  E60 N52B30K OL LL CHINA C_LWB OIL_LEVEL_1                           //Limousine 530li LWB  CHINA  LL 10/08 - 01/10 /200kW  N52K
+
+//------------------------------------------------------------------------------------------
+
+//********************************************************************************************
+//********************************** T O U R I N G *******************************************
+//********************************************************************************************
+//--------------------------------------------------------------------------------------------
+W NG51                  E61 M54B25 OL LL                                                      //Touring 525i     //EUR      LL 03/04 - 03/05 //141KW
+//--------------------------------------------------------------------------------------------
+W NG52                  E61 M54B25 OL RL                                                      //Touring 525i     //EUR      RL 03/04 - 03/05 //141KW
+//--------------------------------------------------------------------------------------------
+W NH31                  E61 N62B44 LL                                                         //Touring 545i     //EUR      LL 03/04 - 09/05 //245KW (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W NH32                  E61 N62B44 RL                                                         //Touring 545i     //EUR      RL 03/04 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W NH51                  E61 N62B48 T1 LL OIL_LEVEL_1                                          //Touring 550i TU  //EUR      LL 09/05 - 03/07 //270kW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W NH52                  E61 N62B48 T1 RL OIL_LEVEL_1                                          //Touring 550i TU  //EUR      RL 09/05 - 03/07 //270kW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W NJ31                  E61 M47D20 LL                                                         //Touring 520d TUE2 OL //EUR      LL 09/05 - 03/07 //120KW
+//--------------------------------------------------------------------------------------------
+W NJ32                  E61 M47D20 RL                                                         //Touring 520d TUE2 OL //EUR      RL 09/05 - 03/07 //120KW
+//--------------------------------------------------------------------------------------------
+W NJ51                  E61 M57D25 LL                                                         //Touring 525d TU  //EUR      LL 03/04 - 03/07 //130KW
+//--------------------------------------------------------------------------------------------
+W NJ52                  E61 M57D25 RL                                                         //Touring 525d TU  //EUR      RL 03/04 - 03/07 //130KW
+//--------------------------------------------------------------------------------------------
+W NJ71                  E61 M57D30 UL LL                                                      //Touring 530d TU  //EUR      LL 03/04 - 09/05 //160KW
+//--------------------------------------------------------------------------------------------
+W NJ72                  E61 M57D30 UL RL                                                      //Touring 530d TU  //EUR      RL 03/04 - 09/05 //160KW
+//--------------------------------------------------------------------------------------------
+W NJ91                  E61 M57D30 OL TOP T1 LL KL15                                          //Touring 535d TOP TUE1//EUR  LL 09/04 - 03/07 //200KW 560Nm M57X
+//--------------------------------------------------------------------------------------------
+W NJ92                  E61 M57D30 OL TOP T1 RL KL15                                          //Touring 535d TOP TUE1//EUR  RL 09/04 - 03/07 //200KW 560Nm M57X
+//--------------------------------------------------------------------------------------------
+W NK71                  E61 N53B30 OL LL OIL_LEVEL_1                                          //Touring 530i     //EUR      LL 03/07 - 03/11 //200KW
+//--------------------------------------------------------------------------------------------
+W NK72                  E61 N53B30 OL RL OIL_LEVEL_1                                          //Touring 530i     //EUR      RL 03/07 - 03/11 //200KW
+//--------------------------------------------------------------------------------------------
+W NL31                  E61 N52B25 UL LL OIL_LEVEL_1                                          //Touring 523i UL    //EUR      LL 03/05 - 03/07 //130KW
+//--------------------------------------------------------------------------------------------
+W NL32                  E61 N52B25 UL RL OIL_LEVEL_1                                          //Touring 523i UL    //EUR      RL 03/05 - 03/07 //130KW
+//--------------------------------------------------------------------------------------------
+W NL51                  E61 N52B25 OL LL OIL_LEVEL_1                                          //Touring 525i     //EUR      LL 03/05 - 03/07 //160KW
+//--------------------------------------------------------------------------------------------
+W NL52                  E61 N52B25 OL RL OIL_LEVEL_1                                          //Touring 525i     //EUR      RL 03/05 - 03/07 //160KW
+//--------------------------------------------------------------------------------------------
+W NL71                  E61 N52B30 OL LL OIL_LEVEL_1                                          //Touring 530i     //EUR      LL 03/05 - 03/07 //190kW
+//--------------------------------------------------------------------------------------------
+W NL72                  E61 N52B30 OL RL OIL_LEVEL_1                                          //Touring 530i     //EUR      RL 03/05 - 03/07 //190kW
+//--------------------------------------------------------------------------------------------
+W PU11                  E61 N52B25K UL LL OIL_LEVEL_1                                         //Touring 523i UL  //EUR      LL 03/07 - 07/10 /140kW  N52K
+//--------------------------------------------------------------------------------------------
+W PU12                  E61 N52B25K UL RL OIL_LEVEL_1                                         //Touring 523i UL  //EUR      RL 03/07 - 07/10 /140kW  N52K
+//--------------------------------------------------------------------------------------------
+W PU51                  E61 N52B25K OL LL OIL_LEVEL_1                                         //Touring 525i OL  //EUR      LL 03/07 - 07/10 /160kW  N52K
+//--------------------------------------------------------------------------------------------
+W PU52                  E61 N52B25K OL RL OIL_LEVEL_1                                         //Touring 525i OL  //EUR      RL 03/07 - 07/10 /160kW  N52K
+//--------------------------------------------------------------------------------------------
+W PU31                  E61 N53B25 UL LL OIL_LEVEL_1                                          //Touring 523i UL  //EUR      LL 03/07 - 07/10 /140kW
+//--------------------------------------------------------------------------------------------
+W PU32                  E61 N53B25 UL RL OIL_LEVEL_1                                          //Touring 523i UL  //EUR      RL 03/07 - 07/10 /140kW
+//--------------------------------------------------------------------------------------------
+W PU71                  E61 N53B30 UL LL OIL_LEVEL_1                                          //Touring 525i UL  //EUR      LL 03/07 - 07/10 /160kW
+//--------------------------------------------------------------------------------------------
+W PU72                  E61 N53B30 UL RL OIL_LEVEL_1                                          //Touring 525i UL  //EUR      RL 03/07 - 07/10 /160kW
+//--------------------------------------------------------------------------------------------
+W PU91                  E61 N52B30K OL LL OIL_LEVEL_1                                         //Touring 530i OL  //EUR      LL 03/07 - 07/10 //200kW  N52K
+//--------------------------------------------------------------------------------------------
+W PU92                  E61 N52B30K OL RL OIL_LEVEL_1                                         //Touring 530i OL  //EUR      RL 03/07 - 07/10 //200kW  N52K
+//--------------------------------------------------------------------------------------------
+W PT11                  E61 N43B20 OL LL OIL_LEVEL_1                                          //Touring 520i OL  //EUR      LL 09/07 - 07/10 //125KW
+//--------------------------------------------------------------------------------------------
+W PT12                  E61 N43B20 OL RL OIL_LEVEL_1                                          //Touring 520i OL  //EUR      RL 09/07 - 07/10 //125KW
+//--------------------------------------------------------------------------------------------
+W PV91                  E61 M5 S85B50 LL                                                      //Touring M5       //ECE       LL 03/07 - 05/10 //373KW
+//--------------------------------------------------------------------------------------------
+W PV92                  E61 M5 S85B50 RL                                                      //Touring M5       //ECE       RL 03/07 - 05/10 //373KW
+//--------------------------------------------------------------------------------------------
+W PW51                  E61 N62B48 T1 LL OIL_LEVEL_1                                          //Touring 550i TU  //EUR      LL 03/07 - 07/10 //270kW (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W PW52                  E61 N62B48 T1 RL OIL_LEVEL_1                                          //Touring 550i TU  //EUR      RL 03/07 - 07/10 //270kW (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W PX11                  E61 M47D20 LL                                                         //Touring 520d TUE2 OL //EUR      LL 03/07 - 09/07 /120kW
+//--------------------------------------------------------------------------------------------
+W PX12                  E61 M47D20 RL                                                         //Touring 520d TUE2 OL //EUR      RL 03/07 - 09/07 /120kW
+//--------------------------------------------------------------------------------------------
+W PX31                  E61 N47D20 OL LL OIL_LEVEL_1                                          //Touring 520d OL  //EUR      LL 09/07 - 07/10 /130kW
+//--------------------------------------------------------------------------------------------
+W PX32                  E61 N47D20 OL RL OIL_LEVEL_1                                          //Touring 520d OL  //EUR      RL 09/07 - 07/10 /130kW
+//--------------------------------------------------------------------------------------------
+W PX51                  E61 M57D30 UL T2 LL OIL_LEVEL_1                                       //Touring 525d UL T2 //EUR      LL 03/07 - 07/10 /150KW     alt 145KW
+//--------------------------------------------------------------------------------------------
+W PX52                  E61 M57D30 UL T2 RL OIL_LEVEL_1                                       //Touring 525d UL T2 //EUR      RL 03/07 - 07/10 /150KW     alt 145KW
+//--------------------------------------------------------------------------------------------
+W PX71                  E61 M57D30 OL T2 LL OIL_LEVEL_1 CLASS_DSC                             //Touring 530d TUE2 //EUR        LL 03/07 - 07/10 /170KW
+//--------------------------------------------------------------------------------------------
+W PX72                  E61 M57D30 OL T2 RL OIL_LEVEL_1 CLASS_DSC                             //Touring 530d TUE2//EUR        RL 03/07 - 07/10 /170KW
+//--------------------------------------------------------------------------------------------
+W NS71                  E61 M57D30 UL T2 LL KL15                                              //Touring 530d TUE2//EUR        LL 09/05 - 03/07 //170KW mit 843 155KW
+//--------------------------------------------------------------------------------------------
+W NS72                  E61 M57D30 UL T2 RL KL15                                              //Touring 530d TUE2//EUR        RL 09/05 - 03/07 //170KW
+//--------------------------------------------------------------------------------------------
+W PX91                  E61 M57D30 TOP OL T2 LL OIL_LEVEL_1                                   //Touring 535D     //EUR      LL 03/07 - 07/10 /210kW M57Y
+//--------------------------------------------------------------------------------------------
+W PX92                  E61 M57D30 TOP OL T2 RL OIL_LEVEL_1                                   //Touring 535D     //EUR      RL 03/07 - 07/10 /210kW M57Y
+//--------------------------------------------------------------------------------------------
+//----------E61 ALLRAD------------------------------------------------------------------------
+W NN51                  E61 N52B25 OL LL ALLRAD OIL_LEVEL_1                                   //Touring 525xiT   //EUR       LL 03/05 - 03/07 //160KW
+//--------------------------------------------------------------------------------------------
+W NN71                  E61 N52B30 OL LL ALLRAD OIL_LEVEL_1                                   //Touring 530xiT   //EUR       LL 03/05 - 03/07 //190KW
+//--------------------------------------------------------------------------------------------
+W NN73                  E61 N52B30 OL LL US ALLRAD OIL_LEVEL_1                                //Touring 530xiT   //US        LL 04/05 - 03/07 //190KW
+//--------------------------------------------------------------------------------------------
+W NP71                  E61 M57D30 UL LL T2 ALLRAD VGS KL15                                   //Touring 530xd  T2//EUR    ´  LL 09/05 - 03/07 //170KW
+//--------------------------------------------------------------------------------------------
+W PV31                  E61 N53B30 UL LL ALLRAD OIL_LEVEL_1                                   //Touring 525xi UL //EUR       LL 03/07 - 07/10 //160KW
+//--------------------------------------------------------------------------------------------
+W PV71                  E61 N53B30 OL LL ALLRAD OIL_LEVEL_1                                   //Touring 530xi OL //EUR       LL 03/07 - 07/10 //200KW
+//--------------------------------------------------------------------------------------------
+W PY71                  E61 M57D30 OL LL T2 ALLRAD OIL_LEVEL_1 CLASS_DSC                      //Touring 530xd TUE2//EUR      LL 03/07 - 07/10 /173KW
+//--------------------------------------------------------------------------------------------
+W PV51                  E61 N52B30K OL LL ALLRAD OIL_LEVEL_1                                  //Touring 530xi OL //EUR       LL 03/07 - 07/10 /200kW  N52K
+//--------------------------------------------------------------------------------------------
+W PT73                  E61 N54B30 LL US ALLRAD OIL_LEVEL_1                                   //Limousine 535xi  //US        LL 03/07 - 06/10 /225kW
+//--------------------------------------------------------------------------------------------
+W PY51                  E61 M57D30 UL T2 LL ALLRAD OIL_LEVEL_1                                //Touring 525xd UL T2 //EUR    LL 09/07 - 07/10 /150KW     alt 145KW
+//--------------------------------------------------------------------------------------------
+
+//********************************************************************************************
+//************************************* C O U P E ********************************************
+//********************************************************************************************
+//--------------------------------------------------------------------------------------------
+W EA71                  E63 M57D30 TOP OL T2 LL OIL_LEVEL_1                                   //Coupe 635d   T2     //EUR     LL 09/07 - 12/10 /210KW M57Y
+//--------------------------------------------------------------------------------------------
+W EA72                  E63 M57D30 TOP OL T2 RL OIL_LEVEL_1                                   //Coupe 635d   T2     //EUR     RL 09/07 - 12/10 /210KW M57Y
+//--------------------------------------------------------------------------------------------
+W EA11                  E63 N52B30K OL LL OIL_LEVEL_1                                         //Coupe 630I       //EUR     LL 09/07 - 12/10 //200KW  N52K
+//--------------------------------------------------------------------------------------------
+W EA12                  E63 N52B30K OL RL OIL_LEVEL_1                                         //Coupe 630I       //EUR     RL 09/07 - 12/10 //200KW  N52K
+//--------------------------------------------------------------------------------------------
+W EA31                  E63 N53B30 OL LL OIL_LEVEL_1                                          //Coupe 630I       //EUR     LL 09/07 - 12/10 //200kW
+//--------------------------------------------------------------------------------------------
+W EA32                  E63 N53B30 OL RL OIL_LEVEL_1                                          //Coupe 630I       //EUR     RL 09/07 - 12/10 //200kW
+//--------------------------------------------------------------------------------------------
+W EA51                  E63 N62B48 T1 LL OIL_LEVEL_1                                          //Coupe 650I TUE1  //EUR     LL 09/07 - 12/10 //270KW  (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W EA52                  E63 N62B48 T1 RL OIL_LEVEL_1                                          //Coupe 650I TUE1  //EUR     RL 09/07 - 12/10 //270KW  (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W EA53                  E63 N62B48 T1 LL US OIL_LEVEL_1                                       //Coupe 650I TUE1  //US      LL 09/07 - 12/10 //270KW
+//--------------------------------------------------------------------------------------------
+W EH11                  E63 N62B48 T1 LL OIL_LEVEL_1                                          //Coupe 650I TUE1  //EUR     LL 09/05 - 03/07 //270KW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W EH12                  E63 N62B48 T1 RL OIL_LEVEL_1 //INDIEN                                 //Coupe 650I TUE1  //EUR     RL 09/05 - 03/07 //270KW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W EH13                  E63 N62B48 T1 LL US OIL_LEVEL_1                                       //Coupe 650I TUE1  //US      LL 09/05 - 09/07 //270KW
+//--------------------------------------------------------------------------------------------
+W EH31                  E63 N52B30 OL LL OIL_LEVEL_1                                          //Coupe 630I       //EUR     LL 09/04 - 09/07 //190kW
+//--------------------------------------------------------------------------------------------
+W EH32                  E63 N52B30 OL RL OIL_LEVEL_1 //INDIEN                                 //Coupe 630I       //EUR     RL 10/04 - 09/07 //190kW
+//--------------------------------------------------------------------------------------------
+W EH71                  E63 N62B44 LL                                                         //Coupe 645CI      //EUR     LL 09/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EH72                  E63 N62B44 RL                                                         //Coupe 645CI      //EUR     RL 09/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EH73                  E63 N62B44 LL US                                                      //Coupe 645CI      //US      LL 09/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EH91                  E63 M6 S85B50 LL                                                      //Coupe M6         //ECE     LL 03/05 - 01/11 //373KW
+//--------------------------------------------------------------------------------------------
+W EH92                  E63 M6 S85B50 RL                                                      //Coupe M6         //ECE     RL 09/05 - 09/07 //373KW
+//--------------------------------------------------------------------------------------------
+W EH93                  E63 M6 S85B50 LL US                                                   //Coupe M6         //US      LL 03/06 - 01/11 //373KW
+//--------------------------------------------------------------------------------------------
+//********************************************************************************************
+//************************************ C A B R I O *******************************************
+//********************************************************************************************
+//--------------------------------------------------------------------------------------------
+W EB11                  E64 N52B30K OL LL OIL_LEVEL_1                                         //Cabrio 630I      //EUR LL 09/07 - 01/11 //200kW  N52K
+//--------------------------------------------------------------------------------------------
+W EB12                  E64 N52B30K OL RL OIL_LEVEL_1                                         //Cabrio 630I      //EUR RL 09/07 - 01/11 //200kW  N52K
+//--------------------------------------------------------------------------------------------
+W EB31                  E64 N53B30 OL LL OIL_LEVEL_1                                          //Cabrio 630I      //EUR LL 09/07 - 01/11 //200kW
+//--------------------------------------------------------------------------------------------
+W EB32                  E64 N53B30 OL RL OIL_LEVEL_1                                          //Cabrio 630I      //EUR RL 09/07 - 01/11 //200kW
+//--------------------------------------------------------------------------------------------
+W EB51                  E64 N62B48 T1 LL OIL_LEVEL_1                                          //Cabrio 650I TUE1//EUR LL 09/07 - 01/11 //270KW (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W EB52                  E64 N62B48 T1 RL OIL_LEVEL_1                                          //Cabrio 650I TUE1//EUR RL 09/07 - 01/11 //270KW (ALPINA BASIS)
+//--------------------------------------------------------------------------------------------
+W EB53                  E64 N62B48 T1 LL US OIL_LEVEL_1                                       //Cabrio 650I TUE1//US  LL 09/07 - 01/11 //270KW
+//--------------------------------------------------------------------------------------------
+W EB71                  E64 M57D30 TOP OL T2 LL OIL_LEVEL_1                                   //Cabrio 635D M57y LL 09/07 - 01/11 //210KW
+//--------------------------------------------------------------------------------------------
+W EB72                  E64 M57D30 TOP OL T2 RL OIL_LEVEL_1                                   //Cabrio 635D M57y RL 09/07 - 01/11 //210KW
+//--------------------------------------------------------------------------------------------
+W EK11                  E64 N62B48 T1 LL OIL_LEVEL_1                                          //Cabrio 650I TUE1//EUR LL 09/05 - 09/07 //270KW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W EK12                  E64 N62B48 T1 RL OIL_LEVEL_1                                          //Cabrio 650I TUE1//EUR RL 09/05 - 09/07 //270KW (ALPINA BASIS) PA623/? 14.09.06
+//--------------------------------------------------------------------------------------------
+W EK13                  E64 N62B48 T1 LL US OIL_LEVEL_1                                       //Cabrio 650I TUE1//US  LL 09/05 - 09/07 //270KW
+//--------------------------------------------------------------------------------------------
+W EK31                  E64 N52B30 OL LL OIL_LEVEL_1                                          //Cabrio 630I      //EUR LL 09/04 - 09/07 //190kW
+//--------------------------------------------------------------------------------------------
+W EK32                  E64 N52B30 OL RL OIL_LEVEL_1                                          //Cabrio 630I      //EUR RL 10/04 - 09/07 //190kW
+//--------------------------------------------------------------------------------------------
+W EK71                  E64 N62B44 LL                                                         //Cabrio 645CI     //EUR LL 12/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EK72                  E64 N62B44 RL                                                         //Cabrio 645CI     //EUR RL 12/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EK73                  E64 N62B44 LL US                                                      //Cabrio 645CI     //US  LL 12/03 - 09/05 //245KW
+//--------------------------------------------------------------------------------------------
+W EK91                  E64 M6 S85B50 LL                                                      //Cabrio M6        //ECE LL 09/06 - 01/11 //373KW
+//--------------------------------------------------------------------------------------------
+W EK92                  E64 M6 S85B50 RL                                                      //Cabrio M6        //ECE RL 09/06 - 01/11 //373KW
+//--------------------------------------------------------------------------------------------
+W EK93                  E64 M6 S85B50 LL US                                                   //Cabrio M6        //US  LL 09/06 - 01/11 //373KW

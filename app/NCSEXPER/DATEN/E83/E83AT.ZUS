@@ -1,0 +1,80 @@
+// Auftragsdatei: E83AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 922 169.5
+DATUM 05.10.2009
+//
+//                     Kurzz.  Datum        Name
+// Bearbeiter:         EE-82   21.09.2001  M. Wolf
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-82
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             E83AT.ZUS
+//
+Z #0308                                           //Maerz08 Massnahmen 
+Z #0908                                           //September08 Massnahmen 
+Z #0309                                           //Maerz09 Massnahmen 
+Z #0909                                           //Maerz09 Massnahmen 
+A #1001                                           //IEX1 Stand 10.2001 
+A #0102                                           //IEX2-Stand 01.2002 
+A #0702                                           //PPP-Stand ab 07/02 
+A #1202                                           //PTO-Stand ab 12/02 
+A #0403                                           //VS-Stand ab 07/02 
+A #0703                                           //Anlaufproduktion 
+A #0803                                           //Anlaufproduktion 
+A #0304                                           //Maerz 04 Massnahmen 
+A #0904                                           //PU04 Massnahmen 
+A #0305                                           //Maerz 05 Massnahmen 
+A #0905                                           //PU05 Massnahmen 
+A #0306                                           //Maerz 06 Massnahmen 
+A #0906                                           //PU06 Massnahmen / Facelift 
+A #1206                                           //Dezember06 Qualitäts Massnahmen 
+A #0307                                           //Maerz07 Massnahmen 
+A #0907                                           //PU07 Massnahmen 
+A #0308                                           //Maerz08 Massnahmen 
+A #0908                                           //September08 Massnahmen 
+A #0309                                           //Maerz09 Massnahmen 
+A #0909                                           //Maerz09 Massnahmen 
+E EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H BFDY                                            //BRAKEFORCE                                   //Alle Fzg. mit Brakeforcedisplay. 
+H ECLI                                            //ECE-Licht-Codierung für US-Fahrzeuge 
+H LS33                                            //LSZ_CI_33                                    //mit LSZ.C33, wg. Ansteuerung ALC 
+H OHUP                                            //UpfrontSensoren für ECE nicht_aktiv, wenn keine verbaut sind 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST 
+K TEL3                                            //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge 
+K TEPR                                            //Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US 
+K K633                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US 
+K 633L                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box 
+K OI01                                            //Deaktivierung Fahrerairbag 
+K OI02                                            //Deaktivierung Beifahrerairbag 
+K OI03                                            //Deaktivierung Sidebag vorn links 
+K OI04                                            //Deaktivierung Sidebag vorn rechts 
+K OI05                                            //Deaktivierung AHPS links 
+K OI06                                            //Deaktivierung AHPS rechts 
+K OI07                                            //Deaktivierung Sidebag Fond links 
+K OI08                                            //Deaktivierung Sidebag Fond rechts 
+K OI11                                            //Deaktivierung FAHRER SEATBELTREMINDER 
+K OI12                                            //Deaktivierung BEIFAHRER SEATBELTREMINDER 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K AERO                                            //andere PDC-Werte f. Aerodynamikpaket nur E83 Fzg. ab PU06 (lt. Setfan Koch hat dieses Paket keine SA) 
+K BERG                                            //Umruestung f. M54B25/B30; bergauffahren im Tempomat; nur relevant f. die Steuerung der Getriebe SW 

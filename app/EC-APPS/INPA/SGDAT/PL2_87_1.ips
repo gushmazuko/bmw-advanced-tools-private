@@ -1,0 +1,1419 @@
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**                                              BMW AG - München, FIZ                                               **
+//**                                    EE-13: Entwicklungsbegleitende Absicherung                                    **
+//**                                     Sonderscript für PL2_87_1 Identifikation                                     **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**  Dieses Script wurde am 06.03.2003 um 16:04 automatisch aus der Tabelle                                          **
+//**                            InpaTool_V101_PL2.xls (Makro-Version: 1.0.1), Tabelle: PL2                            **
+//**  generiert und basiert auf dem Sonderscript für E65-Identifikation Version 0.2.3 von Hermann Achatz, EE-13.      **
+//**  Unterstützt werden die Befehle IDENT_LESEN, FS_LESEN, FS_LÖSCHEN, IS_LESEN und IS_LÖSCHEN, inklusive Details.   **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**  Bei Fragen/Problemen/Änderungswünschen/Verbesserungsvorschlägen wenden Sie sich bitte an:                       **
+//**            Ludwig Remy, EE-13, Telefon 49914, eMail: Ludwig.RA.Remy@partner.bmw.de                               **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**  Änderungshistorie:                                                                                              **
+//**                                                                                                                  **
+//**  06.03.03 - V1.0.0 - InpaTool   : automatische Erstellung                                                        **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+
+// Compiler-Anweisungen   ----------------------------------------------------------------------------------------------
+#pragma winedit
+#include "..\sgdat\inpa.h"
+#include "..\sgdat\bmwlib.h"
+
+// Definition globaler Konstanten: feste Einstellungen   ---------------------------------------------------------------
+string STR_Titel     = "Identifikation PL2_87_1";    // Titel dieses INPA-Scripts
+string STR_Version   = "1.0.0";                    // Version dieses INPA-Scripts
+string STR_Origin    = "BMW AG, EE-13, L. Remy";   // Verantwortung für dieses INPA-Script
+string STR_SGBD      = "";
+int    INT_AnzSG     = 48;                         // Anzahl der abzufragenden Steuergeräte
+string STR_IniFile   = "C:\INPA\SGDAT\PL2_87_1.ini"; // Zugehöriges INI-File dieses INPA-Scripts
+string STR_BackSlash = "";                         // Konstante für Sonderzeichen 'Backslash'
+string STR_CfgFileVers  = "1";                     // Layout-Version des generierten CFG-Files (wichtig für Vergleichstool)
+
+// Weitere globale Konstanten: Parameter für den Programmablauf (Ersatzwerte, falls kein INI-File vorhanden)   ---------
+string STR_Pfad      = "C:";                       // Defaultwert für Verzeichnispfad
+bool   BOL_AutoFile  = TRUE;                       // Dateinamen aus Fahrgestellnummer automatisch erzeugen
+string STR_STD_OUT   = "OBD";                      // Defaultwert für Kommunikations-Schnittstelle
+       // Die Einstellung muß auf jeden Fall mit der Angabe in 'EDIABAS.INI' übereinstimmen (OBD für ADS wählen)
+       // Wert 'OBD' = Kommunikation über OBD-Dose (funktionierendes Gateway erforderlich)
+       // Wert 'CAN' = Kommunikation über CAN-Bus (derzeit noch nicht möglich)
+string STR_STD_ID_File  = "Unknown";               // Defaultname der Protokolldatei für Ident-Daten
+string STR_STD_FS_File  = "FS_DAT";                // Defaultname der Protokolldatei für Fehlerspeicher aller SG
+string STR_STD_IS_File  = "IS_DAT";                // Defaultname der Protokolldatei für Infospeicher aller SG
+string STR_InfoPre   = "C:\INPA\SGBD\FS_PreInfo.tmp";
+       // Defaultname der Info-Datei, die vor den Detailinformationen in das Fehler-/Infoprotokoll eingefügt wird;
+       // Übergabe eines Leerstrings (statt 'C:\INPA\SGBD\FS_PreInfo.tmp'), wenn kein File eingefügt werden soll;
+string STR_InfoPost  = "C:\INPA\SGBD\FS_PostInfo.tmp";
+       // Defaultname der Info-Datei, die nach den Detailinformationen in das Fehler-/Infoprotokoll eingefügt wird;
+       // Übergabe eines Leerstrings (statt 'C:\INPA\SGBD\FS_PostInfo.tmp'), wenn kein File eingefügt werden soll;
+string STR_IDFileMode = "w";                       // Parameter zur Steuerung der IDENT-Daten-Speicherung
+       // Wert 'a' = Anhängen (append) der neuen Daten an ein bestehendes Logfile
+       // Wert 'w' = bei jedem Aufruf ein neues Logfile anlegen (Defaultwert)
+string STR_FsFileMode = "w";                       // Parameter zur Steuerung der Fehlerprotokollierung
+       // Wert 'a' = Anhängen (append) aller neuen Daten an ein bestehendes Fehlerprotokoll
+       // Wert 'w' = neues Fehlerprotokoll mit allen Daten anlegen (Defaultwert)
+       // Wert 's' = für jedes Steuergerät ein eigenes (neues) Fehlerprotokoll erstellen (Endung *.FS)
+string STR_IsFileMode = "a";                       // Parameter zur Steuerung der Fehlerprotokollierung
+       // Falls BOL_AutoFile = TRUE (Defaultwert) wird das Infoprotokoll unter gleichem Dateinamen wie das Fehlerprotokoll abgespeichert.
+       // Wert 'a' = Anhängen (append) aller neuen Daten an ein bestehendes (Fehler-/)Infoprotokoll (Defaultwert)
+       // Wert 'w' = neues Infoprotokoll mit allen Daten anlegen
+       // Wert 's' = für jedes Steuergerät ein eigenes (neues) Infoprotokoll erstellen (Endung *.IS)
+int    INT_FsMode    = 0xFF;                       // Parameter (bitcodiert) zur selektiven Anzeige der Fehlerspeicher-Details
+       // Maske 0x01 = Fehlerorte anzeigen
+       // Maske 0x02 = Umweltbedingungen anzeigen (nur bei FS_LESEN_DETAIL)
+       // Maske 0x04 = Fehlerarten anzeigen
+       // Maske 0x08 = Umweltwerte anzeigen (nur in Verbindung mit 0x02, nur bei FS_LESEN_DETAIL)
+       // Maske 0x10 = Umwelteinheiten anzeigen (nur in Verbindung mit 0x02 und 0x08, nur bei FS_LESEN_DETAIL)
+       // Maske 0x20 = Fehlerhäufigkeiten anzeigen
+       // Maske 0x40 = Fehlercodes anzeigen (Hex-Werte)
+       // Maske 0x80 = Hinweistexte anzeigen
+       // Maske 0xFF = alles anzeigen (Defaultwert)
+int    INT_IsMode    = 0xFF;                       // Parameter (bitcodiert) zur selektiven Anzeige der Infospeicher-Details
+       // Maske 0x01 = Fehlerorte anzeigen
+       // Maske 0x02 = Umweltbedingungen anzeigen (nur bei IS_LESEN_DETAIL)
+       // Maske 0x04 = Fehlerarten anzeigen
+       // Maske 0x08 = Umweltwerte/-einheiten anzeigen (nur in Verbindung mit 0x02, nur bei IS_LESEN_DETAIL)
+       // Maske 0x10 = Umwelteinheiten anzeigen (nur in Verbindung mit 0x02 und 0x08, nur bei IS_LESEN_DETAIL)
+       // Maske 0x20 = Fehlerhäufigkeiten anzeigen
+       // Maske 0x40 = Fehlercodes anzeigen (Hex-Werte)
+       // Maske 0x80 = Hinweistexte anzeigen
+       // Maske 0xFF = alles anzeigen (Defaultwert)
+bool   BOL_ErrorInfo_ID = TRUE;                    // Flag für zusätzliche Infos bei Fehlern während IDENT ('SG meldet sich nicht', etc)
+bool   BOL_ErrorInfo_FS = TRUE;                    // Flag für zusätzliche Infos bei Fehlern während FS_LESEN
+bool   BOL_ErrorInfo_IS = TRUE;                    // Flag für zusätzliche Infos bei Fehlern während IS_LESEN
+
+// Definition globaler Variablen   -------------------------------------------------------------------------------------
+string STR_ID_File   = "";                         // Protokolldatei für Ident-Daten (global Var)
+string STR_FS_File   = "";                         // Protokolldatei für Fehlerspeicher aller SG (global Var)
+string STR_IS_File   = "";                         // Protokolldatei für Infospeicher aller SG (global Var)
+int    INT_FsIsMode  = 0x1FF;                      // bitcodierter Übergabeparameter für FS_Lesen und IS_Lesen
+
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**                                 F U N K T I O N S   -   D E F I N I T I O N E N                                  **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+
+// Initialisierung (INI-File auslesen / Parametrisierung)  -------------------------------------------------------------
+FKT_READ_INI_FILE()   {
+
+  string STR_a, STR_b;
+  int    INT_MaxLength, INT_Length, INT_ErrCode, INT_x, INT_y;
+
+  midstr(STR_ID_File, STR_STD_ID_File, 0, 8);
+  midstr(STR_FS_File, STR_STD_FS_File, 0, 8);
+  midstr(STR_IS_File, STR_STD_IS_File, 0, 8);
+
+  fileexist(STR_IniFile, INT_ErrCode);                     // Check, ob INI-File vorhanden
+  if (INT_ErrCode == 0)   {                                // falls vorhanden
+    INT_MaxLength = 254;
+    GetPrivateProfileString("DEFAULT", "INI_ACTIVE", "true", STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+    if ((STR_a == "true") || (STR_a == "TRUE"))   {
+      GetPrivateProfileString("DEFAULT", "PATH", STR_Pfad, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0)   {
+          instr(INT_x, INT_Length-1, STR_a, STR_BackSlash);
+          if (INT_x < 0)
+            STR_Pfad = STR_a + STR_BackSlash;
+          else
+            STR_Pfad = STR_a;   }
+      STR_b = "FALSE";
+        if (BOL_AutoFile == TRUE) STR_b = "TRUE";
+        GetPrivateProfileString("DEFAULT", "AUTO_FILENAME", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        BOL_AutoFile = TRUE;
+        if ((STR_a == "false") || (STR_a == "FALSE")) BOL_AutoFile = FALSE;
+      GetPrivateProfileString("DEFAULT", "STANDARD_OUT", STR_STD_OUT, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        STR_STD_OUT = STR_a;
+      GetPrivateProfileString("DEFAULT", "PRE_INFO_FILE", STR_InfoPre, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0) STR_InfoPre = STR_a;
+      GetPrivateProfileString("DEFAULT", "POST_INFO_FILE", STR_InfoPost, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0) STR_InfoPost = STR_a;
+      STR_b = "FALSE";
+        if (BOL_ErrorInfo_ID == TRUE) STR_b = "TRUE";
+        GetPrivateProfileString("DEFAULT", "ID_ERROR_INFOS", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        BOL_ErrorInfo_ID = TRUE;
+        if ((STR_a == "false") || (STR_a == "FALSE")) BOL_ErrorInfo_ID = FALSE;
+      GetPrivateProfileString("DEFAULT", "ID_FILE_MODE", STR_IDFileMode, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        trimstr(STR_a);
+        strlen(INT_x, STR_a);
+        if (INT_x > 0)   {
+          midstr(STR_b, STR_a, 0, 1);
+          instr(INT_y, 0, "aw", STR_b);
+          if (INT_y >= 0) STR_IDFileMode = STR_b;   }
+      GetPrivateProfileString("DEFAULT", "ID_CONFIG_FILE", STR_ID_File, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0) midstr(STR_ID_File, STR_a, 0, 8);
+      inttostring (INT_FsMode, STR_b);
+        GetPrivateProfileString("DEFAULT", "FS_READ_MODE", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        stringtoint (STR_a, INT_FsMode);
+      STR_b = "FALSE";
+        if (BOL_ErrorInfo_FS == TRUE) STR_b = "TRUE";
+        GetPrivateProfileString("DEFAULT", "FS_ERROR_INFOS", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        BOL_ErrorInfo_FS = TRUE;
+        if ((STR_a == "false") || (STR_a == "FALSE")) BOL_ErrorInfo_FS = TRUE;
+      GetPrivateProfileString("DEFAULT", "FS_FILE_MODE", STR_FsFileMode, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        trimstr(STR_a);
+        strlen(INT_x, STR_a);
+        if (INT_x > 0)   {
+          midstr(STR_b, STR_a, 0, 1);
+          instr(INT_y, 0, "aws", STR_b);
+          if (INT_y >= 0) STR_FsFileMode = STR_b;   }
+      GetPrivateProfileString("DEFAULT", "FS_RESULT_FILE", STR_FS_File, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0) midstr(STR_FS_File, STR_a, 0, 8);
+      inttostring (INT_IsMode, STR_b);
+        GetPrivateProfileString("DEFAULT", "IS_READ_MODE", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        stringtoint (STR_a, INT_IsMode);
+      STR_b = "FALSE";
+        if (BOL_ErrorInfo_IS == TRUE) STR_b = "TRUE";
+        GetPrivateProfileString("DEFAULT", "IS_ERROR_INFOS", STR_b, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        BOL_ErrorInfo_IS = TRUE;
+        if ((STR_a == "false") || (STR_a == "FALSE")) BOL_ErrorInfo_IS = TRUE;
+      GetPrivateProfileString("DEFAULT", "IS_FILE_MODE", STR_IsFileMode, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        trimstr(STR_a);
+        strlen(INT_x, STR_a);
+        if (INT_x > 0)   {
+          midstr(STR_b, STR_a, 0, 1);
+          instr(INT_y, 0, "aws", STR_b);
+          if (INT_y >= 0) STR_IsFileMode = STR_b;   }
+      GetPrivateProfileString("DEFAULT", "IS_RESULT_FILE", STR_IS_File, STR_a, INT_MaxLength, STR_IniFile, INT_Length);
+        if (INT_Length > 0) midstr(STR_IS_File, STR_a, 0, 8);   }   }   }
+
+// INI-File ergänzen bzw. erstellen (Parameter abspeichern)  -----------------------------------------------------------
+FKT_SAVE_SETTINGS()   {
+
+  bool   BOL_RC;
+  string STR_x, STR_y;
+  int    INT_Length;
+
+  STR_x = "Informationen zu den einzelnen Parametern finden Sie in der InpaTool_Anleitung.PDF";
+  WritePrivateProfileString("DEFAULT", "INFO", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "INI_ACTIVE", "FALSE", STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "INI_ACTIVE", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "PATH", STR_Pfad, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "PATH", STR_x, STR_IniFile, BOL_RC);
+  STR_y = "FALSE";
+  if (BOL_AutoFile == TRUE) STR_y = "TRUE";
+  GetPrivateProfileString("DEFAULT", "AUTO_FILENAME", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "AUTO_FILENAME", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "STANDARD_OUT", STR_STD_OUT, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "STANDARD_OUT", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "PRE_INFO_FILE", STR_InfoPre, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "PRE_INFO_FILE", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "POST_INFO_FILE", STR_InfoPost, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "POST_INFO_FILE", STR_x, STR_IniFile, BOL_RC);
+  STR_y = "FALSE";
+  if (BOL_ErrorInfo_ID == TRUE) STR_y = "TRUE";
+  GetPrivateProfileString("DEFAULT", "ID_ERROR_INFOS", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "ID_ERROR_INFOS", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "ID_FILE_MODE", STR_IDFileMode, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "ID_FILE_MODE", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "ID_CONFIG_FILE", STR_STD_ID_File, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "ID_CONFIG_FILE", STR_x, STR_IniFile, BOL_RC);
+  inttohexstring(INT_FsMode, 2, STR_y);
+  STR_y = "0x" + STR_y;
+  GetPrivateProfileString("DEFAULT", "FS_READ_MODE", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "FS_READ_MODE", STR_x, STR_IniFile, BOL_RC);
+  STR_y = "FALSE";
+  if (BOL_ErrorInfo_FS == TRUE) STR_y = "TRUE";
+  GetPrivateProfileString("DEFAULT", "FS_ERROR_INFOS", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "FS_ERROR_INFOS", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "FS_FILE_MODE", STR_FsFileMode, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "FS_FILE_MODE", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "FS_RESULT_FILE", STR_STD_FS_File, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "FS_RESULT_FILE", STR_x, STR_IniFile, BOL_RC);
+  inttohexstring(INT_IsMode, 2, STR_y);
+  STR_y = "0x" + STR_y;
+  GetPrivateProfileString("DEFAULT", "IS_READ_MODE", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "IS_READ_MODE", STR_x, STR_IniFile, BOL_RC);
+  STR_y = "FALSE";
+  if (BOL_ErrorInfo_IS == TRUE) STR_y = "TRUE";
+  GetPrivateProfileString("DEFAULT", "IS_ERROR_INFOS", STR_y, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "IS_ERROR_INFOS", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "IS_FILE_MODE", STR_IsFileMode, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "IS_FILE_MODE", STR_x, STR_IniFile, BOL_RC);
+  GetPrivateProfileString("DEFAULT", "IS_RESULT_FILE", STR_STD_IS_File, STR_x, 255, STR_IniFile, INT_Length);
+  WritePrivateProfileString("DEFAULT", "IS_RESULT_FILE", STR_x, STR_IniFile, BOL_RC);   }
+
+// Textverbinder für Ausgabestring   -----------------------------------------------------------------------------------
+SCHREIBE(inout: string STR_Puffer, in: string STR_Erg)   {
+
+  string STR_x;
+  bool   BOL_RC;
+
+  INP1apiResultText(BOL_RC, STR_x, STR_Erg, 1, "");
+  if (BOL_RC == TRUE)
+    STR_Puffer = STR_Puffer +HT+ STR_x;
+  else
+    STR_Puffer = STR_Puffer +HT+ "<k.A.>";   }
+
+// Fehlerort auslesen (für FS/IS_LESEN)   ------------------------------------------------------------------------------
+FKT_FehlerOrt(in: int INT_Satz)   {
+
+  bool   BOL_RC;
+  int    INT_OrtNr;
+  string STR_a, STR_b;
+
+  filewrite("Ort:");
+  INP1apiResultInt(BOL_RC, INT_OrtNr, "F_ORT_NR", INT_Satz);
+  if (BOL_RC == TRUE)
+    inttohexstring(INT_OrtNr, 4, STR_a);
+  else
+    STR_a = ">>> FEHLT <<<";
+  INP1apiResultText(BOL_RC, STR_b, "F_ORT_TEXT", INT_Satz, "");
+  if (BOL_RC == TRUE)
+    filewrite("  " + STR_a + " " + STR_b);
+  else
+    filewrite("  " + STR_a + " >>> FEHLT <<<");   }
+
+// Häufigkeitszähler auslesen (für FS/IS_LESEN_DETAIL)   ---------------------------------------------------------------
+FKT_FehlerHFK(in: int INT_Satz)   {
+
+  bool   BOL_RC;
+  string STR_a;
+
+  filewrite("");
+  filewrite("Häufigkeit:");
+  INP1apiResultText(BOL_RC, STR_a, "F_HFK", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    if (STR_a == "-1")
+      filewrite("  Fehlerhäufigkeit: >>> Zähler nicht implementiert <<<");
+    else
+      filewrite("  Fehlerhäufigkeit: " + STR_a);   }
+  else
+    filewrite("  Fehler beim Auslesen des Häufigkeitszählers");
+  INP1apiResultText(BOL_RC, STR_a, "F_LZ", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    if (STR_a == "-1")
+      filewrite("  Logistikzähler:   >>> Zähler nicht implementiert <<<");
+    else
+      filewrite("  Logistikzähler:   " + STR_a);   }
+  else
+    filewrite("  Fehler beim Auslesen des Logistikzählers");   }
+
+// Umweltbedingungen auslesen (für FS/IS_LESEN_DETAIL)   ---------------------------------------------------------------
+FKT_FehlerUWB(in: int INT_Satz)   {
+
+  string STR_a, STR_NrUWB, STR_UwEinh, STR_UwText, STR_UwWert;
+  bool   BOL_RC, BOL_RC2, BOL_RC3, BOL_RC4;
+  int    INT_AnzUwBed, INT_y;
+
+  INP1apiResultText(BOL_RC, STR_a, "F_UW_KM", INT_Satz, "6L");
+  if (BOL_RC == TRUE)   {
+    if (STR_a == "524280")
+      STR_a = "    Kilometerstand: >>> Wert unplausibel <<<";
+    else
+      STR_a = "    Kilometerstand: " + STR_a + " km";   }
+  else
+    STR_a = "    Fehler: Kilometerstand im Ergebnissatz nicht enthalten!";
+  filewrite(STR_a);
+
+  INP1apiResultInt(BOL_RC, INT_AnzUwBed, "F_UW_ANZ", INT_Satz);
+  if (BOL_RC == TRUE)   {
+    if (INT_AnzUwBed > 0)   {
+      INT_y = 0;
+      while (INT_y < INT_AnzUwBed)   {
+        INT_y = INT_y + 1;
+        inttostring(INT_y, STR_NrUWB);
+        INP1apiResultText(BOL_RC2, STR_UwEinh, "F_UW" + STR_NrUWB + "_EINH", INT_Satz, "");
+        AnsiUpper(STR_UwEinh, STR_UwEinh);
+        STR_a = STR_UwEinh;
+        if (BOL_RC2 == FALSE) STR_UwEinh = ">>> fehlt <<<";
+        if ((STR_a == "0-N") || (STR_a == "HEX"))   {
+          INP1apiResultText(BOL_RC3, STR_UwText, "F_UW" + STR_NrUWB + "_TEXT", INT_Satz, "-20T");
+          if ((INT_FsIsMode & 0x08) != 0)   {
+            INP1apiResultText(BOL_RC4, STR_UwWert, "F_UW" + STR_NrUWB + "_WERT", INT_Satz, "28T");
+            if (BOL_RC4 == FALSE) STR_UwWert = ">>> fehlt <<<";   }
+          else   {
+            STR_UwWert = "";
+            STR_UwEinh = "";   }   }
+        else   {
+          INP1apiResultText(BOL_RC3, STR_UwText, "F_UW" + STR_NrUWB + "_TEXT", INT_Satz, "-40T");
+          if ((INT_FsIsMode & 0x08) != 0)   {
+            INP1apiResultText(BOL_RC4, STR_UwWert, "F_UW" + STR_NrUWB + "_WERT", INT_Satz, "8.2R");
+            if (BOL_RC4 == FALSE) STR_UwWert = ">>> fehlt <<<";   }
+          else   {
+            STR_UwWert = "";
+            STR_UwEinh = "";   }   }
+        if ((BOL_RC3 == FALSE) || (STR_UwText == "--")) STR_UwText = ">>> Bezeichnung fehlt <<<";
+        if ((INT_FsIsMode & 0x10) == 0) STR_UwEinh = "";
+        filewrite("    UWB " + STR_NrUWB + ": " + STR_UwText + " " + STR_UwWert + " " + STR_UwEinh);   }   }
+    else
+      filewrite("    Keine Umweltbedingungen im Ergebnissatz enthalten.");   }
+  else
+    filewrite("    Fehler: Anzahl der Umweltbedingungen im Ergebnissatz nicht enthalten!");   }
+
+// Fehlerarten auslesen (für FS/IS_LESEN)   ----------------------------------------------------------------------------
+FKT_FehlerArt(in: int INT_Satz)   {
+
+  bool   BOL_RC, BOL_RC2, BOL_NoInfo;
+  string STR_a, STR_Text;
+  int    INT_AnzZusFehler, INT_x;
+
+  BOL_NoInfo = TRUE;
+  filewrite("");
+  filewrite("Art:");
+  INP1apiResultText(BOL_RC, STR_a, "F_SYMPTOM_TEXT", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    filewrite("  " + STR_a);
+    BOL_NoInfo = FALSE;   }
+  INP1apiResultText(BOL_RC, STR_a, "F_READY_TEXT", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    filewrite("  " + STR_a);
+    BOL_NoInfo = FALSE;   }
+  INP1apiResultText(BOL_RC, STR_a, "F_VORHANDEN_TEXT", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    filewrite("  " + STR_a);
+    BOL_NoInfo = FALSE;   }
+  INP1apiResultText(BOL_RC, STR_a, "F_WARNUNG_TEXT", INT_Satz, "");
+  if (BOL_RC == TRUE)   {
+    filewrite("  " + STR_a);
+    BOL_NoInfo = FALSE;   }
+  INP1apiResultInt(BOL_RC, INT_AnzZusFehler, "F_ART_ANZ", INT_Satz);
+  if ((BOL_RC == TRUE) && (INT_AnzZusFehler > 0))   {
+    INT_x = 0;
+    while (INT_x < INT_AnzZusFehler)   {
+      INT_x = INT_x + 1;
+      inttostring(INT_x, STR_a);
+      INP1apiResultText(BOL_RC2, STR_Text, "F_ART" + STR_a + "_TEXT", INT_Satz, "");
+      if (BOL_RC2 == TRUE)   {
+        if (STR_Text == "--")   {
+          filewrite("  Zusätzlicher Fehler " + STR_a + ": >>> Angabe fehlt <<<");
+          BOL_NoInfo = FALSE;   }
+        else   {
+          filewrite("  Zusätzlicher Fehler " + STR_a + ": " + STR_Text);
+          BOL_NoInfo = FALSE;   }  }
+      else   {
+        filewrite ("  Zusätzlicher Fehler " + STR_a + ": >>> Datensatz unvollständig <<<");
+        BOL_NoInfo = FALSE;   }   }   }
+  if (BOL_NoInfo == TRUE) filewrite("  Fehler: Informationen zur Fehlerart im Ergebnissatz nicht enthalten!");   }
+
+// Fehlercode auslesen (für FS/IS_LESEN)   -----------------------------------------------------------------------------
+FKT_FehlerHexCode(in: int INT_Satz)   {
+
+  string STR_NewLine, STR_New, STR_Old, STR_a;
+  int    INT_x, INT_y, INT_Len;
+  bool   BOL_RC;
+
+  chr(10, STR_NewLine);
+  INT_x = 0;
+  INT_y = 0;
+  filewrite("");
+  filewrite("Code:");
+  INP1apiResultBinary(BOL_RC, "F_HEX_CODE", INT_Satz);
+  if (BOL_RC == TRUE)   {
+    // Zeichenkette auslesen und formatieren (Leerzeichen einfügen)
+    GetBinaryDataString(STR_Old, INT_Len);
+    STR_New = "  ";
+    while (INT_x < INT_Len)   {
+      midstr(STR_a, STR_Old, INT_x, 2);
+      STR_New = STR_New + STR_a;
+      INT_x = INT_x + 2;
+      INT_y = INT_y + 1;
+      if (INT_x < INT_Len)   {
+        if (INT_y < 16)
+          STR_New = STR_New + " ";
+        else   {
+          INT_y = 0;
+          STR_New = STR_New + STR_NewLine + "  ";   }   }   }   }
+  else STR_New = "  Fehler: Fehlercode im Ergebnissatz nicht enthalten!";
+  filewrite(STR_New);   }
+
+// Fehler- bzw. Infospeicher auslesen (Ersatz für INPAapiFsLesen_neu)   ------------------------------------------------
+FKT_READ(in: string STR_SGBD, in: string STR_FileName, in: bool BOL_FS)   {
+
+  bool   BOL_RC, BOL_RC2;
+  int    INT_Version, INT_AnzSaetze, INT_x, INT_y, INT_AnzUwSaetze;
+  string STR_JobName, STR_a, STR_b, STR_Variante, STR_JobStatus, STR_ErrCode, STR_SaveErrOrte;
+
+  // Fehler- bzw. Infospeicher lesen
+  if (BOL_FS == TRUE)   {
+    STR_JobName = "FS_LESEN";
+    STR_a = "               F E H L E R S P E I C H E R   L E S E N";
+    STR_b = "               ---------------------------------------";   }
+  else   {
+    STR_JobName = "IS_LESEN";
+    STR_a = "                 I N F O S P E I C H E R   L E S E N";
+    STR_b = "                 -----------------------------------";   }
+  INPAapiJob(STR_SGBD, STR_JobName, "", "");
+
+  // Prüfung auf KWP-2000
+  INP1apiResultInt(BOL_RC, INT_Version, "F_VERSION", 1);
+  if ((BOL_RC == TRUE) && (INT_Version == 2))   {
+
+    // Allgemeine Informationen (Header pro SG)
+    INP1apiResultSets(BOL_RC2, INT_AnzSaetze);
+    if (BOL_RC2 == TRUE)
+      INPAapiResultText(STR_JobStatus, "JOB_STATUS", INT_AnzSaetze, "");
+    else
+      STR_JobStatus = ">>> FEHLER <<<";
+    INPAapiResultText(STR_Variante, "VARIANTE", 0, "");
+    fileopen (STR_FileName, "a");
+    filewrite("");
+    filewrite(STR_a);
+    filewrite(STR_b);
+    filewrite("");
+    getdate(STR_a);
+    gettime(STR_b);
+    filewrite("SGBD:      " + STR_SGBD);
+    filewrite("Variante:  " + STR_Variante);
+    filewrite("JobStatus: " + STR_JobStatus);
+    filewrite("Datum:     " + STR_a + " - " + STR_b);
+    if ((STR_JobStatus == "OKAY") && (INT_AnzSaetze > 0))   {
+      if (INT_AnzSaetze == 1)
+        filewrite("Ergebnis:  >>>>> Kein Fehler vorhanden <<<<<");
+      else   {
+        inttostring(INT_AnzSaetze-1, STR_a);
+        filewrite("Ergebnis:  " + STR_a + " Fehler im Fehlerspeicher!");
+
+        // Informationen je Fehler ohne Details ausgeben
+        if ((INT_FsIsMode & 0x100) == 0)   {
+          INT_x = 1;
+          while (INT_x < INT_AnzSaetze)   {
+            if ((INT_FsIsMode & 0x45) != 0)   {
+              filewrite("----------------------------------------------------------------------");
+              if ((INT_FsIsMode & 0x01) != 0) FKT_FehlerOrt(INT_x);
+              if ((INT_FsIsMode & 0x04) != 0) FKT_FehlerArt(INT_x);
+              if ((INT_FsIsMode & 0x40) != 0) FKT_FehlerHexCode(INT_x);   }
+            INT_x = INT_x + 1;   }   }
+
+        // Informationen je Fehler inklusive Details ausgeben
+        else   {
+          // Fehlerorte für Detail-Lesen sichern
+          INT_x = 1;
+          STR_SaveErrOrte = "";
+          while (INT_x < INT_AnzSaetze)   {
+            INP1apiResultInt(BOL_RC, INT_y, "F_ORT_NR", INT_x);
+            inttohexstring(INT_y, 4, STR_a);
+            STR_SaveErrOrte = STR_SaveErrOrte + "0x" + STR_a;
+            INT_x = INT_x + 1;   }
+
+          // Details für jeden Fehler auslesen
+          STR_JobName = STR_JobName + "_DETAIL";
+          INT_x = 1;
+          while (INT_x < INT_AnzSaetze)   {
+            if ((INT_FsIsMode & 0x67) != 0)   {
+              filewrite("----------------------------------------------------------------------");
+              midstr(STR_ErrCode, STR_SaveErrOrte, (INT_x - 1)*6, 6);
+              INPAapiJob(STR_SGBD, STR_JobName, STR_ErrCode, "");
+
+              // Detail-Datensatz prüfen
+              INP1apiResultSets(BOL_RC2, INT_AnzUwSaetze);
+              if (BOL_RC2 == TRUE)   {
+                INPAapiResultText(STR_JobStatus, "JOB_STATUS", INT_AnzUwSaetze, "");
+                if (INT_AnzUwSaetze < 2)   {
+                  inttostring(INT_AnzUwSaetze, STR_a);
+                  STR_a = "Anzahl Sätze fehlerhaft (" + STR_a + ")";
+                  STR_JobStatus = ">>> FEHLER <<<";   }
+                else   {
+                  STR_a = "";   }   }
+              else   {
+                STR_JobStatus = ">>> FEHLER <<<";
+                INP1apiErrorText(STR_a);   }
+
+              // Detail-Informationen abspeichern
+              if (STR_JobStatus == "OKAY")   {
+                if ((INT_FsIsMode & 0x01) != 0) FKT_FehlerOrt(1);
+                if ((INT_FsIsMode & 0x20) != 0) FKT_FehlerHFK(1);
+                if ((INT_FsIsMode & 0x02) != 0)   {
+                  filewrite("");
+                  filewrite("Umweltbedingungen:");
+                  INT_y = 1;
+                  while (INT_y < INT_AnzUwSaetze)   {
+                    if (INT_AnzUwSaetze > 2)   {
+                      inttostring(INT_y, STR_b);
+                      filewrite("  " + STR_b + ". Umweltsatz");   }
+                    FKT_FehlerUWB(INT_y);
+                    INT_y = INT_y + 1;   }   }
+                if ((INT_FsIsMode & 0x04) != 0) FKT_FehlerArt(1);
+                if ((INT_FsIsMode & 0x40) != 0) FKT_FehlerHexCode(1);   }
+
+              // Info bei Auslesefehler
+              else   {
+                filewrite(STR_JobName + "(" + STR_ErrCode + "): " + STR_a);
+                filewrite("JobStatus: " + STR_JobStatus);   }   }
+            INT_x = INT_x + 1;   }   }   }   }
+    else
+      filewrite("Ergebnis:  >>>>> Fehler beim Auslesen <<<<<");
+    filewrite("");                               // Trennlinie einfügen, Datei schließen
+    filewrite("================================================================================");
+    fileclose();   }
+  else
+   // kein KWP-2000
+    INPAapiFsLesen(STR_SGBD, STR_FileName);   }
+
+// IDENT_LESEN (Einzelbefehl)   ----------------------------------------------------------------------------------------
+FKT_READ_SINGLE_ID(inout: bool   BOL_FuncRC,
+                   in:    string STR_SGBD,
+                   in:    string STR_KN,
+                   in:    string STR_N,
+                   in:    string STR_Kat,
+                   in:    string STR_LFD)   {
+
+  bool   BOL_RC;
+  int    INT_TxtLen, INT_n;
+  string STR_x, STR_Temp1, STR_Temp2, STR_Temp3;
+
+  BOL_FuncRC = FALSE;
+  userboxclose(0);
+  userboxopen(0,8,35,5,50, STR_Kat + ": Identifikation lesen " + STR_LFD + " von 48", "");
+  userboxsetcolor(0, 1, 2);
+  userboxftextout(0, STR_N + " wird gelesen! ", 1,3,0,16);
+
+  // Ident-Daten lesen
+    INP1apiJob(STR_SGBD, "IDENT", "", "");
+    INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+    if (BOL_RC == TRUE)
+      if (STR_x == "OKAY")   {
+        INP1apiResultBinary(BOL_RC, "_TEL_ANTWORT", 1);
+        GetBinaryDataString(STR_x, INT_TxtLen);    // Antwort-Telegramm einlesen
+        midstr(STR_Temp1, STR_x, 4, 2);            // Diagnose-ID extrahieren
+        STR_Temp1 = STR_SGBD +HT+ STR_Temp1;
+        SCHREIBE(STR_Temp1, "ID_VAR_INDEX");
+        STR_Temp2 = "";
+        SCHREIBE(STR_Temp2, "ID_BMW_NR");
+        STR_Temp3 = "";
+        SCHREIBE(STR_Temp3, "ID_HW_NR");
+        SCHREIBE(STR_Temp3, "ID_SW_NR_FSV");
+        SCHREIBE(STR_Temp3, "ID_SW_NR_OSV");
+        SCHREIBE(STR_Temp3, "ID_SW_NR_MCV");
+        SCHREIBE(STR_Temp3, "ID_SW_NR_RES");
+        SCHREIBE(STR_Temp3, "ID_COD_INDEX");
+        SCHREIBE(STR_Temp3, "ID_DIAG_INDEX");
+
+        // Physikalische HW-Nummer lesen
+        INP1apiJob(STR_SGBD, "PHYSIKALISCHE_HW_NR_LESEN", "", "");
+        INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+        if (BOL_RC == TRUE)
+          SCHREIBE(STR_Temp1, "PHYSIKALISCHE_HW_NR");
+        else
+          STR_Temp1 = STR_Temp1 +HT+ "<n.v.>";
+
+        // ZB-Nummer lesen
+        INP1apiJob(STR_SGBD, "AIF_LESEN", "", "");
+        INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+        if (BOL_RC == TRUE)
+          SCHREIBE(STR_Temp2, "AIF_ZB_NR");
+        else
+          STR_Temp2 = STR_Temp2 +HT+ "<n.v.>";
+
+        // Programm-Referenz lesen
+        INP1apiJob(STR_SGBD, "ZIF_LESEN", "", "");
+        INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+        if (BOL_RC == TRUE)
+          SCHREIBE(STR_Temp3, "ZIF_PROGRAMM_REFERENZ");
+        else
+          STR_Temp3 = STR_Temp3 +HT+ "<n.v.>";
+
+        STR_Temp1 = STR_Temp1 + STR_Temp2 + STR_Temp3;
+        filewrite(STR_Temp1);
+        BOL_FuncRC = TRUE;   }
+      else   {
+        if (BOL_ErrorInfo_ID == TRUE) filewrite(STR_SGBD +HT+ "Error Jobstatus = " + STR_x);   }
+    else   {
+      INP1apiErrorText(STR_x);
+      if (BOL_ErrorInfo_ID == TRUE) filewrite(STR_SGBD +HT+ "Error " + STR_x);   }
+    if (BOL_FuncRC == FALSE)   {
+      userboxsetcolor(0,1,4);
+      userboxftextout(0, "FEHLER! " + STR_KN, 3,3,1,16);
+      delay(100);   }
+  userboxsetcolor(0,1,2);
+  userboxclose(0);
+  viewclose();   }
+
+// Ident lesen (alle Steuergeräte)   -----------------------------------------------------------------------------------
+FKT_IDENT_LESEN()   {
+
+  string STR_x, STR_Puffer;
+  int    INT_x, INT_y;
+  bool   BOL_RC, BOL_RC2, BOL_RC3, BOL_RC4;
+
+  // Dateinamen automatisch aus Fahrgestellnummer generieren
+  STR_ID_File = STR_Pfad + STR_ID_File + ".cfg";
+  STR_x = "";
+  INP1apiJob("CAS", "STATUS_FAHRGESTELLNUMMER", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  if (BOL_RC == TRUE)   {
+    INP1apiResultText(BOL_RC, STR_x, "FGNUMMER", 1, "");
+    if ((BOL_RC == TRUE) && (BOL_AutoFile == TRUE))   {
+      midstr(STR_Puffer, STR_x, 10, 7);
+      trimstr(STR_Puffer);
+      strlen(INT_x, STR_Puffer);
+      INT_y = 0;
+      instr(INT_y, 0, STR_Puffer, "ÿ");
+      if ((INT_x > 0) && (INT_y == -1))
+        STR_ID_File = STR_Pfad + STR_Puffer + ".cfg";   }   }
+
+  // Dateiheader erzeugen
+  fileopen(STR_ID_File, STR_IDFileMode);
+  STR_Puffer = "Fahrgestell-Nummer: " +HT+HT+HT+ STR_x;
+  getdate(STR_x);
+  STR_Puffer = STR_Puffer +HT+HT+HT + "Ausgelesen am " + STR_x;
+  gettime(STR_x);
+  STR_Puffer = STR_Puffer + " um " + STR_x;
+  STR_Puffer = STR_Puffer +HT+HT+HT+HT+ "CFGFileVersion:" +HT+ STR_CfgFileVers;
+  filewrite(STR_Puffer);
+  STR_Puffer = "Fahrzeugauftrag:" +HT+HT+HT;
+  STR_x = "";
+  INP1apiJob("CAS", "C_FA_LESEN", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  if (BOL_RC == TRUE)   {
+    INP1apiResultText(BOL_RC2, STR_x, "FAHRZEUGAUFTRAG", 1, "");
+    if (BOL_RC2 == TRUE)   {
+      INP1apiJob("FA", "FA_STREAM2STRUCT", "1;"+STR_x, "");
+      INP1apiResultText(BOL_RC3, STR_x, "JOB_STATUS", 1, "");
+      if (BOL_RC3 == TRUE)   {
+        INP1apiResultText(BOL_RC4, STR_x, "STANDARD_FA", 1, "");
+        if (BOL_RC4 == TRUE)
+          STR_Puffer = STR_Puffer + STR_x;
+        else
+          STR_Puffer = STR_Puffer + "Decodierung nicht verfügbar";   }
+      else
+        STR_Puffer = STR_Puffer + "Fehler beim Decodieren";   }
+    else
+      STR_Puffer = STR_Puffer + "nicht verfügbar";   }
+  else
+    STR_Puffer = STR_Puffer + "Fehler beim Auslesen";
+  filewrite(STR_Puffer);
+  filewrite("");
+  STR_Puffer = "SGBD" +HT+ "Diag-ID" +HT+ "Var-IDX" +HT;
+  STR_Puffer = STR_Puffer + "HW-NR" +HT+ "HW*NR" +HT+ "ZB-NR" +HT;
+  STR_Puffer = STR_Puffer + "HW-IDX" +HT+ "FSV" +HT+ "OSV" +HT;
+  STR_Puffer = STR_Puffer + "MCV" +HT+ "RES" +HT+ "Codier-IDX" +HT;
+  STR_Puffer = STR_Puffer + "Diag-IDX" +HT+ "Progr.Ref.";
+  filewrite(STR_Puffer);
+  filewrite("");
+
+  // Bereitschaft ZGM / SGM-ZGM prüfen
+  BOL_RC = FALSE;
+  BOL_RC2 = FALSE;
+  INP1apiJob("ZGM_E65", "IDENT", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  // ACHTUNG: Tabelle enthielt keine Angaben über SGM
+
+  // IDENT_LESEN bei jedem Steuergerät
+  if ((BOL_RC == TRUE) || (BOL_RC2 == TRUE) || (STR_STD_OUT == "CAN"))   {
+    FKT_READ_SINGLE_ID(BOL_RC, "AHM_E65", "AHM", "Anhängermodul", "", "1");     //Diag-ID: 71; 
+    FKT_READ_SINGLE_ID(BOL_RC, "AMP_60", "AMP", "Top HIFI Verstärker", "Fahrwerk", "2");     //Diag-ID: 37; 
+    FKT_READ_SINGLE_ID(BOL_RC, "BFS_87", "BFS", "Beifahrersitz", "", "3");     //Diag-ID: 6E; 
+    FKT_READ_SINGLE_ID(BOL_RC, "CAS", "CAS", "Car Access System", "Karosserie", "4");     //Diag-ID: 40; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "CCCA60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "CCCG60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "CCC_60", "CCC", "Car Comunikation Computer", "", "0");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "CDC_E65", "CDC", "Audio CD-Changer", "Karosserie", "5");     //Diag-ID: 3C; 
+    FKT_READ_SINGLE_ID(BOL_RC, "CID_87", "Cid", "Central Information Display ", "", "6");     //Diag-ID: 73; 
+    FKT_READ_SINGLE_ID(BOL_RC, "CID_60", "CID FLAP", "Central Information Display ", "Karosserie", "7");     //Diag-ID: 73; 
+    FKT_READ_SINGLE_ID(BOL_RC, "MS450DS0", "DME1-6", "Digitale Motorelektronik 1, 6-Zylinder", "", "8");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "ME9E65_6", "DME1-8", "Digitale Motorelektronik 1, 4-8-Zylinder", "", "9");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "Me9N45", "DME 1.6", "Motorelektronik 1,6 Liter", "", "10");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "MEV9N46", "DME 2.0", "Motorelektronik 2.0 Liter", "", "11");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "D50VR14a", "DDE1", "Digitale Diesel Elektronik 1", "", "12");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "D50M47A0", "DDE1", "Digitale Diesel Elektronik 1", "", "13");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_ID(BOL_RC, "DSC_87", "DSC", "Dynamic Stability Control", "", "14");     //Diag-ID: 29; 
+    FKT_READ_SINGLE_ID(BOL_RC, "DWA_E65", "DWA", "Diebstahl-Warnanlage", "", "15");     //Diag-ID: 41; 
+    FKT_READ_SINGLE_ID(BOL_RC, "EKP_60", "EKP", "Elektronische Kraftstoffpumpe", "", "16");     //Diag-ID: 17; 
+    FKT_READ_SINGLE_ID(BOL_RC, "FAS_87", "FAS", "Fahrersitz", "", "17");     //Diag-ID: 6D; 
+    FKT_READ_SINGLE_ID(BOL_RC, "FRM_87", "FRMFA", "Fußraummodul Fahrer", "", "18");     //Diag-ID: 72; 
+    FKT_READ_SINGLE_ID(BOL_RC, "FZD_87", "FZD", "Funktion Zentrum Dach", "", "19");     //Diag-ID: 56; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "FBI_E65", "FBI", "Flexible Bus Interface", "Karosserie", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-MMID", "Car Communication Computer: MMI-Descr", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-MMIFW", "Car Communication Computer: MMI-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-ONLINE", "Car Communication Computer: Online Pack", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-PFS", "Car Communication Computer: PFS-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-POS", "Car Communication Computer: Pos. Mod.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-RSG", "Car Communication Computer: Rear Seat G.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "CCC-TVID", "Car Communication Computer: TV-VID-SW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    FKT_READ_SINGLE_ID(BOL_RC, "GS19", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "20");     //Diag-ID: 18; 
+    FKT_READ_SINGLE_ID(BOL_RC, "GS19A", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "21");     //Diag-ID: 18; 
+    FKT_READ_SINGLE_ID(BOL_RC, "IHKA87", "IHKA87", "Integr. Heiz-/Klima-Automatik ", "Karosserie", "22");     //Diag-ID: 78; 
+    FKT_READ_SINGLE_ID(BOL_RC, "IHR_87", "IHKA87", "Integr. Heiz-/Klima-Regelung (Low)", "Karosserie", "23");     //Diag-ID: 78; 
+    FKT_READ_SINGLE_ID(BOL_RC, "JNAV60", "JNAV", "Japan Navigation", "Karosserie", "24");     //Diag-ID: 3B; 
+    FKT_READ_SINGLE_ID(BOL_RC, "JBBF87", "JBBF", "Junction Box Beifahrer", "", "25");     //Diag-ID: 00; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "KHI_E65", "KHI", "Kopfhörermodul", "Karosserie", "0");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "KOMB87", "KOMB L2", "Instrumenten-Kombinationselektronik", "", "26");     //Diag-ID: 60; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "", "MASK-Sahara", "MASK Sahara", "", "0");     //Diag-ID: 90; 
+    FKT_READ_SINGLE_ID(BOL_RC, "MASK60", "MASK_SH3", "MMI Audio System Controller", "Karosserie", "27");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_ID(BOL_RC, "MCGW60", "MCGW", "MASK Most-Can-Gateway", "Karosserie", "28");     //Diag-ID: 62; 
+    FKT_READ_SINGLE_ID(BOL_RC, "MRS5", "MRS5", "Multiples Rückhalte System", "", "29");     //Diag-ID: 01; 
+    FKT_READ_SINGLE_ID(BOL_RC, "NAVI60", "NAV", "Navigation", "", "30");     //Diag-ID: 3B; 
+    FKT_READ_SINGLE_ID(BOL_RC, "PDC_87", "PDC_87", "Park Distance Control", "Karosserie", "31");     //Diag-ID: 64; 
+    FKT_READ_SINGLE_ID(BOL_RC, "PGS_E65", "PGS", "Passive-Go System", "Karosserie", "32");     //Diag-ID: 27; 
+    FKT_READ_SINGLE_ID(BOL_RC, "RAD1", "Radio", "Radio", "", "33");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_ID(BOL_RC, "RAD2", "Radio2", "Radio2", "", "34");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_ID(BOL_RC, "RAD2_GW", "RAD2_GW", "Radio 2 Gateway", "", "35");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "RDC_60", "RDC", "Reifen Druck System", "Karosserie", "36");     //Diag-ID: 20; 
+    FKT_READ_SINGLE_ID(BOL_RC, "SAT_60", "SAT", "Satellitenradio Tuner", "Karosserie", "37");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "SHZH_E65", "SHZH", "Stand-/Zuheizung", "Fahrwerk", "38");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "SINE_65", "SINE", "Sirene mit Neigungsgeber", "Fahrwerk", "39");     //Diag-ID: 50; 
+    FKT_READ_SINGLE_ID(BOL_RC, "TELE60", "TELE", "Telefon", "Karosserie", "40");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_ID(BOL_RC, "TELE60_2", "TELE", "Telefon", "Karosserie", "41");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_ID(BOL_RC, "TELJ60", "TELJ", "Telefon Japan", "Karosserie", "42");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_ID(BOL_RC, "TELU60", "TELU", "Telefon USA", "Karosserie", "43");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_ID(BOL_RC, "ULF_60", "ULF", "Univ. Lase-Freisprecheinrichtung Elektronik", "", "44");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_ID(BOL_RC, "VID_E65", "VID", "Videomodul", "", "45");     //Diag-ID: 4B; E60-SGBD: GS19A
+    FKT_READ_SINGLE_ID(BOL_RC, "VVT_B1_0", "VVT", "Variable Ventiltechnik", "", "46");     //Diag-ID: ; 
+    FKT_READ_SINGLE_ID(BOL_RC, "ZBEH87", "ZBEH", "Zentral Bedienelement", "", "47");     //Diag-ID: 67; 
+    FKT_READ_SINGLE_ID(BOL_RC, "ZBEL87", "ZBEL", "Zentral Bedienelement", "", "48");     //Diag-ID: 67; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "ZGM_E65", "ZGM", "Gatewaymodul (gleich mit JBBF)", "Karosserie", "0");     //Diag-ID: 00; 
+    // FKT_READ_SINGLE_ID(BOL_RC, "sgm_60", "SGM", "Sicherheits- Gatewaymodul (gleich mit MRS5)", "", "0");     //Diag-ID: 00; 
+    }
+  else   {
+    userboxopen(0,8,35,5,50, "Identifikation lesen: 1 von 48", "");
+    userboxsetcolor(0,1,4);
+    userboxftextout(0, "SGM / ZGM antwortet nicht!", 1,3,0,16);
+    userboxftextout(0, "FEHLER!", 3,3,1,16);   }
+  filewrite("");
+  filewrite("");
+  fileclose();   }
+
+// Fehler- oder Infospeicher lesen (Einzelbefehl)   --------------------------------------------------------------------
+FKT_READ_SINGLE_FSIS(inout: bool   BOL_RC,
+                     in:    bool   BOL_FS,
+                     in:    string STR_Header,
+                     in:    string STR_SGBD,
+                     in:    string STR_KN,
+                     in:    string STR_N,
+                     in:    string STR_Kat,
+                     in:    string STR_LFD)   {
+
+  string STR_x;
+  string STR_Puffer;
+  string STR_File;
+  bool   BOL_ErrorInfo;
+
+  if (BOL_FS == TRUE)   {
+    STR_File = STR_FS_File;
+    if (STR_FsFileMode == "s")   {
+      STR_File = STR_Pfad + STR_KN + ".FS";
+      // Dateiheader generieren (Single-Mode 's')
+      fileopen(STR_File, "w");
+      filewrite("");
+      filewrite(STR_Header);
+      filewrite("================================================================================");
+      fileclose();   }
+    BOL_ErrorInfo = BOL_ErrorInfo_FS;
+    userboxopen(0,8,35,5,50, STR_Kat + ": Fehlerspeicher lesen " + STR_LFD + " von 48", "");   }
+  else   {
+    STR_File = STR_IS_File;
+    if (STR_IsFileMode == "s")   {
+      STR_File = STR_Pfad + STR_KN + ".IS";
+      // Dateiheader generieren (Single-Mode 's')
+      fileopen(STR_File, "w");
+      filewrite("");
+      filewrite(STR_Header);
+      filewrite("================================================================================");
+      fileclose();   }
+    BOL_ErrorInfo = BOL_ErrorInfo_IS;
+    userboxopen(0,8,35,5,50, STR_Kat + ": Infospeicher lesen " + STR_LFD + " von 48", "");   }
+  userboxsetcolor(0,1,2);
+  userboxftextout(0, STR_N + " wird gelesen! ", 1,3,0,16);
+
+  INP1apiJob(STR_SGBD, "IDENT", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  if (BOL_RC == TRUE)
+    FKT_READ(STR_SGBD, STR_File, BOL_FS);
+  else   {
+    if (BOL_ErrorInfo == TRUE)   {
+      fileopen(STR_File, "a");
+      INP1apiErrorText(STR_x);
+      filewrite("");
+      filewrite(STR_SGBD +HT+ "Error: " + STR_x);
+      filewrite("");
+      filewrite("================================================================================");
+      fileclose();   }
+    userboxsetcolor(0,1,4);
+    userboxftextout(0, "FEHLER! " + STR_KN, 3,3,1,16);
+    delay(100);   }
+  userboxsetcolor(0,1,2);
+  userboxclose(0);
+  viewclose();   }
+
+// Fehler- oder Infospeicher lesen (alle Steuergeräte)   ---------------------------------------------------------------
+FKT_FSIS_LESEN(in: bool BOL_FS)   {
+
+  string STR_File, STR_x, STR_Puffer, STR_Header, STR_FsIsFileMode;
+  int    INT_x, INT_y;
+  bool   BOL_RC, BOL_RC2;
+
+  // Dateinamen automatisch aus Fahrgestellnummer generieren
+  if (BOL_FS == TRUE)   {
+    STR_FS_File = STR_Pfad + STR_FS_File + ".txt";
+    STR_File = STR_FS_File;
+    STR_FsIsFileMode = STR_FsFileMode;
+    INPAapiFsMode(INT_FsIsMode, "a", STR_InfoPre, STR_InfoPost, "FS_LESEN");   }
+  else   {
+    STR_IS_File = STR_Pfad + STR_IS_File + ".txt";
+    STR_File = STR_IS_File;
+    STR_FsIsFileMode = STR_IsFileMode;
+    INPAapiFsMode(INT_FsIsMode, "a", STR_InfoPre, STR_InfoPost, "IS_LESEN");   }
+  STR_x = "";
+  INP1apiJob("CAS", "STATUS_FAHRGESTELLNUMMER", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  if (BOL_RC == TRUE)   {
+    INP1apiResultText(BOL_RC, STR_x, "FGNUMMER", 1, "");
+    if ((BOL_RC == TRUE) && (BOL_AutoFile == TRUE))   {
+      midstr(STR_Puffer, STR_x, 10, 7);
+      trimstr(STR_Puffer);
+      strlen(INT_x, STR_Puffer);
+      INT_y = 0;
+      instr(INT_y, 0, STR_Puffer, "ÿ");
+      if ((INT_x > 0) && (INT_y == -1))   {
+        STR_File = STR_Pfad + STR_Puffer + ".txt";
+        if (BOL_FS == TRUE)
+          STR_FS_File = STR_File;
+        else
+          STR_IS_File = STR_File;   }   }   }
+
+  // Dateiheader generieren (Append-Mode 'a' und Overwrite-Mode 'w' sowie Info-File bei Single-Mode 's')
+  STR_Header = "Fahrgestell-Nr: " + STR_x;
+  getdate(STR_x);
+  STR_Header = STR_Header + "      Datum: " + STR_x;
+  gettime(STR_x);
+  STR_Header = STR_Header + "      Uhrzeit: " + STR_x;
+  STR_x = "================================================================================";
+  if (STR_FsIsFileMode == "a")
+    fileopen(STR_File, "a");
+  else
+    fileopen(STR_File, "w");
+  filewrite("");
+  filewrite(STR_Header);
+  filewrite(STR_x);
+  if (STR_FsIsFileMode == "s")   {
+    filewrite("");
+    filewrite("Sie haben für die Ablage der Daten den Single-Mode gewählt. Die Daten des jeweiligen");
+    filewrite("Steuergeräts finden Sie in den entsprechenden Dateien (SG-Kurzname + *.FS).");   }
+  fileclose();
+
+  // Bereitschaft ZGM / SGM-ZGM prüfen
+  BOL_RC = FALSE;
+  BOL_RC2 = FALSE;
+  INP1apiJob("ZGM_E65", "IDENT", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  // ACHTUNG: Tabelle enthielt keine Angaben über SGM
+
+  // FS_LESEN oder IS_LESEN bei jedem Steuergerät
+  if ((BOL_RC == TRUE) || (BOL_RC2 == TRUE) || (STR_STD_OUT == "CAN"))   {
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "AHM_E65", "AHM", "Anhängermodul", "", "1");     //Diag-ID: 71; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "AMP_60", "AMP", "Top HIFI Verstärker", "Fahrwerk", "2");     //Diag-ID: 37; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "BFS_87", "BFS", "Beifahrersitz", "", "3");     //Diag-ID: 6E; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CAS", "CAS", "Car Access System", "Karosserie", "4");     //Diag-ID: 40; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CCCA60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CCCG60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CCC_60", "CCC", "Car Comunikation Computer", "", "0");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CDC_E65", "CDC", "Audio CD-Changer", "Karosserie", "5");     //Diag-ID: 3C; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CID_87", "Cid", "Central Information Display ", "", "6");     //Diag-ID: 73; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "CID_60", "CID FLAP", "Central Information Display ", "Karosserie", "7");     //Diag-ID: 73; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "MS450DS0", "DME1-6", "Digitale Motorelektronik 1, 6-Zylinder", "", "8");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "ME9E65_6", "DME1-8", "Digitale Motorelektronik 1, 4-8-Zylinder", "", "9");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "Me9N45", "DME 1.6", "Motorelektronik 1,6 Liter", "", "10");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "MEV9N46", "DME 2.0", "Motorelektronik 2.0 Liter", "", "11");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "D50VR14a", "DDE1", "Digitale Diesel Elektronik 1", "", "12");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "D50M47A0", "DDE1", "Digitale Diesel Elektronik 1", "", "13");     //Diag-ID: 12; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "DSC_87", "DSC", "Dynamic Stability Control", "", "14");     //Diag-ID: 29; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "DWA_E65", "DWA", "Diebstahl-Warnanlage", "", "15");     //Diag-ID: 41; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "EKP_60", "EKP", "Elektronische Kraftstoffpumpe", "", "16");     //Diag-ID: 17; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "FAS_87", "FAS", "Fahrersitz", "", "17");     //Diag-ID: 6D; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "FRM_87", "FRMFA", "Fußraummodul Fahrer", "", "18");     //Diag-ID: 72; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "FZD_87", "FZD", "Funktion Zentrum Dach", "", "19");     //Diag-ID: 56; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "FBI_E65", "FBI", "Flexible Bus Interface", "Karosserie", "0");     //Diag-ID: ; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-MMID", "Car Communication Computer: MMI-Descr", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-MMIFW", "Car Communication Computer: MMI-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-ONLINE", "Car Communication Computer: Online Pack", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-PFS", "Car Communication Computer: PFS-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-POS", "Car Communication Computer: Pos. Mod.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-RSG", "Car Communication Computer: Rear Seat G.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "CCC-TVID", "Car Communication Computer: TV-VID-SW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "GS19", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "20");     //Diag-ID: 18; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "GS19A", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "21");     //Diag-ID: 18; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "IHKA87", "IHKA87", "Integr. Heiz-/Klima-Automatik ", "Karosserie", "22");     //Diag-ID: 78; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "IHR_87", "IHKA87", "Integr. Heiz-/Klima-Regelung (Low)", "Karosserie", "23");     //Diag-ID: 78; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "JNAV60", "JNAV", "Japan Navigation", "Karosserie", "24");     //Diag-ID: 3B; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "JBBF87", "JBBF", "Junction Box Beifahrer", "", "25");     //Diag-ID: 00; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "KHI_E65", "KHI", "Kopfhörermodul", "Karosserie", "0");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "KOMB87", "KOMB L2", "Instrumenten-Kombinationselektronik", "", "26");     //Diag-ID: 60; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "", "MASK-Sahara", "MASK Sahara", "", "0");     //Diag-ID: 90; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "MASK60", "MASK_SH3", "MMI Audio System Controller", "Karosserie", "27");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "MCGW60", "MCGW", "MASK Most-Can-Gateway", "Karosserie", "28");     //Diag-ID: 62; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "MRS5", "MRS5", "Multiples Rückhalte System", "", "29");     //Diag-ID: 01; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "NAVI60", "NAV", "Navigation", "", "30");     //Diag-ID: 3B; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "PDC_87", "PDC_87", "Park Distance Control", "Karosserie", "31");     //Diag-ID: 64; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "PGS_E65", "PGS", "Passive-Go System", "Karosserie", "32");     //Diag-ID: 27; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "RAD1", "Radio", "Radio", "", "33");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "RAD2", "Radio2", "Radio2", "", "34");     //Diag-ID: 63; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "RAD2_GW", "RAD2_GW", "Radio 2 Gateway", "", "35");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "RDC_60", "RDC", "Reifen Druck System", "Karosserie", "36");     //Diag-ID: 20; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "SAT_60", "SAT", "Satellitenradio Tuner", "Karosserie", "37");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "SHZH_E65", "SHZH", "Stand-/Zuheizung", "Fahrwerk", "38");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "SINE_65", "SINE", "Sirene mit Neigungsgeber", "Fahrwerk", "39");     //Diag-ID: 50; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "TELE60", "TELE", "Telefon", "Karosserie", "40");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "TELE60_2", "TELE", "Telefon", "Karosserie", "41");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "TELJ60", "TELJ", "Telefon Japan", "Karosserie", "42");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "TELU60", "TELU", "Telefon USA", "Karosserie", "43");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "ULF_60", "ULF", "Univ. Lase-Freisprecheinrichtung Elektronik", "", "44");     //Diag-ID: 36; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "VID_E65", "VID", "Videomodul", "", "45");     //Diag-ID: 4B; E60-SGBD: GS19A
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "VVT_B1_0", "VVT", "Variable Ventiltechnik", "", "46");     //Diag-ID: ; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "ZBEH87", "ZBEH", "Zentral Bedienelement", "", "47");     //Diag-ID: 67; 
+    FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "ZBEL87", "ZBEL", "Zentral Bedienelement", "", "48");     //Diag-ID: 67; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "ZGM_E65", "ZGM", "Gatewaymodul (gleich mit JBBF)", "Karosserie", "0");     //Diag-ID: 00; 
+    // FKT_READ_SINGLE_FSIS(BOL_RC, BOL_FS, STR_Header, "sgm_60", "SGM", "Sicherheits- Gatewaymodul (gleich mit MRS5)", "", "0");     //Diag-ID: 00; 
+    }
+  else   {
+    userboxopen(0,8,35,5,50, "Fehlerspeicher lesen: 1 von 48", "");
+    userboxsetcolor(0,1,4);
+    userboxftextout(0, "SGM / ZGM antwortet nicht!", 1,3,0,16);
+    userboxftextout(0, "FEHLER!", 3,3,1,16);   }   }
+
+// Fehler- oder Infospeicher löschen (Einzelbefehl)   ------------------------------------------------------------------
+FKT_DEL_SINGLE_FSIS(inout: bool   BOL_RC,
+                    in:    bool   BOL_FS,
+                    in:    string STR_SGBD,
+                    in:    string STR_KN,
+                    in:    string STR_N,
+                    in:    string STR_Kat,
+                    in:    string STR_LFD)   {
+
+  string STR_x;
+
+  if (BOL_FS == TRUE)
+    userboxopen(0,8,35,5,50, STR_Kat + ": Fehlerspeicher löschen " + STR_LFD + " von 48", "");
+  else
+    userboxopen(0,8,35,5,50, STR_Kat + ": Infospeicher löschen " + STR_LFD + " von 48", "");
+  userboxsetcolor(0,1,2);
+  userboxftextout(0, STR_N + " wird gelöscht! ", 1,3,0,16);
+  BOL_RC = FALSE;
+  if (BOL_FS == TRUE)
+    INP1apiJob(STR_SGBD, "FS_LOESCHEN", "", "");
+  else
+    INP1apiJob(STR_SGBD, "IS_LOESCHEN", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  if (BOL_RC!=TRUE)   {
+    userboxsetcolor(0,1,4);
+    userboxftextout(0, "FEHLER! " + STR_KN, 3,3,1,16);
+    delay(100);   }
+  userboxsetcolor(0,1,2);
+  userboxclose(0);
+  viewclose();   }
+
+// Fehler- oder Infospeicher löschen (alle Steuergeräte)   -------------------------------------------------------------
+FKT_FSIS_LOESCHEN(in: bool BOL_FS)   {
+
+  string STR_x;
+  bool   BOL_RC, BOL_RC2;
+
+  // Bereitschaft ZGM / SGM-ZGM prüfen
+  BOL_RC = FALSE;
+  BOL_RC2 = FALSE;
+  INP1apiJob("ZGM_E65", "IDENT", "", "");
+  INP1apiResultText(BOL_RC, STR_x, "JOB_STATUS", 1, "");
+  // ACHTUNG: Tabelle enthielt keine Angaben über SGM
+
+  // FS_LOESCHEN bei jedem Steuergerät
+  if ((BOL_RC == TRUE) || (BOL_RC2 == TRUE) || (STR_STD_OUT == "CAN"))   {
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "AHM_E65", "AHM", "Anhängermodul", "", "1");     //Diag-ID: 71; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "AMP_60", "AMP", "Top HIFI Verstärker", "Fahrwerk", "2");     //Diag-ID: 37; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "BFS_87", "BFS", "Beifahrersitz", "", "3");     //Diag-ID: 6E; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CAS", "CAS", "Car Access System", "Karosserie", "4");     //Diag-ID: 40; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CCCA60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CCCG60", "CCC", "", "", "0");     //Diag-ID: ; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CCC_60", "CCC", "Car Comunikation Computer", "", "0");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CDC_E65", "CDC", "Audio CD-Changer", "Karosserie", "5");     //Diag-ID: 3C; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CID_87", "Cid", "Central Information Display ", "", "6");     //Diag-ID: 73; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "CID_60", "CID FLAP", "Central Information Display ", "Karosserie", "7");     //Diag-ID: 73; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "MS450DS0", "DME1-6", "Digitale Motorelektronik 1, 6-Zylinder", "", "8");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "ME9E65_6", "DME1-8", "Digitale Motorelektronik 1, 4-8-Zylinder", "", "9");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "Me9N45", "DME 1.6", "Motorelektronik 1,6 Liter", "", "10");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "MEV9N46", "DME 2.0", "Motorelektronik 2.0 Liter", "", "11");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "D50VR14a", "DDE1", "Digitale Diesel Elektronik 1", "", "12");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "D50M47A0", "DDE1", "Digitale Diesel Elektronik 1", "", "13");     //Diag-ID: 12; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "DSC_87", "DSC", "Dynamic Stability Control", "", "14");     //Diag-ID: 29; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "DWA_E65", "DWA", "Diebstahl-Warnanlage", "", "15");     //Diag-ID: 41; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "EKP_60", "EKP", "Elektronische Kraftstoffpumpe", "", "16");     //Diag-ID: 17; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "FAS_87", "FAS", "Fahrersitz", "", "17");     //Diag-ID: 6D; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "FRM_87", "FRMFA", "Fußraummodul Fahrer", "", "18");     //Diag-ID: 72; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "FZD_87", "FZD", "Funktion Zentrum Dach", "", "19");     //Diag-ID: 56; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "FBI_E65", "FBI", "Flexible Bus Interface", "Karosserie", "0");     //Diag-ID: ; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-MMID", "Car Communication Computer: MMI-Descr", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-MMIFW", "Car Communication Computer: MMI-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-ONLINE", "Car Communication Computer: Online Pack", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-PFS", "Car Communication Computer: PFS-FW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-POS", "Car Communication Computer: Pos. Mod.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-RSG", "Car Communication Computer: Rear Seat G.", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "CCC-TVID", "Car Communication Computer: TV-VID-SW", "Karosserie", "0");     //Diag-ID: ; bislang nicht relevant
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "GS19", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "20");     //Diag-ID: 18; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "GS19A", "EGS", "Elektronische Getriebesteuergerät", "Karosserie", "21");     //Diag-ID: 18; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "IHKA87", "IHKA87", "Integr. Heiz-/Klima-Automatik ", "Karosserie", "22");     //Diag-ID: 78; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "IHR_87", "IHKA87", "Integr. Heiz-/Klima-Regelung (Low)", "Karosserie", "23");     //Diag-ID: 78; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "JNAV60", "JNAV", "Japan Navigation", "Karosserie", "24");     //Diag-ID: 3B; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "JBBF87", "JBBF", "Junction Box Beifahrer", "", "25");     //Diag-ID: 00; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "KHI_E65", "KHI", "Kopfhörermodul", "Karosserie", "0");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "KOMB87", "KOMB L2", "Instrumenten-Kombinationselektronik", "", "26");     //Diag-ID: 60; 
+
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "", "MASK-Sahara", "MASK Sahara", "", "0");     //Diag-ID: 90; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "MASK60", "MASK_SH3", "MMI Audio System Controller", "Karosserie", "27");     //Diag-ID: 63; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "MCGW60", "MCGW", "MASK Most-Can-Gateway", "Karosserie", "28");     //Diag-ID: 62; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "MRS5", "MRS5", "Multiples Rückhalte System", "", "29");     //Diag-ID: 01; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "NAVI60", "NAV", "Navigation", "", "30");     //Diag-ID: 3B; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "PDC_87", "PDC_87", "Park Distance Control", "Karosserie", "31");     //Diag-ID: 64; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "PGS_E65", "PGS", "Passive-Go System", "Karosserie", "32");     //Diag-ID: 27; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "RAD1", "Radio", "Radio", "", "33");     //Diag-ID: 63; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "RAD2", "Radio2", "Radio2", "", "34");     //Diag-ID: 63; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "RAD2_GW", "RAD2_GW", "Radio 2 Gateway", "", "35");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "RDC_60", "RDC", "Reifen Druck System", "Karosserie", "36");     //Diag-ID: 20; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "SAT_60", "SAT", "Satellitenradio Tuner", "Karosserie", "37");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "SHZH_E65", "SHZH", "Stand-/Zuheizung", "Fahrwerk", "38");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "SINE_65", "SINE", "Sirene mit Neigungsgeber", "Fahrwerk", "39");     //Diag-ID: 50; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "TELE60", "TELE", "Telefon", "Karosserie", "40");     //Diag-ID: 36; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "TELE60_2", "TELE", "Telefon", "Karosserie", "41");     //Diag-ID: 36; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "TELJ60", "TELJ", "Telefon Japan", "Karosserie", "42");     //Diag-ID: 36; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "TELU60", "TELU", "Telefon USA", "Karosserie", "43");     //Diag-ID: 36; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "ULF_60", "ULF", "Univ. Lase-Freisprecheinrichtung Elektronik", "", "44");     //Diag-ID: 36; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "VID_E65", "VID", "Videomodul", "", "45");     //Diag-ID: 4B; E60-SGBD: GS19A
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "VVT_B1_0", "VVT", "Variable Ventiltechnik", "", "46");     //Diag-ID: ; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "ZBEH87", "ZBEH", "Zentral Bedienelement", "", "47");     //Diag-ID: 67; 
+    FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "ZBEL87", "ZBEL", "Zentral Bedienelement", "", "48");     //Diag-ID: 67; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "ZGM_E65", "ZGM", "Gatewaymodul (gleich mit JBBF)", "Karosserie", "0");     //Diag-ID: 00; 
+    // FKT_DEL_SINGLE_FSIS(BOL_RC, BOL_FS, "sgm_60", "SGM", "Sicherheits- Gatewaymodul (gleich mit MRS5)", "", "0");     //Diag-ID: 00; 
+    }
+  else   {
+    userboxopen(0,8,35,5,50, "Fehlerspeicher löschen: 1 von 48", "");
+    userboxsetcolor(0,1,4);
+    userboxftextout(0, "SGM / ZGM antwortet nicht!", 1,3,0,16);
+    userboxftextout(0, "FEHLER!", 3,3,1,16);   }   }
+//**********************************************************************************************************************
+//**                                                                                                                  **
+//**                                      M E N Ü   -   D E F I N I T I O N E N                                       **
+//**                                                                                                                  **
+//**********************************************************************************************************************
+
+// Hauptmenü   ---------------------------------------------------------------------------------------------------------
+MENU MNU_Main()   {
+
+  INIT   {
+    setmenutitle("Hauptmenü");   }
+
+  ITEM(1, "Info")   {
+    setscreen(SCR_Info, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(2, "Ident-Daten")   {
+    setmenu(MNU_Ident);
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(3, "Fehler")   {
+    setmenu(MNU_FS);
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(4, "Infospeicher")   {
+    setmenu(MNU_IS);
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(5, "")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(6, "")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(7, "Protokoll")   {
+    INP1apiJob("MS450DS0", "DIAGNOSEPROTOKOLL_SETZEN", "BMW-FAST", "");
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(8, "")   {
+    setscreen(SCR_Main,TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(9, "")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(10, "Ende")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();
+    FKT_SAVE_SETTINGS();
+    exit();   }   }
+
+// IDENT-Menü   --------------------------------------------------------------------------------------------------------
+MENU MNU_Ident()   {
+
+  int INT_ErrCode;
+
+  INIT   {
+    setmenutitle("Ident-Daten");
+    setitem(2, "Anzeigen",FALSE);
+    setitem(3, "Drucken",FALSE);   }
+
+  ITEM(1, "Lesen")   {
+    setscreen(SCR_Ident,TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50,"Identifikation lesen "+STR_ID_File,"");
+    userboxftextout(0,"Die Identifikation wird gelesen ... bitte warten.",1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_READ_INI_FILE();            // INI-File auslesen (inzwischen evtl. geändert)
+    FKT_IDENT_LESEN();
+    setitem(2, "Anzeigen", TRUE);
+    setitem(3, "Drucken", TRUE);   }
+
+  ITEM(2, "Anzeigen")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();
+    viewopen(STR_ID_File,"Identifikation anzeigen "+STR_ID_File);   }
+
+  ITEM(3, "Drucken")   {
+    setscreen(SCR_Ident,TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Identifikation drucken " + STR_ID_File, "");
+    userboxftextout(0, "Die Identifikation wird gedruckt ... bitte warten.", 1,3,0,0);
+    printfile(INT_ErrCode, STR_ID_File, "", "", TRUE);
+    userboxclose(0);   }
+
+  ITEM(4, "")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(5, "")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(6, "")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(7, "")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(8, "")   {
+    setscreen(SCR_Ident, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(9, "Zurück")   {
+    setmenu(MNU_Main);
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(10, "Ende")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();
+    FKT_SAVE_SETTINGS();
+    exit();   }   }
+
+// Fehlerspeicher-Menü   -----------------------------------------------------------------------------------------------
+MENU MNU_FS()   {
+
+  int INT_ErrCode;
+
+  INIT   {
+    setmenutitle("Fehlerspeicher");
+    setitem(3, "Anzeigen", FALSE);
+    setitem(4, "Drucken", FALSE);   }
+
+  ITEM(1, "Lesen")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Fehlerspeicher lesen " + STR_FS_File,"");
+    userboxftextout(0, "Die Fehlerspeicher werden gelesen ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_READ_INI_FILE();               // INI-File auslesen (inzwischen evtl. geändert)
+    INT_FsIsMode = INT_FsMode;         // Detail-Lesen ausschalten
+    FKT_FSIS_LESEN(TRUE);
+    setitem(3, "Anzeigen", TRUE);
+    setitem(4, "Drucken", TRUE);   }
+
+  ITEM(2, "Lesen Detail")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Fehlerspeicher lesen " + STR_FS_File,"");
+    userboxftextout(0, "Die Fehlerspeicher werden gelesen ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_READ_INI_FILE();                    // INI-File auslesen (inzwischen evtl. geändert)
+    INT_FsIsMode = INT_FsMode + 0x100;      // Detail-Lesen einschalten
+    FKT_FSIS_LESEN(TRUE);
+    setitem(3, "Anzeigen", TRUE);
+    setitem(4, "Drucken", TRUE);   }
+
+  ITEM(3, "Anzeigen")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();
+    viewopen(STR_FS_File, "Fehlerspeicher anzeigen " + STR_FS_File);   }
+
+  ITEM(4, "Drucken")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Fehlerspeicher drucken " + STR_FS_File,"");
+    userboxftextout(0, "Die Fehlerspeicher werden gedruckt ... bitte warten.", 1,3,0,0);
+    printfile(INT_ErrCode, STR_FS_File, "", "", TRUE);
+    userboxclose(0);   }
+
+  ITEM(5, "Löschen")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Fehlerspeicher löschen ", "");
+    userboxftextout(0, "Die Fehlerspeicher werden gelöscht ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_FSIS_LOESCHEN(TRUE);
+    setitem(3, "Anzeigen", FALSE);
+    setitem(4, "Drucken", FALSE);   }
+
+  ITEM(6, "")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(7, "")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(8, "")   {
+    setscreen(SCR_FS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(9, "Zurück")   {
+    setmenu(MNU_Main);
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(10, "Ende")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();
+    FKT_SAVE_SETTINGS();
+    exit();   }   }
+
+// Infospeicher-Menü   -------------------------------------------------------------------------------------------------
+MENU MNU_IS()   {
+
+  int INT_ErrCode;
+
+  INIT   {
+    setmenutitle("Infospeicher");
+    setitem(3, "Anzeigen", FALSE);
+    setitem(4, "Drucken", FALSE);   }
+
+  ITEM(1, "Lesen")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Infospeicher lesen " + STR_IS_File,"");
+    userboxftextout(0, "Die Infospeicher werden gelesen ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_READ_INI_FILE();               // INI-File auslesen (inzwischen evtl. geändert)
+    INT_FsIsMode = INT_IsMode;         // Detail-Lesen ausschalten
+    FKT_FSIS_LESEN(FALSE);
+    setitem(3, "Anzeigen", TRUE);
+    setitem(4, "Drucken", TRUE);   }
+
+  ITEM(2, "Lesen Detail")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Infospeicher lesen " + STR_IS_File,"");
+    userboxftextout(0, "Die Infospeicher werden gelesen ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_READ_INI_FILE();                    // INI-File auslesen (inzwischen evtl. geändert)
+    INT_FsIsMode = INT_IsMode + 0x100;      // Detail-Lesen einschalten
+    FKT_FSIS_LESEN(FALSE);
+    setitem(3, "Anzeigen", TRUE);
+    setitem(4, "Drucken", TRUE);   }
+
+  ITEM(3, "Anzeigen")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();
+    viewopen(STR_IS_File, "Infospeicher anzeigen " + STR_IS_File);   }
+
+  ITEM(4, "Drucken")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Infospeicher drucken " + STR_IS_File,"");
+    userboxftextout(0, "Die Infospeicher werden gedruckt ... bitte warten.", 1,3,0,0);
+    printfile(INT_ErrCode, STR_IS_File, "", "", TRUE);
+    userboxclose(0);   }
+
+  ITEM(5, "Löschen")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();
+    userboxopen(0,8,35,5,50, "Infospeicher löschen ", "");
+    userboxftextout(0, "Die Infospeicher werden gelöscht ... bitte warten.", 1,3,0,0);
+    delay(100);
+    userboxclose(0);
+    FKT_FSIS_LOESCHEN(FALSE);
+    setitem(3, "Anzeigen", FALSE);
+    setitem(4, "Drucken", FALSE);   }
+
+  ITEM(6, "")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(7, "")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(8, "")   {
+    setscreen(SCR_IS, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(9, "Zurück")   {
+    setmenu(MNU_Main);
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();   }
+
+  ITEM(10, "Ende")   {
+    setscreen(SCR_Main, TRUE);
+    userboxclose(0);
+    viewclose();
+    FKT_SAVE_SETTINGS();
+    exit();   }   }
+
+//**********************************************************************************************************************
+//**                                                                             

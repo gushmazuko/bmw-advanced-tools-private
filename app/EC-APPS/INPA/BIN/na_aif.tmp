@@ -1,0 +1,28 @@
+U S E R   I N F O R M A T I O N   F I E L D
+-------------------------------------------
+
+Date:      02.04.2017 19:55:15
+Model:     E89X
+Scope:     all control module
+JobStatus: OKAY
+Quantity:  15
+-----------------------------------------------------------------
+ADR Gen. name  JobStatus
+92  VIRTSG92   ERROR_ECU_SERVICE_NOT_SUPPORTED
+-----------------------------------------------------------------
+ADR Gen. name  JobStatus      ZB No.    VIN No.   Date
+00  JBBF       OKAY        9134485    NK34297    19.04.2016
+01  MRS        OKAY        9134280    NK34297    22.04.2009
+12  DME/DDE    OKAY        7623407    NK34297    01.05.2016
+17  EKP        OKAY        7169960    NK34297    26.01.2006
+1C  LDM/ICM    OKAY        6775949    NK34297    22.04.2009
+29  DSC        OKAY        6775387    ÿÿÿÿÿÿÿ    30.10.2005
+40  CAS        OKAY        9147224    NK34297    22.04.2009
+56  FZD        OKAY        9225462    NK34297    04.12.2016
+60  KOMBI      OKAY        9242453    NK34297    17.09.2016
+62  MOSTGW     OKAY        9205947    NK34297    07.11.2013
+63  MASK/CCC   OKAY        6975013    NK34297    07.11.2013
+6D  FAS        OKAY        6926370    NK34297    04.12.2016
+72  FRM        OKAY        9128183    NK34297    04.12.2016
+78  KLIMA      OKAY        6983944    NK34297    12.12.2005
+=================================================================

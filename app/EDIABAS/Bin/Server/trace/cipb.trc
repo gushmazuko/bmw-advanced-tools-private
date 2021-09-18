@@ -1,0 +1,410 @@
+
+Trace started at 07/28/16 14:59:05
+CIP-B version = <15.0.0.11><07-10-09><14:14:35><cipblib><build 332.492>
+
+[INFO] 14:59:05 <CIPB> : cipbInitTrace(), cipbtrace.c, Line=291
+	Leaving CIP-B function cipbInitTrace() with return code '0'
+[INFO] 14:59:05 <CIPB> : cipbInit(), cipb.c, Line=403
+	Enterring CIP-B function 'cipbInit()' with these settings :
+		CfgPath = ""
+		FlashMode = 1
+		TraceLevel = 7
+		TraceFilename = "..\trace\cipb.trc"
+		szCoapiErrorFileName = <NULL>
+		iCoapiProcessId = -1
+		szInterfaceName = <NULL>
+		szSearchPath = <NULL>
+		szDeviceUnit = <NULL>
+		szDeviceApplication = <NULL>
+		szConfiguration = <NULL>
+[INFO] 14:59:05 <CIPB> : validateString(), cipbbase.c, Line=4404
+	Leaving CIP-B function validateString() with return code '0'
+[NOTICE] 14:59:05 <CIPB/MKP> : cipbInit(), cipb.c, Line=485 initializing with CoAPI process ID = <-1> and remote interface = <NULL>
+[INFO] 14:59:05 <COAPI> : cipbInit(), cipb.c, Line=513
+	Calling CoAPI function 'coapiInit()' with these settings :
+		FirstInit = <TRUE>
+		CfgPathCopy = "..\cfgdat"
+[INFO] 14:59:05 <COAPI> : cipbInit(), cipb.c, Line=515
+	CoAPI function 'coapiInit()' returned successfully.
+[INFO] 14:59:05 <COAPI> : cipbInit(), cipb.c, Line=526
+	Calling CoAPI function 'coapiIndividInit()'.
+[INFO] 14:59:05 <COAPI> : cipbInit(), cipb.c, Line=528
+	CoAPI function 'coapiIndividInit()' returned successfully.
+[INFO] 14:59:05 <CIPB> : cipbGetBoolConfiguration(), cipbconfig.c, Line=380
+	Enterring CIP-B function 'cipbGetBoolConfiguration()' with these settings :
+		CfgList = 0x005E0108
+		Identifier = "UseFlashLib"
+		Value = 0x0018F3B8
+		DefValue = <TRUE>
+[INFO] 14:59:05 <CIPB> : cipbGetBoolConfiguration(), cipbconfig.c, Line=433
+	Leaving CIP-B function cipbGetBoolConfiguration() with return code '0'
+[INFO] 14:59:05 <COAPI> : cipbInit(), cipb.c, Line=586
+	Calling CoAPI function 'coapiKfInit()' with these settings :
+		Datamode = 1
+[INFO] 14:59:11 <COAPI> : cipbInit(), cipb.c, Line=588
+	CoAPI function 'coapiKfInit()' returned successfully.
+[INFO] 14:59:11 <CIPB> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2768
+	Enterring CIP-B function 'cipbGetEdiabasConfig()' with these settings :
+		CfgMode = 1
+		Configuration = <NULL>
+[INFO] 14:59:11 <CIPB> : cipbFreeConfiguration(), cipbconfig.c, Line=211
+	Enterring CIP-B function 'cipbFreeConfiguration()' with these settings :
+		CfgList = 0x005E8030
+[INFO] 14:59:11 <CIPB> : cipbFreeConfiguration(), cipbconfig.c, Line=241
+	Leaving CIP-B function cipbFreeConfiguration() with return code '0'
+[INFO] 14:59:11 <CIPB> : cipbGetStringConfiguration(), cipbconfig.c, Line=279
+	Enterring CIP-B function 'cipbGetStringConfiguration()' with these settings :
+		CfgList = 0x005E0114
+		Identifier = "Interface"
+		Value = 0x0018CE98
+		DefValue = "_"
+[INFO] 14:59:11 <CIPB> : cipbGetStringConfiguration(), cipbconfig.c, Line=312
+	Leaving CIP-B function cipbGetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS - INIT> : cipbInitializeEdiabas(), cipbbase.c, Line=4274
+	Enterring CIP-B function 'cipbInitializeEdiabas()' with these settings :
+		IFH = ""
+		DeviceUnit = ""
+		DeviceApplication = ""
+		Configuration = ""
+[INFO] 14:59:11 <CIPB> : cipbApplyConfiguration(), cipbconfig.c, Line=876
+	Enterring CIP-B function 'cipbApplyConfiguration()' with these settings :
+		CfgList = 0x005E0114
+		Operation = 0x00482F90
+		OpArgs = <NULL>
+[INFO] 14:59:11 <CIPB> : cipbApplyConfiguration(), cipbconfig.c, Line=899
+	Leaving CIP-B function cipbApplyConfiguration() with return code '0'
+[INFO] 14:59:11 <CIPB> : cipbInitializeEdiabas(), cipbbase.c, Line=4298
+	Leaving CIP-B function cipbInitializeEdiabas() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "EdiabasVersion"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "7.3.0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "EdiabasVersion"
+		Value = "7.3.0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "EdiabasIniPath"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "C:\EDIABAS\BIN"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "EdiabasIniPath"
+		Value = "C:\EDIABAS\BIN"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "EdiabasConfigCount"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "29"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "EdiabasConfigCount"
+		Value = "29"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "EdiabasConfigName"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "Interface"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "EdiabasConfigName"
+		Value = "Interface"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "EcuPath"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "C:\EDIABAS\ECU"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "EcuPath"
+		Value = "C:\EDIABAS\ECU"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "RetryComm"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "RetryComm"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "UBattHandling"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "UBattHandling"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "IgnitionHandling"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "IgnitionHandling"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "TracePath"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "C:\EDIABAS\TRACE"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "TracePath"
+		Value = "C:\EDIABAS\TRACE"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SystemTraceSys"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SystemTraceSys"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SystemTraceBip"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SystemTraceBip"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SystemTraceIfh"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SystemTraceIfh"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "ApiTrace"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "ApiTrace"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "IfhTrace"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "IfhTrace"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SimulationPath"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "C:\EDIABAS\SIM"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SimulationPath"
+		Value = "C:\EDIABAS\SIM"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "Simulation"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "Simulation"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "BipDebugLevel"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "BipDebugLevel"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "Interface"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "STD:OBD"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "Interface"
+		Value = "STD:OBD"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SystemResults"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "1"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SystemResults"
+		Value = "1"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "SystemTraceNet"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "SystemTraceNet"
+		Value = "0"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "NetworkProtocol"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "TCP"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "NetworkProtocol"
+		Value = "TCP"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "TaskPriority"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "10"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "TaskPriority"
+		Value = "10"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "CodeMapping"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = ""
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2816
+	Calling Ediabas function 'apiGetConfig()' with these settings :
+		apiConfigNames[ i ] = "TraceSize"
+		szConfigValue = 0x0018E418
+[INFO] 14:59:11 <EDIABAS> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2819
+	Call to CoAPI function 'apiGetConfig()' returned :
+		szConfigValue = "1024"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=493
+	Enterring CIP-B function 'cipbSetStringConfiguration()' with these settings :
+		CfgList = 0x005E8030
+		Identifier = "TraceSize"
+		Value = "1024"
+[INFO] 14:59:11 <CIPB> : cipbSetStringConfiguration(), cipbconfig.c, Line=540
+	Leaving CIP-B function cipbSetStringConfiguration() with return code '0'
+[INFO] 14:59:11 <CIPB> : cipbGetEdiabasConfig(), cipbmisc.c, Line=2864
+	Leaving CIP-B function cipbGetEdiabasConfig() with return code '0'
+[INFO] 14:59:11 <CIPB> : cipbInit(), cipb.c, Line=658
+	Leaving CIP-B function cipbInit() with return code '0'

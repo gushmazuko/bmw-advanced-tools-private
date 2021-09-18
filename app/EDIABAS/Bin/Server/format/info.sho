@@ -1,0 +1,47 @@
+; ------------------------------------------------------------
+; DIS-/MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer INFO.GER
+; Autor: [Po]
+; Datum: 22.03.2001
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Text für SG-Index
+;
+R "$ECUINDEXTEXT"
+M "$ECUINDEXTEXT "
+F "$ECUINDEXTEXT +%S"
+N "TEXT"
+;
+; Text für SG-Adresse
+;
+R "$ECUADDRTEXT"
+M "$ECUADDRTEXT "
+F "$ECUADDRTEXT +%S"
+N "TEXT"
+;
+; Text für Anzeige unverbaut
+;
+R "$PRIODEFAULTTEXT"
+M "$PRIODEFAULTTEXT "
+F "$PRIODEFAULTTEXT +%S"
+N "TEXT"
+;
+; Verbau-Informationszeile -
+;
+;Kennung:
+;|   SG-Index
+;|   |  SG-Diagnoseaddresse
+;|   |  |  Prorität
+;|   |  |  |  SG-Familienlangname
+;|   |  |  |  |2345678901234567890
+;|   |  |  |  |                   SG-Verbau-Informationstext
+;|   |  |  |  |                   |
+;$AA 1A 36 04 SM65                Steuergerät für Sitz, vorne links
+R "$AA"
+M "$AA "
+F "$AA %2S %2S %2S %<=20S +%S"
+N "SGNR,SGADDR,SGPRIO,SGBEZ,SGINFO"
+;
+; ENDE

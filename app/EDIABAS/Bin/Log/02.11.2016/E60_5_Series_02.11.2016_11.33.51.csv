@@ -1,0 +1,67 @@
+Results;SA_Code;Description
+BR;E60_;
+LACK;0A68;
+SA_1;229;Dynamic drive
+SA_2;248;Steering-wheel heating
+SA_3;255;Sports leather steering wheel
+SA_4;2NN;M light alloy wheels double-spoke style 172 M with mixed tyres
+SA_5;2TB;Sports automatic transmission
+SA_6;2VB;Tyre Pressure Monitor
+SA_7;300;Emergency spare wheel
+SA_8;302;Alarm system
+SA_9;319;Integrated universal remote control
+C_TYP;NW53;E60 Saloon N62B48 T1 LHD US
+SA_10;322;Comfort access system
+SA_11;339;Shadow Line
+SA_12;354;Windscreen with green shade band
+SA_13;403;Glass roof, electrical
+SA_14;415;Roller sunblind for rear window
+SA_15;416;Roller sunblinds
+SA_16;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_17;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_18;438;Fine-wood trim
+SA_19;441;Smoker's package
+SA_20;442;Cupholder
+SA_21;456;Comfort seats front, electrically adjustable
+SA_22;473;Armrest front
+SA_23;494;Seat heating for driver and front passenger
+SA_24;502;Headlight washer system
+SA_25;508;Park distance control
+SA_26;522;Xenon Light
+SA_27;524;Adaptive headlight
+SA_28;534;Automatic air conditioning
+SA_29;544;Cruise control with braking function
+SA_30;563;Lights package
+SA_31;609;Navigation system Professional
+SA_32;620;Voice control
+SA_33;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_34;645;Radio control US
+SA_35;653;High Definition Radio
+SA_36;655;Satellite tuner
+SA_37;677;HiFi system Professional
+SA_38;694;Preparation for CD changer
+SA_39;697;Area code 1 for DVD
+SA_40;6FL;USB audio interface
+SA_41;6UH;Traffic Information
+SA_42;704;M Sports suspension
+SA_43;715;M Aerodynamics package
+SA_44;7MP;Sports package
+SA_45;818;Battery master switch
+SA_46;823;Hot-climate version
+SA_47;845;Acoustic seat-belt warning
+SA_48;850;Additional tank filling, export
+SA_49;853;Language version English
+SA_50;876;Radio frequency 315 MHz
+SA_51;925;Shipping protection package
+SA_52;992;Control of number-plate attachment
+SA_53;9AA;External skin protection
+C_DATE;0307;03.2007
+SA_ANZ;53;
+POLSTER;LCAD;
+VERSION;02;
+E_WORT_1;B110;Battery 110 Ah, DO
+E_WORT_ANZ;1;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;0;
+STANDARD_FA;E60_#0307*NW53%0A68&LCAD$229$248$255$2NN$2TB$2VB$300$302$319$322$339$354$403$415$416$430$431$438$441$442$456$473$494$502$508$522$524$534$544$563$609$620$639$645$653$655$677$694$697$6FL$6UH$704$715$7MP$818$823$845$850$853$876$925$992$9AA-B110;

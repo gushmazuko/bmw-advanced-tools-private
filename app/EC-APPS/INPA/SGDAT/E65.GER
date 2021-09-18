@@ -1,0 +1,183 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E65.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 06.04.2000 rd V0.01 Erstellung
+//* 20.08.2002 rd V1.06 EXX neu dazu
+//* 24.09.2002 rd V1.07 ALC neu dazu
+//* 16.10.2002 rd V1.08 N73 dazu
+//* 04.04.2003 tm V1.09 Schiebehebedach geändert
+//* 17.09.2003 rd V1.10 Nav_jap2 wird JNAV60
+//* 24.11.2003 rd V1.11 Wasserstoff Motronik neu
+//* 16.02.2004 rd V1.12 Umstellung auf 32-Bit INPA
+//* 19.02.2004 rd V1.13 DDE6 M57 neu
+//* 17.03.2004 rd V1.14 Kommunikationssysteme überarbeitet
+//* 16.07.2004 GA V1.15 DDE6M67M, S dazu
+//* 30.09.2004 rd V1.16 LM_AHL hinzu
+//* 22.10.2004 tm V1.17 CEM_68 hinzu
+//* 02.03.2005 nm V1.18 Neue Sitzmodule hinzu
+//* 22.03.2005 GA V1.19 MSV70 dazu
+//* 04.04.2005 GA V1.20 FLA_65
+//* 28.09.2005 GA V1.21 Änderung von MSV70,MS 45.0 für N52 in: MSV70,MSV 70 für N52
+//* 18.11.2005 GA V1.22 Alphabetische Ordnung der Scripte
+//* 25.11.2005 TM V1.23 Nightvision NVE_65, NVC_65 hinzu
+//* 28.03.2006 GA V1.24 RDC_GEN2 dazu
+//* 12.05.2006 WB V1.25 ID-Auslesen hinzu (Weber)
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E65 V1.25
+ENTRY=     EXX,Funktionale Jobs,
+ENTRY=     TD-530,TD-530 I-Stufe/Gesamt FS,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=   MSV70,MSV 70 für N52,
+ENTRY=,,
+ENTRY=   MS450,MS 45.0 für M54,
+ENTRY=,,
+ENTRY= ME9_N62,ME 9    für N62,
+ENTRY=,,
+ENTRY=ME9_N73R,ME 9    für N73 Master,
+ENTRY=ME9_N73L,ME 9    für N73 Slave,
+ENTRY=,,
+ENTRY=  D50M57,DDE 5.0 für M57,
+ENTRY= DDE6M57,DDE 6   für M57TOP / M57TÜ2,
+ENTRY=,,
+ENTRY= D51M67M,DDE 5.1 für M67 Master,
+ENTRY= D51M67S,DDE 5.1 für M67 Slave,
+ENTRY=,,
+ENTRY= DDE6M67M,DDE 6 für M67TÜ Master,
+ENTRY= DDE6M67S,DDE 6 für M67TÜ Slave,
+ENTRY=,,
+ENTRY=  VVT_14,Variabler Ventiltrieb Bank 1-4,
+ENTRY=  VVT_58,Variabler Ventiltrieb Bank 5-8,
+ENTRY=,,
+ENTRY=ME9N73HR,ME 9    für N73H60 Master,
+ENTRY=ME9N73HL,ME 9    für N73H60 Slave,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=    GS19,Getriebesteuergerät GS19,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY= ACC_E65,Adaptive Cruise Control,
+ENTRY= ARS_E65,Aktive Rollstabilisierung,
+ENTRY= ,,
+ENTRY= DSC_E65,Dynamische Stabilitätskontrolle,
+ENTRY= ,,
+ENTRY=   EDC_K,Elektronische Dämpferkontrolle,
+ENTRY= EMF_E65,Elektromechanische Feststellbremse,
+ENTRY= ,,
+ENTRY= EHC_E65,Luftfeder,
+ENTRY= ,,
+ENTRY=RDC_GEN2,Reifen Druck Kontrolle,
+ENTRY= RDC_E65,Reifen Druck Kontrolle E67,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=  ALC_60,Adaptive Light Control,
+ENTRY= AHM_E65,Anhängermodul,
+ENTRY=BZMF_E65,Bedienzentrum Mittelarmlehne,
+ENTRY= BZM_E65,Bedienzentrum Mittelkonsole,
+ENTRY=     CAS,Car Access System,
+ENTRY=     CIM,Chassis Integration Modul,
+ENTRY=  CEM_68,Clean Energy Modul E68,
+ENTRY= DWA_E65,Diebstahlwarnanlage,
+ENTRY= SINE_65,DWA Sirene und Neigungsgeber,
+ENTRY= ,,
+ENTRY=  EC_E65,Ergo Commander,
+ENTRY= ECF_E65,Ergo Commander Fond,
+ENTRY=  FLA_65,Fernlichtassistent,
+ENTRY= HKL_E65,Heckklappenlift,
+ENTRY= KOMBI65,Instrumentenkombi,
+ENTRY=  IHKA65,Klimabedienteil,
+ENTRY= HKA_E65,Klimabedienteil Fond,
+ENTRY=  LM_AHL,Lichtschaltmodul mit AHL,
+ENTRY=  LM_E65,Lichtschaltmodul,
+ENTRY= ,,
+ENTRY= NVC_65,Night Vision Kamera,
+ENTRY= NVE_65,Night Vsion Steuergerät,
+ENTRY= ,,
+ENTRY= PDC_E65,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY= PGS_E65,Passive Go System alt,
+ENTRY= POW_E65,Powermodul,
+ENTRY= RLS_E65,Regen- Lichtsensor,
+ENTRY= SHD_MDS,Schiebehebedach,
+ENTRY=SHZH_E65,Standheizung, Zuheizer,
+ENTRY= WIM_E65,Wischermodul,
+ENTRY= ZGM_E65,Zentrales Gatewaymodul,
+
+[ROOT_KAROSSERIE_TUER]
+DESCRIPTION=Türmodule
+ENTRY= TMF_E65,Türmodul Fahrer,
+ENTRY= TMB_E65,Türmodul Beifahrer,
+ENTRY= TMFHE65,Türmodul Fahrer hinten,
+ENTRY= TMBHE65,Türmodul Beifahrer hinten,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY= FAS_PLX,Sitzmodul Fahrer (neu),
+ENTRY= BFS_PLX,Sitzmodul Beifahrer (neu),
+ENTRY= FAH_PLX,Sitzmodul Fahrer hinten (neu),
+ENTRY= BFH_PLX,Sitzmodul Beifahrer hinten (neu),
+ENTRY= FAS_E65,Sitzmodul Fahrer (alt),
+ENTRY= BFS_E65,Sitzmodul Beifahrer (alt),
+ENTRY= FAH_E65,Sitzmodul Fahrer hinten (alt),
+ENTRY= BFH_E65,Sitzmodul Beifahrer hinten (alt),
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Sicherheits Module
+ENTRY=     SIM,Sicherheits- Informationsmodul,
+ENTRY=     SFZ,Satellit Fahrzeugzentrum,
+ENTRY=     SZL,Satellit Lenksäule,
+ENTRY=    SSFA,Satellit Sitz Fahrer,
+ENTRY=    SSBF,Satellit Sitz Beifahrer,
+ENTRY=     SSH,Satellit Sitz hinten,
+ENTRY=    SASL,Satellit A-Säule links,
+ENTRY=    SASR,Satellit A-Säule rechts,
+ENTRY=    STVL,Satellit Tür vorne links,
+ENTRY=    STVR,Satellit Tür vorne rechts,
+ENTRY=    SBSL,Satellit B-Säule links,
+ENTRY=    SBSR,Satellit B-Säule rechts,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY= CDC_E65,Audio CD-Changer,
+ENTRY= ASK_E65,Audio System Kontroller,
+ENTRY= ANT_E65,Antennentuner,
+ENTRY=  SAT_60,Digitaler Satellitentuner USA,
+ENTRY=  DAB_60,Digitalradio terrestrisch DAB,
+ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=  IBOC60,Hybrid Radio USA IBOC,
+ENTRY= ,,
+ENTRY= KHI_E65,Kopfhöhrer Interface,
+ENTRY=  MMI_GT,Mensch Maschine Interface Grafikteil,
+ENTRY= MMI_GTF,Mensch Maschine Inter. Grafik. Fond,
+ENTRY=   MC_GW,MOST/CAN-Gateway (im MMI),
+ENTRY=   MMIFC,MOST/CAN-Gateway Fond (im MMI Fond),
+ENTRY= MMC_E65,Multimedia-Changer,
+ENTRY= NAV_E65,Navigationssystem,
+ENTRY=  JNAV60,Navigationssystem Japan,
+ENTRY= ,,
+ENTRY= SVS_E65,Sprachverarbeitungssystem,
+ENTRY= TEL_E65,Telefon ECE / US,
+ENTRY=   JBIT2,Telefon Japan,
+ENTRY= AMP_E65,Top HIFI Verstärker,
+ENTRY= VID_E65,Videomodul,
+ENTRY=  CIDF65,Zentrales Informations Display hinten,
+
+
+[ROOT_SICHERHEITSFAHRZEUG]
+DESCRIPTION=Sicherheitsfahrzeug
+ENTRY=  SECUR1,Sicherheitsmodul 1,
+ENTRY=  SECUR2,Sicherheitsmodul 2,
+

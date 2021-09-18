@@ -1,0 +1,632 @@
+// Auftragsdatei: E85AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 918 364.5
+DATUM 01.09.2008
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-62   01.10.03  Klaus Leonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-82
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+// E6911.P  a           Datei neu erstellt                                                 19.03.01 Rochal
+//
+DATEINAME                             E85AT.000
+//
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevant)
+Z #1007                 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05 OKTOBER04
+>>>                     APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04
+>>>                     SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum Oktober 2007
+
+Z #0408                 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05
+>>>                     OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03
+>>>                     GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04
+>>>                     SIM_CI_02 SIM_CI_03 SIM_CI_04 SIM_CI_05                          //Massnahmen zum April 2008
+
+Z #1008                 OKTOBER08 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05
+>>>                     OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03
+>>>                     GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04
+>>>                     SIM_CI_02 SIM_CI_03 SIM_CI_04 SIM_CI_05                          //Massnahmen zum Oktober 2008
+
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0101                                                                                  //PPP-Stand 01.2001
+A #0102                 PTO GM5_CI_03                                                    //PTO-Stand 01.2002
+A #0202                 V_SERIE PTO GM5_CI_03 GM5_CI_04                                  //Vorserie 1, 02.2002
+A #0502                 V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04                         //Vorserie 2, 05.2002
+A #0602                 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04                 //Anlauf - Serie, 06.2002
+
+A #0902                 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04
+>>>                     SBSL_CI_02 SBSR_CI_02                                            //Serie, 09.2002
+
+A #0303                 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03
+>>>                     GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US                           //Massnahmen zum 03.2003
+
+A #1003                 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO
+>>>                     GM5_CI_03 GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US
+>>>                     SBSL_CI_04 SBSR_CI_04 SIM_CI_02 SIM_CI_03 SIM_CI_04
+>>>                     SIM_CI_05                                                        //Massnahmen zum Oktober 2003
+
+A #0404                 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO
+>>>                     GM5_CI_03 GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US
+>>>                     SBSL_CI_04 SBSR_CI_04 SIM_CI_02 SIM_CI_03 SIM_CI_04
+>>>                     SIM_CI_05                                                        //Massnahmen zum April 2004
+
+A #1004                 OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO
+>>>                     GM5_CI_03 GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US
+>>>                     SBSL_CI_04 SBSR_CI_04 SIM_CI_02 SIM_CI_03 SIM_CI_04
+>>>                     SIM_CI_05                                                        //Massnahmen zum Oktober 2004
+
+A #0405                 APRIL05 OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO
+>>>                     GM5_CI_03 GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US
+>>>                     SBSL_CI_04 SBSR_CI_04 SIM_CI_02 SIM_CI_03 SIM_CI_04
+>>>                     SIM_CI_05                                                        //Massnahmen zum April 2005
+
+A #1005                 APRIL05 OKTOBER04 APRIL04 OKTOBER03 A_SERIE
+>>>                     V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04 SBSL_CI_02
+>>>                     SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum Oktober 2005
+
+A #0106                 FACELIFT APRIL05 OKTOBER04 APRIL04 OKTOBER03 A_SERIE
+>>>                     V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04 SBSL_CI_02
+>>>                     SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum Facelift 01/2006
+
+A #0406                 APRIL06 FACELIFT APRIL05 OKTOBER04 APRIL04 OKTOBER03 A_SERIE
+>>>                     V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04 SBSL_CI_02
+>>>                     SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum April 04/2006
+
+A #1006                 OKTOBER06 APRIL06 FACELIFT APRIL05 OKTOBER04 APRIL04 OKTOBER03
+>>>                     A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04 SBSL_CI_02
+>>>                     SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum Oktober 2006
+
+A #1206                 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05 OKTOBER04 APRIL04
+>>>                     OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04
+>>>                     SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Qualitäts Massnahmen zum Dezember 2006
+
+A #0407                 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05 OKTOBER04 APRIL04
+>>>                     OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04
+>>>                     SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum April 2007
+
+A #1007                 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05 OKTOBER04
+>>>                     APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04
+>>>                     SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04 SIM_CI_02
+>>>                     SIM_CI_03 SIM_CI_04 SIM_CI_05                                    //Massnahmen zum Oktober 2007
+
+A #0408                 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05
+>>>                     OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03
+>>>                     GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04
+>>>                     SIM_CI_02 SIM_CI_03 SIM_CI_04 SIM_CI_05                          //Massnahmen zum April 2008
+
+A #1008                 OKTOBER08 APRIL07 DEZ06 OKTOBER06 APRIL06 FACELIFT APRIL05
+>>>                     OKTOBER04 APRIL04 OKTOBER03 A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03
+>>>                     GM5_CI_04 SBSL_CI_02 SBSR_CI_02 STV_US SBSL_CI_04 SBSR_CI_04
+>>>                     SIM_CI_02 SIM_CI_03 SIM_CI_04 SIM_CI_05                          //Massnahmen zum Oktober 2008
+
+//******************************************************************************
+//E: aktive Ergänzungszeilen (PUSY-Relevanz für Steuerung SA<100)
+E EWS4                                                                      //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+E IRSD                  ECE_IRS_OFF                                         //Short range radar disabled for ECE types
+E L633                  TEL_O_CRADLE                                        //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box im Werk
+E MEKS                  MIT_EKS                                             //Vorhalt für Umstellung auf die neue Einklemmschutz SW im GM5 ab 15.01.2007
+
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+H EWS4                                                                      //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+H BFDY                                                                      //Brakeforcedisplay im Entwicklungsmodus, nur ECE!
+H STVX                  STV_US                                              //BEG61.R invalid: STVR/L will not be coded in ECE-types
+H ECRA                  ECE_RADIO                                           //ECE variant coding of US press vehicles
+H IRSD                  ECE_IRS_OFF                                         //Short range radar disabled for ECE types
+H L633                  TEL_O_CRADLE                                        //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box im Werk
+H MEKS                  MIT_EKS                                             //Vorhalt für Umstellung auf die neue Einklemmschutz SW im GM5 ab 15.01.2007
+H TAK6                  TCU_E86_AUDKORR                                     //TCU Audiokorrektur E86, Projektnr.: 000000???
+
+//H OI11                  OHNE_FA_SBR                                       //Deaktivierung FAHRER SEATBELTREMINDER
+//H OI12                  OHNE_BF_SBR                                       //Deaktivierung BEIFAHRER SEATBELTREMINDER
+//H HELF                  HEL_FL                                            //Nachruestung Facelift Heckleuchten E85
+//H HWFL                  HSW_FL                                            //Nachruestung Facelift Hauptscheinwerfer E85
+//
+//******************************************************************************
+//K: Kundendienst-Ergänzungszeilen (keine PUSY-Relevanz)
+K OI01                  OHNE_FA_AIRBAG                                      //Deaktivierung Fahrerairbag
+K OI02                  OHNE_BF_AIRBAG                                      //Deaktivierung Beifahrerairbag
+K OI03                  OHNE_SIDEBAG_VL                                     //Deaktivierung Sidebag vorn links
+K OI04                  OHNE_SIDEBAG_VR                                     //Deaktivierung Sidebag vorn rechts
+//K OI05                  OHNE_AHPS_LI                                      //Deaktivierung AHPS links -> E65, 66,67
+//K OI06                  OHNE_AHPS_RE                                      //Deaktivierung AHPS rechts -> E65, 66,67
+K OI09                  OHNE_KNIESCH_VL                                     //Deaktivierung Knieschutz vorn links
+K OI10                  OHNE_KNIESCH_VR                                     //Deaktivierung Knieschutz vorn rechts
+K OI11                  OHNE_FA_SBR                                         //Deaktivierung FAHRER SEATBELTREMINDER
+K OI12                  OHNE_BF_SBR                                         //Deaktivierung BEIFAHRER SEATBELTREMINDER
+K WHKL                  WHKL                                                //Nachrüstung Weisse Heckleuchten
+K TELD                  TELEMATIC_DIS                                       //Deaktivierung Funktion Telematic fuer TCU_IBUS US
+//Zwangskopplung mit S639A
+K TEL3                  TEL_PROF_US                                         //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge
+//Zwangskopplung mit S641A
+K TEPR                  TEL_PROF_MOD                                        //Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US
+//Zwangskopplung mit S639A
+K K633                  TEL_BLUETOOTH                                       //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US
+K PVCA                  AKT_PERS_V_CALL                                     //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung
+//Zwangskopplung mit S639A
+K 633L                  TEL_O_CRADLE                                        //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box
+//Zwangskopplung mit S639
+//K BFDZ                  BRAKEFORCE                                        //Aktivierung der BFD-Funktion in HO
+K HELF                  HEL_FL                                              //Nachruestung Facelift Heckleuchten E85
+K HWFL                  HSW_FL                                              //Nachruestung Facelift Hauptscheinwerfer E85
+K NSWA                  NSW_AUS                                             //Deaktivierung NSW wenn FL an (Gesetzesanforderung Pennsylvania/USA)
+K TAK6                  TCU_E86_AUDKORR                                     //TCU Audiokorrektur E86, Projektnr.: 000000???
+
+//*******************************************************************************
+
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 167                                                      //Abgasnorm EU4
+W 168                   //MILANSTEUERUNG                   //Abgasnorm EU2
+W 169                                                      //Abgasnorm EU3
+W 199                   OHNE_KAT                           //Ausstattung für bleihaltigen Kraftstoff
+W 1CA                                                      //Selektion CO2 relevanter Fahrzeuge
+W 1CB                                                      //ACEA/CO2 Umfang
+W 201                                                      //Rapsmethylester Ausführung  (RME)
+W 205                   AUTOMATIK                          //Automatikgetriebe
+W 206                   SEQ_GETRIEBE                       //Sequentielles Schaltgetriebe
+W 210                   //DSC3 SE seit 12.04.04            //Dynamische Stabilitäts Kontrolle
+W 224   N0102           FAHRDYNAMIK                        //Fahrdynamik Control (fuer Kanada bis einschl. Nov. 2002 gesperrt)
+W 230                   SBR                                //Gurtwarnung (SBR, Seat Belt Reminder) ab 04/03, nicht mit SA 845 (Statusbericht: EU spez. Zusatzumfänge)
+W 249                                                      //Multifunktionslenkrad
+W 255                                                      //Sport-Lederlenkrad
+W 2AD                                                      //LM Raeder Ellipsoidspeiche; Entfall zu 10/07
+W 2C8                                                      //LM Raeder Sternspeiche
+W 2M0                                                      //Individual Leichtmetallraeder V-Speiche 152 mit Mischbereifung
+W 2M6                                                      //BMW Individual Lederlenkrad mit Holzringintarsie
+W 2PA                                                      //Radschraubensicherung
+W 2RT                                                      //LM Raeder Turbinenstyle
+W 2R3                                                      //LM Sternspeiche Styling 203 Aluminium 8/8,5J x 18"
+W 2R8                                                      //LM Sternspeiche 241 mit Mischbereifung (PA096/050), ab 01/07 (PA096/097)
+W 2VB                   DIRECT_RDC                         //Reifen Druck Control
+W 302                   DWA                                //Alarmanlage
+W 305                   FERNBED                            //Fernbedienung für Zentralverriegelung
+W 313                                                      //Außenspiegelpaket
+W 319                                                      //Individual Universal-Fernbedinung EUROPA
+W 320                                                      //Modellschriftzug Entfall
+W 324                                                      //Leichtmetallrad 107
+W 330                                                      //Sportpaket
+W 331                                                      //Leichtmetallrad Styling 102
+W 332                                                      //Leichtmetallrad Styling 106
+W 333                                                      //Leichtmetallrad Styling 105
+W 334                                                      //Leichtmetallrad Styling 103
+W 337                                                      //M Sportpaket
+W 338   V0102                                              //M Sportpaket II
+W 345   N0102                                              //Chrome-Line Interieur
+W 350                                                      //Leichtmetallrad Styling 108 (Schl.Num.Verz. Verbundraeder Sternspeiche 108)
+W 354                                                      //Grünkeil Frontscheibe
+W 380   N0102           HARDTOP                            //Hardtop-Vorbereitung
+W 387                                                      //Windschott
+W 388                                                      //Verdeck schwarz
+W 389                                                      //Verdeck Grau
+W 394                                                      //Verdeck Dunkelbeige
+W 399   V0102                                              //Verdeckbetätigung, vollautomatisch
+W 399   N0102           VERDECK_EL_AUT                     //Verdeckbetätigung, vollautomatisch Verdeck oeffnen mit Fernbedienung
+W 420                                                      //Sonnenschutzverglasung; Entfall E86 US-Typen (PA096/107)
+W 423                                                      //Fußmatten in Velours
+W 428                                                      //Warndreieck und Verbandskasten
+W 430                   //SPIEGELPAKET                     //Innen-/Außenspiegel, automatisch abblendend
+W 431   N0102                                              //Innenspiegel, automatisch abblendend
+W 435                                                      //Edelholzausfuerung, Platane
+W 437                                                      //Edelholzausfuerung, Pappel Maser hell
+W 438                                                      //Edelholzausfuerung Pappel Maser braun hochglänzend
+W 441                                                      //Raucherpaket
+W 442   V0102                                              //Getraenkehalter
+W 449                                                      //Mautinnenspiegel fuer Japan
+W 458   V0102                                              //Sitzverstellung, elektrisch
+W 459                   SITZMEMORY                         //Sitzverstellung, elektrisch
+W 470                   S_SCHALTER                         //Kindersitzbefestigung ISOFIX
+W 473   V0102                                              //Armauflage vorn
+W 481   V0102                                              //Sportsitze für Fahrer
+W 493   N0102                                              //Ablagenpaket
+W 494                   SITZHEIZUNG_VO                     //Sitzheizung für Fahrer und Beifahrer
+W 4A4                                                      //Interieurleisten Aluminium Cirrus; Entfall zu 10/07
+W 4AA                                                      //Dachhimmel Anthrazit
+W 4AD                                                      //Interieurleiste Aluminium Laengsschliff fein
+W 4B4                                                      //Interieurleiste Aluminium Laengsschliff fein mit Ledereinlage (lt.PA096/065);wird entfernt (PA096/109)
+W 4BM                                                      //Interieurleiste Seitenmatt Graphit
+W 4MA                                                      //M Multifunktionssitz
+W 4ME                                                      //Edelholzausführung Nussbaum Madeira rotbraun
+W 4M0                                                      //Individual Edelholz Pappel natur
+W 4M1                                                      //Individual Edelholz Mahagoni Maritim
+W 4M4                                                      //Intereurleisten Aluminium Silver Grid
+W 4M7                                                      //Individual Edelholzausführung Mahagoni
+W 4ML                                                      //Individual Intereurleisten Pianolack schwarz
+W 4MY                                                      //Interleisten Leder-Carbon
+W 4MM                                                      //Individual Intereurleisten lederbezogen
+W 4MR                                                      //Interieurleisten Alu Hexagon; kein Serieneinsatz (PR739/053)
+W 4NA                                                      //Innenspiegel mit digitalem Kompass
+W 4UC                                                      //Pedalerie stell line
+W 5AB                   ENTFALL_BFD                        //ZWEISTUFIGE BREMSLEUCHTEN ENTFALL (BFD)
+W 5DA                   S_SCHALTER_HO                      //Deaktivierung Beifahrerairbag. Funktion wie bei SA470 ohne Befestigung
+W 5DS                                                      //Kofferraum-Notentriegelung
+W 5GA                                                      //Alarmanlagenvorbereitung
+W 502                   SWA                                //Scheinwerfer-Waschanlage
+W 508                   PDC                                //Park-Distance-Controll
+W 520                   NEBEL                              //Nebelscheinwerfer incl. Außenspiegel und Waschdüsen beheizt (für BT51 Serie)
+W 521                   REGENSENSOR                        //Regensensor
+W 522                   XENON                              //Bi- Xenonlicht
+W 530                   KLIMAREGELUNG                      //Klimaanlage
+W 534                   KLIMAAUTOMATIK                     //Klimaautomatik
+W 540                                                      //Geschwindigkeitsregulierung
+W 545                                                      //Zusatzanzeigen Oel-Temperatur
+W 548                   KM_TACHO                           //KM-Tacho für RL und Kanada
+W 550                   BC_BASIS                           //Bordcomputer
+W 563   V0102                                              //Innenlichtpaket
+W 582                                                      //Vorbereitung für Fahrertraining
+W 601                   TV                                 //TV-Funktion
+W 602   V0406           TV BORDMONITOR RADIO_NG            //Bordmonitor mit TV
+W 602   N0406           TV BORDMONITOR RADIO_NG BC_BASIS   //Bordmonitor mit TV
+W 606                   LOW_NAVIGATION RADIO_NG BC_BASIS   //Radio Navigationssystem BUSINESS inkl. BC
+W 609                   NAVIGATION RADIO_NG BC_BASIS       //Navigationssystem PROFESSIONAL inkl Radio und BC
+W 612                   BMW_ASSIST                         //BMW Assist
+W 620                   SPRACHEINGABE                      //Sprachsteuerung (Telefon)
+W 630                   //TELEFON                            //Aufpassen: DSP-Abhängigkeit; Autotelefon Siemens m. Schnurl. Hoerer nicht im Schlüsselwortverz. + Statusbericht 9/02
+W 633                   TEL_BUSINES_ECE                    //Handy Vorbereitung Business/Bluetooth-Sch.
+W 638                   TEL_PROF                           //Autotelefon PROFESSIONAL, Everest-Plattform (neues Motorola-Telefon) ECE; verschoben auf 9/03
+W 639                   TEL_PROF_US                        //Autotelefon inkl. Telematik. Everest-Plattform (neues Motorola-Telefon) US; verschoben auf 9/03Komplettvorbereitung   Handy US
+W 640                   VORB_TEL_AUTO                      //Autotelefonvorbereitung
+W 641                   VORB_TEL_AMPS                      //Universal Handyvorbereitung US-Standard. bis 10/03 Zwang zu SA 662 oder 609 ab 10/03 Zwang zu SA 249+662 oder 609.
+W 644                   TEL_VORB                           //Universal-Handy-Vorbereitung. (ULF) bis 10/03 Zwang zu SA 662 oder 609 ab 10/03 Zwang zu SA 249+662 oder 609.
+W 645                   RADIO_US                           //Radio-Steuerung US
+W 646                   VORB_TEL_JAPAN                     //Autotelefonvorbereitung Japan. Zwang zu SA 609+807.
+W 648   N0102           RADIO_NG                           //Radio BMW CD
+W 650   V0102                                              //CD-Laufwerk-Zusteuerung
+W 651                   //MINIDISK                         //MD-Laufwerk-Zusteuerung (lt. PA678/184 Entfall E85 zu 10/06, E86 ab SOP)
+W 653                                                      //Digitalradio US I-BOC
+W 660   V0102           RADIO_NG                           //Radio BMW Reverse
+W 661   V0102           RADIO_NG                           //Radio BMW Business
+W 662   N0102           RADIO_NG DIG_LEIT_662              //Radio BMW BUSINESS CD
+W 663                   RADIO_NG                           //BMW Professional CD54
+W 664                                                      //Handy Vorbereitung
+W 672                   CD_WECHSLER                        //Audio-CD-Wechsler für 6 CDs
+W 676                   HIFI_SYSTEM                        //HiFi Lautsprechersystem ASW erst mit ULF.C02
+W 677                   TOP_HIFI                           //HiFi System Professional
+W 679   V0102                                              //HiFi Subwoofersystem
+W 692                   CD_WECHS_VORB                      //CD-Wechsler I-Bus vorbereitung
+W 6AA                                                      //BMW Teleservices (SOP 03/07)
+W 6UD                   RUSSISCH                           //Sprachversion Russisch
+W 6UE                   DIEBSTAHLSCHUTZ                    //Diebstahlschutz NavigatiosDVD
+W 703                                                      //Ungarn-Paket
+W 704                                                      //M-Sportfahrwerk (fuer Kanada gesperrt!)
+W 706                                                      //V5-Paket
+W 710                                                      //M-Lederlenkrad
+W 711                                                      //M-Sitz mit OC-3 Matte
+W 715   V0102                                              //M Aerodynamikpaket
+W 725                                                      //Basispaket
+W 730                                                      //Advantage Paket
+W 734                                                      //Dummy
+W 735                                                      //Dummy
+W 754                                                      // M Heckspoiler
+W 760                                                      //Individual Hochglanz Shadow Line
+W 769                                                      //Individualserie
+W 778                                                      //Einstiegsleisten "BMW Individual"
+W 785                                                      //Individual Weisse Blinkleuchten
+W 787                                                      //M Leichtmetallräder Doppelspeiche135M
+W 7AA                                                      //Dummy
+W 7AB                                                      //Dummy
+W 7AC                                                      //Dummy
+W 7CA                                                      //BMW Repair Inclusive (3Jahre/100000 km)
+W 7CB                                                      //BMW Repair Inclusive (4Jahre/80000 km)
+W 7CC                                                      //BMW Repair Inclusive (4Jahre/100000 km)
+W 7CD                                                      //BMW Repair Inclusive (5Jahre/100000 km)
+W 7CE                                                      //BMW Repair Inclusive (5Jahre/120000 km)
+W 7CF                                                      //BMW Repair Inclusive (3Jahre/80000 km)
+W 7CG                                                      //BMW Repair Inclusive 3-Jahrespaket
+W 7CH                                                      //BMW Repair Inclusive 4-Jahrespaket
+W 7CK                                                      //BMW Repair Inclusive 5-Jahrespaket
+W 7DA                                                      //BMW Basic Service Inclusive (3Jahre/90000 km)
+W 7DB                                                      //BMW Service Inclusive (3Jahre/90000 km)
+W 7DC                                                      //BMW Service+Repair Inclusive (3Jahre/90000 km)
+W 7DD                                                      //BMW Basic Service Inclusive (4Jahre/60000 km)
+W 7DE                                                      //BMW Service Inclusive (4Jahre/60000 km)
+W 7DF                                                      //BMW Service+Perair Inclusive (4Jahre/100000 km)
+W 7DG                                                      //BMW Service Inclusive (6 Jahra/200000 km)
+W 7DH                                                      //BMW Service+Perair Inclusive (3Jahre/150000 km)
+W 7DK                                                      //BMW Service + Repair Inclusive (6 Jahre / 200.000 km)
+W 7DL                                                      //BMW Basic Service Inclusive (10 Jahre / 100.000 km)
+W 7DM                                                      //BMW Service Inclusive (10 Jahre / 100.000 km)
+W 7DN                                                      //BMW Basic Service Inclusive (10 Jahre / 150.000 km)
+W 7DP                                                      //BMW Service Inclusive (10 Jahre / 150.000 km)
+W 7DR                                                      //BMW Basic Service Inclusive  1-Jahrespaket
+W 7DS                                                      //BMW Basic Service Inclusive  2-Jahrespaket
+W 7DT                                                      //BMW Basic Service Inclusive  3-Jahrespaket
+W 7DU                                                      //BMW Basic Service Inclusive  4-Jahrespaket
+W 7DV                                                      //BMW Basic Service Inclusive  5-Jahrespaket
+W 7DW                                                      //BMW Service Inclusive  1-Jahrespaket
+W 7DX                                                      //BMW Service Inclusive  2-Jahrespaket
+W 7DY                                                      //BMW Service Inclusive  3-Jahrespaket
+W 7DZ                                                      //BMW Service Inclusive  4-Jahrespaket
+W 7D1                                                      //BMW Service Inclusive  5-Jahrespaket
+W 7D2                                                      //BMW Service + Repair Inclusive 1-Jahrespaket
+W 7D3                                                      //BMW Service + Repair Inclusive 2-Jahrespaket
+W 7D4                                                      //BMW Service + Repair Inclusive 3-Jahrespaket
+W 7D5                                                      //BMW Service + Repair Inclusive 4-Jahrespaket
+W 7D6                                                      //BMW Service + Repair Inclusive 5-Jahrespaket
+W 7D7                                                      //BMW Basic Service Inclusive (2 Jahre / 40.000km)BMW/ALPINA
+W 7D8                                                      //BMW Service Inclusive (2 Jahre / 40.000km)BMW/ALPINA
+W 7M0                                                      //BMW Individual Komposition 1
+W 7M1                                                      //BMW Individual Komposition 2
+W 7M2                                                      //BMW Individual Komposition ab 01/06
+W 7M3                                                      //BMW Individual Komposition mit maritimem Charakter ab 01/06
+W 7M4                                                      //BMW Individual Komposition mit sporitvem Charakter ab 04/05
+W 7MB                                                      //Individualpaket Edition Exclusive Sport ab 01/07
+W 7MC                                                      //Individualpaket Edition Exclusive ab 01/07
+W 7ME                                                      //M Driver's Package; V-Max Anhebung fuer M-Coupe
+W 7NA                                                      //BMW Service Inclusive
+W 7NB                                                      //BMW Service+Repair Inclusive
+W 7NC                                                      //BMW Service Inclusive
+W 7ND                                                      //BMW Service+Repair Inclusive
+W 7NE                                                      //BMW Service Inclusive
+W 7NF                                                      //BMW Service+Repair Inclusive
+W 7NG                                                      //BMW Basic Service Inclusive (3 Jahre)
+W 7NH                                                      //BMW Basic Service Inclusive (5 Jahre)
+W 7NK                                                      //BMW Service Inclusive
+W 7NL                                                      //BMW Service+Repair Inclusive
+W 7NM                                                      //BMW Service Inclusive (3 Jahre/60.000 km)
+W 7NN                                                      //BMW Service+Repair Inclusive (3 Jahre/60.000 km)
+W 7NP                                                      //BMW Basic Service inclusive (3 Jahre/100.000 km)
+W 7NR                                                      //BMW Service inclusive (3 Jahre/100.000 km)
+W 7NS                                                      //BMW Service+Repair inclusive (3 Jahre/100.000 km)
+W 7NT                                                      //BMW Basic Service inclusive (3 Jahre/80.000 km)
+W 7NU                                                      //BMW Service inclusive (3 Jahre/80.000 km)
+W 7NV                                                      //BMW Service+Repair inclusive (3 Jahre/80.000 km)
+W 7NW                                                      //BMW Basic Service inclusive (5 Jahre/60.000 km)
+W 7NX                                                      //BMW Basic Service inclusive (4 Jahre/80.000 km)
+W 7NY                                                      //BMW Service inclusive (4 Jahre/80.000 km)
+W 7NZ                                                      //BMW Service+Repair inclusive (4 Jahre/80.000 km)
+W 7N1                                                      //BMW Basic Service inclusive (4 Jahre/100.000 km)
+W 7N2                                                      //BMW Service inclusive (4 Jahre/100.000 km)
+W 7N3                                                      //BMW Service+Repair inclusive (4 Jahre/100.000 km)
+W 7N4                                                      //BMW Basic Service inclusive (4 Jahre/120.000 km)
+W 7N5                                                      //BMW Service inclusive (4 Jahre/120.000 km)
+W 7N6                                                      //BMW Service+Repair inclusive (4 Jahre/120.000 km)
+W 7N7                                                      //BMW Basic Service Inclusive (5 Jahre/80.000 km)
+W 7N8                                                      //BMW Service Inclusive (5 Jahre/80.000 km)
+W 7N9                                                      //BMW Service+Repair Inclusive (5 Jahre/80.000 km)
+W 7PA                                                      //BMW Service Inclusive
+W 7PB                                                      //BMW Service+Repair Inclusive
+W 7R2                                                      //Lifestyle Paket
+W 7R3                                                      //OE-Paket Ukraine
+W 7RP                                                      //Advantage paket
+W 7SA                                                      //Open Air Paket
+W 7SP                                                      //Navigationssystem Professional mit integrierter Handyvorbereitung Bluetooth
+W 7T1                                                      //Basis Service Inclusive      (5 Jahre / 120.000km)
+W 7T2                                                      //Basis Service Inclusive      (6 Jahre / 150.000km)
+W 7T3                                                      //Basis Service Inclusive      (6 Jahre / 200.000km)
+W 7T4                                                      //Basis Service Inclusive      (10 Jahre / 200.000km)
+W 7T5                                                      //Service Inclusive            (10 Jahre / 200.000km)
+W 7U9                                                      //"Entfall BMW Basic Service Inclusive"
+W 801                                                      //Deutschland-Ausfuehrung
+W 802                   KOREA                              //Korea-Ausfuehrung
+W 807                   JAPAN                              //Japan-Ausfuehrung
+W 810                   AUSTRALIEN                         //Australien-Ausfuehrung
+W 812                   ENGLAND                            //England/Irland-Ausfuehrung
+W 818                                                      //Batteriehauptschalter
+W 821                                                      //Aegypten-Ausfuehrung
+W 822                   GOLF                               //Golf-Ausführung
+W 823                   TROPEN                             //Heissland-Ausführung
+W 824                   ZA                                 //Suedafrika-Ausfuehrung
+W 825                   OZEANIEN                           //Radio-Steuerung Ozeanien
+W 833                                                      //Singapur-Ausführung
+W 838                   KANADA                             //Kanada-Ausfuehring
+W 840                                                      //Hochgeschwindigkeitsabstimmung
+W 842   V0106                                              //Kaltland-Ausfuerung
+W 842   N0106                                              //Kaltland-Ausfuerung
+W 843                                                      //Motorauslegung
+W 845                   AK_GUWA                            //Akustische Gurtwarnung
+W 846                   //TAIWAN                           //Taiwan-Ausführung
+W 849                                                      //Entfall Automatischer Notruf
+W 851                   DEUTSCH                            //Sprache Deutsch
+W 853                   ENGLISCH                           //Sprache Englisch
+W 854                   FRANZOESISCH                       //Sprache Französisch
+W 855                   ITALIENISCH                        //Sprache Italienisch
+W 856                   SPANISCH                           //Sprache Spanisch
+W 858                                                      //Engine settings for lower-quality fuel
+W 861                   MILANSTEUERUNG                     //Änderung Codierdatensatz
+W 863                                                      //Europa-Händlerverzeichnis
+W 864                                                      //Übersee-Händlerverzeichnis
+W 868                   NIEDERLAENDISCH                    //Sprachversion Niederländisch
+W 875                                                      //Infrarotfernbedienung (nur fuer Korea)
+W 876                                                      //Funk-Fernbedienung 315 MHz
+W 877                   ENTF_UEBERKREUZ                    //Entfall Überkreuzbedienung
+W 879                                                      //Deutsch/Betriebsanl./Serviceheft
+W 880                                                      //Englisch/Betriebsanl./Serviceheft
+W 881                                                      //Französisch/Betriebsanl./Serviceheft
+W 883                                                      //Spanisch/Betriebsanl./Serviceheft
+W 884                                                      //Italienisch/Betriebsanl./Serviceheft
+W 885                                                      //Schwedisch/Betriebsanl./Serviceheft
+W 886                                                      //Holländisch/Betriebsanl./Serviceheft
+W 887                                                      //Arabisch/Betriebsanl./Serviceheft
+W 888                                                      //Dänisch/Betriebsanl./Serviceheft
+W 889                                                      //Portugiesisch/Betriebsanl./Serviceheft
+W 891                                                      //"Russisch/Betriebsanleitung/Serviceheft"
+W 892                                                      //Chinesisch Simplified/Betriebsanl./Serviceheft
+W 893                                                      //MO PAKET III
+W 894                                                      //HK-2 Paket
+W 896                   TAGFAHRLICHT                       //Tagfahrlicht
+W 8AA                                                      //China-Ausführung
+W 8AD                                                      //Alpina Z4
+W 8AE                                                      //Griechisch Betriebsanl./Serviceheft
+W 8AF                                                      //Koreanisch Betriebsanl./Serviceheft
+W 8AR                                                      //"Rumänisch/Betriebsanleitung/Serviceheft"
+W 8LF                                                      //Laendersteuerung 02331 (Fuhrpark)
+W 8LS                                                      //Laendersteuerung Singapur ueber SA fuer LA833
+W 8S2                                                      //Kodierung Alarmsignal
+W 8S6                                                      //Vorverkauft fuer Export, nut PAK 02331 und 08084
+W 8SH                                                      //Leistungsreduzierung Motor (CKD Thailand) (Lt. PN PA190/??? ab 12/03)
+W 8SM                                                      //Fahrgestellnummer, v. aussen sichtbar
+W 8SP                                                      //CO2 Steuerung
+W 8ST                   SIA_EXTRA_KURZ                     //Kodierung Wartungsintervall Stufe 3, 6000 km
+W 8SW                                                      //Transportschutz Aussenhaut
+W 8SX                   PROVIDER                           //Providerzuordnung für Telematik und Online-Dienste
+W 8SY                                                      //Berichtigung Gebrauchte Automobile
+W 901                                                      //Sonderkontrolle Filmfahrzeug
+W 902                                                      //Sonderkontrolle Pressewagen
+W 903                                                      //Sonderkontrolle Stand/Fotowagen
+W 904                                                      //Sonderkontrolle Typpruefwagen
+W 905                                                      //Sonderkontrolle Vorfuehrwagen
+W 906                                                      //Sonderkontrolle Fotofahrz. b. Neuanl.
+W 907                                                      //JAMES BOND EDITION
+W 908                                                      //Shortest possible order cycle
+W 909                                                      //Analysestecker (ehem Diagnosedose Plus) OBD
+W 910                                                      //Entwicklungsfzg. o. Uebergabeinsp.
+W 911                                                      //Entwicklungsfzg. m. Uebergabeinsp.
+W 912                                                      //OE-Paket (Israel)
+W 914                                                      //LA-Premiumpaket
+W 915                                                      //Entfall Außenhautkonservierung
+W 916                                                      //Entwicklungsfzg. ohne Konservierung
+W 920                   ALPINA                             //Alpina
+W 925                                                      //Versandschutzpaket
+W 928                                                      //Reifensteuerung
+W 931                                                      //Winterraeder statt Sommerraeder
+W 932                                                      //Winterreifen zusätzlich
+W 933                                                      //Radkappen fuer Winterrader
+W 934                                                      //Winterreifen auf Leichtmetallraeder
+W 936                                                      //BMW Handy bei Auslieferung anfordern
+W 937                                                      //Navi CD ROM bei Auslieferung anfordern
+W 940                                                      //Sonderwunsch-Ausstattung
+W 944                                                      //Nachtraegl. Umbau durch ZS
+W 948                                                      //Kernmodellpaket V5-KA
+W 949                                                      //LA-Sportpaket
+W 950                                                      //Lateinamerika-Paket
+W 951                                                      //Sommer-Paket
+W 952                                                      //China-Paket
+W 953                                                      //Taiwan-Paket
+W 955                                                      //MO Paket II
+W 956                                                      //MO Paket I
+W 957                                                      //HK-Paket
+W 962   N0102                                              //Kennzeichentraeger vorne Entfall
+W 964                                                      //NAVI DVD bei Auslieferung anfordern
+W 969                                                      //NAVI DVD E60 bei Auslieferung anfordern
+W 972                                                      //Comfort Paket
+W 973                                                      //Winter-Paket
+W 975                                                      //Highline OE
+W 976                                                      //Pilot-Paket
+W 977                                                      //Exclusive Line
+W 981                                                      //Top Comfort Paket
+W 982   V0102                                              //Hardtop in Wagenfarbe
+W 983                                                      //Modelljahrescode für Export
+W 984                                                      //Kodierung Wartungsintervall
+W 986                                                      //Terminpruefung
+W 987                                                      //Existenzpruefung
+W 988                   SIA_INTERVALL2                     //Kodierung Wartungsintervall Stufe 2, 12000 km
+W 990                                                      //Steuerung Anlaufserie
+W 991                                                      //Steuerung Vorserie
+W 992                                                      //Steuerung Kennzeichenbefestigung US
+W 993                                                      //Modelljahrescode 2008
+W 995                                                      //Änderungssperre
+W 997                                                      //Händlerpräsentation Export
+W 998                                                      //Anlaufsteuerung interne Bedarfe
+W 999                                                      //Auftragssteuerung HEA
+W 9AA                                                      //Oberfächenschutz
+W 9AB                                                      //Aussenhautschutz Entfall Soko-Fzg
+W 9AW                                                      //Auslieferung BMW Welt
+W 9WR                                                      //Winterräder BMW Welt
+//
+//
+//******************************************************************************
+// ZUSAMMENFASSUNG ALLER TYPSCHLÜSSEL
+//*******************************************************************************
+//
+W BT11                  E85 M54B22 LL ECE DEUTSCH FERNBED BC_BASIS KM_TACHO                   //Z4 Roadster EUR LL, 6-Zylinder bis 31.12.05 ---125KW
+//--------------------------------------------------------------------------------------------
+W BT12                  E85 M54B22 RL ECE ENGLISCH FERNBED BC_BASIS                           //Z4 Roadster EUR RL, 6-Zylinder bis 31.12.05 ---125KW
+//--------------------------------------------------------------------------------------------
+W BT31  V0102           E85 M54B25 LL ECE DEUTSCH FERNBED                                     //Z4 Roadster EUR LL, 6-Zylinder bis 31.12.05 ---141KW
+//--------------------------------------------------------------------------------------------
+W BT31  N0102           E85 M54B25 LL ECE DEUTSCH FERNBED BC_BASIS FAHRDYNAMIK KM_TACHO       //Z4 Roadster EUR LL, 6-Zylinder bis 31.12.05 ---141KW
+//--------------------------------------------------------------------------------------------
+W BT32  V0102           E85 M54B25 RL ECE ENGLISCH FERNBED                                    //Z4 Roadster EUR RL, 6-Zylinder bis 31.12.05 ---141KW
+//--------------------------------------------------------------------------------------------
+W BT32  N0102           E85 M54B25 RL ECE ENGLISCH FERNBED BC_BASIS FAHRDYNAMIK               //Z4 Roadster EUR RL, 6-Zylinder bis 31.12.05 ---141KW
+//--------------------------------------------------------------------------------------------
+W BT33                  E85 M54B25 LL US ENGLISCH FERNBED S_SCHALTER AK_GUWA TROPEN 
+>>>                     KLIMAREGELUNG                                                         //Z4 Roadster US LL, 6-Zylinder bis 31.12.05 ---141KW
+//--------------------------------------------------------------------------------------------
+W BT51                  E85 M54B30 LL ECE DEUTSCH FERNBED BC_BASIS FAHRDYNAMIK NEBEL KM_TACHO //Z4 Roadster EUR LL, 6-Zylinder bis 31.12.05 ---170KW
+//--------------------------------------------------------------------------------------------
+W BT52                  E85 M54B30 RL ECE ENGLISCH FERNBED BC_BASIS FAHRDYNAMIK NEBEL         //Z4 Roadster EUR RL, 6-Zylinder bis 31.12.05 ---170KW
+//--------------------------------------------------------------------------------------------
+W BT53                  E85 M54B30 LL US ENGLISCH FERNBED S_SCHALTER AK_GUWA BC_BASIS TROPEN
+>>>                     NEBEL KLIMAREGELUNG                                                   //Z4 Roadster US LL, 6-Zylinder bis 31.12.05 ---170KW
+//--------------------------------------------------------------------------------------------
+W BU11                  E85 N52B25 UL LL ECE DEUTSCH FERNBED KLIMAREGELUNG KM_TACHO           //Z4 Roadster EUR LL, 6-Zylinder 130KW UL ab 01.01.06 bis 30.11.08---130KW-UL
+//--------------------------------------------------------------------------------------------
+W BU12                  E85 N52B25 UL RL ECE ENGLISCH FERNBED KLIMAREGELUNG                   //Z4 Roadster EUR RL, 6-Zylinder 130KW UL ab 01.01.06 bis 30.11.08---130KW-UL
+//--------------------------------------------------------------------------------------------
+W BU31                  E85 N52B25 OL LL ECE DEUTSCH FERNBED BC_BASIS FAHRDYNAMIK
+>>>                     KLIMAREGELUNG KM_TACHO                                                //Z4 Roadster EUR LL, 6-Zylinder 155KW OL ab 01.01.06 bis 30.11.08---160KW-OL
+//--------------------------------------------------------------------------------------------
+W BU32                  E85 N52B25 OL RL ECE ENGLISCH FERNBED BC_BASIS FAHRDYNAMIK
+>>>                     KLIMAREGELUNG                                                         //Z4 Roadster EUR RL, 6-Zylinder 155KW OL ab 01.01.06 bis 30.11.08---160KW-OL
+//--------------------------------------------------------------------------------------------
+W BU33                  E85 N52B30 UL LL US ENGLISCH FERNBED S_SCHALTER AK_GUWA TROPEN
+>>>                     KLIMAREGELUNG                                                         //Z4 Roadster US LL, 6-Zylinder 157KW UL  ab 01.01.06 bis 30.11.08---160KW-UL
+//--------------------------------------------------------------------------------------------
+W BU51                  E85 N52B30 OL LL ECE DEUTSCH FERNBED BC_BASIS FAHRDYNAMIK NEBEL
+>>>                     KLIMAREGELUNG KM_TACHO                                                //Z4 Roadster EUR LL 185KW OL ab 01.01.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W BU52                  E85 N52B30 OL RL ECE ENGLISCH FERNBED BC_BASIS FAHRDYNAMIK NEBEL
+>>>                     KLIMAREGELUNG                                                         //Z4 Roadster EUR RL, 6-Zylinder 185KW OL ab 01.01.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W BU53                  E85 N52B30 OL LL US ENGLISCH FERNBED S_SCHALTER AK_GUWA BC_BASIS
+>>>                     TROPEN NEBEL KLIMAREGELUNG                                            //Z4 Roadster US LL 185KW OL  ab 01.01.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W BZ11                  E85 N46B20 OL LL ECE DEUTSCH FERNBED KM_TACHO                         //Z4 Roadster EUR LL, 4-Zylinder ab 01.04.05 bis 30.11.08---110KW-OL
+//--------------------------------------------------------------------------------------------
+W BZ12                  E85 N46B20 OL RL ECE ENGLISCH FERNBED                                 //Z4 Roadster EUR RL, 4-Zylinder ab 01.04.05 bis 30.11.08---110KW-OL
+//--------------------------------------------------------------------------------------------
+W BZ31                  E85 N46B20 OL LL ECE DEUTSCH FERNBED                                     //lt. TAIS NIE PROX Z4 Roadster EUR LL, 4-Zylinder
+//--------------------------------------------------------------------------------------------
+W BZ32                  E85 N46B20 OL RL ECE ENGLISCH FERNBED FAHRDYNAMIK                        //lt. TAIS NIE PROX Z4 Roadster EUR RL, 4-Zylinder
+//--------------------------------------------------------------------------------------------
+W BT91                  E85 S54B32 LL ECE DEUTSCH FERNBED BC_BASIS                            //Z4 M-Roadster EUR LL ab 01.01.06 bis 30.11.08---252KW
+//--------------------------------------------------------------------------------------------
+W BT92                  E85 S54B32 RL ECE ENGLISCH FERNBED BC_BASIS FAHRDYNAMIK               //Z4 M-Roadster EUR RL ab 01.01.06 bis 30.11.08---252KW
+//--------------------------------------------------------------------------------------------
+W BT93                  E85 S54B32 LL US ENGLISCH FERNBED BC_BASIS AK_GUWA S_SCHALTER         //Z4 M-Roadster US  LL ab 01.01.06 bis 30.11.08---252KW
+//--------------------------------------------------------------------------------------------
+W DU51                  E85 E86 N52B30 OL LL ECE DEUTSCH FAHRDYNAMIK FERNBED NEBEL KLIMAREGELUNG
+>>>                     KM_TACHO BC_BASIS                                                     //Z4 RoadsterCoupe ECE ab 01.04.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W DU52                  E85 E86 N52B30 OL RL ECE ENGLISCH FAHRDYNAMIK FERNBED NEBEL KLIMAREGELUNG
+>>>                     BC_BASIS                                                              //Z4 RoadsterCoupe ECE ab 01.04.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W DU53                  E85 E86 N52B30 OL LL US ENGLISCH FERNBED S_SCHALTER NEBEL KLIMAREGELUNG
+>>>                     BC_BASIS TROPEN AK_GUWA                                               //Z4 RoadsterCoupe US ab 01.04.06 bis 30.11.08---195KW-OL
+//--------------------------------------------------------------------------------------------
+W DU91                  E85 E86 S54B32 LL ECE DEUTSCH FERNBED KM_TACHO BC_BASIS               //Z4 M-RoadsterCoupe ECE ab 01.04.06 bis 30.11.08---250KW
+//--------------------------------------------------------------------------------------------
+W DU92                  E85 E86 S54B32 RL ECE ENGLISCH FERNBED BC_BASIS                       //Z4 M-RoadsterCoupe ECE ab 01.04.06 bis 30.11.08---250KW
+//--------------------------------------------------------------------------------------------
+W DU93                  E85 E86 S54B32 LL US ENGLISCH FERNBED S_SCHALTER BC_BASIS AK_GUWA     //Z4 M-RoadsterCoupe US ab 01.04.06 bis 30.11.08---250KW
+//--------------------------------------------------------------------------------------------

@@ -1,0 +1,2470 @@
+// Aenderungsdokumentation: E46
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   6 938 570.5
+// NAEL-Nr.:       E EG46.T
+// Zeichn.-Index:  r//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   ET-130    SCHICKER ROBERT          V-1-T-22  GSCHNITZER GOTTFRIED
+//   TP-421    SPOLJAREC MARIO          V-2-S-2   HUNDHAMMER MAX
+//   PD-140    BAUER VITUS              VK-22     KLOETZER THOMAS
+//   SK-33     ULRICH RICHARD           VT-T      GORNY RAIMUND
+//   TM-404    MAYER ALFONS             ZA-T-30   RAAB VOLKER
+//   TR-433    ZIMMERMANN KARL-PETER    ZA-TL-5   POSSIN WOLF-RUEDIGER
+//   V-1-T-22  LEINTHALER JOSEF         ZS-E-42   HUEBNER WOLFGANG
+//   V-1-T-22  WEISS PAUL
+//
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geaenderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E46AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+///////////////////////////////////////////////////////////////////////////////
+                E46 VN-Nr.      -Daten neu erstellt fuer 2. Baugruppe Pulk 1 und VorlaeuferNAEL M0001.A  a      23.08.96   EE-12   Léonard
+
+                8000000000      -Sonderausstattungen ???
+                                -ABG    o.k. entfaellt ab Prototypen Lim BG2 Pulk 4
+                                -CVM
+                                -DSC3
+                                -ERL
+                                -EWS    o.k
+                                -FGR2   o.k
+                                -GM5    o.k
+                                -IHKA   o.k
+                                -KMB    o.k
+                                -LSZ    o.k
+                                -MRS    o.k
+                                -SHD    o.k
+                                ************************************************
+                                ZAE2  wird ab Pulk 4 nicht mehr verbaut
+                                MRS2  Sitzbelegung E46/4 bis BG 2 Pulk 4 und
+                                      E46/2 bis BG 1 Pulk 3 nicht aktiv
+                                MRS2  BEIFAHRERBAG_STUFE2_1/2 ab Pulk 4 aktiv schalten
+                                GMV   Regensensorcodierung erst ab Pulk 4 realisiert.
+                                LSZ   KALTUEBERWACHUNG_RL auf nicht_aktiv codieren bei AHM,
+                                      nur versuchsweise bis Pulk4
+                     23.08.96
+                                KMB   -Aussentemp nur bei Basis-BC
+                                      -GONG_T3 immer aktiv, war nicht_aktiv
+                                SHD   KOMFORTFUNK_BEREICH_HEB Bit dreher
+                                      aktiv=1, nicht_aktiv=0
+                     28.08.96         M51D25WA3 wird nicht produziert
+                     17.09.96   LSZ   Daten im fuer LSZ.C22 in E46CVT.000 korrigiert
+                                      -FEHLER_STANDLICHT
+                                       nicht_melden  = !US  ->  US
+                                       melden        = US   ->  !US
+                                      -FEHLER_SIDEMARKER
+                                       nicht_melden  = US  ->  !US
+                                       melden        = !US ->  US
+                     25.09.96         -FEHLER_NSL_RECHTS/LINKS fuer getarnte Coupé
+                                       auf nich_melden codiert. Steuerung ueber
+                                       Pseudo-SA 186
+                                IHK   IHKA-CBD aktualisiert. Datenstand gilt ab SW 14,
+                                      ab KW28/96
+NAEL M0002.A  b      13.10.96   EE-12 Léonard
+                                KMB   Wert in Adresse  92 von  8d -> 25d,
+                                      Wert in Adresse 9D von 65d -> 80d geaendert.
+NAEL M0003.A  c      15.10.96   EE-12 Léonard
+                     09.10.96   KMB   TOG- Codierdaten geaendert Adresse 86-8E, 96-9A
+
+                                ZST   Coupé BM11 und BM53 freigeschaltet
+
+NAEL M0004.A  d      18.10.96   EE-12 Léonard
+                                ZST   Kuehlmitteltemp- Kennlinie geaendert
+                                KMB    ADR 78-7D
+                                       Winkelwerte waren 00 0A 5A 5A A0 B4
+                                       ADC- Werte waren  0F 3C 4B 6E 78 7D
+                                       ADC- Werte fuer Dieselmotoren neu hinzu
+                                       Winkelwerte bis Einsatz SW5.0 in
+                                       Codierdatengruppe
+
+NAEL M0005.A  e      22.10.96   EE-12 Léonard
+                     21.10.96   GM5   Adresse 04 SCHEIBE_ABSENKZEIT von 6h
+                                        auf 4h geaendert
+                                KMB   TOG- Codierdaten ergaenzt Adresse 86-8E fuer M47
+
+NAEL M0006.A  f      23.10.96   EE-12 Léonard
+                                KMB   -TOG- Codierdaten korrigiert.
+                                        Adresse 86-8E fuer alle Motoren.
+                                      -Aussentemp. Delta K1 und K2 geaendert
+                                        Adresse 81
+                                      -Akustik Warnung T1 und T2 geaendert Adresse 2F
+
+
+NAEL M0007.A  g      29.10.96   EE-12 Léonard
+                                GM5   -alle Coupé erhalten Einklemmschutz vorne
+
+NAEL M0008.A  h      18.11.96   EE-12 Léonard
+                                KMB   -Kuehlmitteltemp- Kennlinie geaendert     14.11.96  L
+                                       Adresse 96-9A Entfall Dieselkennlinie
+                                       ADC- Werte waren 0A 2D 4B 73 82, 87
+                                      -Adresse 81, delta ka1 war 20, delta ka2 war 30
+                                      -Adresse 86-8E war:
+                                       7F7F A388 858F 8500 8386 7F7F 7F7F 7F7F FF7F  // M47
+
+NAEL M0010.A  i      19.11.96   EE-12 Léonard
+                                      !! Achtung Daten ab E46 Lim BG2 Pulk 4
+                                         Fuer aeltere Fahrzeuge Datenstand M0006.A verwenden.
+                                LSZ   -neuer Programmcode mit CI 23
+                                      -AHM nicht mehr codierrelevant
+                                ABG   -ZAE2- Steuergeraet wird nicht mehr verbaut
+                                      -ERKENNUNG_SITZBELEGUNG1 /2 aktiv im MRS2.C07
+                                GM5   -SENSOR_REGEN
+                                         aktiv  =(XENON,SWA)+!OHNE_REGENSEN
+
+NAEL M0011.A  j      17.01.97   EE-12 Léonard
+                                MRS   -BPLUS_TRENNUNG_1/2  ERKENNUNG_SITZBELEGUNG_2
+                                         aktiv               aktiv             =E46
+                                       SBE_ALT/NEU_1/2     KINDER_SBE_1
+                                         neu                 aktiv             =E46
+                                       SIDEBAG_FAHRER_1/2  SIDEBAG_BEIFAHRER_1/2
+                                         nicht_aktiv         nicht_aktiv       =!(SEITENAIRBAG+!ENTF_SEITENAIRB)
+                                         aktiv               aktiv             =SEITENAIRBAG+!ENTF_SEITENAIRB
+                                       ITS_FAHRER_1/2      ITS_BEIFAHRER_1/2
+                                         nicht_aktiv         nicht_aktiv       =!(SEITENAIRBAG+!ENTF_SEITENAIRB)
+                                         aktiv               aktiv             =SEITENAIRBAG+!ENTF_SEITENAIRB
+                                       ZAE2_EMULATION_1/2  ZAE2_EMULATION_2
+                                         zae2_modus          zae2_modus        =!((SEITENAIRBAG,FONDAIRBAG)+!ENTF_SEITENAIRB)
+                                         mrs_modus           mrs_modus         =(SEITENAIRBAG,FONDAIRBAG)+!ENTF_SEITENAIRB
+                                      -Codierund der Lim. BG2 Pulk 4 und Coupé BG1 Pulk 3-6
+                                       entsprechen nicht dem Serienstand, da Seitenairbag nicht Serie ist
+                                       und frei zugesteuert wird, sogar fuer US Fzg.
+                                ZST   -LA 807 enthaelt Km-Tacho ueber SA 548 PJ8421/10 v. 14.11.96
+
+NAEL M0012.A  k      20.01.97   EE-12 Léonard
+                                LWS   -LWS- Codierung in Daten integriert.
+                                GM5   -FH_HINTEN erhalten alle Coupés,jedoch ohne Einklemmschutz
+                                      -VERRIEGELN_AUT_NACH_2_MIN,ENTSICHERN_CENTERLOCK,IR_FERNBEDIENUNG
+                                       SENDER_4_HECKSCHEIBE_ENTR,SENDER_x_VERRIEGELN_4KM/H neu hinzu.
+
+NAEL M0013.A  l      23.01.97   EE-12 Léonard
+                                CVT   Fehler in der CVT beseitigt
+                                      KUEHLMITTELTEMP_WERT
+
+NAEL M0014.A  m      24.01.97   EE-12 Léonard
+                                CVT   -Seitenairbag als SE integriert, abwaehlbar ueber
+                                       SA 259 Enfall Seitenairbag
+                                      -Lim. ab Pulk 6 ausschliesslich einstufigen BF-Airbag,
+                                       wie Coupé
+                                      **********************************
+                                      -Touring ohne BPlus-Abtrennung bis BG1 Pulk 2
+                                      **********************************
+
+NAEL M0015.A  n      04.02.97   EE-12 Léonard
+                                      -KMB_E46.C02 integriert, rueckwirkend gueltig
+                                       KMB_E46.C01 wird nicht mehr benoetigt.
+                                      -PDC integriert
+
+NAEL M0016.A  o      03.03.97   EE-12 Léonard
+                                      **********************************
+                                      -Daten ab FB Lim.
+                                      **********************************
+                                CVT   -Cabrio ohne ITS
+                                LSZ   -Neues Stg. CD24
+                                IHKA  -Neues Stg. mit geaenderten FSW
+                                MRS   -Neue Crashparameter fuer E46
+                                KMB   -Adresse 1D wird nicht mehr codiert
+                                GT    -Integration Graphikteil bei SA 609 Navigation
+                                TV2   -Integration Graphikteil bei SA 609 Navigation
+                                ASC   -Integration MK20e_i.C01, ASC- Codierung
+                                FGR2  -Kodierdaten e46_m43b19_90kw_man geaendert
+
+NAEL M0017.A  p      22.04.97   EE-12 Léonard
+                                ZST   -SA 876 Funkfrequenz 315 MHz codierrel.
+                                      -SA 261 FONDAIRBAG bei US nicht SE
+                                      -AL51 M43B19 Lim.u. BL51 M43B19 Coupé integriert
+                                       SA 521 REGENSENSOR integriert
+                                CVT   -M43B19 KW-Werte geaendert  KW_66 -> KW_77
+                                                                 KW_85 -> KW_87
+                                      -Touring mit BPlus-Abtrennung ab BG1 Pulk 1
+                                      -HECKSCHEIBE_ENTRI_INNEN geaend.
+                                       von aktiv auf nicht_aktiv fuer alle Fzg.
+                                SHD,  -FSW OPTIMIERTE_SCHLIESSFKT neu hinzu
+                                CVT
+                                FGR2  -Kodierdaten e46_m43b19_90kw_aut geaendert
+                                LSZ   -Frequenz der gedimmten Lampen auf 60Hz erhoeht
+
+NAEL M0018.A  p      24.04.97   EE-12 Léonard
+                                KMB,  -ADRESSE 09- 10 in Codierdatengruppe
+                                CVT    aufgenommen, Codierung nur wenn Kombi noch
+                                       nicht codiert wurde.
+
+NAEL M0019.A  r      29.04.97   EE-12 Léonard
+                                ZST   -SA 606, 608 wird codierrelevant, GT.C01 muss codiert werden
+                                      -SA 609 von 0000000040000000 nach 00000000C0001000 geaendert
+                                      -SA 602 von 0000000080000000 nach 0000000080001000 geaendert
+
+NAEL M0020.A  s      04.05.97   EE-12 Léonard
+                                GM5   -ZA erhaelt ZV_SELEKTIV
+
+NAEL M0021.A  t      04.06.97   EE-12 Léonard
+                                KMB   -ADRESSE 49:1, 55:0, 81 Werte geaendert
+                                PDC   -Schwellwerte angepasst
+                                ZST   -AP71 und AP91 freigeschaltet
+                                IHK   -GEREGELTER_KOMPRESSOR wird in 4 Zyl. und 6 Zyl. unterschieden
+
+NAEL E5981.K  a      06.06.97   EE-12 Léonard
+                                      ACHTUNG Daten fuer 1. Vorserie E46/4
+                                ZST   -Integration SA 168 Abgasnorm EU2
+                                CVT   -SA 502 wird um Umfang Regensensor reduziert
+                                LSZ   -Lichtschaltzentrum mit CD 25
+                                ASC   -neue CBD mit gleichem CD 02
+                                DSC   -aktiviert,benutzt gleiche CBD wie ASC
+                                GM5   -Entfall FSW ENTRIEGELN_TANK
+                                KMB   -Adr.87-8C,96-9A,9D,9F fuer M43 und M52 geaendert.
+                     19.06.97   EE-92 Obrman
+                                ZST   -Freischaltung der SA'S 901,902,903,904,905
+                                       fuer MOST-Vercodung
+                     21.07.97   EE-12 Léonard
+                                ZST   -Freischaltung der SA'S 274,915,926 fuer MOST-Vercodung
+
+NAEL E6586.K  b      18.08.97   EE-92 Léonard
+                                LSZ   -Integartion LSZ mit CI 26
+                                ASC   -Integartion ASC mit CI 03
+                                      -Bremswarnleuchte in MK20_I.C02 von aktiv=1
+                                       in aktiv=0 geaendert
+                                CVT   -FH-Einklemmschutz vorne SE bei Lim.
+                     08.08.97   KMB    ADRESSE 11,12,2E Werte geaendert
+                                ZST   -SA 550 BC nicht mehr in 602,606,609,
+                                      -SA 459 wird codierrelevant
+                                MRS2  -Neuer Crashparametersatz
+                                      -Entfall ZAE2_Modus
+                     20.08.97   RDC   -SG Reifen-Druck-Kontrolle integriert und getestet
+                     20.08.97   UEB2  -SG Ueberrollsensor integriert, jedoch nicht getestet
+                     02.09.97   KMB   -Adresse 96-9A Werte geaendert.
+                                IHKA  -Integration Individualisierung mit Befehl Speicher schreiben.
+                     08.09.97   KMB   -ADRESSE 86-8E,96-9A,9F Werte fuer
+                                       M47 und M57 geaendert
+                     11.09.97   LWS   -Werte geaendert
+                     26.09.97   MK20  -BREMSLICHTSCHALTER auf passiv=1,aktiv=0
+                                       fuer MK20e_i.C02, MK20e_i.C03 geaendert.
+                                CVT   -Fehler bei PANIKMODUS fuer Australien Fzg. beseitigt
+NAEL E6919.K  c      24.10.97   EE-92 Léonard
+                                CVT   -S54B32 integriert, jedoch nicht abgestimmt
+                                      -INDIVID Kennung integriert.
+                                UEB2  -Ueberrollsensor fuer Cabrio integriert, Block 00 wird zur Zeit codiert.
+                                       Block 01-07 wird wenn noetig erst mit Ueb2.c02 codiert
+                                      -Default Einstellung fuer Unbelegt von FFh auf 00h geaendert.
+                                KMB   -S54B32 integriert, jedoch nicht abgestimmt
+                                ZST   -S54B32 integriert, jedoch nicht abgestimmt
+                                      -AN92,AN32,AN52 freigeschaltet fuer Produktion ZA
+                                      -E Wort MRS3_CI_08 integriert.
+                                      -AL34,AL35,AL37,AL39,AM35,AM36,AM37,AM39,AM54,AM57
+                                       freigeschaltet. Fzg.-Beschreibung vom 03.03.97 Projekt 8421
+                                SGET  -Mit E Wort MRS3_CI_08 wird z.Z kein Airbag- SG mehr codiert
+                                ASW,  -HIGH_NAVIGATION wird NAVIGATION
+                                      -NAVIGATION wird LOW_NAVIGATION
+                                      -FONDAIRBAG wird FOND_AIRBAG
+                     08.10.97   SM    -Stg. Sitzmemory integriert. Wird am Band nicht codiert,
+                                       kann in der HO individualisiert werden.
+                     10.10.97   FSW   -WISCHER_RUECKSCHALTEN wird STANDRUECKSCHALTUNG
+                                      -GONG_T3 wird AUSSENTEMP_WARN_AKUSTIK
+                                      -WEGSTRECKE_EINHEIT wird WEG_EINHEIT
+                                CVT   -SENDER_1_SEL_ZV,SENDER_2_SEL_ZV,SENDER_3_SEL_ZV,SENDER_4_SEL_ZV
+                                       auch fuer ZA, LA 810 Australien
+                                ZST   -SA 998, SA 999 freigeschaltet.
+                     23.10.97   ZST   -SA 910, SA 911, SA 932, SA 933, SA 934, SA 944, SA 960, SA 997 freigeschaltet.
+                                      -Freigabe E46/2/3
+                     24.10.97   KMB   -ADRESSE 86-8E,98-99 Werte M43/M52 geaendert.
+                     28.10.97   KMB   -ADRESSE 4E,53 Werte geaendert.
+
+NAEL E6979.K  d      03.11.97   EE-92 Léonard
+                                      ##############################################
+                                      # Achtung erst NCS Version 1.15 installieren #
+                                      ##############################################
+                                RA34  -SA 0662 Radio CD 43 in CVT,ZCSUT,SGET,SGFAM,
+                                       ZST und E46_CONF integriert.
+                                ZST   -SA 0662 Radio CD43 und LA 0825 OZEANIEN
+                                       ist codierrelevant.
+                                CVT   -INDIVID Kennung freigeschaltet.
+                                CVT,  -OFFSET_GESAMTWEGSTRECKE > OFFSET_GESAMTWEGSTRECKE geaendert.
+                                KMB      wert01                >   grundcode_var
+NAEL E6401.L  e      26.01.98   EE-92 Léonard
+                                ZST u -SA 857 geaendert 0000000000010000 > 0000080000000000
+                                      -SA 434 Interieur hochglaenzend integriert
+                                CVT    Das hat zur Folge das bei SA 857 die IHKA kpl. codiert wird,
+                                       sie muss am Bandende deaktiviert werden.
+                                       SA- Bit wird kann zukuenftig in der SE mit anderer Funktion belegt werden
+                                      -SA 358 geaendert 0000000000000100 > 0000000000000000
+                                       Infrarothemmende Frontscheibe kann mit Regensensor verbaut  werden.
+                                       SA- Bit wird kann zukuenftig in der SE mit anderer Funktion belegt werden
+                                IHKA, -FSW-Namen geaendert von ... auf
+                                CVT,   -GEBLAESEBALKEN_AUT_MODUS1 > GEBLAESEBALKEN_AUT_MOD_1
+                                SWT    -GEBLAESERAHMEN_AUT_MODUS1 > GEBLAESERAHMEN_AUT_MOD_1
+                                       -GEBLAESEBALKEN_AUT_MODUS2 > GEBLAESEBALKEN_AUT_MOD_2
+                                       -GEBLAESERAHMEN_AUT_MODUS2 > GEBLAESERAHMEN_AUT_MOD_2
+                                       -GEBLAESEBALKEN_AUT_MODUS3 > GEBLAESEBALKEN_AUT_MOD_3
+                                       -GEBLAESERAHMEN_AUT_MODUS3 > GEBLAESERAHMEN_AUT_MOD_3
+                                       -GEBLAESEBALKEN_AUT_MODUS4 > GEBLAESEBALKEN_AUT_MOD_4
+                                       -GEBLAESERAHMEN_AUT_MODUS4 > GEBLAESERAHMEN_AUT_MOD_4
+                                GM5,  -FSW-Namen geaendert von ... auf
+                                CVT,   -SENDER_1_SEL_ZV > SEL_ZV_SENDER_1
+                                SWT    -SENDER_2_SEL_ZV > SEL_ZV_SENDER_2
+                                       -SENDER_3_SEL_ZV > SEL_ZV_SENDER_3
+                                       -SENDER_4_SEL_ZV > SEL_ZV_SENDER_4
+                                       -SENDER_1_HECKSCHEIBE_ENTR > HECKSCHEIBE_ENTR_SENDER_1
+                                       -SENDER_2_HECKSCHEIBE_ENTR > HECKSCHEIBE_ENTR_SENDER_2
+                                       -SENDER_3_HECKSCHEIBE_ENTR > HECKSCHEIBE_ENTR_SENDER_3
+                                       -SENDER_4_HECKSCHEIBE_ENTR > HECKSCHEIBE_ENTR_SENDER_4
+                                       -SENDER_1_VERRIEGELN_4KM/H > VERRIEGELN_4KM/H_SENDER_1
+                                       -SENDER_2_VERRIEGELN_4KM/H > VERRIEGELN_4KM/H_SENDER_2
+                                       -SENDER_3_VERRIEGELN_4KM/H > VERRIEGELN_4KM/H_SENDER_3
+                                       -SENDER_4_VERRIEGELN_4KM/H > VERRIEGELN_4KM/H_SENDER_4
+                                CVT    -EINKLEMMSCH_REVERSIEREN
+                                          lang       auch fuer Australien
+                                       -INDIVID VerriegelnAutoNach2Min entfernt
+                                                  VERRIEGELN_AUT_NACH_2_MIN
+                                KMB    Kombi mit CI 03 integriert, wird autom. umgeschluesselt
+                                LSZ    LSZ mit CI 27 integriert, wird autom. umgeschluesselt
+                       22.01.98 CVT    -Aenderung bei Rueckwaertsgang Warnung im Kombi
+                                        RUECKWAERTSGANG_WARNUNG     //*Auftrag*
+                                          aktiv                     =AUTOMATIK+JAPAN+!PDC
+                                          nicht_aktiv               =!(AUTOMATIK+JAPAN*!PDC)
+                       22.01.98        -Entsichern ueber Centerlock fuer US incl.Kanada aktiv
+                                        ENTSICHERN_CENTERLOCK       //*Auftrag
+                                          nicht_aktiv               =!US
+                                          aktiv                     =US      /
+                       22.01.98 sgfam  C_KMB in C_KMB46 geaendert.
+                       30.01.98 CVT   INDIVID Daten geaendert
+NAEL E6402.L  f        04.01.98   EE-92 Léonard
+                                      ********  PU98 ***************************
+                                ZST v -SHD ist bei BM33 und BM53 SE
+                                      -SA 406 Rolldach fuer Compact integriert.
+                                      -SA 305 wird SE, bis dahin 100% SA mit Ausnahme
+                                       einiger VM-Maerkte (Steuerung ueber Entfall Fernbedienung)
+                                      -SA 510 wird SE, nicht betroffen US/CDN_Modelle
+                                      -LA 802 Korea nicht mehr codierrelevant, da Nebelschlussleuchte
+                                       verbaut werden kann.
+                                      -SA 103 Ganzjahresreifen integriert.
+                                      -SA 178 Halterung Handfunkgeraet integriert.
+                                      -SA 114 Beklebung Polizei entfaellt
+                                      -SA 115 Beklebung Feuerwehr Notarzt entfaellt
+                                      -SA 129 Waffenhalterung im Dach entfaellt
+                                      -SA 645 ist codierelevant in Verbindung mit 662
+                                      -E 662 Radiosteuerung fuer Mexiko
+                                      -E FERN Fernbedienung alle Fzg mit PU98
+
+                       06.02.98 CVT   -INDIVID FSW nach Ruecksprache mit VK, teilweise ausdokumentiert
+                                      -Deaktivierung Fahrerairbag fuer alle LA moeglich
+                                SHD   -Funktionsschluesselworte geaendert
+                       24.02.98 KMB   -Kombi CI 02/03 Adresse 57:1 von A0h nach C0h geaendert.
+                                LSZ   -LSZ CI 26/27 Datenaenderung
+                                ZST w -E FERN beinhaltet Bits fuer Fernbedienung,MRS3 und PU98
+
+NAEL E6655.L  g        25.02.98   EE-92 Léonard
+                                PDC   -neues Stg. mit CI 02
+                                ZST x -SA 235 Anhaengerkupplung wird codierrelevant
+                                      -Entfall SA 345 Chromeline-Interieur, kein Angebot im E46
+                                      -SA 843 Motorauslegung Belgien integriert
+                                      -SA 710 M-Technik Lederlenkrad + Geschw.Regler integriert.
+                                CVT   -FSW und PSW fuer PDC.c02 integriert.
+                       13.03.98 PDC   -Adresse 00,16 Werte fuer E46 AHK_ABSTAND geaendert
+                                       von 1Ah nach 19h
+                                MRS3  -MRS3 Parametersatz geaendert
+                                LSZ   -C27 Parametersatz geaendert
+                                CVT   -Fahrer/Beifahrerbag Stufe 2 auf nicht aktiv geaendert,
+                                       Ersteinsatz Stufe2 zu PU99 bzw. 6/99 fuer US (US-PU99)
+
+NAEL E6793.L  h        26.03.98   EE-92 Léonard
+                       23.03.98 CVT,  - KMB_E46.C02/.C03 Neues FSW DIAGNOSE_DELAY_ZEIT
+                                KMB   - KMB_E46.C02/.C03 Aenderung PSW von 4_l nach 6_l bei FSW TANK_SCHWELLE_AUF/AB
+                                ZST   - Allrad und M54 Typen integriert
+                                LSZ   - Parametersatz fuer CI 26 geaendert
+
+NAEL E6897.L  i        24.04.98   EE-92 Léonard
+                       02.04.98 ZST   -Integration SA 299, 682, 760, 775, 785, 995
+                       15.04.98 ZST   -Integration SA 293
+                                ZST ab-Cabrio ohne Infrarot-BIT
+                                ZST,  -Neues E-Wort fuer Maerz-Massnahme Einsatz MRS 3
+                                CVT    mit geaenderten Gurtkontakten
+                                CVT   -KOMFORTSCHLIESSUNG_FB fuer Cabrio nicht_aktiv
+                                PDC   -PDC.C01/C02 Werte geaendert Adresse 01,00-01
+                                LSZ   KALTUEBERWACHUNG_NSL        //
+                                        aktiv                     =!US
+                                        nicht_aktiv               =US
+                       04.05.98 CVT   KOMFORTSCHLIESSUNG_FB
+                                        nicht_aktiv               =CABR,US,AUSTRALIEN
+
+                       06.05.98 CVT   KOMFORTSCHLIESSUNG_FB
+                                        aktiv                     =AUSTRALIEN
+
+NAEL E7132.L  j        17.06.98   EE-92 Léonard
+                       11.05.98 ZST ac-Integration SA 973 Malaysia-Paket und SA 977 Exclusiv-Paket
+                       18.05.98 CVT   -Herausnahme km-Tacho aus LA Kanada, wird ab Maerz 99 ueber
+                                       SA 548 Kilometertacho zwangszugesteuert
+                                      -RUECKWAERTSGANG_WARNUNG
+                                         nicht_aktiv          =E46
+                                      -RUECKWAERTSGANG_WARN_MED    //*Auftrag*
+                                         gong                 =JAPAN
+                                         piezo                =!JAPAN
+                       26.05.98 ZST ad-Entfall der E46/16 Typen (Allrad), wird ab sofort
+                                       ueber SA 203 ALLRAD gesteuert.
+                                      -E-Wort MA99 ab Maerz 99
+                                      -E-Wort PU99 ab PU99
+                                      -E-Wort NOT1 fuer FZG. mit SA 112 + SA 185
+                                              wird im EWS-Stg. die Funktion PARK/NEUTRAL_EINGANG
+                                              auf aktiv codiert, unabhaenig ob Automatik oder Handschalter
+                                      -E-WORT MRS3 nur Werk 92 fuer Fzg. Vorserie PU98 mit MRS3
+                       08.06.98 CVT   -FEHLER_NSL_LINKS nicht melden bei LA Japan,
+                                LSZ    Fehler_NSL_RECHTS melden bei (LL,RL)+Japan
+                                IHKA  -Neues Stg. mit CD 02 setzt ab PU98 ein und ist rueckwaertskompatibel
+                                DSC   -Neues Stg. mit CD 05 setzt ab PU98 ein und ist rueckwaertskompatibel
+                                ZHZ   -Neues Stg. mit CD 01 setzt ab PU98 ein fuer M47D20,M57D30
+                       15.06.98 ZST ad-Entfall Glas-SHD aus SE-Umfang bei BM33/53 und BN33/53
+                       17.06.98 SGET  -ZHZ.C01 =PU98+(M47D20,M57D30)
+                                CVT    ZUHEIZER       //*Auftrag
+                                         k_bus        =(M47D20,M57D30)+KLIMAAUTOMATIK+PU98
+                                         konventionell=!((M47D20,M57D30)+KLIMAAUTOMATIK+PU98)
+                       19.06.98 ZST ad-AR33 Touring freigeschaltet
+                                LSZ    Werte in Adresse 10'0A-1A fuer autom. LWR angepasst.
+                       02.07.98 ZST ae-Integration SA 345 Chrompaket
+                                      -LSZ.C27 und PDC.C02 in G-Zeile integriert.
+                                      -SA 715 wird codierrelevant fuer PDC, wegen geaendertem
+                                       Abstand der Sensoren gegenueber Serienstand.
+                                PDC   -Im PDC.C02 in Adresse 00'02-05 neuer Parameter fuer SA 715
+
+NAEL E7331.l  k        31.08.98   EE-92 Léonard
+                       13.07.98 ZST af-Freischalten der Typen
+                                       Limous. AL92,AN11,AN72,AS71,AS72,AS93,AV52,AV53,AV71
+                                               AV72,AV91,AV92,
+                                       Touring AP72,AP92,AW32,AW33,AW52
+                                       Coupé   BL51,BL92,BN32,BN33,BN52,BN53
+                                       Cabrio  BP32,BR32,BR91,BR92,BR93,BS32,BS33,BS52,BS53
+                                       SA's    951 Korea-Paket, 954 Hongkong-Paket,
+                                               628 Kommunikationspaket, 470 ISOFIX,
+                                               629 Autotelefon, 435 Edelholzausfuehrung
+
+                       20.07.98 CVT   -Integration Cabrio-Verdeckmodul CVM2E.C01 in
+                                       CVT und SGET. Daten nicht fuer BG2 Pulk1 gueltig.
+                                PDC   -Werte und Bedingungen geaendert
+
+                       28.07.98 GM5   -Neue FSW integriert, aktiv ab ca. 10/98 mit neuem SW-Stand
+                                       E52_FUNKTIONEN, DIFFERENZ_ANLAUF_BLOCK,
+                                       VERRIEGELN_AUT_AB_X_KM/H, KOMFORTEINSTIEG, BEDIENSTELLE_BFT,
+                                       KOMFORTSCHLIESSUNG_FB_FH, KOMFORTSCHLIESSUNG_FB_SHD,
+                                       VERRIEGELN_XKM/H_SENDER_1,VERRIEGELN_XKM/H_SENDER_2,
+                                       VERRIEGELN_XKM/H_SENDER_3,VERRIEGELN_XKM/H_SENDER_4
+
+NAEL E3140.M  l        25.09.98   EE-92 LÚonard
+                          KMB_E46.C03 -ZEITINSPEKTIONS_ZAEHLER_0/..1/..2
+                                CVT    wurde aus HERSTELLERDATENGRUPPE herausgenommen und
+                                       in CODIERDATENGRUPPE integriert: Vartiantencodierung
+                          A_KMB46.*    JAPAN/"Rest der Welt" bei Erst(!)codierung
+                                       Korrektur, daß CODIERDATUM geschrieben wird.
+                                       Bitte CABD "A_KMB46.IPO" V1.08 von REFERENZ holen!
+                       20.08.98 CVT   -Heimleuchten in den festen Daten ist wert_02 (40 sec.)
+                                       war vorher nicht aktiviert. Obrman
+                       31.08.98 KMB   -Werte fuer M57 in Adresse 86-8E,96-9A geaendert
+                                ZST   -Gussraeder SA 788 und  SA 789 neu hinzu
+                                      -SA 772 M Aluminiumblenden anthrazit neu hinzu
+                                      -Entfall SA 151 Warn- und Kommandoanlage RTK-6
+                                      -Entfall SA 181 VB bzw. Montage Heckantenne
+                                      -SA 926 vollwert. Ersatzrad wird im RDC codierrelevant
+                                      -SA 581 Taxipaket wird im LSZ codierrelevant
+                                CVT   -SWA wird nicht bei SA 522 XENON codiert, sondern nur ueber SA 502.
+                       01.09.98 LSZ,  -Neue FSW im LSZ.C27 fuer Xenon- und Taxi-Umfaenge
+                                CVT   -Adr.00'03 SCHALTER2_BL    >  EINZEIT_GED_BL
+                                                   nicht_aktiv =!DSC  nicht_aktiv =E46
+                                                   aktiv       =DSC
+                                      -Adr.00'11 EINZEIT_GED_BL  >  EINZEIT_GED_BL
+                                                   wert_01 =E46       wert_01     =!US
+                                                                      wert_02     =US
+                                      -Adr.00'12 PERIODE_GED_BL  >  PERIODE_GED_BL
+                                                   wert_01 =E46       wert_01     =!US
+                                                                      wert_02     =US
+                                      -Adr.00'13 EINZEIT_DRL     >  PERIODE_GED_BL
+                                                   wert_01 =!KANADA   wert_01     =!US
+                                                   wert_02 =KANADA    wert_02     =US
+                                      -Adr.0F'06 SCHRITTSTELLUNG_2 > SCHRITTSTELLUNG_2
+                                                   wert_01 =E46        wert_01     =!XENON
+                                                                       wert_02     =XENON
+                                      -Adr.0F'07 ABS_MIN_STELLUNG_2 > ABS_MIN_STELLUNG_2
+                                                   wert_01 =E46         wert_01     =!XENON
+                                                                        wert_02     =XENON
+                       07.09.98 ZST   -Integration SA 530 Klimaregelung
+                                      -Neues A-Wort A 534  V0699 vor  PU99 mit SA 534
+                                                           N0699 nach PU99 mit SA 534
+                                       SA 534 Klimaautomatk erhaelt ab PU99 AUC bisher ueber
+                                       die SA 528 gesteuert.
+                                      -Neues E-Wort E IHKR Klimaregelung Serie bei 6 Zyl. ab PU99
+                                      -Neues E-Wort E DSC DSC3 Serie bei 328i ab PU99
+                                      -Neues E-Wort E 459 Sitzmemory Serie bei E46/2 323i,328i bis PU99
+                       12.09.98 ZST   -Neues E-Wort E IHK1 Grossversuch 4 Zyl. +IHKA mit geregeltem Kompressor
+                                CVT,  -Neue Bedingungen in IHKA fuer US und Golf in Adr. 0D96-0D9B,
+                              IHK.C02  AUSSENTEMP_ABH_GEBL_ANH,FUSSRAUMKLAPPE_SCHLIES,
+                                       ENTFROSTKLAPPE_SCHLIES,KENNLINIE_AUTO_GEBLAESE
+                                      -Neue FSW in IHKA fuer US und Golf in Adr. 0F6B,0F6C,0F6E
+                                       dies macht eine Aenderung in der A_IHK46.IPS/IPO erforderlich.
+                                       Aenderung V 1.04 integriert.
+                       18.09.98 PDC   -Werte in PDC.C01,PDC.c02 geaendert.
+                       22.09.98 ZST ai-AS71 in 67B10000 geaendert.
+                                      -AS72 in 67B20000 geaendert.
+                       01.10.98 CVT   -Freischalten der Car-Memory Funktionen FH+SHD Tipp zu
+
+NAEL E3323.M  m        23.10.98   EE-92 LÚonard
+                       29.09.98 ZST aj-Integration SA 262 Kopfairbag fuer Compact
+                                       betroffen  MRS2.C07 und E46CVT.000
+                                      -Integration AN33 auf Basis AM33 fuer Fertigung in ZA
+                                      -Integration SA 984 verkuerzter SIA-Intervall
+                                       betroffen KMB_E46.C02/C03 Adresse 11,12,2E und E46CVT.000
+                                ASC   -MK20E_I.C03 Codierdaten in Adresse 03 11000000b
+                                       DV_OFFSET geaendert.
+                       12.10.98       -Integration LSZ.C28
+                                      -Integration ITT_DSC3.C06
+                                KMB   KMB_E46.C03 um codierumfaenge fuer SW 15.0 erweitert.
+                                GM5   -GM5.C01 um Einstiegshilfe fuer CoupÚ/Cabrio erweitert.
+                                      -FSW VERRIEGELN_4KM/H_SENDER_1-4 > VERRIEGELN_XKM/H_SENDER_1-4 umbenannt.
+                                CVT   -Alle o.g. Umfaenge integriert und alle Car-,Key-Memory
+                                       Funktionen freigeschaltet.
+                                ZST   -Entfall E-Wort FERN N0198
+                                      -Neues E-Wort DSC5 fuer Werk 24 DGF
+                                      -Integration SA 920 Alpina
+                                      -SA 185 Einsatzfahrzeug offen wird codierrelevant
+                                       keine SHD-Codierung bei SA 185
+                                MRS2  -Neuer Crashparametersatz
+                                KMB   -Definition des Codierdatum von Binaer nach HEX in Adr. 1C geaendert.
+                                GM5   -Neues FSW HUB_VERZOEGERUNG_FH_VORN hinzu
+                                      -FSW ANLAUFSTROMBEGRENZ_MEMO war auf falscher Adresse
+                                       00' 00010000b  > 00' 00100000b
+
+NAEL E3435.M  n        16.11.98   EE-92 Léonard
+                                     !! Achtung Daten mit M3323.M verschickt !!
+                               CVT    Betrifft INDIVID-Kennung, Aenderung noch in CD 16 realisiert
+                                      FH_ZTR_SCHALTER_TIPP_ZU
+                                        nicht_aktiv = CABR,COUP,COMP,US    >  !(CABR,COUP,COMP,US)
+                                        aktiv       = !(CABR,COUP,COMP,US) >  !(CABR,COUP,COMP,US)
+                               ZST ak -Integration E46/3 AX71, AX72
+                               CVT    -Xenon beinhaltet nicht mehr SA 502 SWA, nur noch ueber ZWAKO
+                                       fuer bestimmte Laender
+                                      -Freischaltung SA 986, SA 987 SA 994
+                               GT     GT mit CI 02 integriert.
+                               ZST al -Freischaltung SA 800
+                                      -Integration Compact AT11,AT51,AT52,AU71,AU72,AU91
+                                      -Integration Limousine AV11,AV12,AY11,AY31,Ay51,AY52,
+                                                             AY54,AY55,AY56,AY57,AY59
+                                      -Integration Touring AW71,AW72
+                                      -Enfall E-Wort MRS3 fuer W92
+                                      -E-Wort DSC3 um 330d erweitert.
+                                      -E-Wort BLSN N1198 fuer alle Fzg. mit 2 Kanal Bremslichtschalter
+                                       (6Zyl., 4Zyl.+Geschw.regler,Automatik ??)
+                               LSZ    - CI 27 + CI 28 neues FSW
+                                        BLS_PRUEFEN
+                                          aktiv         =!BLS_KORR
+                                          nicht_aktiv   =BLS_KORR
+                               SGET   -CVM2 verbau nur bei SA 399
+
+NAEL E3540.M  o        23.11.98   EE-92 Léonard
+                                      Achtung vor einspielen der Daten die Datei
+                                      A_IHK46 updaten.
+                               CVT    -SCHEIBENABSENK_OHNE_EKS    SCHEIBENABSENK_OHNE_EKS
+                                         nicht_aktiv            >   aktiv
+                                      -SCHEIBE_ABSENKZEIT + ZEIT_TUER/SCHLIESSZEIT Werte geaendert.
+                                      -Neue FSW vom GM5.C01 und IHKA_E46.C02 integriert
+                               GM5    -FUNKINNENRAUMSCHUTZ_HI wird beim Touring nicht codiert.
+                                      -Neue FSW EINSTIEGSHILFE_SENDER_1 bis EINSTIEGSHILFE_SENDER_4
+                               IHKA   -IHKA.C02 neue FSW fuer El. Zuheizer
+                                       ZUHEIZER_ELEKTR_BUS_EIN,ZUHEIZERG_ELEKTR_BUS_AUS,ZUHEIZER_ELEKTR_LTG_EIN,
+                                       ZUHEIZER_ELEKTR_LTG_AUS
+
+NAEL E3619.M  p        18.12.98   EE-92 Léonard
+                              ZST am Ab Vorserie E46/3 und Vorserie E46/2 US wird die Mrs3 CI 30 von Bosch
+                                     mit aktiver Fahrerbag/Beifahrerbag Stufe 2 verbaut, zu steuern ueber E-Wort MRS4.
+                                     Funktionsbau E46/2 US erhalten noch den einstufigen Fahrer/Beifahrerbag,
+                                     zu steuern ueber E-Wort MRSF.
+                                     Ab PU99 erhalten alle Modelle den 2-stufigen Fahrerbag/Beifahrerbag, zu steuern ueber E-Wort PU99
+                              MRS3   MRS3 mit CI 30 integriert.
+                              CVT    - BEIFAHRERBAG_STUFE2_1  BEIFAHRERBAG_STUFE2_2
+                                         nicht_aktiv            nicht_aktiv          =!(((TOUR,COUP+US)+MAERZ99,PU99)+!OHNE_FA_AIRBAG)
+                                         aktiv                  aktiv                =((TOUR,COUP+US)+MAERZ99,PU99)+!OHNE_FA_AIRBAG
+                                       FAHRERBAG_STUFE2_1     FAHRERBAG_STUFE2_2
+                                         nicht_aktiv            nicht_aktiv          =!(((TOUR,COUP+US)+MAERZ99,PU99)+!OHNE_FA_AIRBAG)
+                                         aktiv                  aktiv                =((TOUR,COUP+US)+MAERZ99,PU99)+!OHNE_FA_AIRBAG
+                              KMB    K-Zahlfür M3 neu, Geschwindigkeit 4846, Wegstrecke 4798
+                              ZST am Neue SA's 225, 858, 936, 937 integriert.
+
+NAEL E3679.M  q     21.01.99   EE-92 Léonard
+                    22.12.98  MRS3   Crashparameter geaendert fuer MRS3.C30
+                    12.01.99  SGET   El. Zuheizer Einsatz PU99 wird nicht codiert.
+                    14.01.99  IHKR   IHKR.C01 integriert.
+                    15.01.99  GM5    GM5.C02 integriert.
+                    18.01.99  KMB    KMB_E46.C04 integriert.
+                                     Neues E Worte
+                                     - PU00
+                                     - DSC6 fuer Werk 2
+                    29.01.99  ZST ao -SA 927 All season Bereifung fuer Japan integriert.
+                                     -E IHKR V0999 und E DSC3 N0799 entfernt.
+                                      -IHKR nicht SE zu PU99 bzw. 06/99 sondern 100% SA.
+                                      -DSC3 nicht SE fuer M52B28 und M57D30 ab PU99
+                                     -E LSZ2 N1098 und E 807 N1298 neu hinzu
+                                      -E LSZ2 fuer alle Fzg. mit Lichtschaltzentrum CI 28
+                                      -E 807 fuer (AM51,BM51,AR51)+SA920+SA845+SA853, d.h.
+                                       diese LL Alpina-Fzg. werden auf LA Japan codiert,
+                                       muss eventuell in der Eldi-Pruefung beruecksichtigt werden.
+
+NAEL E3831.M  r     01.03.99   EE-92 Léonard
+                    01.02.99  ZST ap SA 0387, 0388,0391, 0392 integriert.
+                    04.02.99  CVT    -Neue FSW integriert fuer Spiegelmemory
+                                     -Neue Carmemoryfunktion fuer Spiegelmemory integriert.
+                                     -Carmemoryfunktion PANIK_MODUS geaendert
+                                      alt
+                                      PANIK_MODUS =US,AUSTRALIEN
+                                      neu
+                                      PANIK_MODUS =DWA+(US,AUSTRALIEN)
+    E46_ZCSUT,E46_CONF,SGET,SGFAM     FTM.C01,BTM.C01,PDC.C03 und MRS3.C31 integriert
+                              ZST aq -Neues E- Wort E MRS5, fuer alle Fzg. mit MRS3.c31.
+                                      Fzg. mit ZCS fuer MRS3.C30 werden autom. auf MRS3.C31
+                                      umgeschluesselt.
+                                     -Neues E-Wort E PDC3 fuer alle FZG mit PDC.C03
+                                      Fzg. mit ZCS fuer PDC.C01/C02 werden autom. auf PDC.C03
+                                      umgeschluesselt.
+                                     -Cabrio 330i erhaelt SE die SA 399 vollautom. Verdeck.
+                                     -Neues E-Wort E 520 N0999 fuer alle 6 Zyl. mit serienmaessigen NSW,da die Spiegelhzg.
+                                      im Spiegelmemory SG codierrelevant wird.
+                                      Spiegelheizung haben alle Fzg. mit SA 520 (6 Zyl. SE), SA 313
+                                      und SA 522.
+                                     -Neue A-Worte A 0520 N0999 und A 0313 N0999, da wie oben beschrieben die SA 520
+                                      und SA 313 codierrelevant werden.
+                                      Achtung neue C_FTM46.prg und C_BTM46.prg in ediabas\ecu spielen
+                                      und neue A_TM46.ipo in Verzeichnis cabi\sgdat kopieren.
+
+NAEL EE054.M  s     15.03.99   EE-92 Léonard
+                    25.02.99  CVT     Individualisierung FH_ZTR_SCHALTER wird nur noch bei Cabrio angezeigt
+                    03.03.99 ZST, ar -Integration AL55 316i Philipinen
+                    11.03.99         -SA 627 Telefonvorbereitung fuer Handy Nokia integriert,PN 8016/032.
+                                     -AP91/AP92 erhalten serienmaessig Fensterheber hinten.
+                                     -SA 374 BMW LM Rad/Radialspeiche 73 integriert,PN 8016/032.
+                                     -SA 345 Chrom-Line Interieur (Coupé,Cabrio) integriert,PN 8016/032
+                    03.03.99 CVT     -Integration SA 847 Vorbereitung f. Sicherheitsfzg. Mit dieser SA wird der
+                                      FH hi. und der Kopfairbag deaktiviert, PN 8421/119.
+                    04.03.99 CVT,    -Zeitinspektion Japan geaendert (ausgeblendet)
+                                      in CVT und KMB_E46.C02/C03/C04, PN 8009/179
+                                      Aktiv am Band 10.03.99 RGB FG.Nr. EH73496, MUC FH62400.
+                    11.03.99         -Cabrio-Verdeckmodul auf neuen SW-Stand angepasst.
+                    11.03.99 KMB     Adr. 32 KUEHLMITTELNIV_FILTERZEIT von 0Ah nach 19h geaendert im
+                                     KMB_46.C03/C04.
+                    15.03.99 BIT     BIT.C01 integriert. Ueber SA 627 Vorbereitung Nokia- Handy angezogen.
+                    15.03.99 KMB     Adr.11, 12 und 2E Werte fuer M57 und M57 + SA984 in KMB_E46.C02/C03/c04 geaendert.
+
+NAEL EE099.M  t     31.03.99   EE-92 Léonard
+                    22.03.99 ZST at  - Neues E-Wort E 261 N06/99 fuer alle Fzg. ab Juni 99 mit SA 261 ausser US oder Kanada
+                                       Neues A-Wort A 0261 V06/99 alle Fzg vor Juni 99 mit SA 261
+                                                  A 0261 N06/99 alle Fzg nach Juni 99 mit SA 261
+                                       Hintergrund der Steuerung wie folgt:
+                                       US oder Kanada bestellen die SA 261 wollen jedoch ab Band die Seitenairbag hinten
+                                       deaktiviert haben.
+                                     - SA 979 Businesspaket fuer Grosskunden integriert.
+                    17.03.99 MRS3    -Erweiterter Crashparametersatz fuer MRS3.C31, um Adr. 0F'00-0F
+                                     - B_SATELLIT_1 und B_SATELLIT_2 nicht aktiv nur bei SA259 ohne SA261
+                             ZCSUT   Baureihenumschluesselungsmaske entfernt wegen neuem Codiersystem
+                    22.03.99 IHKR    IHKR.C01 auf neuen Stand angepasst, betroffen E46CVT.000 und IHKR_E46.C01
+                    23.03.99 SGET    Keine ASC- und DSC-Codierung mehr fuer M54B20,M54B22,M54B25,M54B30,S54B32,
+                                     N40B16,N42B18,N43B20 und N44B20, da seitens EF noch kein Fahrzeug abgestimmt wurde.
+                    23.03.99 IHKA    Codierdaten auf Solarsensor (PU99,Touring) angepasst.
+                    23.03.99 CVT     Einstiegshilfe ab Werk nicht aktiv
+                             DSC     ITT_DSC3.C07 integriert und ITT_DSC3.C05/C06 auf M57D30, Touring angepasst.
+                             ASC     MK20E_I.C04 integriert.
+
+NAEL EE202.M  u     08.04.99   EE-92 Léonard
+                    30.03.99 ZST at  -SA 490 Sitzbreitenverstellung fuer M3 integriert.
+                    31.03.99 ZST     -Neues E-Wort FABG N0999, der Einsatz des zweistufigen Fahrerairbag verschiebt sich nach PU99,
+                                      die Vorserienfzg. PU99, Touring und E46/2 US muessen auf einstufig rueckgeruestet werden.
+                             MRS3     Betroffene Dateien E46CVT.000,E46ZST.M00 und MRS3.C30/C31.
+                    31.03.99 CVM     Neues CVM2E.C02 integriert, betroffene Datein E46SGET.000 und E46SGVT.000.
+                             KMB     Adresse 27:0 00001000b wird bei allen MRS3 Stg. auf K-Bus (1b) codiert.
+                    06.04.99 MRS2    Crashparametersatz geaendert, Rueckwirkend gueltig
+                    06.04.99 MRS2    MRS2.USA mit geandertem Crashparametersatz. Nur gueltig fuer Sonder CD 17.1 und Umcodierung
+                                     in den VPC wegen Seitenairbagproblemen. Diese Datei ist auf Basis MRS2.C07.
+                                     Diese Datei darf in den Werken nicht verwendet werden.
+
+NAEL EE239.M  v     09.04.99   EE-92 Léonard
+                    09.04.99 ZST au  -Codierdaten und Steuerung (E SENS N0499) fuer alle Fzg.
+                                      mit neuem Airbag-Satelitt 6902054.2. Betroffene Dateien
+                                      E46ZST.000/M00, MRS2.C07, E46CVT.000
+                                     -BR33 erhaelt BC als SE
+                                     -AR33/AW33 erhaelt SHD als SE
+                    13.04.99 IHK     KENNFELDKUEHLUNG aktiv fuer M47D20 (E46CVT.000)
+                    13.04.99 IHKR    Codierdatengruppe in IHKA_Codierdaten umbenannt, da sonst kein Codierdaten schreiben moeglich war,
+                                     wegen gemeinsamer Nutzung der A_IHK46.IPS/IPO.Betroffene Datei IHKR_E46.C01
+                    14.04.99 IHKA    ZUHEIZER konventionell ab PU99, Adresse 00  00000001b. Betroffene Datei E46CVT.000
+                    15.04.99 KMB     Adr.26:0 Bit 7 aktiv bei SA 530. Betroffene Datei E46CVT.000
+
+NAEL EE315.M  w     29.04.99   EE-92 Léonard
+                    16.04.99 ZST av  -SA 709 M Lederlenkrad integriert.
+                                     -SA 249 Multifunktion (Lenkrad) nur in ZWAKO, entweder 240,255,709 integriert.
+                                      SA 540,256,710 entfaellt.
+                                     -BL91,BL92,BL93,BR91,BR92,BR93 erhalten 0210, 0530 und 0710 als SE
+                             KMB     Kombi fuer M3 integriert. Betroffene Dateien KMBE46M3.C20, E46SGVT.000, E46SGET.000, E46ZCSUT.000,
+                                     E46AUSBL.DAT,E46CVT.000
+                    19.04.99 CVT     -DWA in Carmemoryfunktion aufgenommen fuer alle Fzg, ohne DWA, um eine opt.Signalisierung bei
+                                      ZV verriegeln, wenn alle Klappen und Tueren geschlossen sind, zu realisieren.
+                                     -DWA opt. Quittierung beim schaerfen aktiv nur fuer Fzg. bis PU99 oder US
+                                     -DWA opt. Quittierung beim schaerfen, wenn alle Klappen und Tueren zu, nur fuer Fzg. ab PU99 ohne US
+                    23.04.99 CVT     US Crashparametersatz fuer Mrs2.c07 gilt rueckwirkend fuer alle E46 Fzg. und alle LA/CKD mit Mrs2.c07.
+
+NAEL EE490.M  x     19.05.99   EE-92 Léonard
+                    29.04.99 CVT     Car-,Key-Memoryfunktion Einstiegshilfe nicht fuer US Fzg.
+                    06.05.99 MRS3    Neue Crashparameter fuer MRS3.C31. Datei soll mit Airbag-Stg. 6905491
+                                     NAEL EE329.M aktiviert werden.
+                    07.05.99 ZST aw  -SA 920 Alpina wird codierrelevant, wegen anderer K-Zahl im Kombi.
+                                      Betr. Dateien KMB_E46.C02/C03/C04
+                                     -SA 326, 774, 792, 793 (Motorsport) integriert.
+                                     -SA 793 (seq. M-Getriebe) codierrelevant im DSC Stg.
+                    10.05.99 CVT     DSC-Stg. fuer M-Fahrzeuge ITT_DSC3.C08 integriert.
+                                     Betr. Dateien E46CVT.000,E46SGET.000,E46SGVT.000,E46ZCSUT.000
+                             DSC     ITT_DSC.C07 fuer Touring Modelle neu abgestimmt.
+                    18.05.99 IHK     IHK_E46.C03 integriert
+                    20.05.99 CVT     -Wegen der Car/Keymemoryfunktion opt. Signalisierung bei ZV werden
+                                      die FSW ALARM_OPT_WARNBLINKER, ALARM_OPT_ABBLENDLICHT, ALARM_OPT_ABBLENDLICHT nur
+                                      noch bei DWA auf aktiv codiert.
+                                     -Fehlermeldung bei Cabrio UebsteuernMUE1 beseitigt
+                                EE-62 Obrman
+                    28.05.99 SGET    - ITT_DSC.C07 für M57: Korrektur der Ermittlung "Ur-SG-Liste"
+
+
+NAEL EE688.M  y     28.06.99   EE-92 Léonard
+                    20.05.99 ZST ax  -SA 972 Comfort Paket und SA 981 Comfort plus Paket integriert.
+                    07.06.99 ZST ax  -Typ AV13 integriert.
+                                     -SHD wird SA, nicht SE beim AR33 ab Anlauf, lt PN 8419/017 v. 19.5.99
+                                     -Neues A-Wort fuer SA 857, gleiche Bedingung wie A 534
+                                     -SA 315 Heckscheibenwischer/beh.Waschduesen integriert.
+                                     -SA 620 Sprachsteuerung (Telefon) integriert.
+                                     Entfall E-Wort MA99, SENS, MRS4
+                                     Neues E-W0rt E ZHZ, nur als Notfall, falls el. Zuheizer nicht zu PU99 fuer alle Dieselvarianten kommt.
+                    07.06.99 SGET    ASC/DSC Motorenausschluesse aus SGET in die SGVT uebernommen.
+                    07.06.99 CVT     DSC- Codierung fuer Alpina angepasst.
+                                     Betroffene Dateien ITT_DSC3.C06/C07, E46CVT.000
+                    18.06.99 CVT     -Literwerte fuer Serviceintervall 11.000 km bei SA 988 integriert.
+                                      Betroffene Dateien KMB_E46.C02/C03/C04, E46CVT.000, E46ZST.000 (ax)
+                                     -Byte 05; HECKSCHEIBE_ENTRI_INNEN aktiv fuer E46/3
+                                      Byte 0D; HECKSCHEIBE_ENTR_SENDER_1-4 aktiv fuer E46/3
+                                      Betroffene Dateien GM5.C01/C02 E46CVT.000
+                                     -EL_DURCHLAUFERHITZER aktiv alle M47, M57 ab 9/99, wurde bisher im IHKA.C03 nicht codiert.
+                                     -Lt. VS wird der Innenraumtaster fuer Heckscheibe/klappe beim Touring nur
+                    22.06.99          fuer die Laender US und RL ohne England verbaut. Daher wird ab sofort die
+                                      Carmemoryfunktion nur noch fuer diese Laender angezeigt.
+
+NAEL E0E14.M  z     01.09.99   EE-92 Léonard
+                    05.07.99 ZST ay  -Integration AL18 Vietnam
+                                     -Neues E-Wort MK60 fuer DSC MK60
+                    12.07.99         -Integration SA 851 Armaturenbeschriftung deutsch
+                                     -Integration SA 761 Individual Sonnenschutzverglasung
+                    08.07.99 CVT     -Zusatzwasserpumpe wird bei M3-Fzg. auf aktiv codiert.
+                                      E46CVT.000 am 08.07.99 vorab nach RGB geschickt.
+                    29.07.99         -LENKSEITE_1 u. LENKSEITE_2 muss nach RL und LL unterschieden werden
+                                      E46CVT.000 am 30.07.99 vorab in die Werke RGB,MUC,DGF,ZA geschickt.
+                                      Datei wird auf die CD19.0 mit aufgenommen.
+                                     -Compact ohne Mautfunktion zu fuer Beifahrertuer
+                    21.07.99         -Neues FSW WIDESCREEN_MODI im TV2.C02
+                    26.07.99         -Neues ITT_DSC3.C20 integriert (MK60)
+                    04.08.99         -Panikmodus fuer ZA als Carmemory integriert.
+                                     -Komfort oeffnen mit FB ohne FH hinten als Carmemory integriert.
+                                     -GM5.C01/C02 auf Cabrio/Compact angepasst.
+                    12.08.99 PDC     Schwellwerte geaendert in PDC.C01/C02/C03 geaendert.
+                                     ******************************************************
+                                     Daten E0E14.M am 12.8.99 an die Werke gesendet mit dem
+                                     Hinweis das DGF die Daten, ausser PDC.C01,C02,C03 zeitgleich
+                                     mit E38,E39 (E E0E14.M) einspielen darf.
+                                     *******************************************************
+
+NAEL E2E17.M  aa    30.08.99   EE-92 Obrman
+                         GM5.C02,CVT -HECKSCHEIBE_ENTRI_INNEN und HECKSCHEIBE_ENTR_SENDER_1, 2, 3, 4,
+                                      für Touring US und Japan nicht_aktiv.
+                                      Damit ist die Funktion für die Heckklappe aktiviert.
+                         TV2.C02,CVT -WIDESCREEN_MODI Parameterschlüsselworte ersetzt.
+                                     *********************************************************
+                                     Daten am 30.08.99 an die Werke gesandt.
+                                     Achtung: Bei Verwendung anderer Baureihen-Daten auf demselben Verzeichnis:
+                                     E46(E2E17.M), E39(E0E14.M), E38(E0E14.M), E52(E0E14.M), E53(E0E14.M)
+                                     zeitgleich einspielen!
+                                     *********************************************************
+
+NAEL E2E56.M  ab    06.09.99   EE-92 Obrman
+                         CVT         -SPIEGELHEIZUNG_VERBAUT aktiv für alle 6-Zylinder
+                         GM5.C02,CVT -HECKSCHEIBE_ENTR_SENDER_1, 2, 3, 4,
+                                      für Touring US und Japan wieder auf aktiv.
+                                      (Zustand wie vor E2E17.M: Fernbedienung öffnet Heckfenster)
+                                      HECKSCHEIBE_ENTRI_INNEN bleibt nicht_aktiv für Touring US und Japan
+                                      (Innentaster öffnet Heckklappe) erstes Fzg. JM44551
+                         SGVT        -ASC CI07 für M54B30 freigegeben
+                         CVM2E.C03   -neues CVM SG mit CI 03 integriert:
+                                      TeileNr.: 8 375 444 mit E 1E09.M
+
+NAEL E3E12.M  ad    01.10.99   EE-92 Léonard
+                                     ***********************************************************
+                                     DATEN nicht fuer CD 20.0 verwenden
+                         CVT         -FSW MAUT_ZU_STOP_N_TUER_AUF aktiv ab PU99
+                                      muss auf CD 20.0 so codiert werden, ab Band erst mit Einsatz CD 20.0
+                                      in HO.
+                                     ***********************************************************
+                                     -Neue Carmemoryfunktion EINSCHALTMELDUNG_IMMER fuer E46 Fzg. mit PDC
+                                      gueltig fuer PDC.C01\C02\C03.
+                                     -Carmemoryfunktion geaendert im GM5.C02 KOMFORTOEFFNEN_FB_O_FH_HI nur fuer COUP,COMP+AUSSTELLFENSTER
+                                     -Carmemoryfunktionen in GRUPPE Kuehlleistung zusammengefasst.
+                                      EINSCHALTSCHW_AUTO_UMLUFT, AUSSCHALTSCHW_AUTO_UMLUFT, AUTO_UMLUFT_ZEIT, AUSSENTEMP_ABH_GEBL_ANH_1-4,
+                                      FUSSRAUMKLAPPE_SCHLIES_1-4, ENTFROSTKLAPPE_SCHLIES_1-4, KENNLINIE_AUTO_GEBLAESE_1-4
+                         MRS3.C31    Geaenderter Crashparametersatz fuer MRS3.C31
+                                     Datei vorab am 22.09.99 an die Werke verteilt.
+                                     Einsatz RGB JM44916, JN82359
+                                             MUC FR17327
+                                             DGF CA74615
+                                             ZA  NB05823  ist Mrs2-Fzg., da z. Zeit kein PU9/99f-Fzg gebaut wird
+                         ZST      ba -SA 169 Abgasnorm EU3 integriert. PJ 8154/002
+                                     -AV35 M54B25 Malaysia integriert. PJ 8425/006
+                                     -AV54 M54B30 Malaysia entfernt.   PJ 8425/006
+                                     -BN12 M54B22 RL integriert.       PJ 8425/006
+                                     -BS12 M54B22 RL integriert.       PJ 8425/006
+                                     -AW12 M54B22 RL integriert.       PJ 8425/006
+                                     -Entfall E-Worte LSZ2, PU99, SENS in G-Zeile integriert.
+                                     -Entfall E-Worte 520, 459 in Typschluessel integriert.
+                                     -Entfall E-Worte DSC5, DSC6 in SA-Zeile integriert.
+                                     -Entfall E-Worte PDC3, BLSN in H-Zeile fuer Zeko integriert.
+                                     -Entfall A-Worte 0520, 0313 in SA-Zeile integriert und fuer PU99 als
+                                      H-Zeile fuer Zeko integriert.
+                                     -Entfall A-Worte 0534, 0857 in SA-Zeile integriert und fuer Touring als
+                                      H-Zeile fuer Zeko integriert.
+                         LSZ.C28     Geanderte Daten im LSZ.C28 rueckwirkend gueltig
+                                     -Adr. 01'00-1E - 07'00-1E PROGRAMMPARAMETER_LSZ_1 - PROGRAMMPARAMETER_LSZ_7
+                                           Werte geaendert.
+                                     -Adr. 0F'05 SCHRITTE_STELLUNG_1 und
+                                      Adr. 0F'06 SCHRITTE_STELLUNG_2 wird nach Cabrio unterschieden.
+                         MRS3.C08    Steuergeraet MRS3.C08 aus den Codierdaten entfernt, da es nie in Serie ging.
+                                     Betroffene Dateien E46ZST,E46CVT,E46SGET,E46ZCSUT,E46SGVT
+                         KMB_E46.C02 Adr. 12, 2E Werte fuer M54B25 Aut. geaendert. Betroffene Dateien KMB_E46.C02/C03/C04
+                         KMB_E46.C04 -Adr. 86-8E MOTOR_KENNFELD fuer M57D30 Allrad erweitert.
+                                     -Adr. 96-9A SCHWELLEN fuer M57D30 Allrad erweitert.
+                    20.10.99  CVT    Fehler bei der Deaktivierung Beifahrerairbag fuer MRS3 korrigiert. Nur fuer HO relevant.
+                                     Korrigierte Daten auf CD 20.0 vorhanden.
+                                     *******************************************************************
+                                     Umschluesselung fuer alle Steuergeräte entfernt, wird jetzt nur noch ueber E46SGVT gesteuert.
+                                     Betroffene Dateien E46ZCSUT, E46SGVT
+                                     *******************************************************************
+
+NAEL E6E10.M  ae    19.11.99   EE-92 Léonard
+                         CVT         -FSW MAUT_ZU_STOP_N_TUER_AUF aktiv ab PU99
+                                      wird auf CD 20.0 bereits so codiert, ab Band erst mit Einsatz CD 20.0
+                                      in HO.
+                                     -Codierung fuer DSC5_7.C13 Allrad geaendert und M54B25 fuer dieses Stg. freigeschaltet.
+                                      Betroffene FSW CODIERWERT_DSC5.7 und HBA_DSC_5_7
+                                     -FSW UEBERSTEUERN_MUE_0 und UEBERSTEUERN_MUE_1 Werte fuer M54B30 geaendert.
+                                      Betroffene Dateien ITT_DSC3.C07, E46CVT.000
+                                     -AMR_TYP fuer M54B22 und M54B25 erweitert.
+                                      Betroffene Dateien MK20E_I.C04, E46CVT.000, E46SGVT.000
+                                     -FSW AUTOMATISCHER_NOTRUF wird nur bei E46/3,E46/2 US, alle E46 ab PU99 auf aktiv codiert.
+                                      Hintergrund ist das die MRS3 fuer diese Funktion verbaut sein muss. Bisher wurde die Funktion
+                                      die ab PU99 einsetzte immer auf aktiv codiert.
+                         ZST  bb     -Neue SA 321,433, 632, 641, 938, 983 integriert.
+                         ZST  bc     -Integration SA 861
+                                     -AN13, AW33, AR33 BC kein SE- Umfang
+                                     -H 313 in Gruppe Ehemalige zeitbedingte E-Worte entfernt.
+                                     -H 520 in Gruppe Ehemalige zeitbedingte E-Worte korrigiert. In der Ausblendzeile fuer Zeko war
+                                      bei H 313, H 520 das ASW eingetragen, was zur folge hat das bei 4 Zyl. Fahrzeugen mit SA459 ohne
+                                      SA 313, 520, 522 die Spiegelhzg aktiv codiert wurde. Geaenderte CVT am 26.10.99 in die Werke geschickt.
+                                     -Neues A-Wort A 0802 V0600/N0600, da Korea ab 06/00 codierrelevant wird. Korea erhaelt den verlaengerten
+                                      Reversierweg wie 812 bzw. 810.
+                                     -Neues E-Wort E IRS N1299 fuer E46/C mit DWA und Innenraumschutz hinten,
+                                      dadurch wird im GM5.c* das FSW FUNKINNENRAUMSCHUTZ_HI auf aktiv codiert.
+                        KMB46M3.C20  -Kennlinienwerte fuer Adr. 78-7D KUEHLMITTELTEMP_ANZEIGEWI, KUEHLMITTELTEMP_WERT geaendert.
+                        ITT_DSC3.C08 -Werte fuer M3 angepasst
+                        ITT_DSC3.C07 ist fuer alle E46/C ungueltig, ab sofort darf nur noch ITT_DSC3.C09 verbaut werden. Alte Fahrzeuge sind auf
+                                     den neuen Stand umzuruesten.
+                        ITT_DSC3.C09 Stg. neu hinzu.
+                         ZST  bd     -SA 257 hinzu, dadurch wird ein neues A-Wort benoetigt A 261 N06/00. Zu diesem Punkt bitte auch E-Wort 261
+                                      beachten.
+                        09.11.99     ************* Daten auf Sonder-HO_CD 20.1 ******************************
+                                     *-Wegen Umcodieraktion wurden die Daten um folgende Umfaenge erweitert.*
+                                     *-AM38, AM57, AV39, AV59 um ASW MEXIKO erweitert.                      *
+                                     *-Neues ASW SPEZ_CRASHPARAM                                            *
+                                     *-Neuer Crashparametersatz im MRS2.C07                                 *
+                                     *-Umschlüsseln des AM38, AM57 nach Codierung auf VN 0004400000         *
+                                     ************************************************************************
+                        15.11.99     -KMB46M3.C20 Kennlinienwerte fuer Adr. 78-7D KUEHLMITTELTEMP_ANZEIGEWI zurueck geaendert.
+                                     -PDC.C03 PSW auf wert_06 im FSW LAUTSTAERKE_HINTEN umgestellt. Keine Auswirkung auf den zu codierenden Wert im Stg.
+                        17.11.99     -CVM2E.C03 Werte angepasst.
+                                     -KMB_E46.C02/C03/C04 Werte in Adr. 12, 2E, 96-9A angepasst.
+
+NAEL E8E18.M  af    17.12.99   EE-92 Léonard
+                        ZST be       -SA 650, 778, 834  neu hinzu
+                                     Typen entfernt
+                                     -Cabr. M43B19 BP31,BP32
+                                     -Lim.  M54B22 AN15, M43B19 AN71, M47D20 AV71, M57D30 AV91, AV92
+                                     Neue Typen hinzu
+                                     -Lim. N40B16 AY15,AY16, N42B20 AY71,AY72,AY74,AY75,AY76,AY77.AY78,AY79, M54B25 AN37,M47D20 AZ12
+                                     -Coupé N42B20 BV71,BV72
+                                     -Tour. N42B20 AX51,AX52, M47D20 AP51,AP52
+                                     -Comp. N42B20 AU51,AU52
+                                     -CABR. N42B20 BP71,BP72
+                                     -Neue E Worte PU00, MA01, EIRS
+                                     -Neue A Worte A 374,602,609,660,661,663
+                                     -Entfall E Wort IRS
+                                      Da lt. PJ 8418/021 das Cabrio bei DWA immer den hinteren IRS enthaelt, konnte das E-Wort
+                                      entfallen. Nun wird bei allen Cabrios mit DWA immer der IRS hi. auf aktiv codiert. Zur
+                                      Auffangloesung falls es Probleme gibt, wurde das E Wort EIRS integriert. Wird E EIRS angezogen wird bei
+                                      Cabrios mit DWA der hintere IRS auf nicht_aktiv codiert. Es wurde das selbe BIT im ZCS dafür hergenommen.
+                        SGET         -CVM2E.C01,CVM2E.C02,MRS3.C30 und LSZ.C25 entfernt.
+                                     -LSZ.C29,MIR.C01,RA_NG.C01 und GT.C03 integriert
+                                      Betroffene Dateien CVT,SGET,SGVT
+                        MK60.C01     ITT_DSC3.C20 heisst neu MK60.C01. Werte angepasst und Motortypen M54 und NG fuer dieses SG freigeschaltet.
+                                      Werte fuer NG-Motoren nicht Serienstand(werden auf M43B19 codiert).
+                                      Betroffene Dateien CVT,SGVT
+                        CVM2E.a03    HALLSENSOR_VSW8 wird auf nicht_aktiv codiert. Einsatz vorab ab 02.12.99 mit
+                                      manipulierter CVM2E.C03 fuer Codierung der Pressefzg. In der manipulierten CVM2E.C03
+                                      wird der Wert in Adr. 00,02 auf FC bzw. bei Harttop auf FE codiert.
+                                                            00,0F auf 5A                      58
+                        CVM2E.N03    HALLSENSOR_VSW8 wir auf aktiv codiert, soll ab ca. 23.12.99.
+                                     Um die jeweilige HALLSENSOR-Codierung zu gewaehrleisten,
+                                     muss die Datei CVM2E.N03 nach CVM2E.C03 kopieren.
+                        KMB_E46.C04  Werte in Adr. 12, 2E, 96-9A angepasst und M57D30 Touring Allrad, N42B20 neu hinzu.
+                                     Werte in Adr. 86-8E, 96-9A fuer M54B25/30 Allrad angepasst.
+                        E46CVT.000   Im Kombi wird bei M54B30 US in Verbindung mit SA 374 das FSW RDKS u. AKUSTIK_RDKS auf aktiv codiert, wegen RDW.
+                        IHKA/IHKR    Zusatzwasserpumpe wird bei allen NG- Motoren auf aktiv codiert.
+                        28.12.99     Programmparameter im LSZ.C28 fuer US-Fzg. geaendert.
+                                     Einsatz RGB 10.01.00 mit JN38408
+                                             MUC 28.12.99 mit FP76050
+                                             DGF 11.01.00 mit CC17576,CA89299,CA89308
+                                             W9           mit NB08534
+
+NAEL E3003.N  ag    28.01.00   EE-62 Léonard
+                        LSZ          Neue Programmparameter US fuer LSZ.C26 u. C27
+                        ZST bf       -Neue SA's 0338,0375, 0524 integriert.
+                                     -Neues A-Wort 0606 N0900 wegen MIR-Radio.
+                                     -Neues E-Wort IHKR N0300
+                                     -GM5 CI 01 fuer PU06/00 wieder freigeschaltet
+                        PDC.C03      Codierdaten fuer M3 und Compact geaendert.
+                        ZST bg       -AN15 wieder integriert. PJ 8021/085 v. 10.01.00
+                        LSZ.C29      Daten geaendert, Adr. 0F'00 und 10'1D
+                        E46CVT       GURTKONTAKT_MELDUNG_UEBER über k_bus immer bei E46/3
+                    21.02.00 CVT     -Fuer MRS2.C07 ist nur noch Crashparameter e46_c und e46_d gueltig
+                                      e46_d = SPEZ_CRASHPARAM+MEXICO
+                                      e46_c = !(SPEZ_CRASHPARAM+MEXICO)
+                                      Aenderung wurde noch auf der CD 21.0 integriert. 21.02.00
+
+NAEL E3316.N  ah    01.03.00   EE-62 Léonard
+                        ZST bf       -Neue SA 0716 integriert.
+                        CVT,LSZ      -Daten fuer LSZ.C29 angepasst. Adr.10'00 LWR_VORZEICHEN wird bei Verbau LSZ.C29 immer auf nicht_aktiv codiert,
+                                      auch im Ersatzteilfall fuer aeltere Fzg. Adr.10'18 Werte angepasst.
+                                     -HALLSENSOR_VSW8 wird auf nicht_aktiv codiert.
+                        CVM2E.C03    -Einfuegen eines Patches von Adresse 0E54-0EEA
+                                      Erforderlich ist eine neue CSGBD und CABD um eine fehlerfrei Codierung zu gewaehrleisten.
+                                      Einsatz RGB mit JP16780
+                        TEL.C02      -CBD TEL.C02 integriert.
+                        ZST bj       -Neue SA 630 integriert
+                                     -SA 632 auf codierrelev. geaendert.
+                                      A-Wort 374 entfernt, da die SA 374 wegen Qualitaetsproblemen keine Run-Flat Reifen erhaelt und somit auch kein RDW
+
+NAEL E3498.N  ai    13.03.00   EE-62 Léonard
+                        ZST bk       -SA 771 M Titan Line Interieur integriert.
+                        ZST bl       -AN37 war in der ZST als normaler LL eingetragen und wurde jetzt auf US geaendert.
+                                     -SA 347 Titan Line Exterieur integriert.
+                                     -SA 632 auf nicht codierrelev. geaendert.
+                        CVT          -ASW V_SERIE aus E46CVT,E46AUSBL,E46SGT,E46ZST.* entfernt.
+                                     -SA 834 ENTF_FRANKREICH Einsatz ab 06/00
+                                      -EINKLEMMSCH_HINTEN auf nicht_aktiv
+                                      -Carmemoryfunktion FH_TUEREN_HINTEN_TIPP_AUF/ZU wird nicht angezeigt.
+                                     -FSW KENNLINIE_HEIZZEIT_HHS, AUFHEIZAUTOMATIK neu hinzu
+                        IHK,IHKR     Neue Steuergeraete IHK_E46.C14 u. IHKR.C12 wegen veraenderter Codierung
+                                     Heizzeit hzb. Heckscheibe beim Touring.
+                                     Betroffene Dateien E46CVT,E46SGET,E46SGVT
+                        ZST bm       -SA 679 HiFi Subwoofersystem neu hinzu.
+
+NAEL E3564.N  aj    24.03.00   EE-62 Léonard
+                        ZST bn       -AP52,AP72,AS52,AU71,AU72,AW71,AW72,AY51,AY52,AY54,AY55,AY56,AY57,AY59,BM91,BM92,BP51,BP52 entfernt
+                                     -E46/4 Face Lift ab 09/01 neu hinzu
+                                      ER11,ER12,ER18,ER51,ER55,ER91,ER92,ES11,ES35,ET11,ET12,ET13,ET15,ET16,ET35,ET36,ET37,ET55,ET56
+                                      EU51,EV11,EV12,EV13,EV31,EV32,EV33,EV35,EV36,EV37,EV38,EV39,EV51,EV52,EV53,EV59
+                                     -E46/3 Face Lift ab 09/01 neu hinzu
+                                      EL51,EL91,EL92,EM11,EN11,EN12,EN31,EN32,EN33,EN51,EN52
+                                     -Bedingung fuer E-Wort L807, um die M54B30 Typen AV51,EV51,AW51,EN51,BN51,BS51 erweitert.
+                                     -SA 0325 M-Heckspoiler neu hinzu
+                        KMBE46M3.C20 -Neues FSW KUEHLMITTEL_G_GRENZE
+                                     -BC_V_KORREKTUR bei M3 immer aktiv
+                                     -K_ZAHL_WEG und K_ZAHL_WEG_KOMPL fuer M3 auf 4797_imp/km geaendert
+                                     Betroffene Dateien CBD,E46CVT
+                        KMB_E46.C05  Neues Kombi mit CI 05 integriert.
+                                     Betroffene Dateien CBD,E46SGET,E46SGVT,E46AUSBL
+                    KMB_E46.C04/C05  -Adr. 31:0 00000010b muss bei N40 und N42 auf 1b codiert werden, war 0b.
+                                     -Adr. 96-9A Toenswerte fuer M54B25/30 Allrad angepasst.
+                        ZST bo       ASW AEGYPTEN,INDONESIEN,MALAYSIA,VIETNAM,PHILIPPINEN,THAILAND,
+                                     da ab 06/00 die Wischerstandrueckschaltung auf nicht aktiv codiert wird.
+                        GT.C02/C03   Inhalt der gt.c03 wurde nach gt.c04 und gt.c02 nach gt.c03 kopiert.
+                                     Fuer gt.c03/c04 wird eine neue CABD A_GT3.ipo und CSGBD C_GT3.prg benoetigt,
+                                     wegen Timeout Erhoehung und senden von DIAGNOSE_ENDE nach der Codierung,
+                                     damit die in den RAM geschriebenen Daten ins EEprom uebernommen werden.
+                        KMB          In CBD KMB_46.C02/C03/C04/C05 wurde das FSW BORDMONITOR entfernt, wurde nie benutzt.
+                        SHD          Neue CBD SHD.C02 integriert und nur fuer E46/5 freigeschaltet.
+                                     Betroffene Dateien CBD,E46SGET,E46SGVT
+
+NAEL E3756.N  ak    07.04.00   EE-62 Léonard
+                        IHKA         AUSSENTEMP_ABH_GEBL_ANH_1 - _4 wird immer auf nicht_aktiv codiert.
+                                     Umfang wurde aus Car-,Keymemory entfernt.
+                                     Betroffene Dateien IHK_E46.C02/C03/C14, E46CVT.000
+                        KMB          -Fuer K_ZAHL_WEG und K_ZAHL_WEG_KOMPL das PSW 4812_imp/km auf 4858_imp/km fuer Alpina geaendert.
+                                      Betroffene Dateien CBD KMB_E46.C02 - C05 und E46CVT.000.
+                                     -Adr. 12, 2E Werte fuer M57D30,N42B18,N42B20 geaendert
+                                      Betroffene Dateien CBD KMB_E46.C04 - C05 und E46CVT.000.
+                        ZST bp       AP72 in E46ZST wieder integriert.
+                                     SA 832 Batterie im Kofferaum wird codierrelevant.
+                        CVT          BPLUS_TRENNUNG1_1 u. BPLUS_TRENNUNG1_2 wird im MRS3 bei COMP+LL+(N40B16,N42B18,N42B20,N44B20)+!BATT_KOFFERRAUM
+                                     auf nicht aktiv codiert.
+                                     Betroffene Dateien CBD MRS3.C31, E46ZST.000 und E46CVT.000.
+
+NAEL E3838.N  al    17.04.00   EE-62 Léonard
+                        MK60         Neue MK60.C01 und MK20_EI.C04. Dateien fuer NG-Motoren freigeschaltet.
+                                     Betroffene Dateien CBD MK60.C01, MK20_EI.C04, E46SGET, E46SGVT und E46CVT.000.
+                        LSZ.C29      Wert in Adresse 10'1E SCHW_GRADIENT_SCHLECHTWEG  von 90d nach 45 d geaendert,
+                                     hat fuer die SE keine Auswirkung.
+                        ITT_DSC3.C08 Werte fuer S54B32 angepasst.
+
+NAEL E3936.N  am    10.05.00   EE-62 Léonard
+                        KMB          Adr. 86-8E, 96-9A Toens Werte fuer M54B30 geaendert. KMB_E46.C04.C05
+                                     FSW SEQ_SCHALTGETRIEBE in Adr. 31:0 neu hinzu. KMB_E46.C05
+                        ZST bq       -AV33 C3-Code geaendert von 0018440620 nach 0000000000
+                                     -AT33 integriert.
+                                     -AW33, Entfall SHD aus SE-Umfang.
+                        GM5          Das FSW FENSTERHEBER_HINTEN muss bei SA 362 auf aktiv codiert werden.
+                        LSZ.C29      Dynam.LWR fuer Allrad angepasst.
+
+NAEL EE115.N  an     18.05.00   EE-62 Léonard
+                        MIR.C01	     Maskenfehler in Adr 05 beseitigt. FFb nach FFh geaendert.
+                        ITT_DSC3     Codierdaten fuer Alpina neu festgelegt.
+
+NAEL EE169.N  ao     02.06.00   EE-62 Léonard
+                        RA_NG_C01    -Neue CBD mit neuen FSW'S PTY_TABELLE und REG.
+                                      Betroffene Dateien E46CVT.000 und RA_NG.C01
+                                     -Neue Bedingung fuer Ozeanien im FSW RDS-AF_SWITCHING
+                                      -alt RDS-AF_SWITCHING rds_off fuer Ozeanien
+                                      -neu RDS-AF_SWITCHING rds_on/af_man fuer Ozeanien
+                                      Betroffene Dateien E46CVT.000, MIR.C01 und RA_NG.C01
+                        LWS5.C01     -Neue Daten fuer E46/16
+                                      LWS5.C01 wird immer bei ALLRAD angezogen
+                                      Betroffene Dateien E46CVT.000 und LWS5.C01
+                        E46ZST br    -Integration SA 206 sequentielles Schaltgetriebe
+                                      Codierrelevant, betro. E46CVT.000
+                                     -AN13 entfaellt, lt. PJ 8425/022 vom 10.05.2000
+                                      somit auch FL ET13
+                                     -Integration SA 201 Rapsmethylester (RME)-Ausfuehrung, lt PJ 8016/061 vom 11.05.00
+                                     -Integration SA 426 Aluminium Oberflaeche, lt PJ 8046/004 vom 15.05.00
+                                     -Integration SA 213 Hill Disent Control fuer E46/16, lt. PJ 8424/009 vom 18.05.00
+                                     -BS53, AV53 erhaelt SA 520 als SE, lt. FZB 8021/101 vom 05.04.00
+                                     -BL93 erhaelt Sitzmemory nur als SA 459
+
+NAEL EE263.N  ap     09.06.00   EE-62 Léonard
+                        E46ZST bs    Folgende SA's werden codierrelevant, wegen Codierung DME ME9 EK924.C02
+                                     -SA 832 Batterie im Kofferraum, ASW BATT_KOFFERRAUM
+                                     -SA 861 Codierdatensatzaenderung, ASW MILANSTEUERUNG
+                        EK924.C02    DME ME9 EK924.C02 integriert, wird z.Zt. ueber SGET.000 deaktiviert, bis die SGBD verfuegbar ist.
+                                     Betroffende Dateien E46ZST, E46CVT,E46SGFAM,E46SGET,E46ZCSUT
+                        LSZ.C29      Neue Codierdaten dynam. LWR fuer M3
+                                     Betroffende Dateien E46cvt, E46ausblend, LSZ.C29
+                        LWS5.C01     Neue Daten fuer E46 ohne Allrad, rueckwirkend bis SE gueltig.
+
+NAEL BE354.N  aq     26.06.00   EE-62 Léonard
+                        EWS.C81      Abschaltdrehzahl Anlasser fuer M47 u. M57 geaendert.
+                                     Betroffende Dateien E46cvt u. EWS.C81.
+                        KMB_46.C05   Adr. 31:0 PSW gt_motor von 01011b nach 01001b geaendert
+                        KMB          -Adr. 86-8E, 96-9A Werte fuer M54B22,M54B25 geaendert.
+                                      Betroffende Dateien E46cvt, KMB_E46.C04/C05
+                                     -Adr.27:0 0000010b,bei Allradfzg. muss im KMB die HBA aktiv codiert werden.
+                                      Betroffende Dateien E46cvt
+                        KMB46M3.C20  Codierdaten überarbeitet siehe Index c in CBD
+                                     Betroffende Dateien E46cvt, KMB46M3.C04
+                        E46ZST bt    Neues E Wort ZHZN integriert fuer NG-Fzg. mit el. Durchheizer, siehe B E138N.
+                                     Mit diesem E-Wort wird im die Sicherheitsbatterieklemme im MRS3.C31 aktiv geschaltet
+                                     und der el. Zuheizer in der IHKA bzw. IHKR aktiviert.
+                        E46CVT       LA Korea erhaelt beim Cabrio keine Tippfunktion FH zu. siehe FZB Länder vom 9.8.1999 Seite 4 von 62
+
+NAEL EE354.N  aq     06.07.00   EE-62 Léonard
+                        E46CVT       E Wort ZHZN mit diesem E-Wort wird die Sicherheitsbatterieklemme im MRS3.C31 aktiv geschaltet
+                                     nicht mehr codiert.
+
+NAEL EE617.N  ar     01.09.00   EE-62 Léonard
+                        E46ZST bu    -Entfall Multifunktionsumfang aus SA 710 zu 06/00, Datei am 31.07.00 verteilt.
+                        E46ZST bv    -Entfall E46/5 US AU13, u, AT33 siehe PJ 8420/019 v. 4.7.2000
+                                      Ausschluss fuer MK60 !(COMP+M54B22) entfernt.
+                                     -AL58,AV18,AY98,EV18 CKD Rusland integriert, siehe PJ 8021/131.
+                                     -E Wort BLSN N1198 entfernt.
+                                     -E IHKR N0300 auf 4 Zyl. ab 09/01 erweitert.
+                                     -E Wort PU00 N0700 entfernt und in G-Zeile integriert.
+                                     -E Wort FABG N0999 entfernt und in G-Zeile integriert.
+                                     -Neues E Wort PU01
+                                     -Neues E Wort 225 nur Werk 1 , fuer 4 Zyl. Comp. mit SA225
+                                     -SA 716 Sportpaket II M3 wird im PDC codierrelevant
+                        KMB          -Adr. 96-9A Werte fuer M54B25 im KMB_E46.C04/C05 geaendert.
+                                     -AUSSENTEMP_SENSOR wird bei SA205,N42B18,N42B20 bzw. ab PU01 bei allen Fzg auf aktiv codiert.
+                                     Betr. Dateien KMB_E46.C04/C05
+                        CVT          -Carmemory KOMFORTOEFFNUNG_FB fuer Cabrio deaktiviert.Funktion noch zur CD 23.0 realisiert.
+                                     -GEREGELTER_KOMPRESSOR Bedingungen fuer NG-Motoren ergaenzt.
+                                     -GURTKONTAKT_MELDUNG_UEBER  alt        ->     neu
+                                        konventionell  =!(MRS3_CI_31,TOUR)      =!(TOUR,COUP+US,PU99)
+                                        k_bus          =MRS3_CI_31,TOUR         =TOUR,COUP+US,PU99
+                                      Da sonst in der HO das Kombi beim E46/2 US von 03/99 - PU99 faelschlicherweise auf konventionell codiert wird
+                        SGET         Auswahl der MRS3 nicht mehr ueber SGVT, sonder ueber SGET =TOUR,COUP+US,PU99
+                        PDC          PDC.C03 um Codierung Sportpakett II (SA716) erweitert.
+                        MIR.C01      Fehlerbeseitigung in Adr. 04
+                                      RDS-AF_SWITCHING   00000111b
+                                       rds_on/af_man         001b war 011b.
+                        EK924.C10    DME ME9 EK924.C10 integriert, wird ueber SGET.000
+                                     fuer E46/5 mit N40,N42,N44 freigeschaltet.
+
+NAEL EE787.N  as     22.09.00   EE-62 Léonard
+                       MK60.C01      -MOTOR_ART_DSC, Codierung fuer NG-Motoren geaendert.
+                       CVT,RA_NG.C01 -PTY_TABELLE us, RDS-AF_SWITCHING rds_on/af_man um das ASW RADIO_US (SA645) erweitert.
+                       MIR.C01
+                       CVT,RA_NG.C01 -PTY_TABELLE, Kanada wird auf us codiert, war ece
+                       E46ZST bw     -SA 955 Business-Line Paket integriert.
+                                     -SA 931 Winterreifen f. Autovermieter integriert.
+                                     -SA 200 Partikelfilter integriert.
+                                     -SA 753 Youngline integriert.
+                                     -SA 340 Stossleiste schwarz
+                       E46SGET       -Neue CABD RA_NG.IPO/IPS fuer NG-Radio, vor Codierung wird ueber Diagnose das Radio eingeschaltet.
+                       KMB           -Adr, 12, 2E Werte fur Compact und M47D20 TUE und M47D18 neu hinzu
+                                      Betroffene Datei KMB_E46.C04/C05
+                                     -Adr. 26:0 AUSSENTEMP_SENSOR Kommentar fuer aktiv um 857 erweitert bzw. 205 entfernt.
+                       CVT           -Carmemoryfunktion Gruppe FUNK_INNENRAUMSCHUTZ um FUNKINNENRAUMSCHUTZ_HI wegen Nachrüstung
+                                      Cabrio erweitert.
+                                     -E46/5 Sicherheitsbatterieklemme immer aktiv fuer 1. u. 2.  Vorserie.
+
+NAEL EE919.N  at     22.09.00   EE-62 Léonard
+                        MRS4_16.32   Neues Airbag- SG mit CI 32 von Bosch,rückwirkend auch Ersatz fuer MRS3.
+                                     Betroffene Dateien E46CVT,E46SGET,E46SGVT.
+                        MK60.C03     Neue CBD MK60.C03 integriert.
+                                     Betroffene Dateien E46SGET,E46SGVT
+                        E46ZST bx    -Entfall A Wort 0660, die SA bleibt weiterhin nicht codierelevant, beinhaltet kein NG-Radio.
+                                     -Entfall A Wort 0606, MIR wird nun immer bei SA 606 verbaut
+                        E46ZST/CVT   Integration der Nachruestloesung Drossel fuer MK60.
+                                     Achtung Daten auf HO-CD 24.0 vom 22.09.00, jedoch wurde die MRS4 in der E46Sget ungueltig
+                                     gesetzt S MRS4_16.C32 A_MRS4 MRS4 ABG =MRS4_CI_32+!E46
+
+                     25.09.00   EE-62 Obrman
+                        LSZ.C29      Integration neuer Programmparameter: M3: wiederholte LWR-Ref. ('R') beseitigt
+                        CVT          Neue FSW ABSTAND_KALTPULSE in feste Daten E46
+                                     REFERENZLAUF_LWR_KL15 in Gruppe Logik_HA_Sperre (M3-Differenzierung)
+                        E46ZST by    -SA 0199 und SA 0168 werden codierrelevant,wegen MILANSTEUERUNG in der DME9.
+                        EK924.C10    FSW-Zuordnung in der CBD EK924.C10 geaendert.
+
+NAEL E0E31.N  au     27.10.00   EE-62 Léonard
+                        KMB_E46.C06  Kombi mit CI 06 integriert, wird ab PU01 ueber E46ZST bz immer angezogen.
+                                     Geanderte Dateien E46CVT, SGET, SGVT, ZST.000/M00
+                        MRS4_16.C32  Neuer Crashparametersatz
+                        E46ZST bz    -SA 0939,0945,0946 Beruecksichtigung Preisabhangigkeit integriert.
+                        MK20E_I.C05  Neues ASC-SG MK20E_I.C05 integriert.
+                        SGET/SGVT    -Familienname ASC ind ASC und DSC gesplittet.
+                                     -Familienname TV in TV1 umbenannt.
+                                     Betroffene Dateien SGET.000,SGVT.000,SGFAM.DAT, BR_CONF.BAP, ZCSUT.000
+
+NAEL E3E15.N  av     02.11.00   EE-62 Léonard
+                        E46ZST ca     Neues E-Wort fuer Werk Regensburg, E 204 N0600 fuer alle M54B30 ECE Allrad Automatik mit SA 204
+                                      mit diesem Steuerungswort wird im DS5_7.C13 im Byte 2 fuer diese Fahrzeuge der Wert 06h anstatt
+                                      07h codiert.E46ZST bz, Erstes Fzg. in Regensburg FG-Nr.: JT47037, Montageeinlauf 14.11.00
+
+NAEL E4E65.N  aw     08.12.00   EE-62 Léonard
+                        IHK_E46.C15   Neues IHKA -Sg mit CI 15
+                                      Betroffene Dateien SGET.000,SGVT.000
+                        E46ZST cb     -Neues A-Wort BL93 V0901 bzw. BL93 N0901 und
+                                       neues A-Wort BR93 V0901 bzw. BR93 N0901.
+                                       M3 US erhaelt ab 09/01 Klimaregelung als SE-Umfang, Entfall Klimaautomatik mit AUC aus SE-Umfang
+                                      -Entfall A-Wort 0802 V0600
+                                       entfall A-Wort 0802 N0600
+                                      -Entfall A-Wort 0261 V0600
+                                       entfall A-Wort 0261 N0600
+                                      -Entfall E-Wort 261  N0699
+                                      -Entfall E-Wort EIRS N1299 war vorgesehen fuer E46/C mit DWA ohne FIS, wurde jedoch nie gebaut,
+                                       somit kann das BIT wieder rueckwirkend bis SE verwendet werden.
+                                      -Entfall E-Wort ZHZ  N0599 war vorgesehen als Notloesung Dieselfahrzeuge ab PU99 ohne el. Zuheizer,
+                                       wurde jedoch nie gebaut, somit kann das BIT wieder rueckwirkend bis SE verwendet werden.
+                                      -SA 0298 ab 09/01 BMW LM Rad/Doppelspeiche 98 mit Sicherheitsbereifung integriert.
+                                      -SA 0251 ab 09/01 Reifendruckwarnung RDW integriert.
+                                      -SA 0295 ab 09/01 LM Rad/Sternspeiche 96 integriert.
+                                      -US-Motoren M56B25 u. M56B30 integriert.AZ33, AZ53, AX13, BN73, BN93, BS73, BS93 Einsatz ab 09/02.
+                                       Da z. Z. keine spez. Anforderungen wird diesee Motor bis auf weiteres auf M54B25 und M54B30 codiert.
+                                      -Neue Allradtypen ab 09/01 integriert. EU31, EW51, EV91, EU33, EW53, EP31, EP51, EP71, EP33, EU13, EW13, EM33
+                                       DSC im Serienumfang enthalten
+                                      -ES92 M57D30 ZAF ab 10/01 integriert.
+                                      -EM91/92,EU91/92,EU91,EW91 M57D30 TUE integriert.
+                                      -AX31, AX32 N42B18 Touring integriert.
+                        E46CVT.000    -FSW CAN_RDC aktiv bei DSC mit RDW ab 09/01, codiert im Kombi CI 06
+                                      -SIA_LITER_GRENZE und LITER_SERVICE_INTERVALL fuer NG-Motore geandert.
+                                      Betr. Dateien E46cvt.000, KMB_E46.C04/C05/C06 und E46asbl.dat.
+                        GM5.C02       Neue FSW's TAKTUNG_IB, FH_INIT_TRANSPORTMODE, ASF_PARAMETER_VARIANTE, KOMFOEFFNEN_SPERRE_KEY_IN
+                                                 TAKTUNG_VERBRAUCHERABSCHA, IB_SPERRE_BEI_FEHLER integriert.
+                                      Betr. Dateien GM5.C02, E46CVT.000, SWT?SW.DAT
+                        MRS4_16.C32   Crashparamter fuer E46/5 freigegeben.
+
+NAEL E6E96.N  ax     26.01.01   EE-62 Léonard
+                        CVM2E.C03     -FSW FEHLER_V5GO wird ab PU01 auf nicht_aktiv codiert.
+                                      -PROGRAMMPARAMETER_CVM_1 und PROGRAMMPARAMETER_CVM_2 werden ab PU01 auf wert_02 codiert.
+                        PDC.C03       Neue Werte fuer neue Sensoren die ab Maerz 01 einsetzen bzw. neue Werte fuer Sportpakett II SA716.
+                        EK924.C11     Neue CI fuer Motersteuergeraet EK924.C11
+                        ZST cc        -Zeitkriterium fuer E-Worte geaendert, von 0301 auf 0901
+                                             alt              neu
+                                       -A 0602 V0301     A 0602 V0901
+                                        A 0602 N0301     A 0602 N0901
+                                       -A 0609 V0301     A 0609 V0901
+                                        A 0609 N0301     A 0609 N0901
+                                       -SA 612 BMW Assist integriert.
+                                       -E IHK1 ist auch fuer M47D20 TU bei SA 0530 bzw. 0534 anzuziehen.
+                                      -E 225  N0301 ersatzlos gestrichen, wurde laut EF noch im Werk angezogen
+                                      -E LEN1 N0301 fuer (LIM,COUP,TOUR,CABR)+(M54B30,M57D30,M56B30)+SA210 ab 04/01 (Lenkuebersetzung i=50)
+                                      -E SBK  N0301 fuer E46 Comapct ohne Sicherheitsbatterieklemme (LL+BENZINER+!SA832)
+                                      -AY16 entfaellt lt. PN8427/010
+                                      -SA 351 LM Gussrad 17" Sternsp.89 integriert.
+                        MRS4_16.C32   Neue Crashparameter fuer MRS4 mit Freigabe fuer alle Fzg. Varianten.
+                        SHD.C03       Neues SG mit CI 03 integriert.
+                                      FSW SEITENTUEREN wird immer auf PSW 4_tueren, FSW EEPROM_SHD auf
+                                      PSW nicht_aktiv und FSW EINKLEMMSCH_SHD_ZU auf PSW aktiv codiert.
+                        IHK_E46       Neue CBD IHK_E46.C15 und IHK_E46.C16. Die CBD fuer ReDesign zu PU01 ist CI 16, fuer Maerz01 ist CI 15
+                                      Die alte CBD CI 15 fuer Redesign wurde auf CI 16 abgeaendert.
+                        IHKR_E46      Neue CBD mit CI 13 integriert.
+                        KMBE46M3      Neue CBD mit CI 21 integriert. CBD ist identisch mit CI 20, unterscheidung wegen FA noetig.
+                        IHK           Mit Einsatz IHKR_E46.C13 bzw. IHK_E46.C15/C16 werden bei E46/5 bzw alle Varianten ab PU 01
+                                      das FSW HHS_AUTOMATIK auf aktiv codiert.
+                        TEL_US.C01    Telefoninterface US (Mayday-Modul) integriert, nur Nachrüstumfang in US ab 06/2000
+
+NAEL E3247.P  ay     21.02.01   EE-82 Léonard
+                        *********************************************************************************************************************
+                        ZST cd        -Aenderung A 0662 V0301 00000000 0000000002000000 0000000000 0
+                                             neu A 0662 N0301 00000000 0000000002000000 0008040660 1 RADIO_CD43_ALT
+                        E46SGET       Bei RADIO_CD43_ALT wird weiterhin das Radio CD 43 codiert, sollte urspruenglich ab 03/01 nicht mehr verbaut werden.
+                                      Diesen Umfang am 15.02.01, vorab ans Band geschickt
+                                      Auf der HO CD 25 wurde die Aenderung wie folgt uebernommen, ohne FSW, da Radios in der HO nicht codiert werden.
+                                      A 0662 N0301 00000000 0000000002000000 0008040660 1
+                        *********************************************************************************************************************
+                        ZST cf        -Neues E-Wort RANG N0301 fuer alle Fzg. mit New Generation als SE.
+                        *********************************************************************************************************************
+NAEL E3354.P  az     02.03.01   EE-82 Léonard
+                        SGVT          -ASC.C04 in SGVT fuer NG-Motoren gesperrt,lt. Hr. Kusch vom 30.01.01.
+                        KMB           -Tankkennlinie fuer M56 im KMB_E46.C06 geaendert.
+                                      -FSW SULEV_GATEWAY im KMB_E46.C06 neu hinzu.
+                        CVT           -Mit SHD.C03 werden bei allen Fzg. das FSW EINKLEMMSCH_SHD_HEBEN auf aktiv codiert.
+                                      -Offen ??? Das Sitzmemory-SG SM_E46.C01 wird ab PU01 ohne US, auf FSW AUT_SITZVERSTELLUNG nach_fb_entriegeln codiert, lt. PV Dr. Heiden.
+                                      -Neue FSW fuer CKM TAGFAHRICHT_ECE und DRL_ALS_FL im LSZ.C30 hinzu, analog LCM im E38/E39.
+                        ZST cf        -Hill Discent Control fuer E46/16 wird codierrelevant
+                                      -E-Wort SBK in SBK1 umbenannt
+                                      -Sa 0601 Bordmonitor mit TV hinzu.
+                                      -ASW PU01 bei E-Wort und H-Wort entfernt.
+                                      -EV55 M54B30 Thailand integriert.
+                        LSZ           LSZ.C30 integriert. Betroffene Dateien E46ZST, E46CVT, E46SGVT, E46SGET
+                        LSZ           Im CI 26, 27, 28, 29 wurde das PSW aktiv u. nicht_aktiv auf melden und nicht_melden fuer FSW FEHLER_BL_BLINKEN geaendert.
+                        LSZ           IM LSZ CI 29 wurden die Programmparameter geaendert.
+                        CVM2E         IM CVM2E CI 03 wurden die Programmparameter ab PU09/01 geaendert.
+                        SGVT          Ab PU01 wird die Codierung auf FA umgestellt.
+                                      -A_KMBA ZCS wird codiert FFFFFFFFP FFFFFFFFFFFFFFFFE FFFFFFFFFFF und der FA ins Kombi geschrieben.
+                                      -A_EWSA ZCS wird codiert FFFFFFFFP FFFFFFFFFFFFFFFFE FFFFFFFFFFF und der Job ZCS_SCHREIBEN entfernt.
+                                      -A_LZA der FA wird ins LSZ geschrieben
+                                      -Es werden KMB_E46.C06, KMBM3E46.C21 und LSZ.C30 benoetigt.
+                        MK60          Neue SG MK60.C04 /C05 integriert. SE 09/01 ohne Allrad und S54B32, MK60.C05 bei DSC3+RPA
+
+NAEL E3566.P  ba     30.03.01   EE-82 Léonard
+                        AT 12.03.01   -Entfall BM11, ES11, EM11 und ET11 lt. PN 8022/277
+                                      -SA 358 wird codierrelevant wegen RLS.C02
+                                      -SA 949 LA Sportpaket integriert.
+                                      -SA 167 Abgasnorm EU4 integriert.
+                                      -SA 168 Abgasnorm EU2 , FSW MILANSTEUERUNG hinzugefuegt.
+                                      -SA 754 M-Heckspoiler integriert.
+                                      -SA 606 wird New Generation Radio
+                        SHD           -SHD, Entfall der CKM-Funktion SCHIEBEHEBEDACH_TIPP_ZU fuer E46/5 bis PU01
+                                       Betroffene Datei E46CVT
+                        RLS           Integration RLS.C02 ab PU01 bei SA 521
+                                      Betroffene Dateien CBD,E46SGET,E46ZCSUT,E46CVT,E46CONF.BAP,E46SGFAM,E46AT.000
+                        DSC5_7        Integration DSC5_7.C16 fuer Allrad
+                                      Betroffene Dateien CBD,E46SGET,E46CVT,E46SGVT.000,E46AT.000
+                        KMB           M47TUE und M57TUE FSW NG_MOTORVARIANTEN erhalten PSW ladecontrolle_can
+                        MK60.C04/C05  Aenderung der Getriebe-Codierung fue sequentielles Schaltgetriebe
+                        KMBM3E46.C22  Integration KMB mit CI 22 fuer M3 ab PU01 mit FA und rueckwirkend fuer ZCS
+                                      Betroffene Dateien CBD,E46SGET,E46SGVT.000
+                        CVT           -Integration CKM-Funktion FLC_SCHWELLWERT_SATZ fuer Fzg. ab PU01 mit Regensensor SA 521
+                                      -Codierung fuer RL im EK_924.C10/C11 geaendert. RL erhalten immer Batterie im Kofferraum.
+                        MK60          CBD-Aenderungen fuer ASC-Codierung eingearbeitet. Betr. FSW SPERRDIFFERENZREGELUNG,
+                                      UNTERSTEUERUNGSALGORYTHM, DYN_BREMS_UNTERSTUETZUNG, MAX_BREMS_UNTERSTUETZUNG.
+                        ZST cg        -Neues E-Wort E S609 fuer Compact, kein TV bei SA 609
+                                      -Integration SA 949 LA Sportpaket.
+                                      -SA 167 Abgasnorm EU4 integriert.
+                                      -SA 754 M-Heckspoiler integriert
+                        MRS4          Neues PSW ohne_satellit bei FSW CODIERANFORDERUNG_0/CODIERANFORDERUNG_1.
+                                      Dieses PSW ist zu Verwenden bei SA 259 ohne Fondairbag.
+                        LSZ.C30       -Codierung der NSL geaendert,Adresse 02'05 00000001, 02'06 00000010 und 02'1A
+                                      -Heimleuchten mit Kl58g nicht_aktiv ab PU01, Adresse 02'0D 00001000
+                                      -Codierung Standlicht f. Compact ab PU01 geaendert, Adresse 02'04 10000000
+                        PDC           Echoschwellwerte geaendert.
+                        EK924         N40B16 in der SGET.000 aufgenommen.
+NAEL E3806.P  bb     12.04.01   EE-82 Léonard
+                        KMB           TOG-Werte fuer M47D20 TU geaendert.(SCHWELLEN,MOTOR_KENNFELD,AUSBL_DREHZAHL)
+                                      Betr. Dateien E46AUSBL,E46CVT,KMB_E46.C06
+                        ZST ch        -SA 862 integriert.
+                        AT 12.04.01   -SA 862 integriert
+                                      -SA 861 Aenderung Codierdatensatz , FSW MILANSTEUERUNG hinzugefuegt.
+                        KMBE46M3      RUECKWAERTSGANG_WARNUNG aktiv bei S54B32+SEQ_M_GETRIEBE+(US,JAPAN)
+                                      RUECKWAERTSGANG_WARN_MED wird bei M3 immer auf piezo codiert.
+                        KMB           Beim M52B28 Alpina werden die FSW SCHWELLEN und MOTOR_KENNFELD auf PSW m54b30 codiert.
+                        CVT           Splitting Crashparametersaetze MRS3 und MRS4 fuer E46 und E46/5 vorgehalten.
+NAEL E3898.P  bc     04.05.01   EE-82 Léonard
+                        AT.000        -Integration der ZA-Modelle AZ71,AZ72,AZ91,AZ92,ES92 und Allrad US EP33
+                                      -SA 225 entfernt, lt. PJ8016/101
+                                      -M56 Typen AU33,AZ53,EM33,EW13,BN93,BS73,BS93 entfallen, lt. PJ8433/004
+                                      -S54B32 erhaelt kein MK60 ueber SA210
+                        CVM            CVM2E.C03 neue Werte
+                        LSZ            CVT neue Codierung LSZ.C30, Kennzeichenleuchte nicht aktiv bei allen E46
+
+NAEL E3942.P  bd     04.05.01   EE-82 Léonard
+                        LSZ.C29       Aenderung der Programmparameter zur verbesserten Nachzünden des Xenonlichts im Fehlerfall
+                                      Einsatz am Band DGF 04.05.01 Fahrgestellnr. GY26928
+                                                      RGB 08.05.01 Fahrgestellnr. PE60543
+                                                      MUC 08.05.01 Fahrgestellnr. FU91972
+                                                      ZA  08.05.01 Fahrgestellnr. ND52571
+                        LSZ.C30       -Aenderung der Werte fuer OFFSET_LWR
+                                       Einsatz am Band DGF 07.05.01 CF27879
+                                                       RGB 08.05.01
+                                                       MUC 08.05.01
+                                                       ZA  08.05.01
+                                      -In diesem SG muessen die FSW wie folgt gesetzt werden FEHLER_SCHALTER_BREMSL nicht_melden bzw.
+                                       BLS_PRUEFEN nicht_aktiv gesetzt.
+                        AT            -ASW BATT_KOFFERRAUM zu RL Typen N42 und Cabrio N42 LL hinzugefuegt.
+                                      -SA 768, 770, 790, 795 integriert, lt Statusbericht 04/2001
+                                      -SA 433, 439, 662, 927 entfernt, lt. Stausbericht 04/2001.
+                                      -BV91 und SA 912 integriert.
+                                      -Neues E-Wort BFDY fuer Fzg. mit Brakeforcedisplay
+                                      -Entfall E-Wort RANG und LEN1
+                                      -Entfall der Typen die ab PU01 nicht mehr gebaut werden
+                                       AU91, AL31, AL32, AL33, AL34. AL35, AL36, AL37, AL39, AZ91, AZ92, ER18, EU91, EU92, EW91, EP91,
+                                       EM91, EM92,
+                                      -Typschluessel nach TAIS-Logik geaendert, wegen Doppeltreffer bei Zusteuerung der Serien SA'S
+                        ZST cj        -Entfall E-Wort MA01 und PU01
+                                      -Entfall der Typen die ab 09/01 erst gebaut werden und ueber die AT gesteuert werden.
+                                       ER11, ER12, ER18, ER51, ER55, EW91, EV91, EU91, ER91, EU92, ER92, ES92, ES11, ET11, ET12, ET15,
+                                       ET16, ET35, ET36, ET37, ET55, ET56, EU51, EV11, EV12, EV13, EV18, EU31, EV31, EV32, EU33, EV33,
+                                       EV35, EV36, EV37, EV38, EV39, EW51, EV51, EV52, EW53, EV53, EV55, EV59, AY11, AY15, AY31, AY32,
+                                       AY71, AY72, AY74, AY75, AY77, AY78, AY79, AY98, AZ12, EU13, AZ33, EW13, AZ53, EL51, EP91, EP71,
+                                       EM91, EL91, EM92, EL92, EM11, EN11, EN12, EP31, EN31, EN32, EP33, EN33, EP51, EN51, EN52, EM33,
+                                       AX13, AX31, AX32, AX51, AX52, BM71, BN73, BN93, BV71, BV72, BP71, BP72, BS73, BS93
+                                      -Neue SA 912 integriert.
+                        EK924         Neues SG EK924.C12 mit neuer CABD A_ME9_46 integriert.
+                        KMB_E46.C06   Werte M47D20 TUE bei SIA_LITER_GRENZE und LITER_SERVICE_INTERVALL geaendert.
+                        MK60          Werte fuer Mk60.c04/C05 geaendert.
+
+NAEL EE165.P  be     01.06.01   EE-82 Léonard
+                        AT            Typen AT91, EU71 und EL71 integriert, mit TAIS nicht abgestimmt.
+                        KMB_E46.C06   -Werte von LITER_SERVICE_INTERVALL und SIA_LITER_GRENZE fuer E46/5 318d integriert.
+                                      -Werte fuer M56 geaendert.
+                                       -Tankkennlinie fuer M56 geaendert. Adr.4A-53
+                                       -Tankanzeigewinkel fuer M56 wird codierrelevant Adr. 73-77
+                                       -TOG ueber CAN aktiv fuer M56 Adr. 31:0
+                                       -Allrad erhaelt kein RPW-Anzeige ueber CAN ab PU01.
+                        LSZ.C30       Codierdaten kpl. ueberarbeitet und Nachruestung Heckleuchte Facelift fuer E46/4 vor PU01
+                                      integriert.
+                        ZST ck        Integration H-Wort HECK fuer Nachruestung Heckleuchte Facelift fuer E46/4 vor PU01
+                        MK60.C04/C05  Werte fuer 318d geaendert.
+
+NAEL EE309.P  bf     12.06.01   EE-82 Léonard
+                        CVT,LSZ.C30   -neue LSZ.C30 integriert (PROGRAMMPARAMETER_LCM_13 aktiviert)
+                                       (zum Testen ans Band TM+TR geschickt 06.06.01, Wolf)
+                        CVT,PDC.C03   -Neue Werte fuer E46/4 Facelift
+                        CVT,GT.C04    -TELEMATIK und AUTOMATISCHER_NOTRUF ab PU01 nur in Verbindung mit SA612 BMW Assist aktiv.
+                        AT            SA 612 wird codierrelevant, neues ASW BMW_ASSIST
+
+NAEL EE350.P  bg     15.06.01   EE-82 Léonard
+                        At            -SA 375 entfallen, lt.PJ 8016/107
+                                      -SA 927 entfallen, lt. Statusbericht 5/2001
+                        CVT           -Coapi1000Fehler beseitigt, bei FSW SPRACHE in Verbindung LL+GOLF+ENGLISCH
+                        LSZ           -LSZ.C31 in die Codierdaten integriert.
+                        SHD           -SCHIEBEHEBEDACH_TIPP_SENK aktiv ab PU01, alle Fzg. mit SHD
+
+NAEL EE405.P  bh     06.07.01   EE-82 Léonard
+                        CVT           -FL_UND_NSW_NICHT_GLEICHZ aktiv bei allen US, war vorher nur bei Kanada
+                                      -Fehler bei FSW UEBERSTEUERN_MUE_1_2 fuer M52B25 Cabrio beseitigt.
+                                      -FSW KOMFOEFFNEN_SPERRE_KEY_IN wird ab PU01 auf aktiv codiert.
+                                      -FSW HILLDESC_DSC_5_7 wird bei E-Wort HDC1 auf nicht_aktiv codiert.
+                                      -FSW STARTUP_SCREEN neu hinzu.
+                        E46AT.000     -Historisches E-Wort HDC1 integriert.
+                                      -SA 469, 577 entfallen, lt. Statusbericht 6/2001
+                        KMB_E46.C06   Syntaxfehler bei FSW SIA_LITER_GRENZE u. LITER_SERVICE_INTERVALL fuer
+                                      M47D20 105kw Schaltgetriebe E46/5 + SA988 beseitigt.
+                        GT.C05        GT.C05 wegen Starup Screen zu Testzwecken integriert.
+                        LSZ.C30/31    FSW KALTUEBERWACHUNG_NSL_LI u. WARMUEBERWACHUNG_NSL_LI neu bedingt
+
+NAEL EE617.P  bi     20.07.01   EE-82 Léonard
+                     ***Aenderungen auf der HO-CD 27.0 integriert********************************
+                        E46AT.000     -SA 203 ALLRAD freigeschaltet.
+                        E46CVT.000    HKL_SPERREN_BEI_ZS aktiv ab PU01 bei ZA-Modellen
+                     ****************************************************************************
+                        E46AT.000     -SA 737 Interieurleiste Alu freigeschaltet
+                        E46ZST.000    -Entfall A 602 N0901 und V0901
+                                      -Entfall A 609 N0901 und V0901
+                                      -Entfall A 661 N0301 und V0301
+                                      -Entfall A 662 N0301 und V0301
+                                      -Entfall A 663 N0301 und V0301
+                        E46CVT.000    FSW DRUCKMODELL_HINTERACHSE, UEBERSTEUERN_MUE_1 fuer Mk60-SG wurde die PSW Zusteuerung geaendert.
+                                      Einsatz MUC 24.07.01 mit FGNR FU50418  NAEL EE677.P
+                                      Einsatz DGF 24.07.01 mit FGNR CF64851  NAEL EE677.P
+                                      Einsatz RGB 25.07.01 mit FGNR JS61189  NAEL EE677.P
+                                      Einsatz ZA  25.07.01 mit FGNR NJ13787
+
+NAEL EE677.P  bj     23.07.01   EE-82 Léonard
+                        E46AT.000     E-Wort E L807 integriert fuer LL Alpina Japan
+                        LSZ.C31       PWM-Werte geaendert.
+
+NAEL EE994.P  bk     27.08.01   EE-82 Léonard
+                        E46CVT.000    Deaktivierung HKL_SPERREN_BEI_ZS bei ZA-Modellen
+                        E46AT.000     -SA 375 eingefügt: Wird weiterhin benötigt für EW53
+                        KMB_E46.C06   Werte fuer Anzeigewinkel geaendert Adr.73-77
+                                      Einsatz MUC 28.08.01 mit FGNR FW11415
+                                      Einsatz DGF 29 08.01 mit FGNR CF66928
+                                      Einsatz RGB 28.08.01 mit FGNR PE83000
+                                      Einsatz ZA       .01 mit FGNR NH63001
+
+NAEL E0E33.P  bl     30.08.01   EE-82 Léonard
+                        KMB_E46.C06   FSW HBA wird bei allen Fzg. ausser M3, ab PU01 auf aktiv codiert Adr. 27:0
+                        E46AT         Integration SA 914 Premiumpaket
+                                      Einsatz MUC 30.08.01 mit FGNR FY50026
+                                      Einsatz DGF 30.08.01 mit FGNR CH00273
+                                      Einsatz RGB 30.08.01 mit FGNR JW03661
+                                      Einsatz ZA       .01 mit FGNR nicht relevant, alle PU-Fzg umcodiert.
+
+NAEL E1E23.P  bm     14.09.01   EE-82 Léonard
+                        E46AT.000     -SA 433, 439 eingefuegt
+                                      -Bedingung fuer E-Wort SBK1 ergaenzt.
+                                      -HO-Worte OHBA und OHFA entfernt.
+                        E46ZST.000 cm Alle E-Worte entfallen,ZHZN,IHKR,MK60,L807,NOT1,IHK1,LEN1,SBK1,S204,RANG,S609
+                        LSZ.C30/C31   Neue FSW VARIANTE_LSZ, LAENDERVARIANTE_LSZ und LENKSEITE_LSZ in E46CVT.000 eingefuegt.
+                        LSZ.C31       Programmparameter Block 5-9 eingefuegt, Fehlererkennung Klemme R
+                        LSZ           Schrittstellung manuelle LWR geaendert im LSZ.C28/C29/C30/C31
+                        E46ZCSUT      Bei den Typen Al71 u. Al72 wird das Bit im VN 0000000800 bei Codierung IHKR und IHKA herausgeschluesselt,
+                                      da diese Fzg. keinen geregelten Kompressor haben. Fehlerbild am Fzg. ist ein vereisen des Kompressors.
+                                      Betroffen sind Fzg. aus DGF vom 31.01.2001 bis SE PU01.
+                        PDC.C03       Erhoehung der E46/3_3/01 Schwellwerte, wg AHK-Erkennung
+                        IHKR_E46.C14  Neue CBD wegen Entfall der Deaktivierung_Klimageraetepruefung, die fuer CI13 notwendig war.
+                        IHK_E46.C16   Speicheradressen geaendert.
+
+NAEL E2E43.P  bn     24.09.01   EE-82 Rochal
+                        LSZ.C30/C31   SPG_NACHREGELUNG_LANGSAM fuer allen Typen auf nicht_aktiv gesetzt.
+                                      VARIANTE_LSZ  wert_01 für E46/4 mit der Nachruestung Heckleuchten Facelift
+
+NAEL EE217.P  bo     27.09.01   EE-82 Rochal
+                        E46AT.000     neues E-Wort 57TU Fuer alle FZG mit M57B30/TU (150 KW)
+                                      neues ASW  MAERZ02 ab 03.02
+                                      neues aktive Zeitkriterium 0302 hinzu
+                        DSC5_7.C17    integriert
+                        PDC.C03       mit SA716 fuer E46/5 erweitert
+
+NAEL E3E77.P  bp     09.10.01   EE-82 Rochal
+                        E46AT.000     Typschluessel BV91 ergaenzt
+                        KMB_E46.C06   Werte geaendert.
+                                      Einsatz MUC 10.10.01 mit FGNR FW15599
+                                      Einsatz DGF 12.10.01 mit FGNR CH05091
+                                      Einsatz RGB 11.10.01 mit FGNR JZ65066
+                                      Einsatz ZA       .01 mit FGNR
+
+NAEL E4E40.P  br     12.10.01   EE-82 Rochal
+                        E46AT.000     Schluesselnummern BD91/BD92 hinzu. Die bestehende
+                                      Typschlüsselnummern BL95/BL96 sind nicht zulässig. Fuer die Uebergangzeit
+                                      bleiben alte Schluesselnummern weiterhin gueltig.
+                        KMB_E46.C06   Serientank -  Werte geaendert
+                        KMB_E46.C07   integriert.
+                        KMBE46M3.C22  RUECKWAERTSGANG_WARNUNG fuer alle Varianten ausser JAPAN auf nicht_aktiv gesetzt,
+                                      JAPAN bis 03/02 aktiv.
+                        MRS4_16.C32   Kommentare geaendert, keine Wirkung auf die Codierdaten, da die Aenderungen mit der E1E23.P
+                                      bereits beruecksichtig wurden (E-Wort SBK1).
+
+NAEL E5E41.P  bs     22.10.01   EE-82 Rochal
+                        E46AT.000     SA 356 hinzu, bestellbar ab 09/02, codierrelvant.
+                                      SA 638 hinzu, bestellbar ab 09/02
+                                      SA 639 hinzu, bestellbar ab 09/02
+                                      SA 644 hinzu, bestellbar ab 09/02
+                                      SA 646 hinzu, bestellbar ab 09/02
+                                      Aus M3 FZG mit Klimaautomatik entfaellt FSW AUC, die Funktion in SA534 intergriert.
+                                      neues E-Wort ARSW, neues ASW  AEND_RADIO_SW
+                        RA_NG.C01     Codierdatengruppe 02 Tpmin fuer BM-Radios erhoeht
+                        LSZ.C30/C31   HALB/VOLLSCHRITT fuer alle E46 auf halbschritt gesetzt
+                                      PWM_WERT2_BLK_ZUSATZFKT wert_02 hinzu
+                        LSZ.C30       PROGRAMMPARAMETER_LCM geaendert.
+                                      Einsatz MUC 07.11.01 mit FGNR KL55926
+                                      Einsatz DGF 08.11.01 mit FGNR CH51577
+                                      Einsatz RGB          mit FGNR
+                                      Einsatz ZA           mit FGNR
+
+NAEL E6E67.P  bt     06.11.01   EE-82 Rochal
+                        MK60.C04/C05  Kommentare geaendert, CBDen auf heutigen Stand angepasst.
+                        MK60.C09/C10  integriert.
+                        LWS5.C01      Werte geaendert.
+                        KMB_E46.C07   Anlieferungswerte geaendert
+                                      TANK_VORHALT_REICHW hinzu
+
+NAEL E8E53.P  bu     26.11.01   EE-82 Rochal
+                        E46AT.000     Zeitkriterium 0303 aktiviert
+                                      E46/2/C Facelift typen hinzu
+                                      E46/2FL - BD11/BD12/BD31/BD32/BD33/BD51/BD52/BD53/BD71/BD91/BD92/BV13/BV51
+                                      E46/CFL - BW11/BW12/BW31/BW32/BW33/BW51/BW52/BW53/BW71/BW72
+                                      Die Schluesselnummern BL95/BL96 bleiben weiterhin gültig.
+                        LSZ.C32       integriert
+                        LSZ.C31       HALB/VOLLSCHRITT >> halbschritt nur bei XENON (Ruecksetzung der Aenderung)
+                        KMB_E46.C07   GENERATOR_UEBER_CAN und TOG_UEBER_CAN fuer N42B20 Motoren auf aktiv gesetzt.
+
+NAEL EEB21.P  bv     04.12.01   EE-82 Rochal
+                        E46AT.000     SA908 hinzu, nicht codierrelevant.
+                                      E-Wort ARSW und FSW AEND_RADIO_SW entfallen.
+                                      TYP EV34 hinzu.
+                        KMB_E46.C07   SMG_S_ANZEIGE fuer alle nicht_aktiv
+                                      SMG_ALT_NEU aktiv nur fuer FZG mit SA206 (SSG) ab 09/02
+                                      FSW MOTOR_OELSTAND_PREDRIVE durch AKUST_WARNUNG_OELVERL ersetzt
+                                      SW KSG_MOTOR durch KLEMME_50_UEBER_CAN und ANZEIGE_HOCHLADEN ersetzt
+                        RA_NG.C02     integriert
+                        GM5.C04       integriert
+                        LSZ.C30       Werte geaendert
+                        LSZ.C31       Werte geaendert
+
+NAEL E3164.R  bw     24.01.02   EE-82 Rochal
+                        E46AT.000     PA 893 hinzu, nicht codierrelevant
+                                      HO Wort LEDH (ASW - LED_HECK) hinzu
+                                      FSW MAERZ03 hinzu
+                                      Zeitkriterium 09/02 aktiviert.
+                        E46ZST.000    HO Wort LEDH (ASW - LED_HECK) hinzu
+                        KMBE46M3.C23  integriert, aber nicht aktiviert
+                        LSZ.C30/31/32 mit LED-Heckleuchten ergaenzt.
+                                      PWM_ANSTEUERUNG_BLK_VORN fuer E46/3,4 US wert_02 hinzu
+
+NAEL E3424.R  bx     12.03.02   EE-82 Sominsky
+                        E46ZST.000    HO Wort AUSH (ASW - AUS_HYDR) hinzu
+                        E46AT.000     Neues ASW CSL fuer BL95/BL96 hinzu
+                                      BL95/BL96 an Fahrzeugbeschreibung angepasst
+                                      P730A/S962A hinzu. nicht codierrelevant
+                                      Integration der Nachruestloesung Drossel fuer MK60.
+                                      K-Wort DROS hinzu
+                                      Neues ASW ALC (S524A) hinzu
+                        E46CVT.000    Steuerung an neue Bedingungen (Drossel und SA524) angepasst.
+                        CVM2E.C03     Neue Codierung fuer Austausch neues Hydraulikagregat in Fzg vor PU01
+                        KMBE46M3.C23  Ueberarbeitet und aktiviert,
+                        MK60.C06      Integriert.
+                        IHKR / IHKA   Entfall der generellen Aktivierung der HHS-Automatikfunktion. HHS-Automatik kann ueber
+                                      Car-Memory Funktion rueckwirkend ab 09/01 aktiviert/deaktiviert werden.
+
+NAEL B3796.R  bx     19.03.02   EE-82 Leonard
+                        E46CVT.000    -Kombi.C07:Oeldruckschalterauswertung ueber CAN nur noch fuer
+                                                 M56 ab PU02, vorher M52,M54,M56 ab PU02
+                                      -GM5.c04: FH-Funktion bei Transportmode nur noch bei E46/2 aktiv,
+                                                vorher fuer E46/2 und E46/C aktiv.
+                                      Da die Daten mit Freigabestand E3424.R fuer die Werke verspaetet verteilt wurde,
+                                      konnte die Bauabweichung in der E3424.R beruecksichtigt werden, jedoch nicht fuer
+                                      den Update der HO-CD.
+                                      Einsatz Werke DGF CH20814 Rest ????
+
+NAEL E3716.R  by     28.03.02   EE-82 Sominsky
+                                      Abloesung Bauabweichung B3796.R
+                        E46AT.000     -Neues E-Wort NOT1 integriert. Bereits fuer Update-CD 29.1 umgesetzt.
+                                      -Neues E-Wort S200 integriert, nicht relevant fuer BMW-Werke
+                                      -Neue ASW SPRACHEINGABE (S620A) hinzu
+                                      -Neue ASW TEL_VORB (S644A) hinzu
+                                      -E46/3/4 Facelift mit M57B30/TU (150 KW) Typen hinzu
+                                       E46/3FL - EX71/EX91/EX92, E46/4FL - ED71/ED91/ED92/EJ92
+                                      -S976A Pilotpaket Zagreb hinzu
+                                      -S975A High Line Paket hinzu
+                        EKP_DS2.C01   EKP-SG CI 01 fuer M56B25 integriert.
+                        MRS4_16.C32   Entfall Seitenairbag für Fahrer u. Beifahrer bei S847A ab 09/02
+                        ULF.C01       ULF.CI 01 integriert
+                        GM5.C04       FH-Funktion bei Transportmode fuer alle Tueren aktiv, Einklemmschutz-Funktion ab 03/03 aktiv fuer E46/C/5
+                        LSZ.c30/31/32 Ueberarbeitet
+                        IHKR_E46.c14  Wasserventil und die Zusatzwasserpumpe nicht aktivierbar
+                        SHD.c01/02/03 FSW EINKLEMMSCH_REVERSIER_SHD
+                        E46SGET       M56 US erhaelt FTM_E46 u. BTM_E46 als SE, ab PU02
+                        E46CVT.000    Bei SA847 wird die Codierung rueckwirkend wie folgt geaendert.
+                                      -EINKLEMMSCH_VORNE nicht_aktiv
+                                      -EINKLEMMSCH_HINTEN nicht_aktiv
+                                      -FH_FAHRERTUER_TIPP_ZU nicht_aktiv
+                                      -FH_BEIFAHRERTUER_TIPP_ZU nicht_aktiv
+                                      -FH_TUEREN_HINTEN_TIPP_ZU nicht_aktiv
+                                      -KOMFORTSCHLIESSUNG_FB nicht_aktiv
+                                      -Die Mautfunktion fuer FH zu und Komfortschliessen ueber FB wird fuer
+                                       CKM gesperrt.
+
+NAEL E3993.R  bz     11.04.02   EE-82 Sominsky
+                        E46AT.000     -Neues E-Wort 6GSG integriert
+                                      -Neues E-Wort L822 integriert
+                                      -S722A Editionspaket Lifestyle (PN 8016/140) hinzu
+                                      -S723A Editionspaket Exclusiv (PN 8016/140) hinzu
+                                      -S724A Editionspaket Sport (PN 8016/140) hinzu
+                                      -S2AA, S2BA, S2BB, S2CA (PN 8016/140) hinzu, nicht codierrelevant
+                                      -S231A hinzu fuer M3 CSL (PN 8549/003).
+                        DSC5_7 C19    DSC5_7 CI 19 fuer 6-Gang Schaltgetriebe integriert.
+                        CVM2E.C03     Diagnosebit V_Pumpe und V1Klap deaktiviert.
+                        E46CVT.000    Funktion Oeffnen des Verdecks ueber den Funkschluessel eingefuehrt ab 03/03 (PN 8505/073).
+
+NAEL EEC20.R  ca     25.04 02   EE-82 Sominsky
+                        E46AT.000     -S703A, S706A Paket-SA hinzu, nicht codierrelevant
+                                      -Neues ASW TEL_PROF_US hinzu (PN 8022/319)
+                                      -S2CDA, S2CEA hinzu, nicht codierrelevant
+                        E46ZST.000    Entfall N44B20, AU91.
+                        E46CVT.000    ANZEIGE_HOCHLADEN - Steuerung ueber CSL
+                        ULF.C01       Ueberarbeitet
+                        TCU_IBUS.C01  TCU_IBUS.C01 fuer TEL_PROF_US integriert.
+                        MRS4_16.C32   E46 ab 09/02: Entfall Seitenairbag fuer Fahrer u. Beifahrer bei Schl-Nr. 847
+                                      entfaellt wieder
+
+NAEL EED59.R  cb     08.05 02   EE-82 Sominsky
+                        LSZ.c30/31/32 AL/FL-Spannungen geaendert, KALTUEBERWACH_ZUSATZ_BLK ueberarbeitet.
+
+NAEL EEF61.R  cc     29.05 02   EE-82 Sominsky
+                        E46AT.000     -ASW PU03 hinzu
+                                      -Zeitkriterium 03/03 aktiviert
+                                      -P767A Paket Individualserie ZU-V4 fuer EV53 (PN 8565/081) hinzu
+                                      -S787A BMW LM-Raeder mit Mischbereifung (PN 8565/077) hinzu
+                        E46CVT.000    FSW SIA_LITER_GRENZE , LITER_SERVICE_INTERVALL u. KM_SERVICE_INTERVALL fuer
+                                      COUP (M47D20 105kw) hinzu
+                        GM5.C04       -Änderungen wg. FH mit EKS
+                                      -MAUT_NUR_BEI_KL15EIN aktiv (E46/C, E46/5 bis PU03/03)
+                                      -KOMFOEFFNEN_SPERRE_KEY_IN aktiv E46/2, (E46/C, E46/5 ab PU03/03)
+                                      -FH_INIT_TRANSPORTMODE aktiv E46/2, (E46/C, E46/5 ab PU03/03)
+                                      -FH_BEIFAHRERTUER_TIPP_ZU nicht_aktiv (E46/5, E46/C bis PU03/03)
+                                      -RECHTSLENKER aktiv RL
+                                      -MIT_LIN mit LIN-Bus aktiv SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -MIT_LIN_SCHALTER mit LIN-Schalterblock nicht_aktiv
+                                      -MEMORY_SPIEGELABKLAPPEN nicht_aktiv
+                                      -BEIKLAPPEN_B_KOMFORTSCHL mit automat. Beiklappen bei Komfortschließen nicht_aktiv
+                                      -INDIVIDUALISIERUNG nicht_aktiv
+                                      -SITZMEMORY_VERBAUT_GM mit Aktivierung Memoryfunktion ueber Sitzmemorytelegramm
+                                      aktiv SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -SPIEGELABKLAPPEN_GM mit Bordsteinautomatik bei Rueckwaertsgang
+                                      aktiv SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -SPIEGELHEIZUNG_VERBAUT mit Spiegelheizung aktiv SA313, 6 Zyl., SA520, SA522
+                                      -ABKLAPPWERT_GM Abklappwert fuer Bordsteinautomatik Busspiegel wert_03 alle E46
+                                      -MEMORY_POS_SPEICHERN Hysterese bei Memoryposition anfahren wert_01 alle E46
+                                      -MEMORY_POS_ANFAHREN Hysterese bei Memoryposition speichern wert_01 alle E46
+                                      -V_VAR_SPERRE_BEIKLAPPEN Beiklappen gesperrt oberhalb Geschwindigkeit 30km/h wert_03 alle E46
+                        IHKR C13/C14  Hinzufuegen der Codierdatengruppe 0ED3-0ED6.Korrektur der Dimmungswerte der Funktions-LEDs
+                                      fuer Tag- und Nachtbetrieb.
+                        ULF.C01       0304-13 - FAHRGESTELL_NR. geaendert.
+
+NAEL EEH89.R  cd     15.06 02   EE-82 Sominsky
+                        E46AT.000     -Neues ASW TEL_PROF S638A hinzu (PN 8022/318)
+                                      -Nachruestung TeleService fuer Kundendienst hinzu
+                        E46CVT.000    -EINKLEMMSCH_REVERSIEREN lang nur fuer ENGLAND,AUSTRALIEN,KOREA und nicht alle ab PU02
+                                      -BEDIENSTELLE_BFT aktiv fuer E-WORT S200
+                        E46SGET       -TCU_IBUS.C01 fuer ECE-Fahrzeuge erweitert
+                                      -FTM, BTM - wegen Entfall ist die Steuerung zum 03/03 bzw. 09/03 geaendert
+                        ULF.C01       Ueberarbeitet
+                        MK60.C09/10   -UEBERSTEUERN_MUE_0_2 - wert_02 ohne (E46/5+M54B25)
+                                      wert_03 = E46/5+M54B25;
+                                      -GEARMOMENTREGLER_MAX_HA_2 - wert_01 hinzu, wert_02 nicht genutzt
+                                      -GEARMOMENTREGLER_MIN_HA_2 - wert_05 hinzu, wert_02 nicht genutzt
+                        TCU_IBUS.C01  Erweitert fuer ECE-Fahrzeuge
+                        Ihk_e46.C16   Ueberarbeitet
+NAEL E3355.R  ce     25.06 02   EE-82 Sominsky
+                        E46AT.000     -S550A Bordcomputer - wird ab 03/03 Serie fuer E46/2 (BD71/BD91/BD92)
+                                     und fuer E46/C (BW71, BW72) (PN 8016/146)
+                                      -S399A VERDECK_EL_AUT - wird ab 03/03 Serie fuer alle ECE Modele (BW11/BW12/BW31/BW32/BW71/BW72) (PN 8016/146)
+                                      -S210A DSC3 - wird ab 03/03 Serie fuer E46 (PN 8016/121)
+                                      -S917A Transpack hinzu fuer E46/2/4/C (PN 8053/124)
+                                      -BFDY: als H-Wort eingefuehrt, E-Wort entfallen, fuer US, KANADA wird ab 03/03 Serie (PN 8016/160)
+                                      -Typschluessel ET57 E46/4 Facelift mit M54B30 ZAF fuer US hinzu (PN 8021/262)
+                                      -S520A NEBELSCHEINW wird bei allen E46/2/C Serienumfang (PN 8409/006)
+                                      -P330A, P337A Sportpaket/M Sportpaket hinzu, nicht codierrelevant
+                                      -P725A, P894A, P734A, P735A Pakete hinzu, nicht codierrelevant
+                                      -S582A VORBEREITUNG FUER FAHRERTRAINING hinzu, nicht codierrelevant
+                                      -S106A Sicherheitsfahrzeug E46 hinzu (ersetz S847A)
+                        E46CVT.000    BFDY  wird ab 03/03 fuer US, KANADA Serie (PN 8016/160)
+                        E46SGET       ALC_DS2.C03 integriert (nicht aktiv)
+                                      ALC_DS2.C04 integriert
+                                      LSZ.C33 integriert
+                        LSZ.C30/31/32 Ueberarbeitet mit EEH89.R, die Daten auf HO-CD 31
+                                      INTERM_FL; FL_AL_AUS; PWM_WERT2_FL_BIXENON; SCHRITTE_STELLUNG_2;
+                                      SCHRITTE_STELLUNG_1; SCHALTER2_BL Kommentare prezisiert
+                        LSZ.C33       LSZ.C33 integriert
+                        ALC_DS2.C03   ALC_DS2.C03 integriert (nicht verwendet)
+                        ALC_DS2.C04   ALC_DS2.C04 integriert
+                        MK60.C6       Angepasst, da neuer Booster einfliessend zu 09/02
+                        SHD.C04       SHD.C04 integriert
+                        GM5.C04       -KOMFORTOEFFNUNG_FB    Komfortoeffnung ueber FERNBEDIENUNG
+                                      nicht_aktiv  E46/C bis PU03/03
+                                      -KOMFORTSCHLIESSUNG_FB Komfortschliessung ueber FERNBEDIENUNG
+                                      nicht_aktiv  E46/C, E46 US, E46/5
+                                      -BEIKLAPPEN_B_KOMFORTSCHL mit automatisches Beiklappen bei Komfortschliessen
+                                      aktiv  SA313+SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -INDIVIDUALISIERUNG mit Individualisierung Funkschluessel
+                                      aktiv SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -SPIEGELHEIZUNG_VERBAUT	 mit Spiegelheizung
+                                      aktiv SA459+(E46/3/4/5) ab PU03/03, SA459+alle E46 ab PU09/03
+                                      -ABKLAPPWERT  Abklappwert fuer Bordsteinautomatik Busspiegel
+                                      wert_01 E46
+                                      -V_VAR_SPERRE_BEIKLAPPEN	Beiklappen gesperrt oberhalb Geschwindigkeit (1dig=2km/h), 0=KL_R
+                                      wert_01  20km/h  E46
+                        PDC.C03       E46 Schwellwerte wg SA715, nach 09/01 fue E46/4
+                        ULF.C01       Adressbereich 04'00-1D hingefuegt
+                        Kmb_e46.c07   Adr. 38:1, 39:0, 3C:1 Kommentar f. M54ULEV US 03/03 eingefuegt
+                                      -Adr. 48, SIA-Literwerte f. M47, M57, M56, M54ULEV US und N40B16 Coupe ergaenzt
+                                      -Adr. 46, KM_SERVICE_INTERVALL für M47, M57 ab 03/03 ergaenzt
+                                      -Adr. 3C, SMG_D_C_ANZ hinzu.
+NAEL EER61.R  cf     13.08 02   EE-82 Leonard
+                     LSZ.C30-33       Bedingung für WARMUEBERWACHUNG_BLK_HI geaendert.
+                     LSZ.C33          Neue FSW in E46CVT.000 integriert.
+                     MRS4_16.C32      FSW SIDEBAG_RECHTS_1, SIDEBAG_RECHTS_2, SIDEBAG_LINKS_1 und SIDEBAG_LINKS_2 deaktiviert
+                                      fuer BL95 und BL96
+                     ULF.C01          Codierwerte fuer ULF geaendert.
+                     KMB_E46.C07      -FSW CAN_OELDRUCKSCHALTER auf aktiv fuer M57D30TUE
+                                      -Korrektur: FSW GENERATOR_UEBER_CAN aktiv bei M47D20+KW_85+MAERZ03
+                     EKP_DS2.C01      Daten fuer FSW P1_U_KL.30_MSB/LSB u. P1_DREHZAHL_MSB/LSB geaendert.
+                     A_TELIBE.IPO     CABD fuer TCU ECE geandert. Job FG_SCHREIBEN_AS_BT_USER_FRIENDLY_NAME umbenannt in
+                                      FG_ALS_BT_USER_FRIENDLY_NAME_SCHREIBEN
+NAEL EES97.R  cg     21.08 02   EE-82 Leonard
+                     E46ZCSUT.000     Vorbereitung für Rueckruf , alle Fzg. mit Satellit B muessen den spez. Crashparameter
+                     E46CVT.000       erhalten. Prod. Zeitraum ca. 04/99 - 09/99
+NAEL EET99.R  ch     11.09 02   EE-82 Sominsky
+                        E46AT.000     SA 449 Mautinnenspiegel fuer Japan hinzu
+                                     -SA 319 Integrierte Universal-Fernbedienung hinzu
+                                     -Neues E-Wort VOLI integriert Abweichung TAGFAHRLICHT_ECE LSZ.C33 fuer Vorserie SW3.3
+                                     -Neues K-Wort TEL3 integriert Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge
+                                     -Neues K-Wort TEPR integriert Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US
+                                     -Neues K-Wort TELD integriert Deaktivierung Funktion Telematic fuer TCU_IBUS US
+                                     -ASW TEL_PROF_MOD Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US hinzu
+                                     -ASW TELEMATIC_DIS Deaktivierung Funktion Telematic fuer TCU_IBUS US hinzu
+                                     -H-Wort TSER hinzu, K-Wort TSER entfaellt
+                        LSZ.C30-33    Spannungen E46/2,3,C ab PU03/03; VARIANTE_LSZ
+                        LSZ.C33       BFD fuer alle US-Fzg. ab PU03/03; Abweicung Vorserie SW 3.3 VOLI
+                        TCU_IBUS.C01  WHEEL_CIRCUMFERENCE TRACK_WIDTH Anpassungen
+                                      -Telematic Disable-Funktion hinzu
+                        ALC_DS2.C05   ALC_DS2.C05 integriert (nicht aktiv)
+NAEL EEW52.R  cj     27.09 02   EE-82 Sominsky
+                        E46AT.000     ASW SPORTPAKET_II fuer S338A M Sportpaket II hinzu
+                                      -S930A BERUECKSICHTIGUNG PREISABHAENGK. hinzu, nicht codierrelevant
+                        E46ZST.000     S930A BERUECKSICHTIGUNG PREISABHAENGK. hinzu, nicht codierrelevant
+                        E46CVT.000    INDIVID GAL_KM/H_PER_STEP fuer TCU hinzu
+                                      -Kmb_E46.c07 TOG_UEBER_CAN, GENERATOR_UEBER_CAN, CAN_OELDRUCKSCHALTER
+                                       fuer ALLRAD M54B25/30 US ab 03/03 - nicht_aktiv
+                                      -V_VAR_SPERRE_BEIKLAPPEN  Wert geaendert (codiert auf 10km/h)
+                        ALC_DS2.C05   ALC_DS2.C05 aktiviert
+                        GM5.c04       ANZAHL_NACHWISCHZYKLEN Kommentar geaendert
+                                      -DELAY_MOTOR_ZV_ER neu wegen L-Schloss
+                                      -V_VAR_SPERRE_BEIKLAPP_GM  Wert geaendert (codiert auf 10km/h)
+                                      -BEIKLAPPEN_GM wegen SA313
+                                      -SPIEGELHEIZUNG_VERBAUT_GM aktiv 1b Wert geaendert
+                        MK60.C12/13   MK60.C12/13 integriert (CI12 ohne RPA,CI13 mit)
+                                      Strukturaenderungen gegenueber CI10/11
+                                      neu SA338, E46 Protection, E46/2 (330d, 320d), E46 320d (85kW)
+                        Cvm2e.c03     SB Grenzwert 2 und 3 nach Vorgabe EK-332 geaendert wg. Ver-
+                                      decktoleranzen, Pruefsumme
+                        Ulf.c01       Adresse 04'04 Name korrigiert
+                        Ulf.c02       Ulf.c02 integriert
+                        Kmb_e46.c07   TANK_KENNLINIE fuer M56 angepasst
+NAEL EEY72.R  ck     02.10 02   EE-82 Sominsky
+                        E46SGET       LSZ.C34 integriert
+                        E46SGVT       LSZ.C34 integriert
+                        LSZ.C34       LSZ.C34 integriert
+NAEL EE028.R  cl     30.10 02   EE-82 Sominsky
+                        E46CVT.000    GEREGELTER_KOMPRESSOR fuer M47/TU KW_85 ab 03/03 codiert auf Wert klein (lt. Hr Jurthe)
+                        E46SGET.000   TCU_IBUS.C02 integriert, aber nicht aktiviert
+                        E46SGVT.000   TCU_IBUS.C02 integriert
+                        E46ZST.000    S638A als Nachruestsatz (ASW TEL_PROF) hinzu
+                        E46AT.000     E46/2 Facelift Typ BV52 hinzu
+                        LSZ.C34       LSZ.C34 Aenderung des PWM-Wertes in Block 2
+                                      Byte 1A  von 21h auf 20h fuer Rueckleuchten-BFD-Option fuer alle
+                                      E46/3 ab (im Auftrag von Werk Regensburg, Hr. Pommer Günter, TR-104)
+                        TCU_IBUS.c02  TCU_IBUS.c02 integriert, aber nicht aktiviert
+                        ALC_DS2.C05   ALC_DS2.C05 Neue FSW hinzu, Werte geaendert.
+NAEL EE311R  cm      15.11 02   EE-82 Sominsky
+                        E46AT.000     E-Wort VOLI entfaellt, H-Wort VOLI hinzu
+                                      -ASW VORS_LSZ_SW3_3 entfaellt
+                        E46SGET.000   Lsz.c33 entfaellt (lt Bauabweichung BES78.R)
+                        E46SGVT.000   LSZ_CI_33 entfaellt (lt Bauabweichung BES78.R)
+                        GT.C04        FSW ANZEIGE_ANKUNFTSZEIT hinzu codiert auf nicht_aktiv
+                        Ihkr_e46.c14  Codierdatengruppe 0FE5. hinzu. Inhalt: Mit dieser Aenderung wird es moeglich, im Transportmode die Geblaesestufe bis
+                                      zur maximalen Stufe (Stufe 4) zu aktivieren
+                        Ihk_e46.C15   FUSSRAUMKLAPPE_SCHLIES_x als Car-Memory Funktion definiert
+                        Lsz.c34       Fail-Safe-Fkt. in Block 03h Byte 01 durch Wert 00h ausgeschaltet,
+                                      jede LWR arbeitet ab 03/03 im Vollschrittbetrieb
+                                      jede Stellposition der man. LWR hat Offset um -30 Halbschritte
+                        Mrs2.c07      E46 Parametersatz = PS 160/03/T80 für Satellit
+                                      6 902 054 ist ab DIS-CD 33 nur für US Fahrzeuge freizugegeben (DIS-CD32 -weltweit) "Stand Db"
+                                      (APS Beschluß)ersetzt Parametersatz = PS 160/03/T52 "Stand Bb"
+NAEL EE575R  cn      29.11 02   EE-82 Sominsky
+                        E46AT.000     H-Wort BFDY und ASW BRAKEFORCE entfallen
+                        E46SGET.000   ALC.c06_DS2 integriert
+                        E46SGVT.000   ALC.c06_DS2 integriert
+                        Pdc.c03       Neue Schwellwerte E46/2, E46/C MUE 3/03
+                        ALC.c06_DS2   ALC.c06_DS2 integtiert
+                        Gm5.c04       Wegen Rueckaenderung Einklemmschutz E46/C Kommentare geaendert
+                                      MAUT_NUR_BEI_KL15EIN, EINKLEMMSCH_VORNE, FH_INIT_TRANSPORTMODE,
+                                      FH_BEIFAHRERTUER_TIPP_ZU
+                        Lsz.c34       E-Wort "-BFDY" entfernt
+NAEL EE782R  co      13.12 02   EE-82 Sominsky
+                        E46SGET.000   SMCDS_LI, SMCDS_RE integriert, aber nicht aktiviert
+                        E46ZST.000    WHKL als Nachrüstung Weisse Heckleuchten (ASW WHKL) fuer E46/5 vor PU01 hinzu
+                        ULF.C01       Ueberarbeitet
+                        ULF.C02       Aenderungen der Codiergruppe 1 Sprachen hinzugefuegt
+                                      INDIVID SPRACHERKENNUNG_EIN_AUS hinzu
+                        Lsz.c30       Entfaellt
+                        Lsz.c31/32/34 Nachruestsatz Chromheckleuchten (WHKL) E46/5 eingefuegt, Wort "-BFDY" entfernt,
+                                      Schrittestellung man. LWR E46/2 M3 CSL eingearbeitet
+                        MK60.c06      Neue Codierwerte fuer CSL ab 05/03
+                        Smcds_li.c04  Smcds_li.c04 integriert, aber nicht aktiviert
+                        Smcds_re.c04  Smcds_re.c04 integriert, aber nicht aktiviert
+NAEL E0E48.R  cp     20.12 02   EE-82 Sominsky
+                        MK60.c12/13   E46 Protection neue Zuordnung
+                        Smcds_li.c04  Smcds_li.c04 aktiviert
+                        Smcds_re.c04  Smcds_re.c04 aktiviert
+                        CVM2E.c03     K-Bus Fehler Kombi Außentemperatur 19h
+                                      Abschalten der Abfrage Außentemperatur
+                        IHK/IHKR      Wegen des Kombi Außentemperaturfehlers SGBD und CABD geaendert
+NAEL E3168.S  cq     27.01.03   EE-62 Sominsky
+                        E46AT.000     SA 2CP BMW LM Rad Sternspeiche 137 mit AS Bereifung hinzu (PA021/307)
+                        KMB_E46.C08   integriert
+                        TCU_IBUS.C02  00'0F     E-CALL_HARDKEY_FITTED 00'09,DSP_ACOUSTIC_PROFILE Bedingung angepasst
+                                      00'1A     NAD_EQUIPPED bit1 -> bit2
+                        MRS4_16.C32   FSW SBE1_STATUS_VERZ_1, SBE1_STATUS_VERZ_2, ITS_FRONTCRASH_1, ITS_FRONTCRASH_2 hinzu,
+                                      alle auf nicht_aktiv codiert
+                        IHKR/IHK      M3 CSL keine ZWP verbaut, FSW ZUSATZWASSERPUMPE bei M3 CSL wird
+                                      auf nicht_aktiv codiert. Die entsprechenden CBDen werden mit der
+                                      naechsten Freigabe abgeaendert.
+NAEL E3363.S  cr     12.02.03   EE-62 Sominsky
+                        E46AT.000     E46/4FL Neue Typen AY97, EY97, EV19 fuer CKD-China hinzu (PN 8040/000)
+                                      -Die N42B18/B20 erhalten eine technische Ueberarbeitung
+                                      und werden durch N46 ersetzt (PN 8016/178) Neue Typen mit N46 hinzu:
+                                      E46/4FL - EY31, EY32, EY71, EY72, EY74, EY75, EY76, EY77, EY78, EY79, EY98, ET75, ET76;
+                                      E46/3FL - EX31, EX32, EX51, EX52       E46/5 - EZ51, EZ52, EZ71, EZ72;
+                                      E46/2FL - BX91, BX92.                  E46/CFL - BY71, BY72.
+                                      SA 964 Navi DVD bei Auslieferung anfordern hinzu (PA021/315)
+                        ALC_DS2.c06   Abschalten des FGN-Checks fuer alle Fahrzeuge
+                                      Codierdaten fuer Fehler-Check(Block 3100 -- 3104)
+                        ALC_DS2.c04/5 Angepasst
+                        Lsz.c34       EEPROM-Code fuer zusaetzl. Schaltbedingung ALC
+                                      Standschwenk und Licht-Aus-Verzoegerung LWR-Betriebsart wie vor Index c
+                        Gm5.c04       Wegen Freigabe EKS fuer E46/C zu 9/03 Kommentare geaendert
+                                      MAUT_NUR_BEI_KL15EIN, EINKLEMMSCH_VORNE, FH_INIT_TRANSPORTMODE,
+                                      FH_BEIFAHRERTUER_TIPP_ZU, KOMFORTOEFFNUNG_FB
+                        Ihkr_e46.c14  Entfall der Codierung der Zusatzwasserpumpe für die M3 CSL Modelle
+                        Ihk_e46.c16   ZUSATZWASSERPUMPE im M3 aktiv ausser M3 CSL
+                                      AUTO_LED_GEBL_MANUELL Beschreibung korrigiert
+
+NAEL E3642.S  cs     21.02.03   EE-62 Sominsky
+                        E46AT.000     Zeitkriterium 09/03 aktiviert
+                        E46SGET.000   GT.C05 integriert
+                                      -LSZ.C35 integriert (nicht aktiv)
+                        GT.C04        Entfall FSW ANZEIGE_ANKUNFTSZEIT
+                        GT.C05        Integriert (nicht aktiv)
+                        LSZ.C34       EEPROM-Code Fehlerspeicher Schalter Abblendlicht Werte geaendert
+                        LSZ.C35       Integriert (nicht aktiv)
+                        ALC_DS2.c06   Fale-Safe-Funktion bei blendendem Scheinwerfer aktiviert
+                        Gm5.c04       KOMFORTSCHLIESSUNG_FB aktiviert für E46/5 ab PU03/03 wg. Einführung EKS (mit E3859.S)
+
+NAEL E3859.S  ct     14.03.03   EE-62 Sominsky
+                        E46AT.000     Zeitkriterium 09/01 und 03/02 deaktiviert
+                                      -H-Wort ARSW hinzu (in FA's enthalten)
+                        E46SGET.000   TCU_IBUS.C02 ECE aktiviert.
+                        ALC_DS2.c06   ALC-wird bereits bei KL-15 aktiviert. Keine CC-Meldung wenn
+                                      KL-15 ein und noch kein Licht bzw. Motor laeuft Parameteraenderung
+                        LSZ.C32/C34   LEUCHTWEITENREGELUNG PWM_WERT2_FL_BIXENON- Parameteraenderung
+                        Gm5.c04       LIN Bus ASP Funktionen für E46 M56 SULEV aktiviert
+
+//***********************************************************************************************************
+
+//  Aus TAIS-Systemtechnischengruenden (AI > 90) wird fuer ZB Codierdaten eine neue Sachnummer verwendet 6 938 570
+//                                                                                           Ersatz fuer 8 374 691
+
+//************************************************************************************************************
+
+NAEL EEB65.S  a      28.03.03   EE-62 Sominsky
+                        E46AEDOC.000  Aus TAIS-Systemtechnischengruenden (AI > 90) wird fuer ZB Codierdaten
+                                       eine neue Sachnummer verwendet 6 938 570 Ersatz fuer 8 374 691
+                        E46AT.000     SA 892 Chinesisch Simplified/Betriebsanl./Serviceheftg hinzu (PA021/325)
+                                      -SA 901 Sonderkontrolle Filmfahrzeug - war Sonderkontrolle allgemein (PA016/184)
+                        E46SGVT.000   LSZ.C35 aktiviert
+                        E46SGET.000   ULF.C03 integriert
+                                      -TCU_IBUS.C02 US aktiviert
+                        E46CVT.000    US_CALL_SERVICE_CENTER - Steuerung um LOW_NAVIGATION erweitert
+     EEA08.S            Ulf.c02       Parameteraenderung
+     EEA13.S            Ulf.c03       Integriert
+     EEB67.S            LSZ.C31/C32   Parameteraenderung
+     EEB67.S            LSZ.C34/C35   LWR M3 CSL; SCHRITT_GRENZE_OD_ALC_IO;
+                                      Neues FSW TEMP_RAMPE_OD_ALC_8 hinzu
+     E3680.S            Gt.c05        Produktionsfreigabe
+
+NAEL EEF65.S  b      09.04.03   EE-62 Sominsky
+                        E46SGET.000   Kmbe46m3.c24 integriert
+                        E46SGVT.000   Kmbe46m3.c24 integriert
+                        E46AT.000     Die neuen Paketschlüsselnummern (DUMMY) 7AA, 7AB, 7AC hinzu
+                                      -K-WORT ELIN, FSW SULEV_OHNE_LIN hinzu - Deaktivierung LIN-Bus-Spiegel in der HO
+                                      -E46/4FL - Neuer Typ EY15 fuer CKD Philippinien mit N45B16 hinzu (PA021/332)
+     E6185.S            Kmbe46m3.c23  ANZEIGE_CFC - invertierte Codierung korrigiert
+     E6185.S            Kmbe46m3.c24  integriert
+     EEG44.S            ALC_DS2.c06   S_BL wird bei kleinen Geschw. nicht mehr ausgewertet.
+                                      Keien LWR-Aenderung bei detektierter Beschl. und betaetigter Bremse
+                                      Daten fuer alle Fzg. angepasst
+     EED83.S            GM5.c04       Kundendienstwort ELIN für E46 M56 SULEV ohne LIN
+     EEH02.S            Kmb_e46.c07   ANZEIGE_CFC - invertierte Codierung korrigiert
+     EEH02.S            Kmb_e46.c08   ANZEIGE_CFC - invertierte Codierung korrigiert
+
+NAEL EEH94.S  c      23.05.03   EE-62 Sominsky
+                        E46AT.000     Die neue LA 8AA CHINA-AUSFUEHRUNG hinzu (PA021/314)
+                                      -N40/B16 erhaelt eine technische Ueberarbeitung und wird
+                                      durch N45/B16 ersetzt (PA016/191)
+                                      Neue Typen hinzu: E46/4FL: EY11;  E46/2FL: BX71;  E46/5: EZ31.
+                                      -Zeitkriterium 09/02 deaktiviert (nicht mehr PUSY relevant)
+                                      -SA 2M0 - INDIVIDUAL LM RAEDER 152 I, 18" mit Mischbereifung hinzu (PR805/17)
+                        E46SGET.000   Die Umstellung auf LIN-Bus-Spiegel wird beim E46 M3 und CSL nicht umgesetzt
+                                      -BTM.c01 und FTM.c01 sind fuer M3 ab PU03 bei SITZMEMORY weiter aktiv
+                                      -Mrs4_16.c29 integriert
+                                      -Cvm_e46.c04 integriert
+                        E46CVT.000    FSW PRE_MSR (MK60.C06) - fuer M3 CSL auf aktiv codiert
+                        E46SGVT.000   Mrs4_16.c29 integriert
+                                      -Cvm_e46.c04 integriert
+                        E46ZST.000    S612A als Nachruestsatz (ASW BMW_ASSIST) hinzu
+     EEJ93.S            GM5.c04       Die Umstellung auf LIN-Bus-Spiegel wird beim E46 M3 und CSL nicht umgesetzt
+     EEK96.S            Mrs4_16.c29   Mrs4_16.c29 als Ersatz fuer Mrs2.c07 US integriert
+     EEL82.S            Smcds_li.c04  Smcds_li.c04 - Schrittverlustkorrektur eingeschaltet
+     EEL82.S            Smcds_re.c04  Smcds_re.c04 - Schrittverlustkorrektur eingeschaltet
+     EEM77.S            CVM_E46.C04   CVM_E46.C04 - integriert
+
+NAEL EER34.S  d      27.06.03   EE-62 Sominsky
+                        E46AT.000     E46/4FL Neuer Typ AY96 CKD-Aegypten hinzu (PA021/340)
+                                     -SA 7NA - BMW Service Inclusive hinzu (PA016/195)
+                                     -SA 1CA - SELEKTION CO2 RELEVANTER FAHRZEUGE hinzu (PA021/341)
+                                     -SA 8AB - CHINA JOINT VENTURE hinzu
+                        E46SGET.000   GM5.c05 integriert
+                                      -Ihk_e46.c17 - integriert, aber nicht aktiviert
+                        E46SGVT.000   GM5.c05 integriert
+                                      -Ihk_e46.c17 - integriert, aber nicht aktiviert
+     EES29.S            LSZ.C31/32    LWR in HS E46/3,4 + PU01;
+     EES29.S            LSZ.C34/35    LWR in HS E46/3,4 + PU01;
+     EET24.S            GM5.c04       KOMFORTOEFFNUNG_FB nicht aktiv für E46/C und SA875
+                                      FH_BEIFAHRERTUER_TIPP_ZU nicht aktiv für Korea bei E46/C trotz EKS
+                                      INDIVIDUALISIERUNG wird Carmemoryfunktion die gleichtzeitig mit
+                                      Sitzmemory aktiviert werden muss
+     EET47.S            GM5.c05       GM5.c05 integriert.
+     EEY14.S            Ihk_e46.c17   Ihk_e46.c17 - integriert, aber nicht aktiviert
+
+NAEL EEY07.R  e      14.07.03  EE-62 Sominsky
+                        E46AT.000     Neue Typen 318d E46/4- EU72 und E46/3 - EL72 hinzu (PA016/200)
+                                      -Fuer alle Typen mit Motoren N45, N46 wird ASW KMB_CI_08 gesetzt
+                                      -SA 8SM - Fahrgestellnummer, v. aussen sichtbar hinzu (PA021/352)
+                                      -ASW MAERZ04 hinzu
+                        E46CVT.000    AMR_TYP,                 UEBERSTEUERN_MUE_0,  EINSPURMODELLPARAMETER,
+                                      UEBERSTEUERN_MUE_0_2,    UEBERSTEUERN_MUE_1,  UEBERSTEUERN_MUE_1_1,
+                                      MOTOR_ART_DSC,           MOTOR_ART_DSC_2,     ABSCHALTDREHZAHL_ANLASSER,
+                                      SCHALT_KRITERIUM_EWS_3,  ZYLINDER_ZAHL,       ZEITDAUER_BIS_ABSCHALTUNG,
+                                      ZUSATZWASSERPUMPE,       TRACK_WIDTH,         GEREGELTER_KOMPRESSOR,
+                                      NG_MOTORVARIANTEN,       CAN_FGR - Steuerung fuer Motoren N45B16,
+                                      N46B18, N46B20 ergaenzt
+                        E46SGET.000   EK924.C10/11/C12 - Steuerung  fuer Motoren N45B16, N46B18, N46B20 ergaenzt
+                                      -Ihk_e46.c17 aktiviert
+                        E46SGVT.000   EK924.C11/C12 - Daten angepasst
+                                      -Ihk_e46.c17 aktiviert
+     EEP37.S            Kmb_e46.C08   GENERATOR_UEBER_CAN,       TOG_UEBER_CAN,
+                                      SIA_LITER_GREN,            SCHWELLEN,
+                                      MOTOR_KENNFELD,            AUSBL_DREHZAHL,
+                                      KM_SERVICE_INT   -   fuer Motoren N45B16, N46B18, N46B20 ergaenzt
+     EEY34.S            Tcu_ibus.c02  Adr. 00'0D - WAKEUP_BY_E-CALL Bedingung angepasst
+     EEY89.S            GM5.c05       SPRITZDUESEN_HZG Kommentar angepasst
+                                      SCHEIBENABSENK_REVERS Kommentar korrigiert
+                                      SCHEIBENABSENK_OHNE_EKS Kommentar korrigiert
+     EEZ96.S            Ihk_e46.c17   Ihk_e46.c17 - aktiviert
+
+NAEL E3212.S  f     31.07.03  EE-62 Sominsky
+                        E46AT.000     SA 4AC - EDELHOLZAUSFUEHRUNG PAPPEL MASER hinzu (PA016/202)
+                                      -SA 2CU - BMW LM Rad Sternspeiche 169 hinzu PN(PA016/202)
+                                      -SA 2CV - BMW LM Rad Sternspeiche 170 hinzu PN (PA016/202)
+                                      -SA 2CW - BMW LM Rad Sternspeiche 171 hinzu PN (PA016/202)
+                                      -SA 8SP - CO2 Steuerung hinzu
+                                      -SA 633 - HANDY VORBEREITUNG BUSINESS mit Telematik-Funktion hinzu
+                                      -SA 5DB - 3-PUNKT-AUTOMATIKGURT IM FOND MITTE hinzu
+                                      -Neues K-Wort K633 integriert - Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US
+                                      -ASW TEL_BLUETOOTH hinzu
+     EE279.S            Tcu_ibus.c02  New bit                00'01     PORTABLE_BT
+                                      Bedingung angepasst:   00'01     BLUETOOTH
+                                                             00'1A     US_BUSINESS/PROF_VARIANT
+     EE127.S            Pdc.c03       CBD aktualisiert
+     EEN75.S            Cvm2E.c03     Patch 1,2 ergaenzt um Befehl 79h zur Verhinderung 10Sek.
+
+NAEL EE481.S  g     08.08.03  EE-62 Sominsky
+     EE505.S            Gm5.c04/c05   ENTSICHERN_CENTERLOCK aktiviert fuer Korea ab 09/03
+                                      KOMFORTOEFFNUNG_FB deaktiviert für E46/C ab 09/03 bis 03/04
+                                      01'1A Bit2 UNBELEGT Initwert auf 1 geaendert.
+
+NAEL EE628.S  h     29.08.03  EE-62 Sominsky
+                        E46AT.000     E46/4FL -  Neuer Typ AZ96 fuer CKD Aegypten hinzu (PA021/363)
+     EE779.S            LSZ.C34/C35   Einführung Codierpatch, Blockadresse 05 - 10
+                                      Aktivierung nur bei Verbau IHKA CI 16 mit SW 14,15,16.
+                                      Die Aktivierung erfolgt nur bei der Codierung in der HO u. CKD
+                                      Neue CABD A_ALSZ.IPO und C_SGBD C_LSZA.prg einspielen
+
+NAEL EE825.S  j     30.09.03  EE-62 Sominsky
+                        E46AT.000     Zeitkriterium 03/04 aktiviert (EE628.S)
+                                      Neues E-WORT SW40 - Deaktivierung Komfortoeffnung ueber Fernbedienung bei E46/C GM5.C05 SW4.0 integriert
+                                      -ASW SW_4_0 hinzu
+                                      -E-WORT BFDY - Aktivierung der BFD-Funktion fuer ECE-Fahrzeuge ab 12/03 aus H-WORT reaktiviert
+                                      -ASW BRAKEFORCE hinzu
+                                      -SA 5AB - ZWEISTUFIGE BREMSLEUCHTEN ENTFALL (BFD) mit ASW ENTFALL_BFD aktiviert
+                                      -SA 152 - SONDERSIGNALANLAGE VAMA hinzu, nicht codierrelevant (PA106/11)
+                        E46CVT.000    INDIVID Sitzmemory  AUT_SITZVERSTELLUNG - Steuerung angepasst
+     EE910.S            TCU_IBUS.C02  Bedingung angepasst
+                                      00'1A     NAD_EQUIPPED
+     EE824.S            GM5.C04       KOMFORTOEFFNUNG_FB (mit GM5rd) deaktiviert für E46/C ab 09/03 und
+                                      für E46/C + SA876
+                        GM5.C05       KOMFORTOEFFNUNG_FB aktiviert für E46/C ab 0303 ohne SW4.0
+                                      Neues Kodierbit KOMFORTOEFFNEN_CABRIO zum Aktivieren der
+                                      gesetzeskonformen Funktion fuer Komfortoeffnen per FB
+                                      Aenderung FSW INDIVIDUALISIERUNG auf SPIEGELMEMORY_GM,
+                        GM5.C04/C05   DWA_HEKKLEPPENKONTAKT auf DWA_HECKKLAPPENKONTAKT und
+                                      DWA_HEKSCHEIBENKONTAKT auf DWA_HECKSCHEIBENKONTAKT
+                                      I0 Kennung hinter FSW DWA_HECKKLAPPENKONTAKT und
+                                      DWA_HEKSCHEIBENKONTAKT eingefügt.
+     E0E53.S            Kmb_e46.C07/  Adr. 48 - FSW SIA_LITER_GRENZE:
+                        Kmb_e46.C08   - M47D18 85kW E46/5 ab 03/03 gibt es nicht mit Automatik (m47d18_a_comp_0303, ...)
+                                      - Aktualisierte Literwerte fuer M47D18 85kW Automatik ab 03/03:
+                                        - E46/4: m47d18_a_lim_0303
+                                        - E46/3: m47d18_a_tour_0303
+                                      - Korrigierte Literwerte fuer M47D20 105kW E46/4 u. E46/2 ab 03/03:
+                                        - E46/4 Schaltgetriebe: m47d20_m_lim_0303
+                                        - E46/4 Automatik:      m47d20_a_lim_0303
+                                        - E46/2 Schaltgetriebe: m47d20_m_coup_0303
+                                        - E46/2 Automatik:      m47d20_a_coup_0303
+                                      - SIA-Literwerte fuer M54 Benziner aktualisiert
+     E0E22.S            Lsz.c32       Patch und Kodierbit "bei NSL kein BFD"
+     E0E22.S            Lsz.c34/35    BFD ECE; Parameter M3 CSL
+     E6315.S            Kmbe46m3.c24  Kl. 61 ueber CAN ab 03/04 aktiv fuer M3 und M3 CSL
+
+NAEL E4E26.S  k     10.10.03  EE-62 Sominsky
+                        E46AT.000     Zeitkriterium 03/03 deaktiviert (nicht mehr PUSY relevant)
+                                      -SA 868 SPRACHVERSION NIEDERLAENDISCH hinzu (PA021/372)
+                        E46SGET.000   EKB945.C0C, EKV946.C0A - integriert
+                        E46CVT.000    KOMFORTOEFFNUNG_FB - Steuerung angepasst
+                                      -Steuerung BFD-Funktionen fuer Kombi angepasst
+    NAD61.S             EKB945.C0C    Neues Motor-SG fuer N45B20 integriert
+    NAD61.S             EKV946.C0A    Neues Motor-SG fuer N46B18, N46B20 integriert mit Begrenzung Vmax für Cabrio
+                                      auf 206 km/h
+    E4E77.S             GM5.c04       Wert bei OHNE_DWA_0 (Transportmode) getauscht - Anpassung an SW.
+    E4E77.S             GM5.c05       POLLING_ZEIT_L_SCHLOSS Wert für 10ms geaendert
+                                      Initwert für die UNBELEGT Bits in Byte 00\'16 Bit 2 und 3 auf 0 korrigiert.
+                                      Wegen neuer Bedienlogik für Heckklappe Kommentare für
+                                      ENTRIEGELN_HKL und VERZUG_ENTR_HECKKLAPPE geaendert.
+                                      FH_SPEICHERN_TRANSPORT und FH_ANHEBEN_TRANSPORT aktiv fuer E46/C
+                                      wegen Einsatz Batteriehauptschalter.
+
+NAEL E5E62.S  l     31.10.03  EE-62 Sominsky
+                        E46AT.000     HO-Wort PVCA - Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung TCU_IBUS US US integriert
+                                      -ASW AKT_PERS_V_CALL hinzu
+                        E46ZST.000    HO-Wort TEL3 - Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge integriert
+                                      -ASW TEL_PROF_US hinzu
+                        E46SGET.000   TCU_IBUS.c03 - integriert
+                                      -Neue CABDen fuer SMCDS_LI/RE integriert
+                        E46SGVT.000   TCU_IBUS.c03 - integriert, ASW TCU_CI_03 hinzu
+     E6E61.S            LSZ.c31/32    Keine Dimmung fuer 3. Bremsleuchte (EMV)
+     E6E61.S            LSZ.c34/35    Keine Dimmung fuer 3. Bremsleuchte (EMV)
+     E5E61S             TCU_IBUS.c03  integriert.
+     E7E80.S            GM5.c05       SPRITZDUESEN_HZG aktiv bei SA520 für E46 und E83
+                                      CENT_LOCK_N_MGL_VERD_AUF Wert korrigiert
+                                      ANSTEUERZEIT_MOTOR_HKL und ANSTEUERZEIT_MOTOR_HS entfallen
+
+NAEL E3P25.S  m     05.12.03  EE-62 Sominsky
+                        E46AT.000     SA 7NB - BMW Service und Repair Inclusive hinzu nicht codierrelevant (190/167)
+                        E46SGET.000   Gt.c05 - neue SGBD NAVMK4.prg integriert
+                                      TCU_DS2.c03 -  neue CBD A_TCUDS2 integriert
+     EFK91.S            Mk60.c12/13   DBC-Mindestdruckaufbaugradient an Bosch-Systeme angepasst
+     E5P63.S                          Wert_01 korrigiert (fuer Fahrzeuge vor 9/01)
+
+NAEL E6P07.S  n     10.12.03  EE-42 Sominsky
+                        E46AT.000     ASW BAT_H_S (SA818) hinzu
+     E6P14.S            GM5.C05       Scheibenabsenkung immer Reversieren  mit EKS entfällt fuer SA818 (BHS)
+                                      Schaerfen/Entschärfen Kommentar geändert
+                                      01'1A Bit2 UNBELEGT Initwert auf 0 geändert
+
+NAEL E6P88.S  o     12.01.04  EE-42 Sominsky
+                        E46AT.000     E46/4FL -  Neuer Typ EV57 fuer SKD China hinzu (PA021/382)
+                                      -SA 7MA - Competition Paket hinzu (PR732/229)
+                                      -PA 7RM - LICHTPAKET (Statusbericht 12/03) hinzu
+                        E46SGET.000   ALC_KWP.C07 - integriert
+                        E46SGVT.000   ALC_KWP.C07 - integriert, ASW ALC_CI_07 hinzu
+     E6P05.S            ALC_KWP.C07   ALC_KWP.C07 integriert
+
+NAEL E3200.T  p     30.01.04  EE-42 Sominsky
+                        E46AT.000     SA 8ST - CODIERUNG WARTUNGSINTERVALL STUFE 3(PA021/384)
+                                      -SA 8SB - LAENDERSPEZ. TELEMATIKFREISCH. (PA021/385)
+                                      -ASW - NIEDERLAENDISCH hinzu (PA021/372)
+                                      -SA 7RA - Spezial Ed. Exclusive  Carbon/Grau     (Statusbericht 01/04)
+                                      -SA 7RB - Spezial Ed. Exclusive  Carbon/Zimt (Statusbericht 01/04)
+                                      -SA 7RC - Spezial Ed. Exclusive  Stratus/Grau (Statusbericht 01/04)
+                                      -SA 7RD - Spezial Ed. Exclusive  Stratus/Zimt (Statusbericht 01/04)
+                                      -SA 7RE - Spezial Ed. Lifestyle  Carbon/Grau (Statusbericht 01/04)
+                                      -SA 7RF - Spezial Ed. Lifestyle  Carbon/Zimt (Statusbericht 01/04)
+                                      -SA 7RG - Spezial Ed. Lifestyle  Stratus/Grau (Statusbericht 01/04)
+                                      -SA 7RH - Spezial Ed. Lifestyle  Stratus/Zimt (Statusbericht 01/04)
+                                      -SA 7RK - Spezial Ed. Lifestyle  Diamant/WN SW (Statusbericht 01/04)
+                                      -SA 7RL - Spezial Ed. Sport  Nachtbl/Alc. SW (Statusbericht 01/04)
+                                      -ASW PU04 hinzu
+                        E46ZST.000    SA8ST (ASW - SIA_EXTRA_KURZ) hinzu
+     E5R37.S            KMB_E46.C03   Adr. 11  FSW KM_SERVICE_INTERVALL
+     E5R37.S            KMB_E46.C04   Adr. 12  FSW LITER_SERVICE_INTERVALL
+     E5R37.S            KMB_E46.C05/6 Adr. 2E  FSW SIA_LITER_GRENZE:
+                                               SA988 mit 11000 km Service-Intervall und
+                                               SA8ST mit  6000 km Service-Intervall fuer
+                                               M54 (M54B22,M54B25,M54B30) hinzu
+                                               (PSW 11.000_km, 6.000_km,
+                                                 m54bxx_..._sa988, m54bxx_..._sa8st)
+                                               NG4 (N40B16,N42B18,N42B20,N43B20,N44B20),
+                                                 n4xbxx_..._sa988, n4xbxx_..._sa8st,
+     E5R37.S            KMB_E46.C07/8 Adr. 48  FSW SIA_LITER_GRENZE:
+                                               E46/C Handschalter M47 (320Cd) hinzu
+                                                 (PSW m47d20_m_cabr_...)
+                                      Adr.39:1 SPRACHE Hollaendisch = Deutsch mit SA868
+                                      Adr.46   FSW KM_SERVICE_INTERVALL und
+                                      Adr.48   FSW SIA_LITER_GRENZE:
+                                               SA988 mit 11000 km Service-Intervall und
+                                               SA8ST mit  6000 km Service-Intervall fuer
+                                               NG4 (N40B16,N42B18,N42B20,N43B20,N44B20),
+                                               M54 (M54B22,M54B25,M54B30) hinzu
+                                               (PSW 11.000_km, 6.000_km,
+                                                 n4xbxx_..._sa988, n4xbxx_..._sa8st,
+                                                 m54bxx_..._sa988, m54bxx_..._sa8st)
+                        KMB_E46.C08   Adr. 48  FSW SIA_LITER_GRENZE:
+                                               E46/C Handschalter M47 (320Cd) hinzu
+                                               PSW m47d20_m_cabr_...)
+     E3561.T            GM5.C05       Gemäss Projektnachtrag PA016/233 Quittierungsblinken beim Sichern
+                                      für alle E46, E83, E85 ab 0904.
+                                      \"Scheibenabsenkung immer Reversieren\" mit EKS wird deaktiviert,
+                                      weil Reversierung nicht mehr gegeben ist, wenn el.EKS denormiert ist
+                                      Bleibt überCar-/Key-Memory aktivierbar, wenn zulässig (nicht US).
+                                      Damit ist im TRA-Mode (und nur in diesem) das Reversieren
+                                      des Kurzhub trotz Batterie Reset wieder gegeben.
+
+NAEL E3892.T  q     19.02.04  EE-42 Sominsky
+                        E46AT.000     SA 7MA codierrelevant ab 12/04, ASW M_TRACK_MODE hinzu
+                                      -Zeitkriterium 09/04 aktiviert (PUSY relevant)
+                        E46SGET.000   Ulf.c04 - integriert
+                        E46SGVT.000   Ulf.c04 - integriert, ASW ULF_CI_04 hinzu
+     E1360.T            Mk60.c12/13   DSC Anpassung SA 338 (ab 11/00)
+                                      (Kundendienstloesung für Wandlungsfzge.)
+                                      Neu: E46/C+M47D20(110KW) ab 12/04
+     E6028.T            KMBE46M3.C22  FSW KM_SERVICE_INTERVALL, SIA_LITER_GRENZE, LITER_SERVICE_INTERVALL
+                        KMBE46M3.C23  FSW KM_SERVICE_INTERVALL, SIA_LITER_GRENZE
+                        KMBE46M3.C24  FSW KM_SERVICE_INTERVALL, SIA_LITER_GRENZE
+                                      SA988 mit 11000 km Service-Intervall und
+                                      SA8ST mit  6000 km Service-Intervall fuer S54B32
+                        KMBE46M3.C24  Competition Paket E46M3 M-Track-Mode ab 12/04 mit SA 7MA
+     EEA92.T            ULF.C04       ULF.C04 integriert.
+
+NAEL EEG46.T  r     12.03.04  EE-42 Sominsky/Diek
+                        E46AT.000     SA 8AE Betriebsanl. in griech. Sprache hinzu
+     EEG45.T            LSZ.C31/32    BFD-Nachruestung, Patch wg. 10mm LWR-Motor
+     EEG45.T            LSZ.C34/35    PWM_WERT2_BLK_ZUSATZFKT US+E46/3
+                                      LWR-Schrittmotoransteuerung geaendert
+********************************************************************************************************************
+NAEL EEM43.T  s     08.04.04  EE-42 Diek
+                        E46ZCSUT.000
+                                              ALC, LSMC, RSMC, EKP, ULF und TCU hinzugefügt.
+                        SGET
+                                              neue SGBD TELIBUS2 für TCU_IBUS.C04 integriert.
+     EEP70.T            ALC_KWP.C07           Korrektur fuer E46/E83/E53 mit Automatikgetriebe, neues FSW IBUS_R_GANG
+     EES14.T            GM5.C04,GM5.C05       Taktung IB und VA2 für N42 Nachfolger N46 angepasst
+                                              Komfortöffnen per FB für E85 ab 10/03 angepasst an E46/C
+                                              Scheibenwischer E83 deaktiv im Fertigungsmode (neues FSW)
+     EES11.T            Smcds_re(li).c04      Hella Toleranzenanpassung
+                                              E90 Daten angepasst
+                                              neue FSW`s MAX_TEMP_BEGR und GESCHW_TEMP_BEGR
+     EEM45.T            TCU_IBUS.C04          CBD neu in die Codierdaten integriert.
+                                              Parameter hinzugefügt und Bedingung angepasst
+     EEU30.T            TCU_IBUS.C04          00'00 TCU_TYPE angepasst
+******************************           CD 38.0          **********************************************************
+********************************************************************************************************************
+NAEL EE188.T  t     18.05.04  EE-42 Miehling
+                         TEL_BUSINES_ECE      Handy Vorbereitung Business mit Telematik-Funktion TEL_BUSINES_ECE
+                         AT                   neues ASW damit eine Unterscheidung ECE und US-Typen möglich ist
+                                              neue SA's 7NC,7NE und 7PA BMW Service Inclusive hinzu
+                                              neue SA's 7ND,7NF und 7PB BMW Service+Repair Inclusive hinzu
+                                              neue SA 8SU "Fahrgestellnummer für Security" hinzu
+                                              neue SA 9AA Oberflächenschutz hinzu
+                         CVT                  neues ASW in CVT-Logik integriert
+                         SGET                 neues ASW in SGET-Logik integriert
+
+********************************************************************************************************************
+NAEL EGG00.T  u     27.07.04  EE-42 Diek
+                         AT                   neue PA 7RU hinzugefügt
+                                              neue SA 6UD Sprachversion Russisch hinzu
+                         CVT
+     EGF97.T             TCU_IBUS.C04         geänderte CBD eingearbeitet
+     ESB29.T             MK60.C06             Codierung ergänzt für M3 Competition =(SA 7MA) ab 12/2004
+     EGJ24.T             GM5.C04/05           geänderte CBD eingearbeitet
+     EGM74.T             SMCDS_LI.C04         geänderte CBD eingearbeitet
+     EGM75.T             SMCDS_RE.C04         geänderte CBD eingearbeitet
+******************************           CD 39.0          **********************************************************
+********************************************************************************************************************
+NAEL EGS70.T  v     29.07.04  EE-42 Diek
+                         CVT
+     EGR80.T             TCU_IBUS.C04         geänderte CBD eingearbeitet
+******************************           CD 39.1          **********************************************************
+********************************************************************************************************************
+NAEL EGW24.T  w     13.09.04  EE-42 Diek
+                         AT                   neue SA 6UE Diebstahlschutz NavigationsDVD hinzu
+                                              neue SA 8SY Berichtigung Gebrauchte Automobile hinzu
+                                              neue SA's  7NG BMW Basic Service Inclusive (3 Jahre)
+                                                         7NH BMW Basic Service Inclusive (5 Jahre)
+                                                         7NK BMW Service Inclusive
+                                                         7NL BMW Service+Repair Inclusive
+                                                         9BA Premium Package
+                                              neue PA's  XA1 SPECIAL EDITION CARBON/ZIMT
+                                                         XA2 SPECIAL EDITION CARBON/BIC GRAU
+                                                         XA3 SPECIAL EDITION CARBON/CHAMPAGN
+                                                         XB1 SPECIAL EDITION STRATUS/ZIMT
+                                                         XB2 SPECIAL EDITION STRATUS/BIC GRAU
+                                                         XB3 SPECIAL EDITION STRATUS/CHAMPAGN
+                                                         XC1 SPECIAL EDITION NACHTBLAU/ZIMT
+                                                         XC2 SPECIAL EDITION NACHTBLAU/BIC GRAU
+                                                         XC3 SPECIAL EDITION NACHTBLAU/CHAMPAGN hinzu
+                                              neues Zeitkriterium #0305 hinzu
+                         CVT
+     EGW08.T             GM5.C05              geänderte CBD eingearbeitet
+     EGS00.T             PDC.C03              geänderte CBD eingearbeitet
+                         SGVT,SGET
+     EG039.T             TCU_IBUS.C05         neue CBD eingearbeitet, nicht für E46
+********************************************************************************************************************
+********************************************************************************************************************
+NAEL ENA10.T  x     12.10.04  EE-42 Diek
+                         SGVT                 TCU_IBUS.C05 für E46 aktiviert
+                         AT                   neue SA's  7NM BMW Service Inclusive (3 Jahre/60.000 km)
+                                                         7NN BMW Service+Repair Inclusive (3 Jahre/60.000 km) hinzu
+                                                         8SX Providerzuordnung hinzu
+                         CVT
+     ESE51.T             KMBE46M3.C24         SPRACHE Hollaendisch = Deutsch mit SA868
+     EG898.T             GT.C06               neue CBD integriert.
+     EG940.T             ULF.C04              geänderte CBD eingearbeitet
+     ENA38.T             RA_NG.C02            geänderte CBD eingearbeitet
+
+******************************           CD 40.0          **********************************************************
+********************************************************************************************************************
+NAEL ENG28.T  y     04.11.04  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  W
+                         AT                   SA 9BB hinzu Premium- und Komfort-Packet
+                         CVT
+     ENG24.T             TCU_IBUS.C04         SVT Parameter angepasst:
+                                                  01'10 WAIT_FOR_TONE_MT_CALL
+                                                  01'11 WAIT_FOR_TONE_MO_CALL
+     ENG24.T             TCU_IBUS.C05         SVT Parameter angepasst:
+                                                  01'10 WAIT_FOR_TONE_MT_CALL
+                                                  01'11 WAIT_FOR_TONE_MO_CALL
+
+***************************************     ProgMan      CD 15.1          ******************************************
+********************************************************************************************************************
+NAEL ENM89.T  z     22.11.04  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  X
+                         AT                   neue SA's 7NP, 7NR und 7NS hinzugefügt.
+                                              neu SA 7R3 OE-Paket Ukraine hinzu
+                                              neue Typschlüssel BW91 und BW92 hinzu
+********************************************************************************************************************
+********************************************************************************************************************
+NAEL ENV57.T  aa    03.12.04  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  Y
+                        CVT
+     ENV58.T            KMB_E46.C08           FSW SIA_LITER_GRENZE: E46/C Handschalter M57 TUe (330Cd) hinzu
+                                              (PSW m57d30_m_cabr_...)
+     ENV56.T            GM5.C04               E46/2,E46/C: EINSTIEG_FH_ZU_VER_SPERRE "nicht aktiv" bei Ländervarianten
+     ENV56.T            GM5.C05               ohne selektives Entriegeln um das Stehenbleiben des Fensters beim Mautschließen
+                                              im Rahmen der Einstiegshilfe bei gleichzeitigem Verriegeln des Fahrzeugs zu verhindern.
+                                              (SWAT-Änderungsteam 26.11.2004)
+********************************************************************************************************************
+NAEL EN215.T  ab    12.01.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  Z
+                         AT                   neue PA 7R1 Navigation Professional mit integrierter
+                                                   Handyvorbereitung Bluetooth hinzu
+                                              neue SA 8SW, 9AB hinzu
+                                              neue SA's 7CA, 7CB, 7CC, 7CD und 7CE hinzugefügt.
+                        CVT
+     EN225.T            ULF.C04               geänderte CBD eingearbeitet
+
+***************************************           CD 41.0          ******************************************
+********************************************************************************************************************
+NAEL EEA99.U  ac    15.03.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AA
+                         AT                   neues E-Wort EWS4 hinzu (nicht codierrelevant)
+                                              neue SA's 7NT, 7NU, 7NV, 7NX, 7NY, 7NZ, 7N1, 7N2, 7N3,
+                                                        7N4, 7N5, 7N6, 7N7, 7N8, 7N9, 7DA, 7DB, 7DC,
+                                                        7CF hinzu
+                                              Zeitkriterium 0905 hinzu
+                         SGET                 neue CBD SMCDS_LI.C06 [E4737.U] und neue
+                                                   CBD SMCDS_RE.C06 [E4737.U] eingearbeitet.
+                                              neue CBD GT.C07 [EEA96.U] eingearbeitet.
+                                              neue CBD LSZ.C36 [EED56.U, a] eingearbeitet.
+                                              neue CBD ULF.C05 [EEG59.U, a] eingearbeitet.
+                         CVT                  geänderte CBD GM5.C05 [EEA88.U, o] eingearbeitet.
+                                              geänderte CBD TCU_IBUS.C03 [EED57.U, b] eingearbeitet.
+                                              geänderte CBD RA_NG.C01 [EEB86.U, f] eingearbeitet.
+********************************************************************************************************************
+NAEL EEU83.U  ad    08.04.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AB
+                         AT                   neue PA's 9BC und 9BD hinzu
+                                              neue SAs 7DD, 7DE, 7DF und 7NW hinzu
+                         CVT                  geänderte CBD ALC_KWP.C07 [EEH81.U, d] eingearbeitet.
+                                              neue CBDen SMCDS_LI.C07 [EKM05.U] und SMCDS_RE.C07 [EKM05.U]
+                                              eingearbeitet.
+                                              geänderte CBDen SMCDS_LI.C06 [EKM04.U] und SMCDS_RE.C06 [EKM04.U]
+                                              eingearbeitet.
+***************************************               CD 42.0             ******************************************
+********************************************************************************************************************
+NAEL EEV74.U  ae    25.05.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AC
+                         AT                   neue SA 6AA, 5DS hinzu
+                         CVT                  geänderte CBDen SMCDS_LI.C06 [EKX07.U], SMCDS_RE.C06 [EKX07.U],
+                                              SMCDS_LI.C07 [EKX08.U], SMCDS_RE.C07 [EKX08.U] eingearbeitet.
+                                              geänderte CBD PDC.C03 [EE638.U] eingearbeitet.
+                                              geänderte CBD LSZ.C36 [EE758.U] eingearbeitet.
+                                              geänderte CBDen SMCDS_LI.C06 [EK045.U], SMCDS_RE.C06 [EK045.U],
+                                              SMCDS_LI.C07 [EK016.U], SMCDS_RE.C07 [EK016.U] eingearbeitet.
+********************************************************************************************************************
+NAEL EGA38.U  af    07.07.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AD
+                         AT                   neue SA 8S2, 664 hinzu.
+                                              neues ASW fuer SA6UD
+                         CVT                  geänderte CBD GM5.C05 [EGC50.U] eingearbeitet.
+                                              geänderte CBDen LSZ.C31/34/35/36 [EGH64.U] eingearbeitet.
+                                              geänderte CBD KMB_E46.C08 [EGK49.U] eingearbeitet.
+***************************************               CD 43.0             ******************************************
+********************************************************************************************************************
+NAEL EGM16.U  ag    30.08.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AE
+                         CVT                  geänderte CBD KMBE46M3.C24 [NSC66.U] eingearbeitet.
+                                              geänderte CBD TCU_IBUS.C05 [EGZ37.U] eingearbeitet.
+                                              FSW ERROR_SCHEIBE_AUF_V5 aktiv auch beim CVM_CI_04.
+********************************************************************************************************************
+NAEL EG362.U  ah    16.09.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AG
+                         CVT                  geänderte CBD RA_NG.C01 [EGW82.U] eingearbeitet.
+                                              geänderte CBD LSZ.C34 [EG352.U] eingearbeitet.
+                                              geänderte CBD LSZ.C35 [EG352.U] eingearbeitet.
+                                              geänderte CBD LSZ.C36 [EG352.U] eingearbeitet.
+                                              geänderte CBD GM5.C04 [EG431.U] eingearbeitet.
+                                              geänderte CBD GM5.C05 [EG431.U] eingearbeitet.
+//Einsatz der Codierdaten E46 mit der NAEL-Nr. EG362.U in der Linie:  Di, 28.09.05  ca. 8.30 Uhr
+//FG-Nr.: PL17562 (Typ BD53)
+********************************************************************************************************************
+NAEL EG492.U  ai    27.09.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AH
+                         CVT                  neu CBD ULF.C06 [EG450.U] eingearbeitet.
+//FG-Nr. für die neuen Codierdaten: JY99605
+********************************************************************************************************************
+NAEL EG899.U  aj    07.11.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AI
+                         CVT                  geaenderte CBD LSZ.C36 [ENA44.U] eingearbeitet.
+                                              geaenderte CBD GM5.C05 [ENF24.U] eingearbeitet.
+//E46  ->  NAEL-Nr. EG899.U   ->  FG-Nr.: PL54663
+***************************************           CIP CD 20.0             ******************************************
+********************************************************************************************************************
+NAEL ENG09.U  ak    05.12.05  EE-42 Diek
+                                ECCO ItemNr:  009073      Rev.Nr.:  AJ
+                         AT                   neue SA 7DH hinzu
+                                              neues K-Wort EKPA hinzu.
+                         CVT                  geaenderte CBD EKP_DS2.C01 [EL196.U] eingearbeitet.
+***************************************           CIP CD 20.1             ******************************************
+********************************************************************************************************************
+NAEL ENP81.U   al  03.02.06   EG-75   Diek (Di)/ Spila (Sp)
+//ECCO ItemNr:  009073      Rev.Nr.:  AK
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  | NAEL , AEI | Kommentar
+     12.12.05 DI              HO       KMB   KMBE46M3.C20 [ESK96.U, d] -angepasst an höhere CI's
+     13.12.05 DI              HO       KMB   KMBE46M3.C21 [ESK96.U, b] -angepasst an höhere CI's
+     11.01.06 DI                       TCU   TCU_IBUS.C02 [ENU93.U, g] -Erweiterung TELD
+     11.01.06 DI                       TCU   TCU_IBUS.C03 [ENU93.U, c] -Erweiterung TELD
+     11.01.06 DI                       TCU   TCU_IBUS.C04 [ENU93.U, g] -Erweiterung TELD
+     11.01.06 DI                       TCU   TCU_IBUS.C05 [ENU93.U, d] -Erweiterung TELD
+     11.01.06 DI              HO       LSMC  SMCDS_LI.C07 [EL944.U, f] -Neue FSW's
+     11.01.06 DI              HO       RSMC  SMCDS_RE.C07 [EL944.U, f] -Neue FSW's
+     23.01.06 Sp                       TCU   TCU_IBUS.C06 [E3154.V, a] -neuer CI
+              Sp                       TCU   TCU_IBUS.C07 [E3154.V, a] -neuer CI
+     26.01.06 Sp                       RAD   RA_NG.C01    [E3486.V, j] -keine Aenderung fuer E46
+     30.01.06 Sp                       TV1   TV2.C03      [E3485.V, b] -neuer CI
+              Sp              HO       TV1   SGET                      -neue SGBD (VM5IBUS) fuer alle TV1 CBDen
+************************************************* CIP CD 21.0 ******************************************************
+********************************************************************************************************************
+NAEL E3733.V   am  24.02.06   EG-75   Spila (Sp)/Diek (Di)
+//ECCO ItemNr:  009073      Rev.Nr.:  AL
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  | NAEL , AEI | Kommentar
+     13.02.06 Sp                       LSMC  SMCDS_LI.C07 [E4422.V, g] -keine Aenderung fuer E46
+              Sp                       RSMC  SMCDS_RE.C07 [E4422.V, g] -keine Aenderung fuer E46
+     21.02.06 Sp                       GM5   GM5.C05      [EEB79.V, t] -Aenderung Kofferaumverrriegelungslogik fuer Grossbritannien
+************************************************* CIP CD 21.2 ******************************************************
+********************************************************************************************************************
+NAEL EEC59.V   an  03.05.06   EG-75   Spila (Sp)/Diek (Di)
+//ECCO ItemNr:  009073      Rev.Nr.:  AM
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     07.03.06 Sp                      ALSZ   LSZ.C36      [EEF92.V, f] -keine Aenderung fuer E46 (Nettodatenaenderung in 00'1B ohne Auswirkung)
+     21.03.06 Sp              HO      LSMC   SMCDS_LI.C07 [EKC38.V, h] -Stromerhoehung bei niedrigen Temperaturen
+              Sp              HO      RSMC   SMCDS_RE.C07 [EKC38.V, h] -Stromerhoehung bei niedrigen Temperaturen
+     27.03.06 Sp                      PDC    PDC.C03      [EEM03.V,aa] -keine Aenderung fuer E46
+     12.04.06 Sp                             E83SGET                   -neue SGBD "TELIBUS3" fuer TCU_IBUS.C07
+              Sp                      GM5    GM5.C05      [EET18.V, u] -keine Aenderung fuer E46
+     13.04.06 Sp                      RAD    RA_NG.C01    [EET34.V, k] -keine Aenderung fuer E46
+     20.04.06 Sp                      ALSZ   LSZ.C36      [EEU70.V, g] -keine Aenderung fuer E46
+********************************************************************************************************************
+************************************************ Progman 22.0 ******************************************************
+********************************************************************************************************************
+NAEL EGR32.V   ao  01.08.06   EG-75   Spila (Sp)/Diek (Di)
+//ECCO ItemNr:  009073      Rev.Nr.:  AN
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     09.05.06 Sp              HO      GT     GT.C07       [EEZ45.V, b] -DEFAULT_SMSC_ADDRESS und BACKUP_SMSC_ADDRESS
+     12.05.06 Sp                      ULF    ULF.C06      [EE106.V, b] -keine Aenderung
+
+     24.05.06 Di                      TCU    TCU_IBUS.C07 [EEW10.V, b] -DSP_ACOUSTIC_PROFILE_07
+     24.05.06 Di                      UEB    UEB2.C01     [EKU15.V, c] -keine Aenderung
+
+     27.06.06 Di                      ALSZ   LSZ.C37      [EGC38.V, a] -neues Codierindex integriert
+
+     06.07.06 DI              HO       KMB   KMB_E46.C02 [EGG35.V, x] -CBD eingearbeitet
+     06.07.06 DI              HO       KMB   KMB_E46.C03 [EGG35.V, p] -CBD eingearbeitet
+     06.07.06 DI              HO       KMB   KMB_E46.C04 [EGG35.V, t] -CBD eingearbeitet
+     06.07.06 DI              HO       KMB   KMB_E46.C05 [EGG35.V, j] -CBD eingearbeitet
+     06.07.06 DI              HO       AKMB  KMB_E46.C06 [EGG35.V, f] -CBD eingearbeitet
+     06.07.06 DI              HO       AKMB  KMB_E46.C07 [EGG35.V, g] -CBD eingearbeitet
+     06.07.06 DI              HO       AKMB  KMB_E46.C08 [EGG35.V, h] -CBD eingearbeitet
+
+     11.07.06 DI              HO       LSMC  SMCDS_LI.C07 [EK471.V, i] -CBD eingearbeitet
+     11.07.06 DI              HO       RSMC  SMCDS_RE.C07 [EK471.V, i] -CBD eingearbeitet
+
+     25.07.06 DI              HO       GM5   GM5.C05      [EGK26.V, v] -keine Aenderung fuer E46
+     25.07.06 DI              HO       PDC   PDC.C03      [EGM62.V,ab] -keine Aenderung fuer E46
+
+************************************************ Progman 23.0 ******************************************************
+********************************************************************************************************************
+NAEL 009073ap ap   31.10.06   EG-75   Konstantin Diek Freigabe HO-CD 24.0
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     23.08.06 Di                      ULF    ULF.C06      [EGW68.V, c] - keine Aenderung für E46
+     14.09.06 Di                      GT     GT.C08       [EGU12.V, a] - neues CI 08 integriert. 
+     04.10.06 Di                      TCU    TCU_IBUS.C07 [EG901.V, c] - Dead Reckoning Parameter hinzugefuegt
+     04.10.06 Di                      TCU    TCU_IBUS.C07 [ENA47.V, d] - TRACK_WIDTH Parameter und US_BUSINESS/PROF_VARIANT Bedingung
+     16.10.06 Di                      GT     GT.C08       [ENA51.V, b] - Neue Rufnummern für DEF_DESTINATION_ADDRESS
+     25.10.06 DI              HO      GM5    GM5.C05      [ENE63.V, w] - keine Aenderung fuer E46
+     25.10.06 Di                      TCU    TCU_IBUS.C07 [ENG57.V, e] - TRACK_WIDTH Parameter
+     30.10.06 Di                      ULF    ULF.C06      [ENH23.V, d] - keine Aenderung für E46
+************************************************ Progman 24.0 ******************************************************
+********************************************************************************************************************
+NAEL 009073aq aq   02.02.07   EG-75   Konstantin Diek (Di)/Olivella-Stern (OS) Freigabe HO-CD 25.0
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     20.11.06 Di                      GM5    GM5.C05      [ENL78.V, x] - keine Aenderung fuer E46
+     20.11.06 Di              HO      GT     GT.C08       [ENR72.V, c] - Blanks vor DEF_DESTINATION_ADDRESS eingefuegt (Bugfix gegen Codierabbruch)
+     20.11.06 Di              HO      LSMC   SMCDS_LI.C07 [ELS01.V, k] - CBD eingearbeitet
+     20.11.06 Di              HO      RSMC   SMCDS_RE.C07 [ELS01.V, k] - CBD eingearbeitet
+     20.11.06 Di              HO      TV1    TV2.C03      [ENM95.V, c] - CBD eingearbeitet
+     22.01.07 OS              HO      MK60   MK60.C06     [E6031.W, e] - K-Wort BCSL fuer Nachruestbremse
+     22.01.07 OS                             E46AT                     - neues K-Wort BCSL
+     02.02.07 OS                      ALSZ   LSZ.C37      [E3934.W, c] - keine Aenderung fuer E46
+************************************************ Progman 25.0 ******************************************************
+********************************************************************************************************************
+NAEL 009073ar ar   13.06.08   EI-73   Bernhard Haller (HA) Freigabe HO-CD 31.0
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     13.06.08 HA                      GM5    GM5.C06      [EE636.X, a] - CI 06 neu hinzu für Ersatz
+                D A T E N S T A N D   U N G Ü L T I G
+************************************************ ISTA/P 31.0********************************************************
+********************************************************************************************************************
+NAEL 009073as as   16.06.08   EI-73   Bernhard Haller (HA) Freigabe HO-CD 31.0
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     16.06.08 HA                             E46SGET.000               - Fehler in SGET korrigiert
+************************************************ ISTA/P 31.0********************************************************
+********************************************************************************************************************
+
+

@@ -1,0 +1,63 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen BATTERIE.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* ShowBatteryIgnition
+//*
+//* Anzeige des Batterie- und Zündungs-Status
+//*
+//**********************************************************************
+ShowBatteryIgnition()
+{
+  bool   fehlerflag;    // Fehler aufgetreten
+  bool   zuendung;      // Zündung ein/aus
+  bool   batterie;      // Batterie ein/aus
+  int    wert;          // allgemeine Variable
+
+  ftextout("@Batterie@ :", 0,5,1,0);
+  ftextout("@Zündung@  :", 0,45,1,0);
+
+  INPAapiJob("UTILITY","STATUS_UBATT","","");
+  INP1apiResultInt(fehlerflag,wert,"STAT_UBATT",1);
+  if ((fehlerflag!=TRUE) || (wert==0))
+  {
+    batterie=FALSE;
+    zuendung=FALSE;
+  }
+  else 
+  {
+    batterie=TRUE;
+    INPAapiJob("UTILITY","STATUS_ZUENDUNG","","");
+    INP1apiResultInt(fehlerflag,wert,"STAT_ZUENDUNG",1);
+    if ((fehlerflag!=TRUE) || (wert==0))
+      zuendung=FALSE;
+    else
+      zuendung=TRUE;
+  }
+
+  digitalout(batterie, 0,20,"","");
+  if (batterie==TRUE)
+    ftextout("@ein@  ", 0,25,1,0);
+  else
+    ftextout("@aus@  ", 0,25,1,0);
+  
+  digitalout(zuendung, 0,62,"","");
+  if (zuendung==TRUE)
+    ftextout("@ein@  ", 0,67,1,0);
+  else
+    ftextout("@aus@  ", 0,67,1,0);
+}
+// -- EOF --

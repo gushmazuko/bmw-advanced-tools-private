@@ -1,0 +1,190 @@
+;{{00064251}} Created by PSIGN 2.6 - Do not modify this file !
+[Package]
+Title = EDIABAS_Softing
+Description = EDIABAS gesamt ohne hardwarespezifische Dateien (Umfang Fa. Softing)
+Version = 7.3.0_Package_1.0
+Manufacturer = BMW Group, created by Softing AG
+Language =
+
+[Files]
+;=== Standard-Lieferumfang
+;--- API-Schnittstelle
+File1=API\WIN32\API.H
+File2=API\WIN32\APICALLS.C
+File3=API\WIN32\APIDLL.H
+File4=API\WIN32\VB2003\API.VB
+File5=API\WIN32\VB2005\API.VB
+File6=API\WIN32\VB2008\API.VB
+File7=API\WIN32\VB2010\API.VB
+File8=API\WIN32\VB40\API.BAS
+File9=API\WIN32\VB60\API.BAS
+File10=API\WIN32\VC2008\API32.LIB
+File11=API\WIN32\VC2010\API32.LIB
+File12=API\WIN32\VC60\APIW32.LIB
+File13=API\WIN32\VC60\APIW32MT.LIB
+
+;--- BIN-Verzeichnis (Passwortdatei)
+File14=BIN\63477BC6
+
+;--- BIN-Verzeichnis (Standardlieferumfang)
+;     =BIN\ANSI2OEM.TAB             # künftig nicht mehr Bestandteil des Lieferpakets !
+File15=BIN\API32.DLL
+File16=BIN\APITAL32.EXE
+;     =BIN\APITST32.EXE             # künftig nicht mehr Bestandteil des Lieferpakets !
+File17=BIN\APIVB32.DLL
+File18=BIN\B2RUNTIM.LIB
+File19=BIN\BEST1.EXE
+File20=BIN\BEST2.EXE
+File21=BIN\BEST2.CHM
+File22=BIN\BEST32.DLL
+File23=BIN\BEST2WIN.EXE
+;     =BIN\BEST2WIN.HLP             # künftig nicht mehr Bestandteil des Lieferpakets (nicht lauffähig unter WIN 7) !
+;     =BIN\BESTBD32.EXE             # künftig nicht mehr Bestandteil des Lieferpakets !
+File24=BIN\BESTINFO.EXE
+File25=BIN\BESTVER.EXE
+File26=BIN\BESTVW32.EXE
+File27=BIN\BESTVW32.CHM
+;     =BIN\BESTVW32.HLP             # künftig nicht mehr Bestandteil des Lieferpakets (nicht lauffähig unter WIN 7) !
+File28=BIN\EBAS32.DLL
+File29=BIN\EBAS32.EXE
+File30=BIN\EBASCC32.DLL
+File31=BIN\EBASCS32.EXE
+File32=BIN\EBASMT32.DLL
+File33=BIN\EBASMT32.EXE
+;     =BIN\EBASX32.EXE              # kein EDIABAS-Server mehr !
+;     =BIN\EDIABAS.INI              # Existenz von EDIABAS.ini im BIN-Verzeichnis ist nicht zwingend erforderlich.
+File34=BIN\IFHPRO32.EXE
+File35=BIN\IFHSRV32.EXE
+;     =BIN\JOBLOO32.EXE             # künftig nicht mehr Bestandteil des Lieferpakets !
+File36=BIN\NETPRO32.DLL
+File37=BIN\NETTCP32.DLL
+File38=BIN\NMSIFH32.DLL
+;     =BIN\NMSIFHPLUS32.DLL         # wird nur von IFHSRV32 benötigt (bei ICOM auf ICOM!)
+File39=BIN\PE.EXE
+File40=BIN\RDRIFH32.DLL
+File41=BIN\SDKHLP32.DLL
+File42=BIN\STRIP.EXE
+File43=BIN\TRACEX32.DLL
+;     =BIN\TRACEX32.EXE             # Dies wurde in TRACEX32.dll integriert.
+File44=BIN\TWFILE32.DLL
+File45=BIN\VMC32.DLL
+File46=BIN\VMCICOM32.DLL
+File47=BIN\VMFCHK32.EXE
+File48=BIN\XEDIC.DAT
+File49=BIN\XEDIC32.DLL
+File50=BIN\XEDICC32.DLL
+File51=BIN\XENET32.DLL
+File52=BIN\XNUL32.DLL
+File53=BIN\XPROXY32.DLL
+File54=BIN\XREMOT32.DLL
+File55=BIN\XRPLUS32.DLL
+File56=BIN\XSTD32.DLL
+File57=BIN\XTELE32.DLL
+File58=BIN\XTRACT.CSS
+File59=BIN\XTRACT.EXE
+File60=BIN\XTRACT.XSD
+
+;--- BIN-Verzeichnis (.NET)
+;--- Diese 3 Dateien müssen von BIN\NET\4.0 manuell nach BIN kopiert werden!
+File61=BIN\apiNET32.dll
+File62=BIN\apiVBNET32.dll
+File63=BIN\TestCsNET32.exe
+;--- Original-Standard-Lieferumfang
+File64=BIN\NET\1.1\APINET32.DLL
+File65=BIN\NET\1.1\APIVBNET32.DLL
+File66=BIN\NET\1.1\TESTCSNET32.EXE
+File67=BIN\NET\2.0\APINET32.DLL
+File68=BIN\NET\2.0\APIVBNET32.DLL
+File69=BIN\NET\2.0\TESTCSNET32.EXE
+File70=BIN\NET\3.5\APINET32.DLL
+File71=BIN\NET\3.5\APIVBNET32.DLL
+File72=BIN\NET\3.5\TESTCSNET32.EXE
+File73=BIN\NET\4.0\APINET32.DLL
+File74=BIN\NET\4.0\APIVBNET32.DLL
+File75=BIN\NET\4.0\TESTCSNET32.EXE
+
+;--- Tutorial (Standardlieferumfang)
+;     =TUTORIAL\DEMO0.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO1.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO2.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO2.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO3.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO3.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO4.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO4.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO5.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO5.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO6.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO6.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO7.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO7.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO8.B2V           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\DEMO8.SIM           # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\EDIABAS.INI         # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\EDIC.SIM            # entspricht nicht BMW-Prozessen
+;     =TUTORIAL\V400.B2V            # entspricht nicht BMW-Prozessen
+
+
+;=== zusätzliche Dateien (nicht Standard-Lieferumfang)
+
+;--- VC-Tool (gehört nicht zum Standardlieferumfang!)
+File76=VC.EXE
+File77=VC.INI:VXEXIST
+
+;--- BIN-Verzeichnis (für 16-Bit-Programme, z.B.: NCSExpert)
+File78=BIN\API.DLL
+
+;--- BIN-Verzeichnis (Trace-Tool)
+File79=BIN\trace.css
+File80=BIN\traceXML.exe
+
+
+;=== Dokumentation deutsch
+
+;--- altes Format: PDF
+;     =DOKU\Deutsch\API.PDF
+;     =DOKU\Deutsch\APIREF.PDF
+;     =DOKU\Deutsch\APIUSER.PDF
+;     =DOKU\Deutsch\BEST2RTL.PDF
+;     =DOKU\Deutsch\BEST2SPC.PDF
+;     =DOKU\Deutsch\BESTUSER.PDF
+;     =DOKU\Deutsch\ERROR.PDF
+;     =DOKU\Deutsch\INHALT.PDF
+;     =DOKU\Deutsch\SIMULATE.PDF
+;     =DOKU\Deutsch\TMODE.PDF
+;     =DOKU\Deutsch\USER.PDF
+
+;--- neues Format: CHM
+File81=DOKU\Deutsch\EDIABAS-de.chm
+
+;--- momentan noch PDF
+File82=DOKU\Deutsch\IFH.PDF
+File83=DOKU\Deutsch\IFHSTD.PDF
+File84=DOKU\Deutsch\RELEASE.PDF
+
+
+;=== Dokumentation englisch
+
+;--- altes Format: PDF
+;     =DOKU\English\API.PDF
+;     =DOKU\English\APIREF.PDF
+;     =DOKU\English\APIUSER.PDF
+;     =DOKU\English\BEST2RTL.PDF
+;     =DOKU\English\BEST2SPC.PDF
+;     =DOKU\English\BESTUSER.PDF
+;     =DOKU\English\CONTENTS.PDF
+;     =DOKU\English\ERROR.PDF
+;     =DOKU\English\SIMULATE.PDF
+;     =DOKU\English\TMODE.PDF
+;     =DOKU\English\USER.PDF
+
+;--- neues Format: CHM
+File85=DOKU\English\EDIABAS-en.chm
+
+;--- momentan noch PDF
+File86=DOKU\English\RELEASE.PDF
+
+
+
+; EOF
+

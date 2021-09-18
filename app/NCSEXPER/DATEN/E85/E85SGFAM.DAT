@@ -1,0 +1,44 @@
+; Baureihen-SGFAM-/ZCS-Datei E85, 19.03.01, IR
+;-----------------------------------------------------------------------
+; Datum     Autor   Änderung
+; 19.03.01  IR      Erstellung
+; 28.05.01  IR      Integartion RLS
+; 20.08.01  IR      KMB => AKMB, LSZ => ALSZ, EWS => AEWS
+; 28.08.01  IR      Neue CABD und SGBD fuer IHK
+;                   SIM, SBSL, SBSR hinzu
+; 17.09.01  IR      CVM hinzu
+; 08.11.01  IR      MK60 hinzu
+; 03.12.01  IR      Codier-SGBD durch Diagnose SGBD ersetzt
+;-----------------------------------------------------------------------
+
+; SG       CABD     C_SGBD  ZCS FA KOMMENTAR
+S AEWS     A_AEWS3  EWS3     0   0
+S AKMB     A_KMB85  KOMBI85  0   1
+S LWS5     A_LWS5   C_LWS5   0   0
+S IHK      A_IHK85  IHKS85   0   0
+S GM5      A_GM5    ZKE5     0   0
+S PDC      A_PDC    PDCACT   0   0
+S GT       A_GT3    VIDEO_GT 0   0
+S TV1      A_TV1    VIDEOMOD 0   0
+S ALSZ     A_ALSZ   C_LSZA   0   1
+S RAD      A_RA_NG  RADIO    0   0
+S EPS      A_EPS    EPS_E85  0   0
+S RLS      A_RLS    RLS_DS2  0   0
+S SIM      A_ISIS85 SIM85    0   0
+S SBSR     A_ISIS85 SBSR85   0   0
+S SBSL     A_ISIS85 SBSL85   0   0
+S STVR     A_ISIS85 STVR85   0   0
+S STVL     A_ISIS85 STVL85   0   0
+S CVM      A_CVM_IV CVM_IV   0   0
+S MK60     A_ASCDSC DSC_MK60 0   0
+S DSP      A_DSP85  TOPDSP   0   0
+S ULF      A_ULF    ULF      0   0
+S TCU      A_TELIB  TELIBUS  0   0
+S SM       A_SM     C_SM     0   0
+S GAE      A_DSP85  TOPDSP   0   0
+S ABG      A_MRS4   ACSM85   0   0
+S EKP      A_E60R   EKP_60   0   0
+S ACSM     A_PL2MRS ACSM85   0   0
+S 4BMOT    A_PL2N46 MEV9N46L 0   0
+S 6BMOT    A_PL2N46 MSV70    0   0
+

@@ -1,0 +1,11 @@
+;SWT-Logistikdatei 'SWTconf0.dat'
+#SWTconf.dat Generierung vom 02.08.06
+#Abzulegen im Verzeichnis 'data\gdaten' des Servicepakets
+#Die erste Zeile wurde nicht systemseitig generiert. Sie wird von der Applikation CarServer benötigt und darf nicht geändert werden.
+#AN,SG-Name,PABD,PSGBD,SGBD,FABD,Auth.,SWT-Typ
+-,-,-,-,00SWTKWP,00SWTKWP,Keine,-
+0x10,JNAV60,31JNAV60,08FLASH,00SWTKWP,00swtkwp,Asymetrisch,classic light
+0x13,MSS70,07MSS70,08FLASH,00SWTKWS,00swtkws,Asymetrisch,short light
+0x4,NIVI65,161NIV65,08FLASH,01SWT,01swt,Asymetrisch,classic light
+0x5,NIVI65,161NIV65,08FLASH,01SWT,01swt,Asymetrisch,classic light
+0x8,JNAV60,31JNAV60,08FLASH,00SWTKWP,00swtkwp,Asymetrisch,short light

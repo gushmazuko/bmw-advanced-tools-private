@@ -1,0 +1,136 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei RR1.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 10.12.2001 rk V0.01 Erstellung
+//* 14.01.2002 rd V0.02 Regen- Lichtsensor Komma entfernt
+//* 04.03.2002 rd V0.03 überarbeitet
+//* 21.03.2002 rd V0.04 KOMBIRR wird KOMBRR
+//* 16.10.2002 rd V0.07 N73 dazu
+//* 22.10.2002 rd V0.08 Kühlerfigursteuerung neue Übersetzung
+//* 16.02.2004 rd V1.00 Umstellung auf 32-Bit INPA
+//* 17.03.2004 rd V1.01 ADPFRR neu
+//* 27.06.2005 GA V1.02 RDC_60 dazu
+//* 29.09.2005 GA V1.03 *_PLX /Sitzmodule dazu
+//* 11.11.2005 gr V1.04 DWA_63 added
+//* 28.03.2006 GA V1.32 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select RR1 V1.04
+ENTRY=      EXX,Functional jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=ME9_N73R,ME 9    for N73 Master,
+ENTRY=ME9_N73L,ME 9    for N73 Slave,
+ENTRY=,,
+ENTRY=  VVT_14,Variable Valve Train Bank 1-4,
+ENTRY=  VVT_58,Variable Valve Train Bank 5-8,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=    GS19,Gearbox Control Module GS19,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= DSC_E65,Dynamic Stability Control,
+ENTRY= EMF_E65,Electromechanical Parking Brake,
+ENTRY=   EDC_K,Electronic Damper Control,
+ENTRY=  EHC2RR,2-xle Air Suspension,
+ENTRY=  RDC_60,Tyre Pressure Monitoring,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring from 09.2007,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY= BZM_E65,Operating panel centre console,
+ENTRY=BZMF_E65,Operating panel centre armrest,
+ENTRY=     CAS,Car Access System,
+ENTRY=     CIM,Chassis Integration Module,
+ENTRY= DWA_E65,Alarm System,
+ENTRY= SINE_65,DWA Sirens and Tilt Sensor,
+ENTRY=  DWA_63,Alarm System RR2,
+ENTRY=  EC_E65,Ergo Commander,
+ENTRY= ECF_E65,Ergo Commander Rear,
+ENTRY= HKL_E65,Tailgate Lift,
+ENTRY=  KOMBRR,Instrument Cluster,
+ENTRY=  IHKARR,Air-Conditioning Control,
+ENTRY=  LM_E65,Light Switch Module,
+ENTRY= PDC_E65,Park Distance Control,
+ENTRY= POW_E65,Power Module,
+ENTRY= RLS_E65,Rain and Light Sensor,
+ENTRY= WIM_E65,Wiper Module,
+ENTRY= ZGM_E65,Central Gateway Module,
+ENTRY=  KFS_RR,Retractable Spirit Of Ecstacy,
+
+[ROOT_KAROSSERIE_TUER]
+DESCRIPTION=Door Modules
+ENTRY= TMF_E65,Door Module Driver,
+ENTRY= TMB_E65,Door Module Passenger,
+ENTRY= TMFHE65,Door Module Driver Rear,
+ENTRY= TMBHE65,Door Module Passenger Rear,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Seat Modules
+ENTRY= FAS_PLX,Seat Module Driver (new),
+ENTRY= BFS_PLX,Seat Module Passenger (new),
+ENTRY= FAH_PLX,Seat Module Driver Rear (new),
+ENTRY= BFH_PLX,Seat Module Passenger Rear (new),
+ENTRY= ,,
+ENTRY= FAS_E65,Seat Module Driver (old),
+ENTRY= BFS_E65,Seat Module Passenger (old),
+ENTRY= FAH_E65,Seat Module Driver Rear (old),
+ENTRY= BFH_E65,Seat Module Passenger Rear (old),
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Safety Modules
+ENTRY=     SIM,Safety Information Module,
+ENTRY=     SFZ,Satellite Vehicle Centre,
+ENTRY=     SZL,Satellite Steering Column,
+ENTRY= ,,
+ENTRY=    SSFA,Satellite Driver Seat,
+ENTRY=    SSBF,Satellite Passenger Seat,
+ENTRY=     SSH,Satellite Rear Seat,
+ENTRY= ,,
+ENTRY=    SASL,Satellite A Pillar Left,
+ENTRY=    SASR,Satellite A Pillar Right,
+ENTRY= ,,
+ENTRY=    STVL,Satellite Front Door Left,
+ENTRY=    STVR,Satellite Front Door Right,
+ENTRY= ,,
+ENTRY=    SBSL,Satellite B Pillar Left,
+ENTRY=    SBSR,Satellite B Pillar Right,
+ENTRY= ,,
+ENTRY=  SECUR1,Security module,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  MMI_GT,Man Machine Interface Graphic Module,
+ENTRY=   MC_GW,MOST/CAN Gateway (in MMI),
+ENTRY= MMI_GTF,Man Machine Interface Graphic Module Rear,
+ENTRY=   MMIFC,MOST/CAN Gateway Rear (in MMI rear),
+ENTRY=  CID_60,Central Information Display,
+ENTRY=  CIDF65,Central Information Display Rear Left,
+ENTRY= CIDF2RR,Central Information Display Rear Right,
+ENTRY= ANT_E65,Aerial Tuner,
+ENTRY= CDC_E65,Audio CD Changer,
+ENTRY= ASK_E65,Audio System Controller,
+ENTRY= MMC_E65,Multimedia Changer,
+ENTRY= NAV_E65,Navigation System,
+ENTRY= SVS_E65,Voice Processing System,
+ENTRY= TEL_E65,Telephone ECE / US,
+ENTRY= AMP_E65,Top hi-fi Amplifier,
+ENTRY= VID_E65,Video Module,
+ENTRY=  ADP_RR,Audio Display Panel,
+ENTRY=  ADPFRR,Audio Display Panel Fond,
+ENTRY= ,,
+ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=NAV_JAP2,Navigation System Japan,
+ENTRY=   JBIT2,Telephone Japan,
+

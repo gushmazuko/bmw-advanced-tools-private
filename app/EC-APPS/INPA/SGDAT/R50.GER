@@ -1,0 +1,80 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei R50.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 31.05.1999 rd V0.01 Erstellung
+//* 13.06.2001 rd V1.00 Freigabe
+//* 12.12.2001 sk V1.01 DSP hinzugefügt
+//* 27.03.2002 rd V1.02 rls_ds2 hinzugefügt
+//* 28.03.2002 rd V1.03 nav_jap hinzugefügt
+//* 25.03.2002 rd V1.04 Diesel neu
+//* 13.11.2002 rd V1.05 cvm neu
+//* 28.02.2003 rd V1.06 NAV_JAP Name gleichgezogen mit allen BR
+//* 31.10.2003 mp V1.07 OC3 hinzu
+//* 16.02.2004 rd V1.08 Umstellung auf 32-Bit INPA
+//* 23.06.2004 rd V1.09 AISIN Getriebe hinzu
+//* 07.09.2004 GA V1.10 MRS5K dazu
+//* 13.10.2004 rd V1.11 Telefon dazu
+//* 04.11.2004 GA V1.12 D60TMCA dazu
+//* 15.11.2004 GA V1.13 EMS5150 dazu
+//* 27.06.2005 GA V1.14 RDC_53 dazu
+//* 28.03.2006 GA V1.15 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl R50 V1.15
+ENTRY=     R50,R50 Ident und Fehlerspeicher,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=   EMS2K,EMS2K, EMS5150 für Pentagon,
+ENTRY= D40TMCA,DDE40 für W17,
+ENTRY= D60TMCA,DDE6  für R50 W17 TMC EU4,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=   gsf21,AISIN,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY= dscmk60,DSC MK60,
+ENTRY= ehpsr50,Elektrische Lenkung,
+ENTRY=    lws5,Lenkwinkelsensor,
+ENTRY=     dws,Reifenpannenerkennung DWS,
+ENTRY=RDC_GEN2,Reifen Druck Kontrolle,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=  airbag,Airbag MRS4 KWP2000,
+ENTRY=   mrs5k,Airbag MRS5K,
+ENTRY=     OC3,Sitzbelegungserkennung US-Fzg OC3,
+ENTRY=     ews,Elektronische Wegfahrsperre EWS,
+ENTRY= ihkar50,Klimaautomatik,
+ENTRY=kombir50,Kombi-Instrument,
+ENTRY=   lwr2a,Leuchtweitenregulierung LWR2A,
+ENTRY=  mflr50,Multifunktionslenkrad,
+ENTRY=     pdc,Park-Distance-Control,
+ENTRY=     aic,Regensensor AIC,
+ENTRY= rls_ds2,Regen- Lichtsensor RLS,
+ENTRY=   shd46,Schiebehebedachmodul SHD,
+ENTRY=     bc1,Zentrale Karosserieelektronik BC1,
+ENTRY= xenon_l,Xenon Licht links,
+ENTRY= xenon_r,Xenon Licht rechts,
+ENTRY= cvm_R52,Cabrioverdeckmodul CVM,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY= bmbtr50,Bordmonitor,
+ENTRY=    navi,Navigationsrechner,
+ENTRY= nav_jap,Navigationsrechner Japan,
+ENTRY=   radio,Radio,
+ENTRY=videomod,Videomodul,
+ENTRY= DSP_R50,Digitaler Sound Prozessor,
+ENTRY= telefon,Telefon,
+

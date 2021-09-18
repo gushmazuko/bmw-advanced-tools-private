@@ -1,0 +1,133 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei F01.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 28.03.2006 GA V0.01 Erstellung
+//* 03.04.2006 GA V0.02 FKA01->FKA_01 umbenannt, HKA_02 dazu
+//* 17.05.2006 Wb V0.03 MSD85 hinzu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl F01 V0.02
+ENTRY=     F01,Funktionale Jobs,
+ENTRY=     TD-530,TD-530 I-Stufe/Gesamt FS,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+//ENTRY= DDE6M47,DDE 6.0  für M47 TÜ2,
+//ENTRY=,,
+//ENTRY=  D50M57,DDE 5.0  für M57 TÜ,
+//ENTRY= DDE6M57,DDE 6    für M57TOP / M57TÜ2,
+//ENTRY=,,
+//ENTRY=   MSV70,MSV 70.0     für N52 (NG6),
+//ENTRY=   MSV80,MSV 80.0     für N52KP (NG6),
+//ENTRY=   MSD80,MSD 80.0 für N43 N53 & N54 mit EWS4/CAS,
+//ENTRY=,,
+//ENTRY=   MSS60,MSS60        für S65 (M3),
+//ENTRY=,,
+ENTRY=   MSD85L6,MSD 85 für F01 L6
+ENTRY=    EKP301,Elektrische Kraftstoffpumpe,
+ENTRY=   MSD87,MSD 87 für F01
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=  GS100A,Getriebesteuergerät,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=  ASA_01,Aktivlenkung,
+//ENTRY=    ACC2,Adaptive Cruise Control ACC,
+//ENTRY=,,
+ENTRY=  DSC_01,Dynamische Stabilitätskontrolle,
+
+ENTRY=  ICMQL,-dynamik Management / Längs und Quer-,
+ENTRY=  ICMV,-dynamik Management / Vertikal,
+ENTRY=,,
+ENTRY=  EMF_01,Elektromechanische Feststellbremse,
+ENTRY=  HSR_01,Hinterachs-Schräglaufregelung,
+ENTRY=,,
+ENTRY=   EHC01,Luftfeder,
+ENTRY=,,
+ENTRY=   RK_VL, Radknoten vorne links,
+ENTRY=   RK_VR, Radknoten vorne rechts,
+ENTRY=   RK_HL, Radknoten hinten links,
+ENTRY=   RK_HR, Radknoten hinten rechts,
+ENTRY=,,
+//ENTRY=RDC_GEN2,Reifen Druck Kontrolle,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=   ACSM3,Airbag Steuergerät,
+ENTRY=  VOCS01,Airbag: Innenraumkamera,
+ENTRY=  EMA_FA,Aufroller, Eletromechanischer
+//ENTRY= AHM_E65,Anhängermodul,
+ENTRY=  BEHO60,Behördenmodul,
+ENTRY=,,
+ENTRY=    CAS4,Car Access System CAS,
+ENTRY=,,
+ENTRY=    FZD3,Dach / Funktionszentrum,
+//ENTRY= SHD_MDS,Dach / Schiebehebedach für Touring,
+//ENTRY= DWA_E65,Diebstahlwarnanlage E90/E91,
+//ENTRY= SINE_65,DWA Sirene und Neigungsgeber E90/E91,
+//ENTRY=  DWA_63,Diebstahlwarnanlage E92/E93,
+ENTRY=,,
+ENTRY= KAFAS01,Fahrerasistenzsystem / Kamerabasiertes,
+ENTRY= RFK0101,Fahrerasistenzsystem / Rückfahrkamera,
+ENTRY=  TSVC01,Fahrerasistenzsystem / Top/sideview Kamera,
+ENTRY=    FRM3,Fußraummodul Fahrer,
+ENTRY=  GWS_01,Gangwahlschalter,
+ENTRY=  HKL_01,Heckklappenlift,
+
+ENTRY=  KOMB01,Instrumentenkombi,
+ENTRY=   JBBF3,Junction Box Beifahrer,
+ENTRY=,,
+ENTRY=  IHKA01,Klimaautomatik/ -regelung Bedienteil,
+ENTRY=  FKA_01,Klimaautomatik/ Fond,
+ENTRY=  HKA_02,Klimaautomatik/ Heckklima
+ENTRY=,,
+ENTRY=    NIVI,Nachtsichtsystem
+ENTRY=,,
+//ENTRY= PDC_E87,Park Distance Control,
+//ENTRY=  RLS_87,Regen/Licht-Sensor,
+//ENTRY=,,
+ENTRY=  SZL_01,Schaltzentrum Lenksäule,
+ENTRY=,,
+ENTRY= ZBE_01,Zentrale Bedieneinheit  ZBE,
+ENTRY= ZBEF01,Zentrale Bedieneinheit  Fond,
+ENTRY=  ZGW_01,Zentrales Gatemaymodul,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY=  FAS_01,Sitzmodul Fahrer,
+ENTRY=  BFS_01,Sitzmodul Beifahrer,
+ENTRY=  FAH_01,Sitzmodul Fahrer hinten,
+ENTRY=  BFH_01,Sitzmodul Beifahrer hinten,
+
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  CDC_E65,Changer / Audio,
+ENTRY=     CIC,Computer / Infotainment Computer,
+ENTRY=,,
+ENTRY=  CID_01,Display / Zentrales Info Display Color,
+ENTRY=  RSE_01,Entertainment hinten,
+ENTRY=,,
+ENTRY=  CIC_HD,Festplattte im CIC
+ENTRY=  CIC_GW,Gateway / MOST/CAN CIC,
+ENTRY=  HUD_01,Head Up Display,
+ENTRY=,,
+ENTRY=  AMPH70,Verstärker / Hifi,
+ENTRY=  AMPT70,Verstärker / TopHifi,
+ENTRY=,,
+ENTRY= TEL_E65,Telefon,
+ENTRY=  SAT_60,Tuner / Digitaler Satellitentuner  USA,
+ENTRY=,,
+ENTRY=  TVM_01,TV-Modul,
+ENTRY=  VSW_01,Videoswitch
+

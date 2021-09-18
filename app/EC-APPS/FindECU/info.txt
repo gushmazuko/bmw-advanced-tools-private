@@ -1,0 +1,19 @@
+Specially for english users.
+
+Original topic here: http://bmwtools.info/viewtopic.php?f=12&t=1724&start=0
+
+Notes:
+1. Tested on my e90 & daten32/39 only
+2. Designed for DDE/DME, but it should work with other modules
+3. Check i-stufe by youself
+4. You can add/edit FA_eng.txt
+5. W/o VIN you'll get all options (not exactly for your Production Code)
+6. I can't promise 100% accuracy, 99.9% only :)
+7. All at your own risk
+
+How to use - see PDF
+
+I know we all have dreams and you can help mine by donate for me 1$
+(click <Donate> label in main prorgam window)
+
+skipex78@gmail.com

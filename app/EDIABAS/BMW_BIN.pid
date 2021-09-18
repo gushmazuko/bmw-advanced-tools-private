@@ -1,0 +1,59 @@
+;{{00018174}} Created by PSIGN 2.6 - Do not modify this file !
+[Package]
+Title = EDIABAS_BMW
+Description = EDIABAS BIN (Umfang BMW: Buboltz, Drexel, Gramer, Haase, Huber)
+Version = 7.3.0_Package_1.0
+Manufacturer = BMW Group
+Language =
+
+[Files]
+;*** Buboltz ***
+File1=BIN\APIJAV32.DLL
+File2=BIN\APIJAV32MT.DLL
+
+;*** Drexel ***
+;--- B2*.LIB
+File3=BIN\B2BMW.LIB
+;--- IFH OBD
+File4=BIN\OBD32.DLL
+;     BIN\OBD.INI                  # OBD.ini ist im WINDOWS-Verzeichnis selbst zu erstellen!
+;--- IFH OMITEC
+File5=BIN\FTD2XX.dll
+File6=BIN\MFC71.DLL
+File7=BIN\MSVCP71.dll
+File8=BIN\MSVCR71.dll
+File9=BIN\OMIC0132.DLL
+File10=BIN\OMIC0532.DLL
+File11=BIN\OMITEC32.DLL
+;--- Tool32.exe
+;      BIN\TOOL32.INI              # Tool32.ini muss nicht im EDIABAS-Verzeichnis liegen!
+File12=BIN\TOOL32.EXE
+File13=BIN\TOOL32.CHM
+File14=BIN\TOOL32_E.CHM
+File15=BIN\Tool32_News.pdf
+File16=BIN\Tool32_News_EN.pdf
+File17=BIN\MSFLXGRD.OCX
+File18=BIN\REGSVR32.BAT
+File19=BIN\REGSVR32.EXE
+File20=BIN\RICHTX32.OCX
+;--- XTRACT-DLL
+File21=BIN\XTRACT32.DLL
+;--- KVP-Editor
+File22=BIN\KVP_EDIT.EXE
+;     =BIN\KVPCO.EXE               # entfällt mit Package 2.3
+
+;*** Haase ***
+File23=BIN\FUNK.ini:VXEXIST
+;     =BIN\FUNK_1.ini              # FUNK_1.ini ist ein Beispiel. Diese Datei ist nicht erforderlich.
+;     =BIN\FUNK_2.ini              # FUNK_2.ini ist ein Beispiel. Diese Datei ist nicht erforderlich.
+File24=BIN\FUNK32.DLL
+;     =BIN\Rplus.ini               # Rplus.ini ist ein Beispiel. Diese Datei ist nicht erforderlich.
+
+;*** Huber ***
+;--- sonst
+;     =BIN\EDIABAS.INI             # Existenz von EDIABAS.ini im BIN-Verzeichnis ist nicht zwingend erforderlich.
+;     =BIN\XEDICC.INI              # Existenz von XEDICC.ini nur bei Interface EDIC erforderlich.
+File25=BIN\INI.PDF
+
+; EOF
+

@@ -1,0 +1,47 @@
+Fahrgestellnummer:    Dieses Diagnosefile heißt: F.txt
+// Erstellungsdatum der FDM_340.ipo: 21.02.2006
+
+
+
+Diagnosedaten Kategorie 1 (Wake-UPs)
+
+K1 Block  Uhrzeit   Datum   RelZeit  km-St.  UBatt_in_V  Reg.t  WUP-ID Sender-Steuergerät und Bedeutung  (Wake-UPs)
+
+
+
+Legende für Kat 2:   -   FC gelöscht  (Eintrag hinter FCode)
+                     !   Löscheintrag (Eintrag hinter FCode)
+                    P/S  Primärfehler/Shadowfehler
+
+Diagnosedaten Kategorie 2 (Fehler Codes)
+
+K2 Block  Uhrzeit   Datum   RelZeit  km-St. SG-ID FCode    Stg    P/S Fehler-Klartext
+
+
+Diagnosedaten Kategorie 3 (Digital In/Out und Analog In)
+
+K3 Block  Uhrzeit   Datum   RelZeit  km-St. 
+
+
+
+Diagnosedaten Kategorie 4 (Events)
+
+K4 Block  Uhrzeit   Datum   RelZeit  km-St.   Event
+
+
+
+Diagnosedaten Kategorie 5 (Zeitgesteuerte Telegramme)
+
+K5 Block  Uhrzeit   Datum   RelZeit  FDM-rel.Zeit Tel-ID   Telegramm ; Tel.Name ; Sender
+
+
+
+Diagnosedaten Kategorie 6 (Anzahlgesteuerte Telegramme)
+
+K6 Block  Uhrzeit   Datum   RelZeit  FDM-rel.Zeit Tel-ID   Telegramm ; Tel.Name ; Sender
+
+
+
+Diagnosedaten Kategorie 15 (CAN-Corder Aufzeichnungen)
+
+K15 Block Uhrzeit  Datum    RelZeit  FDM-rel.Zeit Trigger

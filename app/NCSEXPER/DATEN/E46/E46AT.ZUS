@@ -1,0 +1,264 @@
+// Auftragsdatei: E46AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 938 570.5
+DATUM 22.01.2007
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-82   06.05.01  Léonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-82
+//   TI-433
+//
+// Aenderungsdokumentation:
+// NAEL-     Zeichn. xmal/
+// Nr.       Index   Seite Kurzbeschreibung                                                   Datum    Name
+// E E3354.P   b           Datei neu erstellt                                                 15.03.01 Léonard
+// E E3566.P   c           -SA 358 wird codierrelevant wegen RLS.C02
+//                         -SA 167,754,949 integri1ert.
+//                         -SA 168 Abgasnorm EU2 , FSW MILANSTEUERUNG hinzugefuegt.
+//                         -SA 606 wird New Generation Radio
+// E E3866.P   d           SA 861, 862 integriert.
+// E E3942.P   e           -AZ71,AZ72,AZ91,AZ92,ES92,EP33 neu hinzu.                          21.04.01 Léonard
+//                         -SA 225 entfernt, lt. PJ8016/101
+//                         -M56 Typen AU33,AZ53,EM33,EW13,BN93,BS73,BS93 entfallen, lt. PJ8433/004
+// E E3942.P   f           -ASW BATT_KOFFERRAUM zu RL Typen N42 und Cabrio N42 LL hinzugefuegt. 06.05.01 Léonard
+//                         -SA 768, 770, 790, 795 integriert, lt Statusbericht 04/2001.
+//                         -SA 433, 439, 662, 927 entfernt, lt. Stausbericht 04/2001.
+//                         -BV91 integriert.
+//                         -Entfallene Typen AU91, AL31, AL32, AL33, AL34. AL35, AL36, AL37, AL39, AZ91, AZ92, ER18,
+//                          EU91, EU92, EW91, EP91, EM91, EM92
+//                         -Typschluessel nach TAIS-Logik geaendert, wegen Doppeltreffer bei Zusteuerung der Serien SA'S
+// E EE165.P   g           -Typen EU71,AT91,EL71 integriert, noch nicht mit TAIS abgestimmt.
+// E EE309.P   h           -SA 612 wird im GT.C04 codierrelevant ab PU01
+// E EE350.P   i           -SA 375 entfallen, lt.PJ 8016/107
+//                         -SA 927 entfallen, lt. Statusbericht 5/2001
+// E EE617.P   j           -H Wort HDC1 integriert, vorhalt wegen offener Entscheidung
+//                         -SA 469, 577 entfallen, lt. Statusbericht 6/2001
+//                         -Integration SA 203 Allrad, SA 737 Interierleiste Alu
+// E EE677.P   k           -E Wort L807 integriert, gleiche Bedingung wie in ZST
+// E EE944.P   l           -SA 375 eingefuegt: Wird weiterhin benötigt für EW53.                 07.08.01 Obrman
+// E E1E23.P   m           -SA 433, 439 eingefuegt und Bedingung fuer E-Wort SBK1 ergaenzt.      10.09.01 Leonard
+//                         -Ho-Worte OHBA und OHFA entfernt.
+// E EE217.P   bo          -neues E-Wort 57TU Fuer alle FZG mit M57B30/TU (150 KW)               27.09.01 Rochal
+//                         -neues ASW  MAERZ02 ab 03.02
+//                         -neues aktive Zeitkriterium 0302 hinzu
+// E 3E77.P    bp          -Typschluessel BV91 ergaenzt                                          09.10.01 Rochal
+// E 4E40.P    br          -Typschluessel BD91/92 hinzu                                           19.10.01 Rochal
+// E 5E41.P    bs          -SA 356 hinzu, bestellbar ab 09/02, codierrelevant                    22.10.01 Rochal
+//                         -SA 638,SA 639,SA 644,SA 646  hinzu, bestellbar ab 09/02
+//                         -Aus M3 FZG mit Klimaautomatik entfaellt FSW AUC, die Funktion in SA534 intergriert.
+//                         -neues E-Wort ARSW, neues ASW AEND_RADIO_SW
+// E 8E53.P    bu          -Zeitkriterium 0303 aktiviert
+//                         -E46/2/C Facelift typen hinzu
+//                         -E46/2FL - BD11/BD12/BD31/BD32/BD33/BD51/BD52/BD53/BD71/BD91/BD92/BV13/BV51
+//                         -E46/CFL - BW11/BW12/BW31/BW32/BW33/BW51/BW52/BW53/BW72
+// E EB21.P    bv          -SA908 hinzu, nicht codierrelevant                                    04.12.01 Rochal
+//                         -Typ EV34 integriert
+// E 3164.R    bw          -PA 893 hinzu, nicht codierrelevant                                   24.01.02 Rochal
+//                          HO-Wort LEDH hinzu.
+// E 3424.R    bx          -neues ASW CSL hinzu                                                  19.02.02 Sominsky
+//                         -BL95/BL96 an Fahrzeugbeschreibung angepasst
+//                         -P730A/S962A hinzu. nicht codierrelevant
+//                         -Nachruestung DROS fuer Kundendienst hinzu                            28.02.02 Leonard
+//                         -neues ASW ALC hinzu
+// E 3716.R    by          -neues E-Wort NOT1 integriert.                                        28.03.02 Sominsky
+//                         -S620A codierrelevant ASW SPRACHEINGABE
+//                         -S644A codierrelevant ASW TEL_VORB
+//                         -E46/3/4 Facelift mit M57B30/TU (150 KW) Typen hinzu
+//                         -E46/3FL - EX71/EX91/EX92, E46/4FL - ED71/ED91/ED92/EJ92
+//                         -neues E-Wort S200 integriert
+//                         -S976A Pilotpaket Zagreb hinzu
+//                         -S975A High Line Paket hinzu
+// E 3993.R    bz          -Neues E-Wort 6GSG integriert (PN 8160/001, 8162/002)                 11.04 Sominsky
+//                         -Neues E-Wort L822 integriert
+//                         -S722A Editionspaket Lifestyle (PN 8016/140) hinzu
+//                         -S723A Editionspaket Exclusiv (PN 8016/140) hinzu
+//                         -S724A Editionspaket Sport (PN 8016/140) hinzu
+//                         -S2AAA, S2BAA, S2BBA, S2CAA hinzu, nicht codierrelevant
+//                         -S231A hinzu fuer M3 CSL (PN 8549/003)
+// E EC20.R    ca          -S703A, S706A Paket-SA hinzu, nicht codierrelevant                    19.04 Sominsky
+//                         -neues ASW TEL_PROF_US hinzu (PN 8022/319)
+//                         -S2CDA, S2CEA hinzu, nicht codierrelevant
+// E EF61.R    cc          -ASW PU03 hinzu
+//                         -Zeitkriterium 03/03 aktiviert
+//                         -P767A Paket Individualserie ZU-V4 fuer EV53 (PN 8565/081) hinzu       20.05 Sominsky
+//                         -S787A BMW LM-Raeder mit Mischbereifung (PN 8565/077) hinzu, nicht codierrelevant
+// E EH89.R    cd          -Neues ASW TEL_PROF S638A hinzu (PN 8022/318)                          17.06 Sominsky
+//                         -Nachruestung TeleService fuer Kundendienst hinzu
+// E 3355.R    ce          -S550A Bordcomputer - wird ab 03/03 Serie fuer E46/2 (BD71/BD91/BD92), 24.06 Sominsky
+//                         und fuer E46/C (BW71, BW72) (PN 8016/146)
+//                         -S399A VERDECK_EL_AUT - wird ab 03/03 Serie fuer alle ECE Modele (BW11/BW12/BW31/BW32/BW71/BW72) (PN 8016/146)
+//                         -S210A DSC3 wird ab 03/03 Serie fuer E46 (PN 8016/121)
+//                         -S106A Sicherheitsfahrzeug E46 hinzu (ersetz S847A)
+//                         -S917A Transpack hinzu fuer E46/2/4/C (PN 8053/124)
+//                         -HO-Wort BFDY hinzu, E-Wort BFDY entfaellt, Brakeforcedisplay-Funktion ist ab 03/03 bei allen US-Fzg. enthalten (PN8016/160)
+//                         -P330A, P337A Sportpaket/M Sportpaket hinzu, nicht codierrelevant
+//                         -P725A, P894A, P734A, P735A Pakete hinzu, nicht codierrelevant
+//                         -Typschluessel ET57 E46/4 Facelift mit M54B30 ZAF fuer US hinzu (PN 8021/262)
+//                         -S520A NEBELSCHEINW wird bei allen E46/2/C Serienumfang (PN 8409/006)
+//                         -S582A VORBEREITUNG FUER FAHRERTRAINING hinzu, nicht codierrelevant (PN wird vorb.)
+//                         -ASW TOP_HIFI fuer S674A, ASW HIFI_SYSTEM fuer S676A hinzu
+// E ET99.R    ch          SA 449 Mautinnenspiegel fuer Japan hinzu
+//                         -SA 319 Integrierte Universal-Fernbedienung fuer alle EURO Modele,     26.08.02 Sominsky
+//                         ET 09/03 hinzu PN 8021/271
+//                         -Neues E-Wort VOLI integriert Abweichung TAGFAHRLICHT_ECE LSZ.C33 fuer Vorserie SW3.3
+//                         -Neues K-Wort TEL3 integriert Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge
+//                         -Neues K-Wort K TEPR integriert. Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US
+//                         -ASW TEL_PROF_MOD Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US hinzu
+//                         -H-Wort TSER hinzu, K-Wort TSER entfaellt
+// E EW52.R    cj          ASW SPORTPAKET_II fuer S338A M Sportpaket II hinzu
+//                         -S930A BERUECKSICHTIGUNG PREISABHAENGK. hinzu, nicht codierrelevant
+// E E028.R    cl          E46/2 Facelift Typ BV52 hinzu                                          30.10.02 Sominsky
+// E E311.R    cm          Lt. BES78.R Verknuepfung 03/03 und 09/03 mit LSZ_CI_33 entfaellt       11.11.02 Sominsky
+//                         -E-Wort VOLI entfaellt, H-Wort VOLI hinzu
+//                         -ASW VORS_LSZ_SW3_3 entfaellt
+// E E575.R    cn          H-Wort BFDY und ASW BRAKEFORCE entfallen                        29.11.02 Sominsky
+// E E782.R    co          Verknuepfung mit LSZ_CI_30 entfaellt (Lt Hr. Herrling)          13.12.02 Sominsky
+// E 0E48.R    cp          Kommentar bei S524A ALC ergaenzt                                20.12.02 Sominsky
+// E 3168.S    cq          SA 2CP BMW LM Rad Sternspeiche 137 mit AS Bereifung hinzu (PA021/307) 24.01.03 Sominsky
+// E 3363.S    cr          E46/4FL Neue Typen AY97, EY97, EV19 fuer CKD-China hinzu (PN8040/000) 12.02.03 Sominsky
+//                         -Die N42B18/B20 erhalten eine technische Ueberarbeitung 
+//                         und werden durch N46 ersetzt (PN 8016/178) Neue Typen mit N46 hinzu:
+//                         E46/4FL - EY31, EY32, EY71, EY72, EY74, EY75, EY76, EY77, EY78, EY79, EY98, ET75, ET76;
+//                         E46/3FL - EX31, EX32, EX51, EX52       E46/5 - EZ51, EZ52, EZ71, EZ72;
+//                         E46/2FL - BX91, BX92.                  E46/CFL - BY71, BY72.
+//                         SA 964 Navi DVD bei Auslieferung anfordern hinzu (PA021/315)
+// E 3462.S    cs          Zeitkriterium 09/03 aktiviert                                    21.02.03
+// E 3859.S    ct          Zeitkriterium 09/01 und 03/02 deaktiviert                        14.03.03
+//                         H-Wort ARSW hinzu (in FA's enthalten)
+//***********************************************************************************************************
+//***********************************************************************************************************
+// E EB65.S    a           Aus TAIS-Systemtechnischengruenden (AI > 90) wird                28.03.03 Sominsky
+//                         fuer ZB Codierdaten eine neue Sachnummer verwendet
+//                         -SA 892 Chinesisch Simplified/Betriebsanl./Serviceheftg hinzu (PA021/325)
+//                         -SA 901 Sonderkontrolle Filmfahrzeug - war Sonderkontrolle allgemein (PA016/184)
+// E EF65.S    b           K-WORT ELIN, FSW SULEV_OHNE_LIN hinzu - Deaktivierung LIN-Bus-Spiegel in der HO
+//                         Die neuen Paketschlüsselnummern (DUMMY) 7AA, 7AB, 7AC hinzu
+//                         E46/4FL -  Neuer Typ EY15 fuer CKD Philippinien mit N45B16 hinzu (PA021/332)
+// E EH94.S    c           LA 8AA CHINA-AUSFUEHRUNG hinzu (PA021/314)
+//                         -N40/B16 erhaelt eine technische Ueberarbeitung und wird
+//                         durch N45/B16 ersetzt (PA016/191)
+//                         Neue Typen hinzu: E46/4FL: EY11;  E46/2FL: BX71;  E46/5: EZ31.
+//                         -Zeitkriterium 09/02 deaktiviert (nicht mehr PUSY relevant)
+//                         -SA 2M0 - INDIVIDUAL LM RAEDER 152 I, 18" mit Mischbereifung hinzu (PR805/107)
+// E ER34.S   d            E46/4FL Neuer Typ AY96 CKD-Aegypten hinzu (PA021/340)            26.06.03 Sominsky
+//                         -SA 7NA - BMW Service Inclusive hinzu (PA016/195)
+//                         -SA 1CA - SELEKTION CO2 RELEVANTER FAHRZEUGE hinzu (PA021/341)
+//                         -SA 8AB - CHINA JOINT VENTURE hinzu
+// E EY07.R   e            Neue Typen 318d E46/4- EU72 und E46/3 - EL72 hinzu (PA016/200)
+//                         -SA 8SM - Fahrgestellnummer, v. aussen sichtbar hinzu (PA021/352)
+//                         -Fuer alle Typen mit Motoren N45, N46 wird ASW KMBI_CI_08 gesetzt
+//                         -ASW MAERZ04 hinzu 
+// E 3212.S   f            SA 4AC - EDELHOLZAUSFUEHRUNG PAPPEL MASER hinzu (PA016/202)
+//                         -SA 2CU - BMW LM Rad Sternspeiche 169 hinzu PN (PA016/202)
+//                         -SA 2CV - BMW LM Rad Sternspeiche 170 hinzu PN (PA016/202)
+//                         -SA 2CW - BMW LM Rad Sternspeiche 171 hinzu PN (PA016/202)
+//                         -SA 8SP - CO2 Steuerung hinzu
+//                         -SA 633 - HANDY VORBEREITUNG BUSINESS mit Telematik-Funktion hinzu (PA016/187)
+//                         -SA 5DB - 3-PUNKT-AUTOMATIKGURT IM FOND MITTE hinzu, nicht codierrelevant
+//                         -Neues K-Wort K633 integriert Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US
+//                         -ASW TEL_BLUETOOTH hinzu
+// E E628.S   h            E46/4FL -  Neuer Typ AZ96 fuer CKD Aegypten hinzu (PA021/363)              30.09.03
+// E E825.S   j            Neues E-WORT SW40 - Deaktivierung Komfortoeffnung ueber Fernbedienung bei
+//                          E46/C GM5.C05 SW4.0 integriert
+//                         -ASW SW_4_0 hinzu
+//                         -E-WORT BFDY - Aktivierung der BFD-Funktion fuer ECE-Fahrzeuge ab 12/03 aus H-WORT reaktiviert
+//                         -ASW BRAKEFORCE hinzu
+//                         -SA 5AB - ZWEISTUFIGE BREMSLEUCHTEN ENTFALL (BFD) mit ASW ENTFALL_BFD aktiviert
+//                         -SA 152 - SONDERSIGNALANLAGE VAMA hinzu, nicht codierrelevant
+// E 4E26.S   k            Zeitkriterium 03/03 deaktiviert (nicht mehr PUSY relevant)
+//                         -SA 868 SPRACHVERSION NIEDERLAENDISCH hinzu (PA021/372)
+// E 5E62.S   l            HO-Wort PVCA - Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung TCU_IBUS US  30.10.03
+//                         -ASW AKT_PERS_V_CALL hinzu
+// E 3P25.S   m            SA 7NB - BMW Service und Repair Inclusive hinzu nicht codierrelevant (190/167)                 05.12.03
+// E 6P07.S   n            ASW BAT_H_S (SA818) hinzu                                                                      10.12.03
+// E 6P88.S   o            E46/4FL - Neuer Typ EV57 fuer SKD China hinzu (PA021/382)                                      19.12.03
+//                         -SA 7MA Competition Paket hinzu (PR732/229)
+//                         -PA 7RM LICHTPAKET (Statusbericht 12/03) hinzu
+// E 3200.T   p           SA 8ST - CODIERUNG WARTUNGSINTERVALL STUFE 3(PA021/384)                                         30 01.04
+//                        -SA 8SB - LAENDERSPEZ. TELEMATIKFREISCH. (PA021/385)
+//                        -ASW - NIEDERLAENDISCH hinzu (PA021/372)
+//                        -Neue Typen 320d E46/CFL - BS71 und BS72 hinzu
+//                        -SA 7RA - Spezial Ed. Exclusive  Carbon/Grau
+//                        -SA 7RB - Spezial Ed. Exclusive  Carbon/Zimt
+//                        -SA 7RC - Spezial Ed. Exclusive  Stratus/Grau
+//                        -SA 7RD - Spezial Ed. Exclusive  Stratus/Zimt
+//                        -SA 7RE - Spezial Ed. Lifestyle  Carbon/Grau
+//                        -SA 7RF - Spezial Ed. Lifestyle  Carbon/Zimt
+//                        -SA 7RG - Spezial Ed. Lifestyle  Stratus/Grau
+//                        -SA 7RH - Spezial Ed. Lifestyle  Stratus/Zimt
+//                        -SA 7RK - Spezial Ed. Lifestyle  Diamant/WN SW
+//                        -SA 7RL - Spezial Ed. Sport  Nachtbl/Alc. SW
+// E 3892.T   q           SA 7MA codierrelevant ab 12/04, ASW M_TRACK_MODE hinzu
+//                        -Zeitkriterium 09/04 aktiviert (PUSY relevant)
+DATEINAME                             E46AT.ZUS
+Z #0904                                           //Stand PU09_04 
+Z #0305                                           //Stand PU03_05 
+Z #0905                                           //Stand PU09_05 
+Z #0306                                           //Stand PU03_06 
+A #0901                                           //Stand PU09_01 
+A #0302                                           //Stand PU03_02 
+A #0902                                           //Stand PU09_02 
+A #0303                                           //Stand PU03_03 
+A #0903                                           //Stand PU09_03 
+A #0304                                           //Stand PU03_04 
+A #0904                                           //Stand PU09_04 
+A #0305                                           //Stand PU03_05 
+A #0905                                           //Stand PU09_05 
+A #0306                                           //Stand PU03_06 
+E EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+E ZHZN                                            //NG-Motore siehe B E138.N 
+E SBK1                                            //E46 Compact ohne SBK (E46/5+LL+BENZINER+!SA832) Ab 03/02 fuer alle LL-Modelle mit Batterie im Motorraum 
+E L807                                            //LA Japan bei (AM51,BM51,AR51,AV51,EV51,AW51,EN51,BN51,BS51)+SA920+SA845+SA853 
+E L822                                            //LA GOLF fuer ALPINA-Fahrzeuge Werk Regensburg 
+E NOT1                                            //Bauabweichung I0044.M ab 03/02, SA 112 + SA 185 EWS auf AUTOMATIK codieren 
+E S200                                            //Vorbereitung f. Sicherheitsfahrzeug (EV51/EV52), Umruestung in Mexiko, nicht relevant fuer BMW-Werke 
+E 6GSG                                            //6-Gang Schaltgetriebe fuer M54B30, M57/TU/D30 
+E SW40                                            //Deaktivierung Komfortoeffnung ueber Fernbedienung bei E46/C GM5.C05 SW4.0 
+E BFDY                                            //Aktivierung der BFD-Funktion fuer ECE-Fahrzeuge E46 ab 12/03 
+E EHIL                                            //Aktivierung der Einstiegshilfe ab 12/05 bis 03/06 
+H EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H ZHZN                                            //NG-Motore siehe B E138.N 
+H SBK1                                            //E46 Compact ohne SBK (E46/5+LL+BENZINER+!SA832) Ab 03/02 fuer alle LL-Modelle mit Batterie im Motorraum 
+H L807                                            //LA Japan bei (AM51,BM51,AR51,AV51,EV51,AW51,EN51,BN51,BS51)+SA920+SA845+SA853 
+H L822                                            //LA GOLF fuer ALPINA-Fahrzeuge Werk Regensburg 
+H NOT1                                            //Bauabweichung I0044.M ab 03/02, SA 112 + SA 185 EWS auf AUTOMATIK codieren 
+H S200                                            //Vorbereitung f. Sicherheitsfahrzeug (EV51/EV52), Umruestung in Mexiko, nicht relevant fuer BMW-Werke 
+H 6GSG                                            //6-Gang Schaltgetriebe fuer M54B30, M57/TU/D30 
+H SW40                                            //Deaktivierung Komfortoeffnung ueber Fernbedienung bei E46/C GM5.C05 SW4.0 
+H BFDY                                            //Aktivierung der BFD-Funktion fuer ECE-Fahrzeuge E46 ab 12/03 
+H RANG                                            //New Generation Radio 
+H LEN1                                            //Agilitätspaket 
+H HDC1                                            //Entfall HDC aus SE-Umfang bei Allradfzg. 
+H 57TU                                            //M57B30/TU mit der Leistung 150 KW nur Vorserienfzg. 
+H BFDY                                            //Alle Fzg. mit Brakeforcedisplay. 
+H TSER                                            //Nachruestung TeleService in der HO fuer TCU_IBUS-Stg. 
+H VOLI                                            //Abweichung LSZ.C33 TADFAHRLICHT_ECE fuer Vorserie SW3.3 
+H ARSW                                            //E-Wort ARSW ist in einigen FA's enthalten. 
+H EHIL                                            //Aktivierung der Einstiegshilfe ab 12/05 bis 03/06 
+K MYDY                                            //Mayday-Modul US ab 06/2000 und rückwirkend 
+K 0627                                            //Nachruestung Nokia-Handy, bzw. Siemens (CKM) 
+K LEDH                                            //Nachruestung LED-Heckleuchten E46/2 u. E46/C Facelift 
+K DROS                                            //Nachruestung Drossel in der HO fuer MK60-Stg. 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_IBUS US 
+K TEL3                                            //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge 
+K TEPR                                            //Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US 
+K K633                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US 
+K ELIN                                            //Deaktivierung LIN-Bus-Spiegel in der HO (Service Info) 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K 633L                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box 
+K EKPA                                            //Kundendienstlösung Akustik  -  coding data for solution of acustic problem fuel tank 
+K BCSL                                            //Nachruestung M3 CSL Bremsanlage 

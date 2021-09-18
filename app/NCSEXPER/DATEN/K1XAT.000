@@ -1,0 +1,496 @@
+// Auftragsdatei: K1XAT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 933 704.5
+DATUM 14.03.2011
+//
+//                     Kurzz.  Datum        Name
+// Bearbeiter:         EI-73   27.03.2008   Diek
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-62    M. Wolf
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum      Name
+//        a       Ersterstellung                                                           27.03.2008 Di
+//
+//
+DATEINAME                             K1XAT.000
+//
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevant)
+Z #0808                                                                       //
+//
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0808                                                                       //
+//******************************************************************************
+//******************************************************************************
+//E: aktive Ergaenzungszeilen (PUSY-Relevanz fuer Steuerung SA<100) nur WERK!
+E AEU2                                                    //Steuerung EU2
+E AEU3                                                    //Steuerung EU3
+E AEVA                                                    //altes Einspritzventil
+E AEVN                                                    //neues Einspritzventil
+E C180                                                    //Begrenzung 80 km/h
+E F650                                                    //Modell F650
+E G450                                                    //Modell G450
+E G650                                                    //Modell G650
+E ISTA                                                    //Steuerung ISTA
+E K1US                                                    //Steuerung US
+E KD01                                                    //Dummy E-Wort
+E KD02                                                    //Dummy E-Wort
+E KD03                                                    //Dummy E-Wort
+E KD04                                                    //Dummy E-Wort
+E KD05                                                    //Dummy E-Wort
+E KD06                                                    //Dummy E-Wort
+E KD07                                                    //Dummy E-Wort
+E KD08                                                    //Dummy E-Wort
+E KD09                                                    //Dummy E-Wort
+E KD10                                                    //Dummy E-Wort
+E NOSG                                                    //SG ausblenden
+E OPEN                                                    //Keine Begrenzung
+E RZ91                                                    //ROZ91
+E RZ95                                                    //ROZ95
+E BMSE                                                    //Steuerung BMSC2
+
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+H AEU2                                                    //Steuerung EU2
+H AEU3                                                    //Steuerung EU3
+H AEVA                                                    //altes Einspritzventil
+H AEVN                                                    //neues Einspritzventil
+H C180                                                    //Begrenzung 80 km/h
+H F650                                                    //Modell F650
+H G450                                                    //Modell G450
+H G650                                                    //Modell G650
+H ISTA                                                    //Steuerung ISTA
+H K1US                                                    //Steuerung US
+H KD01                                                    //Dummy E-Wort
+H KD02                                                    //Dummy E-Wort
+H KD03                                                    //Dummy E-Wort
+H KD04                                                    //Dummy E-Wort
+H KD05                                                    //Dummy E-Wort
+H KD06                                                    //Dummy E-Wort
+H KD07                                                    //Dummy E-Wort
+H KD08                                                    //Dummy E-Wort
+H KD09                                                    //Dummy E-Wort
+H KD10                                                    //Dummy E-Wort
+H NOSG                                                    //SG ausblenden
+H OPEN                                                    //Keine Begrenzung
+H RZ91                                                    //ROZ91
+H RZ95                                                    //ROZ95
+//******************************************************************************
+//SA/LA/PA-Zeilen
+W 107                                                   //Funkpruefung f. ABS
+W 113                                                   //BU Behörde USA
+W 114                                                   //BU Cruising light Spanien
+W 115                                                   //Sondermodell Comfort R850R
+W 116                                                   //BU Klebeapplikation Minzgrün
+W 117                                                   //BU Klebeapplikation Schwarz
+W 118                                                   //BU Schriftzug Polizei hochr
+W 119                                                   //BU Schriftzug Police hochre
+W 120                                                   //BU Schriftzug Gandamerie hochre
+W 121                                                   //Klebeapl. Blau
+W 122                                                   //Blinkleuchte Kanada
+W 123                                                   //Motorsteuergerät Japan
+W 124                                                   //BU LED Blitzkennleuchte Blau
+W 125                                                   //BU LED Blitzkennleuchte Rot
+W 126                                                   //BU LED Rundumblitzkennleuchte Blau
+W 127                                                   //BU LED Rundumblitzkennleuchte Rot
+W 128                                                   //Sport ABS
+W 129                                                   //Sport ABS und Sport ASC
+W 130                                                   //Koffer
+W 131                                                   //
+W 145                                                   //Speichenräder
+W 146                                                   //US-spezifische Umfänge K16US
+W 147                                                   //CKD
+W 149                                                   //Speichenräder/Endurofahrwerk
+W 156                                                   //Heizpaket
+W 164                                                   //Sitz Grau
+W 165                                                   //Sitz Bronzitbeige
+W 171                                                   //Tankcover/Heckseitenteil Grau
+W 172                                                   //Tankcover/Heckseitenteil Schwarz
+W 173                                                   //Sportrad
+W 174                                                   //Sportfahrzeug
+W 175                                                   //Entfall Strassenradsat
+W 176                                                   //Kurzer 1. Gang
+W 177                                                   //Schaltassistent
+W 265                                                   //Vollentstoerung Digitalfunk
+W 280                                                   //SU Betriebsanleitung dänisch
+W 281                                                   //SU Betriebsanleitung finnisch
+W 282                                                   //SU Betriebsanleitung griechisch
+W 283                                                   //SU Betreibsanleitung japanisch
+W 284                                                   //SU Betriebsanleitung polnisch
+W 285                                                   //SU Betriebsanleitung slowenisch
+W 286                                                   //SU Bertriebsanl. slowakisch
+W 287                                                   //SU Betriebsanleitung tschechisch
+W 288                                                   //SU Betriebsanleitung Rumänisch
+W 289                                                   //SU Betriebsanleitung Bulgarisch
+W 290                                                   //SU Betriebsanleitung Russisch
+W 291                                                   //SU Betriebsanleitung Koreanisch
+W 292                                                   //SU Betriebsanleitung Türkisch         PN PX860_113 vom 05.03.12
+W 293                                                   //SU Betriebsanleitung Ungarisch        PN PX860_1xx vom 
+W 299                                                   //Typenschild Brasilien
+W 300                                                   //Typschild Indien              PN PX860_116 vom 22.03.2012
+W 301                                                   //Typenschild Belgien
+W 302                                                   //Typenschild Frankreich
+W 303                                                   //Typenschild Italien
+W 304                                                   //Typenschild Australien
+W 305                                                   //Typenschild Spanien
+W 306                                                   //Typenschild Kanada
+W 307                                                   //Typenschild Oesterreich
+W 308                                                   //Typenschild Neuseeland
+W 311                                                   //Seitenstrahler rot
+W 313                                                   //Kennzeichenadapter
+W 317                                                   //Halteriemen f. Sitzbank
+W 318                                                   //Spritzschutz vorn
+W 319                                                   //Codierung Kat. Ch
+W 320                                                   //Xenonlicht
+W 321                                                   //Scheinwerfer Linksasymmetrisch
+W 323                                                   //Dauerlicht
+W 324                                                   //Seitenstrahler
+W 325                                                   //Seitenstrahler
+W 326                                                   //Tachometer MPH
+W 329                                                   //HWS Verstellanweisung
+W 330                                                   //RDC und DWA
+W 331                                                   //Bleifreihinweis
+W 334                                                   //Geraeuschschild Australien
+W 335                                                   //Abgas und Geräuscheschild
+W 337                                                   //Shed Kraftstoffanlage
+W 338                                                   //Langzeitgefrierschutz
+W 339                                                   //Schalldämpfer Geräusch
+W 340                                                   //Kruemmer verchromt
+W 346                                                   //Geräuschreduzierung Sch
+W 347                                                   //Schadstoffreduzierung Sch
+W 350                                                   //Auspuffanlage verchromt
+W 354                                                   //SU Alternative Übersetzung
+W 356                                                   //SA Alternative Übersetzung
+W 358                                                   //SU Sondermodell
+W 359                                                   //BU Behoerdenpaket
+W 360                                                   //Sondermodell R1150RT SAP
+W 362                                                   //Gleitrohrblende
+W 363                                                   //Cockpit Behoerde
+W 364                                                   //PA Behoerdenauftrag GE
+W 365                                                   //Tachometer KMH
+W 366                                                   //SU Verstärkungsblech
+W 368                                                   //Bereifung ohne Dunlop
+W 369                                                   //Borddaten(Behoerden)-Abweichung zur Serie
+W 370                                                   //Kraftstoffbehaelter US
+W 371                                                   //ABS III
+W 372                                                   //Instr.-Kombi KMH BF
+W 373                                                   //Frequenzkonverter für Radio
+W 376                                                   //Radio US
+W 377                                                   //HWS Bereitschaftsdienst
+W 380                                                   //Betriebsanleitung Deutsch
+W 381                                                   //Betriebsanleitung Englisch
+W 382                                                   //Betriebsanleitung Franzoesisch
+W 383                                                   //Betriebsanleitung Spanisch
+W 384                                                   //Betriebsanleitung Italienisch
+W 385                                                   //Betriebsanleitung Schwedisch
+W 386                                                   //Betriebsanleitung Niederlaendisch
+W 387                                                   //Betriebsanleitung Chinesisch
+W 389                                                   //Betriebsanleitung Portugiesisch
+W 391                                                   //Haendlerverzeichis Uebersee
+W 392                                                   //SU ohne Zusatzscheinwerfer
+W 393                                                   //SU Sondermodell
+W 394                                                   //Halter Motorrad-Navigator
+W 395                                                   //SU radio ECE
+W 396                                                   //Mehrwegverpackung Inland
+W 397                                                   //Sonderverpackung Uebersee
+W 401                                                   //ABS Teilintegral
+W 402                                                   //SA Rückenlehne
+W 403                                                   //BU Helmanschluss für Sprachdurchsageanl.
+W 404                                                   //BU Antenne 380 MHz
+W 405                                                   //SU Halbverkleidung
+W 406                                                   //SA Gussraeder
+W 407                                                   //BU City systemkoffer Fernbl
+W 410                                                   //BU City systemkoffer Titans
+W 411                                                   //SA Beifahrersitz
+W 412                                                   //Seitenstrahler VO/GE
+W 413                                                   //Soziuspaket
+W 415                                                   //ABS Vollintegral
+W 416                                                   //Elektr. Suspension Adjustment
+W 419                                                   //Seitenteil grau
+W 420                                                   //Seitenteil schwarz
+W 423                                                   //PA Zweitfarblackierung
+W 424                                                   //PA Sondermodell
+W 430                                                   //Sicherheitspaket
+W 431                                                   //SA-Paket 1
+W 432                                                   //SA-Paket 2
+W 433                                                   //SA-Paket 3
+W 434                                                   //SA-Paket 4
+W 435                                                   //SA-Paket 5
+W 436                                                   //SA-Paket 1 Asien
+W 437                                                   //SA-Paket 2 Asien
+W 440                                                   //SU ABS abschaltbar für Fahrsc.
+W 441                                                   //BU Rundumkennleuchte blau
+W 442                                                   //BU Rundumkennleuchte rot
+W 461                                                   //Vollentstörung
+W 464                                                   //BU Blitzkennleuchte blau
+W 465                                                   //BU Blitzkennleuchte rot
+W 466                                                   //BU Rundumblitzkennleuchte blau
+W 467                                                   //BU Rundumblitzkennleuchte rot
+W 481                                                   //BU Kennleuchte blau
+W 482                                                   //BU Kennleuchte rot
+W 486                                                   //BU Sirene elektronisch
+W 493                                                   //BU Tonsignalanlage elektronisch
+W 494                                                   //BU Vorb. tonsignalanlage Fra.
+W 496                                                   //SA Softtouch Sitzbank
+W 499                                                   //Tieferlegung
+W 502                                                   //BU Tachometer KMH Behoerde
+W 504                                                   //BU Tachometer MPH Behoerde
+W 509                                                   //Staerkere Stromversorgung
+W 510                                                   //Oelstandswarner
+W 517                                                   //Schaumstoffgriffe
+W 518                                                   //Sitzheizung
+W 519                                                   //Heizgriffe
+W 520                                                   //Entfall Meilentacho
+W 521                                                   //BU Anhaltesignalgeber -Bitte Folgen-
+W 522                                                   //SA Warnblickanlage
+W 523                                                   //BU Antenne 4M-Band
+W 524                                                   //ABS elektronisch
+W 525                                                   //ohne ABS elektronisch
+W 530                                                   //RDC
+W 532                                                   //BU Drehgriffbremse
+W 533                                                   //Vollverkleidung m. Gleitr
+W 534                                                   //Vollverkleidung
+W 535                                                   //Zusatzinstrumente
+W 536                                                   //BU Zusatzlüfter
+W 537                                                   //BU Zusatzbatterie
+W 538                                                   //Cruise-Control
+W 539                                                   //Bordcomputer
+W 540                                                   //Radio mit CD-Laufwerk, vorerst nur für K26
+W 541                                                   //Fahrwerk SW
+W 544                                                   //BU Verstärkte Federung
+W 546                                                   //SA Tourenfederung
+W 547                                                   //SA Sportfederung
+W 552                                                   //SA Windschild niederig
+W 553                                                   //SA Windschild hoch
+W 555                                                   //SA ohne Windschild
+W 558                                                   //SA Windschild Facelift
+W 559                                                   //SA Windschild elektr. verstellbar
+W 560                                                   //Cockpitverkleidung
+W 562                                                   //Zusatzscheinwerfer
+W 563                                                   //SA Doppelhorn
+W 565                                                   //Motorspoiler schwarz
+W 566                                                   //Motorspoiler silber
+W 568                                                   //SA Antriebsstrang SW
+W 570                                                   //BU Lichtausschaltung
+W 573                                                   //BU Nebelschlussleuchte
+W 581                                                   //Abgasrueckfuehrung SLS
+W 582                                                   //SA katalysator geregelt
+W 583                                                   //SA ohne katalysator geregelt
+W 585                                                   //SU Alternative Übersetzung / Entfall zu 10/07
+W 588                                                   //Blinker weiss
+W 589                                                   //Handschutz
+W 590                                                   //LED-Blinkleuchte
+W 592                                                   //SA Avantgarde
+W 593                                                   //Lenker Avantgarde
+W 594                                                   //BU Anhaltesignalgeber -Stop Policia-
+W 595                                                   //SA Chrompaket
+W 596                                                   //BU Anhaltesignalgeber -Stop Polizei-
+W 597                                                   //BU Anhaltesignalgeber -Stop Police-
+W 598                                                   //BU Anhaltesignalgeber -Politie Volgen-
+W 599                                                   //BU Sprachdurchsageanlage
+W 602                                                   //SA Soziussitzabdeckung
+W 603                                                   //Diebstahlwarnanlage
+W 604                                                   //SA Lenker Police
+W 605                                                   //... Versorgungsleitung
+W 610                                                   //Sitz hoch
+W 611                                                   //SA lenker hochgezogen
+W 613                                                   //SU verstellenker
+W 615                                                   //... Heizgriffe m. Verstellenk.
+W 617                                                   //SA Zusatz-Hochtonlautsprech.
+W 619                                                   //SA lenker easy rider
+W 620                                                   //SA Lenkungsdaempfer
+W 621                                                   //SA Windschild
+W 623                                                   //SU verstellwindschild mech.
+W 625                                                   //BU Schriftzug Polizei sw
+W 626                                                   //BU Schriftzug Police
+W 627                                                   //BU schriftzug Polizei
+W 628                                                   //BU Schriftzug Gendarmerie
+W 630                                                   //Integrall ABS || (2)
+W 631                                                   //SA Endurogetriebe
+W 633                                                   //Gelaendebereifung
+W 634                                                   //Tank Gross
+W 636                                                   //Kippstaender, Hauptständer
+W 637                                                   //Leder-Ausstattung
+W 639                                                   //SA Normalbenzin Bleifrei
+W 642                                                   //Einzelsitz m. Funktasten
+W 645                                                   //ABS Integral
+W 646                                                   //Ohne ABS Integral
+W 647                                                   //SA Sportgetriebe
+W 648                                                   //Overdrivegetriebe
+W 650                                                   //ASC
+W 651                                                   //SA Spritzschutz hinten
+W 652                                                   //Alu Rohrlenker
+W 659                                                   //SA Spritzschutz hinten gross
+W 660                                                   //BU Koffer für Sonderfahrzeuge LA
+W 661                                                   //SA gepäckablage m. Kofferhalt.
+W 662                                                   //BU Halter f. feuerlöscher
+W 663                                                   //SA City systemkoffer WS
+W 664                                                   //SA City Systemkoffer SW
+W 665                                                   //Gepaeck-Bruecke
+W 666                                                   //BU Feuerloescher mit Halter
+W 667                                                   //SA City Systemkoffer Blanco
+W 668                                                   //Schwarzteile
+W 669                                                   //BU Schutzbuegel vorn für Behoerde
+W 672                                                   //BU Schutzbügel vorn f. Behörde
+W 673                                                   //SA Schutzbuegel Vorn
+W 674                                                   //BU Schutzbügel hinten
+W 679                                                   //SU ohne Koffer
+W 680                                                   //SA Kofferhalterf. Alukoffer
+W 681                                                   //Kofferhalter
+W 682                                                   //BU kofferhalter Li/Re  behoerde
+W 684                                                   //ABS elektronisch Evo
+W 687                                                   //BU ohne Koffer und Halter
+W 689                                                   //BU ohne Koffer und Halter
+W 690                                                   //SA Topcase Halter
+W 691                                                   //SA ohne Sponsorenaufkleber
+W 700                                                   //SA Topcasetraeger für Alukoffer
+W 701                                                   //SA Leistungsreduzierung 1,5
+W 703                                                   //Leistungsreduzierung
+W 708                                                   //SA ohne Vorbereitung Radio
+W 710                                                   //Sonderkontrolle F.Testmasch.Export
+W 711                                                   //SA ohne Kreuzspeichenraeder
+W 712                                                   //Radio
+W 714                                                   //Sonderkontrolle F Fotomaschinen
+W 715                                                   //Sonderkontrolle F Testmaschinen
+W 716                                                   //Neues Model
+W 717                                                   //Termingebundenes Fahrzeug
+W 718                                                   //Fahrzeug Ab Werk Berlin
+W 719                                                   //Abweichung von Serienstand
+W 723                                                   //SA breitband lautsprecher
+W 725                                                   //Vorbereitung Radio-Einbau m. Lautsprecher
+W 726                                                   //SA Vorbereitung radioeinbau
+W 727                                                   //Entstoerung f. Radio
+//*****************************LA*************************************************
+W 730                                                   //Singapur-Ausfuehrung
+W 731                                                   //Schweiz-Ausfuehrung
+W 732                                                   //Kanada-Ausfuehrung
+W 733                                                   //Neuseeland-Ausfuehrung
+W 734                                                   //Australien-Ausfuehrung
+W 735                                                   //Finnland-Ausfuehrung
+W 736                                                   //England-Ausfuehrung
+W 737                                                   //Belgien-Ausfuehrung
+W 738                                                   //Commonwealth-Ausfuehrung
+W 739                                                   //Brasilien-Ausfuehrung
+W 740                                                   //Argentinien-Ausfuehrung
+W 741                                                   //Frankreich-Ausfuehrung
+W 742                                                   //Japan-Ausfuehrung
+W 743                                                   //Oesterreich-Ausfuehrung
+W 745                                                   //Italien-Ausfuehrung
+W 746                                                   //Spanien,Kanaren-Ausfuehrung
+W 747                                                   //Irland-Ausfuehrung
+W 748                                                   //Inland-Ausfuehrung
+W 750                                                   //Taiwan-Ausfuehrung
+W 751                                                   //Verstellsitzbank anthrazit
+W 752                                                   //SA Doppelbank anthrazit
+W 753                                                   //SU verstellsitzbank
+W 754                                                   //Verstellsitzbank SW
+W 760                                                   //Thailand-Ausfuehrung
+//******************************************************************************
+W 761                                                   //SA Ausstattung Canyonbraun
+W 762                                                   //SA Ausstattung Schwarz
+W 763                                                   //Navigation
+W 764                                                   //Steckdose
+W 765                                                   //Doppelsteckdose
+W 766                                                   //Komfort-Beifahrersitz
+W 769                                                   //Vorbereitung Radioeinbau
+W 770                                                   //China-Ausfuehrung
+W 771                                                   //Kreuzspeichenrad
+W 772                                                   //.. Kreuzspeichenraeder f. ab
+W 773                                                   //Sitz schwarz
+W 774                                                   //Doppelsitzbank niedrig
+W 775                                                   //SA Komfortsitz
+W 776                                                   //Fahrersitz niedrig
+W 778                                                   //SA Doppelstecksitzbank hoch
+W 779                                                   //SA breitreifen
+W 782                                                   //SA Bereifung Continent +
+W 783                                                   //Bereifung Metzeler
+W 785                                                   //Bereifung Bridgestone
+W 786                                                   //Bereifung Pirelli
+W 788                                                   //Bereifung Michelin
+W 789                                                   //Bereifung Dunlop
+W 790                                                   //SA Rad Dynamic
+W 797                                                   //SA Verstellsitzbank rot
+W 798                                                   //SA Sitz Sepia
+W 852                                                   //LA Indien                     PN PX860_116 vom 22.03.2012
+W 877                                                   //Funkvorbereitung
+W 901                                                   //Anlaufunterstuetzung FB
+W 902                                                   //Anlaufunterstuetzung BG1
+W 903                                                   //Anlaufunterstuetzung BG2
+W 904                                                   //Anlaufunterstuetzung VS Pulk2
+W 905                                                   //Anlaufunterstuetzung VS Pulk3
+W 906                                                   //Anlaufunterstuetzung VS DE
+W 907                                                   //Anlaufunterstuetzung VS Pulk4
+W 908                                                   //Sonderbauteile für Funktionsbau oder Prozessserie
+W 909                                                   //Anlaufunterstuetzung Prozesserie
+W 910                                                   //Anlaufunterstuetzung
+W 990                                                   //Steuerung Anlaufserie
+W 991                                                   //Steuerung Vorserie
+W 992                                                   //Steuerung Haendlererstausstattung
+W 993                                                   //EU-1
+W 994                                                   //Erweiterung Serienumfang
+W 995                                                   //Erweiterung SA-Umfang
+W 997                                                   //Auftragssteuerung
+W 998                                                   //Steuerung Sonderfahrzeuge/ Behoerdensteuerung
+//
+//
+//******************************************************************************
+// TYPSCHLÜSSEL
+//*******************************************************************************
+//
+W 0172                  K1X                                                              //R13
+W 0173                  K1X                                                              //R13 GD
+W 0180                  K1X                                                              //?
+W 0182                  K1X                                                              //R13 US
+W 0183                  K1X                                                              //R13 GD US
+W 0175                  K1X                                                              //R13 MUe
+W 0176                  K1X                                                              //R13 DA MUe
+W 0185                  K1X                                                              //R13 US MUe
+W 0186                  K1X                                                              //R13 DA US MUe
+W 0171                  K1X                                                              //R13/31 CKD Brasilien
+W 0178                  K1X                                                              //R13/31
+W 0179                  K1X                                                              //R13/31 US
+W 0188                  K1X                                                              //R13/40
+W 0189                  K1X                                                              //R13/40 US
+W 0135                  K1X                                                              //R13/40 CKD Brasilien
+W 0136                  K1X                                                              //R13/40 "Dakar"
+W 0137                  K1X                                                              //R13/40 "Sertao" CKD
+W 0146                  K1X                                                              //R13/40 "Dakar" US
+W 0174                  K1X                                                              //K14
+W 0177                  K1X                                                              //K14/02
+W 0184                  K1X                                                              //K14 US
+W 0187                  K1X                                                              //K14/02 US
+W 0164                  K1X                                                              //K15 (SCR)
+W 0141                  K1X                                                              //K15 (Country)
+W 0165                  K1X                                                              //K15 (HE)
+W 0142                  K1X                                                              //K15 (Challenge)
+W 0167                  K1X                                                              //K15 (SM)
+W 0143                  K1X                                                              //K15 (Moto)
+W 0194                  K1X                                                              //K15 US (SCR)
+W 0151                  K1X                                                              //K15 US (Country)
+W 0195                  K1X                                                              //K15 US (HE)
+W 0152                  K1X                                                              //K15 US (Challenge)
+W 0197                  K1X                                                              //K15 US (SM)
+W 0153                  K1X                                                              //K15 US (Moto)
+W 0145                  K1X                                                              //K16
+W 0155                  K1X                                                              //K16 US
+W 0191                  K1X                                                              //C1/125
+W 0192                  K1X                                                              //C1/200
+//--------------------                                                                              ---------------

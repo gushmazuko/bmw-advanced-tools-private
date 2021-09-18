@@ -1,0 +1,162 @@
+// Auftragsdatei: E70AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: x xxx xxx.5
+DATUM 03.05.2016
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EG-75   08.02.06  Léonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EI-73
+//   TI-433
+//
+// Aenderungsdokumentation:
+// NAEL-     Zeichn. xmal/
+// Nr.       Index   Seite Kurzbeschreibung                                                   Datum    Name
+DATEINAME                             E70AT.ZUS
+Z #0713                                           //I_13-07-500 
+A #0604                                           //I_2_10 
+A #1004                                           //I_2_20 
+A #0105                                           //I_2_21 
+A #0305                                           //I_3_10 
+A #0905                                           //I_3_20 
+A #1005                                           //I_3_30 
+A #0306                                           //I_410 
+A #0906                                           //SOP 
+A #0407                                           //I_07-03-500 
+A #1007                                           //I_07-09-500 
+A #0408                                           //I_08-03-500 
+A #1008                                           //I_08-09-500 
+A #0409                                           //I_09-03-500 
+A #1009                                           //I_09-09-500 
+A #1209                                           //I_09-12-500 
+A #0410                                           //I_10-03-500 
+A #1010                                           //I_10-09-500 
+A #0411                                           //I_11-03-500 
+A #1011                                           //I_11-09-500 
+A #0412                                           //I_12-02-500 
+A #0712                                           //I_12-07-500 
+A #0313                                           //I_13-03-500 
+A #0713                                           //I_13-07-500 
+E TARN                                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer 
+E A070                                            //70 Ah AGM battery 
+E A090                                            //90 Ah AGM battery 
+E A105                                            //105 Ah AGM battery 
+E B070                                            //70 Ah standard battery 
+E B080                                            //80 Ah standard battery 
+E B090                                            //90 Ah standard battery 
+E B110                                            //110 Ah standard battery 
+E EFZG                                            //Testing vehicles (CLASS_PWR)                                                  //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll 
+E EWS4                                            //all cars with EWS4, in the moment for 6 cyl. DME (MSV80), not coding relevant, only for CASCADE EWS synchronization 
+E FITT                                            //FITT-Betrieb 
+E 200S                                            //Special coding security vehicle Mexico                                        //Sondercodierung Sicherheitsfahrzeug Mexiko 
+E OASD                                            //Without suction throttle                                                      //Ohne aktive Saugdrossel 
+E XJSW                                            //Scheinwerfertausch Japan, abgestimmt mit Gerd Pitz, 31.03.2011 
+H TARN                                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer 
+H A070                                            //70 Ah AGM battery 
+H A090                                            //90 Ah AGM battery 
+H A105                                            //105 Ah AGM battery 
+H B070                                            //70 Ah standard battery 
+H B080                                            //80 Ah standard battery 
+H B090                                            //90 Ah standard battery 
+H B110                                            //110 Ah standard battery 
+H AUFS                                            //Upfront sensor deactivating for ECE                                           //Upfrontsensor-Deaktivierung  fuer ECE 
+H N54B                                            //Motorvariante                 nicht KMM-relevant (Monika Weber, 19.07.2010) 
+H N63B                                            //Motorvariante                 nicht KMM-relevant (Monika Weber, 19.07.2010) 
+H E524                                            //FRM//Adaptive Headlights, deletion for E71 Test vehicle                       //Entfall Adaptives Kurvenlicht fuer E71 Versuchsfahrzeuge 
+H EFZG                                            //Testing vehicles (CLASS_PWR)                                                  //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll 
+H CLTC                                            //Mexiko, Russland wegen fehlender LA (CAS) 
+H ZVSE                                            // Thailand wegen fehlender LA (CAS) 
+H AQBS                                            //Coding for transverse acceleration sensor                                     //Quer-Beschleunigungssensor-Codierung fuer Vorserienfahrzeuge vor E070-07-12-420 
+H E8SZ                                            //Decoding turn off light 
+H VAFS                                            //ARS//Coding for old "VA-stabilizer" with spring-operating storage             //Kodierdaten fuer den „alten“ VA-Stabi mit Federspeicher 
+H EWS4                                            //all cars with EWS4, in the moment for 6 cyl. DME (MSV80), not coding relevant, only for CASCADE EWS synchronization 
+H FITT                                            //FITT-Betrieb 
+H DEWL                                            //Decoding welcome light 
+H BELS                                            //Kennung fuer BELS3 Fahrzeuge 
+H KOKU                                            //CO2_KOKU                      //Compressor clutch for ECE 8Zyl with option code 01CB till PU07                //Kompressor Kupplung fuer ECE 8Zyl mit SA1CB vor PU07 
+H FSEA                                            //FUNKSCHLUESSEL                //New concept for KEY-CHAIN TRANSMITTER 
+H AFSI                                            //AFS_IEX                       //AFS fuer IEX-Fahrzeuge 
+H MASK                                            //RADIO_MASK                    //option code 663+ E MASK = MASK instead of CHAMP                               //Radio BMW Professional (SA663) with MASK 
+H IGRX                                            //IGR_6BMOT                     //6 cyl. DMW with intelligent battery sensor                                    //IRG-Codierung fuer 6Zyl. 
+H AGKB                                            //OHNE_AGKB                     //Without seatbelt load limiter front passenger                                 //Ohne Gurtkraftbegrenzer Beifahrer (PVL E70) 
+H VARS                                            //VENTILBL_ALT                  //ARS valve block from E070-06-10-330 in E070-06-10-410 and higher 
+H 200S                                            //Special coding security vehicle Mexico                                        //Sondercodierung Sicherheitsfahrzeug Mexiko 
+H 201S                                            //KMM-Steuerung Securitymodul L4 Mexico 
+H OASD                                            //Without suction throttle                                                      //Ohne aktive Saugdrossel 
+H MEBS                                            //Steuerung im Werk zum Verbau vom Endbeschlagsstrammer Airbag 
+H EEKP                                            //Fahrzeuge vor 10-03-450 nachcodiert ohne durchgefuehrte Umbaumassnahmen 
+H NPOW                                            //Umruestung / Leistungssteigerung N54, Projektnr.: 190150 / 190577 
+H EDTV                                            //Verbau DVB-T anstatt DTMB in China            seit 15.07.2010 nicht mehr relevant (Hr. Wefers, 19.07.2010) 
+H ECEW                                            //AHL-US wird duch AHL-ECE ab 03/11 ersetzt     kann zu 11-03-450 entfallen (Roland Wagener, 20.07.2010) 
+H KATB                                            //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E70US nur fuer KMM 
+H TINT                                            //Telematikintegration fuer verschiedene Entwicklunngs- und Test-Plattformen, keine Steuerung im Werk, nur als H-Wort 
+H KLE1                                            //LED-Kennzeichenleuchte, einfliessend nach 12/2010, Nach Einsatz der Maerz-Massnahmen 2011 loeschen! 
+H IAGR                                            //Inverses AGR-Ventil                                                           //Fallback fuer Produktion 
+H XJSW                                            //Scheinwerfertausch Japan, abgestimmt mit Gerd Pitz, 31.03.2011 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST                                //NA :000000275 
+K RASK                                            //Aktivierung RING Bit im MASK 
+K AHMU                                            //Retrofitting Towbar with removeable ball head for US                          //Nachruestung Anhaengerkupplung, Kopf abnehmbar for US         //NA 000000505 000000142 
+K IPOD                                            //Nachruestung iPod                                                             //000000316 
+K K3AC                                            //Retrofitting Towbar pivoted                                                   //Nachruestung Anhaengerkupplung schwenkbar                     //NA 99301 
+K OEOE                                            //Open without unlock (GB)                                                      //fuer Oeffnen ohne Entriegeln GB                               //NA 000000114 
+K NSWA                                            //Front fog lamp out if high-beam light ore headlight flasher on (US only)      //NSW aus, wenn FL oder LH ein (nur fuer USA)                   //NA 000000247 
+K OKLA                                            //Comfort switch-off, deletion                                                  //Ohne Komfortlichtabschaltung 
+K OI03                                            //Side bag front left deactivating                                              // Deaktivierung Sidebag vorn links                             //NA :000000262 
+K OI04                                            //Side bag front right deactivating                                             //Deaktivierung Sidebag vorn rechts                             //NA :000000264 
+K OI11                                            //Seatbeltreminder driver deactivating                                          //Deaktivierung FAHRER SEATBELTREMINDER                         //NA 000000272 
+K OI12                                            //Seatbeltreminder front passenger deactivating                                 //Deaktivierung BEIFAHRER SEATBELTREMINDER                      //NA 000000272 
+K ACKT                                            //AC ON by climate mode change via AUTO button                                  //AC EIN bei Klimastilwechsel ueber AUTO Taste                  //NA 000000405 
+K VADK                                            //Coding for new VA-stabilizer (dual pistons stabilizer)                        // Kodierdaten fuer den „neuen“ VA Stabi (Doppelkolbenstabi)    //NA 000000471 bzw. 190985 fuer E70 
+K KLED                                            //After-market equipment led lights for trailer                                 //NA 000000452 
+K KFDM                                            //Flexible diagnostic module not coding relevant                                //Flexibles Diagnose Modul 
+K ID4P                                            //4 ID-Geben fuer Passiv Access 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K OSVS                                            //Deaktivierung Funktion "Low Sprachverarbeitung" in MASK / M-ULF 
+K NNIC                                            //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"             //NA 000000481 vom 21.11.07 von Frank Reuter 
+K C107                                            //Umruestung der Aktivierung des mech. Verfahrens (CKM_A107)                    //NA 000000267 
+K OKOM                                            //Umruestung Komfortoeffnen Deaktivierung, Projektnr.:000000494                 //NA 000000494 
+K K5DA                                            //Front passenger deactivating                                                  //BEIFAHRERAIRBAG-DEAKTIVIERUNG         //NA 000000521 000000106 
+K FLCN                                            //Nachruestung Schwellwertsatz normal                                           //NA 000000520 
+K FLCS                                            //Nachruestung Schwellwertsatz sehr empfindlich                                 //NA 000000520 
+K FLCE                                            //Nachruestung Schwellwertsatz empfindlich                                      //NA190472 
+K FLCU                                            //Nachruestung Schwellwertsatz unempfindlich                                    //NA190472 
+K K15A                                            //Deaktivierung der Funktion KL15 Abschaltung per SW                            //NA 000000582 
+K KPTC                                            //Obstruct of the new box of building blocks PTCs in vehicles with production date before 03/2010    //Verbau des neuen Baukasten PTCs in Fahrzeugen mit Produktionsdatum vor 03/2010 //NA 126181 
+K IAGR                                            //Inverses AGR-Ventil                                                           //NA190307 
+K IRRE                                            //Umruestung / Ispeech One Shot Irland PN 187425                                //NA 187425 
+K MUEH                                            //Nachruestung / Umruestung Facelift Heckleuchten                               //NA 161461 
+K MUEF                                            //Nachruestung / Umruestung Scheinwefer Facelift fuer E70                       //NA 190102 
+K ONSW                                            //Nachruestung / Entfall NSW fuer E71 Perfomance Paket FRM                      //NA 190101 und 190374 
+K KSHK                                            //Nachruestung / Temperaturerhoehung Sitheizung SM                              //NA 190112 
+K OSAT                                            //Entfall Satellitenbilder in einigen Laendern CIC                              //NA 190130 
+K KAMP                                            //Ersatz Can-Bus HiFi AMP durch Low Cost HiFi L4                                //NA 190168 
+K NPOW                                            //Umruestung / Leistungssteigerung N54/N63                                      //NA 190150/190173/190577 
+K KLOA                                            //Umruestung / E70N62 Gasannahme beim losfahren                                 //NA 190156 / 190487 
+K KVNK                                            //Nachruestung / Kodierpaket Standnutzer NICHT FUeR DEN E72                     //NA 190190 
+K KATB                                            //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E70US nur fuer KMM   //NA 190215 
+K SWUS                                            //Nachruestung LED-Tagfahrlich aus 03/11 in aeltere Fahrzeuge                   //NA 190248 
+K OK3Z                                            //DDE-Datenstand bei Oxi Kat Tausch E70US, nur KMM                              //NA 190369 
+K DMBA                                            //Nachruestung DMB-Audio-Funktion fuer Fahrzeuge mit SA 654                     //NA 190384 / NA 190458 
+K FLHL                                            //Nachruestung Facelift-Heckleuchte E71                                         //NA 190398 
+K DSLI                                            //Deaktivierung Speed Limit Information                                         //NA 190392 
+K SWTK                                            //Nachruestung Offsetwert zum Erkennen der Tuerkontakte                         // 
+K NEKP                                            //Nachruestung einer geregelten EKP fuer N52 bei Benzingeruch                   //NA 190446 
+K OKOS                                            //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877                  //NA 190626 
+K AL6V                                            //Umruestung Stabilisator Vorderachse                                           //NA 190623 und NA 190980 fuer E71, bzw. 190985 fuer E70 
+K AL6H                                            //Umruestung Stabilisator Hinterachse                                           //NA 190624 
+K CMPB                                            //Umruestung SW Parkbremse                                                      //NA 190749 
+K TVM2                                            //Nachruestung TVM2, digitales TV                                               //NA 190825 
+K UC4G                                            //Umruestung COMBOX von 2G nach 4G, nur US                                      //NA 191280 

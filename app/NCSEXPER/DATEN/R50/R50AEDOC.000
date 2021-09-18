@@ -1,0 +1,970 @@
+// DOCUMENTATION OF CODING DATASET CHANGES: R50
+//
+// Initial U.P.G:  61.35
+// Ident-Number:   9 170 425.5 a
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Reproduction and copying of this document, utilisation and
+//   disclosure of its contents not permitted without express
+//   consent. Non-compliance brings liability for damages. All
+//   rights in the event of grant of patent or design
+//   registration reserved.
+//
+//
+// Tab positions:   1 (NAEL-Number)
+//                 15 (Index)
+//                 17 (changed/new Tables)
+//                 22 (Date)
+//                 33 (Abbrev.)
+//                 41 (Name)
+//
+//
+DATEINAME                       R50AEDOC.000
+
+//NAEL-Nr.    Index  Date       Dept.   Name
+//              Tables          description
+
+////////////////////////////////////////////////////////////////////////////////
+NAEL EPL21.1  a      08.09.99   EE-62   Wolf
+                AEDOC,SGFAM,    -Initial Datasets created for R50
+                ZST,CVT,SGET,
+                ZCSUT,CONF,
+                SGVT
+
+                     10.11.99   EE-62   Wolf
+                ZST,SGET,CVT    -EMS_R50.C01, SHD_R50.c01 integrated
+                CONF,SGFAM,     -PDC.C03, EWS3.C81 integrated
+                ZCSUT           -MRS3R50.C02 integrated
+                                -BC1.C02 integrated
+                                -KMB.C01 integrated
+
+     EPL21.1  a      15.12.99   EE-62   Wolf
+                CVT,ZCSUT       -PDC.c03 with new R50 parameters and R53 parameters
+                                 integrated
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+NAEL EPL22.N  a      19.01.00   EE-62   Wolf
+                CVT, ZST        -updated PDC.c03 integrated, ASW RAINSENSOR changed to
+                                 VISIBILITY_PACK
+
+                     04.02.00   EE-62   Wolf
+                CVT,CONF,SGFAM, -CBD for NAVI (GT.c02) integrated
+                SGET,ZCSUT
+
+                     28.02.00   EE-62   Wolf
+                ZST             -option codes updated due to Project supplements (PS) 8850/018 and /014
+
+                     03.02.00   EE-62   Wolf
+                SGET,SGFAM,     - MK60.C08 integrated
+                ZCSUT,CONF,CVT
+
+                     06.03.00   EE-62   Finster
+                CVT             -SHD_R50.C01 new FSW SHD/ASD integrated, parameters corrected
+                CVT,SGVT,SGET,  -KMB_R50.C02 integrated, parameters corrected
+                ZST
+
+                     07.03.00   EE-62   Finster
+                CVT             -new EMS_R50.C01 integrated for PL2/2
+
+                     14.03.00   EE-62   Wolf
+                CVT             -BC1.C02: changes according drawing index b updated
+
+                     16.03.00   EE-62   Finster
+                CVT             -new TV2.C02 integrated (SA601 TV); GT.C03: parameters corrected, GT.C02 deleted
+
+                     27.03.00   EE-62   Wolf
+                SGET            -coding of EMS_R50.c01 disabled for PL2/2 (Communication problems)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EFB_1.N  a      04.05.00   EE-62   Wolf
+                SGET,SGFAM,CONF -EMS2K enabled (VIN will not be written by coding-process), new ASW FB1,
+                CVT,ZST,ZCSUT    LWS5 integrated
+
+                     16.05.00   EE-62   Wolf
+                CVT, ZST, SGET  -BC1.C02 changes (index[c]) integrated, new ASW TAIWAN integrated,
+                                 GT.C04 integrated,updated EMS_R50.c01 integrated,
+
+                     31.05.00   EE-62   Wolf
+                                -new LWS5.C01 integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EFB_2.N  a      07.07.00   EE-62   Wolf
+                 ZST,CVT,SGET,  -MRS4_12.C50 integrated, E-word TRANSIT deleted
+                 SGFAM,CONF     -new E-Word FB2, new ASW (acoustic belt wrng) for mrs4
+                 ZCSUT,SGVT     -new Ra_ng.c01 integrated, new ASW OCEANIC integrated
+                                -new PDC integrated (ZI f), new shd.c02 integrated
+                 CVT            -CVT_HYBRID_MODE (EMS) and DIPPED_BEAM_NAS (BC1) integrated
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N  a      04.09.00   EE-62   Wolf
+                                -release backward compatible until FB2 vehicles only!!
+                 ZST,CVT,SGET   -new MK60.C07 integrated, MK60 not coded in vehicles prior to PTO!
+                 KMB_R50.C02,   -new ASW PTO, new EMS_R50.c02 integrated (Checksum)
+                 KMB_R50.C01    -engl. version of EWS.c81 replaced with german version
+                                -TEILENUMMER[0] deleted from KMB.C01 /C02 and SWTFSW.DAT
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E2E68.N  b      26.10.00   EE-62   Wolf
+
+                CVT,EMS_R50.C01 -Individ-Keywords translated to german
+                EMS_R50.C02
+
+                     13.10.00   EE-62   Wolf
+                CVT,ZST,SGET    -KMB_R50.C03 added, KMB_R50.C02 replaced with german version
+                SGVT,KMB.C02     ASW DREHZAHL_MESSER added, rest of ASW's translated to german
+                KMB.C03          new ASW PS1 (E-word) added
+
+                     17.10.00   EE-62   Wolf
+                CVT,ZST,BC1.C02 -new BC1.c02 (index e) integrated, new ASW SWA (SA502)
+
+                     23.10.00   EE-62   Wolf
+                CVT,SGVT,       -new MRS4_12.C51 integrated
+                MRS4_12.C51
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N  c      13.11.00   EE-62   Wolf  (HO-CD25 release)
+                CVT,ZST         -Order of SPRACHE changed (PSW englisch, golf),GM-Key changed (KM_TACHO ??????1? deleted on LL)
+
+                     17.11.00   EE-62   Wolf
+                CVT             -updated kmb_r50.c03 integrated (bug fix sia data)
+
+                     21.11.00   EE-62   Wolf
+                CVT,ZCSUT,ZST   -updated kmb_r50.c03 integrated (fuel sender data now coded)
+                                 SA546 (Revcounter) now mandatory on Cooper and Cooper_S (ZCS recoding
+                                 for older cars via ZCSUT required)
+
+                     27.11.00   EE-62   Wolf
+                CVT             -updated EMS_R50.C02 integrated
+
+                     06.12.00   EE-62   Wolf
+                CVT             -CVT_SIL (shift interlock) deactivated for all R50 until CVT SOP (AUG01).
+
+                     18.12.00   EE-62   Wolf
+                ZST,CVT,SGVT,   -new ASW's (PS2/ABG_AKTIV), SA530 Standard on RC33 (PS8850/036)->type area ZST changed
+                SGET,R50ausbl    MRS4_12.c53 integrated, updated BC1.c02 [index f] integrated, KMB_R50.C04
+                                 integrated
+
+                     20.12.00   EE-62   Wolf
+                ZCSUT,SGET,CVT, -new ECU Remote Instrument Pack (RIP.C01) integrated, new ECU LWR.C03 integrated,
+                SGFAM,CONF.BAP   new SHD.C03
+
+                     15.01.01   EE-82   Wolf
+                CVT             -updated BC1.C02 (index g) integrated,updated MK60.C07 (index c) integrated
+                                 updated EMS_r50.c02 (index b) integrated
+
+                     23.01.01   EE-82   Wolf
+                ZST,SGET        -H GVN lines FB2,PTO,PS1,PS2 deleted for SOP, logical conditions
+                                 for RIP and MK60 modified (ASW's PS2 and PTO deleted)
+                                 Updated MRS4_12.C53 (with fire parameters) integrated
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+NAEL S6E96.N  d      30.01.01   EE-82   Wolf
+                CVT,MRS4_12.C53 -logical conditions of beltwarning functions of MRS4_12.c53 modified
+                KMB_R50.C04,     (GURTSCHLOSS_SPANNUNGSS_1/2 dependant on US types only, not on SA845 anymore),
+                RIP_R50.C01      Fire parameters withdrawn (to be released later)
+                SGET             Updated KMB_R50.C04 and RIP_R50.C01 integrated (modified dimming parameters).
+                                 DSC not coded in automatic vehicles due to software bugs in EMS ECU.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL W6E96.N  e      15.03.01   EE-82   Wolf
+                ZST             -new, not coding relevant feature codes (0308,0320) added to ZST file and
+                                 released to track
+
+                     03.02.01   EE-82   Wolf
+                ZST             -bug fix Australia version (SA 825 OZEANIEN deleted from GM Key)
+
+                     05.03.01   EE-82   Wolf
+                SGET            -MK60 coded on all R50 (also ABS),updated MK60.c07 (index d) integrated
+                                (Musterfreigabe M6E96.N)
+
+                     09.03.01...EE-82   Hahn
+                SGET,SGVT,CVT   -new CBD RIP_R50.C02 and KMB_R50.C05 integrated
+                                (Zwischenfreigabe Z6E96.N)
+
+                     15.03.01   EE-82   Wolf
+                SGET,SGFAM,CVT, -new ECU RLS.C02 (Rain Light Sensor) integrated (starting with PU01);
+                ZCSUT,ZST,CONF,  New ASW PU01, BC1.c02 (index h), MRS4_12.C52 integrated;
+                SGVT             ASW MINI replaced with MINI_ONE;
+                                 KMB_R50.C02 and KMB_R50.C03 removed from data set
+                                 ZCS recoding for MRS4_12.C52 implemented (deletion of E-word ABGA)
+                                 ZCS recoding for series R50 (Cooper, Cooper_s) removed (bug fix PTO/PS1)
+                                 SA601 (TV) and 606(Low_Navi) deleted (no offer on R50)
+                                 SA265 (RDC) deleted (standard on all R50)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL B3687.P  f      27.03.01   EE-82   Wolf
+                CVT,ZCSUT       -updated RLS.C02, PDC.C03 (index i) integrated
+                                 updated RIP_R50.C02 (index b) and KMB_R50.C05 (index b) integrated
+                                 ZCS recoding of MRS4_12.C52 altered (E and F for PS2 deleted)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3728.P  g      06.04.01   EE-82    Wolf (Freigabe HO-CD+Werk)
+                                -MRS4_12.C53 (index b) and C52 (index b) with new fire calibration parameters
+                                 integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3905.P  h      19.04.01   EE-82    Wolf
+                CVT             -updated BC1.C02 (index i) integrated (LAMP_WITH_AUX_OFF now active for all R50,
+                                 LAMP_WITH_AUX_SIDE now not active for all R50).
+                                -updated KMB_R50.C05 (index d) integrated (new values for SIA_LITER_ZAEHLER and
+                                 SIA_LITER_GRENZE).
+                                -updated KMB_R50.C04 (index d) integrated (new values for
+                                 KALIBRIERUNG_WEGSTRECKE and KALIBRIERUNG_TACHO).
+                                -updated RIP_R50.c01/c02 (index d) integrated (new values for
+                                 KALIBRIERUNG_TACHO)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3929.P  i      28.05.01   EE-82     Wolf  (Freigabe Nachtrag CD26.1)
+                                -updated MRS4_12.C52 (index c) and BC1.C02 (index j) integrated
+                ZST             -new SA's 0169, 0862, 0986 added, SA543 deleted
+                CVT             -updated MK60.C07 integrated
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE405.P  j      02.07.01   EE_82      Wolf  (Freigabe CD 27)
+                CVT,ZST         -updated BC1.C02 (index k) integrated, EMS_R50.C03 integrated,
+                SGVT,SGET,CVT,   new ASW's MILANSTEUERUNG, ABGASNORM_EU3, TROPEN added
+                R50ausbl.dat    -updated gt.c04 integrated (TELEMATIK and AUTOMATISCHER_NOTRUF disabled)
+                                -CRUISE_CONTROL activated for Cooper_S
+                                -MK60.C08 integrated
+                                -SA842 cold climate version added
+                                -BC1.C03 integrated, new ASW NEBELSCHEINW (Front fog lamps) added,
+                                 WINDOW_AUTO_UP_DRIVER disabled for NAS
+                                -updated KMB_R50.C05 (index d) integrated
+                                -Car-memory functions synchronized
+                                -EMS_R50.C01 removed
+                                -coding of RLS now independent from PU01 (starts 1201)
+                                -updated LWR.C03 (index i) integrated
+
+
+                              Korrektur PSW komfort_schliessung auf komfort_oeffnung nur fuer HO-CD
+                              fuer werk und sonstige user unkritisch bis zur naechsten freigabe
+                              --> BC1.c02 u. BC1.c03 neu konvertiert + neue SWT und auf HO verzeichnis gespielt
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE713.P  k     23.07.01    EE-82  Wolf
+                CVT,SGET,SGVT   -MRS4_12.C50/C51 removed, coding of DSC for automatic vehicles activated
+                ZCSUT,Ausbl.dat
+                ZST             -SA823 TROPEN standard on RC33 and all RE types
+                                -SA845 acoustic beltwarning standard on NAS types
+                                (27.07.: ZCSUT bug corrected and distributed without official release)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE849.P  l     03.08.01    EE-82  R.Hahn
+                CVT             -updated Kmb_R50.C05 (index e) integrated
+                                AKUSTIK_WARN_UEB_LEITUNG, disable for all R50
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE932.P  m     16.08.01    EE-82  R.Hahn
+                CVT             -updated BC1.C03 (index c) integrated
+                                HEIMLEUCHTEN, wert_01 for all R50 with BC1.C03
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E0E35.P  n     31.08.01    EE-82  R.Hahn  (Freigabe update CD 27)
+                CVT             -updated BC1.C03 (index d) integrated
+                                REF_POINT_STEPPER_MOTORS, Change the nominal position from 114 steps to 57
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E2E37.P  o     20.09.01    EE-82  Wolf  (Freigabe CD 28)
+                ZST             -SA948 integrated, SA895 integrated
+                CVT             -Order for Function TRANSMISSION modified (all R50 auto coded with PSW cvt_step)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E5E69.P  p     24.10.01    EE-82  Wolf
+                ZST,CVT,        -SA894 HK 2 pakage, SA955 MO-Package, SA956 Gulf-Package, SA957 HK Package II added
+                ZCSUT,SGET,     -ZST index increased to n
+                SGVT            -SA877 Deletion Cross Over Control added, updated CBD BC1.c02/c03 integrated
+                                -MK60.C08 forced for MAERZ02
+                                -ZCS-Recalculation for ABG ECU removed
+                                -Functions DWS_UEBER (KMB) and REIFENDRUCKWARNSYSTEM (MK60) dependent on MAERZ02
+                                -CABD Update (1.02) and new SGBD for center pack (KOMBI50f)
+                                -CABD Update (1.03) for LWR
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E6E84.P  q     06.11.01    EE-82  Wolf (Freigabe Update CD 28.1)
+                CVT             -updated KMB_R50.C05 [f] integrated:
+                                 reverse gear audible warning for JAPAN market
+                                -updated MK60.C07 [f] and MK60.C08 [b] integrated
+                                 modified parameters for DSC
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEC57.P  r     18.12.01    EE-82  Wolf
+                ZST             -SA586 Alloy s-spoke wheels added, ZST index increased to o
+                                -LA846 TAIWAN not coding relevant, SA420 Sun protection glass added
+                                -SA530 AIRCON standard on RE33, SA477 Facia and door inserts (wood imitation) added
+                                -SA467 door casing grey added
+                CVT,SGET,SGVT,  -MRS4_12.53 removed
+                Ausbl.dat       -updated KMB_R50.C05 [g] integrated (CC_AUSSENTEMPERATUR disabled for NAVI)
+                                -belt warning conditions for Australia modified
+                                -updated rip_R50.c02 [e] integrated (supplier data added)
+                                -updated LWS.C01 [b] integrated
+                ZCSUT           -bugfix SA877 for UK vehicles with SA302
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEC89.P  s     08.01.02    EE-82  Wolf
+                ZST             -SA953 TAIWAN Package added (ZST index to p) (without official release; 21.12.01)
+                                 LA824 South Africa coding relevant (ZST index to q)
+                CVT             -Single Point Entry (SEL_ZV_SENDER) activated for South Africa spec
+                                -Updated PDC.C03 index m integrated (new parameters)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEC75.P  t     16.01.02    EE-82  Wolf (Freigabe CD 29 + CBD LWS5.c01 (c) von Freigabe u!!)
+                ZST,CVT         -Pacific types (RB11,RB12) integrated, ZST index increased to r
+                                -SA's 340, 253, 983 added
+                Ausbl.dat       -PSW 1.4_diesel to be ignored for KMB_R50.C04
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3157.R  u     21.01.02    EE-82  Wolf (LWS5.C01 bereits ab 18.01.02 am Band!!)
+                LWS5.C01        -updated LWS5.C01 (index c) integrated
+                ZST,CVT,SGET    -1.4 types (RA11,RA12) integrated, ZST index increased to s
+                R50ausbl.dat    -new SIA parameters for 1.4L engine  and 1.6L engine (KMB_R50.C05[h])
+                                -PSW 1.4_mini to be ignored for KMB_R50.C04
+                                -batterie cut off active for Pacific (MRS4_12.C52)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3330.R  v     08.02.02    EE-82  Wolf
+                CVT,BC1.C03     -Lazy Vent Function not active for all R50/53 (BC1.C03[f])
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3528.R  w     28.02.02    EE-82  Wolf (Cut Off VIN: TB50356)
+                CVT             -Logical conditions for redline values for MINI_PACIFIC modified
+                MRS4_12.C52     -new crash parameters MRS4_12.C52[index d]
+                KMB_R50.C05     -Reverse gear audible for Japan and CVT only and starting with 03/02
+                                 KMB_R50.C05[index i]
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3235.R  x     06.03.02    EE-82  Wolf (Cut Off VIN: TA15375)
+                ZST             -SA463 added and new ZST.M00 released to ek_intra (04.03.02)
+                                 (ZST index increased to t)
+                LWR.C03         -new LWR parameters (LWR.C03 [k])
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3753.R  y     13.03.02    EE-82  Wolf (Cut Off Vin:TC32609)
+                CVT             -updated KMB_R50.C05 [k] integrated: new parameter wert_02 for R53 for
+                                 TANKDAEMPFUNG_FAHRT_AUF/AB, PSW wert_02 to be ignored for KMB_R50.C04
+                ZST             -E-Word MAERZ02 deleted, now standard for all R50/53, ZST index to u,
+                                 new M00 released to ek_intra
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3720.R  z     20.03.02    EE-82  Wolf (Cut Off Vin:TB53337) Freigabe Update CD 29.1 und CD30
+                LWR.C03         -new LWR parameters (LWR.C03 [m])
+                CVT             -new parameter (wert_02) for REFERENZPOSITION
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3875.R  aa    25.03.02    EE-82  Wolf (Cut Off VIN: TE03720)
+                ZST             -new E-Word for PU02, new SA's 736 (second Remote Control Key), 0962
+                                 (Licence Plate Carrier Front Deletion) added
+                                 ZST index to v, new M00 released to ek_intra
+                CVT,SHD.C03     -updated SHD.C03 [h] integrated: SCHIEBEHEBEDACH_TIPP_ZU deactivated starting
+                                 with PU02 (also Car-Memory)
+                KMB_R50.C06     -new KMB_R50.C06 integrated [a], new CABD A_KMBR50 1.04
+                SGET,SGVT,CVT   -updated KMB_R50.C05 [l] integrated (new Car-Memory functions)
+                                -updated BC1.c2[m]/c03[g] integrated (FSW for Car-Memory functions renamed and activated)
+                                 PU02 changes:
+                                 - VERRIEGELN_AUT_AB_X_KM for all R50
+                                 - HALTEN_FB_OEFFNEN_TASTE to komfort_oeffnung for all R50
+                                 - ZV_SELEKTIV (Single Point Entry) activated for all R50 US,Australia,ZA
+                                 - KOMFORTOEFFNUNG_SCHLOSS (Lazy Vent) activated for all R50
+                                 - HEIMLEUCHTEN activated for all R50 UK market only
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEG97.R ab    29.05.02       EE-82  Finster (Cut Off Vin:TB59779)
+                ZST             -new SA255 (Sport Steering wheel) added, ZST index to w, new M00 released to ek_intra (08.05.02)
+                CVT LWR.C03     -BGRENZE (wert_03) and ERKENNUNG_BREMSLICHT (nicht_aktiv) parameters integrated (LWR.C03 [n])
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEK29.R ac    25.06.02       EE-82  Wolf (Cut Off Vin: TD03296) Freigabe HO-CD 31
+                CVT,KMB_R50.C06 -updated KMB_R50.C05/06 [m]/[b] integrated: dependence of temperature sensor activation changed
+                KMB_R50.C05      (now xenon (SA522) instead of manual Aircon (SA530));
+                                 new tank parameters backward compatibel until March02
+                                -Car-Memory for rainsensor deactivated
+                R50ausbl.dat    -new tank parameters to be ignored for KMB_R50.C04
+                ZST             -new features SA354 and SA405 added, ZST index to x,
+                                 new M00 released to ek_intra
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEM40.R ad    09.07.02       EE-82  Wolf (Cut Off Vin:TD55147)
+                ZST             -SA546 Rev counter standard on RB11/12; ZST index to y,
+                                  new M00 released to ek_intra (26.06.02)
+                CVT,SHD.C04     -new SHD.C04 [a] integrated
+                SGET,SGVT
+                CVT             -updated KMB_R50.C05/06 (index n/c) integrated (new redline values for MINI 1.4)
+                ZST             -various feature packages integrated, ZST index to z,
+                                 new M00 released to ek_intra (09.07.02)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEP01.R ae    25.07.02       EE-82  Wolf (Cut off VIN:never used)
+                ZST             -new E-word MAERZ03 for March 03 requirements
+                                -SA543 boost gauge deleted
+                                -new SA491 Automatic Door Unlocking added
+                                -New Types RD31/32, RF31/32/33, RH31/32/33 Mini Cabrio added
+                                 ZST index to aa, new M00 released to ek_intra
+                MRS4_12.c52[e]  -official release for MINI_PACIFIC
+                BC1.C03[h]      -Auto Door unlocking dependant on SA491
+                CVT             -Conditions for Instrument Pack functions BC_NAVI_VISUELLE_WARNUNG and
+                                 CC_AUSSENTEMPERATUR for March03 changed
+                                -Conditions for boost gauge (instrument pack) deleted
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEP39.R af    31.07.02       EE-82  Wolf (Cut off VIN:TC20357)
+                ZST             -SA491 Automatic Door Unlocking deleted
+                                 ZST index to ab, new M00 released to ek_intra
+                CVT, BC1.C03[i] -Auto Door unlocking for all markets except US
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EES52.R ag    31.08.02       EE-82  Wolf (Cut off VIN: TD58740)
+                KMB_R50.C07     -new KMB_R50.C07 integrated [a]
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEX36.R ah    02.10.02       EE-82  Wolf (Cut off VIN:TD07515) Freigabe HO-CD 32
+                ZST             -SA214 ASC standard for Pacific RB11/12,
+                                 SA988 short oil service intervall added
+                                 SA226 Sport suspension standard for Cooper RC31/32/33
+                                 E-Word PU02 deleted, now standard for all R50/53
+                                 ZST index to ac and released to ek_intra/Casamba1
+                LWS5.c01[d]     -new parameters
+                SGET,SGVT,CVT,  -new MK60.c11 for March 03 requirements added,
+                MK60.C11,        updated MK60.C08[d] integrated,
+                MK60.C08[d],     new ECU CVM_IV.C02 for cabriolet folding top.
+                CVM_IV.C02,
+                R50_Conf,ZCSUT,
+                R50SGFam
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+NAEL EE418.R ai    18.11.02       EE-82  Wolf  (Cut off VIN:Not used)
+                ZST             -new E-word for PU03, ZST index to ad and released Casamba1
+                CVT, GT.C04[h]  -updated GT.C04 integrated
+                CVT, BC1.C5[a], -new BC1 (Redesign) integrated
+                SGET,SGVT
+                BC1.C02[n],     -various function keywords changed
+                BC1.C03[j],
+                R50ausbl.dat
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E0E45.R ak    20.12.02      EE-82  Wolf  (Cut off VIN:TJ00843) Freigabe HO-CD32
+               ZST              -SA988 (short oil service) coding relevant for Pacific
+                                 ZST index to ae and released to Casamba1
+               CVT,BC1.C05[b]   -updated BC1.C05 integrated
+               CVT,             -updated KMB_R50.C07/C06, RIP_R50.C02, TV2.C02 integrated
+               KMB_R50.C07[b],
+               KMB_R50.C07[d],
+               RIP_R50.C02[f],
+               TV2.C02[d],
+               R50ausbl.dat
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3233.S al    22.01.03      EE-82  Wolf  (Cut off VIN:TA33512) Update zur Freigabe HO-CD32 Freigabe HO-CD 33
+
+               CVT, BC1.C03[k]   -Updated BC1.C03 integrated: Lazy Vent with lock deactivated
+                                  for all R50 except Cabriolet
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3375.S am    30.01.03      EE-82  Wolf  (Cut off VIN:TA34275) 
+
+               CVT,CVM_IV.C02[b] -Updated CVM_IV.C02 integrated
+               SGET,SGVT,CVT,    -new MK60.C14 integrated
+               R50ausbl.dat,
+               MK60.C124[a]
+               ZST               -New SA387 wind deflector for cabrio added
+                                  ZST index to af and released to Casamba1
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3719.S an    30.01.03      EE-82  Wolf  (Cut off VIN:TH05395) 
+
+               CVT,BC1.C05[c]   -Updated BC1.C05 and GT.C04 integrated
+               R50ausbl.dat,
+               GT.C04[j]
+               SGET,SGVT,
+               GT.C05[a]        -new GT.C05 integrated
+               ZST              -new features SA964 and SA969 added
+                                 ZST index to ag and released to Casamba1
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3911.S ao    03.03.03      EE-62  Wolf  (Cut off VIN:TG23699) 
+              CVT,KMB_R50.C07[c] -actual KMB_R50.C07 integrated
+                                  Red line changed to 6000rpm except Pacific
+              ZST                -SA547 Chrono Pack added
+                                  ZST index to ah and released to Casamba1
+              MK60.C11[b]        -TRANSMISSION for Pacific changed (six speed gearbox)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3963.S ap    05.03.03      EE-62  Wolf  (Cut off VIN:TH06787) 
+              SGET,SGVT          -new CBD RIP_R50.C03 integrated
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEA96.S aq    20.03.03      EE-62  Wolf  (Cut off VIN:TA38615) Freigabe HO-CD 34
+              ZST                -several new feature codes added
+                                 -new E-Word APRIL04 for April 04 requirements
+                                 -ZST index to aj and released to Casamba1
+              BC1.C05[d],CVT     -updated BC1.C05 integrated, Car-Key memory features added
+              MRS4_12.C52[f],CVT -updated MRS4_12.C52 integrated
+              CVM_IV.C03[a],     -new CBD CVM_IV.C03 integrated
+              SGVT,SGET,CVT      
+              SGET               -TV (Navi + Japan) not coded for Cabriolet,
+                                  new SGBD for GT.C05
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEJ65.S ar    22.04.03      EE-62  Wolf  (Cut off VIN:TD13942) 
+              KMB_R50.C07[d]     -Digital speedo not for LA810 Australia
+              CVT
+              ZST                -LA8AA China version added,
+                                  ZST index to ak and released to Casamba1
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEL96.S as    07.05.03      EE-62  Wolf  (Cut off VIN:TA40259) 
+              BC1.C05[e]         -Updated BC1.C05 integrated: Headlamp levelling not active for US without Xenon,
+              CVT                 transport mode functionality changed
+              
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EER24.S at    03.06.03      EE-62  Wolf  (Cut off VIN:TH15447)
+              RIP_R50.C04[a],    -new RIP_R50.C04 and KMB_R50.C08 integrated
+              KMB_R50.C08[a],
+              CVM_IV.C03 [b]     -updated CVM_IV.C03 integrated, bugfix hardtop detection
+              SGVT,SGET,CVT
+              ZST                -SA547 Chrono pack coding relevant
+                                  ZST index to al and released to Casamba1
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEV47.S au    26.06.03      EE-62  Wolf  (Cut off VIN:not used) Freigabe HO-CD 35
+              BC1.C05[f]         -updated BC1.C05 integrated:
+              CVT,ZST             WIPER_BOOT_INHIBIT deactivated for BC1RD,
+                                  several bulb cold checks deactivated, new functions for short-circuit protection,
+                                  REAR_FOG_ENABLE for US after market fitment, new SA 5AA Rear Fog Lights introduced,
+                                  BMW Key disabled for 09/03
+                                  parameters for headlight levelling modified
+                                  ZST index to am and released to Casamba1
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEY25.S av    07.07.03      EE-62  Wolf  (Cut off VIN: TA44420)
+              BC1.C05[g]         -updated BC1.C05 integrated: BMW Key for R52
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+NAEL EE241.S aw    28.07.03      EE-62  Wolf  (Cut off VIN:??)
+              ZST                -option 1CA added, ZST index to [an] and released to Casamba1 (10.07.03)
+                                 -Sport suspension (SA226) standard for Cooper_S Cabriolet
+                                 -options 8SM,8SP,7AA,7AB,7AC added, ZST index to [ao] and released to Casamba1
+                                 -SA3AB Body coloured mirror caps added
+              CVT,               -coding of auto gearbox for Cooper_S permitted
+              MK60.C08[e],
+              MK60.C11[c],
+              MK60.C14[b]
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+NAEL EE789.S ax    15.09.03      EE-62  Wolf  (Cut off VIN:TG34541 )
+              ZST                -options 2TA,3AB,431,521,785 added
+              CVT,               -coding ROVER_FZV_STATT_BMW changed (BMW Key starting for R52 April 04 and all R50 July 04)
+              BC1.C05[h]         -updated BC1.C05 integrated (modified headlight levelling parameters and settings)
+              CVM_IV.C04[a],     -new CVM_IV.C04 integrated
+              SGET,SGVT          
+              KMB_R50.C08[b],    -I-Pack Clock enabled for cabriolets and for July 04 vehicles
+              CVT
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+NAEL E2E05.S ay    23.09.03      EE-62  Wolf  (Cut off VIN:TD75747)
+              ZST,CVT,           -options 0563 interior lamp pakage coding relevant
+              BC1.C05[i],        -updated BC1.C05 integrated (changes see CBD File)
+              CVM_IV.C04[b],     -updated CVM_IV.C04 integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+NAEL E3E33.S az    07.10.03      EE-62  Wolf  (Cut off VIN:TD77175)
+              ZST                -option 502 (headlamp power wash) mandatory for option 522 (Xenon);//(ZST released to track 30.09.03)
+              ZST                -Rev Counter standrad on MINI_ONE (A-Word). ZST index to [as] and released to Casamba1 (6.10.03)
+              BC1.C05[j], CVT    -updated BC1.C05 integrated (changes see CBD File)
+              KMB_R50.C08[c],ZST -updated KMB_R50.C08 integrated, E-word for new fuel tank added
+                                  ZST index to [at] and released to Casamba1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+NAEL E6E87.S ba    05.11.03      EE-62  Wolf  (Cut off VIN:not used)
+              MRS5.C70[a],CVT    -New MRS5.C70 integrated
+              MRS4_12.c52[g],    -Updated MRS4_12.c52 integrated: current buckle switch instead of voltage buckle switch
+                                  for US starting 07/04
+              SGET,SGVT           
+              ZST,SGFAM          -New option 5DA (Passenger airbag deactivation) added (not coding relevant), PU03 bit 
+                                  moved to G-Line and E-word PU03 deleted, new E-word for Januar 2005 requirements added,
+                                  ZST index to [au] and released to Casamba1
+                                 -belt warning functions I-Pack for Jan05 US activated
+                                 -SA521 Rainsensor coding relevant starting 01/05 (A word)
+              CVM_IV.C04[c]      -Updated CVM_IV.C04 integrated (motor diagnostics off)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3P99.S bb    12.11.03      EE-62  Wolf  (Cut off VIN:TD22725)
+              MRS5.C71[a],CVT    -New MRS5.C71 integrated, MRS coding order due to power up time (10s) changed (now after BC1),
+              SGET,SGVT           new SGBD MRS5K for MRS5
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E5R45.S bc    12.12.03      EE-42  Wolf  (Cut off VIN:TD24085)
+              MRS5K.C05[a],CVT   -new MRS5K.C05 integrated
+              SGET,SGVT
+              KMB_R50.C08[s]     -updated KMB_R50.C08 integrated
+              R50Ausbl.dat
+              ZST                -Option 2RE added. ZST index to [av] and released to Casamba1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E6P35.S bd    22.12.03      EE-42  Wolf (Cut off VIN:TG41224) Freigabe HO-CD 37
+              ZST                -Options 7NA, 7NB added. ZST index to [aw] and released to Casamba1
+              BC1.C05[k]         -updated BC1.C05 integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3537.T be    27.02.04      EE-42  Wolf (Cut off VIN:) Freigabe HO-CD 37.1
+              ZST                -Options 313,627,641 enabled, ZST index to [ax] and released to Casamba1 (13.01.04)
+              CVT,KMB_R50.C08[e] -updatetd KMB_R50.C08 integrated: Deflation warning acoustics disabled for NAS 04/04
+              BC1.C05[l]         -updated BC1.C05 integrated (changes see CDB file)
+              MRS4_12.C52[h]     -updated MRS4_12 integrated (new crash parameters for cabriolet)
+              MRS5K.c05[b]       -updated MRS5K integrated
+              ZST                -E-Word "EMI" for Option 169 added to be set for all RHD starting 04/04
+                                  E-Word "REV" for Option 546 added to be set for RA31,RA32 starting 07/04
+                                  ZST index to [ay] and released to Casamba1 (04.02.04)
+              ZST                -new options added: SA843 engine design
+                                                     SA7PA,7PB MINI Service/Repair Inclusive
+                                                     SA620 voice recognition
+                                                     SA644 universal cell phone preparation
+                                  ZST index to [az] and released to Casamba1 (01.03.04)
+             CVT wegen bug geaendert und nachtraeglich auf HO-CD37.1: Bedingung AUSSENTEMP_SENSOR ohne APRIL04 (10.03.2004)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEH10.T bf  12.03.2004      EE-42  Miehling (Cut off VIN:  )
+             CVT,KMB_R50.C08[f]  -updatetd KMB_R50.C08 AUSSENTEMP_SENSOR Time option April04 deleted (Bedingung April04 gelöscht 12.03.2004)
+                 CVM_IV.C04 [e]  -[E EK57.T] changed Hex. Parameters (Geänderte Hex. Werte, 12.03.2004)
+                 BC1.C05[m]      -[E EL95.T] changed FRISCHLUFT_PARKPOSTITION from nicht_aktiv to aktiv for all R50/R52/R53
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEL22.T bg    06.04.04      EE-42  Wolf (Cut off VIN:) Freigabe HO-CD 38.0
+             ZST                 -added SA8AE Owner manual/servie booklet Greek
+                                 -added SA2C3 Alloys 5-Star Rocket All Season
+                                 -ZST index to [ba] and released to Casamba1
+             BC1.C05[n]          -updated BC1.C05 integrated (new values for manual head lamp levelling)
+             MRS4_12.C52[j]      -updated MRS4_12.C52 integrated (modified buckle switch sensors 07/04)
+             KMB_R50.C08[g]      -updated KMB_R50.C08 integrated (new values for SIA data, acoustic deflation
+                                  warning activated for all)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEP98.T bh    30.04.2004    EE-42 Miehling/Wolf (Cut off VIN:TH40323) Freigabe HO-CD 38.1
+                                 -added SA868 Instrument lettering netherland (first languge) only with SA609 at 01/05, 23.04.2004
+                                 -ZST index to [bb] and released to Casamba1
+             MRS4_12.C52 [k]     -updated MRS4_12.c52 integrated (modified buckle switch sensors (2-wire) moved to 01/05)
+             MRS5K.C05 [c]       -updated MRS5K.C05 intgrated
+             CVT                 -uppdated MRS5K.C05 integrated CC_Gurtwarnung_1/2 nicht_aktiv
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE099.T bi    21.05.04      EE-42 Miehling/Wolf (Cut off VIN:TH41727)
+             EMS_R50.c04 [a]     -new EMS_R50.C04 integrated for Aisin gearbox Cooper_S
+             EMS_R50.C03 [b]
+             Ausbl.dat 
+             ULF_R50.C03[b],     -new ECU ULF_R50.C03 (universal telephone unit) integrated for preseries 01/05
+             CVT,SGVT,SGET        (New ASW SPRACHEINGABE, TOP_HIFI, TEL_VORB and ZCS-bits)
+             CONF,SGFAM
+             ZST                 -option 262, 508, 563, 657 to be released as series starting 01/05, new A-words to control this
+                                 -ZST index to [bc] and released to Casamba1
+                                 -new option SA07PA Mini Service Inclusive (6year o.60Tkm)
+                                 -new option SA07PB Mini Service + Repair Inclusive (6year o.60Tkm)
+                                 -new option SA02RF Light Alloy Wheel Delta Spoke
+                                 -new option SA02RG Light Alloy Wheel Bridge Spoke
+                                 -new option SA02RH Light Alloy Wheel Flame Spoke
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE881.T bj    07.06.04      EE-42 Miehling/Wolf (Cut off VIN:)
+             KMB_R50.C09         -new KMB_R50.C09 integrated
+             CVT,SGVT,SGET       -updated FSW SPRACHE: German with SA868 (Language version Netherlands)
+                                 -new FSW AIRBAG_SG_VARIANTE, SBR_BEIFAHRER, SBR_FAHRER, GURTWARNUNG_KBUS, GURTWARNUNG_KBUS added
+                                 -Function GURTWARNUNG (hardwired) enabled before 01/05 only, (after 01/05 via K-Bus GURTWARNUNG_KBUS)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGB70.T bk    28.06.04      EE-42 Miehling/Wolf (Cut off VIN:) 
+             ZST                 -new E-word NSB (New Sensor Bracket for airbag) for cabriolet added
+                                 -new H-word OI11 OHNE_FA_SBR add (deactivations driver SEATBELTREMINDER (after market customer option))
+                                 -new H-word OI12 (OHNE_BF_SBR) add, (deactivations co-driver SEATBELTREMINDER (after market customer option))
+                                 -new option SA03AD Bonnet Stripes Park Lane
+                                 -new option SA03AE Bonnet Stripes Checkmate
+                                 -new option SA03AF Roof & Mirror Caps in Silver
+                                 -new option SA04AN Interior Surfaces Seven
+                                 -new option SA04AP Interior Surfaces Park Lane
+                                 -new option SA04AR Interior Surfaces Checkmate
+                                 -new option SA07AL MINI Seven (MINI specials, ECE)
+                                 -new option SA07AM MINI Park Lane (MINI specials, ECE)
+                                 -new option SA07AN MINI Checkmate (MINI specials, ECE)                                                                  
+                                 -ZST index to [bd] and released to Casamba1
+             CVT,MRS4_12.c52[l]  -new crash parameters for cabriolet with new sensor bracket integrated
+                                 -updated Kmb_R50.C09, new FSW SBR_FAHRER and SBR_BEIFAHRER integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGG86.T bl    15.07.04      EE-42 Wolf (Cut off VIN:) Freigabe HO-CD39.0
+             ZST                 -SA262 Head airbag deleted in 01/05-A-Lines for RF33 and RH33 (bug fix)
+                                  ZST index to [be] and released to Casamba1  (06.07.04)
+                                 -SA9AA added, ZST index to [bf] and released to Casamba1
+             CVT,SGET,SGVT       -new CBD ULF.C04 integrated
+             ULF.C04[a]
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                                                                                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGN38.T bm    02.08.04      EE-42 Diek, Freigabe HO-CD39.1
+              ZST                - SA 6UE added
+                                 - ASW KOREA integrated
+                                 - ZST index to [bg] and released to Casamba1
+              CVT                - changed CBD BC1.C05 [EGS56.T] integrated.
+                                 - changed CVM_IV.C04 [EGT72.T] integrated.
+                                 - changed CBD MRS5K.C05 [EGT91.T] integrated.
+              SGET,SGVT          - new CBD MRS5K.C07 [EGT77.T] integrated.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGS71.T bn    12.08.04      EE-42 Miehling (Cut off VIN:)
+              ZST                -new option SA06UD Instrument lettering Russian  at 09/05
+                                 -ZST index to [bh] and released to Casamba1
+              CVT, MRS5K_c07[b]  -FSW GK/OC3/POL changed in GK/OC3/POL_1
+                                 -FSW gurt_nicht_ab_gk changed in gurt_nicht_ab_gk_1 
+                                 -new FSW GK/OC3/POL_2 added
+                                 -new FSW GURT_NICHT_AB_GK_2 added
+                                 -changed CRASHPARAMETER_9 and _15
+                                 -FSW US_SCHWELLEN_1 and US_SCHWELLEN_2 dependence of ABG_CI_07
+                   MRS5K_c06[a]  -new CBD MRS5K_c06 integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGY18.T bo    20.08.04      EE-42 Miehling (Cut off VIN:)
+              ZST                -new ASW APRIL05 added
+                                 -new option SA606 Navigation system business at 09/05 added
+              CVT  PDC.C03[y]    -changed CBD PDC.C03 [EGS00.T] integrated
+              KMB_R50.C10[a]     -new CBD KMB_R50.C10 [EGY12.T] integrated
+                                 -new FSW UHR_KBUS AKUSTIK_PAUSE BATTMON_STARTVERZ BATTMON_SPGSCHWELLE BATTMON_SPGABFALL_FZG added
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGZ52.T bp    06.09.04      EE-42 Miehling (Cut off VIN:)
+              CVT BC1.C05[p]    -changed CBD BC1.C05 [EGZ34.T] integrated
+                                -new option LA833 SINGAPUR Version added
+              SGET,SGVT         -RLS condition added to REGENSENSOR+JANUAR05
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EG319.T bq    06.10.04      EE-42 Miehling (Cut off VIN:)
+              ZST               -new Option 07NG added BMW Basic Service Inclusive (3year/60.000km)
+                                -new Option 07NH added BMW Basic Service Inclusive (5year/100.000km)
+                                -new Option 07NK added BMW Service Inclusive (5year/60.000km)
+                                -new Option 07NL added BMW Service + Repair Inclusive (5year/60.000km)
+                                -new Option 07PC added BMW Basic Service Inclusive (6year/60.000km)
+                                -new Option 07NM added BMW Service Inclusive (3year/60.000km)
+                                -new Option 07NN added BMW Service + Repair Inclusive (3year/60.000km)
+                                -new option 08SY added correction second automobile (Berichtigung Gebrauchte Automobile)
+                                -ZST index to [bl] and released to Casamba1
+              CVT,SGET,SGVT     -new CBD GT.C06 [EG898.T] integrated
+                                -changed CBD ULF.C04 [EG940.T] integrated
+                                -new FSW DEFAULT_SMSC_ADDRESS, HOTLINE_ADDRESS, BACKUP_SMSC_ADDRESS,
+                                 DEF_DESTINATION_ADDRESS, BACKUP_DESTINATION_ADDRES added
+                                -changed CBD CVM_IV.C04 [ENA83T] integrated
+                                -changed CBD BC1.C05 [ENB29T] integrated
+                                -new CBD BC1.C06 [ENB45T] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL ENC19.T br    25.10.04      EE-42 Miehling (Cut off VIN:)
+              ZST               -new Option 04FA added Recaro sports seat
+              BC1.C06[b]        -changed CBD BC1.C06 [ENF46T] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL ENJ92.T bs    02.12.04      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: S
+              ZST                -new Option 07PD added MINI Basic Service Inclusive (6year/90Tkm)
+                                 -new Option 07PE added MINI Service Inclusive (6year/90Tkm)
+                                 -new Option 07PF added MINI Service + Repair Inclusive (6year/90Tkm)
+                                 -new Option 07R3 added (Ukraine packet)
+              ULF.C04[c]         -changed CBD ULF.C04 [ENV61T] integrated
+              KMB_R50.C10[b]     -changed CBD KMB_R50.C10 [ENT26T] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL ENZ67.T bt    22.12.04      EE-42 Miehling (Cut off VIN:) Freigabe HO-CD41.0
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: T
+              ZST                -new Option 02VB  added, Direct Tire Pressure Control
+                                 -new Option 09AB  added, External skin protection left out by Soko-Vehicle (Entfall Aussenhautschutz bei Soko-Fzg)
+                                 -new ASW DIRECT_RDC added
+              CVT,SGET,SGVT      -changed CBD BC1.C05 [ENZ68T] integrated
+                                 -changed CBD BC1.C06 [ENZ70T] integrated
+                                 -new FSW BC1.C06 TM_POSLIGHT and TM_FOLLOW_ME_HOME added
+              CBD LWS5.C01[g]    -changed CBD LWS5.C01 [EFY43T] integrated
+              CBD BC1.C05[r]     -changed CBD BC1.C05 [ENZ68T] integrated
+              CBD BC1.C06[c]     -changed CBD BC1.C06 [ENZ70T] integrated
+              CBD BC1.C06[d]     -changed CBD BC1.C06 [EN206T] integrated
+              CBD ULF.C04[d]     -changed CBD ULF.C04 [EN225T] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3149.U bu    09.03.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: U
+              ZST                -new Option 0936 added, BMW HANDY request at delivery (Handy f.Werkfzg, Fuhrpark)
+                                 -new Option 07BA MINI Repair Inclusive (3year/90Tkm), 07BB MINI Repair Inclusive (4year/90Tkm),
+                                  07BC MINI Repair Inclusive (5year/90Tkm), 07BD MINI Repair Inclusive (6year/90Tkm)
+                                  03AL John Cooper works (JCW) Kit, 05DS Trunk emergency exit 10/05 (Kofferraum-Notentriegelung),
+                                  07BE MINI Repair Inclusive (3year/60Tkm) added
+              CVT,SGET,SGVT      -new CBD GT.C07[EEA96U] integrated
+                                 -new CBD ULF.C05[EEG59U] integrated
+                                 -new CBD MRS5K.C08 [E3271U] integrated
+              CBD MRS5K.C08[a]   -new CBD MRS5K.C08 [E3271U] integrated, Notice: MRS5K.C08 is blocked, because there is a software problem on the device
+                                  a release will be following on a netxt coding release
+              CBD GT.C07[a]      -new CBD GT.C07[EEA96U] integrated (new FSW ANZEIGE_POSITION_AUS FUHRPARK_FLOTTENMODUS)
+              CBD ULF.C05[a]     -new CBD ULF.C05[EEG59U] integrated (new FSW SYNCML_EIN_AUS, ATC_EIN_AUS)
+              CBD RA_NG.C01[f]    -changed CBD RA_NG.C01[EEB86U] integrated (new FSW DSP_CDC_DIGITALLTG)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEK49.U bv    14.03.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: V
+              CBD BC1.C05[s]     -changed CBD BC1.C05[EEK52U] integrated
+              CBD BC1.C06[e]     -changed CBD BC1.C06[EEK53U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEM17.U bw    17.03.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: W
+              CBD MRS5K.C08[a]   -new CBD MRS5K.C08 [E3271U] integrated, Coding/software problem (E3149U) solved
+              CBD BC1.C07[a]     -new CBD BC1.C07[EEM25U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EES36.U bx    08.04.05      EE-42 Miehling (Cut off VIN:) Freigabe HO-CD42.0
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: X
+              CVT,SGET,SGVT      -new CBD CVM_IV.C05 integrated
+              CBD LWS5.C01[h]    -changed CBD LWS5.C01[EFZ82T] integrated
+              CBD CVM_IV.C05[a]  -new CBD CVM_IV.C05[EET33U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEW30.U by    12.05.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: Y
+              ZST                -new Option 03AK Bonnet Stripes in Silve, 05DS Luggage-comartment emercy release, 0616 BMW Online, 02RK LM wheels 5-star-Spooler
+                                  02RL LM Rotator Spoke, 02RN LM wheels 5-star blaster emergency wheels, 04A5 Interior Surface Grey, 04A6 Interior Tuscan Beige,
+                                  04A7 Colour Line Dark Grey, 04A8 Colour Line Cream White, 04A9 Colour Line Mellow Yellow, 04AU Enlarged decor volumes,
+                                  04BA Colour Line Rooster Red, 04BB Colour Line Pacific Blue, 04BD Interior Surface Piano Black, 04BL Interior Colour Redwood Red
+                                  04UF Sport Button, 05DD lift jack, 06FB Radio Mini Wave CD, 06FC Radio Mini Boost CD, 06FD Mini HiFi Loudspeaker system, and
+                                  07AR Aerodynamics packet, 07PG MINI Basic Service Inclusive (5year/50Tkm, 07PH MINI Service Inclusive (5year/50Tkm),
+                                  07PK MINI Service + Repair Inclusive (5year/50Tkm), 07BF MINI Repair Inclusive (5year/50Tkm) added
+              CBD MRS5K.C08[b]   -changed CBD MRS5K.C08[EEV01U] integrated
+              CBD MK60.C11[d]    -changed CBD MK60.C11[E1919U] integrated
+              CBD MRS4_12.C52[m] -changed CBD MRS4_12.C52[EEX44U] integrated
+              CBD KMB_R50.C08[h] -changed CBD KMB_R50.C08[EE357U] integrated
+              CBD KMB_R50.C10[c] -changed CBD KMB_R50.C10[EE358U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGB37.U bz    05.07.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: Z
+              ZST                -new status report for 05/2005 integrated
+                                 -new option 08S2 Coding of alarm signal, 0664 Mobile phone preparation
+                                 -Status Report 06/2005 integrated
+              CVT,SGET,SGVT      -new CBD CVM_IV.C06[EGH63U] integrated
+              CBD CVM_IV.C06[a]  -new CBD CVM_IV.C06[EGH63U] integrated
+              CBD KMB_R50.C10[d] -changed CBD KMB_R50.C10[EGJ68U] integrated
+              CBD BC1.C07[b]     -changed CBD BC1.C07[EGL56U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGM17.U ca    11.07.05      EE-42 Miehling (Cut off VIN:) Freigabe HO-CD43.0
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AA
+              CBD CVM_IV.C06[b]  -changed CBD CVM_IV.C06[EGM56U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGN74.U cb    16.08.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AB
+              SGET               -new SGBD (CVM_52_2.prg) for CVM_IV.C06 added
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EG046.U cc    26.08.05      EE-42 Diek/Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AC
+              CVT                -change CVT for SA896
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EG188.U cd    06.09.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AD
+              ZST                -ZST A-Line revised
+                                 -option 0896 series for all ECE Vehicle
+              CVT                -control Daylight revised
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EG468.U ce    06.10.05      EE-42 Miehling (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AE
+              ZST                -new E-Word and Time depending changes "MAERZ06" added
+              CVT,SGET,SGVT      -new CBD ULF.C06 [EG450U] integrated
+                                 -KMB_R50.C09 is not any longer a released Codingindex, there is not any longer supported from COC Mr. Angerer
+              CBD KMB_R50.C10    -changed CBD KMB_R50.C10[EG453U] integrated
+              CBD RA_NG.C01[h]   -changed CBD RA_NG.C01[EGW82U] integrated
+              CBD ULF.C06[a]     -new CBD ULF.C06 [EG450U] integrated
+              CBD CVM_IV.C06[c]  -changed CBD CVM_IV.C06[EG475U] integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3622.V cf    06.02.06      EE-42 Miehling / Diek (Cut off VIN:)
+              ECCO               -ECCO ItemNr: 009102 Rev.Nr.: AF
+              ZST                - new option 8S6 07A1 04AV 02RP 02RR 02RM 2R7 integrated
+                                 - new time criterion #0906 integrated.
+              CBD BC1.C07        - changed CBD BC1.C07 [E3623.V] integrated.
+              CBD RA_NG.C01      - changed CBD RA_NG.C01 [E3486.V] integrated.
+              CBD CVM_IV.C04     - changed CBD CVM_IV.C04 [E3625.V] integrated.
+              CBD CVM_IV.C06     - changed CBD CVM_IV.C06 [E3626.V] integrated.
+//////////////////////////////////////////////       CIP 21.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEH10.V   cg  10.04.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AG
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     08.02.06 DI              HO             AT                           - new option 7PL, 7PM and 7PN integrated.
+     28.02.06 DI              HO       KMB   KMB_R50.C10  [EED85.V,  f]   - CBD revised.
+     28.03.06 DI              HO       PDC   PDC.C03      [EEM03.V, aa]   - CBD revised.
+     06.04.06 DI              HO       CVM   CVM_IV.C04   [EKN73.V,  j]   - CBD revised.
+//////////////////////////////////////////////       CIP 21.2       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEV70.V   ch  26.04.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AH
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     18.04.06 DI              HO       RAD   RA_NG.C01    [EET34.V,  j]   - CBD revised.
+     20.04.06 DI              HO       BC1   BC1.C07      [EEV69.V,  d]   - CBD revised.
+     21.04.06 DI              HO       KMB   KMB_R50.C10  [EEV29.V,  g]   - CBD revised.
+     26.04.06 DI              HO             AT                           - new option 07PP, 07PR, 07PS, 07PT, 07PU, 07PV integrated.
+//////////////////////////////////////////////       CIP 22.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EKP74.V   ci  01.08.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AI
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+     09.05.06 DI              HO       GT    GT.C07       [EEZ45.V,  b]   - CBD revised, no change for R50.
+     16.05.06 DI              HO       ULF   ULF.C06      [EE106.V,  b]   - CBD revised, no change for R50.
+     24.05.06 DI              Statusreport 05/2006 integrated.
+     10.07.06 DI              Statusreport 06/2006 integrated.
+     26.07.06 DI              HO       PDC   PDC.C03      [EGM62.V, ab]   - CBD revised, no change for R50.
+                                             ZST                          - new option 0927 integrated.
+     27.07.06 DI              Statusreport 07/2006 integrated.
+     27.07.06 DI              HO       KMB   KMB_R50.C10  [EGP22.V,  h]   - CBD revised.
+     27.07.06 DI              HO       KMB   KMB_R50.C11  [EGP22.V,  a]   - CBD new coding index integrated.
+     28.07.06 DI              HO       RIP   RIP_R50.C01  [EGP22.V,  e]   - CBD revised.
+     28.07.06 DI              HO       RIP   RIP_R50.C02  [EGP22.V,  g]   - CBD revised.
+     28.07.06 DI              HO       RIP   RIP_R50.C03  [EGP22.V,  b]   - CBD revised.
+     28.07.06 DI              HO       RIP   RIP_R50.C04  [EGP22.V,  b]   - CBD revised.
+
+//////////////////////////////////////////////       CIP 23.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL ELM24.V   cj  29.08.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AJ
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+                ZST              - new time criterion #1206 integrated.
+
+     22.08.06 DI              HO       KMB   KMB_R50.C10  [EGX57.V,  j]   - CBD revised.
+     22.08.06 DI              HO       KMB   KMB_R50.C11  [EGX57.V,  b]   - CBD revised.
+     23.08.06 DI              HO       ULF   ULF.C06      [EGW68.V,  c]   - CBD revised.
+
+     25.08.06 DI              Statusreport 08/2006 integrated.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL NLM24.V   ck  31.08.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AK
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+                 CVT             - AUX_IN only for R52 and PU06 aux. Not for R50/R53.
+
+//////////////////////////////////////////////       CIP 23.1       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EG650.V   cl  04.10.06   EG-75   Diek (Di)
+//ECCO ItemNr:  009102      Rev.Nr.: AL
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     08.09.06 Di ZST             - new K-Word KMEK integrated
+     08.09.06 Di              HO       GT    GT.C08       [EGU12.V,  a]   - CBD revised.
+     15.09.06 Di ZST             - K-Word KMEK delete. MEKKA_INDIKATOR is now CKM.
+     18.09.06 Di ZST             - new SA 07PW, 07FG, 07FH, 07PX, 07PY, 07P1, 07P2, 07P3, 07P4, 07P5, 07P6, 07P7, 07P8, 07P9,
+                                          07FA, 07FB, 07FC, 07FD, 07FE, 07FF, 07BG, 07BH, 07BK, 08AF integrated.
+     18.09.06 DI              HO       BC1   BC1.C05      [EG635.V,  t]   - CBD revised.
+     18.09.06 DI              HO       BC1   BC1.C06      [EG635.V,  f]   - CBD revised.
+     18.09.06 DI              HO       BC1   BC1.C07      [EG635.V,  e]   - CBD revised.
+     28.09.06 DI              HO       BC1   BC1.C07      [EG862.V,  f]   - CBD revised.
+//////////////////////////////////////////////       CIP 23.2       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3949.W   cm  05.02.07   EG-75   Diek (Di)/Olivella-Stern (OS)
+//ECCO ItemNr:  009102      Rev.Nr.: CM
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     17.10.06 Di              HO       GT    GT.C08       [ENA51.V,  b]   - CBD revised, for R50 not relevant
+     25.10.06 Di              HO       ZST                                - Status report 10/06 integrated.
+     27.11.06 Di                                                          - SA 2PA hinzu
+     27.11.06 Di                                                          - Status report 11/2006 integrated
+     20.11.06 Di              HO       GT    GT.C08       [ENR72.V,  c]   - CBD revised, for R50 not relevant
+     20.11.06 Di              HO       ULF   ULF.C06      [ENH23.V,  d]   - CBD revised, for R50 not relevant
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////       CIP 25.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEP37.W   cn  09.03.07   EG-75   Olivella-Stern (OS)
+//ECCO ItemNr:  009102      Rev.Nr.: CN
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     09.02.07 OS                      ULF    ULF.C06      [EEB68.W, e] - no change for R50
+     07.03.07 OS                             ZST                       - new FSW ALARMSIGNAL for SA8S2
+     07.03.07 OS              HO      BC1    BC1.C07      [EEM31.W, g] - longer alarm signal for The Netherlands
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE757.W   co  03.05.07   EG-75   Olivella-Stern (OS)
+//ECCO ItemNr:  009102      Rev.Nr.: CO
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     15.03.07 OS                      ZST                              - A line for SA521 removed
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////       CIP 26.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EGR66.W   cp  13.07.07   EG-75   Olivella-Stern (OS)
+//ECCO ItemNr:  009102      Rev.Nr.: CP
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     04.05.07 OS                      AEDOC                            - Ident-Number changed
+     04.05.07 OS                      CVT                              - Ident-Number changed
+     29.06.07 OS                             SGET, SGVT                - new CI 21 for MRS5KD integrated
+     29.06.07 OS                      ABG    MRS5KCD.C21  [EEV29.W, a] - new CBD MRS5KD.C21 integrated
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////       CIP 27.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL ENT99.W   cq  16.01.08   EG-75   Wagener Roland (WA)
+//ECCO ItemNr:  009102      Rev.Nr.: CQ
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     06.11.07 WA                             SGET, SGVT                - new CI 22 for MRS5KD integrated
+     06.11.07 WA                      ABG    MRS5KCD.C22  [ENS64.W, a] - new CBD MRS5KD.C22 integrated
+     15.11.07 WA                             ZST                       - new SA891 SA8AR integrated (PA603/?)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////       CIP 29.0       ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+                    Codierdaten R50 6910467.5
+                    Open Points:
+                     Neues EWS4 zu 12/05
+
+                    To do fuer spaetere Freigaben
+
+                    TypSchlüssel-Zeilen: SA169 SERIE ab 04/04 f. alle RHD
+                    TypSchlüssel-Zeilen: SA546 SERIE ab 07/04 f. MINI_ONE RA31/32
+                    A-Zeilen SA521 ab 2005 in ABstimmung mit Werk entfernen
+                    Typschlüssel A-Zeilen  ab 2005 in Abstimmung mit Werk entfernen
+                    EW R52_TANK standard f. alle ab 01/2005 ????fraglich?????
+            SGET    -ULF_R50  C03, kann ab Mitte März 2005 entfallen, da diese nur in Prototypen verbaut wurde
+
+TAIS RQ-Texte:
+
+Codierdaten R50 6910467.5 bq
+-Neue SA07NG hinzu
+-geaenderte CBD BC1.C05 gem. EGZ34.T
+ integriert
+-Neue SA08SY Berichtigung Gebrauchte
+ Automobile
+-geaenderte CBD GT.C06 gem.EG898T
+ integriert
+-neue CBD BC01.C06 gem.ENB45T
+ integriert

@@ -1,0 +1,4997 @@
+ecu      : Funktionale Jobs für F01;
+origin   : BMW TI-538 Drexel;
+revision : 1.14;
+author   : BMW TI-538 Drexel;
+comment  : ;
+
+// *******************************************************************
+// Lastenheft :  ohne
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 28.03.2006 rd V0.01 Erstellung
+// 04.04.2006 rd V0.02 Erweiterungen
+// 18.05.2006 rd V0.50 Grobtabelle als include
+// 22.05.2006 rd V0.51 IS_LESEN_FUNKTIONAL, IS_LOESCHEN_FUNKTIONAL neu
+// 23.05.2006 rd V0.52 SVK_LESEN_FUNKTIONAL
+//               V0.52 Result XWEi_VERSION2 geändert auf XWEi_VERSION
+// 21.11.2006 rd V0.60 Grobtabelle aktualisiert
+// 19.02.2007 rd V0.61 SENSOREN_ANZAHL_LESEN_FUNKTIONAL und
+//            rd V0.61 SENSOREN_IDENT_LESEN_FUNKTIONAL neu dazu
+// 26.04.2007 rd V0.62 Grobtabelle aktualisiert
+// 09.05.2007 rd V0.63 I_STUFE_LESEN überarbeitet,
+//            rd V0.63 I_STUFE_SCHREIBEN entfernt
+// 12.06.2007 rd V0.70 Result XWEi_PROZESSKLASSE_KURZTEXT neu dazu
+//               V0.70 Anforderung von TI-431 Lorenz
+// 19.09.2007 rd V1.00 Grobtabelle aktualisiert
+//            rd V1.00 Freigabe
+// 28.09.2007 rd V1.01 Job PROG_FG_NR_LESEN_FUNKTIONAL neu
+// 17.10.2007 rd V1.02 Result XWEi_SGBMID neu dazu
+// 04.12.2007 rd V1.03 I_STUFE_LESEN überarbeitet
+// 03.03.2008 rd V1.04 PROG_ZAEHLER_LESEN_FUNKTIONAL neu
+// 12.11.2008 rd V1.05 Grobtabelle aktualisiert
+// 09.12.2008 rd V1.06 Grobtabelle aktualisiert
+// 18.02.2009 rd V1.07 STEUERN_ROE_START_FUNKTIONAL und
+//            rd V1.07 STEUERN_ROE_STOP_FUNKTIONAL neu dazu
+// 03.07.2009 rd V1.08 Grobtabelle aktualisiert
+// 17.02.2010 rd V1.09 Grobtabelle aktualisiert
+// 05.03.2010 rd V1.10 Grobtabelle aktualisiert
+// 07.09.2010 rd V1.11 RR01 jetzt erlaubt in UDS_22_10_0B_I_STUFE_LESEN.B2S
+// 14.02.2011 rd V1.12 UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM dazu
+//               V1.12 wegen $78 Timeout-Problem beim TRSVC
+//               V1.12 Anforderung von AK-Diagnose
+// 03.08.2011 rd V1.13 Grobtabelle aktualisiert
+// 24.02.2012 rd V1.14 Backup jetzt CAS oder KOMBI oder FEM in UDS_22_10_0B_I_STUFE_LESEN.B2S
+// ********************************************************************
+
+// ********************************************************************
+// Konstante und Tabellen
+// ********************************************************************
+
+// Funktionale Standard Diagnose-Jobs Tabellen
+// start of :#include "UDS_PARAMETER.B2S"                         // Kommunikationsparameter
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Globale Variable   : PARAMETER_BMW_FAST, PARAMETER_BMW_KWP2000
+//                      PARAMETER_DS2, PARAMETER_KWP2000_STERN
+//                      AWLEN_BMW_FAST, AWLEN_BMW_KWP2000
+//                      AWLEN_DS2, AWLEN_KWP2000_STERN
+// -------------------------------------------------------------------
+// Globale Tabelle    : KONZEPT_TABELLE
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 28.11.2005  rd  V0.01 Erstellung
+// 08.08.2006  rd  V0.02 BMW-KWP2000-CAN Timeout und TP-Layer angepasst
+// *******************************************************************
+// UDS_PARAMETER.B2S (#) V0.02 (#)
+// *******************************************************************
+#define INCLUDE_UDS_PARAMETER_B2S_NOT_FOUND
+
+// start of :#include "UDS_CONSTANTS.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 28.11.2005  rd  V0.01 Erstellung
+// 08.08.2006  rd  V0.02 REPAET_COUNTER von 2 auf 1 reduziert
+//             rd  V0.02 wegen Einsatz parallele Diagnose am D-CAN
+// *******************************************************************
+// UDS_CONSTANTS.B2S (#) V0.02 (#)
+// *******************************************************************
+#define INCLUDE_UDS_CONSTANTS_B2S_NOT_FOUND
+
+#define REPEAT_COUNTER              1
+
+#define TRUE                        1
+#define FALSE                       0
+
+
+// ISO14229-1.2 Source Address Type: unsigned char Range 0x00-0xFF
+#define SA                          0xF1
+
+// ISO14229-1.2 Type: enumeration Range: physical, functional
+#define TA_TYPE_PHYSICAL            0x00
+#define TA_TYPE_FUNCTIONAL          0x01
+
+// end of :#include "UDS_CONSTANTS.B2S"
+
+// ---------------- Ueberpruefung ob Tabellen includiert sind --------
+INCLUDE_UDS_CONSTANTS_B2S_NOT_FOUND
+
+int      AWLEN_BMW_KWP2000_CAN[] = {0, 0};
+long PARAMETER_BMW_KWP2000_CAN[] = {
+  0x110,      // Konzept
+  500000,     // Baudrate
+  1000,       // Timeout receive FC after FF / CF    Bs
+  0,          // Tmin send FC after FF / CF          Br
+  0,          // Tmin send CF after FC               Cs
+  1000,       // Timeout receive CF after FC         Cr
+  1000,       // Timeout receive CF after CF         Dr
+  1200,       // Timeout receive response P2max
+  0,          // Tmin send request P3min
+  5000,       // Timeout receive response after $78
+  2,          // Maximum number of negative response $78
+
+  1000,       // Timeout receive FC after FC.wait    Es
+  0,          // Tmin send FC.wait                   Er
+  10,         // Maximum number of wait frames
+
+  0,          // ST min send StminUsedByInterface
+  0,          // ST min Handling
+              // 0: 'disabled' (ST min from ECU FC)
+              // 1: 'enabled' (StminUsedByInterface)
+
+  0,          // Tester Present time TimeTesterPresent in ms
+              // 0: 'disabled'
+  0,          // Tester Present length LenTesterPresent maximum 11
+              // 0: 'disabled'
+              // Tester Present message TesterPresentMessage 11 Bytes
+              // unused bytes 0x00
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+
+  1           // Tester Present wait for response
+              // 0: 'disabled'
+              // 1: 'enabled'
+};
+
+// end of :#include "UDS_PARAMETER.B2S"                         // Kommunikationsparameter
+// start of :#include "UDS_TAB_JobResult.B2S"                     // Tabelle JobResult
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Tabelle: Zuordnung 'Statusbyte <-> Statustext'
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8 (SAP 10000786)
+// -------------------------------------------------------------------
+// History:
+// 18.11.2005  rd  V0.001 Ersterstellung
+// 14.12.2005  gr  V0.002 Erweiterung für Standard-Jobs FS_LESEN_DETAIL, SVK_LESEN
+// 17.02.2006  gh  V0.003 Erweiterung für Standard-Jobs IS_LESEN_DETAIL
+// 31.05.2006  rd  V0.004 Erweiterung für Standard-Jobs
+//                 V0.004 STEUERN, STEUERN_IO, STEUERN_ROUTINE
+//                 V0.004 STATUS_LESEN
+// 21.06.2006  rd  V0.005 Erweiterung für Standard-Job STATUS_BLOCK_LESEN
+// 19.01.2009  gr  V0.006 Erweiterung der JobResult um die Antwort 0x25 ERROR_ECU_NO_RESPONSE_FROM_SUBNET_COMPONENT
+// 20.01.2009  gr  V0.007 Erweiterung der JobResult um die Antwort 0x26 ERROR_ECU_FAILURE_PREVENTS_EXECUTION_OF_REQUESTED_ACTION
+// *******************************************************************
+// UDS_TAB_JOBRESULT.B2S (#) V0.007 (#)
+// *******************************************************************
+#define INCLUDE_UDS_TAB_JOBRESULT_B2S_NOT_FOUND
+
+  table JobResult[2][] = {
+  { "SB"   , "STATUS_TEXT"                                            },
+// Standard SG Fehlermeldungen
+  { "0x10" , "ERROR_ECU_GENERAL_REJECT"                               },
+  { "0x11" , "ERROR_ECU_SERVICE_NOT_SUPPORTED"                        },
+  { "0x12" , "ERROR_ECU_SUB_FUNCTION_NOT_SUPPORTED"                   },
+  { "0x13" , "ERROR_ECU_INCORRECT_MESSAGE_LENGTH_OR_INVALID_FORMAT"   },
+  { "0x14" , "ERROR_ECU_RESPONSE_TOO_LONG"                            },
+  { "0x21" , "ERROR_ECU_BUSY_REPEAT_REQUEST"                          },
+  { "0x22" , "ERROR_ECU_CONDITIONS_NOT_CORRECT"                       },
+  { "0x24" , "ERROR_ECU_REQUEST_SEQUENCE_ERROR"                       },
+  { "0x25" , "ERROR_ECU_NO_RESPONSE_FROM_SUBNET_COMPONENT"            },
+  { "0x26" , "ERROR_ECU_FAILURE_PREVENTS_EXECUTION_OF_REQUESTED_ACTION"},
+  { "0x31" , "ERROR_ECU_REQUEST_OUT_OF_RANGE"                         },
+  { "0x33" , "ERROR_ECU_SECURITY_ACCESS_DENIED"                       },
+  { "0x35" , "ERROR_ECU_INVALID_KEY"                                  },
+  { "0x36" , "ERROR_ECU_EXCEED_NUMBER_OF_ATTEMPTS"                    },
+  { "0x37" , "ERROR_ECU_REQUIRED_TIME_DELAY_NOT_EXPIRED"              },
+  { "0x70" , "ERROR_ECU_UPLOAD_DOWNLOAD_NOT_ACCEPTED"                 },
+  { "0x71" , "ERROR_ECU_TRANSFER_DATA_SUSPENDED"                      },
+  { "0x72" , "ERROR_ECU_GENERAL_PROGRAMMING_FAILURE"                  },
+  { "0x73" , "ERROR_ECU_WRONG_BLOCK_SEQUENCE_COUNTER"                 },
+  { "0x78" , "ERROR_ECU_REQUEST_CORRECTLY_RECEIVED__RESPONSE_PENDING" },
+  { "0x7E" , "ERROR_ECU_SUB_FUNCTION_NOT_SUPPORTED_IN_ACTIVE_SESSION" },
+  { "0x7F" , "ERROR_ECU_SERVICE_NOT_SUPPORTED_IN_ACTIVE_SESSION"      },
+  { "0x81" , "ERROR_ECU_RPM_TOO_HIGH"                                 },
+  { "0x82" , "ERROR_ECU_RPM_TOO_LOW"                                  },
+  { "0x83" , "ERROR_ECU_ENGINE_IS_RUNNING"                            },
+  { "0x84" , "ERROR_ECU_ENGINE_IS_NOT_RUNNING"                        },
+  { "0x85" , "ERROR_ECU_ENGINE_RUN_TIME_TOO_LOW"                      },
+  { "0x86" , "ERROR_ECU_TEMPERATURE_TOO_HIGH"                         },
+  { "0x87" , "ERROR_ECU_TEMPERATURE_TOO_LOW"                          },
+  { "0x88" , "ERROR_ECU_VEHICLE_SPEED_TOO_HIGH"                       },
+  { "0x89" , "ERROR_ECU_VEHICLE_SPEED_TOO_LOW"                        },
+  { "0x8A" , "ERROR_ECU_THROTTLE_PEDAL_TOO_HIGH"                      },
+  { "0x8B" , "ERROR_ECU_THROTTLE_PEDAL_TOO_LOW"                       },
+  { "0x8C" , "ERROR_ECU_TRANSMISSION_RANGE_NOT_IN_NEUTRAL"            },
+  { "0x8D" , "ERROR_ECU_TRANSMISSION_RANGE_NOT_IN_GEAR"               },
+  { "0x8F" , "ERROR_ECU_BRAKE_SWITCH_NOT_CLOSED"                      },
+  { "0x90" , "ERROR_ECU_SHIFTER_LEVER_NOT_IN_PARK"                    },
+  { "0x91" , "ERROR_ECU_TORQUE_CONVERTER_CLUTCH_LOCKED"               },
+  { "0x92" , "ERROR_ECU_VOLTAGE_TOO_HIGH"                             },
+  { "0x93" , "ERROR_ECU_VOLTAGE_TOO_LOW"                              },
+
+// Standard JOB Okaymeldung
+  { "?00?" , "OKAY"                                                   },
+
+// Standard JOB Fehlermeldungen
+  { "?01?" , "ERROR_ECU_NO_RESPONSE"                                  },
+  { "?02?" , "ERROR_ECU_INCORRECT_LEN"                                },
+  { "?03?" , "ERROR_ECU_INCORRECT_RESPONSE_ID"                        },
+  { "?04?" , "ERROR_ECU_TA_RESPONSE_NOT_SA_REQUEST"                   },
+  { "?05?" , "ERROR_ECU_SA_RESPONSE_NOT_TA_REQUEST"                   },
+  { "?06?" , "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER"           },
+  { "?07?" , "ERROR_ECU_RESPONSE_TOO_MUCH_DATA"                       },
+  { "?08?" , "ERROR_ECU_RESPONSE_TOO_LESS_DATA"                       },
+  { "?09?" , "ERROR_ECU_RESPONSE_VALUE_OUT_OF_RANGE"                  },
+  { "?0A?" , "ERROR_TABLE"                                            },
+  { "?10?" , "ERROR_F_CODE"                                           },
+  { "?12?" , "ERROR_INTERPRETATION"                                   },
+  { "?13?" , "ERROR_F_POS"                                            },
+  { "?14?" , "ERROR_ECU_RESPONSE_INCORRECT_IO_CONTROL_PARAMETER"      },
+  { "?15?" , "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_TYPE"      },
+  { "?16?" , "ERROR_ECU_RESPONSE_INCORRECT_SUB_FUNCTION"              },
+  { "?17?" , "ERROR_ECU_RESPONSE_INCORRECT_DYNAMICALLY_DEFINED_DATA_IDENTIFIER"},
+  { "?18?" , "ERROR_ECU_RESPONSE_NO_STRING_END_CHAR"                  },
+  
+// Fehlermeldung bei Standard Job PRUEFSTEMPEL_SCHREIBEN
+  { "?50?" , "ERROR_BYTE1"                                            },
+  { "?51?" , "ERROR_BYTE2"                                            },
+  { "?52?" , "ERROR_BYTE3"                                            },
+
+// Fehlermeldung bei Standard Job SVK_LESEN
+  { "?80?" , "ERROR_SVK_INCORRECT_LEN"                                },
+  { "?81?" , "ERROR_SVK_INCORRECT_FINGERPRINT"                        },
+
+// Fehlermeldung bei sonstigen Standard-Jobs
+  { "?F0?" , "ERROR_ARGUMENT"                                         },
+
+// keine gueltige Antwort
+  { "0xXY" , "ERROR_ECU_UNKNOWN_NEGATIVE_RESPONSE"                    }
+};
+// end of :#include "UDS_TAB_JobResult.B2S"                     // Tabelle JobResult
+// start of :#include "UDS_TAB_Prozessklassen.B2S"                // Tabelle Prozessklasse für SVK_LESEN
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERAENDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Tabelle: Zuordnung 'Prozessklasse WERT <-> Prozessklasse BEZEICHNUNG'
+// -------------------------------------------------------------------
+// History:
+// 14.11.2005 gr V0.001 Ersterstellung
+// 02.02.2006 gh V0.002 Include-Name geändert (wie Tabellen-Name)
+// 22.03.2007 gh V0.003 Prozessklassen geändert (teilweise INKOMPATIBEL !!!)
+// 01.02.2008 gr V0.004 Prozessklassen SWUP,SWIP, BLUP und FLUP hinzu
+// 25.06.2011 gh V0.005 Prozessklasse wegen BDC hinzu: 0x04, GWTB
+// ***************************************************************************
+// UDS_TAB_Prozessklassen.B2S (#) V0.005 (#)
+// ***************************************************************************
+#define INCLUDE_UDS_TAB_Prozessklassen_B2S_NOT_FOUND
+
+table Prozessklassen[3][] = {
+  { "WERT" , "PROZESSKLASSE" , "BEZEICHNUNG"                         },
+
+  { "0x00" , "-"             , "ungueltig"                           },
+
+// nachfolgende Einträge blieben gleich (V0.002 => V.0.003)
+  { "0x01" , "HWEL"          , "Hardware (Elektronik)"               },
+  { "0x02" , "HWAP"          , "Hardwareauspraegung"                 },
+  { "0x03" , "HWFR"          , "Hardwarefarbe"                       },
+  { "0x05" , "CAFD"          , "Codierdaten"                         },
+  { "0x06" , "BTLD"          , "Bootloader"                          },
+  { "0x08" , "SWFL"          , "Software ECU Speicherimage"          },
+  { "0x09" , "SWFF"          , "Flash File Software"                 },
+  { "0x0A" , "SWPF"          , "Pruefsoftware"                       },
+  { "0x0B" , "ONPS"          , "Onboard Programmiersystem"           },
+  { "0x0F" , "FAFP"          , "FA2FP"                               },
+  { "0x1A" , "TLRT"          , "Temporaere Loeschroutine"            },
+  { "0x1B" , "TPRG"          , "Temporaere Programmierroutine"       },
+
+// nachfolgende Einträge kamen neu dazu (V0.002 => V.0.003)
+  { "0x07" , "FLSL"          , "Flashloader Slave"                   },
+  { "0x0C" , "IBAD"          , "Interaktive Betriebsanleitung Daten" },
+  { "0x10" , "FCFA"          , "Freischaltcode Fahrzeug-Auftrag"     },
+  { "0x1C" , "BLUP"          , "Bootloader-Update Applikation"       },
+  { "0x1D" , "FLUP"          , "Flashloader-Update Applikation"      },
+ 
+// nachfolgende Einträge kamen neu dazu (V0.004 => V.0.005)
+  { "0x04" , "GWTB"          , "Gateway-Tabelle"                     },
+
+// nachfolgende Einträge wurden INKOMPATIBEL geändert !
+// bei V0.002 (alt)
+//{ "0xA0" , "VEHI"          , "Vehicle Info Spec"             },
+//{ "0xA1" , "COMS"          , "Comparam Spec"                 },
+//{ "0xA2" , "DIAG"          , "Diag-Layer Container"          },
+//{ "0xA3" , "FLCU"          , "Flash Datei"                   },
+//{ "0xA4" , "JAJO"          , "Java-Jobs"                     },
+// bei V.0.003 (neu)
+  { "0xA0" , "ENTD"          , "Entertainment Daten"                 },
+  { "0xA1" , "NAVD"          , "Navigation Daten"                    },
+  { "0xA2" , "FCFN"          , "Freischaltcode Funktion"             },
+
+  { "0xC0" , "SWUP"          , "Software-Update Package"             },
+  { "0xC1" , "SWIP"          , "Index Software-Update Package"       },
+
+  { "0xFF" , "-"             , "ungueltig"                           }
+};
+
+// end of :#include "UDS_TAB_Prozessklassen.B2S"                // Tabelle Prozessklasse für SVK_LESEN
+// start of :#include "UDS_TAB_GrobName.B2S"                      // Tabelle GrobName
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERAENDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Tabelle: Zuordnung 'SG-Adresse <-> Grobname'
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.500 Ersterstellung
+// 21.11.2006 rd V0.600 Ersterstellung
+// 26.04.2007 rd V0.700 Überarbeitet
+// 21.01.2008 rd V1.000 Freigabe
+// 27.06.2008 rd V1.001 Erweitert
+// 30.09.2008 rd V1.002 Erweitert
+// 09.12.2008 rd V1.003 Erweitert
+// 03.07.2009 rd V1.004 TELEFON, HEADUNIT überarbeitet
+// 07.12.2009 rd V1.005 Erweitert
+// 17.02.2010 rd V1.006 Erweitert
+// 05.03.2010 rd V1.007 Erweitert
+// 26.11.2010 rd V1.008 Erweitert
+// 15.12.2010 rd V1.009 Erweitert RR1 Serie II
+// 16.12.2010 rd V1.010 Erweitert I01
+// 07.02.2011 rd V1.011 Erweitert I01
+// 03.08.2011 rd V1.012 Erweitert ASDA, RFK geändert in TRSVC_RR
+// 25.11.2011 rd V1.013 Erweitert AFP
+// ***************************************************************************
+// UDS_TAB_GROBNAME.B2S (#) V1.013 (#)
+// ***************************************************************************
+#define INCLUDE_UDS_GROB_B2S_NOT_FOUND
+
+table GrobName[2][] = {
+  { "ADR"  , "GROBNAME" },
+  { "0x00" , "JBBF"     },
+  { "0x01" , "AIRBAG"   },
+  { "0x02" , "SZL"      },
+//{ "0x03" , ""         },
+  { "0x04" , "VOCS"     },
+  { "0x05" , "CDM"      },
+  { "0x06" , "TRSVC"    },
+  { "0x07" , "SME"      },
+  { "0x08" , "HC"       },
+  { "0x09" , "RE_DME"   },
+  { "0x0A" , "RE_EME"   },
+  { "0x0B" , "SCR"      },
+//{ "0x0C" , ""         },
+  { "0x0D" , "HKFM"     },
+  { "0x0E" , "SVT"      },
+  { "0x0F" , "QSG/GHAS" },
+  { "0x10" , "ZGW"      },
+//{ "0x11" , ""         },
+  { "0x12" , "DME/DDE"  },
+  { "0x13" , "DME/DDE"  },
+  { "0x14" , "LIM"      },
+  { "0x15" , "KLE"      },
+  { "0x16" , "ASA"      },
+  { "0x17" , "EKP"      },
+  { "0x18" , "EGS"      },
+  { "0x19" , "LMV"      },
+  { "0x1A" , "EME"      },
+  { "0x1B" , "SMES1"    },
+  { "0x1C" , "ICMQL"    },
+  { "0x1D" , "TFM"      },
+  { "0x1E" , "SMES2"    },
+//{ "0x1F" , ""         },
+  { "0x20" , "RDC"      },
+  { "0x21" , "FRR"      },
+  { "0x22" , "SAS"      },
+  { "0x23" , "SVT_RR"   },
+  { "0x24" , "CVM"      },
+//{ "0x25" , ""         },
+  { "0x26" , "RSE"      },
+  { "0x27" , "CGW_RR"   },
+//{ "0x28" , ""         },
+  { "0x29" , "DSC"      },
+  { "0x2A" , "EMF"      },
+  { "0x2B" , "HSR"      },
+  { "0x2C" , "PMA"      },
+  { "0x2D" , "ASDA"     },
+  { "0x2E" , "PCU"      },
+//{ "0x2F" , ""         },
+  { "0x30" , "EPS"      },
+  { "0x31" , "MMC"      },
+//{ "0x32" , ""         },
+//{ "0x33" , ""         },
+//{ "0x34" , ""         },
+  { "0x35" , "TXB"      },
+  { "0x36" , "TELEFON"  },
+  { "0x37" , "AMP"      },
+  { "0x38" , "EHC"      },
+  { "0x39" , "ICMV"     },
+  { "0x3A" , "EME"      },
+//{ "0x3B" , ""         },
+  { "0x3C" , "CDC"      },
+  { "0x3D" , "HUD"      },
+  { "0x3E" , "ACP_RR"   },
+  { "0x3F" , "ASD"      },
+  { "0x40" , "CAS"      },
+  { "0x41" , "TMS_L"    },
+  { "0x42" , "TMS_R"    },
+  { "0x43" , "LHM_L"    },
+  { "0x44" , "LHM_R"    },
+//{ "0x45" , ""         },
+  { "0x46" , "GZAL"     },
+  { "0x47" , "GZAR"     },
+  { "0x48" , "VSW"      },
+  { "0x49" , "SECU1"    },
+  { "0x4A" , "SECU2"    },
+  { "0x4B" , "TVM"      },
+//{ "0x4C" , ""         },
+  { "0x4D" , "EMA_LI"   },
+  { "0x4E" , "EMA_RE"   },
+//{ "0x4F" , ""         },
+  { "0x50" , "SINE"     },
+//{ "0x51" , ""         },
+//{ "0x52" , ""         },
+//{ "0x53" , ""         },
+  { "0x54" , "RADIO"    },
+  { "0x55" , "MULF"     },
+  { "0x56" , "FZD"      },
+  { "0x57" , "NIVI"     },
+//{ "0x58" , ""         },
+  { "0x59" , "ALBVF"    },
+  { "0x5A" , "ALBVB"    },
+//{ "0x5B" , ""         },
+//{ "0x5C" , ""         },
+  { "0x5D" , "KAFAS"    },
+  { "0x5E" , "GWS"      },
+  { "0x5F" , "FLA"      },
+  { "0x60" , "KOMBI"    },
+  { "0x61" , "ECALL"    },
+//{ "0x62" , ""         },
+  { "0x63" , "HEADUNIT" },
+  { "0x64" , "PDC"      },
+//{ "0x65" , ""         },
+//{ "0x66" , ""         },
+  { "0x67" , "ZBE"      },
+  { "0x68" , "ZBEF"     },
+  { "0x69" , "FAH"      },
+  { "0x6A" , "BFH"      },
+  { "0x6B" , "HKL"      },
+//{ "0x6C" , ""         },
+  { "0x6D" , "FAS"      },
+  { "0x6E" , "BFS"      },
+//{ "0x6F" , ""         },
+//{ "0x70" , ""         },
+  { "0x71" , "AHM"      },
+  { "0x72" , "FRM"      },
+  { "0x73" , "CID"      },
+  { "0x74" , "CIDF"     },
+  { "0x75" , "CIDF2"    },
+  { "0x76" , "VDC"      },
+  { "0x77" , "TRSVC_RR" },
+  { "0x78" , "IHKA"     },
+  { "0x79" , "FKA"      },
+  { "0x7A" , "AFP"      },
+  { "0x7B" , "HKA"      },
+//{ "0x7C" , ""         },
+//{ "0x7D" , ""         },
+//{ "0x7E" , ""         },
+//{ "0x7F" , ""         },
+//{ "0x80" , ""         },
+//{ "0x81" , ""         },
+//{ "0x82" , ""         },
+//{ "0x83" , ""         },
+//{ "0x84" , ""         },
+//{ "0x85" , ""         },
+//{ "0x86" , ""         },
+//{ "0x87" , ""         },
+//{ "0x88" , ""         },
+//{ "0x89" , ""         },
+//{ "0x8A" , ""         },
+//{ "0x8B" , ""         },
+//{ "0x8C" , ""         },
+//{ "0x8D" , ""         },
+//{ "0x8E" , ""         },
+//{ "0x8F" , ""         },
+//{ "0x90" , ""         },
+//{ "0x91" , ""         },
+//{ "0x92" , ""         },
+//{ "0x93" , ""         },
+//{ "0x94" , ""         },
+//{ "0x95" , ""         },
+//{ "0x96" , ""         },
+//{ "0x97" , ""         },
+//{ "0x98" , ""         },
+//{ "0x99" , ""         },
+//{ "0x9A" , ""         },
+//{ "0x9B" , ""         },
+//{ "0x9C" , ""         },
+//{ "0x9D" , ""         },
+//{ "0x9E" , ""         },
+//{ "0x9F" , ""         },
+  { "0xA0" , "CIC_HD"   },
+//{ "0xA1" , ""         },
+//{ "0xA2" , ""         },
+//{ "0xA3" , ""         },
+//{ "0xA4" , ""         },
+  { "0xA5" , "RK_VL"    },
+  { "0xA6" , "RK_VR"    },
+  { "0xA7" , "RK_HL"    },
+  { "0xA8" , "RK_HR"    },
+  { "0xA9" , "CDCDSP"   },
+//{ "0xAA" , ""         },
+  { "0xAB" , "MMCDSP"   },
+//{ "0xAC" , ""         },
+//{ "0xAD" , ""         },
+//{ "0xAE" , ""         },
+//{ "0xAF" , ""         },
+
+// keine gültige Antwort
+  { "0xXY" , "????"     }
+};
+// end of :#include "UDS_TAB_GrobName.B2S"                      // Tabelle GrobName
+// start of :#include "STD_ISEN.B2S"                              // Tabelle für intelligente Sensoren
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERAENDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Tabelle: Zuordnung 'Verbauortnr <-> Verbauorttext'
+// -------------------------------------------------------------------
+// Gueltig:
+// Lastenheft Diagnose Ausgabe 6
+// für $22   ReadDataBydentifier
+//     $16xx SubbusMemberSerialNumber
+// -------------------------------------------------------------------
+// History:
+// 23.05.2003 rd V0.01 Ersterstellung
+// 26.05.2003 rd V0.02 Erweiterung 0x0400, 0x500
+// 07.07.2003 rd V0.03 Erweiterung 0x0350
+// 22.11.2004 rd V0.04 Erweiterung 0x0600, 0x700
+// 30.06.2005 rd V0.05 Erweiterung 0x0800, 0x900
+// 20.10.2005 rd V1.00 Erweiterung 0x0A00
+// 05.10.2006 rd V1.01 Erweiterung 0x0A00
+//               V1.01 Sonderbehandlung bei DXC SG-Adresse 0x29
+// 23.10.2006 rd V1.02 Erweiterung 0x0B00
+// 07.12.2006 rd V1.03 Erweiterung 0x0C00
+// 11.01.2007 tm V1.04 Erweiterung 0x0E00
+// 15.01.2007 rd V1.05 Erweiterung 0x0F00-0x1300
+// 08.02.2007 rd V1.06 Erweiterung 0x1400-0x1E00
+// 15.02.2007 gr V1.07 Neue Spalte LIN_2_FORMAT zum Auslesen der zusätlichen Infos
+// 29.03.2007 rd V1.08 Erweiterung 0x2000
+// 17.04.2007 rd V1.09 Erweiterung 0x2100
+// 16.05.2007 rd V1.10 Erweiterung für CAS4
+// 25.06.2007 rd V1.11 Erweiterung FRM3, CAS4 Indizes verschoben
+// 11.07.2007 rd V1.12 Erweiterung DME F01
+// 13.08.2007 rd V1.13 FRM3 Aussenspiegel kein LIN_2_FORMAT
+// 14.08.2007 rd V1.14 Sitzverstellschalter dazu
+// 17.08.2007 rd V1.15 Sitzheizung geändert / neu
+// 17.01.2008 gr V1.16 Fond-Klimaanlage hinzu
+// 30.01.2008 rd V1.17 Kraftstoffpumpe hinzu
+// 13.02.2008 rd V1.18 Gepäckraumschalter vorbereitet
+// 20.02.2008 rd V1.19 Spurwechselradarsensor Lin 2 Format
+// 25.02.2008 rd V1.20 PMA Sensoren hinzu
+// 03.03.2008 rd V1.21 PMA Sensoren kein Lin 2 Format
+//               V1.21 Spurwechselradarsensor kein Lin 2 Format
+// 04.03.2008 rd V1.22 Gepäckraumschalter hinzu
+// 07.03.2008 rd V1.23 Startergenerator, Ölqualitätsensor hinzu
+// 17.03.2008 rd V1.24 Topview, Sideview, Rearview Kameras LIN_2_FORMAT
+// 18.04.2008 rd V1.25 CID-Klappe dazu
+// 05.06.2008 rd V1.26 Erweiterung für F25
+// 09.06.2008 rd V1.27 Erweiterung für L7
+// 03.07.2008 rd V1.28 Erweiterung für F12
+// 01.08.2008 rd V1.29 Erweiterung für ACSM4
+// 04.08.2008 rd V1.30 PMA Sensoren jetzt doch wieder Lin 2 Format
+// 16.09.2008 rd V1.31 Erweiterung
+// 21.10.2008 rd V1.32 Erweiterung
+// 13.11.2008 rd V1.33 Erweiterung ELV Lin 2
+// 18.11.2008 rd V1.34 Mirkrowellensensoren überarbeitet
+// 24.11.2008 rd V1.35 Zusatzwasserpumpe und Generator am Lin neu
+// 02.12.2008 rd V1.36 EKK neu
+// 16.01.2009 rd V1.37 Wasserpumpen 1 und 2 neu
+// 16.02.2009 rd V1.38 ACSM neue Sensoren dazu
+// 22.04.2009 rd V1.39 ACSM Sensoren. Jetzt doch nicht LIN 2
+// 20.05.2009 rd V1.40 Audio Bedienteil LIN 2
+// 08.09.2009 as V1.41 Klimaumfänge hinzu
+// 22.09.2009 rd V1.42 ACSM neue Sensoren dazu
+// 07.10.2009 rd V1.43 SMO, PT-Tank dazu
+// 13.10.2009 rd V1.44 LED-Module dazu
+// 28.10.2009 rd V1.45 EAC-Sensor dazu
+// 22.02.2010 rd V1.46 Innenlichtelektronik dazu
+// 20.07.2011 rd V1.47 Zentralinstrument dazu
+// 23.09.2011 rd V1.48 Nackenwärmer dazu
+// 08.11.2011 rd V1.49 ELSV und HOD dazu
+// 15.12.2011 rd V1.50 Standheizung, Wärmepumpe, Durchlaufheizer dazu
+//            rd V1.50 BDC Innenbeleuchtung dazu
+// 02.02.2012 rd V1.51 Ionisator, Bedufter dazu
+// *******************************************************************
+// STD_ISEN.B2S (#) V1.51 (#)
+// *******************************************************************
+#define INCLUDE_STD_ISEN_B2S_NOT_FOUND
+
+// Zuordnung von Verbauort-Nummer zu Verbauort-Text
+// intelligenter Sensoren
+  table VerbauortTabelle[3][] = {
+  {   "ORT"    , "ORTTEXT"                                      , "LIN_2_FORMAT"},
+  {   "0x0100" , "Batteriesensor BSD"                         ,     "-"       },
+  {   "0x0150" , "Ölqualitätsensor BSD"                       ,     "-"       },
+  {   "0x0200" , "Elektrische Wasserpumpe BSD"                ,     "-"       },
+  {   "0x0250" , "Elektrische Kraftstoffpumpe BSD"            ,     "-"       },
+  {   "0x0300" , "Generator 1"                                ,     "-"       },
+  {   "0x0350" , "Generator 2"                                ,     "-"       },
+  {   "0x03A0" , "Druck- Temperatursensor Tank"             ,     "1"       },
+  {   "0x03C0" , "EAC-Sensor"                                 ,     "-"       },
+
+  {   "0x0400" , "Schaltzentrum Lenksäule"                    ,     "-"       },
+  {   "0x0500" , "DSC Sensor-Cluster"                         ,     "-"       },
+  {   "0x0600" , "Nahbereichsradarsensor links"             ,     "-"       },
+  {   "0x0700" , "Nahbereichsradarsensor rechts"            ,     "-"       },
+  {   "0x0800" , "Funkempfänger"                              ,     "-"       },
+  {   "0x0900" , "Elektrische Lenksäulenverriegelung"         ,     "-"       },
+  {   "0x0A00" , "Regen- Lichtsensor"                         ,     "-"       },
+  { "0x290A00" , "DSC Hydraulikblock"                         ,     "-"       }, // Sonderbehandlung
+  {   "0x0B00" , "Nightvision Kamera"                         ,     "-"       },
+  {   "0x0C00" , "TLC Kamera"                                 ,     "-"       },
+  {   "0x0D00" , "Spurwechselradarsensor hinten links"    ,     "-"       },
+  {   "0x0E00" , "Heckklima Bedienteil rechts"            ,     "1"       },
+  {   "0x0F00" , "Rearview Kamera hinten"                 ,     "1"       },
+  {   "0x1000" , "Topview Kamera Außenspiegel links"    ,     "1"       },
+  {   "0x1100" , "Topview Kamera Außenspiegel rechts"   ,     "1"       },
+  {   "0x1200" , "Sideview Kamera Stoßfänger vorne links",  "1"       },
+  {   "0x1300" , "Sideview Kamera Stoßfänger vorne rechts", "1"       },
+// JBBF
+  {   "0x1400" , "Wischermotor"                               ,     "1"       },
+  {   "0x1500" , "Regen- Lichtsensor"                         ,     "1"       },
+  {   "0x1600" , "Innenspiegel"                               ,     "1"       },
+  {   "0x1700" , "Garagentoröffner"                           ,     "1"       },
+  {   "0x1800" , "AUC-Sensor"                               ,     "1"       },
+  {   "0x1900" , "Druck- Temperatursensor"                    ,     "1"       },
+//{   "0x1A00" , "Schalterblock Sitzheizung hinten"       ,     "1"       },
+  {   "0x1A20" , "Schalterblock Sitzheizung hinten links",    "1"       },
+  {   "0x1A40" , "Schalterblock Sitzheizung hinten rechts",   "1"       },
+  {   "0x1A60" , "Sitzheizung Fahrer"                       ,     "1"       },
+  {   "0x1A80" , "Sitzheizung Beifahrer"                    ,     "1"       },
+  {   "0x1AA0" , "Sitzheizung Fahrer hinten"              ,     "1"       },
+  {   "0x1AC0" , "Sitzheizung Beifahrer hinten"           ,     "1"       },
+  {   "0x1B00" , "Schalterblock Sitzmemory/-massage Fahrer",    "1"       },
+  {   "0x1C00" , "Schalterblock Sitzmemory/-massage Beifahrer", "1"       },
+  {   "0x1C80" , "Sitzverstellschalter Beifahrer über Fond"   , "1"       },
+  {   "0x1D00" , "Sonnenrollo Seitenfenster Fahrer"       ,     "1"       },
+  {   "0x1E00" , "Sonnenrollo Seitenfenster Beifahrer"    ,     "1"       },
+  {   "0x1E40" , "Heckklappenemblem"                          ,     "1"       },
+
+  {   "0x1F00" , "KAFAS Kamera"                               ,     "1"       },
+  {   "0x2000" , "Automatische Anhängevorrichtung"            ,     "1"       },
+
+  {   "0x2100" , "SINE"                                       ,     "1"       },
+// CAN Sine
+  {   "0x2110" , "DWA Mikrowellensensor vorne rechts"   ,     "1"       },
+  {   "0x2120" , "DWA Mikrowellensensor hinten rechts"  ,     "1"       },
+  {   "0x2130" , "DWA Mikrowellensensor hinten links"   ,     "1"       },
+  {   "0x2140" , "DWA Mikrowellensensor vorne links"    ,     "1"       },
+  {   "0x2150" , "DWA Mikrowellensensor hinten"           ,     "1"       },
+  {   "0x2180" , "DWA Ultraschallsensor"                    ,     "1"       },
+
+// FRM3
+  {   "0x2200" , "Aussenspiegel Fahrer"                     ,     "-"       },
+  {   "0x2300" , "Aussenspiegel Beifahrer"                  ,     "-"       },
+  {   "0x2400" , "Schaltzentrum Tür"                        ,     "1"       },
+  {   "0x2500" , "Schalterblock Sitz Fahrer"              ,     "1"       },
+  {   "0x2600" , "Schalterblock Sitz Beifahrer"           ,     "1"       },
+  {   "0x2700" , "Gurtbringer Fahrer"                       ,     "1"       },
+  {   "0x2800" , "Gurtbringer Beifahrer"                    ,     "1"       },
+  {   "0x2900" , "Treibermodul Scheinwerfer links"        ,     "1"       },
+  {   "0x2A00" , "Treibermodul Scheinwerfer rechts"       ,     "1"       },
+  {   "0x2B00" , "Bedieneinheit Fahrerassistenzsysteme"     ,     "1"       },
+  {   "0x2C00" , "Bedieneinheit Licht"                      ,     "1"       },
+  {   "0x2D00" , "Smart Opener"                               ,     "1"       },
+  {   "0x2E00" , "LED-Hauptlicht-Modul links"               ,     "1"       },
+  {   "0x2F00" , "LED-Hauptlicht-Modul rechts"              ,     "1"       },
+
+// CAS4
+  {   "0x0910" , "Elektrische Lenksäulenverriegelung"         ,     "1"       },
+  {   "0x3200" , "Funkempfänger"                              ,     "1"       },
+  {   "0x3300" , "Funkempfänger 2"                            ,     "1"       },
+  {   "0x3400" , "Türgriffelektronik Fahrer"                ,     "-"       },
+  {   "0x3500" , "Türgriffelektronik Beifahrer"             ,     "-"       },
+  {   "0x3600" , "Türgriffelektronik Fahrer hinten"       ,     "-"       },
+  {   "0x3700" , "Türgriffelektronik Beifahrer hinten"    ,     "-"       },
+  {   "0x3800" , "Telestart-Handsender 1"                   ,     "-"       },
+  {   "0x3900" , "Telestart-Handsender 2"                   ,     "-"       },
+  {   "0x3A00" , "Fond-Fernbedienung"                       ,     "-"       },
+// DME
+  {   "0x3B00" , "Elektrische Wasserpumpe"                    ,     "1"       },
+  {   "0x3B10" , "Elektrische Wasserpumpe 1"                  ,     "1"       },
+  {   "0x3B20" , "Elektrische Wasserpumpe 2"                  ,     "1"       },
+  {   "0x3B80" , "Elektrische Zusatzwasserpumpe"              ,     "1"       },
+  {   "0x3C00" , "Batteriesensor LIN"                         ,     "-"       },
+  {   "0x3D00" , "Aktives Kühlklappensystem"                  ,     "1"       },
+  {   "0x3E00" , "PCU(DCDC)"                                    ,     "1"       },
+  {   "0x3F00" , "Startergenerator"                           ,     "1"       },
+  {   "0x3F80" , "Generator"                                  ,     "1"       },
+// Sitzmodul
+  {   "0x4000" , "Sitzverstellschalter Fahrer"              ,     "1"       },
+  {   "0x4100" , "Sitzverstellschalter Beifahrer"           ,     "1"       },
+  {   "0x4200" , "Sitzverstellschalter Fahrer hinten"     ,     "1"       },
+  {   "0x4300" , "Sitzverstellschalter Beifahrer hinten"  ,     "1"       },
+  {   "0x4400" , "Gepäckraumschalter links"                 ,     "1"       },
+  {   "0x4500" , "Gepäckraumschalter rechts"                ,     "1"       },
+  {   "0x4600" , "Nackenwärmer"                               ,     "1"       },
+  {   "0x4700" , "Nackenwärmer Bedienschalter"              ,     "1"       },
+// Klima
+  {   "0x4A00" , "Fond-Klimaanlage"                           ,     "1"       },
+  {   "0x4B00" , "Elektrischer Klimakompressor"               ,     "1"       },
+  {   "0x4C00" , "Klimabedienteil"                            ,     "1"       },
+  {   "0x4D00" , "Gebläseregler"                              ,     "1"       },
+  {   "0x4E00" , "Klappenmotor"                               ,     "0"       },
+  {   "0x4F00" , "Elektrischer Kältemittelverdichter eKMV"    ,     "1"       },
+  {   "0x4F80" , "Elektrischer Zuheizer PTC"                  ,     "1"       },
+  {   "0x6000" , "Standheizung"                               ,     "1"       },
+  {   "0x6100" , "Wärmepumpe"                                 ,     "1"       },
+  {   "0x6200" , "elektrischer Durchlaufheizer"               ,     "1"       },
+  {   "0x6300" , "Ionisator"                                  ,     "1"       },
+  {   "0x6400" , "Bedufter"                                   ,     "1"       },
+
+// PMA
+  {   "0x5000" , "PMA Sensor links"                         ,     "1"       },
+  {   "0x5100" , "PMA Sensor rechts"                        ,     "1"       },
+// CDM RR04
+  {   "0x5200" , "CID-Klappe"                                 ,     "-"       },
+// F25
+  {   "0x5300" , "Schaltzentrum Lenksäule"                    ,     "1"       },
+  {   "0x5400" , "Multifunktionslenkrad"                      ,     "1"       },
+  {   "0x5500" , "Lenkradelektronik"                          ,     "1"       },
+// CID L7
+  {   "0x5600" , "CID"                                          ,     "-"       },
+// ACSM 4
+  {   "0x5700" , "Satellit Upfront links"                 ,     "0"       },
+  {   "0x5708" , "Satellit Upfront rechts"                ,     "0"       },
+  {   "0x5710" , "Satellit Tür links"                    ,     "0"       },
+  {   "0x5718" , "Satellit Tür rechts"                   ,     "0"       },
+  {   "0x5720" , "Satellit B-Säule links X"              ,     "0"       },
+  {   "0x5728" , "Satellit B-Säule rechts X"             ,     "0"       },
+  {   "0x5730" , "Satellit B-Säule links Y"              ,     "0"       },
+  {   "0x5738" , "Satellit B-Säule rechts Y"             ,     "0"       },
+  {   "0x5740" , "Satellit Zentralsensor X"                 ,     "0"       },
+  {   "0x5748" , "Satellit Zentralsensor Y"                 ,     "0"       },
+  {   "0x5750" , "Satellit Zentralsensor Low g Y"           ,     "0"       },
+  {   "0x5758" , "Satellit Zentralsensor Low g Z"           ,     "0"       },
+  {   "0x5760" , "Satellit Zentralsensor Roll Achse"      ,     "0"       },
+  {   "0x5768" , "Fussgängerschutz Sensor links"         ,     "0"       },
+  {   "0x5770" , "Fussgängerschutz Sensor rechts"        ,     "0"       },
+  {   "0x5778" , "Fussgängerschutz Sensor mitte"         ,     "0"       },
+  {   "0x5780" , "Fussgängerschutzsensor statisch"         ,     "0"       },
+  {   "0x5788" , "Satellit C-Säule links Y"              ,     "0"       },
+  {   "0x5790" , "Satellit C-Säule rechts Y"             ,     "0"       },
+  {   "0x5798" , "Satellit Zentrale Körperschall"         ,     "0"       },
+  {   "0x57A0" , "Kapazitive Insassen- Sensorik CIS"          ,     "1"       },
+  {   "0x57A8" , "Sitzbelegungserkennung Beifahrer SBR"     ,     "1"       },
+  {   "0x57B0" , "Fussgängerschutzsensor dynamisch 1"      ,     "0"       },
+  {   "0x57B8" , "Fussgängerschutzsensor dynamisch 2"      ,     "0"       },
+
+  {   "0x5800" , "HUD"                                          ,     "1"       },
+  {   "0x5900" , "Audio-Bedienteil"                           ,     "1"       },
+  {   "0x5A00" , "Innenlichtelektronik"                       ,     "1"       },
+
+// Mini F56
+  {   "0x5B00" , "Zentralinstrument"                          ,     "-"       },
+
+// BDC
+  {   "0x5C00" , "Elektrische Lenksäulenverstellung ELSV"                 ,     "1"       },
+  {   "0x5D00" , "Hands-Off Detection HOD"                                ,     "1"       },
+  {   "0x5E01" , "Innenbeleuchtung Fußraum Fahrer vorne"            ,     "1"       },
+  {   "0x5E02" , "Innenbeleuchtung Fußraum Fahrer hinten"           ,     "1"       },
+  {   "0x5E03" , "Innenbeleuchtung Fußraum Beifahrer vorne"         ,     "1"       },
+  {   "0x5E04" , "Innenbeleuchtung Fußraum Beifahrer hinten"        ,     "1"       },
+  {   "0x5E05" , "Innenbeleuchtung Fahrertür vorne oben"            ,     "1"       },
+  {   "0x5E06" , "Innenbeleuchtung Fahrertür vorne Mitte"           ,     "1"       },
+  {   "0x5E07" , "Innenbeleuchtung Fahrertür vorne unten"           ,     "1"       },
+  {   "0x5E08" , "Innenbeleuchtung Fahrertür vorne Kartentasche"    ,     "1"       },
+  {   "0x5E09" , "Innenbeleuchtung Fahrertür hinten oben"           ,     "1"       },
+  {   "0x5E0A" , "Innenbeleuchtung Fahrertür hinten unten"          ,     "1"       },
+  {   "0x5E0B" , "Innenbeleuchtung Fahrertür hinten Kartentasche"   ,     "1"       },
+  {   "0x5E0C" , "Innenbeleuchtung Beifahrertür vorne oben"         ,     "1"       },
+  {   "0x5E0D" , "Innenbeleuchtung Beifahrertür vorne Mitte"        ,     "1"       },
+  {   "0x5E0E" , "Innenbeleuchtung Beifahrertür vorne unten"        ,     "1"       },
+  {   "0x5E0F" , "Innenbeleuchtung Beifahrertür vorne Kartentasche" ,     "1"       },
+  {   "0x5E10" , "Innenbeleuchtung Beifahrertür hinten oben"        ,     "1"       },
+  {   "0x5E11" , "Innenbeleuchtung Beifahrertür hinten unten"       ,     "1"       },
+  {   "0x5E12" , "Innenbeleuchtung Beifahrertür hinten Kartentasche",     "1"       },
+  {   "0x5E13" , "Innenbeleuchtung I-Tafel Fahrer oben"             ,     "1"       },
+  {   "0x5E14" , "Innenbeleuchtung I-Tafel Fahrer unten"            ,     "1"       },
+  {   "0x5E15" , "Innenbeleuchtung I-Tafel oben Mitte"              ,     "1"       },
+  {   "0x5E16" , "Innenbeleuchtung I-Tafel unten Mitte"             ,     "1"       },
+  {   "0x5E17" , "Innenbeleuchtung I-Tafel oben Beifahrer"          ,     "1"       },
+  {   "0x5E18" , "Innenbeleuchtung I-Tafel unten Beifahrer"         ,     "1"       },
+  {   "0x5E19" , "Innenbeleuchtung B-Säule Fahrer"                    ,     "1"       },
+  {   "0x5E1A" , "Innenbeleuchtung B-Säule Beifahrer"                 ,     "1"       },
+  {   "0x5E1B" , "Innenbeleuchtung Lehne Fahrersitz"                  ,     "1"       },
+  {   "0x5E1C" , "Innenbeleuchtung Lehne Beifahrersitz"               ,     "1"       },
+  {   "0x5E1D" , "Innenbeleuchtung Centerstack"                         ,     "1"       },
+  {   "0x5E1E" , "Innenbeleuchtung Mittelkonsole Ablagefach"          ,     "1"       },
+  {   "0x5E1F" , "Innenbeleuchtung Gangwahlschalter links"            ,     "1"       },
+  {   "0x5E20" , "Innenbeleuchtung Gangwahlschalter rechts"           ,     "1"       },
+
+  {   "0xFFFF" , "unbekannter Verbauort"                      ,     "-"       }
+};
+
+// Zuordnung von Teilenummer zu BMW-Teilenummer
+// intelligenter Sensoren
+// wenn vom Sensor nicht gegeben
+  table PartNrTabelle[3][] = {
+  { "PART_NR"    , "BMW_NR"  , "KOMMENTAR"                },
+//{ "1234567890" , "1234567" , "Lin-Sensor Schrittmotor"  },
+  { "--"         , "--"      , "unbekannte Teilenummer" }
+};
+// end of :#include "STD_ISEN.B2S"                              // Tabelle für intelligente Sensoren
+
+table FunktionaleAdresse[3][] = {
+  { "NR"     , "F_ADR"     , "F_ADR_TEXT"             },
+  { "0xDF"   , "ALL"       , "alle Steuergeräte" }
+};
+
+// Tabelle JobResultExtended für eigene Fehlermeldung
+table JobResultExtended[2][] = {
+  { "SB"   , "STATUS_TEXT"                                              },
+  { "0x01" , "ERROR_ARGUMENT"                                           },
+  { "0x02" , "ERROR_VERIFY"                                             },
+  { "0x03" , "ERROR_ECU_RESPONSE_TOO_LESS_DATA"                         },
+  { "0x04" , "ERROR_ECU_RESPONSE_TOO_MUCH_DATA"                         },
+  { "0x05" , "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER"             },
+  { "0x06" , "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_TYPE"        },
+  { "0x07" , "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_IDENTIFIER"          },
+  { "0x08" , "ERROR_ECU_RESPONSE_INCORRECT_RESET_TYPE"                  },
+  { "0x09" , "ERROR_ECU_RESPONSE_INCORRECT_SERIAL_NUMBER_FORMAT"        },
+  { "0x0A" , "ERROR_ECU_RESPONSE_INCORRECT_DTC_BY_STATUS_MASK"          },
+  { "0x0B" , "ERROR_ECU_RESPONSE_INCORRECT_DTC_STATUS_AVAILABILITY_MASK"},
+  { "0x0C" , "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_TYPE"        },
+  { "0x0D" , "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_IDENTIFIER"  },
+  { "0x0E" , "ERROR_ECU_RESPONSE_ZGW"                                   },
+  { "0x0F" , "ERROR_ECU_RESPONSE_CAS"                                   },
+  { "0xXY" , "ERROR_UNKNOWN"                                            }
+};   
+     
+// ********************************************************************
+// Jobs
+// ********************************************************************
+
+// start of :#include "UDS_PACKAGE.B2S"                        // Package
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Die Include-Paket-Nummer ist im INFO-Job mit Result PACKAGE lesbar.
+// -------------------------------------------------------------------
+// History:
+// 14.03.2005  gh  V0.01 Erstellung
+//                       Datei UDS_INIT.B2S
+//                         Job INITIALISIERUNG
+//                       Datei UDS_INFO.B2S
+//                         Job INFO
+//                       Datei UDS_22_IDENT.B2S
+//                         Job IDENT
+//                       Datei UDS_19_02.B2S
+//                         Job FS_LESEN
+//                       Datei UDS_19_04_06.B2S  ?
+//                         Job FS_LESEN_DETAIL   ?
+//                       Datei UDS_14.B2S
+//                         Job FS_LOESCHEN
+//                       Datei UDS_22_1000.B2S
+//                         Job PRUEFSTEMPEL_LESEN
+//                       Datei UDS_2E_1000.B2S
+//                         Job PRUEFSTEMPEL_SCHREIBEN
+// 18.04.2005  gh  V0.02 Datei UDS_22_IDENT.B2S
+//                         Job IDENT_VORAB => IDENT
+// 28.07.2005  gh  V0.03 alle Dateien
+//                         Namensänderung auf mehr als 8 Zeichen
+//                       Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                         neu dazu
+// 18.11.2005  gr  V0.04 alle Dateien
+//                         Umstellung auf send_and_receive_uds
+// 28.11.2005  rd  V0.05 Datei UDS_CONSTANTS.B2S
+//                       Datei UDS_PARAMETER.B2S
+//                         neu dazu
+// 02.02.2006  gr  V0.06 Datei UDS_TAB_FKLASSE.B2S
+//                         Entfall (aufgrund Entfall SeverityByte)
+//                       Datei UDS_TAB_DIGITAL_ARGUMENT.B2S
+//                         Entfall (keine Aenderung zu STD_DIGI)
+//                       Dateien UDS_85_02_FS_SPERREN.B2S, UDS_10_DIAG_MODE.B2S, UDS_3E_DIAG_AUFRECHT.B2S
+//                         Anpassungen fuer STD_DIGI
+//                       Dateien UDS_19_02_FS_LESEN.B2S, UDS_19_04_06_FS_LESEN_DETAIL.B2S, UDS_TAB_FART.B2S
+//                               UDS_TAB_IART.B2S
+//                         Anpassungen an DTCStatusMask 0x0C
+//                       Dateien UDS_31_01_0F_0C_ENERGIESPARMODE.B2S, UDS_31_01_10_03_STEUERN_BETRIEBSMODE.B2S
+//                               UDS_31_01_0F_06_IS_LOESCHEN.B2S, UDS_14_FS_LOESCHEN.B2S
+//                         Fehlerkorrekturen
+//                       Dateien UDS_19_02_FS_LESEN.B2S, UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                         Anpassungen an DTCStatusMask 0x0C
+//                       Datei UDS_TAB_SVK_ID.B2S
+//                         Erweiterung Tabelle
+// 02.02.2006  gh  V0.06 Datei UDS_10_DIAGNOSE_MODE.B2S
+//                       Datei UDS_11_STEUERGERAETE_RESET.B2S
+//                       Datei UDS_22_10_00_PRUEFSTEMPEL_LESEN.B2S
+//                       Datei UDS_22_16_00_SENSOREN_ANZAHL_LESEN.B2S
+//                       Datei UDS_22_16_XX_SENSOREN_IDENT_LESEN.B2S
+//                       Datei UDS_22_F1_8A_8B_HERSTELLINFO_LESEN.B2S
+//                       Datei UDS_22_F1_8C_SERIENNUMMER_LESEN.B2S
+//                       Datei UDS_2E_10_00_PRUEFSTEMPEL_SCHREIBEN.B2S
+//                       Datei UDS_3E_DIAGNOSE_AUFRECHT.B2S
+//                       Datei UDS_INITIALISIERUNG.B2S
+//                       Datei STANDARD.UDS
+//                          Include-Name geändert (wie Job-Name)
+//                       Datei UDS_TAB_DiagMode.B2S
+//                       Datei UDS_TAB_DTCExtendedDataRecordNumber.B2S
+//                       Datei UDS_TAB_DTCSnapshotIdentifier.B2S
+//                       Datei UDS_TAB_FArtTexte.B2S
+//                       Datei UDS_TAB_IArtTexte.B2S
+//                       Datei UDS_TAB_Lieferanten.B2S
+//                       Datei UDS_TAB_Prozessklassen.B2S
+//                       Datei TABELLEN.UDS
+//                       Datei UDS_10_DIAGNOSE_MODE.B2S
+//                       Datei UDS_19_02_FS_LESEN.B2S
+//                       Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN.B2S
+//                       Datei UDS_22_F1_01_SVK_LESEN.B2S
+//                       Datei UDS_22_F1_8A_8B_HERSTELLINFO_LESEN.B2S
+//                         Include-Name geändert (wie Tabellen-Name)
+// 17.02.2006  gh  V0.07 Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                       Datei UDS_FS_DetailStruktur.B2S (Sub-Include)
+//                       Datei UDS_FS_Ort_Art.B2S        (Sub-Include)
+//                       Datei UDS_FS_Extended_Data.B2S  (Sub-Include)
+//                       Datei UDS_FS_Snapshot.B2S       (Sub-Include)
+//                         IS_LESEN_DETAIL: neu dazu
+//                         FS/IS_LESEN_DETAIL: Sub-Includes abgespalten
+// 20.02.2006  gh  V0.08 Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                       Datei UDS_FS_Extended_Data.B2S  (Sub-Include)
+//                       Datei UDS_FS_Snapshot.B2S       (Sub-Include)
+//                         Anzahl der Ergebnissätze wie bei KWP2000
+//                         F_UW_ZEIT_DATUM => F_UW_DATUM_ZEIT
+// 22.02.2006  gh  V0.09 Datei UDS_TAB_DiagMode.B2S
+//                         Korrektur: 0x03 = ECUExtendedDiagnosticSession
+// 23.02.2006  gh  V0.10 Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                       Datei UDS_FS_Snapshot.B2S       (Sub-Include)
+//                         Integration Sub-Tabellen "Tab_<Index>"
+// 24.02.2006  gh  V0.11 Datei CODIER.UDS
+//                         neu angelegt (wegen CPS_LESEN)
+//                       Datei STANDARD.UDS
+//                         Jobs DIAGNOSE_AUFRECHT und STATUS_BLOCK_LESEN entfernt
+// 24.03.2006  gh  V0.12 Datei UDS_22_F1_8C_SERIENNUMMER_LESEN.B2S
+//                         Interpretation geändert von ASCII nach HEX
+//                       Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                       Datei UDS_FS_Ort_Art.B2S
+//                         Zuweisung Result F_HEX_CODE erweitert
+//                       Datei UDS_FS_Snapshot.B2S
+//                         Zuweisung Result F_UW_DATUM_ZEIT präzisiert
+//                         Schaltjahrberechnung korrigiert
+// 27.03.2006  gh  V0.13 Datei UDS_FS_Snapshot.B2S
+//                         diskrete UW: F_UWi_WERT jetzt real
+//                         Format bei F_UW_DATUM_ZEIT optimiert
+//                       Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                         Abbruch, wenn zu wenig Daten in SG-Antwort
+// 28.03.2006  gh        Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                         Abbruch, wenn Anzahl der Daten in SG-Antwort falsch
+// 29.03.2006  gh        Datei UDS_FS_Snapshot.B2S
+//                         Trace-Meldungen bzgl. return_with_message optimiert
+// 30.03.2006  gh        Datei UDS_22_F1_01_SVK_LESEN.B2S
+//                         PROZESSKLASSE_WERT und VERSION: Berechnung korrigiert
+// 31.05.2006  rd  V0.14 Datei UDS_22_STATUS_LESEN.B2S
+//                         überarbeitet
+//                       Datei UDS_2E_STEUERN.B2S
+//                         überarbeitet
+//                       Datei UDS_2F_STEUERN_IO.B2S
+//                         neu
+//                       Datei UDS_31_STEUERN_ROUTINE.B2S
+//                         neu
+//                       UDS_TAB_JOBRESULT.B2S
+//                         überarbeitet
+// 12.06.2006  rd  V0.15 Datei UDS_22_STATUS_LESEN.B2S
+//                         Datentyp integer und BITFIELD dazu
+//                       Datei UDS_2E_STEUERN.B2S
+//                         Datentyp integer dazu
+//                       Datei UDS_2F_STEUERN_IO.B2S
+//                         Datentyp integer dazu
+//                       Datei UDS_31_STEUERN_ROUTINE.B2S
+//                         Datentyp integer dazu
+// 21.06.2006  rd  V0.16 Datei UDS_2C_STATUS_BLOCK_LESEN.B2S
+//                         neu
+//                       Datei UDS_22_STATUS_LESEN.B2S
+//                         Fehlermeldung bei string überarbeitet
+//                         Serviceüberprüfung dazu aber noch nicht aktiviert
+//                       Datei UDS_2F_STEUERN_IO.B2S
+//                         Fehlermeldung bei string überarbeitet
+//                         Serviceüberprüfung dazu aber noch nicht aktiviert
+//                       Datei UDS_31_STEUERN_ROUTINE.B2S
+//                         Fehlermeldung bei string überarbeitet
+//                         Serviceüberprüfung dazu aber noch nicht aktiviert
+//                         Unterschiedliche Result- und Argumentauswertung
+//                         für STR, STPR, RRR
+//                       Datei UDS_2E_STEUERN.B2S
+//                         Serviceüberprüfung dazu aber noch nicht aktiviert
+//                       UDS_TAB_JOBRESULT.B2S
+//                         Erweiterung für Standard-Job STATUS_BLOCK_LESEN
+// 27.06.2006  rd  V0.17 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferantentext 0x77 bis 0x80 neu hinzu
+// 28.06.2006  gh  V0.18 Datei STANDARD.UDS
+//                         Includes STEUERN_IO und STEUERN_ROUTINE entfernt
+//                       Datei TABELLEN.UDS
+//                         UDS_TAB_Fehlerklasse hinzu
+//                       Datei UDS_19_02_FS_LESEN.B2S
+//                         Angleichung der Auswertung an Job IS_LESEN
+//                       Datei UDS_22_20_00_IS_LESEN.B2S
+//                         Angleichung der Auswertung an Job FS_LESEN
+//                       Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                         Integration Severity-Byte
+//                         Result "F_UW_DATUM_ZEIT" entfernt
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                         Integration Severity-Byte
+//                         Result "F_UW_DATUM_ZEIT" entfernt
+//                       Datei UDS_FS_DetailStruktur.B2S
+//                         Integration Flag "severity_exist"
+//                       Datei UDS_FS_Snapshot.B2S
+//                         Zuweisung Result "F_UW_DATUM_ZEIT" auskommentiert
+//                       Datei UDS_TAB_Fehlerklasse.B2S
+//                         neu
+//                       Datei UDS_22_F1_8C_SERIENNUMMER_LESEN.B2S
+//                         Anpassung an LH SAP 10000970
+//                       Datei UDS_TAB_DiagMode.B2S
+//                         Integration weiterer Diagnose-Modi
+// 29.06.2006  gh  V0.19 Datei UDS_FS_DetailStruktur.B2S
+//                         Fehlerbehandlung Flags
+// 08.08.2006  rd  V0.20 Datei UDS_CONSTANTS.UDS
+//                         REPAET_COUNTER von 2 auf 1 reduziert
+//                         wegen Einsatz parallele Diagnose am D-CAN
+//                       Datei UDS_PARAMETER.B2S
+//                         BMW-KWP2000-CAN Timeout und TP-Layer angepasst
+// 14.09.2006  rd  V0.21 Datei UDS_TAB_LIEFERANTEN.B2S
+//                         Lieferanten 0x81 und 0x84 dazu
+// 18.09.2006  gh  V0.22 Datei STANDARD.UDS
+//                         Job SERIENNUMMER_LESEN dazu
+// 15.11.2006  gh  V0.23 Datei UDS_19_04_06_FS_LESEN_DETAIL.B2S
+//                         Sonderfall Fehler nicht in SG gespeichert
+//                         Anzahl UWB-Sätze einstellbar
+//                         komplexe UWB: Ausgabe als Text (string)
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                         Anpassungen wegen Erweiterung FS_LESEN_DETAIL
+//                       Datei UDS_FS_DetailStruktur.B2S
+//                         Anzahl UWB-Sätze einstellbar
+//                       Datei UDS_FS_Snapshot.B2S
+//                         komplexe UWB: Ausgabe als Text (string)
+// 04.12.2006  gh  V0.24 Datei UDS_TAB_ROE_AKTIV.B2S
+//                         neu dazu (Tabelle bzgl. Response On Event)
+//                       Datei UDS_JOBS_ROE.B2S
+//                         neu dazu (Sanmmelinclude: 5 Jobs bzgl. Response On Event)
+//                       Datei UDS_86_00_02_STEUERN_ROE_STOP.B2S
+//                         neu dazu (optionaler Jobs bzgl. Response On Event)
+//                       Datei UDS_86_04_STATUS_ROE_REPORT.B2S
+//                         neu dazu (optionaler Jobs bzgl. Response On Event)
+//                       Datei UDS_86_05_02_STEUERN_ROE_START.B2S
+//                         neu dazu (optionaler Jobs bzgl. Response On Event)
+//                       Datei UDS_86_40_02_STEUERN_ROE_PERSISTENT_STOP.B2S
+//                         neu dazu (optionaler Jobs bzgl. Response On Event)
+//                       Datei UDS_86_45_02_STEUERN_ROE_PERSISTENT_START.B2S
+//                         neu dazu (optionaler Jobs bzgl. Response On Event)
+// 23.03.2007  gh  V0.25 Datei UDS_22_16_XX_SENSOREN_IDENT_LESEN.B2S
+//                         Verbauort mit SG-Adresse verknüpft
+//                         Auswertung optionaler LIN-Daten hinzu
+//                       Datei UDS_22_F1_86_DIAG_SESSION_LESEN.B2S
+//                         Anforderung W 2.4, Richard Kolbeck (fuer LDM)
+//                       Datei UDS_22_25_02_PROG_ZAEHLER_LESEN.B2S
+//                         Anforderung W 2.4, Richard Kolbeck (fuer LDM)
+//                       Datei UDS_22_25_03_PROG_MAX_LESEN.B2S
+//                         Anforderung W 2.4, Richard Kolbeck (fuer LDM)
+//                       Datei UDS_22_25_04_FLASH_TP_LESEN.B2S
+//                         Anforderung W 2.4, Richard Kolbeck (fuer LDM)
+//                       Datei UDS_31_01_FF_01_PROG_ABHAENGIGKEITEN_LESEN.B2S
+//                         Anforderung W 2.4, Richard Kolbeck (fuer LDM)
+//                       Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten 0x85 bis 0x96 neu dazu
+//                         Lieferant   0x72 Rechtschreibfehler behoben
+//                       Datei UDS_22_37_FE_CPS_LESEN.B2S
+//                         BEST-Befehl dataclear integriert
+//                       Datei UDS_22_F1_8A_8B_HERSTELLINFO_LESEN.B2S
+//                         Service $F18A jetzt optional
+//                       Datei UDS_22_20_00_IS_LESEN_DETAIL.B2S
+//                         Sonderfall "anzahl_snapshotRecord = 0" ohne Error "Division by Zero"
+//                       Datei UDS_TAB_Prozessklassen.B2S
+//                         Prozessklassen geändert (teilweise INKOMPATIBEL !!!)
+// 28.03.2007  gh  V0.26 Datei UDS_31_01_FF_01_PROG_ABHAENGIGKEITEN_LESEN.B2S
+//                         entfernt, da Job nur in ProgrammingSession möglich
+//                       Datei UDS_22_F1_01_SVK_LESEN.B2S
+//                         Result (int) PROG_TEST dazu
+//                       Datei UDS_22_STATUS_LESEN.B2S
+//                         Serviceüberprüfung aktiv
+//                         Resultname beginnend mit _STAT_ jetzt erlaubt
+//                       Datei UDS_2C_STATUS_BLOCK_LESEN.B2S
+//                         Serviceüberprüfung aktiv
+//                         Resultname beginnend mit _STAT_ jetzt erlaubt
+//                       Datei UDS_2E_STEUERN.B2S
+//                         Serviceüberprüfung aktiv
+//                       Datei UDS_2F_STEUERN_IO.B2S
+//                         Serviceüberprüfung aktiv
+//                         Resultname beginnend mit _STAT_ jetzt erlaubt
+//                       Datei UDS_31_STEUERN_ROUTINE.B2S
+//                         Serviceüberprüfung aktiv
+//                         Resultname beginnend mit _STAT_ jetzt erlaubt
+// 02.05.2007  gh  V0.27 Datei UDS_22_25_04_FLASH_TP_LESEN.B2S
+//                         Reihenfolge bei 18-Byte-Antwort korrigiert
+//                       Datei CBS5JOBS.B2S
+//                         Korrektur von Stefan Jurthe, EF620 (Job CBS_RESET)
+// 30.10.2007  gr  V0.28 Datei UDS_19_02_FS_LESEN.B2S angepasst
+// 22.11.2007  rd  V0.29 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten 0x9A bis 0x9E neu dazu
+// 20.02.2008  rd  V1.00 Datei STD_ISEN.B2S
+//                         Spurwechselradarsensor Lin 2 Format
+// 25.02.2008  rd  V1.01 Datei STD_ISEN.B2S
+//                         PMA Sensoren hinzu
+// 07.03.2008  rd  V1.02 Datei STD_ISEN.B2S
+//                         Startergenerator, Ölqualitätsensor hinzu
+// 17.03.2008  rd  V1.03 Datei STD_ISEN.B2S
+//                         Topview, Sideview, Rearview Kameras LIN_2_FORMAT
+// 01.04.2008  as  V1.04 Datei UDS_TAB_IArtTexte.B2S
+//                         Texte von UDS_TAB_FArtTexte.B2S übernommen
+// 14.06.2008  rd  V1.05 Datei UDS_TAB_Lieferante.B2S
+//                         Lieferanten bis 0xA4 dazu
+// 01.08.2008  rd  V1.06 Datei STD_ISEN.B2S
+//                         ACSM4 Sensoren dazu
+// 15.09.2008  gr  V1.07 Datei UDS_22_20_00_IS_LESEN.B2S
+//                         Korrektur bei Result F_HEX_CODE
+// 21.10.2008  rd  V1.08 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferant 0xA5 dazu
+// 18.11.2008  rd  V1.09 Datei STD_ISEN.B2S
+//                         Mirkrowellensensoren überarbeitet
+// 19.01.2009  as  V1.10 Datei UDS_TAB_JobResult.B2S
+//                           Erweiterung der JobResult-Tabelle
+// 19.01.2009  as  V1.11 Datei UDS_TAB_JobResult.B2S, UDS_TAB_DiagMode.B2S
+//                           Erweiterung der JobResult-Tabelle, Modierweiterung
+// 19.01.2009  gh  V1.12 Datei UDS_19_15_FS_LESEN_PERMANENT.B2S hinzu
+// 30.07.2009  rd  V1.13 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten aktualisiert
+// 30.07.2009  gr  V1.14 Datei UDS_TAB_LieferantenLIN.B2S
+//                         Lieferanten aktualisiert
+// 07.12.2009  rd  V1.15 Datei UDS_TAB_LieferantenLIN.B2S
+//                         Lieferanten aktualisiert
+//                       Datei UDS_TAB_GROBNAME.B2S
+//                         Aktualisiert
+// 05.03.2010  rd  V1.16 Datei UDS_TAB_GROBNAME.B2S
+//                         Aktualisiert
+// 29.04.2010  gh  V1.17 Datei UDS_FS_Snapshot.B2S
+//                         Sub-Tabellen für diskrete UW: Spaltenname "UWTEXT" oder "TEXT"
+//             rd        Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten aktualisiert
+// 10.12.2010  gh  V1.18 Datei UDS_TAB_LIEFERANTENLIN.B2S
+//                         Lieferanten aktualisiert
+//                         Datei UDS_2C_STATUS_BLOCK_LESEN.B2S
+//                         Datei UDS_2E_STEUERN.B2S
+//                         Datei UDS_2F_STEUERN_IO.B2S
+//                         Datei UDS_31_STEUERN_ROUTINE.B2S
+//                         Datei UDS_22_STATUS_LESEN.B2S
+//                         neue Einheit DATA, TEXT dazu
+//                         Integration DUMMY_ bei Einheit DATA
+//                         Integration Entfall Längenprüfung
+//                         Anforderungen VH-53,Waegner und EA-410, Lorch
+//                         Datei UDS_MOSTJOBS.B2S
+//                         Datei UDS_MOST_TAB.B2S
+//                         Update, neue Verantwortung: Florian Lange, EI-42
+// 26.05.2011  gh  V1.19 Datei UDS_TAB_Prozessklassen.B2S
+//                         Prozessklasse 0x04 GWTB hinzu
+// 30.11.2011  rd  V1.20 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten aktualisiert
+// 15.12.2011  rd  V1.21 Datei STD_ISEN.B2S
+//                         überarbeitet
+// 25.01.2012  rd  V1.22 Datei UDS_TAB_Lieferanten.B2S
+//                         Lieferanten aktualisiert
+// 02.02.2012  rd  V1.23 Datei STD_ISEN.B2S
+//                         überarbeitet
+// 24.02.2012  rd  V1.24 Datei UDS_22_10_0B_I_STUFE_LESEN.B2S
+//                         Backup jetzt CAS oder KOMBI oder FEM
+// *******************************************************************
+// UDS_PACKAGE.B2S (#) V1.24 (#)
+// *******************************************************************
+#define __PACKAGE__ "1.24"
+// end of :#include "UDS_PACKAGE.B2S"                        // Package
+#undef  REPEAT_COUNTER
+#define REPEAT_COUNTER 0
+// start of :#include "UDS_INITIALISIERUNG.B2S"                // INITIALISIERUNG
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : INITIALISIERUNG
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.11.2005  rd  V0.001 Erstellung
+// 28.11.2005  rd  V0.002 CAN Parameter dazu
+// 02.02.2006  gh  V0.003 Include-Name geändert (wie Job-Name)
+// *******************************************************************
+// UDS_INITIALISIERUNG.B2S (#) V0.003 (#)
+// *******************************************************************
+job ( name      :       INITIALISIERUNG;
+      comment   :       Initialisierung und Kommunikationsparameter;
+
+      result    :       DONE;
+        type    :       int;
+        defrslt :       ;
+        comment :       1, wenn Okay;
+    )
+{
+  open_communication();                              // Kommunikation starten
+  stop_frequent();                                   // evtl. bestehende ACK killen
+  set_repeat_counter(REPEAT_COUNTER);                // Wiederholzaehler setzen
+  set_communication_pars(PARAMETER_BMW_KWP2000_CAN); // Konzept einstellen
+  set_answer_length(AWLEN_BMW_KWP2000_CAN);          // Antwortlaenge
+  DONE = 1;                                          // muss immer 'DONE' heissen !
+}
+
+
+// end of :#include "UDS_INITIALISIERUNG.B2S"                // INITIALISIERUNG
+// start of :#include "STD_INFO.B2S"                           // INFO
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : INFO
+// -------------------------------------------------------------------
+// History:
+// 31.01.2001  rd  V0.01 Erstellung
+// 25.03.2002  rd  V1.00 Freigabe
+// 22.04.2003  rd  V1.01 Versionskennung hinzu
+// *******************************************************************
+// STD_INFO.B2S (#) V1.01 (#)
+// *******************************************************************
+job ( name      :       INFO;
+      comment   :       Information SGBD;
+
+      result    :       ECU;
+        type    :       string;
+        defrslt :       ;
+        comment :       Steuergerät im Klartext;
+
+      result    :       ORIGIN;
+        type    :       string;
+        defrslt :       ;
+        comment :       Steuergeräte-Verantwortlicher;
+
+      result    :       REVISION;
+        type    :       string;
+        defrslt :       ;
+        comment :       Versions-Nummer;
+
+      result    :       AUTHOR;
+        type    :       string;
+        defrslt :       ;
+        comment :       Namen aller Autoren;
+
+      result    :       COMMENT;
+        type    :       string;
+        defrslt :       ;
+        comment :       wichtige Hinweise;
+
+      result    :       PACKAGE;
+        type    :       string;
+        defrslt :       ;
+        comment :       Include-Paket-Nummer;
+
+      result    :       SPRACHE;
+        type    :       string;
+        defrslt :       ;
+        comment :       deutsch, english;
+    )
+{
+  ECU      = __ECU__;
+  ORIGIN   = __ORIGIN__;
+  REVISION = __REVISION__;
+  AUTHOR   = __AUTHOR__;
+  COMMENT  = __ECUCOMMENT__;
+  PACKAGE  = __PACKAGE__;
+  SPRACHE  = "deutsch";
+}
+// end of :#include "STD_INFO.B2S"                           // INFO
+// start of :#include "UDS_22_F1_50_IDENT_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : IDENT_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_22_F1_50_IDENT_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       IDENT_FUNKTIONAL;
+      comment   :       Identdaten;
+      comment   :       UDS   : $22   ReadDataByIdentifier;
+      comment   :               $F150 Sub-Parameter SGBD-Index;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       ECU_NAME;
+        type    :       string;
+        comment :       Steuergeräte Name;
+        comment :       table ZuordnungsTabelleUDS ADR_INDEX STEUERGERAET;
+
+      result    :       ECU_SGBD;
+        type    :       string;
+        comment :       Steuergeräte SGBD Name;
+        comment :       table ZuordnungsTabelleUDS ADR_INDEX SGBD;
+
+      result    :       ECU_GRUPPE;
+        type    :       string;
+        comment :       Steuergeräte Gruppendatei Name;
+        comment :       table ZuordnungsTabelleUDS ADR_INDEX GRUPPE;
+
+      result    :       ID_SGBD_INDEX;
+        type    :       long;
+        comment :       Index zur Erkennung der SG-Variante;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0xF1,0x50};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+  unsigned char adr_sgbdindex[];
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 6) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 6) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0xF1) || (response[2] != 0x50)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            if(ID_SGBD_INDEX) ID_SGBD_INDEX = (response[3] << 16) + (response[4] << 8) + response[5];
+            if (ECU_SGBD || ECU_GRUPPE || ECU_NAME) {
+              itoax(adr_sgbdindex, (SA_response << 24) + (response[3] << 16) + (response[4] << 8) + response[5]);
+              // '0x12345678'
+              strerase(adr_sgbdindex,0,1);
+              adr_sgbdindex[0] = adr_sgbdindex[1];
+              adr_sgbdindex[1] = adr_sgbdindex[2];
+              adr_sgbdindex[2] = 0x20;
+              // '12 345678'
+              tabsetext("t_grtb","ZuordnungsTabelleUDS");
+              if (tabseek("ADR_INDEX",adr_sgbdindex)) {
+                if (ECU_SGBD) {
+                  tabget(temp,"SGBD");
+                  ECU_SGBD  = temp;
+                }
+                if (ECU_GRUPPE) {
+                  tabget(temp,"GRUPPE");
+                  ECU_GRUPPE  = temp;
+                }
+                if (ECU_NAME) {
+                  tabget(temp,"STEUERGERAET");
+                  ECU_NAME  = temp;
+                }
+              }
+              else {
+                if (ECU_SGBD)   ECU_SGBD   = "";
+                if (ECU_GRUPPE) ECU_GRUPPE = "";
+                if (ECU_NAME)   ECU_NAME   = "";
+              }
+            }
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0xF1,0x50};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_22_F1_50_IDENT_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_F1_01_SVK_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SVK_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// 23.05.2006 rd V0.51 Result XWEi_VERSION2 geändert auf XWEi_VERSION
+// 12.06.2007 rd V0.70 Result XWEi_PROZESSKLASSE_KURZTEXT neu dazu
+//               V0.70 Anforderung von TI-431 Lorenz
+// 17.10.2007 rd V0.80 Result XWEi_SGBMID neu dazu
+// *******************************************************************
+// UDS_22_F1_01_SVK_LESEN_FUNKTIONAL.B2S (#) V0.80 (#)
+// *******************************************************************
+job ( name      :       SVK_LESEN_FUNKTIONAL;
+      comment   :       Informationen zur SoftwareVerbauKennung;
+      comment   :       UDS  : $22   ReadDataByIdentifier;
+      comment   :            : $F101 SVK_AKTUELL;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       PROG_DATUM;
+        type    :       string;
+        comment :       Programmierdatum (DD.MM.YY);
+
+      result    :       ANZAHL_EINHEITEN;
+        type    :       long;
+        comment :       Anzahl der XWEn;
+        comment :       Je nach dieser Anzahl i (i = 1, 2, ...);
+        comment :       existieren i mal folgende Results:;
+        comment :       (long)   XWEi_PROZESSKLASSE_WERT;
+        comment :       (string) XWEi_PROZESSKLASSE_TEXT;
+        comment :       (string) XWEi_PROZESSKLASSE_KURZTEXT;
+        comment :       (string) XWEi_SGBM_IDENTIFIER;
+        comment :       (string) XWEi_VERSION;
+        comment :       (string) XWEi_SGBMID;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0xF1,0x01};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+           char sgbmid[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           int  anzahl;
+           int  index;
+           int  offset;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 10) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if ((response[1] != 0xF1) || (response[2] != 0x01)) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+        }
+        else {
+          anzahl = (response[5] << 8) + response[6];
+          if ((response[10] & 0x80) == 0x00) {
+            offset=11; // kleiner Fingerprint 4 Byte
+          }
+          else {
+            offset=20; // großer Fingerprint 13 Byte
+          }
+          if (datalen(response) < (offset + anzahl*8)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+          }
+          else {
+            if (datalen(response) > (offset + anzahl*8)) {
+              JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+            }
+            else {
+              if (PROG_DATUM) {
+                bcd2ascii(buffer, response, 9, 1);
+                strcat(buffer,".");
+                bcd2ascii(temp, response, 8, 1);
+                strcat(buffer,temp);
+                strcat(buffer,".");
+                bcd2ascii(temp, response, 7, 1);
+                strcat(buffer,temp);
+                PROG_DATUM = buffer;
+              }
+              
+              if (ANZAHL_EINHEITEN) ANZAHL_EINHEITEN=anzahl;
+              index = 0;
+              while (index < anzahl) {
+                index++;
+                if (ANZAHL_EINHEITEN) {
+                  sgbmid="";
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_PROZESSKLASSE_WERT");
+                  var_result_long(buffer, response[offset]);
+
+                  tabset("Prozessklassen");
+                  tab_suche_index("WERT",response[offset]);
+
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_PROZESSKLASSE_TEXT");
+                  tabget(temp, "BEZEICHNUNG");
+                  var_result_string(buffer, temp);
+
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_PROZESSKLASSE_KURZTEXT");
+                  tabget(temp, "PROZESSKLASSE");
+                  var_result_string(buffer, temp);
+                  strcat(sgbmid,temp);
+                  strcat(sgbmid,"-");
+
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_SGBM_IDENTIFIER");
+                  hex2ascii(temp,response,offset+1,4);
+                  var_result_string(buffer, temp);
+                  strcat(sgbmid,temp);
+                  strcat(sgbmid,"-");
+
+                  // Ausgabe dezimal 3 stellig
+                  itoad(temp,response[offset + 5]);
+                  if (strlen(temp)==1) strinsert(temp,"00",0);
+                  if (strlen(temp)==2) strinsert(temp,"0",0);
+                  strcat(temp, ".");
+                  itoad(buffer,response[offset + 6]);
+                  if (strlen(buffer)==1) strinsert(buffer,"00",0);
+                  if (strlen(buffer)==2) strinsert(buffer,"0",0);
+                  strcat(temp,buffer);
+                  strcat(temp, ".");
+                  itoad(buffer,response[offset + 7]);
+                  if (strlen(buffer)==1) strinsert(buffer,"00",0);
+                  if (strlen(buffer)==2) strinsert(buffer,"0",0);
+                  strcat(temp,buffer);
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_VERSION");
+                  var_result_string(buffer, temp);
+                  strcat(sgbmid,temp);
+                  itoad(buffer, index);
+                  strinsert(buffer, "XWE", 0);
+                  strcat(buffer, "_SGBMID");
+                  var_result_string(buffer, sgbmid);
+                }
+                offset += 8;
+              }
+              JOB_STATUS = "OKAY";
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0xF1,0x01};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_22_F1_01_SVK_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_F1_8C_SERIENNUMMER_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SERIENNUMMER_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_22_F1_8C_SERIENNUMMER_LESEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       SERIENNUMMER_LESEN_FUNKTIONAL;
+      comment   :       Seriennummer des Steuergeraets;
+      comment   :       UDS   : $22   ReadDataByIdentifier;
+      comment   :       UDS   : $F18C Sub-Parameter ECUSerialNumber;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       SERIENNUMMER;
+        type    :       string;
+        comment :       Seriennummer des Steuergeraets;      
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0xF1,0x8C};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           int  index;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 13) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 13) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0xF1) || (response[2] != 0x8C)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            JOB_STATUS = "OKAY";
+            if (SERIENNUMMER) {
+              buffer = "**********";
+              index = 0;
+              while (index < 10) {
+                if ((response[index+3] >= 0x00) && (response[index+3] <= 0x09)) {
+                  buffer[index] = 0x30 + response[index+3];
+                }
+                else {
+                  if ((response[index+3] >= 0x30) && (response[index+3] <= 0x39)) {
+                    buffer[index] = response[index+3];
+                  }
+                  else {
+                    JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_SERIAL_NUMBER_FORMAT";
+                  }
+                }
+                index++;
+              }
+              SERIENNUMMER = buffer;
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0xF1,0x8C};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_22_F1_8C_SERIENNUMMER_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_F1_90_PROG_FG_NR_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : PROG_FG_NR_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 28.09.2007 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_22_F1_90_PROG_FG_NR_LESEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       PROG_FG_NR_LESEN_FUNKTIONAL;
+      comment   :       Auslesen der Fahrgestellnummer (VIN);
+      comment   :       ! nur moeglich, wenn SG programmiert !;
+      comment   :       UDS  : $22   ReadDataByIdentifier;
+      comment   :       UDS  : $F190 VIN;
+      comment   :       Modus: Default;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       FG_NR_KURZ;
+        type    :       string;
+        comment :       kurze Fahrgestellnummer (VIN) 7-stellig;
+
+      result    :       FG_NR_LANG;
+        type    :       string;
+        comment :       lange Fahrgestellnummer (VIN) 17-stellig;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0xF1,0x90};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           int  index;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 20) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 20) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0xF1) || (response[2] != 0x90)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            JOB_STATUS = "OKAY";
+            if (FG_NR_KURZ) {
+              buffer = "???????";
+              datacopy(buffer, response, 13, 7);
+              index = 0;
+              do {     //Testen, ob alle FGNR-Stellen aus 'A'..'Z', 'a'..'z', '0'..'9' und 0xFF sind
+                if (((buffer[index] < 'A') || (buffer[index] > 'Z')) &&
+                    ((buffer[index] < 'a') || (buffer[index] > 'z')) &&
+                    ((buffer[index] < '0') || (buffer[index] > '9')) &&
+                     (buffer[index] != 0xFF))
+                  buffer[index] = '?';
+                index++;
+              } while (index < 7);
+              FG_NR_KURZ = buffer;
+            }
+            if (FG_NR_LANG) {
+              buffer = "?????????????????";
+              datacopy(buffer, response, 3, 17);
+              index = 0;
+              do {     //Testen, ob alle FGNR-Stellen aus 'A'..'Z', 'a'..'z', '0'..'9' und 0xFF sind
+                if (((buffer[index] < 'A') || (buffer[index] > 'Z')) &&
+                    ((buffer[index] < 'a') || (buffer[index] > 'z')) &&
+                    ((buffer[index] < '0') || (buffer[index] > '9')) &&
+                     (buffer[index] != 0xFF))
+                  buffer[index] = '?';
+                index++;
+              } while (index < 17);
+              FG_NR_LANG = buffer;
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0xF1,0x90};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_22_F1_90_PROG_FG_NR_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_25_02_PROG_ZAEHLER_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : PROG_ZAEHLER_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 03.03.2008 rd V1.00 Erstellung
+// *******************************************************************
+// UDS_22_25_02_PROG_ZAEHLER_LESEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       PROG_ZAEHLER_LESEN_FUNKTIONAL;
+      comment   :       Energy-Saving-Mode auslesen;
+      comment   :       UDS:    $22   ReadDataByIdentifier;
+      comment   :       UDS:    $2502 ProgrammingCounter;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       PROG_ZAEHLER_STATUS_WERT;
+        type    :       int;
+        comment :       Status, wie oft das SG programmierbar ist;
+
+      result    :       PROG_ZAEHLER_STATUS_TEXT;
+        type    :       string;
+        comment :       Status, wie oft das SG programmierbar ist;
+
+      result    :       PROG_ZAEHLER;
+        type    :       int;
+        comment :       Programmierzaehler;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x25,0x02};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 7) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 7) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0x25) || (response[2] != 0x02)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            // response[3] ist reserviert
+            if (PROG_ZAEHLER_STATUS_WERT) PROG_ZAEHLER_STATUS_WERT = response[4];
+            if (PROG_ZAEHLER_STATUS_TEXT) {
+              switch (response[4]) {
+                case 0x00 : PROG_ZAEHLER_STATUS_TEXT="Status grün: SG mehrfach programmierbar";
+                            break;
+                case 0x01 : PROG_ZAEHLER_STATUS_TEXT="Status gelb: SG mindestens einmal programmierbar";
+                            break;
+                case 0x02 : PROG_ZAEHLER_STATUS_TEXT="Status rot: SG nicht mehr programmierbar";
+                            break;
+                default   : PROG_ZAEHLER_STATUS_TEXT="Fehler: unerlaubter Wert (reserved)";
+                            break;
+              }
+            }
+            if (PROG_ZAEHLER) PROG_ZAEHLER = (response[5] << 8) + response[6];
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x25,0x02};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_22_25_02_PROG_ZAEHLER_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_19_02_FS_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : FS_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_19_02_FS_LESEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       FS_LESEN_FUNKTIONAL;
+      comment   :       Fehlerspeicher lesen;
+      comment   :       UDS     : $19 ReadDTCInformation;
+      comment   :       UDS     : $02 ReadDTCByStatusMask;
+      comment   :       UDS     : $0C StatusMask (Bit2, Bit3);
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       F_ANZ;
+        type    :       long;
+        comment :       Anzahl der Fehlereinträge;
+        comment :       Je nach dieser Anzahl i (i = 1, 2, ...);
+        comment :       existieren i mal folgende Results:;
+        comment :       (long)   F_ORTi_NR        Fehlercode;
+        comment :       (long)   F_ARTi_NR        Fehlerart;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x19,0x02,0x0C};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           int  anzahl;
+           int  index;
+           int  offset;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 3) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        offset = 3;      
+        anzahl = (datalen(response) - offset) / 4;
+        if (datalen(response) != (offset + anzahl*4)) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if (response[1] != 0x02) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DTC_BY_STATUS_MASK";
+          }
+          else {
+            if ((response[2] & 0x0C) != 0x0C) {
+              JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DTC_STATUS_AVAILABILITY_MASK";
+            }
+            else {
+              if (F_ANZ) F_ANZ=anzahl;
+              index = 0;
+              while (index < anzahl) {
+                index++;
+                if (F_ANZ) {
+                  itoad(buffer, index);
+                  strinsert(buffer, "F_ORT", 0);
+                  strcat(buffer, "_NR");
+                  var_result_long(buffer, (response[offset] << 16) + (response[offset + 1] <<  8) + response[offset + 2]);
+    
+                  itoad(buffer, index);
+                  strinsert(buffer, "F_ART", 0);
+                  strcat(buffer, "_NR");
+                  var_result_long(buffer, response[offset + 3]);
+                }
+                offset += 4;
+              }
+              JOB_STATUS = "OKAY";
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x19,0x02,0x0C};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_19_02_FS_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_14_FS_LOESCHEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : FS_LOESCHEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_14_FS_LOESCHEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       FS_LOESCHEN_FUNKTIONAL;
+      comment   :       Fehlerspeicher löschen;
+      comment   :       UDS   : $14 ClearDiagnosticInformation;
+      comment   :               $FF DTCHighByte;
+      comment   :               $FF DTCMiddleByte;
+      comment   :               $FF DTCLowByte;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x14,0xFF,0xFF,0xFF};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) > 1) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+      }
+      else {
+        JOB_STATUS = "OKAY";
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x14,0xFF,0xFF,0xFF};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_14_FS_LOESCHEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_20_00_IS_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : IS_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 22.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_22_20_00_IS_LESEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       IS_LESEN_FUNKTIONAL;
+      comment   :       Sekundärer Fehlerspeicher lesen (alle Fehler / Ort und Art);
+      comment   :       UDS  : $22   ReadDataByIdentifierRequestServiceID;
+      comment   :              $2000 DataIdentifier sekundaerer Fehlerspeicher;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       F_ANZ;
+        type    :       long;
+        comment :       Anzahl der Fehlereinträge;
+        comment :       Je nach dieser Anzahl i (i = 1, 2, ...);
+        comment :       existieren i mal folgende Results:;
+        comment :       (long)   F_ORTi_NR        Fehlercode;
+        comment :       (long)   F_ARTi_NR        Fehlerart;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x20,0x00};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           int  anzahl;
+           int  index;
+           int  offset;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 3) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        offset = 3;      
+        anzahl = (datalen(response) - offset) / 4;
+        if (datalen(response) != (offset + anzahl*4)) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0x20) || (response[2] != 0x00)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            if (F_ANZ) F_ANZ=anzahl;
+            index = 0;
+            while (index < anzahl) {
+              index++;
+              if (F_ANZ) {
+                itoad(buffer, index);
+                strinsert(buffer, "F_ORT", 0);
+                strcat(buffer, "_NR");
+                var_result_long(buffer, (response[offset] << 16) + (response[offset + 1] <<  8) + response[offset + 2]);
+  
+                itoad(buffer, index);
+                strinsert(buffer, "F_ART", 0);
+                strcat(buffer, "_NR");
+                var_result_long(buffer, response[offset + 3]);
+              }
+              offset += 4;
+            }
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x20,0x00};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_22_20_00_IS_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_31_01_0F_06_IS_LOESCHEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : IS_LOESCHEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 22.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_31_01_0F_06_IS_LOESCHEN_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       IS_LOESCHEN_FUNKTIONAL;
+      comment   :       Infospeicher löschen;
+      comment   :       UDS  : $31   RoutineControl;
+      comment   :       UDS  : $01   startRoutine;
+      comment   :       UDS  : $0F06 ClearSecondaryDTCMemory;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x31,0x01,0x0F,0x06};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 4) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 4) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if (response[1] != 0x01) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_TYPE";
+          }
+          else {
+            if ((response[2] != 0x0F) || (response[3] != 0x06)) {
+              JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_IDENTIFIER";
+            }
+            else {
+              JOB_STATUS = "OKAY";
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x31,0x01,0x0F,0x06};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_31_01_0F_06_IS_LOESCHEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_11_04_SLEEP_MODE_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SLEEP_MODE_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_11_04_SLEEP_MODE_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       SLEEP_MODE_FUNKTIONAL;
+      comment   :       SG in Sleep-Mode versetzen;
+      comment   :       UDS     : $11 ECUReset;
+      comment   :       UDS     : $04 EnableRapidPowerShutDown;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       POWER_DOWN_TIME;
+        type    :       long;
+        comment :       0 bis 254 in Sekunden;
+        comment :       -1 wenn Zeit nicht verfügbar;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x11,0x04};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 3) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 3) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if (response[1] != 0x04) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_RESET_TYPE";
+          }
+          else {
+            if (POWER_DOWN_TIME) {
+              if (response[2]==0xFF) {
+                POWER_DOWN_TIME = -1;
+              }
+              else {
+                POWER_DOWN_TIME = response[2];
+              }
+            }
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x11,0x04};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_11_04_SLEEP_MODE_FUNKTIONAL.B2S"
+// start of :#include "UDS_31_01_0F_0C_ENERGIESPARMODE_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : ENERGIESPARMODE_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_31_01_0F_0C_ENERGIESPARMODE_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       ENERGIESPARMODE_FUNKTIONAL;
+      comment   :       Einstellen des Energiesparmodes;
+      comment   :       UDS     : $31   RoutineControlRequestServiceID;
+      comment   :       UDS     : $01   startRoutine;
+      comment   :       UDS     : $0F0C DataIdentifier ControlEnergySavingMode;
+      comment   :       UDS     : $00   Normalmode;
+      comment   :       UDS     : $01   Fertigungsmode;
+      comment   :       UDS     : $02   Transportmode;
+      comment   :       UDS     : $03   Flashmode;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      argument  :       MODE;
+        type    :       long;
+        comment :       0: Normalmode;
+        comment :       1: Produktionsmode;
+        comment :       2: Transportmode;
+        comment :       3: Flashmode;
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x31,0x01,0x0F,0x0C,0xFF};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+           long mode;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+  if (exist(MODE)) {
+    mode = MODE;
+    if ((mode == 0) || (mode == 1) || (mode == 2) || (mode == 3)) {
+      request[4] = mode;
+    }
+    else
+    {
+      JOB_STATUS = "ERROR_ARGUMENT";
+      return;
+    }
+  }  
+  else
+  {
+    JOB_STATUS = "ERROR_ARGUMENT";
+    return;
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 4) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 4) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if (response[1] != 0x01) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_CONTROL_TYPE";
+          }
+          else {
+            if ((response[2] != 0x0F) || (response[3] != 0x0C)) {
+              JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_ROUTINE_IDENTIFIER";
+            }
+            else {
+              JOB_STATUS = "OKAY";
+            }
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x31,0x01,0x0F,0x0C,0xFF};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_31_01_0F_0C_ENERGIESPARMODE_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_10_0A_STATUS_ENERGIESPARMODE_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : STATUS_ENERGIESPARMODE_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_22_10_0A_STATUS_ENERGIESPARMODE_FUNKTIONAL.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       STATUS_ENERGIESPARMODE_FUNKTIONAL;
+      comment   :       Energy-Saving-Mode auslesen;
+      comment   :       UDS:    $22   ReadDataByIdentifier;
+      comment   :       UDS:    $100A DataIdentifier EnergySavingMode;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       STAT_ENERGIESPARMODE_WERT;
+        type    :       long;
+        comment :       Ausgabe des Energiesparmodes;
+        comment :       0: Normalmode;
+        comment :       1: Produktionsmode;
+        comment :       2: Transportmode;
+        comment :       3: Flashmode;
+        comment :       -1 wenn Mode nich gültig;
+
+      result    :       STAT_ENERGIESPARMODE_TEXT;
+        type    :       string;
+        comment :       Text zu STAT_ENERGIESPARMODE_WERT;
+
+      result    :       STAT_PRODUKTIONSMODE_EIN;
+        type    :       long;
+        comment :       0: Produktionsmode nicht aktiv;
+        comment :       1: Produktionsmode aktiv;
+
+      result    :       STAT_TRANSPORTMODE_EIN;
+        type    :       long;
+        comment :       0: Transportmode nicht aktiv;
+        comment :       1: Transportmode aktiv;
+
+      result    :       STAT_FLASHMODE_EIN;
+        type    :       long;
+        comment :       0: Flashmode nicht aktiv;
+        comment :       1: Flashmode aktiv;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x10,0x0A};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 4) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 4) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0x10) || (response[2] != 0x0A)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            switch (response[3])
+            {
+              case 0x00 : if (STAT_ENERGIESPARMODE_WERT) STAT_ENERGIESPARMODE_WERT = 0;
+                          if (STAT_ENERGIESPARMODE_TEXT) STAT_ENERGIESPARMODE_TEXT = "Normalmode";
+                          if (STAT_PRODUKTIONSMODE_EIN)  STAT_PRODUKTIONSMODE_EIN  = 0;
+                          if (STAT_TRANSPORTMODE_EIN)    STAT_TRANSPORTMODE_EIN    = 0;
+                          if (STAT_FLASHMODE_EIN)        STAT_FLASHMODE_EIN        = 0;
+                          break;
+
+              case 0x01 : if (STAT_ENERGIESPARMODE_WERT) STAT_ENERGIESPARMODE_WERT = 1;
+                          if (STAT_ENERGIESPARMODE_TEXT) STAT_ENERGIESPARMODE_TEXT = "Produktionsmode";
+                          if (STAT_PRODUKTIONSMODE_EIN)  STAT_PRODUKTIONSMODE_EIN  = 1;
+                          if (STAT_TRANSPORTMODE_EIN)    STAT_TRANSPORTMODE_EIN    = 0;
+                          if (STAT_FLASHMODE_EIN)        STAT_FLASHMODE_EIN        = 0;
+                          break;
+              
+              case 0x02 : if (STAT_ENERGIESPARMODE_WERT) STAT_ENERGIESPARMODE_WERT = 2;
+                          if (STAT_ENERGIESPARMODE_TEXT) STAT_ENERGIESPARMODE_TEXT = "Transportmode";
+                          if (STAT_PRODUKTIONSMODE_EIN)  STAT_PRODUKTIONSMODE_EIN  = 0;
+                          if (STAT_TRANSPORTMODE_EIN)    STAT_TRANSPORTMODE_EIN    = 1;
+                          if (STAT_FLASHMODE_EIN)        STAT_FLASHMODE_EIN        = 0;
+                          break;
+
+              case 0x03 : if (STAT_ENERGIESPARMODE_WERT) STAT_ENERGIESPARMODE_WERT = 3;
+                          if (STAT_ENERGIESPARMODE_TEXT) STAT_ENERGIESPARMODE_TEXT = "Flashmode";
+                          if (STAT_PRODUKTIONSMODE_EIN)  STAT_PRODUKTIONSMODE_EIN  = 0;
+                          if (STAT_TRANSPORTMODE_EIN)    STAT_TRANSPORTMODE_EIN    = 0;
+                          if (STAT_FLASHMODE_EIN)        STAT_FLASHMODE_EIN        = 1;
+                          break;
+
+              default   : if (STAT_ENERGIESPARMODE_WERT) STAT_ENERGIESPARMODE_WERT = -1;
+                          if (STAT_ENERGIESPARMODE_TEXT) STAT_ENERGIESPARMODE_TEXT = "Mode ungültig";
+                          if (STAT_PRODUKTIONSMODE_EIN)  STAT_PRODUKTIONSMODE_EIN  = 0;
+                          if (STAT_TRANSPORTMODE_EIN)    STAT_TRANSPORTMODE_EIN    = 0;
+                          if (STAT_FLASHMODE_EIN)        STAT_FLASHMODE_EIN        = 0;
+                          break;
+            }
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x10,0x0A};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_22_10_0A_STATUS_ENERGIESPARMODE_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_16_00_SENSOREN_ANZAHL_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SENSOREN_ANZAHL_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 19.02.2007  rd  V0.500 Ersterstellung
+// *******************************************************************
+// UDS_22_16_00_SENSOREN_ANZAHL_LESEN_FUNKTIONAL.B2S (#) V0.500 (#)
+// *******************************************************************
+job ( name      :       SENSOREN_ANZAHL_LESEN_FUNKTIONAL;
+      comment   :       Anzahl der intelligenten Subbussensoren lesen;
+      comment   :       UDS  : $22   ReadDataByIdentifier;
+      comment   :       UDS  : $1600 Identifier NumberofSubbusMembers;
+      comment   :       Modus: Default;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       SENSOR_ANZAHL;
+        type    :       long;
+        comment :       Anzahl der intelligenten Subbussensoren;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x16,0x00};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+    }
+  }
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1) {
+      if (datalen(response) < 4) {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_LESS_DATA";
+      }
+      else {
+        if (datalen(response) > 4) {
+          JOB_STATUS = "ERROR_ECU_RESPONSE_TOO_MUCH_DATA";
+        }
+        else {
+          if ((response[1] != 0x16) || (response[2] != 0x00)) {
+            JOB_STATUS = "ERROR_ECU_RESPONSE_INCORRECT_DATA_IDENTIFIER";
+          }
+          else {
+            if (SENSOR_ANZAHL) SENSOR_ANZAHL = response[3];
+            JOB_STATUS = "OKAY";
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x16,0x00};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+
+// end of :#include "UDS_22_16_00_SENSOREN_ANZAHL_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SENSOREN_IDENT_LESEN_FUNKTIONAL
+// -------------------------------------------------------------------
+//
+// Globale Tabellen   : JobResult,VerbauortTabelle,PartNrTabelle
+//
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 12.12.2005  gr  V0.001 Ersterstellung
+// 12.09.2007  rd  V0.500 Fehler bei physikalischen Aufruf behoben
+// *******************************************************************
+// UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL.B2S (#) V0.500 (#)
+// *******************************************************************   
+job ( name      :       SENSOREN_IDENT_LESEN_FUNKTIONAL;
+      comment   :       Identifikation der intelligenten Subbussensoren lesen;
+      comment   :       UDS  : $22   ReadDataByIdentifier;
+      comment   :       UDS  : $1600 Identifier NumberofSubbusMembers;
+      comment   :       UDS  : $16xx SubbusMemberSerialNumber;
+      comment   :       Modus: Default;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      argument  :       SENSOR_NR;
+        type    :       long;
+        defrslt :       ;
+        comment :       optionales Argument;
+        comment :       nur bei physikalischer Adressierung;
+        comment :       gewuenschter Sensor xx (0x01 - 0xFF);
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       SENSOR_VERBAUORT;
+        type    :       string;
+        comment :       Verbauort des Sensors;
+        comment :       table VerbauortTabelle ORTTEXT;
+
+      result    :       SENSOR_VERBAUORT_NR;
+        type    :       long;
+        comment :       Verbauort-Nummer des Sensors;
+
+      result    :       SENSOR_BMW_NR;
+        type    :       string;
+        comment :       BMW-Teilenummer des Sensors;
+
+      result    :       SENSOR_PART_NR;
+        type    :       string;
+        comment :       Teilenummer des Sensors;
+        comment :       optional wenn SENSOR_BMW_NR gueltig;
+        comment :       wenn Teilenummer vom Sensor nicht verfuegbar dann '--';
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x16,0x00};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+  unsigned int  k;
+          int  retval;
+           char MAX_COUNT = 100;
+           long physical_sensor_nr = 0;
+  unsigned int  nr;
+  unsigned int  anzahl;
+  unsigned int  anzahl_adresse[];
+
+// ---------------- Ueberpruefung ob Tabellen includiert sind --------
+  INCLUDE_STD_ISEN_B2S_NOT_FOUND;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+      if (exist(SENSOR_NR)) {
+        physical_sensor_nr = SENSOR_NR;
+        if (physical_sensor_nr < 1 || physical_sensor_nr > 255) {
+          JOB_STATUS = "ERROR_ARGUMENT";
+          return;
+        }
+      }
+    }
+  }
+
+// ---------------- Anzahl ermitteln ---------------------------------
+// ---------------- Kommunikation ------------------------------------
+  nr=0;
+  dataclear(anzahl_adresse);
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (retval==1) {
+      if (datalen(response) == 4) {
+        if ((response[1] == 0x16) && (response[2] == 0x00)) {
+          if (response[3] != 0) {
+            anzahl_adresse[nr] = (response[3] << 8) + SA_response;
+            nr++;
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) break; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x16,0x00};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+
+// ---------------- Kommunikation ------------------------------------
+  request = {0x22,0x16,0xFF};
+  i=0;
+  while (i < nr) {
+    TA = anzahl_adresse[i] & 0xFF;
+    if (physical_sensor_nr == 0) {
+      k      = 1;
+      anzahl = anzahl_adresse[i] >> 8;
+    }
+    else {
+      anzahl = physical_sensor_nr;
+      k      = physical_sensor_nr;
+    }
+
+    while (k <= anzahl) {
+      request[2] = k;
+      if (_REQUEST) _REQUEST = request;
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+// ---------------- Interpretation -----------------------------------
+      if (ECU_ADR) {
+        // Vorbelegung
+        buffer="xx";
+        // Adresse
+        itoax(temp,SA_response);
+        buffer[0]  = temp[8];
+        buffer[1]  = temp[9];
+        strupper(buffer);
+        ECU_ADR = buffer;
+      }
+
+      if (ID_SG_ADR)
+        ID_SG_ADR = SA_response;
+
+      if (ECU_GROBNAME) {
+        tabset("GrobName");
+        tab_suche_index("ADR", SA_response);
+        tabget(buffer, "GROBNAME");
+        ECU_GROBNAME = buffer;
+      }
+
+      if (retval==1) {
+        if (SENSOR_VERBAUORT) {
+          tabset("VerbauortTabelle");
+          if (!tab_suche_unsigned("ORT", (SA_response<<16) + (response[3]<<8) + response[4]))
+          tab_suche_unsigned("ORT", (response[3]<<8) + response[4]);
+          tabget(buffer, "ORTTEXT");
+          SENSOR_VERBAUORT = buffer;
+        }
+
+        if (SENSOR_VERBAUORT_NR) {
+          SENSOR_VERBAUORT_NR = (response[3]<<8) + response[4];
+        }
+
+        if (SENSOR_BMW_NR) {
+          hex2ascii(temp,response,5,6);
+          if (strcmp(temp,"FFFFFFFFFFFF") == 0) {
+            if (datalen(response) > 11) {
+              hex2ascii(temp,response,11,datalen(response)-11);
+              tabset("PartNrTabelle");
+              tabseek("PART_NR", temp);
+              tabget(buffer, "BMW_NR");
+            }
+            else {
+              buffer = "--";
+            }
+            SENSOR_BMW_NR = buffer;
+          }
+          else
+          {
+            dataclear(temp);
+            datacopy(temp,response, 5, 6);
+            BRstandard(buffer,temp);
+          }
+          SENSOR_BMW_NR = buffer;
+        }
+
+        if (SENSOR_PART_NR) {
+          if (datalen(response) > 11) {
+            hex2ascii(buffer,response,11,datalen(response)-11);
+            SENSOR_PART_NR = buffer;
+          }
+          else {
+            SENSOR_PART_NR = "--";
+          }
+        }
+        JOB_STATUS = "OKAY";
+      }
+      if (physical_sensor_nr != 0) return;
+      new_set_of_results();
+      k++;
+    } // while (k <= anzahl)
+    i++;
+  } // while (i < nr)
+
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM
+// -------------------------------------------------------------------
+//
+// Globale Tabellen   : JobResult,VerbauortTabelle,PartNrTabelle
+//
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 12.12.2005  gr  V0.001 Ersterstellung
+// 12.09.2007  rd  V0.500 Fehler bei physikalischen Aufruf behoben
+// 14.02.2011  rd  V1.000 Neuer Job auf Basis SENSOREN_IDENT_LESEN_FUNKTIONAL
+//                 V1.000 wegen $78 Timeout-Problem beim TRSVC
+//                 V1.000 Anforderung von AK-Diagnose
+// *******************************************************************
+// UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM.B2S (#) V1.000 (#)
+// *******************************************************************   
+job ( name      :       SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM;
+      comment   :       Identifikation der intelligenten Subbussensoren lesen;
+      comment   :       UDS  : $22   ReadDataByIdentifier;
+      comment   :       UDS  : $1600 Identifier NumberofSubbusMembers;
+      comment   :       UDS  : $16xx SubbusMemberSerialNumber;
+      comment   :       Modus: Default;
+
+      argument  :       FUNKTIONALE_ADRESSE;
+        type    :       string;
+        comment :       gewünschte funktionale Adresse;
+        comment :       table FunktionaleAdresse F_ADR F_ADR_TEXT;
+        comment :       Defaultwert: ALL ( alle Steuergeräte );
+
+      argument  :       SENSOR_NR;
+        type    :       long;
+        defrslt :       ;
+        comment :       optionales Argument;
+        comment :       nur bei physikalischer Adressierung;
+        comment :       gewuenschter Sensor xx (0x01 - 0xFF);
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       SENSOR_VERBAUORT;
+        type    :       string;
+        comment :       Verbauort des Sensors;
+        comment :       table VerbauortTabelle ORTTEXT;
+
+      result    :       SENSOR_VERBAUORT_NR;
+        type    :       long;
+        comment :       Verbauort-Nummer des Sensors;
+
+      result    :       SENSOR_BMW_NR;
+        type    :       string;
+        comment :       BMW-Teilenummer des Sensors;
+
+      result    :       SENSOR_PART_NR;
+        type    :       string;
+        comment :       Teilenummer des Sensors;
+        comment :       optional wenn SENSOR_BMW_NR gueltig;
+        comment :       wenn Teilenummer vom Sensor nicht verfuegbar dann '--';
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x22,0x16,0x00};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+  unsigned int  k;
+          int  retval;
+           char MAX_COUNT = 100;
+           long physical_sensor_nr = 0;
+  unsigned int  nr;
+  unsigned int  anzahl;
+  unsigned int  anzahl_adresse[];
+  long PARAMETER_BMW_KWP2000_CAN_TRSVC_PROBLEM[];
+
+// ---------------- Ueberpruefung ob Tabellen includiert sind --------
+  INCLUDE_STD_ISEN_B2S_NOT_FOUND;
+
+// ---------------- Argumente des Jobs auswerten ---------------------
+
+  if (exist(FUNKTIONALE_ADRESSE)) {
+    tabset("FunktionaleAdresse");
+    temp = FUNKTIONALE_ADRESSE;
+    if (tabseek("F_ADR", temp)) {
+      tabget(buffer, "NR");
+      TA_TYPE = TA_TYPE_FUNCTIONAL;
+      TA = atoi(buffer);
+    }
+    else {
+      TA_TYPE = TA_TYPE_PHYSICAL;
+      TA = atoi(temp);
+      if (exist(SENSOR_NR)) {
+        physical_sensor_nr = SENSOR_NR;
+        if (physical_sensor_nr < 1 || physical_sensor_nr > 255) {
+          JOB_STATUS = "ERROR_ARGUMENT";
+          return;
+        }
+      }
+    }
+  }
+
+// ---------------- neuer Parametersatz ------------------------------
+  PARAMETER_BMW_KWP2000_CAN_TRSVC_PROBLEM = PARAMETER_BMW_KWP2000_CAN;
+  PARAMETER_BMW_KWP2000_CAN_TRSVC_PROBLEM[9] = 6000; // $78 von 5000 auf 6000 ms
+  set_communication_pars(PARAMETER_BMW_KWP2000_CAN_TRSVC_PROBLEM); // Konzept einstellen
+  set_answer_length(AWLEN_BMW_KWP2000_CAN);          // Antwortlaenge
+  doNewInit(); // Erzwingt den Job INITIALISIERUNG vor dem nächsten Jobaufruf.
+  
+// ---------------- Anzahl ermitteln ---------------------------------
+// ---------------- Kommunikation ------------------------------------
+  nr=0;
+  dataclear(anzahl_adresse);
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    if (TA_TYPE == TA_TYPE_FUNCTIONAL)
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "", 2);
+    else
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "", 2);
+
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (retval==1) {
+      if (datalen(response) == 4) {
+        if ((response[1] == 0x16) && (response[2] == 0x00)) {
+          if (response[3] != 0) {
+            anzahl_adresse[nr] = (response[3] << 8) + SA_response;
+            nr++;
+          }
+        }
+      }
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) break; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x22,0x16,0x00};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+
+// ---------------- Kommunikation ------------------------------------
+  request = {0x22,0x16,0xFF};
+  i=0;
+  while (i < nr) {
+    TA = anzahl_adresse[i] & 0xFF;
+    if (physical_sensor_nr == 0) {
+      k      = 1;
+      anzahl = anzahl_adresse[i] >> 8;
+    }
+    else {
+      anzahl = physical_sensor_nr;
+      k      = physical_sensor_nr;
+    }
+
+    while (k <= anzahl) {
+      request[2] = k;
+      if (_REQUEST) _REQUEST = request;
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+
+// ---------------- Interpretation -----------------------------------
+      if (ECU_ADR) {
+        // Vorbelegung
+        buffer="xx";
+        // Adresse
+        itoax(temp,SA_response);
+        buffer[0]  = temp[8];
+        buffer[1]  = temp[9];
+        strupper(buffer);
+        ECU_ADR = buffer;
+      }
+
+      if (ID_SG_ADR)
+        ID_SG_ADR = SA_response;
+
+      if (ECU_GROBNAME) {
+        tabset("GrobName");
+        tab_suche_index("ADR", SA_response);
+        tabget(buffer, "GROBNAME");
+        ECU_GROBNAME = buffer;
+      }
+
+      if (retval==1) {
+        if (SENSOR_VERBAUORT) {
+          tabset("VerbauortTabelle");
+          if (!tab_suche_unsigned("ORT", (SA_response<<16) + (response[3]<<8) + response[4]))
+          tab_suche_unsigned("ORT", (response[3]<<8) + response[4]);
+          tabget(buffer, "ORTTEXT");
+          SENSOR_VERBAUORT = buffer;
+        }
+
+        if (SENSOR_VERBAUORT_NR) {
+          SENSOR_VERBAUORT_NR = (response[3]<<8) + response[4];
+        }
+
+        if (SENSOR_BMW_NR) {
+          hex2ascii(temp,response,5,6);
+          if (strcmp(temp,"FFFFFFFFFFFF") == 0) {
+            if (datalen(response) > 11) {
+              hex2ascii(temp,response,11,datalen(response)-11);
+              tabset("PartNrTabelle");
+              tabseek("PART_NR", temp);
+              tabget(buffer, "BMW_NR");
+            }
+            else {
+              buffer = "--";
+            }
+            SENSOR_BMW_NR = buffer;
+          }
+          else
+          {
+            dataclear(temp);
+            datacopy(temp,response, 5, 6);
+            BRstandard(buffer,temp);
+          }
+          SENSOR_BMW_NR = buffer;
+        }
+
+        if (SENSOR_PART_NR) {
+          if (datalen(response) > 11) {
+            hex2ascii(buffer,response,11,datalen(response)-11);
+            SENSOR_PART_NR = buffer;
+          }
+          else {
+            SENSOR_PART_NR = "--";
+          }
+        }
+        JOB_STATUS = "OKAY";
+      }
+      if (physical_sensor_nr != 0) return;
+      new_set_of_results();
+      k++;
+    } // while (k <= anzahl)
+    i++;
+  } // while (i < nr)
+
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_22_16_XX_SENSOREN_IDENT_LESEN_FUNKTIONAL_TRSVC_PROBLEM.B2S"
+// start of :#include "UDS_86_05_02_STEUERN_ROE_START_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : STEUERN_ROE_START_FUNKTIONAL
+// -------------------------------------------------------------------
+// Verantwortung      : BMW AG, Albrecht Neff, EI-224
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnosemaster
+// -------------------------------------------------------------------
+// History:
+// 16.02.2009 an V0.10 Erstellung (Albrecht Neff, EI-224)
+// *******************************************************************
+// UDS_86_05_02_STEUERN_ROE_START_FUNKTIONAL.B2S (#) V0.10 (#)
+// *******************************************************************
+job ( name      :       STEUERN_ROE_START_FUNKTIONAL;
+      comment   :       Temporaeres Deaktivieren der;
+      comment   :       aktiven Fehlermeldung;
+      comment   :       UDS   : $86 ResponseOnEvent;
+      comment   :               $05 Start;
+      comment   :               $02 (EventWindowTime);
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x86,0x05,0x02};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+    
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1)
+	 {
+      JOB_STATUS = "OKAY";
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x86,0x05,0x02};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_86_05_02_STEUERN_ROE_START_FUNKTIONAL.B2S"
+// start of :#include "UDS_86_00_02_STEUERN_ROE_STOP_FUNKTIONAL.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : STEUERN_ROE_STOP_FUNKTIONAL
+// -------------------------------------------------------------------
+// Verantwortung      : BMW AG, Albrecht Neff, EI-224
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnosemaster
+// -------------------------------------------------------------------
+// History:
+// 16.02.2009 an V0.10 Erstellung (Albrecht Neff, EI-224)
+// *******************************************************************
+// UDS_86_00_02_STEUERN_ROE_STOP_FUNKTIONAL.B2S (#) V0.10 (#)
+// *******************************************************************
+job ( name      :       STEUERN_ROE_STOP_FUNKTIONAL;
+      comment   :       Temporaeres Deaktivieren der;
+      comment   :       aktiven Fehlermeldung;
+      comment   :       UDS   : $86 ResponseOnEvent;
+      comment   :               $00 Stop;
+      comment   :               $02 (EventWindowTime);
+
+      result    :       ECU_ADR;
+        type    :       string;
+        comment :       Steuergeräteadresse als Hex-String;
+
+      result    :       ECU_GROBNAME;
+        type    :       string;
+        comment :       Grobname des Steuergerätes;
+        comment :       table Grobname GROBNAME;
+
+      result    :       ID_SG_ADR;
+        type    :       long;
+        comment :       Steuergeräteadresse;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag an SG;
+
+      result    :       _RESPONSE;
+        type    :       data;
+        comment :       Hex-Antwort von SG;
+    )
+{
+  unsigned char TA = 0xDF;
+  unsigned char request[] = {0x86,0x00,0x02};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response[];
+  unsigned char TA_TYPE = TA_TYPE_FUNCTIONAL;
+
+  unsigned char buffer[];
+           char temp[];
+  unsigned char i;
+           int  retval;
+           char MAX_COUNT = 100;
+
+
+// ---------------- Kommunikation ------------------------------------
+
+  i=0;
+  if (_REQUEST) _REQUEST = request;
+  do {
+
+      retval = send_and_receive_uds(SA, TA, TA_TYPE_FUNCTIONAL, request, SA_response, TA_response, response, "_RESPONSE", 2);
+    
+    if (get_error(0)) break;
+
+// ---------------- Interpretation -----------------------------------
+    if (ECU_ADR) {
+      // Vorbelegung
+      buffer="xx";
+      // Adresse
+      itoax(temp,SA_response);
+      buffer[0]  = temp[8];
+      buffer[1]  = temp[9];
+      strupper(buffer);
+      ECU_ADR = buffer;
+    }
+
+    if (ID_SG_ADR)
+      ID_SG_ADR = SA_response;
+
+    if (ECU_GROBNAME) {
+      tabset("GrobName");
+      tab_suche_index("ADR", SA_response);
+      tabget(buffer, "GROBNAME");
+      ECU_GROBNAME = buffer;
+    }
+
+    if (retval==1)
+	 {
+      JOB_STATUS = "OKAY";
+    }
+
+    if (TA_TYPE == TA_TYPE_PHYSICAL) return; // spezifische SG-Adresse
+    set_trap_mask(0x180000);
+    dataclear(request);
+    new_set_of_results();
+    i++;
+    // nur für Simulation
+    if(isSimulation()) {
+      request = {0x86,0x00,0x02};
+      TA=i+1;
+    }
+  }
+  while (i < MAX_COUNT); // nur wegen Endlosschleife
+
+  // Fehlermeldungen wieder einschalten
+  set_trap_mask(0x000000);
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_86_00_02_STEUERN_ROE_STOP_FUNKTIONAL.B2S"
+// start of :#include "UDS_22_10_0B_I_STUFE_LESEN.B2S"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERÄNDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : I_STUFE_LESEN
+// -------------------------------------------------------------------
+// Gültig:
+// Lastenheft Diagnose Ausgabe 8
+//                     SAP 10000786
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// 09.05.2007 rd V0.63 I_STUFE_LESEN überarbeitet,
+// 03.12.2007 rd V1.00 I_STUFE_LESEN überarbeitet nach VCM Lastenheft
+// 07.09.2010 rd V1.01 RR01 auch gültig
+// 24.02.2012 rd V1.02 Backup jetzt CAS oder KOMBI oder FEM
+// *******************************************************************
+// UDS_22_10_0B_I_STUFE_LESEN.B2S (#) V1.02 (#)
+// *******************************************************************
+job ( name      :       I_STUFE_LESEN;
+      comment   :       Auslesen der I-Stufe aus ZGW und;
+      comment   :       Backup CAS oder KOMBI oder FEM;
+      comment   :       UDS:    $22   ReadDataByIdentifier;
+      comment   :       UDS:    $100B DataIdentifier I-Level;
+      comment   :       Byte     |0|1|2|3| 4| 5| 6| 7|;
+      comment   :                | ASCII |    Byte   |;
+      comment   :       IStufe   |F|0|0|1|09|08| 4 00|;
+
+      result    :       I_STUFE_WERK;
+        type    :       string;
+        comment :       entspricht I-Stufe der Auslieferung;
+
+      result    :       I_STUFE_HO;
+        type    :       string;
+        comment :       entspricht aktuelle I-Stufe;
+
+      result    :       I_STUFE_HO_BACKUP;
+        type    :       string;
+        comment :       entspricht letzte I-Stufe;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       _REQUEST;
+        type    :       data;
+        comment :       Hex-Auftrag;
+
+      result    :       _RESPONSE_ZGW;
+        type    :       data;
+        comment :       Hex-Antwort von ZGW;
+
+      result    :       _RESPONSE_CAS;
+        type    :       data;
+        comment :       Hex-Antwort von CAS;
+
+      result    :       _RESPONSE_KOMBI;
+        type    :       data;
+        comment :       Hex-Antwort von KOMBI;
+
+      result    :       _RESPONSE_FEM;
+        type    :       data;
+        comment :       Hex-Antwort von FEM;
+   )
+{
+  unsigned char TA_ZGW = 0x10;
+  unsigned char TA_CAS = 0x40;
+  unsigned char TA_KOMBI = 0x60;
+  unsigned char TA_FEM = 0x72;
+  unsigned char request[] = {0x22,0x10,0x0B};
+  unsigned char SA_response;
+  unsigned char TA_response;
+  unsigned char response_ZGW[];
+  unsigned char response_BACKUP[];
+  unsigned char buffer[];
+  unsigned char temp[];
+  unsigned char offset;
+           int  retval_ZGW;
+           int  retval_BACKUP;
+           int  plausibel_ZGW;
+           int  plausibel_BACKUP;
+           int  plausibel;
+
+// ---------------- Kommunikation I-Stufe lesen ZGW und BACKUP -------
+  if (_REQUEST) _REQUEST = request;
+
+  // ZGW versuchen
+  set_trap_mask(0x00180000);
+  retval_ZGW = send_and_receive_uds(SA, TA_ZGW, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response_ZGW, "_RESPONSE_ZGW", 2);
+  set_trap_mask(0);
+
+  // Jetzt kommen die BACKUP dran
+  set_trap_mask(0x00180000);
+  // CAS versuchen
+  retval_BACKUP = send_and_receive_uds(SA, TA_CAS, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response_BACKUP, "_RESPONSE_CAS", 2);
+  if (retval_BACKUP == 0) {
+    // KOMBI versuchen
+    retval_BACKUP = send_and_receive_uds(SA, TA_KOMBI, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response_BACKUP, "_RESPONSE_KOMBI", 2);
+    if (retval_BACKUP == 0) {
+      // FEM versuchen
+      retval_BACKUP = send_and_receive_uds(SA, TA_FEM, TA_TYPE_PHYSICAL, request, SA_response, TA_response, response_BACKUP, "_RESPONSE_FEM", 2);
+    }
+  }
+  set_trap_mask(0);
+
+// ---------------- Response auswerten ZGW ---------------------------
+  if ((retval_ZGW == 1) && (datalen(response_ZGW) >= 27) && (response_ZGW[0] == 0x62) && (response_ZGW[1] == 0x10) && (response_ZGW[2] == 0x0B)) {
+    plausibel_ZGW = 1;
+    if (I_STUFE_WERK) {
+      plausibel = 1;
+      buffer="0";
+      offset=19;
+      if (response_ZGW[offset] != 0x00) {
+        buffer="****-**-**-***";
+        if (is_char_upper  (response_ZGW[offset+0])) buffer[0]=response_ZGW[offset+0]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else
+          if (is_char_upper(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+2])) buffer[2]=response_ZGW[offset+2]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+3])) buffer[3]=response_ZGW[offset+3]; else plausibel = 0;
+        if (response_ZGW[offset+4]<100) {
+          itoad(temp,response_ZGW[offset+4]+100); // führende Nullen
+          buffer[5]=temp[1];
+          buffer[6]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+5]<100) {
+          itoad(temp,response_ZGW[offset+5]+100); // führende Nullen
+          buffer[8]=temp[1];
+          buffer[9]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+6]*256 + response_ZGW[offset+7]<1000) {
+          itoad(temp,response_ZGW[offset+6]*256 + response_ZGW[offset+7] +1000); // führende Nullen
+          buffer[11]=temp[1];
+          buffer[12]=temp[2];
+          buffer[13]=temp[3];
+        } else plausibel = 0;
+        if (plausibel == 0) {
+          buffer="unbekannte I-Stufe";
+          plausibel_ZGW = 0;
+        }
+      }
+      I_STUFE_WERK=buffer;
+    }
+    if (I_STUFE_HO) {
+      plausibel = 1;
+      buffer="0";
+      offset=3;
+      if (response_ZGW[offset] != 0x00) {
+        buffer="****-**-**-***";
+        if (is_char_upper  (response_ZGW[offset+0])) buffer[0]=response_ZGW[offset+0]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else
+          if (is_char_upper(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+2])) buffer[2]=response_ZGW[offset+2]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+3])) buffer[3]=response_ZGW[offset+3]; else plausibel = 0;
+        if (response_ZGW[offset+4]<100) {
+          itoad(temp,response_ZGW[offset+4]+100); // führende Nullen
+          buffer[5]=temp[1];
+          buffer[6]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+5]<100) {
+          itoad(temp,response_ZGW[offset+5]+100); // führende Nullen
+          buffer[8]=temp[1];
+          buffer[9]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+6]*256 + response_ZGW[offset+7]<1000) {
+          itoad(temp,response_ZGW[offset+6]*256 + response_ZGW[offset+7] +1000); // führende Nullen
+          buffer[11]=temp[1];
+          buffer[12]=temp[2];
+          buffer[13]=temp[3];
+        } else plausibel = 0;
+        if (plausibel == 0) {
+          buffer="unbekannte I-Stufe";
+          plausibel_ZGW = 0;
+        }
+      }
+      I_STUFE_HO=buffer;
+    }
+    if (I_STUFE_HO_BACKUP) {
+      plausibel = 1;
+      buffer="0";
+      offset=11;
+      if (response_ZGW[offset] != 0x00) {
+        buffer="****-**-**-***";
+        if (is_char_upper  (response_ZGW[offset+0])) buffer[0]=response_ZGW[offset+0]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else
+          if (is_char_upper(response_ZGW[offset+1])) buffer[1]=response_ZGW[offset+1]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+2])) buffer[2]=response_ZGW[offset+2]; else plausibel = 0;
+        if (is_char_numeric(response_ZGW[offset+3])) buffer[3]=response_ZGW[offset+3]; else plausibel = 0;
+        if (response_ZGW[offset+4]<100) {
+          itoad(temp,response_ZGW[offset+4]+100); // führende Nullen
+          buffer[5]=temp[1];
+          buffer[6]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+5]<100) {
+          itoad(temp,response_ZGW[offset+5]+100); // führende Nullen
+          buffer[8]=temp[1];
+          buffer[9]=temp[2];
+        } else plausibel = 0;
+        if (response_ZGW[offset+6]*256 + response_ZGW[offset+7]<1000) {
+          itoad(temp,response_ZGW[offset+6]*256 + response_ZGW[offset+7] +1000); // führende Nullen
+          buffer[11]=temp[1];
+          buffer[12]=temp[2];
+          buffer[13]=temp[3];
+        } else plausibel = 0;
+        if (plausibel == 0) {
+          buffer="unbekannte I-Stufe";
+          plausibel_ZGW = 0;
+        }
+      }
+      I_STUFE_HO_BACKUP=buffer;
+    }
+  }
+  else {
+    plausibel_ZGW = 0;
+  }
+
+  if (plausibel_ZGW == 1) {
+    JOB_STATUS = "OKAY";
+  }
+  else {
+    JOB_STATUS = "ERROR_ECU_RESPONSE_ZGW";
+  }
+
+// ---------------- Response auswerten BACKUP ------------------------
+  if ((retval_BACKUP == 1) && (datalen(response_BACKUP) == 27) && (response_BACKUP[0] == 0x62) && (response_BACKUP[1] == 0x10) && (response_BACKUP[2] == 0x0B)) {
+    if (plausibel_ZGW == 1) {
+      // Daten ZGW sind plausibel
+      // Verifizieren mit BACKUP Daten
+      if (datalen(response_ZGW)>27) dataerase(response_ZGW,27,datalen(response_ZGW)-27);
+      if (datacmp(response_ZGW,response_BACKUP) != 0) {
+        JOB_STATUS = "ERROR_VERIFY";
+        return;
+      }
+    }
+    else {
+      plausibel_BACKUP = 1;
+      if (I_STUFE_WERK) {
+        plausibel = 1;
+        buffer="0";
+        offset=19;
+        if (response_BACKUP[offset] != 0x00) {
+          buffer="****-**-**-***";
+          if (is_char_upper  (response_BACKUP[offset+0])) buffer[0]=response_BACKUP[offset+0]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else
+            if (is_char_upper(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+2])) buffer[2]=response_BACKUP[offset+2]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+3])) buffer[3]=response_BACKUP[offset+3]; else plausibel = 0;
+          if (response_BACKUP[offset+4]<100) {
+            itoad(temp,response_BACKUP[offset+4]+100); // führende Nullen
+            buffer[5]=temp[1];
+            buffer[6]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+5]<100) {
+            itoad(temp,response_BACKUP[offset+5]+100); // führende Nullen
+            buffer[8]=temp[1];
+            buffer[9]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+6]*256 + response_BACKUP[offset+7]<1000) {
+            itoad(temp,response_BACKUP[offset+6]*256 + response_BACKUP[offset+7] +1000); // führende Nullen
+            buffer[11]=temp[1];
+            buffer[12]=temp[2];
+            buffer[13]=temp[3];
+          } else plausibel = 0;
+          if (plausibel == 0) {
+            buffer="unbekannte I-Stufe";
+            plausibel_BACKUP = 0;
+          }
+        }
+        I_STUFE_WERK=buffer;
+      }
+      if (I_STUFE_HO) {
+        plausibel = 1;
+        buffer="0";
+        offset=3;
+        if (response_BACKUP[offset] != 0x00) {
+          buffer="****-**-**-***";
+          if (is_char_upper  (response_BACKUP[offset+0])) buffer[0]=response_BACKUP[offset+0]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else
+            if (is_char_upper(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+2])) buffer[2]=response_BACKUP[offset+2]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+3])) buffer[3]=response_BACKUP[offset+3]; else plausibel = 0;
+          if (response_BACKUP[offset+4]<100) {
+            itoad(temp,response_BACKUP[offset+4]+100); // führende Nullen
+            buffer[5]=temp[1];
+            buffer[6]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+5]<100) {
+            itoad(temp,response_BACKUP[offset+5]+100); // führende Nullen
+            buffer[8]=temp[1];
+            buffer[9]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+6]*256 + response_BACKUP[offset+7]<1000) {
+            itoad(temp,response_BACKUP[offset+6]*256 + response_BACKUP[offset+7] +1000); // führende Nullen
+            buffer[11]=temp[1];
+            buffer[12]=temp[2];
+            buffer[13]=temp[3];
+          } else plausibel = 0;
+          if (plausibel == 0) {
+            buffer="unbekannte I-Stufe";
+            plausibel_BACKUP = 0;
+          }
+        }
+        I_STUFE_HO=buffer;
+      }
+      if (I_STUFE_HO_BACKUP) {
+        plausibel = 1;
+        buffer="0";
+        offset=11;
+        if (response_BACKUP[offset] != 0x00) {
+          buffer="****-**-**-***";
+          if (is_char_upper  (response_BACKUP[offset+0])) buffer[0]=response_BACKUP[offset+0]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else
+            if (is_char_upper(response_BACKUP[offset+1])) buffer[1]=response_BACKUP[offset+1]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+2])) buffer[2]=response_BACKUP[offset+2]; else plausibel = 0;
+          if (is_char_numeric(response_BACKUP[offset+3])) buffer[3]=response_BACKUP[offset+3]; else plausibel = 0;
+          if (response_BACKUP[offset+4]<100) {
+            itoad(temp,response_BACKUP[offset+4]+100); // führende Nullen
+            buffer[5]=temp[1];
+            buffer[6]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+5]<100) {
+            itoad(temp,response_BACKUP[offset+5]+100); // führende Nullen
+            buffer[8]=temp[1];
+            buffer[9]=temp[2];
+          } else plausibel = 0;
+          if (response_BACKUP[offset+6]*256 + response_BACKUP[offset+7]<1000) {
+            itoad(temp,response_BACKUP[offset+6]*256 + response_BACKUP[offset+7] +1000); // führende Nullen
+            buffer[11]=temp[1];
+            buffer[12]=temp[2];
+            buffer[13]=temp[3];
+          } else plausibel = 0;
+          if (plausibel == 0) {
+            buffer="unbekannte I-Stufe";
+            plausibel_BACKUP = 0;
+          }
+        }
+        I_STUFE_HO_BACKUP=buffer;
+      }
+      if (plausibel_BACKUP == 1) {
+        JOB_STATUS = "OKAY";
+      }
+      else {
+        JOB_STATUS = "ERROR_ECU_RESPONSE_BACKUP";
+      }
+    }
+  }
+}
+// end of :#include "UDS_22_10_0B_I_STUFE_LESEN.B2S"
+// start of :#include "UDS_grad.b2s"
+// *******************************************************************
+//
+// ! ! ! ! ! DIESE DATEI DARF  N I C H T  VERAENDERT WERDEN  ! ! ! ! !
+//
+// -------------------------------------------------------------------
+// Jobname            : GRP2SGADR
+// -------------------------------------------------------------------
+// Externe Tabelle    : ZuordnungsTabelle
+// -------------------------------------------------------------------
+// History:
+// 18.05.2006 rd V0.50 Erstellung
+// *******************************************************************
+// UDS_GRAD.B2S (#) V0.50 (#)
+// *******************************************************************
+job ( name      :       GRP2SGADR;
+      comment   :       Ermittlung der SG-Adresse aus ZuordnungsTabelle;
+
+      argument  :       GRUPPENDATEI;
+        type    :       string;
+        defrslt :       ;
+        comment :       Name der Gruppendatei;
+
+      result    :       JOB_STATUS;
+        type    :       string;
+        defrslt :       ;
+        comment :       OKAY, wenn fehlerfrei;
+        comment :       table JobResult STATUS_TEXT;
+
+      result    :       SG_ADR;
+        type    :       long;
+        defrslt :       ;
+        comment :       Steuergeraeteadresse;
+    )
+{
+  char buffer[];
+  char temp[];
+
+  if (exist(GRUPPENDATEI))
+  {
+    tabsetext("t_grtb","ZuordnungsTabelleUDS");
+    temp = GRUPPENDATEI;
+    if (tabseek("GRUPPE", temp))
+    {
+      tabget(buffer, "ADR_INDEX");
+      temp="0x00";
+      temp[2]=buffer[0];
+      temp[3]=buffer[1];
+      if (SG_ADR) SG_ADR = atoi(temp);
+    }
+    else
+    {
+      JOB_STATUS = "ERROR_ARGUMENT";
+      return;
+    }
+  }
+  else
+  {
+    JOB_STATUS = "ERROR_ARGUMENT";
+    return;
+  }
+  JOB_STATUS = "OKAY";
+}
+// end of :#include "UDS_grad.b2s"
+/* --- eof --- */

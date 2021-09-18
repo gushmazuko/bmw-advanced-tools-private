@@ -1,0 +1,45 @@
+           P R O G R A M M I N G   S T A T E
+           ---------------------------------
+
+Date:      10.05.2016 15:31:03
+Model:     E60
+Scope:     all control module
+JobStatus: OKAY
+Quantity:  32
+-----------------------------------------------------------------
+ADR Gen. name  JobStatus
+12  DME/DDE    ERROR_ECU_CONDITIONS_NOT_CORRECT_OR_REQUEST_SEQUENCE_ERROR
+50  SINE       ERROR_ECU_SUBFUNCTION_NOT_SUPPORTED__INVALID_FORMAT
+92  VIRTSG92   ERROR_ECU_SERVICE_NOT_SUPPORTED
+-----------------------------------------------------------------
+ADR Gen. name  JobStatus   State   State text
+00  ZGM        OKAY       1       Normalbetrieb
+01  SIM/SGM    OKAY       1       Normalbetrieb
+02  SZL        OKAY       1       Normalbetrieb
+05  STVL/TEFA  OKAY       1       Normalbetrieb
+06  STVR/TEBF  OKAY       1       Normalbetrieb
+0E  SFZ        OKAY       1       Normalbetrieb
+18  EGS        OKAY       1       Normalbetrieb
+29  DSC        OKAY       1       Normalbetrieb
+36  TEL/MULF   OKAY       1       Normalbetrieb
+40  CAS        OKAY       1       Normalbetrieb
+41  DWA        OKAY       1       Normalbetrieb
+43  POW        OKAY       1       Normalbetrieb
+44  SHD/MDS    OKAY       1       Normalbetrieb
+45  RLS        OKAY       1       Normalbetrieb
+60  KOMBI      OKAY       1       Normalbetrieb
+62  MOSTGW     OKAY       1       Normalbetrieb
+63  MMI/CCC    OKAY       1       Normalbetrieb
+65  BZM/SZM    OKAY       1       Normalbetrieb
+67  ZBE        OKAY     255       Reserviert fuer Zulieferer
+6D  FAS        OKAY       1       Normalbetrieb
+6E  BFS        OKAY       1       Normalbetrieb
+70  LM         OKAY       1       Normalbetrieb
+72  KBM        OKAY       1       Normalbetrieb
+73  CID        OKAY     255       Reserviert fuer Zulieferer
+78  KLIMA      OKAY       1       Normalbetrieb
+90  VIRTSG90   OKAY       1       Normalbetrieb
+91  VIRTSG91   OKAY       1       Normalbetrieb
+A1  SBSL       OKAY       1       Normalbetrieb
+A2  SBSR       OKAY       1       Normalbetrieb
+=================================================================

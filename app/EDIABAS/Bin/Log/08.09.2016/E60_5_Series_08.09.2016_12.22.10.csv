@@ -1,0 +1,61 @@
+Results;SA_Code;Description
+BR;E60_;
+LACK;0475;Saphirschwarz Metallic 
+SA_1;205;Automatic transmission
+SA_2;217;Active steering
+SA_3;226;Sports suspension settings
+SA_4;229;Dynamic drive
+SA_5;248;Steering-wheel heating
+SA_6;300;Emergency spare wheel
+SA_7;302;Alarm system
+SA_8;319;Integrated universal remote control
+SA_9;339;Shadow Line
+C_TYP;NB33;E60 Saloon N62B44 LHD US
+SA_10;403;Glass roof, electrical
+SA_11;428;Warning triangle
+SA_12;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_13;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_14;438;Fine-wood trim
+SA_15;441;Smoker's package
+SA_16;442;Cupholder
+SA_17;456;Comfort seats front, electrically adjustable
+SA_18;465;Through-loading system
+SA_19;473;Armrest front
+SA_20;494;Seat heating for driver and front passenger
+SA_21;496;Seat heating for rear seats
+SA_22;502;Headlight washer system
+SA_23;508;Park distance control
+SA_24;522;Xenon Light
+SA_25;524;Adaptive headlight
+SA_26;534;Automatic air conditioning
+SA_27;540;Cruise control
+SA_28;563;Lights package
+SA_29;591;Light alloy wheels Star-spoke style 124 with runflat tyres and mixed tyres
+SA_30;605;Telematics preparation
+SA_31;609;Navigation system Professional
+SA_32;610;Head-up display
+SA_33;620;Voice control
+SA_34;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_35;645;Radio control US
+SA_36;672;CD changer for 6 CDs
+SA_37;677;HiFi system Professional
+SA_38;697;Area code 1 for DVD
+SA_39;785;White direction indicator lights
+SA_40;823;Hot-climate version
+SA_41;845;Acoustic seat-belt warning
+SA_42;850;Additional tank filling, export
+SA_43;853;Language version English
+SA_44;863;Service Contact flyer for Europe
+SA_45;876;Radio frequency 315 MHz
+SA_46;880;English/Owner's Handbook/Service Booklet
+SA_47;992;Control of number-plate attachment
+C_DATE;0304;03.2004
+SA_ANZ;47;
+POLSTER;LCBA;
+VERSION;02;
+HO_WORT_1;A090;AGM battery 90 Ah, DO
+E_WORT_ANZ;0;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;1;
+STANDARD_FA;E60_#0304*NB33%0475&LCBA$205$217$226$229$248$300$302$319$339$403$428$430$431$438$441$442$456$465$473$494$496$502$508$522$524$534$540$563$591$605$609$610$620$639$645$672$677$697$785$823$845$850$853$863$876$880$992+A090;

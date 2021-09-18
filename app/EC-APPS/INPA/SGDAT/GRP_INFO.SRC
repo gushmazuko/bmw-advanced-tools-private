@@ -1,0 +1,100 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen GRP_INFO.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* GruppenDateiInfo
+//*
+//* Versionsinformationen über Gruppendatei
+//*
+//**********************************************************************
+GruppenDateiInfo( in: string grp, 
+                  inout: string grp_ecu, inout: string grp_origin, 
+                  inout: string grp_revision, inout: string grp_comment)
+{
+  string CurDir;
+  string Temp;
+  string Puffer;
+  int    Size;
+  long   PufferSize;
+  int    ret_int;
+  string BS;
+  string CR;
+  int    pos1;
+  int    pos2;
+  
+  chr( 92, BS ); // '\'
+  chr( 13, CR );
+  
+  Size=256;
+  space(CurDir,Size);
+  GetCurrentDirectory(256, CurDir, ret_int);
+  SetCurrentDirectory("\EDIABAS\BIN", ret_int);
+
+  Size=1024;
+  space(Puffer,Size);
+  inttolong(Size, PufferSize);
+  XTRACT("\ediabas\ecu"+ BS + grp + ".grp", 1, Puffer, PufferSize, ret_int);
+
+  grp_ecu="";
+  instr(pos1, 0, Puffer, "ECU:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 4;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+      midstr(grp_ecu, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_origin="";
+  instr(pos1, 0, Puffer, "ORIGIN:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 7;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+      midstr(grp_origin, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_revision="";
+  instr(pos1, 0, Puffer, "REVISION:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 9;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+    midstr(grp_revision, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_comment="";
+  pos1=0;
+  pos2=0;
+  while ((pos1 >= 0) && (pos2 >= 0))
+  {
+    instr(pos1, pos2, Puffer, "ECUCOMMENT:");
+    if (pos1 >= 0)
+    {
+      pos1 = pos1 + 11;
+      instr(pos2, pos1, Puffer, CR );
+      if (pos2 > pos1)
+      {
+        midstr(Temp, Puffer, pos1, pos2 - pos1);
+        grp_comment=grp_comment+Temp+",";
+      }
+    }
+  }
+  SetCurrentDirectory(CurDir, ret_int);
+}
+// -- EOF --

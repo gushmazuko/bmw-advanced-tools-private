@@ -1,0 +1,1115 @@
+ƒnderungsdokumentation: E38
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 361 727.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+// TD-441    Richard Kolbeck          VT-T      Rudolf Markst
+// TD-462    Johann Bachhuber         TD-101    Gerhard Mathe
+// EE-10     Reiner Friedrich         TD-P-51   Maximilian Meier
+// V-1-T-11  Gottfried Gschnitzer     ET-130    Robert Schicker
+// TD-141    Werner Hilpert           VK-22     Otmar Siefermann
+// TP-421    Thomas Hirsch            V-1-T-13  Paul Wei·
+// ET-140    Michal Huber             VK-22     Dieter Wittelsberger
+// ZD-S-2    Max Hundhammer           VK-22     Bernd Waegner
+// VK-23     Thomas Klîtzer           ZS-E-53   Fritz Wiedl
+// V-1-T-Q   Josef Leinthaler         TD-141    Manuela Kîlbl
+// EG-422    Dietmar GrautstÅck       PD-142    Anna GÅntner
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geÑnderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E38AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3633.F  a      30.07.93   EE-12   Haller
+                                -Tabellen neu erstellt fÅr 1. VS
+///////////////////////////////////////////////////////////////////////////////
+NAEL E4460.F  b      15.11.93   EE-12   Haller
+                                -Autom. LWR nicht mehr codierrelevant
+                                -Servotronik nur noch eine Kennlinie fÅr alle
+                                -Kompressoraustaktung fÅr Klimasteuerung aktiv
+                                -750iA/L, 730i/AL und 740i/AL frei
+///////////////////////////////////////////////////////////////////////////////
+NAEL E4555.F  c      13.12.93   EE-12   Haller
+                                -Codierung Lichtmodul Åberarbeitet
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5049.G  d      10.02.94   EE-12   Haller
+                                -Codierdaten fÅr BAE integriert
+                                -IKE: Tank- und Dimmkennlinie neu
+                                -Codierwert TastverhÑltnis Warnblinkschaltersuchbeleuchtung geÑndert
+                                -Codierwert IHK Adresse 03 geÑndert
+                                -Codierdaten LM geÑndert, aktuelle Version ist 06
+                                -Codierdaten EDC fÅr E38M60B30/B40 kurz integriert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5185.G  e      14.03.94   EE-12   Haller
+                                LA Skandinavien, Codierung SRA hinzu
+                                -öberkreuzbedienung DWA fÅr alle LA au·er Frankreich
+                                 England und Italien hinzu Einsatz vorab am 17.02.94
+                                -LDA bei el. Verbraucher bei IHK hinzu (nur M60)
+                                -GR2 Codierindex 02 hinzu Korrektur K-Faktor
+                                -Fehler in Codierdaten IKE korrigiert betr. ak. Gurtwarnung
+                                -GM3 Codierindex 02 hinzu fÅr LA 812 und 813, spÑter gÅltig fÅr alle
+                                -Codierung DWA Åberarbeitet: Entfall NotentschÑrfen und
+                                 automatisches Setzen der Wegfahrsicherung fÅr LA 812 und 813 hinzu.
+                                -LA 807 (Japan), 810 (AUS) und 824 (ZA) hinzu. Japan
+                                 kann aus SteuerungsgrÅnden erst zu Mai 94 in der
+                                 ZentralschlÅsseltabelle frei geschaltet werden.
+                                -alle LÑndervarianten als Codierrelevant gekennzeichnet
+                                -Codierung LM fÅr LA 827 geÑndert
+                                -IKE Codierindex 03 hinzu. Codierung "ohne BC"
+                                 geÑndert. Nicht rÅckwirkend einsetzbar !
+                                -LA Japan ohne DWA, auch fÅr 750i. Tabellen angepa·t
+                                -DWA SchÑrfen / EntschÑrfen mit SchlÅssel und Fernbed.
+                                 (öberkreuzbedienung) und DWA SchÑrfen / EntschÑrfen
+                                 nur mit Fernbed. durch unterschiedliche VN-SchlÅssel gekennzeichnet.
+                                 SE E38: SchÑrfen/EntschÑrfen mit SchlÅssel und FBZV (nicht LA Frankreich)
+                                 Einsatz SchÑrfen/EntschÑrfen nur mit FB offen, aber
+                                 sofort nach Fehlerbeseitigung in der FBZV
+                                 VN-SchlÅssel öberkreuzbed: 0000000000
+                                 VN-SchlÅssel nur FBZV: 0000000010
+                                 Tabelle E38GTK.001 neu
+                                -Daten fÅr Schrittschaltung fÅr Automatikgetriebe (IKE SW 10.0) integriert.
+                                 Achtung: Es werden ca. ab KW 18/94 ca. 40 Fahrzeuge aufgebaut
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5263.G  f      25.03.94   EE-12   Haller
+                                -Entfall CCM-Meldung "KÅhlmittelstand" wegen Konstruktionsfehler AusgleichsbehÑlter
+                                -Korrektur Wert fÅr Motorkennfeld 3 und Warnschwelle ôl warm
+                                -LA England nur ohne öberkreuzbedienung fÅr DWA,
+                                 da sonst Entfall NotentschÑrfen und autom. Setzen Wegfahrsicherung inaktiv
+                                -Korrektur Tankkennlinie nur Wert fÅr vollen Tank
+                                -Integration CCM SW 6.0 mit Codierindex 04
+                                -SA 641, Telefonvorbereitung D-Netz (GSM) als nicht codierrelevant frei
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5369.G  g      13.05.94   EE-12   Haller
+                                -Integration Codierung DSC fÅr E38 M73
+                                -ErgÑnzung LA Japan RL mit Literskala
+                                -Korrektur LA Japan, Spiegeleinklappen hinzu
+                                -Korrektur LA Austalien FH Tipp zu FahrertÅr entfÑllt
+                                -Korrektur LA Skandinavien SRA entfÑllt aus Serie
+                                -Korrektur LA Japan, Anzeige WegstreckenzÑhler in km fÅr RL
+                                -Integration "DWA Dauerton" als frei verfÅgbare SA 897 hinzu.
+                                 ACHTUNG: fÅr NL-Fahrzeuge mÅssen ab sofort immer die SAs 897
+                                 und 899 zugesteuert werden!!!
+                                -énderung LA Export in "DWA optische Alarmierung mit Abblendlicht"
+                                -Integration "Innenraumschutz" fÅr NachrÅstung HO
+                                -Integration DWA mit Innenraumschutz ohne ScheibenÅberwachung,
+                                 derzeit nur fÅr NachrÅstung in der HO
+                                -Vorbereitung LWR. FÅr Codierung Åber E38SGERM noch gesperrt
+                                -Vorbereitung EML. FÅr Codierung Åber E38SGERM noch gesperrt
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5339.G  h      20.06.94   EE-12   Haller
+                                -LA Japan, Codierung EML 3S wie US
+                                -Steigung Einspritzkennlinie M73 und M51 geÑndert
+                                -DZM-Endausschlag fÅr M51 ergÑnzt
+                                -KÅhlmittelkennlinie fÅr M62 und M73 geÑndert (IKE und CCM)
+                                -EDC-DatensÑtze fÅr M73 und E38/2 hinzu. Es gilt folgende Datensatzaufteilung:
+                                 0.53,35h,E38-M60B40_GZ_HA_ECE
+                                 0.54,36h,E38-M60B40_SA220_ECE, E38/2-M60B40
+                                 0.56, 38h, E38-M60B30, E38/2-M60B30
+                                 0.57, 39h, E38/2-M73B54_US, E38-M73B54_JAP
+                                 0.58, 3Ah, E38-M73B54_ECE, E38/2-M73B54_ECE, E38-M60B40_ZA
+                                -Integration SA 308, Entfall Funkfernbedienung fÅr ZV.
+                                 Dadurch énderung der Tabellenstruktur notwendig. Codierung von
+                                 "mit öberkreuzbedienung" auf "ohne öberkreuzbedienung"
+                                 erfolgt jetzt Åber die STK-Tabellen
+                                -Codierung EML 3s hinzu
+                                -Integration SA 875, Ersatz FBZV durch IR-Fernbed.
+                                 FÅr SA 308 neue GM3-SW 4.0. Tabellen ergÑnzt.
+                                -Codierung Jahreszahl BC, Adr. 05h, auf 5Eh geÑndert
+                                 Codierung Byteadresse 14h von F8h auf 00h geÑndert
+                                -folgende CKD-TypschlÅssel freigeschaltet:
+                                 GF25, 730iA Thailand
+                                 GJ64, 740iAL Malaysia
+                                 GJ27, 730iAL Indonesien
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5581.G  i      18.08.94   EE_12   Haller
+                                -E38/3 integriert
+                                -Korrektur EDC-Codierung Fehler in Tabellen
+                                -LA Belgien Entfall NotentschÑrfen und automatisches
+                                 Setzen Wegfahrsicherung hinzu
+                                -Crashparameter neu: BAE Satz 07 und ZAE Satz 03
+                                -ZusÑtzliche Teilenummer fÅr CCM SW 6.0 (Nachbau ZA) hinzu
+                                -énderung Tabellenaufbau: ab E5581.G ist Funktion
+                                 "autom. Setzen Wegfahrsperre" mit "Entfall NotentschÑrfen"
+                                 Åber VN -SchlÅssel frei steuerbar
+                                -E38/3 Codierung DWA Åber TypschlÅssel, da abweichend zur
+                                 Serien-DWA immer ohne ScheibenÅberwachung und o. Innenraumschutz
+                                -Codierung EWS-SteuergerÑt hinzu
+                                -Codierdaten LM neu. GÅltiger Datenstand fÅr alle Varianten ist 09h.
+                                -Codierdaten EDC Åberarbeitet. Zuordnung und Inhalt neu bzw Åberarbeitet.
+                                 Zuordnung siehe Lastenheft Codierdaten SteuergerÑt EDC.
+                                 SA 826, "Fahrwerk Exportabstimmung" hinzu
+                                -Steigung Einspritzkennlinie fÅr M73 geÑndert
+                                -Maskierung KÅhlmittelstand fÅr CCM SW 6.0 aufgehoben.
+                                 Nach Aussage von H. Franz, EA-431, auch fÅr Ersatz rÅckwirkend gÅltig.
+                                -LA Australien FH Fahrer TIPP ZU aktiviert
+                                -SteuergerÑtebezeichnung ASC5 in ASC geÑndert.
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5846.G  k      14.10.94   EE-12   Haller
+                                -ASC ab 12/94 mit Taktung. FÅr HO auch rÅckwirkend
+                                 bei entsprechendem SG-Tausch
+                                -SA 196 wird codierrelevant beinhaltet 85l Tank
+                                -Codierdaten CCM fÅr M73, TOG-Werte neu
+                                -CKD Thailand mit selektiver ZV
+                                -SA 803, Entfall 3. Bremsleuchte, integriert
+                                -E38 M62 und E38 M52 fÅr Codierung frei. FÅr M62
+                                 EWS-SG und Taktung ASC  Åber Versionsnummerntabelle
+                                 fest zugesteuert.
+                                -LA England mit Temperaturanzeige in ¯C fÅr Kombi und IHKA
+                                -US ohne Komfortschlie·en ENTFéLLT, da nur fÅr
+                                 FunkschlÅssel relevant
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5952.G  l      28.10.94   EE-12   Haller
+                                -IKE SW 9.0 in G-Zeile integriert
+                                -Codierdaten Lichtmodul geÑndert von Datenversion 09 auf 10.
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7916.G  m      06.12.94   EE_12   Haller
+                                -Korrektur Nachtankschwelle fÅr IKE
+                                -fÅr Airbag BAE VM-GerÅst VE38ABG.001 fÅr Fehlerlîschen neu in Layouttabelle
+                                -Steigung Einspritzkennlinie fÅr M62 geÑndert auf s = 5,00
+                                -LA Australien mit selektiver ZV
+                                -Korrektur Einspritzkennlinie M52B28
+                                -EDC-Datensatz LA Australien geÑndert. Aktueller Datensatz: DV060
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5937.G  n      28.02.95   EE-12   Haller
+                                -EWS-SG: Abschaltdrehzahl Anlasser fÅr M73 geÑndert
+                                -ZA ohne Gurtwarnung Åber Gurtschlo·kontakt
+                                -PU'95 Ma·nahmen integriert. neue SG: IKE mit DS2, auch
+                                 rÅckwirkend als Ersatz, GM3 Redesign, auch rÅckwirkend
+                                 als Ersatz, LCM, nicht rÅckwirkend
+                                -Daten fÅr M62, M52 und M51 Åberabeitet (IKE, ASC5, IHKR/IHKA)
+                                -EDC-Daten wie folgt geÑndert:
+                                 M51D25: DV063
+                                 M51D25 mit SA 826: DV064
+                                 M52B28: DV063
+                                 M52B28 mit SA 826: DV064
+                                 M62B35: DV063
+                                 M62B35 mit SA 826: DV064
+                                 M62B44: DV063
+                                 M62B44 mit SA 826: DV064
+                                 E38/2 M73 o. SA826: DV063
+                                 E38/3 M73: DV061
+                                -fÅr HO: Sprachen fÅr alle frei steuerbar
+                                -A-Zeile fÅr SA 508 (PDC): ab PU95 nicht mehr codierrelevant
+                                -E-Zeile fÅr EWS entfÑllt, EWS in G-Zeile integriert
+                                -E-Zeile fÅr PU95-Ma·nahmen hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5270.H  o      20.03.95   -Codierdaten LCM CI13 geÑndert. Vorab ans Band am 09.03.95
+                                -énderung Temperaturkennlinie M60
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5467.H  p      02.06.95   EE-12   Haller
+                                -Korrektur Codierdaten LCM, Vorab ans Band am 06.04.95
+                                -Tabellen auf neues Codiersystem umgestellt
+                                -énderung EDC-DatensÑtze fÅr M73B54 ab PU95:
+                                 M73B54 ohne SA826: DV063
+                                 M73B54 mit SA826, LA 807, US: DV065
+                                 M73B54 mit LA 810, LA824: DV060 wie bisher
+                                -Codierung GR2 auf E38 M52B28 erweitert
+                                -Codierung GR2 Redesign hinzu
+                                -E38/3 LÑndervarianten gem. Projektnachtrag 8243/04 vom 08.03.95 integriert
+                                -E38/3 Korrektur GM3-Daten wegen Verbau "alter" Funkferbedienung
+                                -Deaktivierung Beifahrerairbag hinzu, nur fÅr HO!
+                                -Motorkennfeld-Daten LCM fÅr M51 geÑndert
+                IKE.C05         -SIA-Werte fÅr M60 und M62 geÑndert
+                                -IKE immer geschalteter Pull-Up Widerstand
+                E38ZST.000      -SA961 nicht codierrelevant hinzu
+                                -SA831 gesperrt lt. Projektnachtrag 8009/12 vom 24.01.95
+                                -TypschlÅssel GK42 als DummytypschlÅssel fÅr Sicherheitsfahrzeug RL.
+                                    ACHTUNG: STEUERUNG öBER BAUABWEICHUNG !!!!
+                                -SA920 Alpina-Fahrzeug codierrelevant hinzu, Alpina-Codierung integriert
+                                -E-Zeile fÅr GR22, Geschwindigkeitsregler Redesign, hinzu.
+                                    Einsatz einflie·end nach Aufbrauch der aktuellen Teile
+                                -LA830 Nordland codierrelevant hinzu
+                                -LA802 Korea codierrelevant hinzu
+                                -PU'95-Umfang: zusÑtzliches VN-Bit fÅr Klimaanlage Codierindex 02 hinzu
+                                -alle 740i/L ab PU'95 mit Sitzmemory. Steuerung der TypschlÅssel-
+                                    zeilen Åber A-Worte.
+                                -SA194 Fernstartanlage codierrelevant hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5667.H  q      18.08.95   EE-12   Haller
+                E38CVT.000      -Codierdaten LCM, KaltÅberwachung Xenonlicht, geÑndert
+                E38CVT.000      -Codierdaten IHKA: Fu·-Fond-Kurve ab PU'95 auf aktiv,
+                                                   Kopplung an SA Tropen ab MoDiC-Version 15.0 (ca. 12/95)
+                                                   WiedereinfÅhrung Memory-Umluft (nur IHKA) vorbereitet
+                E38CVT.000      -Integration EWS3-SG. Aktivierung Åber ZentralschlÅsseltabelle
+                E38ZST.000      -Neue Zeilen:
+                                      fÅr EWS3-SteuergerÑt (derzeit nur H-Zeile)
+                                      fÅr EWS3-Funktion    (derzeit nur H-Zeile)
+                                -Neue A-Zeile fÅr SA 500, inkl. Regensensor ab 03/96
+                                -Neue A-Zeile fÅr SA 502, inkl. Regensensor ab 03/96
+                                 !!!!!  ACHTUNG:   Einsatz nur mit MoBaC/ESP-Version 7.4 !!!!!!!!
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5768.H  r      22.09.95   EE-12   Haller
+                E38CVT.000      -Codierung IHKR ab PU95 grundsÑtzlich auf LL
+                IHK_E38.C01
+                E38CVT.000      -Integration ZAE2 und Seitenairbag
+                E38SGET.000
+                E38ZSTU.000
+                E38CVT.000      -Integration LCM mit Codierindex 15
+                E38SGET.000
+                E38ZCSUT.000
+                E38ZST.000      -PU95-UmfÑnge integriert:
+                                    Entfall A-Zeile fÅr SA 508
+                                    Entfall E-Zeile PU95 N0995
+                                    Entfall E-Zeile IKE4 N0795
+                                    G-Zeile auf VN-SchlÅssel ab PU95 geÑndert
+                                 E-Zeile ZAE2 N0396 hinzu, Umschaltung auf ZAE2, SE 03/96
+                                 E-Zeile EWS2 N0196 hinzu, Umschaltung auf EWS 2.3 CI 02, SE ca. KW 01/96
+                                 E-Zeile LCM2 N0196 hinzu, Umschaltung auf LCM CI 15, SE. ca. KW 01/96
+                                 SA 260, Seitenairbag, codierrelevant hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5884.H s       27.10.95   EE-12   Haller
+                LCM.C14         -LCM Datensatz Nordland hinzu
+                LCM.C15
+                E38CVT.000
+                KMBI_E38.C10    -integrierte IKE/Kombi hinzu fÅr VT-Fahrzeuge
+                E38SGET.000      CodierumfÑnge fÅr CAN in IKE/Kombi und LCM aktiviert
+                E38CVT.000
+                GM3.C04         -UmfÑnge Regensensor hinzu
+                E38CVT.000
+                MRSZ.C04        -CBD fÅr Seitenairbag korrigiert
+                FGR2.C04        -Parametersatz fÅr E38 M62B44 Automatik hinzu
+                E38ZST.000      -E-Wort fÅr CAN-Versuchsfahrzeuge mit integriertem
+                                 Kombi: E CANV N1095
+                                -GR2_CI04 in G-Zeile integriert, E-Zeile GR22 N0196 gelîscht
+                                -alle M52B28 ab 03/96 ASC5 Serie. Steuerung Åber
+                                 A-Zeilen fÅr alle M52B28 TypschlÅssel
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6043.H t       12.01.96   EE-12   Haller
+                                ACHTUNG: Einsatz nur in Verbindung mit geÑnderten VM-GerÅsten
+                                         VE38IHK.000 und VE38IHK.001
+                KMBI_E38.C10    -CBD fÅr integriertes Kombi geÑndert, CVT angepa·t
+                E38CVT.000
+                LCM.C14         -Programmparameterblock in der CBD geÑndert
+                LCM.C15         -Programmparameterblock in der CBD geÑndert
+                                 TOG-Daten M62 geÑndert
+                E38SGET.000     -ASC5 fÅr M62 auf CI06 geÑndert
+                E38EML.C02      -neue CBD fÅr EML-Alpina hinzu
+                E38SGET.000
+                E38CVT.000      -LA Japan: M62 ohne Kat-Warnung, M73 ohne Kat-Warnung ab LCM_CI_15
+                E38CVT.000      -Codierung manuelle LWR fÅr US-TypschlÅssel und LA OST auf "nicht_aktiv"
+                E38CVT.000      -Codierung Airbag ZAED2 und MRS:
+                MRSZ.C04         VorlÑufige DatensÑtze entfallen, SeriendatensÑtze hinzu
+                ZAE2.C03
+                IHK-E38.C01     -Codierung Defrostanteil fÅr E38/3 hinzu
+                E38CVT.000
+                E38CVT.000      -Codierung E38/3 fÅr Atlanta integriert. SchlÅsselbeistellung durch EE-12
+                E38ZST.000      -SA761, Sonnenschutzverglasung, nicht codierrelevant hinzu
+                                -SA 202, Schritschaltung, wird ab 03/96 Serie bei Automatik,
+                                 ZST-Tabelle wie folgt geÑndert:
+                                 GF4x, GF8x, GE2x, GH2x, GJ4x, GJ8x: In bestehende SchlÅsselzeilen integriert
+                                !GG2x, GK2x, GK41 A-Zeilen angelegt
+                                !énderung A-Zeile fÅr SA500/502: A-Zeilen fÅr SA 500/502 entfallen. dafÅr neue E-Zeile.
+                                !Neue E-Zeile: E RESE N0396, Regensensor ab 03/96
+                                 Bedingungssteuerung: Aktiv bei SA 500, SA 502, GG21, GG22, GK21, GK22
+                                                      aber nicht in Verbindung mit: SA 357, GF83, GJ83, GK23, GK41
+                                                                                    nicht fÅr US!
+                                -SA Tropen erneut codierrelevant, Memory Umluft
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5953.j u       09.02.96   EE-12   Haller
+                                Datensatz fÅr MoDiC V 7.0
+                LCM.C16         -LCM.C16 neu hinzu wegen Gro·versuch E 02/96
+                                 bis 09/96 UmschlÅsselung im Ersatzteilfall auf LCM.C15
+                MRSZ.C04        -CBD neu wegen énderung im Parametersatz
+                ZAE2.C03        -CBD neu wegen énderung im Parametersatz
+                EDC3P.C25       -Parametersatz EDC 3+ fÅr M62 und M73 ZA neu, rÅckwirkend gÅltig
+                                 énderung: M62B35 ZA, M62B44 ZA und M73B54 ZA ab sofort Datensatz 69
+                IKE.C05         -SIA-Literwerte fÅr M62 geÑndert, énderung rÅckwirkend gÅltig
+                KMBI_E38.C10    -SIA-Literwerte fÅr M62 geÑndert, énderung rÅckwirkend gÅltig
+                E38CVT.000      -zusÑtzliche UmfÑnge LCM hinzu
+                                -Zuordnung EDC 3+ fÅr M62 und M73 ZA geÑndert
+                E38ZST.000      -E-Wort "E LCM6 N0996" fÅr LCM CI 16 hinzu, ACHTUNG Gro·versuch ca. Ende Februar 1996
+                                -E-Wort "E 85L  N0194" hinzu. Steuerkriterium fÅr PUSY:
+                                 alle E38 M52B28 (GE11, GE21, GE22, GH21, GH25) OHNE Bauabweichung fÅr 95l Tank!!!
+                                -SA 951, Korea-Paket nicht codierrelevant hinzu
+                                -SA 952, China-Paket nicht codierrelevant hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5919.J v       01.03.96   EE-12   Haller
+                EWS.C81         Integration EWS3-SG (K-Bus)
+                ZAE2.C05        Heckcrasherkennung ab PU96 erneut hinzu, neue CBD, SG mit neuem Codierindex
+                MRSZ.C06        Heckcrasherkennung ab PU96 erneut hinzu. neue CBD, SG mit neuem Codierindex
+                E38CVT.000      - SA 510, man. LWR, ab PU96 codierrelevant
+                                - DWA-Signlisierung fÅr LA Schweiz ab 09/96 wie ECE Basis
+                                - opt. Alarm Abblendlicht entfÑllt fÅr LA Australien, Belgien, England,
+                                  Frankreich und Spanien ab 09/96 aus dem LA-Umfang. Zusteuerung ggf. als 100%-SA
+                                - Integration EWS3-SG (K-Bus)
+                E38SGET.000     - Umstellung auf ASC5 CI 08 fÅr M51
+                                - Integration EWS3-SG (K-Bus)
+                                - DSC3 fÅr M73B54 ECE LL und SA DSC3-Entfall integriert
+                E38ZST.000      - A-Zeile fÅr LA Belgien, England und Frankreich. Zusteuerung der Funktion
+                                  "ohne öberkreuzbedienung" als 100%-SA Åber Fahrzeugauftrag
+                                - A-Zeile fÅr GG22, GK22, GK23 und GK41 vor/nach PU96
+                                - E-Zeile fÅr PU96-UmfÑnge angelegt. Inhalt: VN-Bit fÅr PU96, SA 260 wird Serie
+                                  noch Inhalt: Airbag ZAE2 CI 04 und MRSZ CI 06
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6141.J w       09.04.96   EE-12   Haller
+                LCM.C16         - Dimmfunktion Bremslicht als Ersatzfunktion fÅr ausgefallenes
+                E38CVT.000        Schlu·licht hinzu.
+                                  Entprellzahl Fehlererkennung: keine Differenzierung
+                                  mehr zwischen normalem Licht und Xenonlicht
+                GM3.C04         - Codierumfang TÅrschlo·heizung entfÑllt
+                E38CVT.000        Wegsignal von ABS-Geber ab 03/97
+                                  Steuerung FH geÑndert ab 09/96
+                E38ZST.000      - E38/3 RL integriert
+                E38CVT.000      - E38/3 Atlanta ohne selektive ZV
+                ACHTUNG:        E38/3 immer mit EWS2 CI 01 / EWS2 CI 02, nie mit EWS 3!
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6301.J x       20.06.96   EE-12   Haller
+                E38ZST.000      - SA625, Handy, gekoppelt mit SA 555, BC. SA 625 auf codierrelevant gesetzt.
+                                - GK61, 750iXL, integriert.
+                                  ACHTUNG PUSY: fÅr GK61 E-Wort "E RESE N0396" analog GK21 zusteuern,
+                                                aber nicht in Verbindung mit SA 357 (siehe auch E6043.H)
+                                - SA 261 Seitenairbag Fond integriert
+                                - MRS2 in Verbindung mit Seitenairbag Fond integriert
+                                - E-Wort "E CANV N0995" gelîscht, da nicht Serienrelevant
+                                - SteuergerÑt IHKA_E38.C03 integriert
+                E38CVT.000      - EDC fÅr 750iXL vorlÑufig wie 750iL
+                                - EML fÅr 750iXL wie 750iL US
+                                - EWS x.3-Schnittstelle integriert, derzeit nur fÅr VT-Fahrzeuge relevant
+                                - MRS2 mit Seitenairbag Fond integriert
+                                - LA Australien ab PU96 mit FH-Tip zu
+                                - SteuergerÑt IHKA_E38.C03 integriert
+                                - Bordmonitor / Navigationssystem integriert
+                                - autom. LWR3 integriert
+                IKE.C05         - Nachtankerkennung auf 7l, auch rÅckwirkend gÅltig
+                                - Codierung fÅr Standheizung, Unterscheidung BM vor/nach PU96, hinzu
+                IHKA_E38.C03    - SteuergerÑt IHKA_E38.C03 integriert
+                E38SGET.000     - MRS2.C07 integriert
+                                - SteuergerÑt IHKA_E38.C03 integriert
+                                - Bordmonitor / Navigationssystem integriert
+                                - autom. LWR3 integriert
+                E38ZCSUT.000    - MRS2.C07 integriert
+                                - SteuergerÑt IHKA_E38.C03 integriert
+                                - Bordmonitor / Navigationssystem integriert
+                                - autom. LWR3 integriert
+                GT.C01          - Grafikmodul als Bestandteil Bordmonitor / Navigationssystem integriert
+                TV1.C01         - Videomodul als Bestandteil Bordmonitor / Navigationssystem integriert
+                LWR.C03         - autom. LWR 3 integriert, fÅr MÑrz 97
+                LCM.C15/C16     - KÅhlwasserÅberwachung geÑndert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6643.J y       06.09.96   EE-12   Haller
+                E38SGET.000     - FÅr LA Japan keine Codierung von Videomodul/Grafikteil
+                                  Vorab ans Band am 16.07.96
+                EDC3P.C25       - fÅr E38 XL EDC-Kennfeld DV075 hinzu
+                IHKA_E38.C03    - Codierumfang Fond-Klima fÅr E38 XL hinzu
+                E38CVT.000      - DSC-Codierung GK61 wie GK41, énderung vorab ans Band am 23.07.96
+                                - Codierung fÅr geregelten Klimakompressor US hinzu
+                                - fÅr E38 XL EDC-Kennfeld DV075
+                                - fÅr E38 XL Codierung Fond-Klima
+                E38ZST.000      - E-Wort "E MA97 N0997" fÅr die MÑrz'97-Ma·nahmen hinzu
+                                - E-Wort "E KMBI N0597" fÅr das integrierte Kombi E38, SE ca. 06/97
+                                  ACHTUNG PUSI: integriertes Kombi wird fÅr die E38 US ORVR/RL-Fahrzeuge ab 09/96 verbaut !!
+                                - E-Wort "E MI97 N0597" fÅr die Mai'97-Ma·nahmen
+                                  Erstmals benîtigt fÅr FB-Fahrzeuge E38 US ORVR/RL (ab KW 37/96).
+                                  Beinhaltet geregelten Klimakompressor.
+                                - LA Korea ab sofort ohne ak. Gurtwarnung in LA-Zeile,
+                                  siehe PN 8009/68
+                                - GK61 mit SA 208, ohne DSC3
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6800.J z       11.10.96   EE-12   Haller
+                FGR2.C05        - FGR2 CI 05 hinzu, SE ab 03/97 einflie·end
+                E38SGT.000        Zur Codierung FGR2.C05 mu· vorab das VM-GerÅst VExyGR2.C02 geladen werden!
+                E38ZCSUT.000
+                E38CVT.000
+                LWR.C03         - DatenÑnderung in CBD, rÅckwirkend gÅltig
+                KMBI_E38.C10    - DatenÑnderung in CBD
+                KMBI_E38.C11    - CBD fÅr integriertes Kombi Codierindex 11 hinzu
+                E38ZST.000      - E-Wort "E GR23 N0397" hinzu
+                                - E-Wort "E MI97 N0597" geÑndert in "E CAN  N0597"
+                                - E-Wort "E KMI2 N0697" fÅr integriertes Kombi Codierindex 11 hinzu
+                                  Einsatz einflie·end nach KW 12/97
+                allgemein       - M57 und M67 fÅr VT-Fahrzeuge integriert, Codierung soweit noch nicht bekannt wie M51
+///////////////////////////////////////////////////////////////////////////////
+NAEL M1129.J z       29.11.96   EE-12   Haller
+                E38ZST.000      -SA265, RDKS codierrelevant frei
+                LCM.C16         -CC-Daten E38 M57 hinzu, RDKS-Bit hinzu
+                E38CVT.000      -Codierung RDKS hinzu
+                                -Codierdaten CC fÅr M57D30 hinzu
+                                -Codierunng IHKA mit Drucksensor hinzu, TypschlÅssel
+                                 fÅr MJ'99 zur Steuerung integriert
+                                -Codierung "BREMSFLUESSIGK_INV" vor/nach PU97 hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5804.K aa      20.01.97   EE-12   Haller
+                E38ZST.000      -SA 262, ITS-Airbag hinzu. SA ab 03/97, Serie ab 09/97
+                                -SA 993 nicht codierrelevant hinzu
+                                -SA 541 ACC codierrelevant hinzu
+                E38CVT.000      -Gruppe ITA_AIRBAG hinzu
+                                -Codierung ACC hinzu
+                                -Geschwindigkeitsregler fÅr US ab 05/97 ohne Mainswitch
+                LCM.C16         -Parametersatz ACC hinzu.
+                                 Codierung ACC derzeit nur fÅr VT-Fahrzeuge!
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5870.K ab      10.03.97   EE-12   Haller
+                E38ZST.000      -SA 316, autom. ôffnen Heckklappe nicht codierrelevant hinzu
+                                -SA Kaltland, 0842, nicht codierrelevant hinzu
+                                -FÅr SA 609, Navigation neues SA-Bit hinzu
+                                 Steuerung vor / nach PU97 Åber A-Zeile
+                                -SA 508, PDC ab PU97 codierrelevant hinzu,
+                                 Steuerung Åber A-Zeile
+                                -SA 555, High-BC wird Serie, in Zeile "E PU97 N0997" integriert
+                                -SA 262, ITS-Airbag wird Serie fÅr alle ohne GK41/GK42,
+                                 Steuerung Åber Zeile "E ITS  N0997"
+                                -CAN-Anbindung ans Kombi fÅr M62 und M73 ohne GK41/GK42,
+                                 Steuerung Åber Zeile " E CAN  N0597"
+                                -SA Tagfahrlicht, SA 896 codierrelevant hinzu
+                                 ACHTUNG: FÅr LA Kanada mu· SA Tagfahrlicht zugesteuert werden
+                                 --> siehe Projektnachtrag 8009/86
+                                -SA Schlechtwegepaket, SA 815, codierrelevant hinzu
+                                -énderung der LA-Zeilen wg. Herauslîsung versteckter SA's
+                                 folgende LÑndervarianten werden Åber A-Zeilen gesteuert:
+                                 LA 807, LA 810, LA 822, LA 824
+                                -Steuerwort "E PU97 N0997" fÅr PU'97-UmfÑnge hinzu
+                                -Steuerwort "E TV2  N0997" fÅr TV2-Modul hinzu. Steuerung parallel mit PU-97-Steuerwort
+                                -A-Zeilen fÅr die TypschlÅssel GG22, GK22, GK23, GF81, GF82, GF83
+                                 GJ81, GJ82, GJ83, GJ84, GJ85 und GJ87 hinzu wegen Einsatz DSC III
+                E38CVT.000      -Codierung geregelter Klimakompressor auf Stand PU'97 geÑndert
+                                -Gruppe Drucksensor_IHKA hinzu
+                                -Geschwindigkeitsregler ab 09/97 ohne Mainswitch fÅr alle
+                                -CodierumfÑnge PDC hinzu
+                                -Codierung BPLUS-Trennung hinzu (Airbag-SG)
+                                -SIA-Liter-Grenzwerte fÅr MJ99 hinzu
+                                -Codierung Lenkwinkelsensor 5 hinzu
+                                -Codierung TV2-Modul hinzu
+                                -Codierung Tagfahrlicht hinzu, Auswahl fÅr US und Kanada geÑndert
+                                 ACHTUNG: FÅr LA Kanada mu· SA Tagfahrlicht zugesteuert werden
+                                 --> siehe Projektnachtrag 8009/86
+                E38SGET.000     -Auswahlzeile fÅr PDC.C01 hinzu
+                                -Auswahlzeile fÅr Lenkwinkelsensor 5 hinzu
+                                -Auswahlzeile fÅr TV2-Modul hinzu, Auswahlzeilen fÅr
+                                 TV1- und GT-Modul entsprechend Stand PU97 geÑndert
+                                -Ausblendung EDC bei SA Schlechtwegepaket hinzu
+                E38ZCSUT.000    -PDC.C01 hinzu
+                                -LWS.C01 hinzu
+                                -TV2.C02 hinzu
+//              KMBI_E38.C11    -geÑnderte SIA-Literwerte fÅr MJ98 hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6232.K ac      17.06.97   EE-12   Haller
+                E38CVT.000      -Codierung GM3 wg. EWS CI 81 geÑndert, ans Band am 14.03.97
+                MRS2.C07        -Korrektur wegen Datenfehler, CBD ans Band am 15.04.97
+
+                E38CVT.000      -Codierung Entfall Fond-Heiz-Klimaanlage hinzu
+                                -Nebelschlu·leuchten Korea ab PU'97 wie ECE
+                                -selektive ZV fÅr alle CKD, auch rÅckwirkend fÅr Ersatz
+                                -IndividualisierungsumfÑnge integriert
+                                -CodierumfÑnge EML ab PU97 integriert (nur HO-relevant)
+                E38ZST.000      -SA 526 codierrelevant hinzu
+                                -SA 527 nicht codierrelevant hinzu
+                E38ZCSUT.000    -UmschlÅsselung I-Kombi CI-10 auf CI-11 fÅr CAN-Fahrzeuge integriert
+                E38SGET.000     -énderung Steuerung GT und TV, gÅltig ab PU'97
+                E38ZCSUT.000     aktiviert fÅr HO mit dieser Freigabe, Einsatz im Werk
+                                 nach Einsatz der PU'97-Ma·nahmen
+                EML.C01         -CodierumfÑnge ab PU97 ergÑnzt , nur HO-relevant
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6606.K ad      15.09.97   EE-12   Haller
+                EDC3P.C25       -FÅr L7 Japan Datensatz DV 075 hinzu
+                LCM.C16         -FSW REIFENCONTR_INAKTIV hinzu
+                LWS5.C01        -DatenÑnderung
+                E38CVT.000      -Auswahl EDC fÅr L7 Japan geÑndert
+                                 FSW REIFENCONTR_INAKTIV hinzu
+                obige énderungen ans Band in KW 27/97
+
+                KMBI_E38.C12    -integriertes Kombi Codierindex 12 ergÑnzt
+                DSP.C01         -DSP-VerstÑrker integriert
+                RDC.C01         -RDC-SG integriert
+                EML3S.C02       -Datensatz 09 fÅr Alpina hinzu
+
+                E38SGET.000     -integriertes Kombi Codierindex 12 ergÑnzt
+                                -DSP-VerstÑrker integriert
+                                -RDC-SG integriert
+
+                E38CVT.000      -UmfÑnge integriertes Kombi Codierindex 12 ergÑnzt
+                                -UmfÑnge DSP-VerstÑrker integriert
+                                -UmfÑnge RDC-SG integriert
+                                -In Gruppe EML_DATEN Zuordnung fÅr Fa. Alpina ab PU 97  geÑndert
+
+                E38ZCSUT.000    -integriertes Kombi Codierindex 12 ergÑnzt
+                                -DSP-VerstÑrker integriert
+                                -RDC-SG integriert
+
+                E38ZST.000      -SA 0677, HiFi-System, ab 03/98 codierrelevant hinzu,
+                                 Steuerung Åber A-Zeile "A 0677 V0398" / "A 0677 N0398"
+                                -SA 0508, PDC, ab 03/98 codierrelevant hinzu
+                                 Steuerung Åber A-Zeile "A 0508 V0398" / "A 0508 N0398"
+                                -SA 0843, Motorauslegung, nicht codierrelevant hinzu
+                                -GK62, 750iA L7 RL hinzu
+                                -Datum-Eintrag der A-Zeilen fÅr GK41/42 geÑndert von
+                                 V/N0997 auf V/N0398 wg Verschiebung SE RDC
+                                 (Projektnachtrag 8108/005 vom 27.06.97)
+
+                E38ZST.000      -Deaktivierung Fahrerairbag hinzu
+                E38CVT.000       NUR GöLTIG FöR HO
+                                 Aktivierung durch Freischaltung in der DIS-SW
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6849.K ae      17.10.97   EE-92   Haller
+                E38ZST.000      -ZST G-Zeile auf PUÔ97-Stand geÑndert
+                                 ZST-Tabelle entsprechend dem PUÔ97-Stand geÑndert:
+                                 -> SA555 BC5, SA262 ITS, CAN-Bit in TypschlÅsselzeilen integriert
+                                 -> SchlÅsselumfang 3. Bremsleuchte in TypschlÅsselzeilen integriert
+                                 -> Ausgelaufene SAs und LAs in H-Zeilen geÑndert, A-Zeilen gelîscht
+                                 -> A-TypschlÅsselzeilen fÅr PUÔ97 aufgelîst
+                                 -> E-Zeilen zu PUÔ97 gelîscht
+                                 -> neue E-Zeile "E PDC  N0997" hinzu, Zusteuerung fÅr GK41/42
+                                 -> man. LWR fÅr alle TU, nicht US, in TypschlÅsselzeiule hinzu
+                                obiger Umfang ans Band am
+
+                E38SGET.000     -énderung der Zusteuerbedingung fÅr GT/TV2 gem. Absprache mit VK-22
+                                 Notwendig zur Ersatzteilversorgung, keine Auswirkung auf Fertigung
+                E38ZST.000      -Ausschlu· Regensensor bei SA Schutzverglasung entfÑllt.
+                                 Regensensor-Bit in SA0500-Zeile integriert, E-Wort "E RESE N0396" gelîscht
+                                -SA-Bit fÅr Deaktivierung Seitenairbag hinzu, nur fÅr HO
+                                -Zeile "E LCM7 N0997" hinzu fÅr LCM CI 17.
+                                 Bedingung: alle FZG mit Stand PUÔ98
+                                -Zeile "E PU98 N0997" hinzu fÅr alle Fahrzeuge mit Stand MJ'99
+                                 PU98-Bit in alle MJ'99-TypschlÅsselzeilen integriert
+                                -Zeile "E EAPD N0997" hinzu. Zusteuerung bei Entfall Anpressdruckverstellung
+                                -SA316, hydr. Heckklappe, codierrelevant hinzu
+                PDC.C01         -Codierdaten E38/3 hinzu, Codierdaten E38 Åberarbeitet
+                TV1.C01         -Codierung fÅr US neues PSW hinzu
+                GM3.C04         -CBD Åberarbeitet, hydr. Heckklappe hinzu
+                DSP.C01         -CBD Åberarbeitet
+                E38CVT.000      -Codierumfang PDC fÅr E38/3 hinzu
+                                -Deaktivierung Seitenairbag hinzu, nur fÅr HO
+                                -Codierumfang LCM CI 17 hinzu
+                                -Codierung TV1 fÅr US geÑndert
+                                -Gruppe hydr. Heckklappe hinzu
+                                -Korrektur Codierung E38/3: FSW "ENTR_KL.R_30S_NACH_SICH"
+                                 von "nicht_aktiv" auf "aktiv"
+                                -Korrektur: LA Australien ab sofort mit Panikmode, siehe Fahrzeugbeschreibung
+                                 Australien aus PN 8009/111
+                                -Codierung DSP-VerstÑrker entsprechend CBD geÑndert
+                                -Codierung Anpressdruckverstellung geÑndert
+                E38SGET.000     -LCM CI 17 hinzu
+                E38ZCSUT.000    -LCM CI 17 hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6985.K af      28.11.97   EE-92   Haller
+                E38ZST.000      -folgende SAs nicht codierrelevant integriert:
+                                 SA 319 integr. Universalfernbedienung
+                                 SA 436 Holz Erle Graphik
+                                 SA 624 Handy-Vorbereitung Siemens
+                                 SA 627 Handy-Vorbereitung Siemens
+                                 SA 620 Spracheingabe
+                                 SA 704 Sportfahrwerk
+                                -folgende SAs codierrelevante integriert:
+                                 SA 202 Schrittschaltung reaktiviert fÅr 740iA US
+                                 SA 210 DSCIII
+                                 SA 358 infrarotreflektierende Frontscheibe
+                                 SA 549 Funkuhr
+                                -in alle TU-TypschlÅssel integriert, da Serienumfang:
+                                 SA 510 LWR man, nur ECE LL (RL bereits Serie)
+                                 SA 534 Klimaautomatik
+                                -Steuerung TypschlÅssel GE91/GE01 Åber A-Zeilen vor/nach 09/97
+                                 énderungsumfang: SA 510, SA534, CAN-Bit und PU98-Bit hinzu
+                                -fÅr GJ03 SA Schrittschaltung hinzu
+                PDC.C01         -PDC Differenzierung nach E38 bzw. E38/3 fÅr "LAUTSTAERKE_TONGEBER" hinzu
+                E38CVT.000      -PDC Differenzierung nach E38 bzw. E38/3 fÅr "LAUTSTAERKE_TONGEBER" hinzu
+                                -CodierumfÑnge M67 ergÑnzt
+                                -Motorkennfelder M73B54 ab PU97 neu
+                                -Codierung Funkuhr hinzu
+                                -SIA-Literwerte fÅr M57/M67 hinzu
+                                -MEMO_FLAG hinzu
+                                -Codierung ASC/DSC 5.7 hinzu
+                                -IndividualisierungsumfÑnge hinzu
+                                -Zuheizfunktion fÅr M57/M67 integriert
+                E38SGET.000     -autom. LWR auch fÅr US bei Xenonlicht ohne Niveauregulierung
+                EWS.C81         -CodierumfÑnge M67 ergÑnzt
+                LCM.C16         -Motorkennfelder M73B54 ab PU97 neu
+                LCM.C17         -Motorkennfelder M73B54 ab PU97 neu
+                KMBI_E38.C11    -SIA-Literwerte M57 Åberarbeitet, M67 hinzu
+                KMBI_E38.C12    -SIA-Literwerte M57 Åberarbeitet, M67 hinzu
+                                 MEMO-FLAG hinzu
+                ASC5_7.C09      -ASC 5.7 neu hinzu
+                DSC5_7.C10      -DSC 5.7 neu hinzu
+                IHKA_E38.C03    -Zuheizfunktion fÅr M57/M67 integriert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7055.K ag      17.12.97   EE-92   Haller
+                GM3.C04         -ErgÑnzungen zu PU98 inkl. UmfÑnge fÅr Car-/Key-Memory
+                E38CVT.000      -CodierumfÑnge GM3 PU98 hinzu.
+                                -EDC-Parameter fÅr E38XL SÅdafrika: DV069
+                E38SGET.000     -Auswahl fÅr DSC 5.7 aktiviert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6551.L ah      27.02.98   EE-92   Haller
+                Airbag alle     -Airbag-UmfÑnge SchlÅsselworte vereinheitlicht
+                E38CVT.000
+                MRS3.C08        -MRS3.C08 integriert
+                E38SGET.000      ACHTUNG: Codierung MRS3 nur mit der neuen CABD/C_SGBD
+                E38ZCSUT         A_MRS3 und C_MRS3
+                E38CVT.000       Die CABDs A_ZAEBAE und A_ZAE2 wurden ebenfalls Åberarbeitet!
+
+                RDC.C01         -FSW DRUCK_OFFSET hinzu
+                E38CVT.000
+
+                E38ZST.000      -Protectionline-Fahrzeuge GH01, GH02, GH03,
+                                 GK91, GK92, GK93, integriert
+
+                E38CVT.000      -keine StandrÅckschaltung der Wischer fÅr CKD-Fahrzeuge
+                                 ab PU'98, siehe Fahrzeugbeschreibung CKD v. 8.12.97, Projekt 8009
+                E38CVT.000      -SHD-Modul integriert
+                E38ZCSUT.000
+                E38SGET.000
+                SHD.C01
+                IHKA_E38.C03    -Alle Ottomotore ab PU'98 mit KennfenldkÅhlung
+                E38CVT.000       Codierung IHKA angepa·t
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6868.L aj      24.04.98   EE-92   Haller
+                MRS3.C08        -ƒnderung Parametersatz, ans Band am 03.03.98
+                E38CVT.000      -Tempor‰re Deaktivierung Beifahrerairbag Stufe 2 bis KW 17/98
+                                 auf Veranlassung von H. Stavermann, EK-40, Bauabweichung Nr. B3566.L
+                                 ans Band am 03.03.98
+
+                E38CVT.000      -GFG_Gong aktiv ab PU'98
+                E38ZST.000      -SE RDC verschoben auf 09/98, entf‰llt aus
+                                 Typschl¸sselzeile f¸r GK41/42
+
+                IHKA_E38.C03    -Parameter f¸r Unterspannungsschwellen hinzu
+                E38CVT.000       ACHTUNG: neue CABD "A_IHK381.*" verwenden!!!
+
+                E38CVT.000      -EML-Steuerung BKA-Fahrzeuge vorl‰ufig ¸ber H-Zeile
+                E38ZCS.000       "H BKA  N0394" integriert
+
+                E38CVT.000      -Sitzmemory als codierrelevantes SG hinzu wg. Individualisierung
+                E38ZCSUT.000
+                SM_E38.C02
+                E38SGET.000
+
+                E38CVT.000      -Deaktivierung Beifahrerairbag Stufe 2 r¸ckg‰ngig
+                                 Einsatz am Band abstimmen mit Verbausituation!
+
+                E38ZST.000      -A-Zeile f¸r SA 508 aufgelˆst, SA ab 03/98 codierrelevant
+                                 E-Zeile "E PDC  N0997" aufgelˆst
+                                 E-Zeile "E EAPD N0997" aufgelˆst, in G-Zeile integriert
+
+                E38CVT.000      -BIT (Basisinterface Telefon) hinzu
+                E38ZCSUT.000     SA 624/627 codierrelevant hinzu
+                BIT.C01
+                E38SGET.000
+
+                E38CVT.000      -Gruppe "Airbagsteuerung_US" hinzu wegen Airbag-Auslˆseschwelle
+                                 f¸r LA Taiwan ab PU98 wie US
+
+                E38ZST.000      -SA 357 Schutzverglasung ab 09/98 codierrelevant
+                                 A-Zeilen "A 0357 V0998" und "A 0357 N0998" neu hinzu
+
+                E38ZST.000      -Klimaautomatik-SG mit CI 04 hinzu. Steuerung ¸ber
+                E38ZCSUT.000     "E IHK4 N0598". Einsatz ca. KW 20/98 f¸r VS E38 PU'98
+                IHKA_E38.C04     ACHTUNG: neue CABD "A_IHK381.*" verwenden!!!
+                E38SGET.000
+                E38CVT.000
+
+                E38CVT.000      -Centerlockfunktion auf SA Schutzverglasung erweitert
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7064.L ak      29.05.98   EE-92   Haller
+                E38CVT.000      -ƒnderung Airbag-Codierung Taiwan zur¸ckgenommen
+                                -ENTICHERN_CENTERLOCK f¸r Protection und E38/3 ab PU'98 auf aktiv
+                                -Codierung Nokia-Handy hinzu
+                                -Komfortschlieﬂen mit langem Reversieren f¸r LA Australien ab PU'98
+                                -neue Airbag-Parametersatz ab PU98 integriert
+                                -Codierumf‰nge an Airbag MRS2 angepaﬂt
+                                -Codierumf‰nge in Verbindung mit MRS3 an M‰rz'99-Bit gekoppelt
+
+                E38ZST.000      -SA 627, Nokia-Handy SA-Bit ge‰ndert.
+                                -E-Wort "E MA99 N0399" hinzu f¸r M‰rz'99-Maﬂnahmen
+                                 wie MRS3, ohne Zusatzwasserpumpe bei M57/M67 ohne Standheizung
+
+                E38SGET.000     -Airbag MRS2 f¸r alle PU'98-Fahrzeuge aktiv
+                                -Airbag MRS3 f¸r alle M‰rz'99-Fahrzeuge aktiv
+
+                obige Umf‰nge vorab ans Band am 15.05.98
+
+                E38SGET.000     -LCM_CI_18 hinzu
+
+                E38ZCSUT.000    -LCM.C18 integriert
+
+                E38CVT.000      -Codierung LCM.C18 integriert
+                                -Codierung DSC 5.7 ¸berarbeitet
+
+                E38ZST.000      -neue E-Wort "E LCM8 N0998" f¸r LCM CI 18 hinzu
+                                -SA 204, k¸rzere Hinterachs¸bersetzung codierrelevant hinzu wg. DSC 5.7
+                                 Auswahl ¸ber A-Zeile "A 0204 V0998" bzw. "A 0204 N0998"
+
+                obige Umf‰nge vorab ans Band am 29.05.98
+
+                E38CVT.000      -KOMFORTFUNK_BEREICH_HEB f¸r Stahl-SHD auf Aktiv
+
+                E38zst.000      -A-Zeilen f¸r SA 677 aufgelˆst
+
+                BIT.C01         -FSW WAKEUP_TAGE hinzu
+                E38CVT.000
+
+                KMBI_E38.C12    -SIA-Literwerte f¸r MJ'99 erg‰nzt
+                E38CVT.000
+
+                LCM.C18         -MOTOR_KENNFELD und PU'98 Umf‰nge erg‰nzt
+                E38CVT.000
+
+                E38ZST.000      -SA 187 Bodenschutz mit 85L-Tank gekoppelt
+
+                E38CVT.000      -Codierung IR-Fernbedienung ge‰ndert wg neuem Innenspiegel
+
+                IHKA_E38.C04    -Codierung Gebl‰sekurve hinzu
+                E38CVT.000
+
+                        Folgende Umf‰nge wurden am 29.06.98 noch f¸r die Fertigung
+                        und HO zu E7064.L nachgereicht:
+                E38CVT.000      -ƒnderung bei "GEBLAESEANHEBUNG"
+                LCM.C17/C18     -Wert f¸r gedimmtes Fernlicht US/CDN ge‰ndert gem. e-mail von H. Moser, EE-22
+                                -Daten MOTOR_KENNFELD f¸r M57D30 E38/E39 gem. e-mail von H. Kasper, ZM-E-33 geÑndert
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7331.L al      21.08.98   EE-92   Haller
+                E38CVT.000      -Vorab am 27.07.98 ans Band:
+                                 GFG_GONG auf nicht_aktiv
+                                 GPS_UHR auf nicht_aktiv
+                -----------------------------------------------
+                E38CVT.000      -Km-Tacho fÅr LA Kanada ab 03/99 nur Åber SA 548
+                                -GEBLAESEANHEBUNG wert_02 fÅr US und Tropen
+                E38ZST.000      -SA 521, Regensensor codierrelevant hinzu
+                                 Gm. PN 8009/142 kein Regensensor fÅr Protection-Line!
+                DSC5_7.C10      -HBA-Codierung fÅr E38/3 geÑndert
+                PDC.C01         -Schwellwerte geÑndert
+                LCM.C18         -Motorkennfeld M57 und M52B28 fÅr PU'98 aktualisiert
+                                 Motorkennfeld fÅr M67 hinzu
+                                 LCM-Parameter ECE und US Åberarbeitet
+                E38CVT.000      -Codieroption Zuheizer und Solarsensor integriert
+                IHKA_E38.C04
+                ZHZ.C01         -Zuheizer fÅr Diesel und SA Standheizung als codierrelevantes SG hinzu
+                MRS3.C10        -MRS3 CI 10 integriert
+                E38SGET.000
+                E38ZST.000
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3140.M am      18.09.98   EE-92   Haller
+                E38CVT.000      -ƒnderung Zusteuerung Klima-Sonderprogramm:
+                                 SA Tropen wird durch LA GOLF ersetzt
+                MRS3.C10        -Paramtersatz ge‰ndert. Algo-ID war 172 neu ist 174
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3435.M an      13.11.98   EE-92   Haller
+                E38ZST.000      -A-Zeilen f¸r M52B28 und M57 f¸r Stichtag PU'99
+                                 hinzu wg. DSC III Serie.
+                                -f¸r 740i Protection Line SA EDC als Serienumfang hinzu
+				-F¸r Korrekturumfang Bremslichtschalter neues E-Wort hinzu,
+				 "E BLSN N1198"
+                E38CVT.000      -JAHRESZAHL_BC auf 1998 ge‰ndert
+                                -Individualisierung: f¸r FSW ENTFROSTUNGSANTEIL
+                                 nur die PSW wert_01 und wert_03 frei unter Ausschluﬂ
+                                 vom E38/3
+                                -EML-Codierung f¸r US-Fahrzeuge mit vorgezogenem PU'97-Stand
+                                 auf US-PU'97-Stand ge‰ndert. Anforderung von H. B¸chler, EA-33
+                                 wg. Ersatzteilcodierung bei US Fahrzeugen mit vorgezogenem PU'97-Stand
+                                 (ohne Tempomat-Haupschalter)
+                                -Neue Gruppe ‹berwachung Bremslichtsschalter hinzu
+                                -RDKS-Bit im LCM auf aktiv auch bei verbautem DWS (DWS bei Protection Serie)
+                KMBI_E38.C12    -FSW CAN_EBV mit PSW nicht_aktiv hinzu
+                                -SIA-LITER_GRENZE f¸r M67-Motor ge‰ndert
+                GT.C02          -Graphikteil mit CI 02 hinzu
+                E38ZST.000       Steuerung in ZST ¸ber "E GT2  N0399"
+                E38CVT.000
+                E38SGET.000
+                E38ZCSUT.000
+                LCM.C18         -FSW BLS_PRUEFEN hinzu
+
+	NACHTRAG f¸r HO, V16.01 
+                E38CVT.000	-FSW KEW_MEMORY auf nicht_aktiv f¸r E38/3 bis PU99
+                                 alle Individualisierungsumf‰nge f¸r E38/3 bis PU99 auf inaktiv
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3679.M ao      29.01.99   EE-92   Haller
+                vorab ans Band am 11.12.98:
+                E38CVT.000      -E38PL mit DWA: ohne Innenraumschutz
+                
+                E38SGET.000     -MRS3.C09-SG f¸r Sicherheitsfahrzeug ab 03/99 hinzu
+                E38CVT.000
+                E38ZCSUT.000
+                MRS3.C09
+                
+                E38CVT.000      -Codierunng EDC-Kennfeld f¸r M57 mit SA 826, Fahrwerkabstimmmung Export, hinzu
+                                 Codiert wird Kennfeld DV064
+                obige ƒnderungen vorab ans Band am 08.01.1999
+                
+                E38SGET.000     -ACC-SG hinzu, Codierung noch nicht aktiv
+                E38CVT.000
+                E38ZCSUT.000
+                ACC.C01
+                
+                MRS3.C10        -Parameters‰tze f¸r E38 neu
+                
+                ACHTUNG:
+                Ab EXPERTENTOOL und NCS-Serve Version 2..x.x (SE 03/99) bitte folgende
+                Datenanpassungen vornehmen:
+                - E38ZCSUT.NEW auf E38ZCSUT.000 kopieren
+                - E38_CONF.BAP befindet sich ab V 2.x.x im Verzeichnis CABI\DATEN
+                - Es muﬂ E38_CONF.NEW auf E38_CONF.BAP kopiert werden
+                
+                
+                        -Protection Line ohne Kopfairbag im Fond
+                        -ƒnderung Codierung E38/3 mit akustischer Gurtwarnung wg. MRS3.C09
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3831.M ap      26.02.99   EE-92   Haller
+                                -Codierung f¸r SA 803, Entfall 3. Bremsleuchte, weiterhin aktiv wg. Nachr¸stung
+                                 Heckspoiler in der HO
+                                -Codierung ACC-SG aktiv.
+                                 Es ist zwingend die zugehˆrige CABD und C_SGBD zu laden!
+                                 ACHTUNG: Codierung ACC nur in Verbindung mit 
+                                 CABI bzw. WINELDI Version 2.x..y!
+                                 
+                DSC5_7.C10      -Sch¸sselwort ACC_DSC_5_7 hinzu
+                E38CVT.000
+                
+                E38ZST.000      -SA 190, Wechselsprechanlage, ab PU'99 codierrelevant hinzu
+                                 Auswahl vor / nach PU'99 ¸ber A-Zeilen
+                                 Bei Altfahrzeugen mit SA Wechselsprechanlage, die ein neues GM3
+                                 als Ersatzteil verbaut bekommen, ist das SA-Bit f¸r die
+                                 Wechselsprechanlage zu setzen!
+                GM3.C04         -CBD ¸berarbeitet
+                LCM.C18         -ACC-Meldung "Sensor s‰ubern" mit Gong
+                                 Taster NSL auf aktiv ab PU'99
+                                 K¸hlwasserbed‰mpfung f¸r M57 ab PU99, f¸r M67 ab sofort auf 25 sec
+                                 Umf‰nge in E38CVT.000 integriert
+                IHKA_E38.C04    -neue Codierdaten f¸r Solarsensor
+                                 Codierung Zusatzwasserpumpe f¸r SA Standheizung hinzu
+                                 Umf‰nge in E38CVT.000 integriert
+                PDC.C03         -PDC mit CI 03 hinzu
+                EDC3P.C25       -neuer Datensatz dv078 f¸r M67 hinzu.
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE099.M aq        .  .99   EE-92   Haller
+                E38CVT.000      -Korrektur Codierung IHKA, Schwellen Pumpen f¸r Standheizung
+                                 vorab ans Band am 03.03.99
+                E38IHKA_E38.C04 -ƒnderung der Codierwerte f¸r Solarsensor
+                                 vorab ans Band am 10.03.99
+                E38CVT.000      -SIA Japan ohne Zeitintervall, r¸ckwirkend bis Serieneinsatz g¸ltig
+                KMBI_E38.C12     (s. PN 8009/179)
+                E38CVT.000      -‹berarbeitung Codierung GM3 in Verbindung mit E38/3 und E38/2 PL
+                GM3.C04          Keine Codierung der SA Wechselsprechanlage im GM3 f¸r den E38/3,
+                                 daf¸r aber f¸r den E38/2 PL ab SE!
+                E38ZST.000      -Deaktivierung Thoraxairbag hinten f¸r US vorbereitet.
+                E38CVT.000       Steuerung zun‰chst ¸ber E-Wort "E OSAH N0399"
+                                 Einsatztermin in Abstimmung
+                E38SGET.000     -Heckklappenmodul f¸r hydr. Heckklappe intergriert
+                E38SGVT.000
+                E38CVT.000
+                E38ZST.000      -F¸r HO-Nachr¸stung Navigation/Bordmonitor ohne TV integriert
+                E38CVT.000       Steuerung ¸ber H-Wort "H NAVI N0394"
+                E38ZST.000      -SA 984, Verk¸rztes Wartungsintervall f¸r Dieselfahrzeuge 
+                KMBI_E38.C12     codierrelevant hinzu
+                E38CVT.000
+                ACC.C01         -Codierung ACC ¸berarbeitet
+                E38CVT.000
+                MMC.C01         -MMC integriert, SG-Codierung wegen noch aussstehender
+                E38SGET.000      ‹berpr¸fung der Kommunikation (SG-SW noch nicht in ausreichendem
+                E38CVT.000       Umfang diagnosef‰hig) aus der Codierung herausgenommen
+                E38SGVT.000     -Codierung PDC.C01 und GT.C01 f¸r Fahrzeuge ab PU'99 freigeschaltet
+                LCM.C18         -neue Programmparameter, zur Fehlerbeseitigung in der Kommunikation 
+                                 zwischen LCM und Anh‰ngermodul
+                                 
+                HINWEIS: Die Datei E38ZCSUT.000 ist f¸r NCS-Serve Version 2.x 
+                         Bei Verwendung einer NCS-Serve-Version < 2.0 ist die beiliegende Datei 
+                         E38ZCSUT.ALT in E38ZCSUT.000 umzubenennen.
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE246.M ar      12.04.99   EE-92   Haller
+                GM3.C05         -Codierindex f¸r GM3 mit PU'99-Stand auf 05 gesetzt.
+                E38SGET.000      Tabellen angepaﬂt
+                E38SGVT          HKM freie Wahl zwischen heutigem SG und neuem, codierrelevanten
+                E38CVT.000       SG integriert
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE688.M as      28.06.99   EE-62   Haller
+                E38SGET.000     -BIT-SG auch f¸r Fahrzeuge vor PU'98 freigeschaltet wg. Nachr¸stung in der HO
+
+                E38ZST.000      -MMC entf‰llt aus Angebot. Codierumf‰nge MMC aus Tabellen gelˆscht
+                E38SGET.000
+                E38SGVT.000
+                E38CVT.000
+                E38ZCSUT
+                E38CVT.000      -Korrektur Codierumfang GM3: ENTFALL_ZV_BEDIENST_HECK f¸r E38/2 PL
+                                 auf nicht_aktiv nur bei SA 190, Wechselsprechanlage
+                E38CVT.000      -Korrektur Codierumfang GM3 f¸r E38/3 mit SA Fernstart:
+                                 SCHAERFEN/ENTSCHAERFEN auf "schloss_und_fernbedienung" bei SA Fernstart
+                                 und "nur_mit_fernbedienung" ohne SA Fernstart
+                E38CVT.000      -betr. Nachr¸stung HO:
+                                 AUTOMATISCHER_NOTRUF aktiv nur ab M‰rz99, vor M‰rz99 auf nicht_aktiv
+                E38ZST.000      -M‰rz99-Umf‰nge in G-Zeile integriert
+                SEC.C01         -Sicherheits-SG integriert, dadurch 4 neue codierrelevante SA in
+                E38CVT.000       der Tabelle E38ZST.000: SA 188, SA 189, SA 191, SA 192
+                E38SGET.000      Steuerung ¸ber A-Zeilen mit Datum V / N0999
+                E38SGFAM.DAT     Codiertabellen erg‰nzt
+                E38_CONF.BAP     WEGEN NOCH NICHT ABGESCHLOSSENER ENTWICKLUNG SG VON DER CODIERUNG
+                E38ZST.000       AUSGESCHLOSSEN
+                HKM.C01         -Erg‰nzung Codierumfang um ein FSW. Datei E38CVT.000 erg‰nzt.
+                E38CVT.000
+                E38SGET.000     -Nur f¸r Nachr¸stung in der HO: zeitbestimmendes ASW PU97 f¸r PDC entf‰llt.
+                                 Dadurch Nachr¸stung von 8-Kanal-PDC in Fahrzeugen vor PU'97 mˆglich.
+                                 ACHTUNG: bei Nachr¸stung SA-Bit f¸r PDC setzen
+                LCM.C18         -neue Programmparameter LCM f¸r Fahrzeuge mit ACC
+                E38CVT.000       Codierung SCHALTER2_BL ge‰ndert
+                                 Codierung U_POTI_STELLUNG_2 ge‰ndert
+                E38CVT.000      -Quittierung der Fahrzeuge beim Ver- und Entriegeln gem PN 8008/099
+                                 f¸r Car- & Key-Memory einstellbar
+                E38ZST.000      -E-Zeile "E GT2  N0399" entf‰llt. Steuerung ¸ber SGVT
+                                 E-Zeile "E OSAH N0399" entf‰llt, Integration in US-Typschl¸sselzeilen
+                E38PDC.C03      -Codierwerte PDC.C03 f¸r Lautsprecher hintenge‰ndert wg. Piezolautsprechen
+                E38CVT.000
+                E38ZST.000      -neue SA 988 f¸r extrakurze Wartungsintervalle f¸r M57 und M67 Diesel
+                E38CVT.000      -Codierung Panik-Mode auf nicht_aktiv bei SA hydr. Heckklappe f¸r alle
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E0E14.M at      10.09.99   EE-62   Haller
+                E38ZST.000      -SA0851 DEUTSCH codierrelevant hinzu
+                E38CVT.000
+                E38SGET.000     -ab PU99 MRS3.C10 Serie auch im E38/3
+                E38SGVT.000      vorab ans Band am 20.07.99
+                E38CVT.000
+                ACC.C01         -CBD von ACC ¸berarbeitet
+                E38CVT.000
+                TV2.C02         -Codierung auf Widescreen-Monitor erweitert,
+                E38SGET.000      TV2.C02 wird bei US mit Fondmonitor codiert,
+                E38ZST.000       SA 603, Fondmonitor codierrelevant hinzu,
+                E38CVT.000       SA 825 Ozeanien-Radio ab 03/00 codierrelevant hinzu, Steuerung ¸ber A-Zeile
+                LCM.C18         -Korrektur Codierung Tagfahrlicht f¸r LA Nordland und LA Skandinavien
+                E38CVT.000
+                E38CVT.000      -Panik-Mode f¸r ZA-Modelle (TU) ¸ber Car/Key-Memory einstellbar
+                E38SGET.000     -Codierung TV-Modul nur noch ¸ber CABI\C_SGBD (HO-relevant)
+                IHKA_E38.C04    -Codierung von Funktionsparameter f¸r Solarsensor hinzu
+                E38CVT.000
+                PDC.C01         -Anpassung Codierdaten auf Piezolautsprecher
+                E38CVT.000
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3E12.M au      01.10.99   EE-62   Haller
+                E38ZST.000      -ZST auf PU'99 umgestellt, A- und E-Zeilen aufgelˆst, G-Zeile auf Stand PU99 ge‰ndert
+                SEC.000         -Sicherheits-SG f¸r E38/3 als Serienumfang hinzu. 
+                E38CVT.000       Wegen fehlender SGBD SG ¸ber die Datei E38SGET.000 f¸r die Codierung noch
+                E38SGET.000      ausgeblendet.
+                E38SGVT.000
+                E38ZCSUT.000
+                E38CVT.000      -sel. ZV f¸r E38/3 entf‰llt
+                KMBI_E38.C12    -Tankdeckelwarnung f¸r US hinzu
+                E38CVT.000
+                LCM.C18         -Programmparameter ¸berarbeitet wg. Z¸ndprobleme Xenonlicht
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5E39.M av      19.10.99   EE-62   Haller
+                TV2.C02         -ƒnderung Codierung f¸r "MULTIFUNCTION_1"
+                E38SGVT.000     -Korrektur Steuerger‰tezuordnung TV-Modul
+          Daten vorab ans Band am 13.10.99
+                GM3.C05         -ƒnderung der Zuordnung f¸r DWA_QUITTIERUNG ab M‰rz 2000,
+                E38CVT.000       Korrektur der CBD, damit ƒnderung der CVT notwendig
+                E38ZST.000       E-Wort "E MA00 N0300" f¸r Fahrzeuge ab M‰rz 2000 hinzu
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5E96.M aw      29.10.99   EE-62   Haller
+                E38ZST.000      -SA 365 und SA 378 ab sofort codierrelevnat hinzu,
+                                 Reifen-SAs mit Sicherheitsbereifung und RDW
+                E38CVT.000      -Codierung RDKS auf aktiv bei SA 365 und SA 378
+                                -SCHALTER2_BL auf aktiv bei SA 541 ACC
+                E38SGET.000     -Sicherheits-SG f¸r Codierung freigeschaltet.
+                                 ACHTUNG: Codierung erst mˆglich, wenn ƒnderung der Gatewayadressen
+                                          im Kombi E38 erfolgt.
+                                          Vor Codierung CABD und C_SGBD f¸r Sicherheits-SG laden
+                KMBI_E38.C12    -K-Zahl f¸r ALPINA-Fahrzeuge gem. Anforderunge von Fa. Alpina, H. Tumler,
+                KMBI_E38.C11     ge‰ndert
+                IKE.C05
+///////////////////////////////////////////////////////////////////////////////
+NAEL EEE46.M ax      20.12.99   EE-62   Haller
+                                - Produktionsfreigabe f¸r 09/2000, kann sofort einsetzen
+                                 Erzwungene, ¸berfl¸ssigen Freigabe zur Befriedigung der B¸rokratie und des Amtschimmels bei TD-51
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3003.N ay      28.01.00   EE-62   Haller
+                E38CVT.000      -ƒnderung Codierung GM3.C01, "ZV_VR_BEDIENSTELLE_HECK" auf "aktiv" nur noch f¸r E38/3
+                                 f¸r E38/PL auf "nicht_aktiv"
+                                -"ENTFALL_ZV_BEDIENST_HECK" f¸r alle E38/PL auf "aktiv"
+                                -"FH_TUEREN_HINTEN_TIPP_AUF" f¸r alle E38/PL auf "nicht_aktiv"
+                E38ACC.C02      -CBD neu, FSW "KOMPRESSIONSWINKEL", "KERN_DEJUSTAGE_AENDERUNG" und 
+                                 "KORREKTURWINKEL" hinzu
+                E38CVT.000
+                E38SGET.000
+                E38SGVT
+                E38SGVT.000     -MRS3.C11 als Ersatz f¸r MRS3.C09, nur E38/3
+                E38SGET.000
+                TV.C02          -Codierung um NG-Radio erg‰nzt, ab PU 2000
+                E38CVT.000
+                GT.C03          -CBD neu f¸r Navirechner mit Widescreen-Monitor
+                E38SGVT.000      Codierung um NG-Radio erg‰nzt
+                E38SGET.000
+                E38CVT.000
+                E38ZST.000      -SA 650 und SA 651 nicht codierrelevant hinzu
+                                 SA 630 und SA 631 nicht codierrelevant hinzu
+                                 SA 257, Seitenairbag hinten Deaktivierung codierrelevant hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3316.N az      28.01.00   EE-62   Haller
+                E38CVT.000      -Korrektur Codierung DSP-Verst‰rker mit SA 603 Fondmonitor
+                                 vorab ans Band am 25.01.2000
+                TEL.C02         -TEL.C02 neu hinzu f¸r SA 630/632
+                E38CVT.000       auch Ersatz f¸r BIT.C01
+                E38SGET.000
+                E38SGVT.000
+                E38ZST.000      -SA 630 codierrelevant hinzu
+                                 SA 632 wird ab sofort codierrelevant
+                                 neue E-Zeile "E PU00 N0900" f¸r PU 2000-Fahrzeuge hinzu
+                E38CVT.000      -Codierung f¸r NG-Radio ¸berarbeitet
+                LCM.C18         -Codierung f¸r LED-Bremsleuchte E39 erg‰nzt
+                E38CVT.000       CVT um neues FSW erg‰nzt
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3498.N ba      13.03.00   EE-62   Haller
+                E38ZST.000      -SA 632, Handy Motorola V-Serie nicht codierrelevant (nur Interface)
+                E38SGET.000      aus Codierumfang gelˆscht wg Einsparung SA-Bit
+                E38CVT.000
+                E38SGET.000     -Codierung LWR.C03 immer bei SA Xenonlicht, auch f¸r US
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3564.N bb      24.03.00   EE-62   Haller
+                KMBI_E38.C12    -Codierumfang erweitert
+                E38CVT.000      -neue Codierumf‰nge Kombi erg‰nzt
+                E38SGET.000     -CABD f¸r KMBI_E38.C12 ge‰ndert auf A_KMB2, 
+                                 Zeilenkennung von "A" auf "S" ge‰ndert
+                                 Integration Berechnung 2. Checksumme
+                E38ZST.000      -Folgende SG-St‰nde dem ZCS zugeordnet, d.h. keine 
+                                 Codierung mehr ¸ber SGVT: GM3.C05, GT.C02, PDC.C03
+                GT.C03 GT.C04 E38SGVT E38SGET
+                                -neue Zuordnung Navirechner: GT.C03 ab 06/00, GT.C04 ab 09/00
+                                 ACHTUNG: neue CABD A_GT3
+                E38SGET.000     -Codierung LWR.C03 f¸r US mit SA Xenonlicht ab 09/98 (PN 8399/006)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3756.N bc      07.04.00   EE-62   Haller
+                KMBI_E38.C12 E38CVT     -Daten‰nderung Codierumfang ACC
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE354.N bd      07.07.00   EE-62   Haller
+                LM.C18 E38CVT.000       -neues FSW hinzu wg. E39 US, E38CVT erg‰nzt
+                EWS.C81 E38CVT.000      -Abschaltdrehzahl Anlasser f¸r M57 neues PSW und Wert f¸r M67 ge‰ndert, E38CVT.000 erg‰nzt
+                ACC.C02 E38CVT.000      -CBD neue Werte, neues FSW hinzu, E38CVT.000 erg‰nzt
+                TEL_US.C01 E38SGET E38ZST E38CVT        -Telefoninterface US (Mayday-Modul) integriert, nur Nachr¸stumfang in US 
+                                                         ab 09/2000
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N be      22.09.00   EE-62   Haller
+                LCM.C18 E38CVT.000      -neues FSW im LCM hinzu, E38CVT erg‰nzt
+                kmbi_e38.c12 e38cvt     -CBD ¸berarbeitet, neue FSW hinzu, CABD ge‰ndert
+                                         ACHTUNG: vor Laden der Codierdaten CABD A_KMB2.* V1.01 laden
+                e38zst.000              -G-Zeile auf PU00 ge‰ndert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N bf      26.01.01   EE-82   Haller
+                                -Neue Konvertierung wegen ƒnderung 
+                                 Codier-SW auf 3.xx
+                                 SWT-Tabelle geaendert von SWT nach 
+                                 SWT01
+                                 Folgende Dateien wegen Codier-SW 
+                                 3.xx geaendert:
+                                 E38_CONF.bap
+                                 E38SGFAM.dat
+                                 BR_REF.dat
+                                -SHD.C03 fuer Ersatz hinzu
+                                 f¸r Korea Codierung Einklemmschutz auf lang

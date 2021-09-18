@@ -1,0 +1,101 @@
+// Auftragsdatei: KH2AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: xxxxxxx.5
+DATUM 06.11.2012
+//
+//                     Kurzz.  Datum        Name
+// Bearbeiter:         EI-73   15.09.2011  B. Haller
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EI-73    B. Haller
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             KH2AT.000
+//
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevant)
+Z #0812                 MAERZ12 AUGUST12                                                                                //KH24-12-08-500
+Z #0213                 MAERZ12 AUGUST12                                                                                //KH24-13-02-500
+//
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0811                                                                                                                 //Start der BR
+A #1111                                                                                                                 //
+A #1211                                                                                                                 //
+A #0212                 MAERZ12                                                                                         //KH24-12-02-500
+A #0812                 MAERZ12 AUGUST12                                                                                //KH24-12-08-500
+A #0213                 MAERZ12 AUGUST12                                                                                //KH24-13-02-500
+
+//******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//E: aktive Ergänzungszeilen (PUSY-Relevanz für Steuerung SA<100)
+E GRAF                  H91_FAHRENHEIT                  //Anzeige Grad Fahrenheit für H91
+E MILE                  H91_MEILEN                      //Anzeige Meilen für H91
+E STRT                  H61_STREET                      //H61 Street
+E ASIA                  ASIA                            //Husqvarna Ländercodierung für Japan, Taiwan, Thailand und Chine
+E DISP                  KH2_DISPLAY                     //Display-Variante H91, H61
+E OABS                  OFFROAD_ABS                     //Offroad-ABS
+//
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+
+H GRAF                  H91_FAHRENHEIT                  //Anzeige Grad Fahrenheit für H91
+H MILE                  H91_MEILEN                      //Anzeige Meilen für H91
+H STRT                  H61_STREET                      //H61 Street
+H ASIA                  ASIA                            //Husqvarna Ländercodierung für Japan, Taiwan, Thailand und Chine
+H DISP                  KH2_DISPLAY                     //Display-Variante H91, H61
+H OABS                  OFFROAD_ABS                     //Offroad-ABS
+//
+//******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//K: Kundendienst-Ergänzungszeilen (keine PUSY-Relevanz)
+
+K NUNR                                                  //Umrüstung 0H01 NUDA nach 0H02 NUDA R
+K NUNB                                                  //Umrüstung NUDA R 0H02 nach NUDA Basis 0H01
+//
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//******************************************************************************
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 123                                                   //Motorsteuerung Japan
+W 524                   E_ABS                           //ABS elektronisch
+W 603                   DWA                             //Diebstahlwarnanlage
+//
+//
+//******************************************************************************
+// TYPSCHLÜSSEL
+//******************************************************************************
+//
+//H91
+W 0H01                  H91 KH2         ECE                                         //H91 NUDA 900 B  2-Zyl 0,90                R91900  11/11 - 12/17    PX986
+W 0H02                  H91 KH2 H91_R   ECE                                         //H91 NUDA 900 R  2-Zyl 0,90                R91900  11/11 - 12/17    PX986
+W 0H03                  H91 KH2         ECE                                         //H91 NUDA 900 B  2-Zyl 0,90 CKD Brasilien          11/13 - 07/16    PX972_002
+W 0H04                  H91 KH2 H91_R   ECE                                         //H91 NUDA 900 R  2-Zyl 0,90 CKD Brasilien          11/13 - 07/16    PX972_002
+//H92
+W 0H31                  H92 KH2         ECE                                         //H92 ECE         2-Zyl 0,90                        02/14 - 12/19    PX972_002
+W 0H32                  H92 KH2         US                                          //H92 US          2-Zyl 0,90                        02/14 - 12/19    PX972_002
+W 0H33                  H92 KH2         ECE                                         //E92 ECE         2-zyl 0,90 CKD Brasilien          02/14 - 12/19    PX972_002
+//
+//H61
+W 0H11                  H61 KH2         ECE                                         //H61 ECE Street/TE     0,65                R91900  03/12 - 12/17
+W 0H12                  H61 KH2         US                                          //H61 US Street/TE      0,65                R91900  03/12 - 12/17
+//------------------------------------------------------------------------------

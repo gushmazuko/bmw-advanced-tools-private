@@ -1,0 +1,151 @@
+           F E H L E R S P E I C H E R    L Ö S C H E N
+           --------------------------------------------
+
+Datum       :  11.08.2006 09:13:06
+Baureihe    :  E53
+
+-------------------------------------------------------------
+Steuergerät :  Dynamische Stabilitätskontrolle Allradsystem
+SGBD        :  D_ABSKWP
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Verteilergetriebe Steuergerät
+SGBD        :  D_VGSG
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Getriebesteuergerät GS19
+SGBD        :  D_EGS
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Dynamische Stabilitätskontrolle
+SGBD        :  D_0056
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Motor
+SGBD        :  D_0012
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Lenkwinkelsensor
+SGBD        :  D_0057
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Luftfeder
+SGBD        :  D_00AC
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Reifen Druck Control
+SGBD        :  D_0070
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Licht Check Modul
+SGBD        :  D_00D0
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Active Light Control E46
+SGBD        :  D_0066
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Leuchtweitenregulierung
+SGBD        :  D_009A
+JobStatus   :  SYS-0012: JOB 'IDENTIFICATION' in Gruppendatei fehlgeschlagen
+-------------------------------------------------------------
+Steuergerät :  Regen- Lichtsensor
+SGBD        :  D_00E8
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Multidrive Schiebedach
+SGBD        :  D_0008
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Elektronische Wegfahrsperre III
+SGBD        :  D_0044
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Zentrales Informationssystem
+SGBD        :  D_00C0
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Zentrale Karosserie Elektronik 1 oder 3 Grundmodul
+SGBD        :  D_ZKE_GM
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Schaltzentrum Mittelkonsole
+SGBD        :  D_SZM
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Airbag Steuergerät
+SGBD        :  D_00A4
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Instrumentenkombi
+SGBD        :  D_0080
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Spracheingabesteuerung
+SGBD        :  D_00B0
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Klimaautomatik Bedienteil
+SGBD        :  D_005B
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Zuheizer
+SGBD        :  D_ZUHEIZ
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Radio alle Typen ausser MOST-FZGe
+SGBD        :  D_0068
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Digital Sound Processor
+SGBD        :  D_006A
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Basis-Interface Telefon 2
+SGBD        :  D_0048
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Telefon oder Universelle Lade- und Freisprecheinrichtung
+SGBD        :  D_00C8
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Bordmonitor
+SGBD        :  D_00F0
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Videomodul
+SGBD        :  D_00ED
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Videomodul, Graphik-Teil
+SGBD        :  D_003B
+JobStatus   :  ERROR_ECU_NACK
+-------------------------------------------------------------
+Steuergerät :  Japan Bit
+SGBD        :  D_0048
+JobStatus   :  IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+-------------------------------------------------------------
+Steuergerät :  Navigationsrechner
+SGBD        :  D_007F
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Navigationssystem Japan
+SGBD        :  D_00BB
+JobStatus   :  SYS-0012: JOB 'IDENTIFICATION' in Gruppendatei fehlgeschlagen
+-------------------------------------------------------------
+Steuergerät :  Aktivsitz Beifahrer
+SGBD        :  D_SITZ_B
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Aktivsitz Fahrer
+SGBD        :  D_SITZ_F
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Steuergerät :  Sitzmodul
+SGBD        :  D_0072
+JobStatus   :  OKAY
+
+#################################################################
+Dieser Inhalt wird temporär abgelegt in ..\inpa\sgdat\na_fs_d.tmp
+#################################################################
+=================================================================

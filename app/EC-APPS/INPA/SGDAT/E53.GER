@@ -1,0 +1,96 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E53.GER
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 13.10.1997 rd V0.01 Erstellung
+//* 15.09.1999 rd V1.00 MS 43.0 neu dazu
+//* 03.03.2000 rd V1.01 NAVMK2 durch NAVI ausgetauscht
+//* 14.04.2000 rd V1.02 Luftfederung ehc_2 nach ehc_2n
+//* 23.06.2000 rd V1.03 BM_WIDE hinzu
+//* 13.06.2001 rd V1.04 Regen- Lichtsensor dazu
+//* 20.09.2001 rd V1.05 CDC dazu
+//* 24.09.2002 rd V1.06 ALC neu dazu
+//* 11.02.2003 rd V1.07 DXC8 dazu
+//* 28.02.2003 rd V1.08 Facelift integriert
+//* 18.09.2003 rd V1.09 VGSG neu dazu
+//* 16.02.2004 rd V1.10 Umstellung auf 32-Bit INPA
+//* 26.08.2004 GA V1.11 E53.IPO dazu IDENT, FS-lesen, löschen quasi funktional
+//* 26.08.2004 GA V1.12 DDE6M57 dazu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E53 V1.12
+ENTRY=     E53,IDENT / FS-IS_LESEN-LOESCHEN E53,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=   DDE40,DDE 4.0  für M57,
+ENTRY=  D50M57,DDE 5.0  für M57 new,
+ENTRY=  DDE6M57,DDE 6.0 für M57 TÜ,
+ENTRY=,,
+ENTRY=    ME72,ME  7.2  für M62 MJ 99,
+ENTRY= ME9_N62,ME  9.2  für N62,
+ENTRY=,,
+ENTRY=   MS420,MS 42.0  für M52 TÜ,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  für M54,
+ENTRY=,,
+ENTRY=    CARB,Carb-Schnittstelle,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=   gsds2,GS8.xx,
+ENTRY=    GS19,Getriebesteuergerät GS19,
+ENTRY=  vgsg83,Verteilergetriebe VGSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY= absasc5,DSC57,
+ENTRY=    dxc8,DXC8,
+ENTRY=     ehc,1-Achs Luftfederung EHC,
+ENTRY=  ehc_2n,2-Achs Luftfederung EHC,
+ENTRY=    lws5,Lenkwinkelsensor,
+ENTRY=     rdc,Reifendruckkontrollsystem,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=  airbag,Airbag,
+ENTRY=     ews,Elektronische Wegfahrsperre EWS,
+;ENTRY= fern_ss,Fernbedienung,
+ENTRY=klima_5B,Klimaanlage,
+ENTRY=   kombi,Kombi-Instrument,
+ENTRY=   lwr2a,Leuchtweitenregulierung LWR2A,
+ENTRY=     lcm,Licht- / Checkmodul,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multifunktionslenkrad,
+ENTRY=     pdc,Park-Distance-Control,
+ENTRY=     aic,Regensensor AIC,
+ENTRY= rls_ds2,Regen- Lichtsensor RLS,
+ENTRY=     szm,Schaltzentrum Mittelkonsole SZM,
+ENTRY=    sm53,Sitzmemory,
+ENTRY= shd_mds,Schiebehebedachmodul,
+ENTRY=     gr2,Tempomat GR2,
+ENTRY=    zke3,Zentrale Karosserieelektronik ZKE3,
+ENTRY=zuheizer,Zuheizer Diesel / Standheizung,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=bmbt46tn,Bordmonitor Topnavigation,
+ENTRY= bm_wide,Widescreen Monitor,
+ENTRY=     CDC,CD-Wechsler,
+ENTRY=     dsp,Dynamischer Soundprozessor DSP Booster,
+ENTRY=    iris,Integriertes Radio Informationssystem IRIS,
+ENTRY=    navi,Navigationsrechner,
+ENTRY= nav_jap,Navigationsrechner Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Spracheingabesystem SES,
+ENTRY= telefon,Telefon,
+ENTRY=videomod,Videomodul,
+ENTRY=     zis,Multi-Informationsdisplay MID (ZIS),
+

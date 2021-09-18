@@ -1,0 +1,145 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E90.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 11.02.2004 rd V0.01 Erstellung
+//* 16.02.2004 rd V0.90 Umstellung auf 32-Bit INPA
+//* 19.02.2004 rd V0.91 DDE6 M57 neu
+//* 17.03.2004 rd V0.92 Kommunikationssysteme überarbeitet
+//* 19.05.2004 rd V0.93 Sitzmodule hinzu
+//* 29.07.2004 rd V0.94 M3 hinzu
+//* 03.11.2004 GA V0.95 Kommunikationssysteme vom E87 übernommen
+//* 15.12.2004 sh V0.96 Freischaltung Elektrische Servolenkung E9x
+//* 21.02.2005 gr V0.97 Behördenmodul hinzu
+//* 04.04.2005 GA V0.98 MSV80 dazu
+//* 24.05.2005 TM V0.99 FAS_PLX und BFS_PLX hinzu
+//* 31.05.2005 rd V1.00 Standheizung über Klimabedienteil
+//* 27.06.2005 GA V1.01 RDC_60 dazu
+//* 27.06.2005 GA V1.26 MSD80 dazu
+//* 08.07.2005 GA V1.27 CTM_93 dazu, Anordnung von E70 übernommen
+//* 16.08.2005 gr V1.28 DWA_63 added
+//* 19.08.2005 GA V1.29 ACSM dazu
+//* 29.08.2005 GA V1.30 FLA_65 dazu
+//* 06.02.2006 gr V1.31 FRM_70, JBBF70 added
+//* 28.03.2006 GA V1.32 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=E90 Options
+ENTRY=     EXX,Functional Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   MSV70,MSV70 for N52,
+ENTRY=   MSV80,MSV80 for N52K,
+ENTRY=   MSD80,MSD80/81 for N54,
+ENTRY= Mevd176k,Mevd176k for Pre 02/12 N55
+ENTRY=   MEVD17kw,MEVD17 for Post 02/12 N55,
+ENTRY=,,
+ENTRY=  D50M47,DDE 5.0  for M47 TU,
+ENTRY= DDE6M47,DDE 6.0  for M47 TU2,
+ENTRY=,,
+ENTRY=  D50M57,DDE 5.0  for M57 TU,
+ENTRY= DDE6M57,DDE 6    for M57TOP / M57TU2,
+ENTRY=,,
+ENTRY=ME9NG4TU,ME9.2 / MEV9 for N45 / N46,
+ENTRY=   MS450,MS  45.0     for M54,
+ENTRY=,,
+ENTRY=   MSS60,MSS60  for S65 (M3),
+
+ENTRY=,,
+ENTRY=EKPM60_2,Fuel Pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=    GS19,Automatic Transmission,
+ENTRY=    GS30,Sequential  SSG,
+ENTRY=  VGSG90,X-Drive Transmission  VGSG,
+ENTRY=   DKG_90,DCT (Dual Clutch Transmission),
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+;ENTRY= EHC_E65,1-Axle Air Suspension,
+ENTRY=    ACC2,Adaptive Cruise Control,
+ENTRY=  AFS_90,Active Front Steering,
+ENTRY=,,
+ENTRY=  DSC_87,Dynamic Stability Control,
+ENTRY=  DXC8_P,Dynamic Stability Control DXC,
+ENTRY=  LDM_90,Dynamic Management / Longitudinal,
+ENTRY=,,
+ENTRY=  EPS_90,Electronic power steering,
+ENTRY=,,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=    MRS5,Airbag MRS5,
+ENTRY=    ACSM,Airbag ACSM E93,
+ENTRY=  IHKA87,Air Conditioning / Control Panel,
+ENTRY=  IHKA87,Air Conditioning / Park Heating Via,
+ENTRY= DWA_E65,Alarm System E90/E91,
+ENTRY= SINE_65,Alarm System / DWA Sirens And Tilt Sensor E90/E91,
+ENTRY=  DWA_63,Alarm System E92/E93,
+ENTRY=,,
+ENTRY=     CAS,Car Access System,
+ENTRY= CTM_93,Convertible Hard Top Module,
+ENTRY= ZBE_E87,Central Control Unit  ZBE,
+ENTRY=    CICR,NAVIGATION SYSTEM - in CIC,
+ENTRY=  FRM_87,FRM (Pre 03/07),
+ENTRY=  FRM_70,FRM (Post 03/07),
+ENTRY=  FLA_65,Full beam assistent,
+ENTRY=  KOMB87,Instrument Cluster,
+ENTRY=  JBBF87,Junction Box Passenger,
+ENTRY=  JBBF70,Junction Box Passenger II (DCAN),
+ENTRY=,,
+ENTRY= PDC_E87,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY=,,
+ENTRY=  RLS_87,Rain And Light Sensor,
+ENTRY=  FZD_87,Roof / Function Center
+ENTRY= SHD_MDS,Roof / Sunroof For Touring,
+ENTRY=,,
+ENTRY= AHM_E65,Trailer Module,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Seat Modules
+ENTRY= FAS_87,Seat Module Driver,
+ENTRY= BFS_87,Seat Module Passenger,
+ENTRY=FAS_PLX,Seat Module Driver (new),
+ENTRY=BFS_PLX,Seat Module Passenger (new),
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  AMP_60,Amplifier / Hifi,
+ENTRY=  ASK_60,Audio System Controller CCC,
+ENTRY=,,
+ENTRY= CDC_E65,Changer / Audio,
+ENTRY=  CCCA60,Computer / CCC (Application),
+ENTRY=  CCC_60,Computer / Infotainment Computer,
+ENTRY=,,
+ENTRY=  CID_60,Display / Central Information Display,
+ENTRY=,,
+ENTRY=  CCCG60,Gateway / MOST/CAN CCC,
+ENTRY=  MCGW60,Gateway / MOST/CAN MASK,
+ENTRY= RAD2_GW,Gateway / MOST/CAN Radio 2,
+ENTRY=,,
+ENTRY=  NAV_60,Navigation System,
+ENTRY=  JNAV60,Navigation System / Japan,
+ENTRY=,,
+ENTRY=    RAD1,Radio / 1/2,
+ENTRY=  MASK60,Radio / Analogue Radio MASK,
+ENTRY=  DAB_60,Radio / Digital Radio Terrestrial DAB,
+ENTRY=  IBOC60,Radio / Hybrid Radio USA IBOC,
+ENTRY=,,
+ENTRY=  TEL_E65,Telephone,
+ENTRY=  ANT_60,Tuner / Aerial Tuner,
+ENTRY=  SAT_60,Tuner / Digital Satellite Radio USA,
+ENTRY=,,
+ENTRY= VID_E65,Video Module,
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns="http://bmwgroup.com" xmlns:mstns="http://bmwgroup.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="XTRACT">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="HEADER" minOccurs="1" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="ECU" type="xsd:string" />
+              <xsd:element name="ORIGIN" type="xsd:string" />
+              <xsd:element name="REVISION" type="xsd:string" />
+              <xsd:element name="LANGUAGE" type="xsd:string" minOccurs="0" />
+              <xsd:element name="AUTHOR" type="xsd:string" maxOccurs="1" />
+              <xsd:element name="USES" type="xsd:string" minOccurs="0" />
+              <xsd:element name="ECUCOMMENT" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="JOB" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="JOBNAME" type="xsd:string" minOccurs="1" />
+              <xsd:element name="JOBCOMMENT" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+              <xsd:element name="ARG" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="ARGNAME" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="ARGTYPE" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="ARGCOMMENT" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="RESULT" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="RESULTNAME" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="RESULTTYPE" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="RESULTCOMMENT" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

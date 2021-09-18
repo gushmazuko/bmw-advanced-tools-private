@@ -1,0 +1,96 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E83.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 24.09.2002 rd V0.01 Erstellung
+//* 24.09.2002 rd V0.02 Überarbeitet
+//* 11.02.2003 rd V0.03 DXC8 dazu
+//* 28.02.2003 rd V0.90 NAV_JAP, SVT hinzu
+//* 07.04.2003 tm V0.91 Schiebehebedach geändert
+//* 13.08.2003 rd V0.92 Motorvarianten hinzu
+//* 18.09.2003 rd V1.00 VGSG neu dazu
+//* 31.10.2003 mp V1.01 OC3 hinzu
+//* 16.02.2004 rd V1.02 Umstellung auf 32-Bit INPA
+//* 04.04.2005 GA V1.03 MSV80 dazu
+//* 19.05.2005 MP V1.04 DXC_83 dazu
+//* 27.06.2005 GA V1.05 RDC_53 dazu
+//* 06.02.2006 gr V1.06 DDE6 M57 dazu
+//* 16.03.2006 TB V1.07 CID_85 dazu, bm_wide und bmbt_mir entfernt
+//* 16.03.2006 GA V1.07 AIRBAG durch MRS5K ersetzt
+//* 17.03.2006 GA V1.07 gs19, gs1912 dazu, bmbt46rn, bmbt46tn entfernt
+//* 28.03.2006 GA V1.07 RDC_53 durch RDC_GEN2 ersetzt, RDC_53 aus Karosserie entfernt
+//* 12.04.2006 GA V1.08 DDE7N47 dazu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E83 V1.08
+ENTRY=     E83,Ident / FS-IS / FeTraWe / Komplett,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=  D50M47,DDE 5.0  für M47 TÜ,
+ENTRY=  D50M57,DDE 5.0  für M57 TÜ,
+ENTRY= DDE6M57,DDE 6    für M57TOP / M57TÜ2,
+ENTRY= DDE7N47,DDE 7    für N47,
+ENTRY=,,
+ENTRY=ME9NG4TU,ME9.2 / MEV9 für N45 / N46,
+ENTRY=,,
+ENTRY=   MS450,MS  45.0 für M56,
+ENTRY=   MSV80,MSV 80.0 für N52KP (NG6),
+ENTRY=,,
+ENTRY= EKP_DS2,Kraftstoffpumpe EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=    gs19,GS19,
+ENTRY=  gs1912,GM6,
+ENTRY=   gsds2,GS 8.xx / GS 20,
+ENTRY=  vgsg83,Verteilergetriebe VGSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+        ENTRY=    dxc8,DXC8,
+ENTRY=  dxc_83,DXC8 Plus (ab 09/06),
+ENTRY=    lws5,Lenkwinkelsensor,
+ENTRY=  svt_83,Servotronic,
+ENTRY=RDC_gen2,Reifen Druck Kontrolle,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=   mrs5k,Airbag,
+ENTRY=     OC3,Sitzbelegungserkennung US-Fzg OC3,
+ENTRY=     ews,Elektronische Wegfahrsperre EWS,
+ENTRY=klima_5B,Klimaautomatik IHKA,
+ENTRY=   kombi,Kombi-Instrument,
+ENTRY=     lsz,Lichtschaltzentrum LSZ,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multifunktionslenkrad MFL,
+ENTRY=     pdc,Park-Distance-Control,
+ENTRY= rls_ds2,Regen- Lichtsensor RLS,
+ENTRY=     szm,Schaltzentrum Mittelkonsole SZM,
+ENTRY= shd_mds,Schiebehebedachmodul SHD,
+ENTRY=    sm46,Sitzmemory SM46,
+ENTRY=   spmft,Spiegelmemory Fahrer,
+ENTRY=   spmbt,Spiegelmemory Beifahrer,
+ENTRY= xenon_l,Xenon Licht links,
+ENTRY= xenon_r,Xenon Licht rechts,
+ENTRY=     gr2,Tempomat GR2,
+ENTRY=    zke5,Zentrale Karosserieelektronik ZKE5,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  cid_85,Flap-Monitor,
+ENTRY=     CDC,CD-Wechsler,
+ENTRY=    navi,Navigationsrechner,
+ENTRY= nav_jap,Navigationsrechner Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Spracheingabesystem SES,
+ENTRY= telefon,Telefon,
+ENTRY=videomod,Videomodul,
+

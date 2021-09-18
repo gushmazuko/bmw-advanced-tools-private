@@ -1,0 +1,531 @@
+; COAPIERR.TXT
+[VERSION]
+VERSION=3.11.00
+
+
+[COAPIFEHLER]
+;  000..999: should never be used
+
+; 1000..1019: Allgemeine Fehler
+1000 = Fehler
+1001 = Ungueltiger Handle
+1002 = Nicht mehr genuegend Speicherplatz
+1003 = Parameter fehlerhaft
+1004 = Puffer zu klein
+1005 = COAPI Fehlertextdatei nicht gefunden:
+1006 = COAPI Fehlertextdatei %s hat keine Version
+1007 = COAPI Fehlertextdatei %s hat Version %s, COAPI Version ist %s
+1008 = Ungültiges Sprachfilesuffix "%s"
+1010 = Der High Performance Timer ist nicht verfügbar (Windows ErrorCode %s), benutze normalen Windows Timer
+1011 = Der Counter des High Performance Timers konnte nicht abgefragt werden (Windows ErrorCode %s)
+
+; 1020..1039: Dateifehler
+1020 = Datei konnte nicht zum Lesen geoeffnet werden
+1021 = Datei konnte nicht zum Schreiben geoeffnet werden
+1022 = Fehler beim Einlesen aus Datei
+1023 = Fehler beim Schreiben in Datei
+1024 = Aufrufparameter einer coapi-Funktion fehlerhaft
+1025 = Konfigurationsdatei %s nicht gefunden
+
+; 1040..1059: Dateiverarbeitungsfehler (Syntaxfehler)
+1040 = Fehler in Dateiverarbeitung (allgemein)
+1041 = Fehler bei ZST-Dateiverarbeitung
+1042 = Fehler bei CVT-Dateiverarbeitung
+1043 = Fehler bei CBD-Dateiverarbeitung
+1044 = Fehler bei SGET-Dateiverarbeitung
+1045 = Fehler bei SWT-Dateiverarbeitung
+1046 = Fehler bei ZCSUT-Dateiverarbeitung
+1047 = Fehler bei VM-Programmgenerierung
+
+; 1060..1079: CABD-Dateiverarbeitungsfehler (Syntaxfehler)
+1060 = Fehler in der Codierablaufbeschreibungsdatei
+1061 = CABI wurde nicht initialisiert
+1062 = CABD-Resultfehler (CABD-Ergebnisparameter)
+1063 = CABD-Parameterfehler (CABD-Auftragsparameter)
+1064 = Interner Fehler im CABD-Job entdeckt
+1065 = Codierablaufbeschreibungsdatei %s nicht gefunden oder fehlerhaft
+
+; 1080..1099: Codierschluessel- und Fahrgestellnummernfehler
+1080 = Codierschluessel fehlerhaft
+1081 = GM-Schluessel fehlerhaft
+1082 = SA-Schluessel fehlerhaft
+1083 = VN-Schluessel fehlerhaft
+1084 = AM-Schluessel fehlerhaft
+1085 = FGNR fehlerhaft
+1086 = Baureihenbezeichnung fehlerhaft
+
+; 1100..1119
+1100 = Das Steuergeraet ist nicht in der SG-Ermittlung enthalten
+
+; 1120..1139
+1120 = Unbenutzte Codierdaten gefunden
+
+; 1140..1159: Schluesselwortfehler
+1140 = ASW fehlerhaft
+1141 = FSW fehlerhaft
+1142 = PSW fehlerhaft
+1143 = SG-Kurzbezeichnung fehlerhaft
+
+; 1160..1160: Individualisierung
+1160 = keine Individ-FSWs gefunden
+
+; 1170..1179: SGVT-Fehler
+1170 = SG wurde ausgeschlossen (disabled)
+1171 = Fehler beim SGVT-Ablauf allgemein
+
+; 1180..1189: AT-Fehler
+1180 = Fahrzeugauftrag ist ungueltig
+1181 = Fehler beim AT-Ablauf allgemein
+
+; 1190..1199 BSU-Fehler
+1190 = Bootsektorupdate nicht möglich (ggf. aber auch nicht nötig)
+1191 = Der Bootsektor im SG paßt schon zur HW*-Soll und SgFam-Soll
+
+
+; 2000..2019: EDIABAS und SGBD-Aufruf-/Ergebnisfehler
+2000 = Fehler in EDIABAS oder in SG-Beschreibungsdatei
+2001 = EDIABAS wurde nicht initalisiert
+2002 = Unerwartetes EDIABAS-Result
+2003 = EDIABAS-Parameterfehler (SGBD-Parameter)
+2004 = EDIABAS-Parameterfehler, speziell Binaerbuffer
+2005 = Interner Fehler im SGBD-Job entdeckt
+2006 = EDIABAS-Sprachfile %s nicht gefunden
+
+; 2020..2039: SG-Kommunikationsfehler
+2020 = SG antwortet nicht
+2021 = Datenuebertragung zum SG gestoert
+2022 = Batteriespannung zu niedrig oder nicht vorhanden
+2023 = Fehlerhaftes Antworttelegramm
+2024 = Fehler Baudraten nicht lesbar
+2025 = Fehler bei Fehlerspeicher löschen
+
+; 2040..2059: SG-Identifikationsfehler
+2040 = Falsche SG-Identifikation (allgemein)
+2041 = Falscher SG-Codierindex
+2042 = Falsche SG-Hardwarenummer
+2043 = Falsche SG-Softwarenummer
+
+; 2060..2079: Codierfehler
+2060 = Codierung fehlerhaft (allgemein)
+2061 = Fehler beim Codierdaten schreiben
+2062 = Fehler beim Codierdaten lesen
+2063 = Fehler beim Codierdaten vergleichen/verifizieren
+2064 = Fehler beim Codierdaten loeschen (z.B. ZCS)
+2065 = SG-Checksummenfehler
+
+; 2080..2099: Programmierfehler im Rahmen E65 ( TI435, Herr Drexel )
+2080 = Programmierstatus fehlerhaft
+2081 = Authentisierungfehlerhaft
+2082 = Flash löschen fehlerhaft
+2083 = Flash Download vorbereiten fehlerhaft
+2084 = Flash Download fehlerhaft
+2085 = Flash Download abschliessen fehlerhaft
+2086 = Signaturpruefung fehlerhaft
+2087 = AIF lesen fehlerhaft
+2088 = AIF schreiben fehlerhaft
+2089 = Programmiermode umschalten fehlerhaft
+2090 = Authentisierung Formatfehler
+2099 = Prozessortyp fehlerhaft
+
+; 3000..3050: COAPIKF interne Fehler
+3000 = Zusammenbaunummer in den aus "xxkfconf.da2" ermittelten ZB-Dateien nicht gefunden
+3001 = Codierfehler bei Flash loeschen
+3002 = Fehler bei Flash loeschen
+3003 = Fehler U-Batt bei Flash loeschen
+3004 = Fehler bei Vergleich der ISN der DME und der
+3005 = Fehler beim Lesen der ISN
+3006 = Fehler, unterschiedliche Startwerte
+3007 = Fehler, unbekannte EWS-Schnittstelle
+3008 = Fehler, Handschalter
+3009 = PS10 InitString nicht gefunden
+3010 = VERSIONKFCONF nicht in Zusbau
+3011 = Referenz SG Kennung
+3012 = Referenz Projekt
+3013 = Referenz Programm
+3014 = Referenz Projekt Version bei neuen SGs
+3015 = Referenz nicht in Datei vorhanden (z.B. GD834)
+3016 = API32.DLL konnte nicht geladen werden
+3017 = coapiKfInit() fehlgeschlagen
+3018 = apiInit() fehlgeschlagen
+3019 = Referenz nicht aus SG auslesbar (EMS2000)
+3020 = Steuergeraet nicht in PrgIfSel Datei gefunden (nicht notwendig immer ein Fehler)
+3021 = allgemeiner EWS-Fehler
+3022 = ein notwendiger globaler Parameter wurde nicht gesetzt.
+3023 = Die PABD enthielt keinen Job zum Setzen der globalen Diagnoseadresse.
+3024 = KFCONF nicht gefunden.
+3025 = SgMember nicht gefunden
+3026 = Ende der Datei erreicht
+3027 = INFO-Datei nicht gefunden
+
+; 3051..3099: COAPIKF interne Fehler von Modul: Import/Export-Konfiguration
+3051 = Directory konnte nicht geöffnet werden:
+3052 = Directory konnte nicht erzeugt werden:
+3053 = Fehler beim Schreiben der Export Log-Datei
+3054 = Fehler bei Analyse der Entwicklungsdateien
+3055 = Fehler bei Analyse der Toolrelevanten Daten
+3056 = Fehler bei Analyse der Werksdaten
+3057 = Fehler bei Analyse der KMM-Daten
+3058 = Fehler beim Kopieren der Entwicklungsdaten
+3059 = Fehler beim Kopieren der Toolrelevanten Daten
+3060 = Fehler beim Kopieren der Werksdaten
+3061 = Fehler beim Kopieren der KMM-Daten
+
+;4000..4199: Fehlercodes DAT- Modul ( Zugriff auf Logistikdaten der Kennfeldprogrammierung )
+4000 = Ein Pointer-Parameter war ein NULL-Zeiger
+4001 = Ungültiger Parameter
+4002 = Datei nicht gefunden
+4003 = Fehler beim Schreibdatei oeffnen
+4004 = Fehler beim Datei einlesen
+4005 = Fehler beim Datei schreiben
+
+4100 = Fehler in dlo- bzw. rec-Modulen
+4101 = Fehler bei ASCII->Hex-Konvertierung
+4102 = gesuchte Nummer %s in Datei %s nicht gefunden
+4103 = Fehler bei symbolischen Platzhaltern
+4104 = fehlerhafte Funktionsaufrufparameter
+4105 = keine Eintraege mehr in NWNR.DME/AGS/DAT vorhanden
+
+;4200..4300: Fehlercodes ATB- Modul
+4202 = Formatsyntax Fehler
+4203 = Überlauf
+4204 = Datei %s nicht gefunden
+4205 = Datei %s konnte nicht zum Schreiben geöffnet werden
+4206 = Fehler beim Lesen in Datei %s, Zeile %s
+4207 = Fehler beim Datei schreiben
+4208 = Falscher Pfad
+4209 = %s Pruefsumme fuer diese Zeile falsch: %s
+4210 = Versionsfehler
+4211 = String Syntax Error in zu konvertierender Datei
+4212 = Undefinierter Character
+4213 = Konvertierungsfehler
+4214 = Falscher Konvertierungsname
+4215 = Allokierungsfehler
+4216 = Zu viele Records
+4217 = Ungültiger Prüfname
+4218 = Syntaxfehler im Def-File
+4219 = Undefiniertes Schlüsselwort
+4220 = Unerwartetes Blockende (ggf. fehlt $REFERENZ)
+4221 = Konvertierungsfehler in Datei %s, Zeile %s
+4222 = Anzahl Blöcke entspricht nicht $BLOCKANZAHL
+4223 = Letzte Zeile ungleich EOF-Record
+4224 = Konvertierte Datendatensatzdatei besitzt kein AIF
+4225 = Konvertierte Programmdatensatzdatei darf kein AIF beinhalten
+
+;4300..4400: Fehlercodes REC- Modul
+4301 = End of file
+4302 = Datei nicht gefunden
+4303 = Datei konnte nicht zum Schreiben geöffnet werden
+4304 = Fehler beim Lesen in Datei
+4305 = Fehler beim Schreiben in Datei
+4306 = Prüfsummenfehler
+4307 = Undefinierter Paramater
+4308 = Ungültiger Parameter
+4309 = Zu viele Datenbytes pro Record
+
+4320 = Versionsfehler
+4321 = Record-ID Fehler
+4322 = Record-Format nicht Fixed oder Short
+4323 = Record-Typ unbekannt( Nicht B(yte) oder W(ord) usw. )
+4324 = Speicherüberlauf
+4325 = Zu viele Record-IDs
+
+;4400..4600: Fehlercodes NCK-Modul (Codierung)
+4430 = Laufzeitfehler
+4431 = Schlüsselwort nicht aktiviert
+4432 = Datei nicht gefunden
+4433 = Datei konnte nicht zum Schreiben geöffnet werden
+4434 = Fehler beim Lesen in Datei
+4435 = Fehler beim Schreiben in Datei
+4436 = Zeilentypfehler
+4437 = Operator ungültig
+4438 = Schlüsselwort ungültig
+4439 = Funktionsschlüsselwort ungültig
+4440 = Paramaterschlüsselwort ungültig
+4441 = Syntaxfehler beim Konvertieren
+4442 = Datenlänge fehlerhaft
+4443 = Allokierungsfehler
+4444 = Zu viele Records
+4445 = Codierindexvergleich fehlgeschlagen
+4446 = Dateinamen nicht gleich
+4447 = Fehler bei Analyse eines Records
+4448 = Fehler bei Analyse einer Formel
+4449 = COAPI_NCK_ANALYSE_AAD_ERR, Auftragsausdruck fehlerhaft
+4450 = Record-ID fehlerhaft
+4451 = Fehler beim Lesen des ZCS
+4452 = Fehler beim Speichern des Schlüsselwortpaars (Listenüberlauf)
+4453 = Fehler beim Lesen FSW / PSW
+4454 = Schlüsselvergleich fehlerhaft
+4455 = Record nicht gefunden
+4456 = Fehler bei Record lesen
+4457 = Fehler in Auftragsausdruck (AAD leer, ASW nicht gesetzt, ungueltiges Zeichen im Formelstring)
+4458 = Baureihe ungültig
+4459 = CVT fehlerhaft (Auftragsausdruck nicht vorhanden, keine wahrer Auftragsausdruck vorhanden)
+4460 = Syntaxfehler im Def-File
+4461 = Undefiniertes Schlüsselwort
+4462 = Undefinierter Schlüssel-ID
+4463 = Stringlängenfehler
+4464 = ZCS Länge fehlerhaft
+4465 = Decode-Character ungültig
+4466 = Encode-Wert ungültig
+4467 = Keine Daten im Record
+4468 = Fehler in Record (unspezifischer Fehler)
+4469 = Schlüsselarraygröße Fehler
+4470 = Fehler beim Lesen des Auftragsschlüsselworts
+4471 = fehlerhafter Dateinahme im Record
+4472 = Grundcodierung, Freigabeinfo fehlerhaft
+4473 = Grundcodierung, Schlüsselwort fehlerhaft
+4474 = Montage, Freigabeinfo fehlerhaft
+4475 = Montage, Schlüsselwort fehlerhaft
+4476 = Änderung, Freigabeinfo fehlerhaft
+4477 = Änderung, Schlüsselwort fehlerhaft
+4478 = Ergänzung, Freigabeinfo fehlerhaft
+4479 = Ergänzung, Schlüsselwort fehlerhaft
+4480 = Teilenummer, Freigabeinfo fehlerhaft
+4481 = Teilenummer, Schlüsselwort fehlerhaft
+4482 = Historie, Freigabeinfo fehlerhaft
+4483 = Historie, Schlüsselwort fehlerhaft
+4484 = Prüfsummenfehler
+4485 = Dateiname fehlerhaft
+4486 = Codierindex fehlerhaft
+4487 = HW-Nummer fehlerhaft
+4488 = SW-Nummer fehlerhaft
+4489 = Speicherorganisation fehlerhaft
+4490 = Anlieferzustand fehlerhaft
+4491 = Codierdatengruppe fehlerhaft
+4492 = Herstellerdatengruppe fehlerhaft
+4493 = Reserviertdatengruppe fehlerhaft
+4494 = fehlerhafte Unbelegt1-Datengruppe
+4495 = fehlerhafte Unbelegt2-Datengruppe
+4496 = fehlerhafte Parameter Zuweisungs-FSW
+4497 = fehlerhafte Parameter Zuweisungs-PSW1
+4498 = fehlerhafte Parameter Zuweisungs-PSW2 (Folgezeile zu PSW1)
+4499 = fehlerhafte direkte Parameter Zuweisungs
+4500 = Fehler bei Kennung K
+4501 = Fehler bei Kennung D
+4502 = Fehler bei Kennung X
+4503 = Fehler bei Kennungen
+4504 = Maskenfehler
+4505 = Wert fehlerhaft
+4506 = mehr als ein wahrer Auftragsausdruck vorhanden
+4507 = ZUT-ID nicht gefunden
+4508 = Gruppe ungültig
+4509 = fehlerhafte Umschlüüselung (Umrüstzeile für BR nicht vorhanden)
+4510 = fehlerhafte Umschlüüselung (Umrüstzeile für SG nicht vorhanden)
+4511 = interner Fehler (ASW Array)
+4512 = Auftragsfehler
+4513 = COAPI_NCK_SG_ID_INFO_ERR, interner Fehler (SG Array)
+4514 = Auftrag ungültig
+4515 = Stringfehler
+4516 = Datumsvergleich fehlgeschlagen
+4517 = Zeit Fehler
+4518 = fehlerhafte Bestellzeile
+4519 = Datum Fehler
+4520 = Datengrenze Fehler
+4521 = Prüfsummenfehler
+
+
+;7000 - 7099 Fehlermeldungen zur Differenzierung von Fehlerort und Fehlerursache
+7000  =  Start - <frei>
+7001  =  Start - <frei>
+7002  =  Start - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7003  =  Start - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7004  =  Start - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7005  =  Start - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7006  =  Start - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7007  =  Start - EDIABAS NET-Fehler (150…199)
+7008  =  Start - EDIABAS API-Fehler (120…149)
+7009  =  Start - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7010  =  Steuergerätadressen gesetzt - <frei>
+7011  =  Steuergerätadressen gesetzt - <frei>
+7012  =  Steuergerätadressen gesetzt - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7013  =  Steuergerätadressen gesetzt - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7014  =  Steuergerätadressen gesetzt - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7015  =  Steuergerätadressen gesetzt - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7016  =  Steuergerätadressen gesetzt - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7017  =  Steuergerätadressen gesetzt - EDIABAS NET-Fehler (150…199)
+7018  =  Steuergerätadressen gesetzt - EDIABAS API-Fehler (120…149)
+7019  =  Steuergerätadressen gesetzt - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7020  =  Ident gelesen - <frei>
+7021  =  Ident gelesen - <frei>
+7022  =  Ident gelesen - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7023  =  Ident gelesen - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7024  =  Ident gelesen - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7025  =  Ident gelesen - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7026  =  Ident gelesen - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7027  =  Ident gelesen - EDIABAS NET-Fehler (150…199)
+7028  =  Ident gelesen - EDIABAS API-Fehler (120…149)
+7029  =  Ident gelesen - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7030  =  Programmierstatus gelesen - <frei>
+7031  =  Programmierstatus gelesen - <frei>
+7032  =  Programmierstatus gelesen - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7033  =  Programmierstatus gelesen - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7034  =  Programmierstatus gelesen - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7035  =  Programmierstatus gelesen - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7036  =  Programmierstatus gelesen - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7037  =  Programmierstatus gelesen - EDIABAS NET-Fehler (150…199)
+7038  =  Programmierstatus gelesen - EDIABAS API-Fehler (120…149)
+7039  =  Programmierstatus gelesen - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7040  =  Programmiermodus gestartet - <frei>
+7041  =  Programmiermodus gestartet - <frei>
+7042  =  Programmiermodus gestartet - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7043  =  Programmiermodus gestartet - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7044  =  Programmiermodus gestartet - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7045  =  Programmiermodus gestartet - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7046  =  Programmiermodus gestartet - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7047  =  Programmiermodus gestartet - EDIABAS NET-Fehler (150…199)
+7048  =  Programmiermodus gestartet - EDIABAS API-Fehler (120…149)
+7049  =  Programmiermodus gestartet - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7050  =  Flash löschen erfolgreich - <frei>
+7051  =  Flash löschen erfolgreich - <frei>
+7052  =  Flash löschen erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7053  =  Flash löschen erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7054  =  Flash löschen erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7055  =  Flash löschen erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7056  =  Flash löschen erfolgreich - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7057  =  Flash löschen erfolgreich - EDIABAS NET-Fehler (150…199)
+7058  =  Flash löschen erfolgreich - EDIABAS API-Fehler (120…149)
+7059  =  Flash löschen erfolgreich - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7060  =  Datentransfer erfolgreich - <frei>
+7061  =  Datentransfer erfolgreich - <frei>
+7062  =  Datentransfer erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7063  =  Datentransfer erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7064  =  Datentransfer erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7065  =  Datentransfer erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7066  =  Datentransfer erfolgreich - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7067  =  Datentransfer erfolgreich - EDIABAS NET-Fehler (150…199)
+7068  =  Datentransfer erfolgreich - EDIABAS API-Fehler (120…149)
+7069  =  Datentransfer erfolgreich - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7070  =  Signaturprüfung erfolgreich - <frei>
+7071  =  Signaturprüfung erfolgreich - <frei>
+7072  =  Signaturprüfung erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7073  =  Signaturprüfung erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7074  =  Signaturprüfung erfolgreich - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7075  =  Signaturprüfung erfolgreich - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7076  =  Signaturprüfung erfolgreich - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7077  =  Signaturprüfung erfolgreich - EDIABAS NET-Fehler (150…199)
+7078  =  Signaturprüfung erfolgreich - EDIABAS API-Fehler (120…149)
+7079  =  Signaturprüfung erfolgreich - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7080  =  Programmierstatus i.O. - <frei>
+7081  =  Programmierstatus i.O. - <frei>
+7082  =  Programmierstatus i.O. - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7083  =  Programmierstatus i.O. - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7084  =  Programmierstatus i.O. - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7085  =  Programmierstatus i.O. - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7086  =  Programmierstatus i.O. - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7087  =  Programmierstatus i.O. - EDIABAS NET-Fehler (150…199)
+7088  =  Programmierstatus i.O. - EDIABAS API-Fehler (120…149)
+7089  =  Programmierstatus i.O. - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7090  =  AIF geschrieben - <frei>
+7091  =  AIF geschrieben - <frei>
+7092  =  AIF geschrieben - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7093  =  AIF geschrieben - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7094  =  AIF geschrieben - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7095  =  AIF geschrieben - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7096  =  AIF geschrieben - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7097  =  AIF geschrieben - EDIABAS NET-Fehler (150…199)
+7098  =  AIF geschrieben - EDIABAS API-Fehler (120…149)
+7099  =  AIF geschrieben - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+;7412 - 7439 Fehlermeldungen in Zusammenhang mit der DLE
+7412  =  OPPS-DLE: DLE Status timeout - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7413  =  OPPS-DLE: DLE Status timeout - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7414  =  OPPS-DLE: DLE Status timeout - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7415  =  OPPS-DLE: DLE Status timeout - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7416  =  OPPS-DLE: DLE Status timeout - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7417  =  OPPS-DLE: DLE Status timeout - EDIABAS NET-Fehler (150…199)
+7418  =  OPPS-DLE: DLE Status timeout - EDIABAS API-Fehler (120…149)
+7419  =  OPPS-DLE: DLE Status timeout - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7422  =  OPPS-DLE: DLE Status interface error - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7423  =  OPPS-DLE: DLE Status interface error - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7424  =  OPPS-DLE: DLE Status interface error - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7425  =  OPPS-DLE: DLE Status interface error - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7426  =  OPPS-DLE: DLE Status interface error - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7427  =  OPPS-DLE: DLE Status interface error - EDIABAS NET-Fehler (150…199)
+7428  =  OPPS-DLE: DLE Status interface error - EDIABAS API-Fehler (120…149)
+7429  =  OPPS-DLE: DLE Status interface error - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+7432  =  OPPS-DLE: DLE Status communication error - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O.
+7433  =  OPPS-DLE: DLE Status communication error - keine Antwort von Steuergerät und Gateway (IFH-0009)
+7434  =  OPPS-DLE: DLE Status communication error - keine Antwort vom Steuergerät (IFH-0009) aber Gateway i.O., kein OPPS/Most
+7435  =  OPPS-DLE: DLE Status communication error - keine Antwort von Steuergerät und Gateway (IFH-0009), no OPPS/Most
+7436  =  OPPS-DLE: DLE Status communication error - EDIABAS IFH-Fehler (10…59, ausser IFH-0003 and IFH-0009)
+7437  =  OPPS-DLE: DLE Status communication error - EDIABAS NET-Fehler (150…199)
+7438  =  OPPS-DLE: DLE Status communication error - EDIABAS API-Fehler (120…149)
+7439  =  OPPS-DLE: DLE Status communication error - EDIABAS BIP/SYS/andere Fehler (60…119, 200...)
+
+;Andere Fehler in Zusammenhang mit der DLE/OPPS: Nummern 7408 - 7444
+7400  =  OPPS: OPPS Version bzw. Zugang ermitteln
+7401  =  OPPS: Busruhe setzen, ein- und ausschalten
+7402  =  OPPS: DLE-Version und -Verfügbarkeit ermitteln
+7403  =  OPPS: DLE-Reset
+7404  =  OPPS: DLE-Initialisierung
+7405  =  OPPS: DLE STATUS Fehler (à nur noch in alter PABD)
+7406  =  OPPS: DLE FIFO Overflow
+7407  =  OPPS: DLE wird nicht fertig
+7408  =  OPPS-DLE: DLE_STATUS IFH Fehler
+7409  =  OPPS-DLE: DLE_STATUS NET Fehler
+7410  =  OPPS-DLE: DLE_STATUS API Fehler
+7411  =  OPPS-DLE: andere DLE_STATUS Fehler
+
+7440  =  OPPS-DLE: ECU Blockprogrammierung n.i.O.
+7441  =  OPPS-DLE: ECU Blockprogrammierung negative response
+7442  =  OPPS-DLE: ECU Blockprogrammierung falsche SID
+7443  =  OPPS-DLE: ECU Blockprogrammierung Telegramm zu kurz
+7444  =  OPPS-DLE: ECU Blockprogrammierung kein Telegramm
+
+;sonstige Fehlermeldungen
+7210  =  SG: Ident lesen
+7211  =  SG: HW-Referenz lesen
+7212  =  SG: ZIF lesen
+7213  =  SG: ZIF-Backup lesen
+7214  =  SG: Reset ausführen
+7215  =  SG: Zeiten lesen
+7216  =  SG: MaxBlocklänge
+7217  =  SG: Seriennummer lesen
+7218  =  SG: Zufallszahl lesen
+7219  =  SG: Stop Diagnose
+7220  =  SG: Physikalische HW-Nummer lesen
+7221  =  SG: Innentemperatur lesen
+7228  =  P-SGBD: Flashparameter setzen
+7229  =  P-SGBD: Diagnoseprotokoll setzen
+
+7900  =  CCC: HOST-ernen Reset
+7901  =  CCC: FIB generieren anstoßen
+7902  =  CCC: FIB generieren nicht erfolgreich
+7903  =  CCC: HOST-Programmierstatus nicht i.O. für APPL-Programmierung
+7904  =  MASK: MMI-Programmierstatus nicht i.O. für Programmierung
+
+;----------------------------------------------
+; CODE 8000 - 8999 wird von SGC Library belegt.
+;----------------------------------------------
+
+[DEBUG]
+VON=9000
+BIS=9999
+TEXT=Debug
+
+[SYMBOLE]
+IDaten=I-Daten
+aktiv=aktiv
+CODIERINDEX=CODIERINDEX
+DATEINAME=DATEINAME
+Bereichsbezeichnung_fehlt=Bereichsbezeichnung fehlt
+Ungueltiger_Bereich=Ungueltiger Bereich
+Umrechnungszeile_nicht_gefunden=Umrechnungszeile nicht gefunden
+IDZeile_nicht_gefunden=ID-Zeile nicht gefunden
+Maskenzeile_nicht_gefunden=Maskenzeile nicht gefunden
+ProzessID_ausser_Bereich=Prozess-ID ausser zul. Bereich
+BAUREIHE=BAUREIHE
+ECUPATH_not_found=ECUPATH nicht gefunden
+EDIABASINIPATH_not_found=EDIABASINIPATH micht gefunden
+COAPI_nicht_initialisiert=COAPI nicht initialisiert

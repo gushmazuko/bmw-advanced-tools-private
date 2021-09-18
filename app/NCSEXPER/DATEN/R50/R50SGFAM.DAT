@@ -1,0 +1,23 @@
+; Series-SGFAM(ECU_Family)-/ZCS-ECU's for R50
+; 
+;  08/09/99  Markus Wolf    Initial version.
+;-----------------------------------------------------------------------
+
+; SG      CABD      SGBD       ZCS FA KOMMENTAR
+S EWS     A_EWS3    C_EWS3     1   0
+S BC1     A_BC1     BC1        0   0
+S ABG     A_MRS4    MRS4       0   0
+S EMS     A_EMS2K   EMS2K      0   0
+S SHD     A_SHD     C_SHD      0   0
+S PDC     A_PDC     C_PDC      0   0
+S GT      A_GT      C_GT3      0   0
+S KMB     A_KMBR50  KOMBI50F   1   0
+S MK60    A_ASCDSC  DSC_MK60   0   0
+S TV2     A_TV1     C_TV1      0   0
+S LWS     A_LWS5    C_LWS5     0   0
+S RAD     A_RADIO   C_RADIO    0   0
+S RIP     A_RIP     RIP        0   0
+S LWR     A_LWRR50  C_LWR      0   0
+S RLS     A_RLS     RLS_DS2    0   0
+S CVM     A_CVM_IV  CVM_IV     0   0
+S ULF     A_ULF     ULF        0   0

@@ -1,0 +1,94 @@
+; Initialisierungsdatei fuer COAPI-Funktionen, 22.08.96, Le
+; [liebl] 2005-08-09 : default values for ZCS
+
+[Setup]
+; CABD-Format ips oder ipo
+CabdFormat=ipo
+
+[Baureihe]
+Baureihe = <SPBR>
+
+[Pfadangaben]
+<SPBR>_PFAD_DATEN =  daten
+
+<SPBR>_PFAD_TAB = tab
+
+ERROR_TEXTE = cfgdat
+
+SYS_DATDIR_DATEI = -
+SYS_VMDIR_DATEI = -
+
+WORKING_DIR = work
+
+GENERAL_KF_DATA_PATH = data
+
+[Systemdaten]
+CHECKSUM = 34
+CHECKSUM_1 = 00
+CHECKSUM_2 = 00
+FAHRGESTELL_NR_PRUEFSUMME = 0
+SIA_DATUM = 9901
+LACK_CODE=0000
+POLSTER_CODE=0000
+AEND_INDEX=a
+KL30_STUNDENZ_OFFSET=002538
+CHECKSUM_SPU = 0000
+CHECKSUM_RPU = 0000
+
+; Default-Systemdaten:
+; WERK_NR muss in der HO auf "0000" gesetzt werden (vgl E-Mail Haller vom
+; 01.03.01
+;WERK_NR = 1234
+WERK_NR = 0000
+TEILENUMMER = 1753452
+;CODIERDATUM = 950216
+HIGHBYTE_SCHLUESSEL = 12
+LOWBYTE_SCHLUESSEL = 34
+
+; qc-883 Default-Wert fuer ZCS
+GM_SCHLUESSEL = FFFFFFFFP
+SA_SCHLUESSEL = FFFFFFFFFFFFFFFFE
+VN_SCHLUESSEL = FFFFFFFFFFF
+
+; Wird bei der Installation durch due tatsächliche Händlernummer ersetzt.
+HAENDLER_NR = 00000
+
+; Erforderlich für KOMBI-Codierung laut E-Mail Haller vom 13.09.01
+FGNR_TEST = ÿÿÿÿÿÿÿ
+
+; Änderung der Codierung Kombi E65 wegen Wegstrecken-Offset,
+; vgl. E-Mail Haller vom 16.10.2001
+;
+; [ott] 01/10/16
+;
+; Testsystemdaten
+OFFSET_GESAMTWEGSTRECKE = 01
+
+[Filter]
+; ASCII, BINARY, NONE
+AswFilter = ASCII
+FswFilter = BINARY
+
+; Die Einträge dieser Sektion werden bei der Installation mit den
+; tatsächlichen Werten belegt.
+[Kennfeldprog]
+
+[Trace]
+; ON, OFF
+GesamtTrace = ON
+AswTrace = ON
+AswTraceFile =
+FswPswTrace = ON
+FswPswTraceFile =
+NettoDatenTrace = ON
+NettoDatenTraceFile =
+SystemDatenTrace = OFF
+SystemDatenTraceFile =
+IndividTrace = ON
+IndividTraceFile =
+
+[DiffDateien]
+AswDiffFile =
+FswPswDiffFile =
+NettoDatDiffFile =
+

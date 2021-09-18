@@ -1,0 +1,136 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei RR1.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 10.12.2001 rk V0.01 Erstellung
+//* 14.01.2002 rd V0.02 Regen- Lichtsensor Komma entfernt
+//* 04.03.2002 rd V0.03 überarbeitet
+//* 21.03.2002 rd V0.04 KOMBIRR wird KOMBRR
+//* 21.08.2002 rd V0.05 EXX neu dazu
+//* 16.10.2002 rd V0.06 N73 dazu
+//* 16.02.2004 rd V1.00 Umstellung auf 32-Bit INPA
+//* 17.03.2004 rd V1.01 ADPFRR neu
+//* 27.06.2005 GA V1.02 RDC_60 dazu
+//* 29.09.2005 GA V1.03 *_PLX /Sitzmodule dazu
+//* 11.11.2005 gr V1.04 DWA_63 hinzu
+//* 28.03.2006 GA V1.05 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl RR1 V1.05
+ENTRY=      EXX,Funktionale Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=ME9_N73R,ME 9    für N73 Master,
+ENTRY=ME9_N73L,ME 9    für N73 Slave,
+ENTRY=,,
+ENTRY=  VVT_14,Variabler Ventiltrieb Bank 1-4,
+ENTRY=  VVT_58,Variabler Ventiltrieb Bank 5-8,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=    GS19,Getriebesteuergerät GS19,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY= DSC_E65,Dynamische Stabilitätskontrolle,
+ENTRY= EMF_E65,Elektromechanische Feststellbremse,
+ENTRY=   EDC_K,Elektronische Dämpferkontrolle,
+ENTRY=  EHC2RR,2-Achs Luftfeder,
+ENTRY=  RDC_60,Reifen Druck Kontrolle,
+ENTRY=RDC_GEN2,Reifen Druck Kontrolle ab 09.2007,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY= BZM_E65,Bedienzentrum Mittelkonsole,
+ENTRY=BZMF_E65,Bedienzentrum Mittelarmlehne,
+ENTRY=     CAS,Car Access System,
+ENTRY=     CIM,Chassis Integration Modul,
+ENTRY= DWA_E65,Diebstahlwarnanlage,
+ENTRY= SINE_65,DWA Sirene und Neigungsgeber,
+ENTRY=  DWA_63,Diebstahlwarnanlage RR2,
+ENTRY=  EC_E65,Ergo Commander,
+ENTRY= ECF_E65,Ergo Commander Fond,
+ENTRY= HKL_E65,Heckklappenlift,
+ENTRY=  KOMBRR,Intrumentenkombi,
+ENTRY=  IHKARR,Klimabedienteil,
+ENTRY=  LM_E65,Lichtschaltmodul,
+ENTRY= PDC_E65,Park Distance Control,
+ENTRY= POW_E65,Powermodul,
+ENTRY= RLS_E65,Regen- Lichtsensor,
+ENTRY= WIM_E65,Wischermodul,
+ENTRY= ZGM_E65,Zentrales Gatewaymodul,
+ENTRY=  KFS_RR,Kühlerfigursteuerung,
+
+[ROOT_KAROSSERIE_TUER]
+DESCRIPTION=Türmodule
+ENTRY= TMF_E65,Türmodul Fahrer,
+ENTRY= TMB_E65,Türmodul Beifahrer,
+ENTRY= TMFHE65,Türmodul Fahrer hinten,
+ENTRY= TMBHE65,Türmodul Beifahrer hinten,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY= FAS_PLX,Sitzmodul Fahrer (neu),
+ENTRY= BFS_PLX,Sitzmodul Beifahrer (neu),
+ENTRY= FAH_PLX,Sitzmodul Fahrer hinten (neu),
+ENTRY= BFH_PLX,Sitzmodul Beifahrer hinten (neu),
+ENTRY= ,,
+ENTRY= FAS_E65,Sitzmodul Fahrer (alt),
+ENTRY= BFS_E65,Sitzmodul Beifahrer (alt),
+ENTRY= FAH_E65,Sitzmodul Fahrer hinten (alt),
+ENTRY= BFH_E65,Sitzmodul Beifahrer hinten (alt),
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Sicherheits Module
+ENTRY=     SIM,Sicherheits- Informationsmodul,
+ENTRY=     SFZ,Satellit Fahrzeugzentrum,
+ENTRY=     SZL,Satellit Lenksäule,
+ENTRY= ,,
+ENTRY=    SSFA,Satellit Sitz Fahrer,
+ENTRY=    SSBF,Satellit Sitz Beifahrer,
+ENTRY=     SSH,Satellit Sitz hinten,
+ENTRY= ,,
+ENTRY=    SASL,Satellit A-Säule links,
+ENTRY=    SASR,Satellit A-Säule rechts,
+ENTRY= ,,
+ENTRY=    STVL,Satellit Tür vorne links,
+ENTRY=    STVR,Satellit Tür vorne rechts,
+ENTRY= ,,
+ENTRY=    SBSL,Satellit B-Säule links,
+ENTRY=    SBSR,Satellit B-Säule rechts,
+ENTRY= ,,
+ENTRY=  SECUR1,Sicherheitsmodul,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  MMI_GT,Mensch Maschine Interface Grafikteil,
+ENTRY=   MC_GW,MOST/CAN-Gateway (im MMI),
+ENTRY= MMI_GTF,Mensch Maschine Interface Grafikteil Fond,
+ENTRY=   MMIFC,MOST/CAN-Gateway Fond (im MMI Fond),
+ENTRY=  CID_60,Zentrales Informations Display,
+ENTRY=  CIDF65,Zentrales Informations Display hinten links,
+ENTRY= CIDF2RR,Zentrales Informations Display hinten rechts,
+ENTRY= ANT_E65,Antennentuner,
+ENTRY= CDC_E65,Audio CD-Changer,
+ENTRY= ASK_E65,Audio System Kontroller,
+ENTRY= MMC_E65,Multimedia-Changer,
+ENTRY= NAV_E65,Navigationssystem,
+ENTRY= SVS_E65,Sprachverarbeitungssystem,
+ENTRY= TEL_E65,Telefon ECE / US,
+ENTRY= AMP_E65,Top HIFI Verstärker,
+ENTRY= VID_E65,Videomodul,
+ENTRY=  ADP_RR,Audio Display Panel,
+ENTRY=  ADPFRR,Audio Display Panel Fond,
+ENTRY= ,,
+ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=NAV_JAP2,Navigationssystem Japan,
+ENTRY=   JBIT2,Telefon Japan,
+

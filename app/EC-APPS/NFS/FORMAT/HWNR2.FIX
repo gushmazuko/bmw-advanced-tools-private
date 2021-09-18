@@ -1,0 +1,17 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift HWNR2.FIX fuer HWNR.DA2
+; Autor: Stei/[Po]
+; Datum: 17.04.2001
+; Aenderungen:
+; 17.04.2001   [Po]  Von HWNR.FIX  übernommen
+;                    und SGNR durch SGBEZ ersetzt.
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Hardwarenummernzeile: Hardwarenummer,Austauschnummer,EPROM-Nummer,SG-Familienlangname
+M "%7L"
+F "%7L,%7L,%7L,%<=20S"
+N "HWNR,ATNR,EPNR,SGBEZ"
+; ENDE

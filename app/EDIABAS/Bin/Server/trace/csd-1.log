@@ -1,0 +1,34 @@
+
+
+[14:59:05] common/prglog.c - <PROG>
+           on line 403, OpenLogfile():
+           This is IFS program logging facility, build number = (1).
+
+[14:59:05] common/prglog.c - <PROG>
+           on line 414, OpenLogfile():
+           The current date is: - [2016/07/28].
+
+[14:59:05] server/main.c - <PROG>
+           on line 310, main()():
+           CarServer Versioninfo:  - [<15.0.0.11><07-10-09><14:14:35><CarServer (Release)>].
+
+[14:59:05] server/main.c - <PROG>
+           on line 321, main()():
+           running single threaded server (1).
+
+ Reconfiguration counter: 0
+               Log Level: LOG_NONE
+  Valid client addresses: 127.0.0.1
+    Local access allowed: no
+   HTTP protocol version: 1.1
+            Service port: 5036
+         Service address: 127.0.0.1
+  Entity terminator used: no
+     Authentication info: 
+    Authentication realm: CarServer
+    HTTP methods allowed: GET POST 
+    Semaphore protection: no
+                Log file: ..\trace\csd-1.log
+            Voltage file: .\progress.txt
+  Voltage max. age (sec): 120
+ Allow Netscape JVM POST: yes

@@ -1,0 +1,1422 @@
+/**************************************************************/
+/* BMW AG              Knorrstr. 147           80788 Muenchen */
+/* Projekt   : Neues Codiersystem                             */
+/**************************************************************/
+/*                                                            */
+/* Filename  : a_e65cr.ips                                    */
+/*                                                            */
+/* Funktion  : CABD fuer E65-SG mit Checksummenberechnung     */
+/*                                                            */
+/* Autor     : Bernhard Haller, EI-73                         */
+/**************************************************************/
+
+//*************************************************************
+//* History :
+//* 02.11.00  HA  V0.01 aus A_E65C abgeleitet fuer alle SG E65 mit
+//*               V0.01 Checksummenberechnung und Reset nach Codierung
+//* 13.11.00  HA  V0.02 Ablaeufe fuer Codierung Kombi geloescht.
+//*               V0.02 Codierung Kombi ueber gesonderte CABD
+//* 17.11.00  HA  V0.03 Kein Schreiben der FgNr bei FgNr = "ZZ00000"
+//* 13.12.00  HA  V0.04 Umstellung bei Job AeIndex
+//*               V0.04 SG_RESET als eingenstaendiger Job hinzu
+//* 28.06.01  HA  V1.00 Umstellung auf Check_Ident2
+//*               V1.00 Fuer Werk und HO frei
+//* 22.10.01  HA  V1.01 Job NETTODATEN_SCHREIBEN ueberarbeitet und nach
+//*               V1.01 NETTODATEN_CODIEREN umbenannt. Job kann nur ueber
+//*               V1.01 Kernfunktion coapiCodeSgByNettoData genutzt werden
+//*               V1.01 Job AIF_LESEN hinzu
+//* 30.01.05  HA  V1.02 erweiterte Pruefjobs aktiviert, CI ueber IDENT
+//*               V1.02 zusaetzliche Pruefjobs fuer FG-Nr. und AE-Index
+//* 20.11.05  HA  V1.03 Test zur Ueberpruefung des Codierablauf integriert
+//* 29.01.08  HA  V1.04 Freischaltung aller Tests zur Ueberpruefung der
+//*               V1.04 Codierung
+//*********************>-.-.-.-.-1-.-.-.-.-2-.-.-.-.-3-.-.-.-.-4-.-.-.-.-5<
+
+#pragma dosedit
+
+
+/***********************************/
+/*  I N C L U D E S                */
+/***********************************/
+
+#include "cabi.h"
+
+
+/***********************************/
+/*  D A T A                        */
+/***********************************/
+
+string ModulName = "A_E65CR.IPS";
+string version   = "1.04";
+string origin    = "BMW AG, EI-73 Bernhard Haller";
+string csgbd     = "SG-spezifisch";
+string kommentar = "CABD fuer SG E65 mit Checksummenberechung und Reset";
+string cabd      = "A_E65CR";
+
+int    intWait   = 5000;                                                        //Wartezeit fuer Resetbehandlung in ms
+
+/***********************************/
+/*  F U N C T I O N S              */
+/***********************************/
+
+debug( in: string Debug_Text ){
+  string   strFile = "c:\ediabas\trace\test_.txt";
+  fileopen(strFile,"a");
+  filewrite( Debug_Text );
+  fileclose();
+}
+
+debug_int( in: int int_Value ){
+  string int_String;
+  string   strFile = "c:\ediabas\trace\test_.txt";
+  inttostring( int_Value, int_String);
+  fileopen(strFile,"a");
+  filewrite( int_String );
+  fileclose();
+}
+
+Warten (in: int timer_wert){
+  int timer1 = 1;
+  bool expiredflag = FALSE;
+
+  settimer(timer1, timer_wert);
+  while (expiredflag == FALSE)
+  {
+    testtimer(timer1, expiredflag);
+  } //endwhile
+}
+
+//*************************************************************
+//*
+//* Name      : TestCDHFehler
+//*
+//* Funktion  : Ueberpruefen, ob ein Fehler aufgetreten ist
+//*             und wenn ja: Setzen der ReturnWerte und Ausstieg
+//*
+//* Parameter : Eingangsparameter:
+//*               FStatus  - Returnwert der aufgerufenen Funktion
+//*
+//* Rueckgabe : -
+//*
+//* Datum     : 23.04.96       Autor:  Bernhard Haller
+//*************************************************************
+
+TestCDHFehler( in: int FStatus )
+
+{
+  if ( FStatus != 0 )
+  {
+    CDHSetReturnVal (FStatus);
+    exit ();
+  }
+}
+
+
+//*************************************************************
+//*
+//* Name      : TestApiFehler
+//*
+//* Funktion  : Ueberpruefen, ob bei ApiJob ein Fehler aufgetreten ist
+//*
+//* Parameter : Eingangsparameter:
+//*               CStatus    - Returnwert der aufgerufenen Funktion
+//*               ProcName   - Name der aufgerufenen Prozedur
+//*               LinieNr    -
+//*               Zusatzinfo - Steuergeraetename und API-Auftrag
+//*
+//*
+//* Rueckgabe : -
+//*
+//* Datum     : 23.04.96       Autor:  Bernhard Haller
+//*************************************************************
+
+TestApiFehler( in: int CStatus, in: string ProcName,
+               in: int LineNr, in: string Info)
+{
+  string ApiStatusText;
+
+  CDHapiResultText (ApiStatusText, "JOB_STATUS", 1, "");
+  if (ApiStatusText != "OKAY")
+  {
+    strcat (Info, Info, ": ");                                                  //Zusammensetzen der FehlerZusatzInfo
+    strcat (Info, Info, ApiStatusText);
+    CDHSetError (CStatus, ModulName, ProcName, LineNr, Info);
+    CDHSetReturnVal (CStatus);
+    exit ();
+  }
+}
+
+
+//*************************************************************
+//*
+//* Name      : Jobs
+//*
+//* Funktion  : Ausgabe der unterstuetzten Jobs
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 29.01.08       Autor:  Bernhard Haller
+//*************************************************************
+
+Jobs( )
+{
+  string ProcName = "Jobs";
+  int   Status;
+
+  CDHSetCabdPar ("JOB[1]", "JOB_ERMITTELN", Status);
+  CDHSetCabdPar ("JOB[2]", "INFO", Status);
+  CDHSetCabdPar ("JOB[3]", "CODIERINDEX_LESEN", Status);
+  CDHSetCabdPar ("JOB[4]", "ID_LESEN", Status);
+  CDHSetCabdPar ("JOB[5]", "SG_CODIEREN", Status);
+  CDHSetCabdPar ("JOB[6]", "CODIERDATEN_LESEN", Status);
+  CDHSetCabdPar ("JOB[7]", "FGNR_LESEN", Status);
+  CDHSetCabdPar ("JOB[8]", "AE_INDEX_LESEN", Status);
+  CDHSetCabdPar ("JOB[9]", "AIF_LESEN", Status);
+  CDHSetCabdPar ("JOB[10]", "SG_RESET", Status);
+
+  CDHSetCabdPar ("JOB[11]", "SG_CODIEREN_OHNE_FG_AEI", Status);
+  CDHSetCabdPar ("JOB[12]", "FGNR_AUFTRAG", Status);
+  CDHSetCabdPar ("JOB[13]", "FGNR_SCHREIBEN", Status);
+  CDHSetCabdPar ("JOB[14]", "AE_INDEX_AUFTRAG", Status);
+  CDHSetCabdPar ("JOB[15]", "AE_INDEX_SCHREIBEN", Status);
+  CDHSetCabdPar ("JOB[16]", "TEST_FG_NR", Status);
+  CDHSetCabdPar ("JOB[17]", "TEST_AE_INDEX", Status);
+  CDHSetCabdPar ("JOB[18]", "TEST_CODIERUNG", Status);
+  CDHSetCabdPar ("JOB[19]", "SETZEN_CODIERSPEICHER_AUF_0xFF", Status);
+//  CDHSetCabdPar ("JOB[20]", "CODIERDATEN_SCHREIBEN", Status);
+//  CDHSetCabdPar ("JOB[21]", "NETTODATEN_CODIEREN", Status);
+//  CDHSetCabdPar ("JOB[22]", "CD_LESEN_OHNE_CI", Status);
+//  CDHSetCabdPar ("JOB[23]", "CD_SCHREIBEN_OHNE_CI", Status);
+//  CDHSetCabdPar ("JOB[24]", "SG_CODIEREN_OHNE_CI", Status);
+
+  CDHSetCabdPar ("JOB_ANZAHL", "19", Status);
+  CDHTestError (Status);                                                        //Pruefen Fehler insgesamt
+  CDHSetReturnVal (Status);
+}
+
+
+//*************************************************************
+//*
+//* Name      : InfoJob
+//*
+//* Funktion  : Ausgabe der CABD-Infos
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 12.07.99       Autor:  Bernhard Haller
+//*************************************************************
+
+InfoJob( )
+{
+  string ProcName = "InfoJob";
+  int   Status;
+
+  CDHSetCabdPar ("REVISION", version, Status);
+  CDHSetCabdPar ("AUTOR", origin, Status);
+  CDHSetCabdPar ("COMMENT", kommentar, Status);
+  CDHSetCabdPar ("CABD", cabd, Status);
+  CDHTestError (Status);                                                        //Pruefen Fehler insgesamt
+  CDHSetReturnVal (Status);
+}
+
+
+//*************************************************************
+//*
+//* Name      : SgReset
+//*
+//* Funktion  : SG-Reset
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 26.01.01       Autor:  Bernhard Haller
+//*************************************************************
+SgReset( )
+{
+  string SgbdName;
+  string Info;
+  string ProcName = "SgReset";
+
+  int   Status;
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  CDHapiJob(SgbdName, "STEUERGERAETE_RESET", "", "");                           // Reset nach fehlerfreier Codierung
+  strcat (Info, SgbdName, ", STEUERGERAETE_RESET");
+  TestApiFehler (COAPI_ECU_WRITE_DATA_ERROR, ProcName, 449, Info);              //Fehler beiSteuergeraete Reset
+
+  CDHSetReturnVal(0);                                                           //fehlerfreies Programmende
+}
+
+//*************************************************************
+//*
+//* Name      : Ident
+//*
+//* Funktion  : ID-Daten des SG
+//*
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 28.03.00       Autor:  Bernhard Haller
+//*************************************************************
+
+Ident(out: int CodierindexTransfer)
+
+{
+  string ProcName = "Ident";
+  string SgbdName, strCodierindexSg;
+  string Info;
+  string Funktions_SW, Nachrichtenkatalog, Operating_System, SW_Nr_Reserve, Var_Index;
+  string Teilenr_BMW, Lieferant, Lieferant_Nr, Datum, DiagnoseindexSg, HW_Nummer;
+
+  int   Status, n;
+  int   CodierindexSg;
+
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+                                                                                //ID aus SG lesen
+  CDHapiJob(SgbdName, "IDENT", "", "");
+  TestApiFehler (COAPI_ECU_TIMEOUT, ProcName, 543, Info);                       //"SG antwortet nicht"
+
+  CDHapiResultInt (CodierindexSg, "ID_COD_INDEX", 1);                           //Holen Codierindex als Integer
+  CodierindexTransfer = CodierindexSg;
+  inttostring (CodierindexSg, strCodierindexSg);
+  strlen(n, strCodierindexSg);                                                  //Codierindex auf 2 Stellen auffuellen
+  if (n == 0)
+    strcat(strCodierindexSg, "00", strCodierindexSg);
+  if (n == 1)
+    strcat(strCodierindexSg, "0", strCodierindexSg);
+
+  CDHapiResultText (DiagnoseindexSg, "ID_DIAG_INDEX", 1, "");
+  strlen(n, DiagnoseindexSg);                                                   //Diagnoseinndex auf 2 Stellen auffuellen
+  if (n == 0)
+    strcat(DiagnoseindexSg, "00", DiagnoseindexSg);
+  if (n == 1)
+    strcat(DiagnoseindexSg, "0", DiagnoseindexSg);
+
+  CDHapiResultText (Var_Index, "ID_VAR_INDEX", 1, "");
+
+  CDHapiResultText (Teilenr_BMW, "ID_BMW_NR", 1, "");
+
+  CDHapiResultText (Datum, "ID_DATUM", 1, "");
+
+  CDHapiResultText (Lieferant, "ID_LIEF_TEXT", 1, "");
+
+  CDHapiResultText (Lieferant_Nr, "ID_LIEF_NR", 1, "");
+
+  CDHapiResultText (Funktions_SW, "ID_SW_NR_FSV", 1, "");
+
+  CDHapiResultText (Nachrichtenkatalog, "ID_SW_NR_MCV", 1, "");
+
+  CDHapiResultText (Operating_System, "ID_SW_NR_OSV", 1, "");
+
+  CDHapiResultText (SW_Nr_Reserve, "ID_SW_NR_RES", 1, "");
+
+  CDHapiResultText (HW_Nummer, "ID_HW_NR", 1, "");
+
+  CDHSetCabdPar ("CODIERINDEX", strCodierindexSg, Status);
+  CDHSetCabdPar ("DIAGNOSEINDEX", DiagnoseindexSg, Status);
+  CDHSetCabdPar ("VARIANTENINDEX", Var_Index, Status);
+  CDHSetCabdPar ("BMW-TEILENUMMER", Teilenr_BMW, Status);
+  CDHSetCabdPar ("HERSTELLDATUM", Datum, Status);
+  CDHSetCabdPar ("LIEFERANTEN-NR", Lieferant_Nr, Status);
+  CDHSetCabdPar ("LIEFERANT", Lieferant, Status);
+  CDHSetCabdPar ("HARDWARE-NR", HW_Nummer, Status);
+  CDHSetCabdPar ("FUNKTIONS-SW", Funktions_SW, Status);
+  CDHSetCabdPar ("NACHRICHTENKATALOG", Nachrichtenkatalog, Status);
+  CDHSetCabdPar ("STANDARD-CORE", Operating_System, Status);
+  CDHSetCabdPar ("SW-RESERVE-NR", SW_Nr_Reserve, Status);
+  CDHTestError (Status);                                                        //Pruefen Fehler insgesamt
+
+  CDHSetReturnVal (0);
+}
+
+
+//*************************************************************
+//*
+//* Name      : CodIndex2Lesen
+//*
+//* Funktion  : Codierindex lesen als Integer
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 15.05.01       Autor:  Bernhard Haller
+//*************************************************************
+
+CodIndex2Lesen (out: int CodierindexTransfer)
+{
+  string ProcName = "CodIndex2Lesen";
+  string Info;
+  string SgbdName,strCodierindexSg;
+
+  int   Status;
+  int   n;
+  int   CodierindexSg;
+
+  CDHGetSgbdName( SgbdName, Status);                                            //SGBD-Name aus SGET
+  TestCDHFehler( Status);
+
+
+  CDHapiJob(SgbdName, "C_CI_LESEN", "", "ID_COD_INDEX");                        //ID aus SG lesen
+  strcat (Info, SgbdName, ", C_CI_LESEN");
+  TestApiFehler( COAPI_ECU_TIMEOUT, ProcName, 495, Info);                       //"SG antwortet nicht"
+
+  CDHapiResultInt (CodierindexSg, "ID_COD_INDEX", 1);                           //Holen Codierindex als Integer
+
+  CodierindexTransfer = CodierindexSg;
+
+  inttostring (CodierindexSg, strCodierindexSg);
+
+  strlen(n, strCodierindexSg);                                                  //Codierindex auf 2 Stellen auffuellen
+  if (n == 0)
+    strcat(strCodierindexSg, "00", strCodierindexSg);
+  if (n == 1)
+    strcat(strCodierindexSg, "0", strCodierindexSg);
+
+  CDHSetCabdPar ("CODIERINDEX", strCodierindexSg, Status);                      //Codierindex zur Anzeige in Oberflaeche setzen
+
+  CDHTestError (Status);                                                        //Pruefen Fehler insgesamt
+  CDHSetReturnVal (0);
+}
+
+
+//*************************************************************
+//*
+//* Name      : FgnrTest
+//*
+//* Funktion  : FGSt.Nr. schreiben/lesen pruefen
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 01.03.06       Autor:  Bernhard Haller
+//*************************************************************
+FgnrTest( )
+{
+  string SgbdName;
+  string FgstNr, FgstNrTest;
+  string Info;
+  string ProcName = "FgnrTest";
+  string strN,strName;
+
+  int   Status;
+  int   intN;
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  debug("Test FG-Nummer");
+
+  intN=1;
+
+  while (intN < 3)
+  {
+    inttostring (intN, strN);
+
+    if (intN == 1)
+    {
+      FgstNr = "ZZZZZ66666ZZ66666V";                                            //1. FG-Nr. setzen
+    }
+    else
+    {
+      FgstNr = "EEEEE99999EE99999S";                                            //2. FG-Nr. setzen
+    }
+
+    strcat (strName, "Fahrgestellnr. schreiben " , strN);
+    CDHSetCabdPar (strName, FgstNr, Status);                                    //FG-Nr zur Anzeige setzen
+    TestCDHFehler (Status);
+
+    midstr (FgstNrTest, FgstNr, 10, 7);                                         //letzten 7 Stellen der Fg-Nummer holen
+
+    strcat (strName, strName, ": ");
+    strcat (strName, strName, FgstNrTest);
+    debug (strName);
+
+    CDHapiJob(SgbdName, "C_FG_SCHREIBEN", FgstNr, "");
+    strcat (Info, SgbdName, ", C_FG_SCHREIBEN");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 205, Info);                //Fgnr schreiben fehlerhaft
+
+    SgReset();                                                                  // Reset
+
+    Warten (intWait);                                                           //5 Sekunden warten fuer Resetbehandlung
+
+    CDHapiJob(SgbdName, "C_FG_LESEN", "", "");
+    strcat (Info, SgbdName, ", C_FG_LESEN");
+    TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 223, Info);             //Fgnr. lesen fehlerhaft
+    CDHapiResultText(FgstNr, "FG_NR", 1, "");                                   //FG-Nr. holen
+
+
+    strcat (strName, "Fahrgestellnr. gelesen " ,strN);
+    CDHSetCabdPar(strName, FgstNr, Status);
+    TestCDHFehler (Status);
+
+    strcat (strName, strName, ":   ");
+    strcat (strName, strName, FgstNr);
+    debug(strName);
+
+    intN = intN + 1;
+  }     //end while
+
+  debug(" ");
+
+  exit ();
+}
+
+
+//*************************************************************
+//*
+//* Name      : AeIndexTest
+//*
+//* Funktion  : AE-Index schreiben / lesen pruefen
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 01.03.06       Autor:  Bernhard Haller
+//*************************************************************
+AeIndexTest( )
+{
+  string SgbdName;
+  string AeIndex;
+  string Info;
+  string ProcName = "AeIndexTest";
+  string strN,strName;
+
+  int   Status;
+  int   intN;
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  debug("Test AE-Index");
+
+  intN=1;
+
+  while (intN < 3)
+  {
+    inttostring (intN, strN);
+
+    if (intN == 1)
+    {
+      AeIndex = "zz";                                                           //1. AeIndex setzen
+    }
+    else
+    {
+      AeIndex = "ee";                                                           //2. AeIndex setzen
+    }
+
+    strcat (strName, "Aenderungsindex schreiben " , strN);
+    CDHSetCabdPar (strName, AeIndex, Status);                                   //FG-Nr zur Anzeige setzen
+    TestCDHFehler (Status);
+
+    strcat (strName, strName, ": ");
+    strcat (strName, strName, AeIndex);
+    debug (strName);
+
+    CDHapiJob(SgbdName, "C_AEI_SCHREIBEN", AeIndex, "");
+    strcat (Info, SgbdName, ", C_AEI_SCHREIBEN");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 205, Info);                //AE-Index schreiben fehlerhaft
+
+    SgReset();                                                                  // Reset
+
+    Warten (intWait);                                                           //5 Sekunden warten fuer Resetbehandlung
+
+    CDHapiJob(SgbdName, "C_AEI_LESEN", "", "");
+    strcat (Info, SgbdName, ", C_AEI_LESEN");
+    TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 223, Info);             //AE-Index lesen fehlerhaft
+    CDHapiResultText(AeIndex, "COD_AE_INDEX", 1, "");                           //AE-Index holen
+
+
+    strcat (strName, "Aenderungsindex gelesen " ,strN);
+    CDHSetCabdPar(strName, AeIndex, Status);
+    TestCDHFehler (Status);
+
+    strcat (strName, strName, ":   ");
+    strcat (strName, strName, AeIndex);
+    debug (strName);
+
+    intN = intN + 1;
+  }     //end while
+
+  debug(" ");
+
+  exit ();
+}
+
+
+//******************************************************************************
+//*
+//* Name      : BufferErzeugen
+//*
+//* Funktion  : erstellt Testbuffer fuer Test der Codierung
+//*
+//* Parameter : Eingangsparameter: Datenbuffer, NrOfData, Fuellwert
+//*
+//* Rueckgabe : Testbuffer
+//*
+//* Datum     : 01.03.05       Autor:  Bernhard Haller
+//******************************************************************************
+
+BufferErzeugen (in: int Quellbuffer, in: int intAnzahlDaten, in: int intWert, out: int Zielbuffer)
+{
+
+  string   ProcName = "BufferErzeugen";
+  
+  int      intBuffer, Status;
+  int      intZaehler = 21;
+
+  bool     EndFlag = FALSE;
+
+
+  intBuffer = Quellbuffer;                                                      //Buffer zur Bearbeitung fuellen
+
+  while (EndFlag == FALSE)
+  {
+    CDHBinBufWriteByte (intBuffer, intWert, intZaehler, Status);                //neuen Wert nach Position intZaehler schreiben
+    intZaehler = intZaehler + 1;                                                //intZaehler inkrementieren
+    if (intZaehler > (intAnzahlDaten + 20))
+       EndFlag = TRUE;                                                          //alle Daten geschrieben
+  }
+
+  Zielbuffer = intBuffer;                                                       //Ausgangsbuffer1 fuellen
+}
+
+
+//*************************************************************
+//*
+//* Name      : TestCod
+//*
+//* Funktion  : prueft Codierspeicher auf beliebige Ueberschreibbarkeit
+//*             und Timing bei Telegrammempfang und positive Response
+//*             gem. LH Codierung Teil 1, Kapitel 8.6.1, Erprobungshandbuch Codierung, Fragenkatalog Teil I
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 05.04.01       Autor:  Bernhard Haller
+//*************************************************************
+
+TestCod ( )
+
+{
+  string ProcName = "TestCod";
+  string Info;
+  string SgbdName;
+  string strAnzeige, strBuffer;
+
+  int   Status, CodierindexSg;
+  int   Buffer, Buffer1, Buffer2, Buffer3, BufferSize, NrOfData, DataTyp;
+  int   MAXDATA = 252;                                                          //Telegrammlaenge
+
+  bool  EndFlag=FALSE;
+
+  CDHBinBufCreate( Buffer, Status);                                             //Erzeugen des Codierdaten-Buffers
+  TestCDHFehler (Status);
+  CDHBinBufCreate( Buffer1, Status);                                            //Buffer mit Testdaten 0x00
+  TestCDHFehler (Status);
+  CDHBinBufCreate( Buffer2, Status);                                            //Buffer mit Testdaten 0xFF und zum Zuruecklesen
+  TestCDHFehler (Status);
+  CDHBinBufCreate( Buffer3, Status);                                            //Ergebnisbuffer zum Ruecklesen der Daten
+  TestCDHFehler (Status);
+
+  CDHGetSgbdName( SgbdName, Status);                                            //SGBD-Name aus SGET
+  TestCDHFehler( Status);
+//
+//   !!Achtung!! Der Aufruf von CDHGetNettoMaskFromCbd muss bei Codierdaten
+//     lesen vor der Abfrage des Codierindex geschehen, so dass die CBD
+//     eingelesen wird!!
+
+  debug("Test der Codierung");
+
+  CDHActivateAllFsw();                                                          //Aktivieren aller FSW
+
+  CDHGetNettoDataFromCbd (Status);                                              //Erzeugen der Nettodaten bei Codieren mit FSW-PSW-Liste
+
+  TestCDHFehler (Status);
+
+  Ident (CodierindexSg);                                                        //Codierindex lesen ueber Ident
+  CDHCheckIdent2 ("CODIERINDEX", CodierindexSg, Status);                        //Codierindex pruefen, Integeroperation
+  TestCDHFehler (Status);
+
+  EndFlag = FALSE;                                                              //SG codieren
+
+  while (EndFlag == FALSE)
+  {
+    CDHGetApiJobData(MAXDATA, Buffer, BufferSize, NrOfData, DataTyp, Status);
+    TestCDHFehler (Status);
+
+    if ( NrOfData > 0)
+    {
+
+//****1. Pruefung mit 0xFF***************************************************************************************
+
+      BufferErzeugen (Buffer, NrOfData, 0xFF, Buffer1);                         //Buffer mit Pruefmuster erzeugen
+
+      CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer1, BufferSize, "");        //Buffer zur Berechnung der CS an SGBD
+      strcat (Info, SgbdName, ", C_CHECKSUMME");
+      TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);              //"Berechnung Checksumme fehlerhaft
+      CDHapiResultBinary (Buffer1, "OUT_BUFFER", 1, Status);                    //holen Buffer mit Checksumme
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer1, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Write: ", strBuffer);
+      debug (strAnzeige);
+
+      CDHapiJobData(SgbdName, "C_C_SCHREIBEN", Buffer1, BufferSize, "");
+      strcat (Info, SgbdName, ", C_C_SCHREIBEN");
+      TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 365, Info);
+
+      SgReset();                                                                //Reset nach positiver Response
+
+      Warten (intWait);                                                         //Warten fuer Resetbehandlung
+
+      CDHapiJobData(SgbdName, "C_C_LESEN", Buffer1, BufferSize, "");            //Codierdaten lesen
+      strcat (Info, SgbdName, ", C_C_LESEN");
+      TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 379, Info);
+
+      CDHapiResultBinary(Buffer3, "CODIER_DATEN", 1, Status);                   //Ergebnis holen
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer3, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Read:  ", strBuffer);
+      debug (strAnzeige);
+
+//****Pruefung mit 0x00******************************************************************************************
+
+      BufferErzeugen (Buffer, NrOfData, 0x00, Buffer1);                         //Buffer mit Pruefmuster erzeugen
+
+      CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer1, BufferSize, "");        //Buffer zur Berechnung der CS an SGBD
+      strcat (Info, SgbdName, ", C_CHECKSUMME");
+      TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);              //"Berechnung Checksumme fehlerhaft
+      CDHapiResultBinary (Buffer1, "OUT_BUFFER", 1, Status);                    //holen Buffer mit Checksumme
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer1, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Write: ", strBuffer);
+      debug (strAnzeige);
+
+      CDHapiJobData(SgbdName, "C_C_SCHREIBEN", Buffer1, BufferSize, "");
+      strcat (Info, SgbdName, ", C_C_SCHREIBEN");
+      TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 365, Info);
+
+      SgReset();                                                                // Reset nach positiver Response
+
+      Warten (intWait);                                                         //Warten fuer Resetbehandlung
+
+      BufferErzeugen (Buffer, NrOfData, 0xFF, Buffer1);                         //Buffer mit Pruefmuster erzeugen
+
+      CDHapiJobData(SgbdName, "C_C_LESEN", Buffer1, BufferSize, "");            //Codierdaten lesen
+      strcat (Info, SgbdName, ", C_C_LESEN");
+      TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 379, Info);
+
+      CDHapiResultBinary(Buffer3, "CODIER_DATEN", 1, Status);                   //Ergebnis holen
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer3, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Read:  ", strBuffer);
+      debug (strAnzeige);
+
+//****2. Pruefung mit 0xFF***************************************************************************************
+
+      CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer1, BufferSize, "");        //Buffer zur Berechnung der CS an SGBD
+      strcat (Info, SgbdName, ", C_CHECKSUMME");
+      TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);              //"Berechnung Checksumme fehlerhaft
+      CDHapiResultBinary (Buffer1, "OUT_BUFFER", 1, Status);                    //holen Buffer mit Checksumme
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer1, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Write: ", strBuffer);
+      debug (strAnzeige);
+
+      CDHapiJobData(SgbdName, "C_C_SCHREIBEN", Buffer1, BufferSize, "");
+      strcat (Info, SgbdName, ", C_C_SCHREIBEN");
+      TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 365, Info);
+
+      SgReset();                                                                //Reset nach positiver Response
+
+      Warten (intWait);                                                         //Warten fuer Resetbehandlung
+
+      CDHapiJobData(SgbdName, "C_C_LESEN", Buffer1, BufferSize, "");            //Codierdaten lesen
+      strcat (Info, SgbdName, ", C_C_LESEN");
+      TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 379, Info);
+
+      CDHapiResultBinary(Buffer3, "CODIER_DATEN", 1, Status);                   //Ergebnis holen
+      TestCDHFehler (Status);
+
+      CDHBinBufToStr (Buffer3, strBuffer, Status);                              //Buffer in Datei ausgeben
+      strcat(strAnzeige, "Buffer Read:  ", strBuffer);
+      debug (strAnzeige);
+
+//****Ende Pruefung**********************************************************************************************
+
+    }
+    else
+    {
+      EndFlag = TRUE;
+    } //endif
+  } //endwhile
+
+  CDHCheckDataUsed (Status);                                                    //Alle Daten verarbeitet?
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer, Status);                                              //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer1, Status);                                             //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer2, Status);                                             //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer3, Status);                                             //Loeschen des Binaerbuffers
+
+  debug(" ");
+
+  CDHSetReturnVal(0);                                                           //fehlerfreies Programmende
+}
+
+//*************************************************************
+//*
+//* Name      : SetCod
+//*
+//* Funktion  : Setzt den Codierspeicher auf 0xFF
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 28.09.07       Autor:  Bernhard Haller
+//*************************************************************
+
+SetCod ( )
+
+{
+  string ProcName = "SetCod";
+  string Info;
+  string SgbdName;
+
+  int   Status, CodierindexSg;
+  int   Buffer, Buffer1, BufferSize, NrOfData, DataTyp;
+  int   MAXDATA = 252;                                                          //Telegrammlaenge
+
+  bool  EndFlag=FALSE;
+
+  CDHBinBufCreate( Buffer, Status);                                             //Erzeugen des Codierdaten-Buffers
+  TestCDHFehler (Status);
+  CDHBinBufCreate( Buffer1, Status);                                            //Buffer mit Testdaten 0x00
+  TestCDHFehler (Status);
+
+  CDHGetSgbdName( SgbdName, Status);                                            //SGBD-Name aus SGET
+  TestCDHFehler( Status);
+//
+//   !!Achtung!! Der Aufruf von CDHGetNettoMaskFromCbd muss bei Codierdaten
+//     lesen vor der Abfrage des Codierindex geschehen, so dass die CBD
+//     eingelesen wird!!
+
+  CDHActivateAllFsw();                                                          //Aktivieren aller FSW
+
+  CDHGetNettoDataFromCbd (Status);                                              //Erzeugen der Nettodaten bei Codieren mit FSW-PSW-Liste
+
+  TestCDHFehler (Status);
+
+  Ident (CodierindexSg);                                                        //Codierindex lesen ueber Ident
+  CDHCheckIdent2 ("CODIERINDEX", CodierindexSg, Status);                        //Codierindex pruefen, Integeroperation
+  TestCDHFehler (Status);
+
+  EndFlag = FALSE;                                                              //SG codieren
+
+  while (EndFlag == FALSE)
+  {
+    CDHGetApiJobData(MAXDATA, Buffer, BufferSize, NrOfData, DataTyp, Status);
+    TestCDHFehler (Status);
+
+    if ( NrOfData > 0)
+    {
+//****Setzen auf 0xFF********************************************************************************************
+      BufferErzeugen (Buffer, NrOfData, 0xFF, Buffer1);                         //Buffer mit Pruefmuster erzeugen
+
+      CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer1, BufferSize, "");        //Buffer zur Berechnung der CS an SGBD
+      strcat (Info, SgbdName, ", C_CHECKSUMME");
+      TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);              //"Berechnung Checksumme fehlerhaft
+      CDHapiResultBinary (Buffer1, "OUT_BUFFER", 1, Status);                    //holen Buffer mit Checksumme
+      TestCDHFehler (Status);
+
+      CDHapiJobData(SgbdName, "C_C_SCHREIBEN", Buffer1, BufferSize, "");
+      strcat (Info, SgbdName, ", C_C_SCHREIBEN");
+      TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 365, Info);
+    }
+    else
+    {
+      EndFlag = TRUE;
+    } //endif
+  } //endwhile
+
+  CDHCheckDataUsed (Status);                                                    //Alle Daten verarbeitet?
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer, Status);                                              //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+  CDHBinBufDelete(Buffer1, Status);                                             //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+
+  SgReset();                                                                    //Reset nach positiver Response
+
+  CDHSetReturnVal(0);                                                           //fehlerfreies Programmende
+}
+
+//*************************************************************
+//*
+//* Name      : Fgnr
+//*
+//* Funktion  : FGSt.Nr. Auftrag, schreiben, lesen
+//*
+//* Parameter :
+//*
+//* Rueckgabe : FAHRGESTELL_NR
+//*
+//* Datum     : 28.03.00       Autor:  Bernhard Haller
+//*************************************************************
+Fgnr( in: string Job)
+{
+  string SgbdName;
+  string FgstNr, FgstNrTest;
+  string Info;
+  string ProcName = "Fgnr";
+
+  int   Status;
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  CDHGetSystemData("FAHRGESTELL_NR", FgstNr, Status);                           //FG-Nr von Oberflaeche holen
+  TestCDHFehler (Status);
+
+  midstr (FgstNrTest, FgstNr, 10, 7);                                           //letzten 7 Stellen der Fg-Nummer holen
+
+  if (Job == "FGNR_SCHREIBEN")                                                  //Schreiben der Fahrgestellnummer
+  {
+    CDHapiJob(SgbdName, "C_FG_SCHREIBEN", FgstNr, "");
+    strcat (Info, SgbdName, ", C_FG_SCHREIBEN");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 205, Info);                //"Codierung fehlerhaft (allgemein)"
+  }
+
+
+  if (Job == "FGNR_AUFTRAG" && FgstNrTest != "ZZ00000")                         //Schreiben der Fahrgestellnummer
+  {
+    CDHapiJob(SgbdName, "C_FG_AUFTRAG", FgstNr, "");
+    strcat (Info, SgbdName, ", C_FG_AUFTRAG");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 215, Info);                //"Codierung fehlerhaft (allgemein)"
+  }
+
+
+  if (Job == "FGNR_LESEN")                                                      //Lesen der Fahrgestellnummer
+  {
+    CDHapiJob(SgbdName, "C_FG_LESEN", "", "");
+    strcat (Info, SgbdName, ", C_FG_LESEN");
+    TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 223, Info);             //"Codierung fehlerhaft (allgemein)"
+    CDHapiResultText(FgstNr, "FG_NR", 1, "");
+    CDHSetCabdPar("FAHRGESTELL_NR", FgstNr, Status);
+    TestCDHFehler (Status);
+  }
+
+  CDHSetReturnVal (0);                                                          //fehlerfreies Programmende
+}
+
+//*************************************************************
+//*
+//* Name      : AeIndex
+//*
+//* Funktion  : Aenderungsindex der Codierdaten schreiben / lesen
+//*
+//* Parameter :
+//*
+//* Rueckgabe : AEND_INDEX
+//*
+//* Datum     : 28.03.00       Autor:  Bernhard Haller
+//*************************************************************
+AeIndex( in: string Job)
+{
+  string SgbdName;
+  string AenderIndex;
+  string Info;
+  string ProcName = "AeIndex";
+
+  int   Status;
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  CDHGetSystemData("AEND_INDEX", AenderIndex, Status);                          //Aenderungindex aus Oberflaeche holen
+  TestCDHFehler (Status);
+
+  if (Job == "AE_INDEX_SCHREIBEN")                                              //Schreiben des Aenderungsindex der Codierdaten
+  {
+    CDHapiJob(SgbdName, "C_AEI_SCHREIBEN", AenderIndex, "");
+    strcat (Info, SgbdName, ", C_AEI_SCHREIBEN");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 265, Info);                //"Codierung fehlerhaft (allgemein)"
+  }
+
+
+  if (Job == "AE_INDEX_AUFTRAG")
+  {                                                                             //Schreiben des Aenderungsindex der Codierdaten
+    CDHapiJob(SgbdName, "C_AEI_AUFTRAG", AenderIndex, "");
+    strcat (Info, SgbdName, ", C_AEI_AUFTRAG");
+    TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 275, Info);                //"Codierung fehlerhaft (allgemein)"
+  }
+
+
+  if (Job == "AE_INDEX_LESEN")
+  {
+    CDHapiJob(SgbdName, "C_AEI_LESEN", "", "");                                 //Lesen des Aenderungsindex
+    strcat (Info, SgbdName, ", C_AEI_LESEN");
+    TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 283, Info);             //"Codierung fehlerhaft (allgemein)"
+    CDHapiResultText(AenderIndex, "COD_AE_INDEX", 1, "");
+    CDHSetCabdPar("AENDERUNGS_INDEX", AenderIndex, Status);
+    TestCDHFehler (Status);
+  }
+
+  CDHSetReturnVal (0);                                                          //fehlerfreies Programmende
+}
+
+
+//*************************************************************
+//*
+//* Name      : Cod
+//*
+//* Funktion  : SG codieren und Codierdaten lesen
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 02.12.04       Autor:  Bernhard Haller
+//*************************************************************
+
+Cod( in: string Job)
+{
+  string ProcName = "Cod";
+  string Info;
+  string SgbdName;
+
+  int   MAXDATA = 252;                                                          //Telegrammlaenge
+  int   Status;
+  int   Buffer, BufferSize, NrOfData, DataTyp;
+  int   CodierindexSg;
+
+  bool  EndFlag=FALSE;
+
+  CDHBinBufCreate( Buffer, Status);                                             //Erzeugen des Codierdaten-Buffers
+  TestCDHFehler( Status);
+
+  CDHGetSgbdName( SgbdName, Status);                                            //SGBD-Name aus SGET
+  TestCDHFehler( Status);
+
+// !!Achtung!! Der Aufruf von CDHGetNettoMaskFromCbd muss bei Codierdaten
+//   lesen vor der Abfrage des Codierindex geschehen, so dass die CBD
+//   eingelesen wird!!
+
+  CDHActivateAllFsw();                                                          //Aktivieren aller FSW
+
+  if (Job == "SG_CODIEREN"         || Job == "CODIERDATEN_SCHREIBEN" || Job == "CD_SCHREIBEN_OHNE_CI" ||
+      Job == "SG_CODIEREN_OHNE_CI" || Job == "SG_CODIEREN_OHNE_FG_AEI")
+  {
+    CDHGetNettoDataFromCbd (Status);                                            //Erzeugen der Nettodaten
+  }
+  else if (Job == "CODIERDATEN_LESEN" || Job == "CD_LESEN_OHNE_CI")
+  {
+    CDHGetNettoMaskFromCbd (Status);                                            //Erzeugen der Layoutdaten
+  }
+
+  TestCDHFehler (Status);
+
+  if (Job == "SG_CODIEREN" || Job == "CODIERDATEN_SCHREIBEN" || Job == "CODIERDATEN_LESEN" || Job == "SG_CODIEREN_OHNE_FG_AEI")
+  {
+    Ident (CodierindexSg);                                                      //Codierindex lesen ueber Ident
+
+    CDHCheckIdent2 ("CODIERINDEX", CodierindexSg, Status);                      //Codierindex pruefen, Integeroperation
+
+    TestCDHFehler (Status);
+  }
+
+  EndFlag = FALSE;                                                              //SG codieren
+  while (EndFlag == FALSE)
+  {
+    CDHGetApiJobData(MAXDATA, Buffer, BufferSize, NrOfData, DataTyp, Status);
+    TestCDHFehler (Status);
+    if ( NrOfData > 0)
+    {
+      if (Job == "SG_CODIEREN" || Job == "SG_CODIEREN_OHNE_CI" || Job == "SG_CODIEREN_OHNE_FG_AEI")                 //Codierdaten schreiben und verifizieren
+      {
+        CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer, BufferSize, "");       //Buffer zur Berechnung der CS an SGBD
+        strcat (Info, SgbdName, ", C_CHECKSUMME");
+        TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);            //"Berechnung Checksumme fehlerhaft
+        CDHapiResultBinary (Buffer, "OUT_BUFFER", 1, Status);                   //holen Buffer mit Checksumme
+        TestCDHFehler (Status);
+
+        CDHapiJobData(SgbdName, "C_C_AUFTRAG", Buffer, BufferSize, "");
+        strcat (Info, SgbdName, ", C_C_AUFTRAG");
+        TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 365, Info);
+      }
+
+      if (Job == "CODIERDATEN_SCHREIBEN" || Job == "CD_SCHREIBEN_OHNE_CI")      //Codierdaten schreiben
+      {
+        CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer, BufferSize, "");       //Buffer zur Berechnung der CS an SGBD
+        strcat (Info, SgbdName, ", C_CHECKSUMME");
+        TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);            //"Berechnung Checksumme fehlerhaft
+        CDHapiResultBinary (Buffer, "OUT_BUFFER", 1, Status);                   //holen Buffer mit Checksumme
+        TestCDHFehler (Status);
+
+        CDHapiJobData(SgbdName, "C_C_SCHREIBEN", Buffer, BufferSize, "");
+        strcat (Info, SgbdName, ", C_C_SCHREIBEN");
+        TestApiFehler( COAPI_ECU_CODING_ERROR, ProcName, 372, Info);
+      }
+
+      if (Job == "CODIERDATEN_LESEN" || Job == "CD_LESEN_OHNE_CI")              //Codierdaten lesen
+      {
+        CDHapiJobData(SgbdName, "C_C_LESEN", Buffer, BufferSize, "");
+        strcat (Info, SgbdName, ", C_C_LESEN");
+        TestApiFehler (COAPI_ECU_READ_DATA_ERROR, ProcName, 379, Info);
+        CDHapiResultBinary(Buffer, "CODIER_DATEN", 1, Status);                  //Ergebnis holen
+        TestCDHFehler (Status);
+        CDHBinBufToNettoData (Buffer, Status);                                  //Buffer in Nettodaten umwandeln
+        TestCDHFehler (Status);
+      }
+    }
+    else
+    {
+      EndFlag = TRUE;
+    } //endif
+  } //endwhile
+
+  CDHCheckDataUsed (Status);                                                    //Alle Daten verarbeitet?
+  TestCDHFehler (Status);
+
+  CDHBinBufDelete(Buffer, Status);                                              //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+
+  if (Job == "SG_CODIEREN")
+  {
+    AeIndex ("AE_INDEX_AUFTRAG");                                               //Aenderungsindex schreiben
+
+    Fgnr ("FGNR_AUFTRAG");                                                      //FG-Nr. schreiben
+  }
+
+  if (Job == "SG_CODIEREN" || Job == "SG_CODIEREN_OHNE_CI" || Job == "SG_CODIEREN_OHNE_FG_AEI" ||
+      Job == "CODIERDATEN_SCHREIBEN" || Job == "CD_SCHREIBEN_OHNE_CI")          //SG codieren / Codierdaten schreiben
+  {
+    SgReset();                                                                  //Reset nach positiver Response
+  }
+
+  CDHSetReturnVal(0);                                                           //fehlerfreies Programmende
+}
+
+//*************************************************************
+//*
+//* Name      : NettoDat
+//*
+//* Funktion  : Codierung mit Nettodaten
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 22.10.01       Autor:  Bernhard Haller
+//*************************************************************
+NettoDat( )
+{
+  string SgbdName;
+  string Info;
+  string ProcName = "NettoDat";
+
+  int   MAXDATA = 252;                                                          //max. Telegrammlaenge
+  int   Status;
+  int   Buffer, BufferSize, NrOfData, DataSize, DataTyp;
+  int   CodierindexSg;
+
+  bool  EndFlag = FALSE;
+
+//--------------------------------------------------------------------------------------------------------
+//-----Einstellung der Organisationsparameter-----------------------------------------------------------*/
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
+
+  int   WortBreite = 1;                                                         // 1 - BYTE, 2 - WORD, 3 - DWORD
+  int   ByteFolge = 0;                                                          // 0 - LSB zuerst, 1 - MSB zuerst
+  int   AdrMode = 1;                                                            // 0 - frei Adressierung, 1 - Blockadressierung
+  int   Checksumme = 1;                                                         // 0 - ohne Checksummenberechnung, 1 - mit Checksummenberechnung ueber SGBD
+  int   Reset = 1;                                                              // 0 - ohne Reset nach der Codierung, 1 - mit Reset nach der Codierung
+//--------------------------------------------------------------------------------------------------------
+//-----Ende Einstellung der Organisationsparameter------------------------------------------------------*/
+//--------------------------------------------------------------------------------------------------------
+
+  CDHBinBufCreate(Buffer,Status);                                               //Erzeugen des Codierdaten-Buffers
+  TestCDHFehler (Status);
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET/SGFAM
+  TestCDHFehler (Status);
+
+  CDHSetDataOrg(WortBreite, ByteFolge, AdrMode, Status);                        //Setzen der Organisationsparameter
+  TestCDHFehler (Status);
+
+  EndFlag = FALSE;
+  while (EndFlag == FALSE)
+  {
+    CDHGetApiJobData(MAXDATA, Buffer, BufferSize, NrOfData, DataTyp, Status);
+    TestCDHFehler (Status);
+    if (NrOfData > 0)
+    {
+      if (Checksumme == 1)
+      {
+        CDHapiJobData (SgbdName, "C_CHECKSUMME", Buffer, BufferSize, "");       //Buffer zur Berechnung der CS an SGBD
+        strcat (Info, SgbdName, ", C_CHECKSUMME");
+        TestApiFehler (COAPI_ECU_CODING_ERROR, ProcName, 365, Info);            //"Berechnung Checksumme fehlerhaft
+        CDHapiResultBinary (Buffer, "OUT_BUFFER", 1, Status);                   //holen Buffer mit Checksumme
+        TestCDHFehler (Status);
+      }
+
+      CDHapiJobData(SgbdName, "C_C_AUFTRAG", Buffer, BufferSize, "");
+      strcat (Info, SgbdName, ", C_C_AUFTRAG");
+      TestApiFehler (COAPI_ECU_WRITE_DATA_ERROR, ProcName, 450, Info);          //"Fehler beim Codierdaten schreiben"
+    }
+    else
+    {
+      EndFlag = TRUE;
+    } //endif
+  } //endwhile
+
+  CDHCheckDataUsed (Status);                                                    //Alle Daten verarbeitet?
+  TestCDHFehler (Status);
+
+  CDHBinBufDelete(Buffer, Status);                                              //Loeschen des Binaerbuffers
+  TestCDHFehler (Status);
+
+  if (Reset == 1)
+     SgReset();
+
+  CDHSetReturnVal(0);                                                           //fehlerfreies Programmende
+}
+
+
+//*************************************************************
+//*
+//* Name      : aif
+//*
+//* Funktion  : AIF lesen
+//*
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 29.10.01       Autor:  Bernhard Haller
+//*************************************************************
+
+aif( )
+
+{
+  string ProcName = "aif";
+  string SgbdName;
+  string Info;
+  string strAifFgNr,strAifFgNrLang,strAifDatum,strAifZbNr,strAifSwNr,strAifBehoerdenNr;
+  string strAifHaendlerNr,strAifSerienNr,strAifKm,strAifProgrammNr,strAifAnzahlFrei,strAifAnzahlProg;
+
+  int   Status, n;
+  int   intAifAnzahlFrei,intAifAnzahlProg;
+
+
+  CDHGetSgbdName(SgbdName,Status);                                              //SGBD-Name aus SGET
+  TestCDHFehler (Status);
+
+  CDHapiJob(SgbdName, "AIF_LESEN", "0", "");                                    //AIF aus SG lesen
+  TestApiFehler (COAPI_ECU_TIMEOUT, ProcName, 543, Info);                       //"SG antwortet nicht"
+
+  CDHapiResultText (strAifFgNr, "AIF_FG_NR", 1, "");
+
+  CDHapiResultText (strAifFgNrLang, "AIF_FG_NR_LANG", 1, "");
+
+  CDHapiResultText (strAifDatum, "AIF_DATUM", 1, "");
+
+  CDHapiResultText (strAifZbNr, "AIF_ZB_NR", 1, "");
+
+  CDHapiResultText (strAifSwNr, "AIF_SW_NR", 1, "");
+
+  CDHapiResultText (strAifBehoerdenNr, "AIF_BEHOERDEN_NR", 1, "");
+
+  CDHapiResultText (strAifHaendlerNr, "AIF_HAENDLER_NR", 1, "");
+
+  CDHapiResultText (strAifSerienNr, "AIF_SERIEN_NR", 1, "");
+
+  CDHapiResultText (strAifKm, "AIF_KM", 1, "");
+
+  CDHapiResultText (strAifProgrammNr, "AIF_PROG_NR", 1, "");
+
+  CDHapiResultInt (intAifAnzahlFrei, "AIF_ANZ_FREI", 1);
+  inttostring (intAifAnzahlFrei, strAifAnzahlFrei);
+
+  CDHapiResultInt (intAifAnzahlProg, "AIF_ANZAHL_PROG", 1);
+  inttostring (intAifAnzahlProg, strAifAnzahlProg);
+
+  CDHSetCabdPar ("AIF Fg-Nr. kurz", strAifFgNr, Status);
+  CDHSetCabdPar ("AIF Fg-Nr. lang", strAifFgNrLang, Status);
+  CDHSetCabdPar ("AIF Programmierdatum", strAifDatum, Status);
+  CDHSetCabdPar ("Zusbau-Nummer", strAifZbNr, Status);
+  CDHSetCabdPar ("Datensatznummer", strAifSwNr, Status);
+  CDHSetCabdPar ("Behoerdennummer", strAifBehoerdenNr, Status);
+  CDHSetCabdPar ("Haendlernummer", strAifHaendlerNr, Status);
+  CDHSetCabdPar ("Tester Seriennummer", strAifSerienNr, Status);
+  CDHSetCabdPar ("KM-Stand bei Programmierung", strAifKm, Status);
+  CDHSetCabdPar ("Programmstandnummer", strAifProgrammNr, Status);
+  CDHSetCabdPar ("Anzahl noch vorhandener AIF-Eintraege", strAifAnzahlFrei, Status);
+  CDHSetCabdPar ("Anzahl Programmiervorgaenge", strAifAnzahlProg, Status);
+  CDHTestError (Status);                                                        //Pruefen Fehler insgesamt
+
+  CDHSetReturnVal (0);
+}
+
+
+//*************************************************************
+//*
+//* Name      : cabimain
+//*
+//* Funktion  : Hauptfunktion des Scripts:
+//*
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 02.12.04       Autor:  Bernhard Haller
+//*************************************************************
+
+cabimain()
+{
+  string  JobName;
+  int     Status = 0;
+  int     intWert;
+
+    CDHGetCabdPar ("JOBNAME", JobName, Status);
+    TestCDHFehler (Status);
+
+    if (JobName == "JOB_ERMITTELN")
+        Jobs( );
+
+    else if (JobName == "INFO")
+        InfoJob( );
+
+    else if (JobName == "ID_LESEN")
+    {
+        CDHapiInit();
+        Ident(intWert);
+    }
+
+    else if ( JobName == "CODIERINDEX_LESEN")
+    {
+        CDHapiInit();
+        CodIndex2Lesen(intWert);
+    }
+
+    else if ( JobName == "SG_CODIEREN"      || JobName == "CODIERDATEN_SCHREIBEN" || JobName == "CODIERDATEN_LESEN"   ||
+              JobName == "CD_LESEN_OHNE_CI" || JobName == "CD_SCHREIBEN_OHNE_CI"  || JobName == "SG_CODIEREN_OHNE_CI" ||
+              JobName == "SG_CODIEREN_OHNE_FG_AEI")
+    {
+        CDHapiInit();
+        Cod( JobName);
+    }
+
+    else if (JobName == "FGNR_AUFTRAG" || JobName == "FGNR_SCHREIBEN" || JobName == "FGNR_LESEN")
+    {
+        CDHapiInit();
+        Fgnr( JobName);
+    }
+
+    else if (JobName == "AE_INDEX_AUFTRAG" || JobName == "AE_INDEX_SCHREIBEN" || JobName == "AE_INDEX_LESEN")
+    {
+        CDHapiInit();
+        AeIndex( JobName);
+    }
+
+    else if (JobName == "NETTODATEN_CODIEREN")
+    {
+        CDHapiInit();
+        NettoDat();
+    }
+
+    else if (JobName == "AIF_LESEN")
+    {
+        CDHapiInit();
+        aif ();
+    }
+
+    else if (JobName == "TEST_FG_NR")
+    {
+        CDHapiInit();
+        FgnrTest();
+    }
+
+    else if (JobName == "TEST_AE_INDEX")
+    {
+        CDHapiInit();
+        AeIndexTest();
+    }
+
+    else if (JobName == "TEST_CODIERUNG")
+    {
+        CDHapiInit();
+        TestCod();
+    }
+
+    else if (JobName == "SETZEN_CODIERSPEICHER_AUF_0xFF")
+    {
+        CDHapiInit();
+        SetCod ();
+    }
+
+    else if (JobName == "SG_RESET")
+    {
+        CDHapiInit();
+        SgReset ();
+    }
+
+    else
+    {
+        CDHSetError (COAPI_CABD_PAR_ERROR, ModulName, "cabimain", 39, JobName);
+        Status = COAPI_CABD_PAR_ERROR;
+    }
+
+    CDHSetReturnVal (Status);
+    exit();
+}
+
+
+//*************************************************************
+//*
+//* Name      : cabiexit
+//*
+//* Funktion  : Exit-Funktion des Scripts
+//*
+//* Parameter :
+//*
+//* Rueckgabe :
+//*
+//* Datum     : 12.03.96       Autor:  Manfred Steiniger
+//*************************************************************
+
+cabiexit()
+{
+  CDHapiEnd();
+}
+
+
+////////////////////////////////////////////////////////
+// Scriptende
+////////////////////////////////////////////////////////
+

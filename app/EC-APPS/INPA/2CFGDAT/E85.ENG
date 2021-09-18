@@ -1,0 +1,99 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E85.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 22.08.2001 sk V0.01 Generated from german version
+//* 12.09.2001 rd V0.05 Überarbeitung
+//* 20.09.2001 sk V0.06 Überarbeitung für Radio/MIR, NAV_JAP
+//* 12.12.2001 rd V0.07 E85 Ident und Fehlerspeicher
+//* 17.12.2001 sk V0.08 Sitzmemory eingefügt
+//* 06.05.2002 rd V0.09 SIM Text geändert
+//* 15.07.2002 rd V1.00 Motoren ausgemistet
+//* 25.07.2002 rd V1.01 Airbag ausgemistet
+//* 28.11.2002 rd V1.02 CID neuer Name
+//* 28.02.2003 rd V1.03 NAV_JAP hinzu
+//* 20.03.2003 tm V1.04 Energiesparmode hinzu
+//* 13.08.2003 rd V1.05 Motorvarianten hinzu
+//* 16.02.2004 rd V1.06 Umstellung auf 32-Bit INPA
+//* 21.10.2004 GA V1.07 MSV70 dazu
+//* 19.11.2004 GA V1.08 MSS70 dazu
+//* 01.12.2004 GA V1.09 ACSM, EKP dazu, E85.IPO dazu IDENT, FS-lesen, löschen quasi funktional
+//* 08.12.2004 MP V1.10 Script für EKP von EKP_DS2 in EKP2DS2 umbenannt
+//* 27.06.2005 GA V1.11 RDC_53 dazu
+//* 14.09.2005 gr V1.12 OC3 added
+//* 27.09.2005 gr V1.13 GS19 added
+//* 28.03.2006 GA V1.14 RDC_60 gegen RDC_GEN2 getauscht
+//* 28.03.2006 GA V1.14 IDENT / FS-IS_LESEN-LOESCHEN E85 durch Quasi functional ersetzt
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E85 V1.14
+ENTRY=     E85,Quasi functional,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=ME9NG4TU,MEV9     for N46,
+ENTRY=   MS450,MS 45.0  for M54,
+ENTRY=,,
+ENTRY=   MSS70,MSS70    for S54,
+ENTRY=,,
+ENTRY=   MSV70,MSV 70.0 for N52,
+ENTRY=,,
+ENTRY= EKP2DS2,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=,,
+ENTRY=    GS19,Gearbox / Automatic GS19,
+ENTRY=   gsds2,GS 8.xx / GS 20,
+ENTRY=,,
+ENTRY=    gs30,Sequential Gearbox SSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= dscmk60,DSC MK60,
+ENTRY= eps_e85,Electronic power steering,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=    ACSM,Airbag,
+ENTRY=     OC3,Seat Occupation Recognition US vehicle OC3,
+ENTRY=  cvm_IV,Convertible soft top module CVM IV,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=    zke5,Central body module,
+ENTRY=  ihkx85,Air conditioning HS/IHKS/IHKA,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     lsz,Light switch center LSZ,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=    sm46,Seatmemory,
+ENTRY=     szm,Middle console center switch,
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Safety modules
+ENTRY=     SIM,Safety Information Module,
+ENTRY=    STVL,Satellite door front left,
+ENTRY=    STVR,Satellite door front right,
+ENTRY=    SBSL,Satellite B column left,
+ENTRY=    SBSR,Satellite B column right,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=  CID_85,On board monitor CID,
+ENTRY=     CDC,CD changer,
+ENTRY=   radio,MIR,
+ENTRY=     dsp,DSP carver,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY= telefon,Telephone,
+ENTRY=videomod,Video module,
+

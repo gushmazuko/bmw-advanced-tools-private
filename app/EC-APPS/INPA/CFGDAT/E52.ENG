@@ -1,0 +1,57 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E52.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 17.02.00 rd V1.00 Erstellung auf Basis E52.GER V1.00
+//* 03.03.00 rd V1.01 NAVMK2 durch NAVI ausgetauscht
+//* 20.09.2001 rd V1.02 CDC dazu
+//* 28.02.2003 rd V1.03 NAV_JAP hinzu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E52 V1.03
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY= MSS52M5,MS S52 for S62 M5,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=     smg,Sequential M-Transmission,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     dws,Deflation warning system DWS,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  cvm_ii,Convertible soft top module CVM II,
+ENTRY=     elv,Electric steering lock ELV,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=klima_5B,Air conditioning IHKS,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY=    zke5,Central body electronics ZKE5,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bmbt46rn,On bord monitor Radionavigation,
+ENTRY=     CDC,CD changer,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY= telefon,Telephone,
+

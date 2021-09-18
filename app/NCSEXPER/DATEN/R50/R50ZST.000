@@ -1,0 +1,640 @@
+;Tabelle: R50ZST.000                 Index: cq  vom: 14.01.08     NAEL: ENT99.W
+I cq
+U 20080114123911
+V R50ZST.000
+;
+;Release: Vehicle description R50               version 10.0  21.08.02
+;Release: Vehicle description R50 Countries     version 10.0  21.08.02
+;Release: Statusreport R50                      version 12/2005
+;
+;feature     GM-Key   SA-Key           VN-Key    FG ASW description
+;---------------------------------------------------------------------------------------------
+B ZUSATZ        //area identification for ZEKO!!
+;
+;History Basic-version code (GVN)
+;H GVN  N0899 00000000 0000000000000000 8000000000 1                                               //PL2_1 build
+;H GVN  N0200 00000000 0000000000000000 C000000000 1                                               //PL2_2 build
+;H GVN  N0400 00000000 0000000000000000 E000000000 1                                               //FB1 build
+;H GVN  N0600 00000000 0000000000000000 F000000000 1                                               //FB2 build
+;H GVN  N0900 00000000 0000000000000000 0800000000 1                                               //PTO build
+;H GVN  N1100 00000000 0000000000000000 0C00000000 1                                               //PS1 build
+;H GVN  N0101 00000000 0000000000000000 0E00000000 1                                               //PS2 build
+H GVN  N0401 00000000 0000000000000000 0000000000 0                                                //SOP
+H GVN  N0901 00000000 0000000000000000 0000000001 1                                                //PU01
+H GVN  N0302 00000000 0000000000000000 0000000003 1                                                //MAERZ02
+H GVN  N0902 00000000 0000000000000000 0000000007 1                                                //PU02
+H GVN  N0303 00000000 0000000000000000 000000000F 1                                                //MAERZ03
+H GVN  N0903 00000000 0000000000000000 000000001F 1                                                //PU03
+H GVN  N0404 00000000 0000000000000000 000000003F 1                                                //APRIL04
+H GVN  N0704 00000000 0000000000000000 000000007F 1                                                //JULI04
+H GVN  N0105 00000000 0000000000000000 00000000FF 1                                                //JANUAR05
+H GVN  N0405 00000000 0000000000000000 00000001FF 1                                                //APRIL05
+H GVN  N0306 00000000 0000000000000000 00000003FF 1                                                //MAERZ06
+H GVN  N0906 00000000 0000000000000000 00000007FF 1                                                //PU06
+H GVN  N1206 00000000 0000000000000000 0000000FFF 1                                                //DEZEMBER06
+;
+;Actual Basic-version code
+G            00000000 0000000000000000 0000000FFF 1
+H R50  N0899 00000000 0000000000000000 0000000000 1 R50                                            //series R50
+;
+;Former time depending E-Words (for ZEKO switched on/off)
+;
+;ECU's, belonging to a feature or type (for ZEKO switched off)
+;
+;Time depending changes (for ZEKO switched off)
+;H PL21 N0899 00000000 0000000000000000 8000000000 1                                               //PL2_1 build
+;H PL21 N0899 00000000 0000000000000000 0000000000 1                                               //
+;H PL22 N0200 00000000 0000000000000000 4000000000 1                                               //Pl2_2 build
+;H PL22 N0200 00000000 0000000000000000 0000000000 1                                               //
+;H FB_1 N0400 00000000 0000000000000000 2000000000 1                                               //FB1 build
+;H FB_1 N0400 00000000 0000000000000000 0000000000 1                                               //
+;H FB_2 N0600 00000000 0000000000000000 1000000000 1 FB2                                           //FB2 build
+;H FB_2 N0600 00000000 0000000000000000 0000000000 1                                               //
+;H PTO_ N0900 00000000 0000000000000000 0800000000 1 PTO                                           //
+;H PTO_ N0900 00000000 0000000000000000 0000000000 1                                               //
+;H PS1_ N1100 00000000 0000000000000000 0400000000 1 PS1                                           //
+;H PS1_ N1100 00000000 0000000000000000 0000000000 1                                               //
+;H PS2_ N0101 00000000 0000000000000000 0200000000 1 PS2                                           //
+;H PS2_ N0101 00000000 0000000000000000 0000000000 1                                               //
+H PU01 N0901 00000000 0000000000000000 0000000001 1 PU01 BC1_CI_03                                 //September 2001-Requirements
+H PU01 N0901 00000000 0000000000000000 0000000000 1
+H MA02 N0302 00000000 0000000000000000 0000000002 1 MAERZ02 KMB_CI_05 MK60_CI_08 RIP_CI_02 EMS_CI_03 SHD_CI_03 //March 2002-Requirements
+H MA02 N0302 00000000 0000000000000000 0000000000 1
+H MY02 N0902 00000000 0000000000000000 0000000004 1 PU02                                           //Septemper 2002-Requirements
+H MY02 N0902 00000000 0000000000000000 0000000000 1
+H MA03 N0303 00000000 0000000000000000 0000000008 1 MAERZ03 BC1_CI_03 KMB_CI_06                    //March 2003-Requirements
+H MA03 N0303 00000000 0000000000000000 0000000000 1
+H MY03 N0903 00000000 0000000000000000 0000000010 1 PU03                                           //September 2003-Requirements
+H MY03 N0903 00000000 0000000000000000 0000000000 1
+H AP04 N0404 00000000 0000000000000000 0000000020 1 APRIL04                                        //April 2004-Requirements
+H AP04 N0404 00000000 0000000000000000 0000000000 1
+H JU04 N0704 00000000 0000000000000000 0000000040 1 JULI04                                         //Juli 2004-Requirements
+H JU04 N0704 00000000 0000000000000000 0000000000 1
+H JA05 N0105 00000000 0000000000000000 0000000080 1 JANUAR05                                       //Januar 2005-Requirements
+H JA05 N0105 00000000 0000000000000000 0000000000 1
+H AP05 N0405 00000000 0000000000000000 0000000100 1 APRIL05                                        //April 2005-Requirements
+H AP05 N0405 00000000 0000000000000000 0000000000 1
+H MA06 N0306 00000000 0000000000000000 0000000200 1 MAERZ06                                        //MAERZ06
+H MA06 N0306 00000000 0000000000000000 0000000000 1
+H PU06 N0906 00000000 0000000000000000 0000000400 1 PU06                                           //September 2006
+H PU06 N0906 00000000 0000000000000000 0000000000 1
+H DZ06 N1206 00000000 0000000000000000 0000000800 1 DZ06                                           //Dezember 2006
+H DZ06 N1206 00000000 0000000000000000 0000000000 1
+;H NFT  N1003 00000000 0000000000000000 1000000000 1 R52_TANK                                      //new fuel tank
+;H NFT  N1003 00000000 0000000000000000 0000000000 1
+;
+H NRHL N0704 00000000 0000001000000000 0000000000 1 NRS_MUE_HECKL                                  //after market fitment facelift tail light
+H NRXE N0704 00000000 0000002020000000 0000000000 1 NRS_MUE_XENON                                  //after market fitment facelift xenon light
+H NRH7 N0704 00000000 0000004000000000 0000000000 1 NRS_MUE_HALOGEN                                //after market fitment facelift halogen light
+H OI11 N0105 00000000 0000000000000000 2000000000 1 OHNE_FA_SBR                                    //deactivations driver SEATBELTREMINDER on optional equipment
+H OI12 N0105 00000000 0000000000000000 4000000000 1 OHNE_BF_SBR                                    //deactivations co-driver SEATBELTREMINDER on optional equipment
+H NSB  N0704 00000000 0000000000000000 8000000000 1 ABG_SENSOR_HALT                                //New Sensor Bracket
+;
+;
+;ECU's, time depending build in, but reacting valid
+;
+;Actual E-Words
+;E FB2  N0600 00000000 0000000000000000 F000000000 1                                               //FB2 build
+;E PTO  N0900 00000000 0000000000000000 0800000000 1                                               //PTO build
+;E PS1  N1100 00000000 0000000000000000 0C00000000 1                                               //PS1 build
+;E PS2  N0101 00000000 0000000000000000 0E00000000 1                                               //PS2 build
+;E ABGA N0101 00000000 0000000000000000 0F00000000 1                                               //ABG active
+;E PU01 N0401 00000000 0000000000000000 0000000001 1 PU01                                          //September 2001-Requirements
+;E MA02 N1001 00000000 0000000000000000 0000000002 1 MAERZ02                                       //March 2002-Requirements
+;E MY02 N0302 00000000 0000000000000000 0000000004 1 PU02                                          //Septemper 2002-Requirements
+;E MA03 N0802 00000000 0000000000000000 0000000008 1 MAERZ03                                       //March 2003-Requirements
+;E MY03 N0303 00000000 0000000000000000 000000001F 1 PU03                                          //Septemper 2003-Requirements
+E AP04 N0303 00000000 0000000000000000 000000003F 1 APRIL04                                        //April 2004-Requirements
+E JU04 N0703 00000000 0000000000000000 000000007F 1 JULI04                                         //Juli 2004-Requirements
+E NFT  N0703 00000000 0000000000000000 1000000000 1 R52_TANK                                       //new fuel tank
+E JA05 N0903 00000000 0000000000000000 00000000FF 1 JANUAR05                                       //Januar 2005-Requirements
+E AP05 N0904 00000000 0000000000000000 00000001FF 1 APRIL05                                        //April 2005-Requirements
+E MA06 N0306 00000000 0000000000000000 00000003FF 1 MAERZ06                                        //MAERZ06
+E REV  N0704 00000000 0000000008000000 0000000000 1                                                //Revcounter for RA31, RA32 , RA11 RA12 07/04
+E EMI  N0404 00000000 0000000000004000 0000000000 1                                                //European emision standard mandatory for all RHD 04/04
+E NSB  N0704 00000000 0000000000000000 8000000000 1 ABG_SENSOR_HALT                                //New Sensor Bracket
+E PU06 N0906 00000000 0000000000000000 00000007FF 1 PU06                                           //Septemper 2006-Requirements
+E DZ06 N1206 00000000 0000000000000000 0000000FFF 1 DZ06                                           //Dezember 2006-Requirements
+;
+;upcoming E-Words
+;
+;
+B SALA          //area identification for ZEKO!!
+;************************************* Used VN-Bits **************************
+; *****************nicht mehr in Verwendung*******************
+; 1.BG                                 8000000000 PL2_1                                            //1. Baugruppe
+; 2.BG                                 4000000000 PL2_2                                            //2. Baugruppe
+; FB_1                                 2000000000 FB1                                              //1. Funktionsbau
+; FB_2                                 1000000000 FB2                                              //2. Funktionsbau
+; PTO_                                 0800000000 PTO                                              //PTO
+; PS1                                  0400000000 PS1                                              //Preseries 1
+; PS2                                  0200000000 PS2                                              //Preseries 2
+; ABGA                                 0100000000 ABG_AKTIV                                        //Airbag active to be removed in ZCSUT for PU01
+; *****************nicht mehr in Verwendung*******************
+;
+; PU01                                 0000000001 PU01                                             //September 2001 requirements
+; MA02                                 0000000002 MAERZ02                                          //March 2002 requirements
+; MY02                                 0000000004 PU02                                             //September 2002 requirements
+; MA03                                 0000000008 MAERZ03                                          //March 2003 requirements
+; MY03                                 0000000010 PU03                                             //September 2003 requirements
+; AP04                                 0000000020 APRIL04                                          //April 2004 requirements
+; JU04                                 0000000040 JULI04                                           //Juli 2004 requirements
+; JA05                                 0000000080 JANUAR05                                         //Januar 2005-Requirements
+; AP05                                 0000000100 APRIL05                                          //April 2005-Requirements
+; MA06                                 0000000200 MAERZ06
+; PU06                                 0000000400 PU06
+; DZ06                                 0000000800 DZ06
+; NFT                                  1000000000 R52_TANK                                         // New fuel tank
+; OI11                                 2000000000 OHNE_FA_SBR                                      //deactivations driver SEATBELTREMINDER on optional equipment
+; OI12                                 4000000000 OHNE_BF_SBR                                      //deactivations co-driver SEATBELTREMINDER on optional equipment
+;
+; NSB                                  8000000000 ABG_SENSOR_HALT                                  //New Sensor Bracket
+;******************** Used SA-Bits *******************************************
+;0202                 0000000000000001 STEPTRONIC                                                  //steptronic
+;0210                 0000000000000002 DSC                                                         //Dynamic stability control (DSCIII)
+;0214                 0000000000000004 ASC                                                         //Automatic stability control + traction
+;0262                 0000000000000008 KOPF_AIRBAG                                                 //Headairbag ITS
+;0861                 0000000000000010 MILANSTEUERUNG                                              //change coding data record
+;0302                 0000000000000020 DWA                                                         //Anti-theft system w RC
+;0403                 0000000000000040 GLAS_SHD                                                    //Electric glass sun-roof
+;0645                 0000000000000080 RADIO_US                                                    //US-Radio
+;0508                 0000000000000100 PDC                                                         //Park distance control (PDC)
+;0226                 0000000000000200 SPORT                                                       //Sport suspension settings
+;0228                 0000000000000400 SPORT_PLUS                                                  //Sport suspension plus
+;0530                 0000000000000800 KLIMAREGELUNG                                               //Air conditioning
+;0534                 0000000000001000 KLIMAAUTOMATIK                                              //Automatic air conditioning
+;0550                 0000000000002000 BC_BASIS                                                    //low board computer
+;0169                 0000000000004000 ABGASNORM_EU3                                               //emission standard EU3
+;0823                 0000000000008000 TROPEN                                                      //Hot country version
+;0609                 0000000000010000 NAVIGATION                                                  //Navigation system high
+;0249                 0000000000020000 GESCHW_REG                                                  //Multifunction f steering wheel
+;0825                 0000000000040000 OZEANIEN                                                    //Oceanic Radio
+;0845                 0000000000080000 AK_GUWA                                                     //Acoustic Belt Warning
+;0650,0657,0651       0000000000100000 RADIO_NG                                                    // Radio new generation
+;0896                 0000000000200000 TAGFAHRLICHT                                                //Daytime light
+;0199                 0000000000400000 KATALYSAT_ENTF                                              //Catalyst deletion
+;0988                 0000000000800000 SIA_INTERVALL2                                              //was boost gauge
+;0432                 0000000001000000 SICHT_PAKET                                                 //Visibility Package (Rainsensor)
+;0519                 0000000002000000 AUX_LAMP                                                    //Add-on driving lamps
+;0359                 0000000004000000 HFS                                                         //Heated front screen/visibility pack
+;0546                 0000000008000000 DREHZAHL_MESS                                               //Rev-Counter
+;0502                 0000000010000000 SWA                                                         //Headlights washer system
+;0522                 0000000020000000 XENON                                                       //Xenon headlamps
+;0520                 0000000040000000 NEBELSCHEINW                                                //Front fog lamps
+;0877                 0000000080000000 ENTF_UEBERKREUZ                                             //Deletion Cross over control
+;05AA                 0000000100000000 NSL                                                         //Rear fog light(currently for after market fitment only!)
+;0547                 0000000200000000 CHRONO_PAKET                                                //Chrono pack
+;0563                 0000000400000000 LICHT_PAKET                                                 //Interior lamp pakage
+;0521                 0000000800000000 REGENSENSOR                                                 //Rainsensor
+;NRHL                 0000001000000000 NRS_MUE_HECKL                                               //after market fitment facelift tail light
+;NRXE                 0000002000000000 NRS_MUE_XENON                                               //after market fitment facelift xenon light
+;NRH7                 0000004000000000 NRS_MUE_HALOGEN                                             //after market fitment facelift halogen light
+;0644                 0000008000000000 TEL_VORB                                                    //Preparation for car phone bluetooth   //Autotelefonvorbereitung Bluetooth
+;0620                 0000010000000000 SPRACHEINGABE                                               //Voice input                 //Sprachsteuerung
+;0674                 0000020000000000 TOP_HIFI                                                    //HiFi system Harman Kardon
+;02VB                 0000040000000000 DIRECT_RDC                                                  //Direct Tire Pressure Control
+;06UE                 0000080000000000 DIEBSTAHLSCHUTZ                                             //Anti-theft prevention navi-dvd
+;06UD                 0000100000000000 ENGLISCH                                                    //Instrument lettering Russian  at 09/05
+;08S2                 0000200000000000 ALARMSIGNAL                                                 //Coding of alarm signal (for netherlands)
+;
+;******************** Used SA-Bits *******************************************
+;
+;*********** Used GM-Bits ****************************************************
+;0548         00000010 KM_TACHO //Km/h-speedometer
+;0205         00000080 AUTOMATIK //Automatic transmission
+;*********** Used GM-Bits ****************************************************
+;
+01CA         00000000 0000000000000000 0000000000 0                                                //Selection CO2 relevant
+0169         00000000 0000000000004000 0000000000 1 ABGASNORM_EU3                                  //emission standard EU3
+0199         00000000 0000000000400000 0000000000 1 KATALYSAT_ENTF                                 //Catalyst deletion, leaded fuel
+02C3         00000000 0000000000000000 0000000000 0                                                //Alloys 5-Star Rocket All Season
+02CL         00000000 0000000000000000 0000000000 0                                                //LM wheels 5-Star-Rocket
+02CM         00000000 0000000000000000 0000000000 0                                                //LM wheels 5-Star-Bullet
+02CN         00000000 0000000000000000 0000000000 0                                                //LM wheels 5-Star-Bullet M AS (deleted from offer US vehicle)
+02PA         00000000 0000000000000000 0000000000 0                                                //Radschraubensicherung
+02R7         00000000 0000000000000000 0000000000 0                                                //LM wheels Bridge Spoke
+02RB         00000000 0000000000000000 0000000000 0                                                //LM wheels 7-Fin Spoke
+02RE         00000000 0000000000000000 0000000000 0                                                //LM wheels web-spoke
+02RF         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Delta Spoke
+02RG         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Bridge Spoke
+02RH         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Flame Spoke
+02RK         00000000 0000000000000000 0000000000 0                                                //LM wheels 5-star-Spooler
+02RL         00000000 0000000000000000 0000000000 0                                                //LM Rotator Spoke
+02RN         00000000 0000000000000000 0000000000 0                                                //LM wheels 5-star blaster emergency wheels
+02RM         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Night Spoke
+02RP         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Crown Spoke
+02RR         00000000 0000000000000000 0000000000 0                                                //Light Alloy Wheel Crown Spoke AS
+02TA         00000000 0000000000000000 0000000000 0                                                //Limited Slip differential
+02VB         00000000 0000040000000000 0000000000 1 DIRECT_RDC                                     //SOP 01.09.2007 R52 Direct Tire Pressure Control
+0202         00000000 0000000000000001 0000000000 1 STEPTRONIC                                     //Steptronic
+0205         00000080 0000000000000000 0000000000 1 AUTOMATIK                                      //Automatic transmission
+0210         00000000 0000000000000002 0000000000 1 DSC                                            //Dynamic stability control (DSCIII)
+0214         00000000 0000000000000004 0000000000 1 ASC                                            //Automatic stability control + traction
+0226         00000000 0000000000000200 0000000000 1 SPORT                                          //Sport suspension settings
+0228         00000000 0000000000000400 0000000000 1 SPORT_PLUS                                     //Sport suspension plus
+0240         00000000 0000000000000000 0000000000 0                                                //Leather steering wheel with airbag
+0249         00000000 0000000000020000 0000000000 1 GESCHW_REG                                     //Multifunction f steering wheel
+0253         00000000 0000000000000000 0000000000 0                                                //leather 2-spoke steering wheel
+0254         00000000 0000000000000000 0000000000 0                                                //Woodrim steering wheel
+0255         00000000 0000000000000000 0000000000 0                                                //sport steering wheel leather
+0262         00000000 0000000000000008 0000000000 1 KOPF_AIRBAG                                    //Headairbag ITS
+03AB         00000000 0000000000000000 0000000000 0                                                //Body coloured mirror caps
+03AD         00000000 0000000000000000 0000000000 0                                                //Bonnet Stripes Park Lane
+03AE         00000000 0000000000000000 0000000000 0                                                //Bonnet Stripes Checkmate
+03AF         00000000 0000000000000000 0000000000 0                                                //Roof & Mirror Caps in Silver
+03AK         00000000 0000000000000000 0000000000 0                                                //Bonnet Stripes in Silver
+03AL         00000000 0000000000000000 0000000000 0                                                //John Cooper works (JCW) Kit (09/2005)
+0300         00000000 0000000000000000 0000000000 0                                                //Space saver wheel
+0302         00000000 0000000000000020 0000000000 1 DWA                                            //Anti-theft system w RC
+0306         00000000 0000000000000000 0000000000 0                                                //Alloy wheels immola
+0313         00000000 0000000000000000 0000000000 0                                                //outside mirrors pakage
+0314         00000000 0000000000000000 0000000000 0                                                //Heated washer jets = outside mirrors
+0318         00000000 0000000000000000 0000000000 0                                                //Interior surface in vehicle color
+0319         00000000 0000000000000000 0000000000 0                                                //Integrated universal remote control
+0320         00000000 0000000000000000 0000000000 0                                                //deletion of model designation
+0325         00000000 0000000000000000 0000000000 0                                                //Tailgate spoiler
+0327         00000000 0000000000000000 0000000000 0                                                //Bonnet stripes white
+0329         00000000 0000000000000000 0000000000 0                                                //Bonnet stripes black
+0330         00000000 0000000000000000 0000000000 0                                                //Sport package
+0337         00000000 0000000000000000 0000000000 0                                                //M Sport package
+0340         00000000 0000000000000000 0000000000 0                                                //Bumper guards black (not with SA508, will be deleted from offer 01/07/04, except Diesel
+0345         00000000 0000000000000000 0000000000 0                                                //Chrome line interior
+0346         00000000 0000000000000000 0000000000 0                                                //Chrome line exterior
+0354         00000000 0000000000000000 0000000000 0                                                //Anti glare strip for windshield
+0359         00000000 0000000004000000 0000000000 1 HFS                                            //Heated windshield/Visibility pack
+0367         00000000 0000000000000000 0000000000 0                                                //Alloy wheels 15x6, 185/60HR (delete from offer, planned to 01/07/04, no offer on cab.)
+0368         00000000 0000000000000000 0000000000 0                                                //Alloy wheels 16x6.5, 195/55HR (cooper s VR)
+0369         00000000 0000000000000000 0000000000 0                                                //Alloy wheels 17x7, 205/45VR
+0381         00000000 0000000000000000 0000000000 0                                                //Roof and outside mirror housing in bodycolour
+0382         00000000 0000000000000000 0000000000 0                                                //Roof and outside mirror housing in white
+0383         00000000 0000000000000000 0000000000 0                                                //Roof and outside mirror housing in black
+0384         00000000 0000000000000000 0000000000 0                                                //White alloy wheels
+0385         00000000 0000000000000000 0000000000 0                                                //Alloy wheels "Monza"
+0387         00000000 0000000000000000 0000000000 0                                                //Wind Deflector
+0391         00000000 0000000000000000 0000000000 0                                                //folding top dark blue
+0392         00000000 0000000000000000 0000000000 0                                                //folding top dark green
+04A5         00000000 0000000000000000 0000000000 0                                                //Interior Surface Grey
+04A6         00000000 0000000000000000 0000000000 0                                                //Interior Tuscan Beige
+04A7         00000000 0000000000000000 0000000000 0                                                //Colour Line Dark Grey
+04A8         00000000 0000000000000000 0000000000 0                                                //Colour Line Cream White
+04A9         00000000 0000000000000000 0000000000 0                                                //Colour Line Mellow Yellow
+04AA         00000000 0000000000000000 0000000000 0                                                //Headlining anthracite
+04AU         00000000 0000000000000000 0000000000 0                                                //Enlarged decor volumes
+04AN         00000000 0000000000000000 0000000000 0                                                //Interior Surfaces Seven
+04AP         00000000 0000000000000000 0000000000 0                                                //Interior Surfaces Park Lane
+04AR         00000000 0000000000000000 0000000000 0                                                //Interior Surfaces Checkmate
+04AV         00000000 0000000000000000 0000000000 0                                                //Interior Surfaces Sidewalk
+04BA         00000000 0000000000000000 0000000000 0                                                //Colour Line Rooster Red
+04BB         00000000 0000000000000000 0000000000 0                                                //Colour Line Pacific Blue
+04BD         00000000 0000000000000000 0000000000 0                                                //Interior Surface Piano Black
+04BL         00000000 0000000000000000 0000000000 0                                                //Interior Colour Redwood Red
+04FA         00000000 0000000000000000 0000000000 0                                                //Recaro sports seats (PU 09/05)
+04UF         00000000 0000000000000000 0000000000 0                                                //Sport Button
+0403         00000000 0000000000000040 0000000000 1 GLAS_SHD                                       //Electric glass sun-roof
+0405         00000000 0000000000000000 0000000000 0                                                //Chromed exterior mirror caps
+0420         00000000 0000000000000000 0000000000 0                                                //Sun protection glass
+0423         00000000 0000000000000000 0000000000 0                                                //Floor mats
+0427         00000000 0000000000000000 0000000000 0                                                //Interior surface silver
+0428         00000000 0000000000000000 0000000000 0                                                //Warning triangle
+0429         00000000 0000000000000000 0000000000 0                                                //Dark finish interior
+0431         00000000 0000000000000000 0000000000 0                                                //Interior rear-view mirror with automatic anti-dazzle function
+0432         00000000 0000000001000000 0000000000 1 SICHT_PAKET                                    //Visibility pack,Rain sensor, auto dipping interior mirror
+0434         00000000 0000000000000000 0000000000 0                                                //Interior strips
+0438         00000000 0000000000000000 0000000000 0                                                //Facia and door inserts - wood
+0439         00000000 0000000000000000 0000000000 0                                                //Aluminum ledges brushed
+0441         00000000 0000000000000000 0000000000 0                                                //Smoker package
+0450         00000000 0000000000000000 0000000000 0                                                //Passenger seat height adjustment
+0463         00000000 0000000000000000 0000000000 0                                                //Interior Surface alloy
+0470         00000000 0000000000000000 0000000000 0                                                //ISO-fix for childseats
+0473         00000000 0000000000000000 0000000000 0                                                //Front arm rest
+0476         00000000 0000000000000000 0000000000 0                                                //door casing - grey
+0477         00000000 0000000000000000 0000000000 0                                                //Facia and door inserts - wood imitation
+0481         00000000 0000000000000000 0000000000 0                                                //Sport seats f driver/frt passenger
+0493         00000000 0000000000000000 0000000000 0                                                //Stowage package
+0494         00000000 0000000000000000 0000000000 0                                                //Heated front seats
+05AA         00000000 0000000100000000 0000000000 1 NSL                                            //rear fog light
+05DA         00000000 0000000000000000 0000000000 0                                                //Passenger airbag deactivation
+05DD         00000000 0000000000000000 0000000000 0                                                //lift jack and ratchet wrench
+05DS         00000000 0000000000000000 0000000000 0                                                ////Luggage-comartment emercy release 10/05 (Kofferraum-Notentriegelung)
+0502         00000000 0000000010000000 0000000000 1 SWA                                            //Headlights washer system(planned to delete from offer at 27/06/04)
+0508         00000000 0000000000000100 0000000000 1 PDC                                            //Park distance control (PDC)
+H 0519 V1000 00000000 0000000002000000 0000000000 1 AUX_LAMP                                       //Add-on driving lamps (to be kept for accessory)
+0519         00000000 0000000002000000 0000000000 S AUX_LAMP                                       //Add-on driving lamps
+0520         00000000 0000000040000000 0000000000 1 NEBELSCHEINW                                   //Front fog lamps
+H 0520 V0901 00000000 0000000000000000 0000000000 0                                                //Front fog lamps
+H 0521 V0105 00000000 0000000000000000 0000000000 0                                                //Rain sensor and automatic driving lights
+0521         00000000 0000000800000000 0000000000 1 REGENSENSOR                                    //Rain sensor and automatic driving lights
+0522         00000000 0000000030000000 0000000000 1 XENON                                          //Xenon headlamps auto-levelling
+H 0522 V0704 00000000 0000000020000000 0000000000 1 XENON SWA                                      //Xenon headlamps auto-levelling
+0530         00000000 0000000000000800 0000000000 1 KLIMAREGELUNG                                  // manual air conditioning
+0534         00000000 0000000000001000 0000000000 1 KLIMAAUTOMATIK                                 //Automatic air conditioning
+0543         00000000 0000000000000000 0000000000 S                                                //Boost gauge
+0546         00000000 0000000008000000 0000000000 1 DREHZAHL_MESS                                  //Revcounter
+0547         00000000 0000000200000000 0000000000 1 CHRONO_PAKET                                   //Cockpit chrono pack
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO                                       //Km/h-speedometer
+0550         00000000 0000000000002000 0000000000 1 BC_BASIS                                       //low board computer
+0563         00000000 0000000400000000 0000000000 1 LICHT_PAKET                                    //Interior lamp package
+0564         00000000 0000000000000000 0000000000 0                                                //Interior lamp package (planned to delete from offer at 27/06/04)
+0586         00000000 0000000000000000 0000000000 0                                                //Light Alloy S-Spoke Wheel
+06FB         00000000 0000000000000000 0000000000 0                                                //Radio Mini Wave CD
+06FC         00000000 0000000000000000 0000000000 0                                                //Radio Mini Boost CD
+06FD         00000000 0000000000000000 0000000000 0                                                //Mini HiFi Loudspeaker system
+06UD         00000000 0000100000000000 0000000000 1 ENGLISCH                                       //Instrument lettering Russian  at 09/05
+06UE         00000000 0000080000000000 0000000000 1 DIEBSTAHLSCHUTZ                                //DVD_SCHUTZ Anti-theft prevention navi-dvd
+0606         00000000 0000000000000000 0000000000 0                                                //Navigation System Business at 09/05
+0609         00000000 0000000000010000 0000000000 1 NAVIGATION                                     //Navigation system
+0616         00000000 0000000000000000 0000000000 0                                                //BMW Online
+0620         00000000 0000010000000000 0000000000 1 SPRACHEINGABE                                  // SPRACHEINGABE //Voice input //Sprachsteuerung (Offer as option at 01/01/05, without US)
+0627         00000000 0000000000000000 0000000000 0                                                //telephone preparation Nokia
+0640         00000000 0000000000000000 0000000000 0                                                //Preparation telephone (no offer in US)
+0641         00000000 0000000000000000 0000000000 0                                                //Preparation telephone AMPS Net
+0644         00000000 0000008000000000 0000000000 1 TEL_VORB                                       //TEL_VORB //Preparation for car phone bluetooth (Offer as option at 01/01/05, without US) //Autotelefonvorbereitung Bluetooth
+0645         00000000 0000000000000080 0000000000 1 RADIO_US                                       //US radio specification
+0650         00000000 0000000000000000 0000000000 0                                                //CD Player
+0651         00000000 0000000000000000 0000000000 0                                                //MD Player
+0656         00000000 0000000000000000 0000000000 0                                                //Radio Reverse (Radio Wave)
+0657         00000000 0000000000100000 0000000000 1 RADIO_NG                                       //Radio Business CC (Radio Boost)
+0659         00000000 0000000000000000 0000000000 S      //Radio Business CD
+0664         00000000 0000000000000000 0000000000 0      //Mobile phone preparation
+0672         00000000 0000000000000000 0000000000 0     //CD changer 6 CDs
+0674         00000000 0000020000000000 0000000000 1 TOP_HIFI //HiFi System Harman Kardon
+0687         00000000 0000000000000000 0000000000 0     //Radio preparation
+0692         00000000 0000000000000000 0000000000 0     //CD autochanger preparation
+07A1         00000000 0000000000000000 0000000000 0     //Sidewalk Special Edition R52
+07AA         00000000 0000000000000000 0000000000 0     //dummy
+07AB         00000000 0000000000000000 0000000000 0     //dummy
+07AC         00000000 0000000000000000 0000000000 0     //dummy
+07AL         00000000 0000000000000000 0000000000 0     //MINI Seven (MINI specials, ECE)
+07AM         00000000 0000000000000000 0000000000 0     //MINI Park Lane (MINI specials, ECE)
+07AN         00000000 0000000000000000 0000000000 0     //MINI Checkmate (MINI specials, ECE)
+07AR         00000000 0000000000000000 0000000000 0     //Aerodynamics packet
+07BA         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (3year/90Tkm)
+07BB         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (4year/90Tkm)
+07BC         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (5year/90Tkm)
+07BD         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (6year/90Tkm)
+07BE         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (3year/60Tkm)
+07BF         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (5year/50Tkm)
+07BG         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (3year package)                  //MINI Repair Inclusive (3-Jahrespaket)
+07BH         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (4year package)                  //MINI Repair Inclusive (4-Jahrespaket)
+07BK         00000000 0000000000000000 0000000000 0     //MINI Repair Inclusive (5year package)                  //MINI Repair Inclusive (5-Jahrespaket)
+07FA         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (5year package)        //MINI Service Inclusive (5-Jahrespaket)
+07FB         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (1year package)        //MINI Service + Repair Inclusive (1-Jahrespaket)
+07FC         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (2year package)        //MINI Service + Repair Inclusive (2-Jahrespaket)
+07FD         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (3year package)        //MINI Service + Repair Inclusive (3-Jahrespaket)
+07FE         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (4year package)        //MINI Service + Repair Inclusive (4-Jahrespaket)
+07FF         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (5year package)        //MINI Service + Repair Inclusive (5-Jahrespaket)
+07FG         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (5year/80Tkm)    //MINI Basic Service Inclusive (5Jahre/80Tkm)
+07FH         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (8year/130Tkm)   //MINI Basic Service Inclusive (8Jahre/130Tkm)
+07NA         00000000 0000000000000000 0000000000 0     //BMW Service Inclusive
+07NB         00000000 0000000000000000 0000000000 0     //BMW Service + Repair Inclusive
+07NG         00000000 0000000000000000 0000000000 0     //BMW Basic Service Inclusive (3year/60Tkm)
+07NH         00000000 0000000000000000 0000000000 0     //BMW Basic Service Inclusive (5year/100Tkm)
+07NK         00000000 0000000000000000 0000000000 0     //BMW Service Inclusive (5year/60Tkm)
+07NL         00000000 0000000000000000 0000000000 0     //BMW Service + Repair Inclusive (5year/60Tkm)
+07NM         00000000 0000000000000000 0000000000 0     //BMW Service Inclusive (3year/60Tkm)
+07NN         00000000 0000000000000000 0000000000 0     //BMW Service + Repair Inclusive (3year/60Tkm)
+07PA         00000000 0000000000000000 0000000000 0     //Mini Service Inclusive (6year o.60Tkm)
+07PB         00000000 0000000000000000 0000000000 0     //Mini Service + Repair Inclusive (6year o.60Tkm)
+07PC         00000000 0000000000000000 0000000000 0     //BMW Basic Service Inclusive (6year/60Tkm)
+07PD         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (6year/90Tkm)    //MINI Basic Service Inclusive (6Jahre/90Tkm)
+07PE         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (6year/90Tkm)          //MINI Service Inclusive (6Jahre/90Tkm)
+07PF         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (6year/90Tkm) //MINI Service + Repair Inclusive (6Jahre/90Tkm)
+07PG         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (5year/50Tkm)    //MINI Basic Service Inclusive (5Jahre/50Tkm)
+07PH         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (5year/50Tkm)          //MINI Basic Service Inclusive (5Jahre/50Tkm)
+07PK         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (5year/50Tkm) //MINI Service + Repair Inclusive (5Jahre/50Tkm)
+07PL         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (3year/50Tkm)    //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PM         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (3year/50Tkm)          //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PN         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (3year/50Tkm) //MINI Service + Repair Inclusive (3Jahre/50Tkm)
+07PP         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (3year/70Tkm)    //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PR         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (3year/70Tkm)          //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PS         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (3year/70Tkm) //MINI Service + Repair Inclusive (3Jahre/50Tkm)
+07PT         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (3year/90Tkm)    //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PU         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (3year/90Tkm)          //MINI Basic Service Inclusive (3Jahre/50Tkm)
+07PV         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (3year/90Tkm) //MINI Service + Repair Inclusive (3Jahre/50Tkm)
+07PW         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (5year/70Tkm)    //MINI Basic Service Inclusive (5Jahre/70Tkm)
+07PX         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (5year/70Tkm)          //MINI Service Inclusive (5Jahre/70Tkm)
+07PY         00000000 0000000000000000 0000000000 0     //MINI Service + Repair Inclusive (5year/70Tkm) //MINI Service + Repair Inclusive (5Jahre/70Tkm)
+07P1         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (1year package)  //MINI Basic Service Inclusive (1-Jahrespaket)
+07P2         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (2year package)  //MINI Basic Service Inclusive (2-Jahrespaket)
+07P3         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (3year package)  //MINI Basic Service Inclusive (3-Jahrespaket)
+07P4         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (4year package)  //MINI Basic Service Inclusive (4-Jahrespaket)
+07P5         00000000 0000000000000000 0000000000 0     //MINI Basic Service Inclusive (5year package)  //MINI Basic Service Inclusive (5-Jahrespaket)
+07P6         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (1year package)        //MINI Service Inclusive (1-Jahrespaket)
+07P7         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (2year package)        //MINI Service Inclusive (2-Jahrespaket)
+07P8         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (3year package)        //MINI Service Inclusive (3-Jahrespaket)
+07P9         00000000 0000000000000000 0000000000 0     //MINI Service Inclusive (4year package)        //MINI Service Inclusive (4-Jahrespaket)
+07R3         00000000 0000000000000000 0000000000 0     //Ukraine packet
+0703         00000000 0000000000000000 0000000000 0     //hungary package
+0706         00000000 0000000000000000 0000000000 0     //V5 package
+0725         00000000 0000000000000000 0000000000 0     //Basic package
+0730         00000000 0000000000000000 0000000000 0     //Advantage package
+0734         00000000 0000000000000000 0000000000 0     //Levant package
+0735         00000000 0000000000000000 0000000000 0     //dummy
+0736         00000000 0000000000000000 0000000000 0     //second Radio Remote Control Key
+0785         00000000 0000000000000000 0000000000 0     //white direction indicator lights
+08AA         0000AA00 0000000000000000 0000000000 0     //china version
+08AE         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet greek (to be planed at 01/01/05)
+08AF         00000000 0000000000000000 0000000000 0     //Koreanisch/Betriebsanleitung
+08AR         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet rumänisch
+08SM         00000000 0000000000000000 0000000000 0     //Visible VIN
+08SP         00000000 0000000000000000 0000000000 0     //CO2 Control
+08SY         00000000 0000000000000000 0000000000 0     //correction second automobile (Berichtigung Gebrauchte Automobile)
+08S2         00000000 0000200000000000 0000000000 1 ALARMSIGNAL //Coding of alarm signal (for netherlands)
+08S6         00000000 0000000000000000 0000000000 0     //Prespecified for export
+0801         00000100 0000000000000000 0000000000 0     //german version
+0802         00000200 0000000000000000 0000000000 1 KOREA //Korea version
+0807         00000700 0000000000000000 0000000000 1 JAPAN //Japan version
+0810         00001000 0000000000000000 0000000000 1 AUSTRALIEN //Australia version
+0812         00001200 0000000000000000 0000000000 1 ENGLAND //Great Britain version
+0815         00000000 0000000000000000 0000000000 S     //Heavy-duty package
+0818         00000000 0000000000000000 0000000000 0     //Battery main switch (deleted, technically not needed/engineered)
+0821         00002100 0000000000000000 0000000000 0     //Egypt version
+0822         00002200 0000000000000000 0000000000 1 GOLF //Gulf version
+0823         00000000 0000000000008000 0000000000 1 TROPEN    //Hot country version
+0824         00002400 0000000000000000 0000000000 1 ZA     //South Africa version
+0825         00000000 0000000000040000 0000000000 1 OZEANIEN    //Oceanic radio specification
+0833         00000000 0000000000000000 0000000000 0     //SINGAPUR Version
+0838         00003800 0000000000000000 0000000000 1 KANADA //Canada version
+0842         00000000 0000000000000000 0000000000 0     //Cold climate version
+0843         00000000 0000000000000000 0000000000 0     //Engine design
+0845         00000000 0000000000080000 0000000000 1 AK_GUWA    //Acoustic seatbelt wrng
+0846         00004600 0000000000000000 0000000000 0     //Taiwan version
+0850         00000000 0000000000000000 0000000000 0     //Add. tank filling export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH //Instrument lettering german
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH //Instrument lettering english
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH //Instrument lettering french
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH //Instrument lettering italian
+0856         00000006 0000000000000000 0000000000 1 SPANISCH //Instrument lettering spanish
+0858         00000000 0000000000000000 0000000000 S     //Engine design for low quality fuel
+0861         00000000 0000000000000010 0000000000 1 MILANSTEUERUNG //change coding data record
+0862         00000000 0000000000000000 0000000000 0     //Exhaust gas norm
+0863         00000000 0000000000000000 0000000000 0     //Dealer list Europe
+0864         00000000 0000000000000000 0000000000 0     //Dealer list Overseas
+0868         00000007 0000000000000000 0000000000 1 NIEDERLAENDISCH //Instrument lettering netherland at 01/05
+0870         00000000 0000000000000000 0000000000 0     //Salt
+0871         00000000 0000000000000000 0000000000 0     //Pepper
+0872         00000000 0000000000000000 0000000000 0     //Chili
+0876         00000000 0000000000000000 0000000000 0     //Radio frequency 315 MHz
+0877         00000000 0000000080000000 0000000000 1 ENTF_UEBERKREUZ //Deletion Cross over control
+0879         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet german
+0880         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet english
+0881         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet french
+0883         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet spanish
+0884         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet italian
+0885         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet swedish
+0886         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet hollaendis
+0887         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet arabic
+0888         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet danish
+0889         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet portguese
+0891         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet russisch
+0892         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet simple chinese
+0893         00000000 0000000000000000 0000000000 0     //MO Package III
+0894         00000000 0000000000000000 0000000000 0     //HK 2 Package
+0895         00000000 0000000000000000 0000000000 0     //Additional fan
+0896         00000000 0000000000200000 0000000000 1 TAGFAHRLICHT //Daytime driving light circuit
+09AA         00000000 0000000000000000 0000000000 0     //EXTERNAL SKIN PROTECTION (Aussenhautschutz)
+09AB         00000000 0000000000000000 0000000000 0     //External skin protection left out by Soko-Vehicle (Entfall Aussenhautschutz bei Soko-Fzg)
+0901         00000000 0000000000000000 0000000000 0     //Simplified special control press vehicle
+0902         00000000 0000000000000000 0000000000 0     //Special control press vehicle
+0903         00000000 0000000000000000 0000000000 0     //Special control autoshow vehicle
+0904         00000000 0000000000000000 0000000000 0     //Special control type approval vehicle
+0905         00000000 0000000000000000 0000000000 0     //Special control demo vehicle
+0906         00000000 0000000000000000 0000000000 0     //Special control photo vehicle
+0910         00000000 0000000000000000 0000000000 0     //Engineering vehicle, demonstration vehicle
+0911         00000000 0000000000000000 0000000000 0     //Engineering vehicle with PD inspection
+0912         00000000 0000000000000000 0000000000 0     //OE package
+0914         00000000 0000000000000000 0000000000 0     //LA premium package
+0915         00000000 0000000000000000 0000000000 0     //Without cosmoline (underbody protected)
+0916         00000000 0000000000000000 0000000000 0     //Without cosmoline (spec. contr.or engin. veh.)
+0925         00000000 0000000000000000 0000000000 0     //Shipping guard package
+0927         00000000 0000000000000000 0000000000 0     //All Season Bereifung
+0930         00000000 0000000000000000 0000000000 0     //Beruecksichtigung Preisabhaengigkeit
+0932         00000000 0000000000000000 0000000000 0     //Snow tires additional
+0933         00000000 0000000000000000 0000000000 0     //Hubcap for snow tires
+0934         00000000 0000000000000000 0000000000 0     //Snow tires on alloy wheels
+0936         00000000 0000000000000000 0000000000 0     //BMW HANDY request at delivery (Handy f.Werkfzg, Fuhrpark)
+0937         00000000 0000000000000000 0000000000 0     //CD ROM on Delivery
+0948         00000000 0000000000000000 0000000000 0     //Core model package V5-KA
+0949         00000000 0000000000000000 0000000000 0     //LA sport package
+0950         00000000 0000000000000000 0000000000 0     //latin america package
+0951         00000000 0000000000000000 0000000000 0     //summer package
+0952         00000000 0000000000000000 0000000000 0     //china package
+0953         00000000 0000000000000000 0000000000 0     //Taiwan-Package
+0955         00000000 0000000000000000 0000000000 0     //MO-Package II
+0956         00000000 0000000000000000 0000000000 0     //Gulf-Package
+0957         00000000 0000000000000000 0000000000 0     //HK Package II
+0962         00000000 0000000000000000 0000000000 0     //Licence Plate Carrier Front Deletion
+0964         00000000 0000000000000000 0000000000 0     //Navi DVD
+0969         00000000 0000000000000000 0000000000 0     //Navi DVD
+0972         00000000 0000000000000000 0000000000 0     //comfort package
+0973         00000000 0000000000000000 0000000000 0     //winter package
+0975         00000000 0000000000000000 0000000000 0     //highline OE
+0976         00000000 0000000000000000 0000000000 0     //pilot package
+0977         00000000 0000000000000000 0000000000 0     //exclusive line
+0981         00000000 0000000000000000 0000000000 0     //top comfort package
+0983         00000000 0000000000000000 0000000000 0     //model year code
+0986         00000000 0000000000000000 0000000000 0     //date check
+0987         00000000 0000000000000000 0000000000 0     //existence check
+0988         00000000 0000000000800000 0000000000 1 SIA_INTERVALL2 //shorter oil service intervall
+0991         00000000 0000000000000000 0000000000 0     //preseries control
+0992         00000000 0000000000000000 0000000000 0     //Licence plate holder
+0993         00000000 0000000000000000 0000000000 0     //Model year code
+0995         00000000 0000000000000000 0000000000 0     //Order change blocking
+0997         00000000 0000000000000000 0000000000 0     //Dealer presentation export
+0998         00000000 0000000000000000 0000000000 0     //Launch control internal demands
+0999         00000000 0000000000000000 0000000000 0     //Dealer launch control
+;
+B TYP           //area identification for ZEKO!!
+;Mini_1.4 R50/1
+RA11         B0110000 0000000000200000 0000000000 1 MINI_14 LL      //W10B14 MINI_14 LL  Einsatz 09/02 bis 12/04
+H RA11 V0905 B0110000 0000000000000000 0000000000 1 MINI_14 LL      //W10B14 MINI_14 LL
+H RA11 V0102 B0110000 0000000000000000 0000000000 1 MINI_14 LL      //W10B14 MINI_14 LL
+RA12         B0120000 0000000000200000 0000000000 1 MINI_14 RL      //W10B14 MINI_14 RL  Einsatz 09/02 bis 12/04
+H RA12 V0905 B0120000 0000000000000000 0000000000 1 MINI_14 RL      //W10B14 MINI_14 RL
+H RA12 V0102 B0120000 0000000000000000 0000000000 1 MINI_14 RL      //W10B14 MINI_14 RL
+;
+;Diesel Pacific R50/1
+RB11         B1110000 0000000008200004 0000000000 1 MINI_PACIFIC LL //W17D14 MINI_PACIFIC LL  Einsatz 03/03 bis 07/06
+H RB11 V0905 B1110000 0000000008000004 0000000000 1 MINI_PACIFIC LL //W17D14 MINI_PACIFIC LL
+H RB11 V1201 B1110000 0000000000000000 0000000000 1 MINI_PACIFIC LL //W17D14 MINI_PACIFIC LL
+RB12         B1120000 0000000008200004 0000000000 1 MINI_PACIFIC RL //W17D14 MINI_PACIFIC RL  Einsatz 03/03 bis 07/06
+H RB12 V0905 B1120000 0000000008000004 0000000000 1 MINI_PACIFIC RL //W17D14 MINI_PACIFIC RL
+H RB12 V1201 B1120000 0000000000000000 0000000000 1 MINI_PACIFIC RL //W17D14 MINI_PACIFIC RL
+;
+;Mini_one R50/1
+RA31         B0310000 0000000000200000 0000000000 1 MINI_ONE LL     //W10B16 MINI_ONE LL  Einsatz 06/01 bis 11/06
+H RA31 V0905 B0310000 0000000000000000 0000000000 1 MINI_ONE LL     //W10B16 MINI_ONE LL
+H RA31 V1100 B0310010 0000000000000000 0000000000 1 MINI_ONE LL     //W10B16 MINI_ONE LL
+RA32         B0320000 0000000000200000 0000000000 1 MINI_ONE RL     //W10B16 MINI_ONE RL  Einsatz 04/01 bis 11/06
+H RA32 V0905 B0320000 0000000000000000 0000000000 1 MINI_ONE RL     //W10B16 MINI_ONE RL
+H RA32 V0300 B0320000 0000000000000000 0000000000 1 MINI_ONE RL     //W10B16 MINI_ONE RL
+;
+;Mini_one Cabrio R52
+RD31         B1310000 0000000008200100 0000000000 1 MINI_ONE CABR LL //W10B16 MINI_ONE CABRIO LL  Einsatz 04/04 bis 08/08
+H RD31 V0905 B1310000 0000000008000100 0000000000 1 MINI_ONE CABR LL //W10B16 MINI_ONE CABRIO LL
+H RD31 V0105 B1310000 0000000008000000 0000000000 1 MINI_ONE CABR LL //W10B16 MINI_ONE CABRIO LL
+H RD31 V0302 B1310000 0000000000000000 0000000000 1 MINI_ONE CABR LL //W10B16 MINI_ONE CABRIO LL
+RD32         B1320000 0000000008200100 0000000000 1 MINI_ONE CABR RL //W10B16 MINI_ONE CABRIO LL  Einsatz 04/04 bis 08/08
+H RD32 V0905 B1320000 0000000008000100 0000000000 1 MINI_ONE CABR RL //W10B16 MINI_ONE CABRIO LL
+H RD32 V0105 B1320000 0000000008000000 0000000000 1 MINI_ONE CABR RL //W10B16 MINI_ONE CABRIO LL
+H RD32 V0302 B1320000 0000000000000000 0000000000 1 MINI_ONE CABR RL //W10B16 MINI_ONE CABRIO LL
+;
+;Cooper R50/2
+RC31         B2310000 0000000008200200 0000000000 1 COOPER LL       //W10B16 COOPER LL  Einsatz 06/01 bis 11/06
+H RC31 V0905 B2310000 0000000008000200 0000000000 1 COOPER LL       //W10B16 COOPER LL
+H RC31 V1002 B2310000 0000000008000000 0000000000 1 COOPER LL SPORT //W10B16 COOPER LL
+H RC31 V1100 B2310010 0000000000000000 0000000000 1 COOPER LL       //W10B16 COOPER LL
+H RC31 V0999 B2310000 0000000000000000 0000000000 1 COOPER LL       //W10B16 COOPER LL
+RC32         B2320000 0000000008200200 0000000000 1 COOPER RL       //W10B16 COOPER RL  Einsatz 04/01 bis 11/06
+H RC32 V0905 B2320000 0000000008000200 0000000000 1 COOPER RL       //W10B16 COOPER RL
+H RC32 V1002 B2320000 0000000008000000 0000000000 1 COOPER RL SPORT //W10B16 COOPER RL
+H RC32 V0300 B2320000 0000000000000000 0000000000 1 COOPER RL       //W10B16 COOPER RL
+RC33         B2330000 0000000408188A08 0000000000 1 COOPER LL US    //W10B16 COOPER US  Einsatz 12/01 bis 11/06
+H RC33 V0105 B2330000 0000000008088A00 0000000000 1 COOPER LL US    //W10B16 COOPER US
+H RC33 V1002 B2330000 0000000008088800 0000000000 1 COOPER LL US SPORT //W10B16 COOPER US
+H RC33 V0300 B2330000 0000000000000000 0000000000 1 COOPER LL US    //W10B16 COOPER US
+;
+;Cooper Cabrio R52
+RF31         B3310000 0000000008200100 0000000000 1 COOPER CABR LL    //W10B16 COOPER CABRIO LL  Einsatz 04/04 bis 08/08
+H RF31 V0905 B3310000 0000000008000100 0000000000 1 COOPER CABR LL    //W10B16 COOPER CABRIO LL
+H RF31 V0105 B3310000 0000000008000000 0000000000 1 COOPER CABR LL    //W10B16 COOPER CABRIO LL
+H RF31 V0302 B3310000 0000000000000000 0000000000 1 COOPER CABR LL    //W10B16 COOPER CABRIO LL
+RF32         B3320000 0000000008200100 0000000000 1 COOPER CABR RL    //W10B16 COOPER CABRIO RL  Einsatz 04/04 bis 08/08
+H RF32 V0905 B3320000 0000000008000100 0000000000 1 COOPER CABR RL    //W10B16 COOPER CABRIO RL
+H RF32 V0105 B3320000 0000000008000000 0000000000 1 COOPER CABR RL    //W10B16 COOPER CABRIO RL
+H RF32 V0302 B3320000 0000000000000000 0000000000 1 COOPER CABR RL    //W10B16 COOPER CABRIO RL
+RF33         B3330000 0000000408188900 0000000000 1 COOPER CABR LL US //W10B16 COOPER CABRIO US  Einsatz 07/04 bis 08/08
+H RF33 V0105 B3330000 0000000008088800 0000000000 1 COOPER CABR LL US //W10B16 COOPER CABRIO US
+H RF33 V0302 B3330000 0000000000000000 0000000000 1 COOPER CABR LL US //W10B16 COOPER CABRIO US
+;
+;Cooper_s R53
+RE31         B4310000 0000000008208404 0000000000 1 COOPER_S LL     //W11B16 COOPER_S LL  Einsatz 12/01 bis 11/06
+H RE31 V0905 B4310000 0000000008008404 0000000000 1 COOPER_S LL     //W11B16 COOPER_S LL
+H RE31 V1100 B4310010 0000000000000000 0000000000 1 COOPER_S LL     //W11B16 COOPER_S LL
+H RE31 V0999 B4310000 0000000000000000 0000000000 1 COOPER_S LL     //W11B16 COOPER_S LL
+RE32         B4320000 0000000008208404 0000000000 1 COOPER_S RL     //W11B16 COOPER_S RL  Einsatz 12/01 bis 11/06
+H RE32 V0905 B4320000 0000000008008404 0000000000 1 COOPER_S RL     //W11B16 COOPER_S RL
+H RE32 V0300 B4320000 0000000000000000 0000000000 1 COOPER_S RL     //W11B16 COOPER_S RL
+RE33         B4330000 0000000408188C0C 0000000000 1 COOPER_S LL US  //W11B16 COOPER_S US  Einsatz 12/01 bis 11/06
+H RE33 V0105 B4330000 0000000008088C04 0000000000 1 COOPER_S LL US  //W11B16 COOPER_S US
+H RE33 V0300 B4330000 0000000000000000 0000000000 1 COOPER_S LL US  //W11B16 COOPER_S US
+;
+;Cooper_s Cabrio r52
+RH31         B5310000 0000000008208304 0000000000 1 COOPER_S CABR LL    //W11B16 COOPER_S CABRIO LL  Einsatz 07/04 bis 08/08
+H RH31 V0905 B5310000 0000000008008304 0000000000 1 COOPER_S CABR LL    //W11B16 COOPER_S CABRIO LL
+H RH31 V0105 B5310000 0000000008008204 0000000000 1 COOPER_S CABR LL    //W11B16 COOPER_S CABRIO LL
+H RH31 V0302 B5310000 0000000000000000 0000000000 1 COOPER_S CABR LL    //W11B16 COOPER_S CABRIO LL
+RH32         B5320000 0000000008208304 0000000000 1 COOPER_S CABR RL    //W11B16 COOPER_S CABRIO RL  Einsatz 07/04 bis 08/08
+H RH32 V0905 B5320000 0000000008008304 0000000000 1 COOPER_S CABR RL    //W11B16 COOPER_S CABRIO RL
+H RH32 V0105 B5320000 0000000008008204 0000000000 1 COOPER_S CABR RL    //W11B16 COOPER_S CABRIO RL
+H RH32 V0302 B5320000 0000000000000000 0000000000 1 COOPER_S CABR RL    //W11B16 COOPER_S CABRIO RL
+RH33         B5330000 0000000408188B04 0000000000 1 COOPER_S CABR LL US //W11B16 COOPER_S CABRIO US  Einsatz 07/04 bis 08/08
+H RH33 V0105 B5330000 0000000008088A04 0000000000 1 COOPER_S CABR LL US //W11B16 COOPER_S CABRIO US
+H RH33 V0302 B5330000 0000000000000000 0000000000 1 COOPER_S CABR LL US //W11B16 COOPER_S CABRIO US
+;
+;Sondermodell Amper
+RE91         B4910000 0000000008208404 0000000000 1 COOPER_S AMP LL     //W11B16 COOPER_S LL  Einsatz 06/06 bis 09/06
+RE92         B4920000 0000000008208404 0000000000 1 COOPER_S AMP RL     //W11B16 COOPER_S RL  Einsatz 06/06 bis 09/06
+RE93         B4930000 0000000408188C0C 0000000000 1 COOPER_S AMP LL US  //W11B16 COOPER_S US  Einsatz 06/06 bis 09/06
+;
+C 89

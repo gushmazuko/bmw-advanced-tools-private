@@ -1,0 +1,53 @@
+;{{00013957}} Created by PSIGN 2.6 - Do not modify this file !
+[Package]
+Title = EDIABAS_BMW
+Description = EDIABAS REST (Package.pdf, API\JAVA, API\EXCEL, DOKU, HELP, Trace)
+Version = 7.3.0_Package_1.0
+Manufacturer = BMW Group
+Language =
+
+[Files]
+;*** ROOT: Huber ***
+File1=BUGs.pdf
+File2=PACKAGE.pdf
+
+;*** API\JAVA: Buboltz ***
+File3=API\JAVA\CASCADEEDIABAS.JAR
+
+;*** API\EXCEL: Gramer ***
+;--- SG-Check
+File4=API\EXCEL\SGBD_Check.xls
+File5=API\EXCEL\Anleitung SGBD_Check.doc
+File6=API\EXCEL\SGBD_SCAN_TOOL.xls
+File7=API\EXCEL\README_SGBD_SCAN_TOOL.txt
+
+;--- Tool für KWP2000-SGs
+File8=API\EXCEL\Aut_FS_DETAIL_KWP.xls
+File9=API\EXCEL\Aut_FS_DETAIL_UDS.xls
+File10=API\EXCEL\README_Aut_FS_DETAIL.txt
+
+;--- Tool für UDS-SGs
+;                       # erst Prototyp vorhanden
+
+;*** DOKU: Huber ***
+File11=DOKU\Deutsch\ANLEITUNG_STATUS_STEUERN_UDS.PDF
+File12=DOKU\Deutsch\BMWRTL.PDF
+File13=DOKU\Deutsch\FAQ.PDF
+File14=DOKU\English\ANLEITUNG_STATUS_STEUERN_UDS.PDF
+File15=DOKU\English\BMWRTL.PDF
+File16=DOKU\English\FAQ.PDF
+
+;*** HELP: Drexel ***
+File17=HELP\B2BMW.CHM
+File18=HELP\B2RUNTIM.CHM
+
+;*** SIM: Huber ***
+File19=SIM\EDIC.sim:VXEXIST
+File20=SIM\OBD.sim:VXEXIST
+File21=SIM\OMITEC.sim:VXEXIST
+
+;*** TRACE: Huber ***
+;     =TRACE\IFH.TRC    # ist zur Laufzeit nicht erforderlich (dient nur zum Anlagen des Trace-Verzeichnisses)
+
+; EOF
+

@@ -1,0 +1,459 @@
+//**********************************************************************
+//*
+//* Startseite für Nacharbeitsprogramme
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History: 
+//* 26.07.1999 rd V0.01 Erstellung
+//* 12.08.1999 rd V0.02 Bug Scriptselect Getriebe behoben
+//* 22.09.1999 rd V0.10 Land Rover integriert
+//* 18.10.1999 rd V0.50 Bug Ausgabe F3 Land Rover behoben
+//* 18.19.1999 rd V2.00 Freigabe
+//* 02.10.2001 rd V3.00 Komplette Überarbeitung
+//* 05.12.2002 iS V3.01 Abschaltung der Tracefunktion
+//* 16.02.2004 rd V5.00 Umstellung auf 32-Bit INPA
+//*            rd V5.00 Verantwortung für INPA an Hr. Gall übergeben
+//*            rd V5.00 Entfernung Eldi-Auftrag, INPA-Update
+//**********************************************************************
+
+#pragma winedit
+
+#include "inpa.h"
+#include "BMW_STD.H"
+// start of :#include "BATTERIE.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen BATTERIE.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* ShowBatteryIgnition
+//*
+//* Anzeige des Batterie- und Zündungs-Status
+//*
+//**********************************************************************
+ShowBatteryIgnition()
+{
+  bool   fehlerflag;    // Fehler aufgetreten
+  bool   zuendung;      // Zündung ein/aus
+  bool   batterie;      // Batterie ein/aus
+  int    wert;          // allgemeine Variable
+
+  ftextout("Battery :", 0,5,1,0);
+  ftextout("Ignition  :", 0,45,1,0);
+
+  INPAapiJob("UTILITY","STATUS_UBATT","","");
+  INP1apiResultInt(fehlerflag,wert,"STAT_UBATT",1);
+  if ((fehlerflag!=TRUE) || (wert==0))
+  {
+    batterie=FALSE;
+    zuendung=FALSE;
+  }
+  else 
+  {
+    batterie=TRUE;
+    INPAapiJob("UTILITY","STATUS_ZUENDUNG","","");
+    INP1apiResultInt(fehlerflag,wert,"STAT_ZUENDUNG",1);
+    if ((fehlerflag!=TRUE) || (wert==0))
+      zuendung=FALSE;
+    else
+      zuendung=TRUE;
+  }
+
+  digitalout(batterie, 0,20,"","");
+  if (batterie==TRUE)
+    ftextout("on  ", 0,25,1,0);
+  else
+    ftextout("off  ", 0,25,1,0);
+  
+  digitalout(zuendung, 0,62,"","");
+  if (zuendung==TRUE)
+    ftextout("on  ", 0,67,1,0);
+  else
+    ftextout("off  ", 0,67,1,0);
+}
+// -- EOF --
+// end of :#include "BATTERIE.SRC"
+
+import32 "C" lib "api32.DLL::__apiGetConfig" ApiGetConfig(in:long Handle,in: string Name,out: string Buffer, returns: int ReturnedValue);
+import32 "C" lib "api32.DLL::__apiSetConfig" ApiSetConfig(in:long Handle,in: string Name,in:  string Buffer, returns: int ReturnedValue);
+
+string titel             = "BMW Group Rectification programs";
+string version           = "5.00";
+string sgbd              = "without";
+string gruppe            = "without";
+string origin            = "Gall TI-430";
+string phone             = "FIZ 55213";
+string email             = "ruediger.gall@bmw.de";
+string ConfigurationFile = "..\CFGDAT\INPA.INI";
+string ini_path          = "????????????????????";
+string ecu_path          = "????????????????????";
+string interface         = "????????????????????";
+
+string F2="";
+string F3="";
+string F4="";
+string F5="";
+string F6="";
+string F7="";
+string F8="";
+string F9="";
+string F12="";
+string F13="";
+string F14="";
+string F15="";
+string F16="";
+string F17="";
+string F18="";
+string F19="";
+
+string F2_TEXT="";
+string F3_TEXT="";
+string F4_TEXT="";
+string F5_TEXT="";
+string F6_TEXT="";
+string F7_TEXT="";
+string F8_TEXT="";
+string F9_TEXT="";
+string F12_TEXT="";
+string F13_TEXT="";
+string F14_TEXT="";
+string F15_TEXT="";
+string F16_TEXT="";
+string F17_TEXT="";
+string F18_TEXT="";
+string F19_TEXT="";
+
+string F2_KNOPF="";
+string F3_KNOPF="";
+string F4_KNOPF="";
+string F5_KNOPF="";
+string F6_KNOPF="";
+string F7_KNOPF="";
+string F8_KNOPF="";
+string F9_KNOPF="";
+string F12_KNOPF="";
+string F13_KNOPF="";
+string F14_KNOPF="";
+string F15_KNOPF="";
+string F16_KNOPF="";
+string F17_KNOPF="";
+string F18_KNOPF="";
+string F19_KNOPF="";
+
+bool   rc;
+int    sets;
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+GetKonfigurationString(inout: string Wert , in: string Eintrag, in: string Default)
+{
+  string ReturnedString;
+  int    ReturnedSize;
+
+  ReturnedString = "                                                                                ";
+  GetPrivateProfileString("CONFIG",Eintrag,Default,ReturnedString,80,ConfigurationFile,ReturnedSize);
+  Wert = ReturnedString;
+}
+
+// ****************************************************
+// ***             M e n ü a u f b a u              ***
+// ****************************************************
+// **************************
+// *** Hauptmenü          ***
+// **************************
+MENU m_main()
+{
+  INIT{
+    setmenutitle( "Select menu");
+    if (F2 !="") setitem( 2, F2_KNOPF ,TRUE);
+    if (F3 !="") setitem( 3, F3_KNOPF ,TRUE);
+    if (F4 !="") setitem( 4, F4_KNOPF ,TRUE);
+    if (F5 !="") setitem( 5, F5_KNOPF ,TRUE);
+    if (F6 !="") setitem( 6, F6_KNOPF ,TRUE);
+    if (F7 !="") setitem( 7, F7_KNOPF ,TRUE);
+    if (F8 !="") setitem( 8, F8_KNOPF ,TRUE);
+    if (F9 !="") setitem( 9, F9_KNOPF ,TRUE);
+    if (F12!="") setitem(12, F12_KNOPF,TRUE);
+    if (F13!="") setitem(13, F13_KNOPF,TRUE);
+    if (F14!="") setitem(14, F14_KNOPF,TRUE);
+    if (F15!="") setitem(15, F15_KNOPF,TRUE);
+    if (F16!="") setitem(16, F16_KNOPF,TRUE);
+    if (F17!="") setitem(17, F17_KNOPF,TRUE);
+    if (F18!="") setitem(18, F18_KNOPF,TRUE);
+    if (F19!="") setitem(19, F19_KNOPF,TRUE);
+  }
+
+  ITEM( 1 , "Info"){
+    viewclose();
+    setscreen(s_info,TRUE);
+  }
+
+  ITEM( 2 , ""){
+    setscreen(s_main,TRUE);
+    if (F2!="") scriptselect( F2+".ENG");
+  }
+
+  ITEM( 3 , ""){
+    setscreen(s_main,TRUE);
+    if (F3!="") scriptselect( F3+".ENG");
+  }
+
+  ITEM( 4 , ""){
+    setscreen(s_main,TRUE);
+    if (F4!="") scriptselect( F4+".ENG");
+  }
+
+  ITEM( 5 , ""){
+    setscreen(s_main,TRUE);
+    if (F5!="") scriptselect( F5+".ENG");
+  }
+
+  ITEM( 6 , ""){
+    setscreen(s_main,TRUE);
+    if (F6!="") scriptselect( F6+".ENG");
+  }
+
+  ITEM( 7 , ""){
+    setscreen(s_main,TRUE);
+    if (F7!="") scriptselect( F7+".ENG");
+  }
+
+  ITEM( 8 , ""){
+    setscreen(s_main,TRUE);
+    if (F8!="") scriptselect( F8+".ENG");
+  }
+
+  ITEM( 9 , ""){
+    setscreen(s_main,TRUE);
+    if (F9!="") scriptselect( F9+".ENG");
+  }
+
+  ITEM(10 , "End"){
+    viewclose();
+    exit();
+  }
+
+  ITEM(11,  "Change"){
+    viewclose();
+    setscreen(s_info,TRUE);
+    callwin( "kvp_edit "+titel+";"+version+"; without; without");
+  }
+
+  ITEM(12 , ""){
+    setscreen(s_main,TRUE);
+    if (F12!="") scriptselect( F12+".ENG");
+  }
+
+  ITEM(13 , ""){
+    setscreen(s_main,TRUE);
+    if (F13!="") scriptselect( F13+".ENG");
+  }
+
+  ITEM(14 , ""){
+    setscreen(s_main,TRUE);
+    if (F14!="") scriptselect( F14+".ENG");
+  }
+
+  ITEM(15 , ""){
+    setscreen(s_main,TRUE);
+    if (F15!="") scriptselect( F15+".ENG");
+  }
+
+  ITEM(16 , ""){
+    setscreen(s_main,TRUE);
+    if (F16!="") scriptselect( F16+".ENG");
+  }
+
+  ITEM(17 , ""){
+    setscreen(s_main,TRUE);
+    if (F17!="") scriptselect( F17+".ENG");
+  }
+
+  ITEM(18 , ""){
+    setscreen(s_main,TRUE);
+    if (F18!="") scriptselect( F18+".ENG");
+  }
+
+  ITEM(19 , ""){
+    setscreen(s_main,TRUE);
+    if (F19!="") scriptselect( F19+".ENG");
+  }
+
+  ITEM(20 , "Exit"){
+    viewclose();
+    exit();
+  }
+}
+
+// ****************************************************
+// ***             S c r e e n a u f b a u          ***
+// ****************************************************
+// **************************
+// *** Hauptscreen        ***
+// **************************
+SCREEN s_main()
+{
+  ftextout(titel,1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    ShowBatteryIgnition();
+    
+                   ftextout("< F1 >  Information"                , 4, 5,0,1);
+    if (F2 != "")  ftextout("< F2 >  " + F2_TEXT                   , 6, 5,0,1);
+    if (F3 != "")  ftextout("< F3 >  " + F3_TEXT                   , 8, 5,0,1);
+    if (F4 != "")  ftextout("< F4 >  " + F4_TEXT                   ,10, 5,0,1);
+    if (F5 != "")  ftextout("< F5 >  " + F5_TEXT                   ,12, 5,0,1);
+    if (F6 != "")  ftextout("< F6 >  " + F6_TEXT                   ,14, 5,0,1);
+    if (F7 != "")  ftextout("< F7 >  " + F7_TEXT                   ,16, 5,0,1);
+    if (F8 != "")  ftextout("< F8 >  " + F8_TEXT                   ,18, 5,0,1);
+    if (F9 != "")  ftextout("< F9 >  " + F9_TEXT                   ,20, 5,0,1);
+                   ftextout("< F10>  End"                       ,22, 5,0,1);
+
+                   ftextout("<Shift> + < F1 >  Change Editor"       , 4,45,0,1);
+    if (F12!= "")  ftextout("<Shift> + < F2 >  " + F12_TEXT        , 6,45,0,1);
+    if (F13!= "")  ftextout("<Shift> + < F3 >  " + F13_TEXT        , 8,45,0,1);
+    if (F14!= "")  ftextout("<Shift> + < F4 >  " + F14_TEXT        ,10,45,0,1);
+    if (F15!= "")  ftextout("<Shift> + < F5 >  " + F15_TEXT        ,12,45,0,1);
+    if (F16!= "")  ftextout("<Shift> + < F6 >  " + F16_TEXT        ,14,45,0,1);
+    if (F17!= "")  ftextout("<Shift> + < F7 >  " + F17_TEXT        ,16,45,0,1);
+    if (F18!= "")  ftextout("<Shift> + < F8 >  " + F18_TEXT        ,18,45,0,1);
+    if (F19!= "")  ftextout("<Shift> + < F9 >  " + F19_TEXT        ,20,45,0,1);
+                   ftextout("<Shift> + < F10>  Exit"             ,22,45,0,1);
+  }
+}
+
+// **************************
+// *** Infoscreen         ***
+// **************************
+SCREEN s_info ()
+{
+  ftextout("Information",1,0,1,0);
+  ftextout(titel,7,0,0,1);
+  ftextout("Version",9,0,0,1);
+  ftextout(":",9,33,0,1);
+  ftextout(version,9,35,0,1);
+  ftextout("Responsibility",11,0,0,1);
+  ftextout(":",11,33,0,1);
+  ftextout(origin,11,35,0,1);
+  ftextout("Phone",12,1,0,1);
+  ftextout(":",12,33,0,1);
+  ftextout(phone ,12,35,0,1);
+  ftextout("Email",13,1,0,1);
+  ftextout(":",13,33,0,1);
+  ftextout(email ,13,35,0,1);
+  ftextout("EDIABAS" ,15,0,1,0);
+  ftextout("Ini path",18,0,0,1);
+  ftextout(":",18,33,0,1);
+  ftextout(ini_path,18,35,0,1);
+  ftextout("Ecu path",20,0,0,1);
+  ftextout(":",20,33,0,1);
+  ftextout(ecu_path,20,35,0,1);
+  ftextout("Interface",22,0,0,1);
+  ftextout(":",22,33,0,1);
+  ftextout(interface,22,35,0,1);
+}
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  long   Handle;
+  int    Returned;
+
+  INPAapiInit();
+  
+  // Ausschalten des trace
+  // WERT 2 wurde durch Tests ermittelt
+  Handle=2;
+  ApiSetConfig(Handle,"APITRACE","0",Returned);
+  ApiSetConfig(Handle,"IFHTRACE","0",Returned);
+  ApiGetConfig(Handle,"EDIABASINIPATH",ini_path,Returned);
+  ApiGetConfig(Handle,"ECUPATH",ecu_path,Returned);
+  ApiGetConfig(Handle,"INTERFACE",interface,Returned);
+
+  GetKonfigurationString(titel    , "TITEL"    , titel);
+  // F1 fest Information
+  GetKonfigurationString(F2       , "F2"       , ""   );
+  GetKonfigurationString(F3       , "F3"       , ""   );
+  GetKonfigurationString(F4       , "F4"       , ""   );
+  GetKonfigurationString(F5       , "F5"       , ""   );
+  GetKonfigurationString(F6       , "F6"       , ""   );
+  GetKonfigurationString(F7       , "F7"       , ""   );
+  GetKonfigurationString(F8       , "F8"       , ""   );
+  GetKonfigurationString(F9       , "F9"       , ""   );
+  // F10 fest Ende
+  // F11 fest KVP-Editor
+  GetKonfigurationString(F12      , "F12"      , ""   );
+  GetKonfigurationString(F13      , "F13"      , ""   );
+  GetKonfigurationString(F14      , "F14"      , ""   );
+  GetKonfigurationString(F15      , "F15"      , ""   );
+  GetKonfigurationString(F16      , "F16"      , ""   );
+  GetKonfigurationString(F17      , "F17"      , ""   );
+  GetKonfigurationString(F18      , "F18"      , ""   );
+  GetKonfigurationString(F19      , "F19"      , ""   );
+  // F20 fest Exit
+  GetKonfigurationString(F2_TEXT  , "F2_TEXT"  , F2   );
+  GetKonfigurationString(F3_TEXT  , "F3_TEXT"  , F3   );
+  GetKonfigurationString(F4_TEXT  , "F4_TEXT"  , F4   );
+  GetKonfigurationString(F5_TEXT  , "F5_TEXT"  , F5   );
+  GetKonfigurationString(F6_TEXT  , "F6_TEXT"  , F6   );
+  GetKonfigurationString(F7_TEXT  , "F7_TEXT"  , F7   );
+  GetKonfigurationString(F8_TEXT  , "F8_TEXT"  , F8   );
+  GetKonfigurationString(F9_TEXT  , "F9_TEXT"  , F9   );
+
+  GetKonfigurationString(F12_TEXT , "F12_TEXT" , F12  );
+  GetKonfigurationString(F13_TEXT , "F13_TEXT" , F13  );
+  GetKonfigurationString(F14_TEXT , "F14_TEXT" , F14  );
+  GetKonfigurationString(F15_TEXT , "F15_TEXT" , F15  );
+  GetKonfigurationString(F16_TEXT , "F16_TEXT" , F16  );
+  GetKonfigurationString(F17_TEXT , "F17_TEXT" , F17  );
+  GetKonfigurationString(F18_TEXT , "F18_TEXT" , F18  );
+  GetKonfigurationString(F19_TEXT , "F19_TEXT" , F19  );
+
+  GetKonfigurationString(F2_KNOPF , "F2_KNOPF" , F2   );
+  GetKonfigurationString(F3_KNOPF , "F3_KNOPF" , F3   );
+  GetKonfigurationString(F4_KNOPF , "F4_KNOPF" , F4   );
+  GetKonfigurationString(F5_KNOPF , "F5_KNOPF" , F5   );
+  GetKonfigurationString(F6_KNOPF , "F6_KNOPF" , F6   );
+  GetKonfigurationString(F7_KNOPF , "F7_KNOPF" , F7   );
+  GetKonfigurationString(F8_KNOPF , "F8_KNOPF" , F8   );
+  GetKonfigurationString(F9_KNOPF , "F9_KNOPF" , F9   );
+
+  GetKonfigurationString(F12_KNOPF, "F12_KNOPF", F12  );
+  GetKonfigurationString(F13_KNOPF, "F13_KNOPF", F13  );
+  GetKonfigurationString(F14_KNOPF, "F14_KNOPF", F14  );
+  GetKonfigurationString(F15_KNOPF, "F15_KNOPF", F15  );
+  GetKonfigurationString(F16_KNOPF, "F16_KNOPF", F16  );
+  GetKonfigurationString(F17_KNOPF, "F17_KNOPF", F17  );
+  GetKonfigurationString(F18_KNOPF, "F18_KNOPF", F18  );
+  GetKonfigurationString(F19_KNOPF, "F19_KNOPF", F19  );
+
+  settitle(titel+" Version "+version);
+  setmenu(m_main);
+  setscreen(s_main,TRUE);
+}
+
+inpaexit()
+{
+  INPAapiEnd();
+}
+

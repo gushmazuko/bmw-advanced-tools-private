@@ -1,0 +1,19 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer HW-Historiendatei (Flash)
+; z.B. MD526.HWH
+; Autor: Le
+; Datum: 05.01.96
+; 22.08.97  Le    Kommentarzeilen mit "^"
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C "^;"
+C "^$"
+;
+;4379952A T , 4380564A T , 4380416A F , ... ;
+R "HWHFLASH"
+M "%7L%C +%C +"
+F "%7L%C +%C +(, +%7L%C +%C +);"
+N "HWHNR1,IX1,FG1,HWHNR2,IX2,FG2"
+;
+; ENDE

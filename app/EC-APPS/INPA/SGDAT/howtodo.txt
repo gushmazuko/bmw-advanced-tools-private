@@ -1,0 +1,40 @@
+VORAUSSETZUNGEN:
+
+Aktuelle Ediabas/INPA Installation und entsprechendes OBD-Kabel!
+
+
+VORBEREITUNG:
+
+
+1) Bitte pm_8x_6x_xx.ipo in C:\EC-Apps\Inpa\SGDAT Verzeichnis kopieren
+
+2) Neueste MSD80_PM.prg und D60_PM (voroffiziell) in C:\Ediabas\ECU kopieren
+
+3) Verzeichnis C:\Iststand anlegen !!!
+
+4) pm_8x_6x_xx.ipo oder dessen Verknüpfung (voher anlegen) mit Doppelklick aufrufen
+
+
+AUSLESEN:
+
+6) Ediabas Kommunikation mit Fahrzeug sicherstellen
+
+7) Klemme 15 ein bzw. Motor an!
+
+8) F2 "PM-auslesen" aufrufen und Infospeicherauslesen abwarten (evtl. Fehler mit "Ja" bestätigen)
+   Fehlermeldungen bitte mitzuteilen, diese werden bewußt nicht ausgeblendet!
+
+9) Datei mit Fahrgestellnummer wird unter C:\Iststand mit den Auslesedaten erzeugt. 
+
+INFO: 
+
+-Existiert die Datei mit der Fahrgestellnummer bereits unter C:\Iststand, werden die neuen Auslesedaten einfach an die Datei angehängt!
+-Fehler können beim Auslesen nur dann auftreten, wenn die Kommunikation nicht funktioniert bzw. veraltete SG mit altem Stand oder fehlerhafte SG verbaut sind.
+
+
+Historie:
+
+- Version V1.0.27 Aufnahme von IGRINFO, MSAINFO und LEMINFO
+- Version V1.0.28 Aufnahme von BZEINFO, Erweiterte Intepretation von IGRInfo
+- version V1.0.29 Wiederaufnahme von nicht Layer DME/DDE - SGs
+- Version V1.0.32 Erweiterung der JBBF2 Historienspeicher

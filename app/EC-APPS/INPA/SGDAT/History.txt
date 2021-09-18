@@ -1,0 +1,2018 @@
+//**********************************************************************
+//*
+//* Autor       : Günter Straßer
+//* Kurzzeichen : TD-531
+//* Telefon     : 08731 / 76 - 29182
+//*
+//* Dateiname   : TD-530.IPO
+//*
+//**********************************************************************
+//* History         :
+//*---------------------------------------------------------------------
+//* Datum    | Vers. | Bemerkung
+//*
+//*---------------------------------------------------------------------
+//*09.03.2012| 4.09  |XML Das LogToXML-Feature wurde in dieser Version integriert.
+//*          |       |    Von nun an ist es möglich, eine XML-Datei mit dem Informationsgehalt der Ergebnisdatei zu erzeugen, 
+//*          |       |    wenn (UND-Bedingungen)
+//*          |       |      - der Parameter LogToXML=1 in der Konfiguration gesetzt ist,
+//*          |       |      - der Parameter Logging=1  in der Konfiguration gesetzt ist,
+//*          |       |      - das Skript in einem Auto-Modus läuft,
+//*          |       |      - die beiden DLLs "TD-530LogToXML.dll" und "xerces-c_3_1_vc80.dll" im ...INPA\BIN-Verzeichnis sind.
+//*          |       |    Ist eine der Bedingungen nicht erfüllt, wird der Fehler vom Skript abgefangen und der Auslesevorgang 
+//*          |       |    startet nicht. XML lässt sich über den Parameter LogToXML=0 komplett ausschalten.
+//*          |       |13  Die "TD-530LogToXML.dll" Version 3.5 muss nun verwendet werden. Dies wird auch durch eine Versionsabfrage,
+//*          |       |    nicht mehr in String sonder als Zahlenwert, überwacht.
+//*          |       |    Bibliotheksfunktionen und Aufrufe wurden dazu angepasst.
+//*          |       |12  Die Abfrage des Klemmenstatus im Automodus wurde für XML angepasst, um die zücklischen Statusabfragen nach beenden
+//*          |       |    des Auslesevorgans zu unterdrücken.     
+//*          |       |11  Funktionsblöcke 
+//*          |       |    MOST Default/Current Regestry,
+//*          |       |    Auslesen der Power management Daten,
+//*          |       |    GW_HISTORY_LESEN,
+//*          |       |    Individual Jobs und
+//*          |       |    Check Control History 
+//*          |       |    wurden für die XML Ausgabe überarbeitet.
+//*          |       |10  Erweiterung der Funktion SGBD_JOB_ALL_TO_LIST um die Möglichkeit keine Header erzeugen zu lassen.
+//*          |       |9   Die Ausgabe "Funktionsblöcke Soll/Ist" in der CheckIn Zusammenfassung wurde geändert
+//*          |       |8   Im TRSVC werden nun auch Helligkeits- und Kontrastwerte mit ausgelesen. 
+//*          |       |7   Erweiterung der ausgelesenen Hybrid-Daten, aus der SME_10, um den Schütz Restwertzähler, Auslesen der Einschaltvorgänge, 
+//*          |       |    bei angewiesener Zell zahl zur Symmetrierung, Soll-Zeit der aktiven Symmetriewiderstände. 
+//*          |       |6   Diagnose-Result des NBT zur Ermittlung der Gracenote DB angepasst.
+//*          |       |5   Der Historien-Speicher des Kombis wird nun über die Kombi-Gruppendatei ausgeführt.
+//*          |       |4   Baureihen Mini Derivat R61 und M3 F80 zum Skript hinzugefügt.
+//*          |       |3   Auslesen neuer Kombi-Daten aus Komb25.
+//*          |       |2   Auslesen des Schiebedach-Denormierungsloggers aus Funktionszentrum-Dach. 
+//*          |       |1   Neuer Funktionsblock um das Lesen der Daten des Rücksitz Entertainments zu ermöglichen.
+---------------------------------------------------------------------
+//*18.01.2012| 4.08  |XML Das LogToXML-Feature wurde in dieser Version integriert.
+//*          |       |    Von nun an ist es möglich, eine XML-Datei mit dem Informationsgehalt der Ergebnisdatei zu erzeugen, 
+//*          |       |    wenn (UND-Bedingungen)
+//*          |       |      - der Parameter LogToXML=1 in der Konfiguration gesetzt ist,
+//*          |       |      - der Parameter Logging=1  in der Konfiguration gesetzt ist,
+//*          |       |      - das Skript in einem Auto-Modus läuft,
+//*          |       |      - die beiden DLLs "TD-530LogToXML.dll" und "xerces-c_3_1_vc80.dll" im ...INPA\BIN-Verzeichnis sind.
+//*          |       |    Ist eine der Bedingungen nicht erfüllt, wird der Fehler vom Skript abgefangen und der Auslesevorgang 
+//*          |       |    startet nicht. XML lässt sich über den Parameter LogToXML=0 komplett ausschalten.
+//*          |       |11  Bei Sensor Daten lesen werden nun detailliertere Daten ausgelesen, da der Job dafür nicht mehr in der
+//*          |       |    in der F01.prg, sondern direkt für das jeweilige Steuergerät ausgeführt wird.
+//*          |       |10  Das Auslesen des Zählers der für die HDD gefährlichen Stöße/Vibrationen aus dem NBT-Steuergerät
+//*          |       |    wurde zu Headunit Daten lesen hinzugefügt.
+//*          |       |9   Das Auslesen des MSA2-Deaktivierungsstatus wurde hinzugefügt. Dabei wurde auch der Funktionsblock
+//*          |       |    MSA Daten lesen überarbeitet.
+//*          |       |8   Bei den Hybrid Daten werden aus der SME_10 nun zusätzliche Daten ausgelesen.
+//*          |       |7   Mit Hilfe der Funktion SGBD_JOB_RES_INT_TO_LIST können nun gezielt Integer-Werte ausgegeben werden.
+//*          |       |    Anstoß hierzu war, wenn das Steuergerät z.b. 3.2E+001 zurück gibt, das Ergebnis aber als 32 darge-
+//*          |       |    stellt werden soll.
+//*          |       |6   Das Setzen des Terminal-Status wurde für den neuen Modus Auto_FZGData angepasst.
+//*          |       |5   Die Farbtabelle des HeadUp-Displays wird nur noch dann ausgelesen, wenn das Fahrzeug die entsprech-
+//*          |       |    SA (610) besitzt.
+//*          |       |4   Funktionsaufrufe, bei denen der übergebene Result-Name und die übergebene Result-Bezeichnung
+//*          |       |    gleich waren, wurden überarbeitet.
+//*          |       |3   Neuer Skript-Modus: Auto_FZGData. Hier wird eine Ergebnisdatei erzeugt, die nur die Daten aus dem
+//*          |       |    Bereich "Fahrzeugdaten lesen" des normalen CheckIns beinhaltet (also nur die Daten der Fahrzeugiden-
+//*          |       |    tifizierung). Unter anderem auch die Fahrgestell-
+//*          |       |    Nummer. Ziel ist es, das Skript nur kurz zu starten und als Ergebnis u.a. die Fahrgestellnummer zu
+//*          |       |    zu bekommen. Dies wird für das Individual Jobs - Feature bei Ausleseterminals ohne Keyreader benötigt.
+//*          |       |2   Aufrgund der Verschiebung des WLAN-Features beim NBT wurden die WLAN-Jobs aus dem NBT Steuergerät 
+//*          |       |    vorerst vom Ablauf ausgenommen.
+//*          |       |1   Entwicklerjobs zu Headunit Daten lesen und SWT Daten lesen hinzugefügt.
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*28.11.2011| 4.07  |8   Das Auslesen der Getriebe-Daten aus der GKEHY23 wurde überarbeitet. Dabei wurden einige 
+//*          |       |    Jobs hinzugefügt und ein paar herausgenommen, die in der GKEHY23 nicht enthalten sind.
+//*          |       |7   Läuft das Skript im Automodus und am Fahrzeug ist nicht die Klemme eingestellt, auf die 
+//*          |       |    laut Config-Angabe gewartet werden soll, so wird ein Mal versucht die Klemme mittels Diagnose 
+//*          |       |    zu schalten. Ist dies nicht möglich, wird wie bisher mit entsprechendem Hinweis gewartet.
+//*          |       |6   Der Job _STATUS_READDATABYIDENTIFIER wurde dem Funktionsblock KOMBI_DATEN_LESEN hinzugefügt.
+//*          |       |5   Beim Ausfühen von Diagnose-Jobs mit SGBD_JOB_UDS_ALL_TO_LIST fehlten die Resultbezeichnungen 
+//*          |       |    im CheckIn. Die Funktion wurde entsprechend überarbeitet.
+//*          |       |4   Das Setzen des Status fürs AT in der INPA-Status - Datei wurde überarbeitet. Fehlerfrei wird jetzt 
+//*          |       |    erst gesetzt, wenn die Diagnosedaten (CheckIn/Out) im Automodus auch wirklich durchgeführt wurde.
+//*          |       |3   Das Auslesen der Motor-Daten wurde um den Job STATUS_SUPERKLOPFER erweitert.
+//*          |       |2   Aus der SME_10 bei den Hybrid-Daten wird nun der STATUS_LESEN - Job HV_SPANNUNG_BATTERIE bearbeitet.
+//*          |       |1   Die Funktion FILE_CREATE wurde erweitert. Nun kann beim Aufruf entschieden werden, ob die Datei, die 
+//*          |       |    erstellt werden soll, den fest definierten Kopf enthält oder nicht (z.B. bei Log-Datei nicht nötig).
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------     
+//*20.10.2011| 4.06  |14  Die Faktoren (*1/32) und (*1/64), die der Resultbezeichnung beim Auslesen des Ladestrom 
+//*          |       |    bzw. der Ladespannung aus der SME_04 mit angegeben wurden, konnten entfernt werden.
+//*          |       |13  Die Funktion "CopyFiles" wurde entfernt, da diese im Skript nicht weiter genutzt wird.
+//*          |       |12  Steuern-Job zum (Ent-)Sperren der Türaußengriff-Elektronik wurde im Spezialmenü eingefügt. 
+//*          |       |    Dieser wurde bis auf Weiteres auskommentiert, da hierfür ein extra Tool programmiert wurde.
+//*          |       |11  Das Auslesen der NBT HU wurde überarbeitet und um einige Jobs erweitert. Jobs, die aus der 
+//*          |       |    SGBD entfallen sind, wurden entfernt.
+//*          |       |10  Aus Fahrzeugen, die eine DSC_10 verbaut haben und gleichzeitig keine 2VB SA besitzen, 
+//*          |       |    wurden keine RPA-Daten ausgelesen. Die betroffene RPA-Funktion wurde entsprechend überarbeitet.
+//*          |       |9   Die verwendete Konfiguration aus der .cfg-Datei wird nun gleich am Anfang, nicht mehr 
+//*          |       |    zum Schluss, in die Log-Datei geschrieben.
+//*          |       |8   Der Funktionsblock KOMBI_DATEN_LESEN wurde hinzugefügt.               
+//*          |       |7   Der Funktionsblock KAFAS_DATEN_LESEN wurde hinzugefügt.
+//*          |       |6   Wird bei einer SGBD_..._RES_TO_LIST-Funktion kein expliziter Resultbezeichner übergeben, 
+//*          |       |    so wird die Resultbezeichnung gleich des Resultnamens gesetzt.
+//*          |       |5   In der neuen Version der SME-SGBD gibt es einen neuen Job: STATUS_DIFFERENZ_SPANNUNG.
+//*          |       |    Dieser wurde ins Skript eingefügt.
+//*          |       |4   Der Job STATUS_GENDATEN wurde hinzugefügt. Dieser liest Felddaten zur Generator-Auslastung 
+//*          |       |    bei bestimmten Motoren aus.
+//*          |       |3   Das Auslesen von Bluetooth- und USB-Telefondaten vom NBT wurde hinzugefügt.
+//*          |       |2   Das Auslesen des Schiebedach-Denormierungsloggers wurde als neuer Funktionsblock 
+//*          |       |    „SHD Lesen“ hinzugefügt.
+//*          |       |1   Die Abfrage zur Anzeige des Notepad-Ergebnisfiles wurde verbessert. 
+//*          |       |    Das Notepad-Fenster mit den Ergebnissen wird nun auch geöffnet, wenn 
+//*          |       |    Parameter AutoScript nicht auskommentiert, stattdessen aber auf 0, OFF etc. gesetzt ist.
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------                          
+//*05.09.2011| 4.05  |14   In Version 4.04 bestand das Problem, dass die Ergebnisse nach einem Skriptdurchlauf 
+//*	     |       |     weder im INPA Viewer angezeigt wurden, noch, trotz entsprechender Config-Einstellungen, 
+//*	     |       |     das Resultfile geöffnet wurde. Dies wurde behoben.	
+//*	     |       |13   Die Ausgabe der RDC-Daten wurde überarbeitet und die Ergebnisnamen an Toolset angepasst.
+//*	     |       |12   Überarbeitung von SGBD_RES_REAL_TO_LIST. 
+//*	     |       |     Fehlerhafte "0"-Ausgaben werden jetzt als "---" ausgegeben.			
+//*          |       |11   Die Ausgabe der ENTRY-Daten wurde hinzugefügt (MOST_CURRENT_REGISTRY_LESEN & MOST_DEFAULT_REGISTRY).
+//*          |       |10   In ALARMSPEICHER_LESEN wurde die Ausgabe überarbeitet und die Ergebnisnamen an Toolset angepasst.
+//*          |       | 9   Für die DSC_25 werden nun Reifenpannenanzeige, Lerndaten Statistik und Lerndaten STD ausgelesen.
+//*          |       | 8   Die EGS_LESEN Ausgabe wurde mit SGBD_RES_ADD_LIST und SGBD_RES_FROM_LIST_TO_LIST optimiert.
+//*          |       | 7   Im Powermanagement PM_LESEN wurde die Ausgabe der Ruhestrom-Zyklen überarbeitet.
+//*          |       | 6   Eine Abfrage, um Mischbordnetze von Rolls Royce zu erkennen, wurde hinzugefügt (FZG_AUFTRAG_LESEN).
+//*          |       | 5   Die Baureihe F036 wurde hinzugefügt (FZG_SET_BAUREIHE).
+//*          |       | 4   Die Ausgabe der GKEHY_23 Getriebedaten wurde hinzugefügt (SGBD_ADAPTIONSWERTE_GETRIEBE_GSB231).
+//*          |       | 3   Erweiterungen des Source-Codes, die der Log-Datei Ausgaben für den XML-Konverter hinzufügen (SGBD_RES_TO_XML).
+//*          |       | 2   Funktion SGBD_JOB_RES_EXISTS wurde um eine Debugausgabe erweitert.
+//*          |       | 1   Variable für Ergebnisstatus ist jetzt global definiert.
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------                                
+//*25.07.2011| 4.04  | 9.	Es werden fehlerhafte Steuergeräte angezeigt. Falls eine direkte Adressierung möglich war, werden diese trotzdem unter den ID-Daten aufgeführt
+//*          |       | 8.	EcuMA-Awake-Status (Liste alles &quot;RUN&quot;- und &quot;POST_RUN&quot;-Requests und Einschlafverhinde 
+//*          |       | 7.	EcuMA-History-Ringspeicher mit Liste aller letzten Weck-Quellen, Weckhäufigkeit, Betriebssekundenzähler und letzter empfangenem km-Status 
+//*          |       | 6.	Lesbarkeit vieler Daten erhöht in dem, dass +E00-Schreibweise verzichtet wird und nur noch zwei Nachkommastellen angezeigt werden.
+//*          |       | 5.	Das Format für die Auslesezeit wurde geändert. Jetzt Min:Sec                                                                                                                                     
+//*          |       | 4.	Bei Hybrid lesen wurden die Zellspannungen Max und Min Werte hinzugefügt                                                                                                                         
+//*          |       | 3.	Daten für Alarmspeicher wurden fehlerhaft ausgegeben. Teilweise wurde Umfang nicht gesetzt.                                                                                                                                                             
+//*          |       | 2.	Daten werden jetzt ebenfalls in Matrixstruktur angezeigt                                                                                                                                                                                                                                  
+//*          |       | 1.	GSB233-Daten neu sortiert sowie überflüssiges entfernt                                                                                                                                                                                               
+//*---------------------------------------------------------------------
+//*01.06.2011|4.03   |13. 	Infospeicher von TMS2 wird ausgelesen
+//*          |       |12. 	Die Ausgabe der GSB231 Getriebedaten wurde mithilfe While-Schleifen gekürzt
+//*          |       |11. 	Falls keine KAFAS vorhanden, wird dies angezeigt
+//*          |       |10. 	Es wurde ein Workaround für F20 Längs und Querdynamik Management entfernt
+//*          |       | 9. 	Verbesserung der Darstellung der SME10-Daten wurden vorgenommen.
+//*          |       | 8. 	Die Festplattenseriennummer wird unter Toolset mit zusätzlichen Leerzeichen zurückgeliefert
+//*          |       |    	Dieser Markel wird im Skript behoben.
+//*          |       | 7. 	Es wird der HDD-Safemode unter den Headunitdaten des NBT angezeigt
+//*          |       | 6. 	Im Startcenter kann nun die HO-IStufe für den Extended-Filename ausgewählt werden
+//*          |       | 5. 	Es wurde ein sporadischer Fehler behoben, bei dem die fehlerhaften SGs falsch angezeigt wurden
+//*          |       |    	Hier wurde z.B. als Fehlerursache der Ident_funktional statt des SVK_funktional aufgeführt
+//*          |       | 4. 	"Individual_Jobs" wurde implementiert. Diese werden gegebenenfals am Ende jedes CheckIn/Out durchgeführt
+//*          |       | 3. 	Die Hintergrunddaten auf der INPA-Oberfläche verschwinden nicht mehr
+//*          |       | 2. 	Es werden die Getriebedaten der GSB231 in Matrixstruktur angezeigt
+//*          |       | 1. 	Es wird in der Zusammenfassung die Soll- und Istanzahl der Funktionsblöcke angezeigt 
+//*---------------------------------------------------------------------
+//*21.04.2011| 4.02  |16. 	Im Powermanagement wird die EDME82 des E82 ausgelesen
+//*          |       |15. 	Beim Auslesen von Mini wird der FS_LESEN_FUNKTIONAL nun richtig ausgeführt
+//*          |       |    	D.h. der Status des Status-Files ist "0"
+//*          |       |14. 	MOST-Registry wird nun auch beim NBT ausgelesen
+//*          |       |13. 	Telefondaten aus MINI Inbox werden nun nach 2 Jahren ausgelesen
+//*          |       |12. 	Daten von KAFAS werden ausgelesen
+//*          |       |11. 	Unter der Headunit NBT werden zusätzlich Jobs ausgeführt und Ergebnisse angezeigt
+//*          |       |10. 	Zusätzliche MSA-Daten werden unter Powermanagementdaten ausgelesen
+//*          |       |    	Die dazu verwendeten Jobs lauten status_msa2historienostart; status_msa2historienostop; status_sgr
+//*          |       |9.  	Reihenfolge der Debug-Ausgaben wurde verändert; jetzt stehen die Sätze vorne
+//*          |       |8.  	FILE_SET_EXTENDEDFILENAME wurde effiktiver gestaltet; Wiederholungen wurden ausgelagert
+//*          |       |7.  	RDC wurde um zusätzliche Ergebnisse ergänzt
+//*          |       |6.  	Unterstützte Produktlinie wurde um I01 und I12 ergänzt
+//*          |       |5.  	Aus TCB werden IMEI und ICC ausgelesen
+//*          |       |4.  	Unterstützte Produktlinie wurde um F56 und F45 erweitert
+//*          |       |3.  	Es ist nun möglich einen Dateinamen mit dem I-Level HO-Wert zu erzeugen
+//*          |       |2.  	Überflüssige Codezeilen wurden bei FUNC_ADD... entfernt
+//*          |       |1.  	Menüpunkt "Übergabedurchsicht" ist nun auch für F-Baureihe verfügbar    
+//*---------------------------------------------------------------------
+//*17.03.2011| 4.01  |  	Die Baureihen F34,  F35, R58 und R59 werden vom Skript unterstützt.
+//*          |       |  	Die Funktion „FEM_Softwarekomponenten“ wurde in „FEM_lesen“ umbenannt. Hier werden weitere FEM_20 Daten ausgelesen
+//*          |       |  	Funktion FS_IS_HS_LESEN wurde überarbeitet und dokumentiert
+//*          |       |  	Status RBM Mode9 wird aus Motorsteuergerät ausgelesen (MOTOR_DATEN_LESEN) und angezeigt
+//*          |       |  	Die Seriennummer der Festplatte wird in der Funktion „HU_Daten_Lesen“ angezeigt 
+//*---------------------------------------------------------------------
+//*28.01.2011|       |.5  Vor dem löschen des ZFS bei einem CheckOut wird die Funktion 
+//*          |       |    ROE (aktive Fehlermeldung) aktiviert.
+//*          |       |    Hier sollte es nicht mehr zu Problemen mit den nachfolgenden 
+//*          |       |    Jobs kommen, da dies durch den neuen Job 
+//*          |       |    STEUERN_ROE_INITIALISIERUNG_CHECK2 realisiert wird;
+//*27.01.2011|       |.4  Aktuelle TD-530.dll Versionsnummer wird ausgelesen,
+//*          |       |    überprüft und am Ende der Ergebnisdatei angezeigt;
+//*          |       |    Der Source-Code des Funktionsblockes „Powermanagement Daten lesen“ 
+//*          |       |    wurde optimiert; Fehlerhafte Einheiten im Funktionsblock 
+//*          |       |    „Powermanagement Daten lesen“ wurden korrigiert;
+//*          |       |    IBS Ident Daten werden in dem Funktionsblock 
+//*          |       |    „Powermanagement Daten lesen“ angezeigt;
+//*17.01.2011|       |.3  Der Energiesparmode jeder ECU wird in einer neuen Rubrik 
+//*          |       |    „Energiesparmode“ am Ende des Funktionsblockes 
+//*          |       |    „Powermanagement Daten lesen“ angezeigt;
+//*          |       |    Es wurde ein neuer Funktionsblock "Elektrofahrzeug Daten lesen" 
+//*          |       |    implementiert, in dem Daten der EDME82 angezeigt werden;
+//*12.01.2011|       |.2  Daten der Subsensoren werden durch den funktionalen 
+//*          |       |    Job SENSOREN_IDENT_LESEN_FUNKTIONAL ausgelesen und im 
+//*          |       |    Funktionsblock „Sensoren Daten lesen“ angezeigt;
+//*          |       |    Der Status für das Ausleseterminal wird jetzt erst beim beenden
+//*          |       |    des Skriptes auf den Wert 0 gesetzt, sofern kein Fehler aufgetreten ist.
+//*          |       |    Es wurde ein neuer Initialisierungsstatus eingeführt (255);
+//*          |       |    SpezialJob für das Auslesen des FRM Reset-Logger wurde 
+//*          |       |    implementiert (nur bei TD-5)
+//*04.01.2011| 4.00  |.1  Es wurde eine Funktion implementiert die die SG_FUNKTIONEN  
+//*          |       |    Tabelle nach dem übergebenen Argument scannt und die dazu 
+//*          |       |    gehörenden Results ausgibt;
+//*---------------------------------------------------------------------
+//*05.12.2010|       |.4  Der Job STEUERN_ROE_INITIALISIERUNG wird vorerst 
+//*          |       |    nicht mehr ausgeführt, da es bei einigen Steuergeräten 
+//*          |       |    Probleme geben kann;Bugfix für das Setzen des 
+//*          |       |    Vehicle-Name im Dateinamen eines CheckOut;
+//*          |       |    Der Funktionsblock „MSA Daten lesen“ wird nun auch 
+//*          |       |    bei der Standard-Konfiguration angezeigt;
+//*          |       |    Es wird zusätzlich folgende Baureihe unterstützt: F06;
+//*29.11.2010|       |.3  Neuer Funktionsblock „Sensoren Daten lesen“ in dem z.B. 
+//*          |       |    die FEM Sensordaten angezeigt werden, diese entfallen 
+//*          |       |    in dem Funktionsblock „Fensterheber Daten lesen“;
+//*          |       |    Das Menü Fehlerspeicher & Infospeicher wurde überarbeitet, 
+//*          |       |    es werden nur die ausgewählten Umfänge gelesen bzw. gelöscht. 
+//*          |       |    Die Abfrage der einzelnen Bus-Steuergeräte erfolgt variabel, 
+//*          |       |    ja nach Verbaustand;
+//*23.11.2010|       |.2  Es wird ein neuer Funktionsblock „Display Daten lesen“ erzeugt, 
+//*          |       |    in dem die Display Daten der Headunit (CIC, CHAMP2, NBT) 
+//*          |       |    sowie die Fond Display Daten des RSEH10 angezeigt werden;
+//*          |       |    Im Menü Spezial wurde eine Funktion zum registrieren 
+//*          |       |    eines Batterietausches integriert;
+//*13.11.2010| 3.99  |.1  Der Funktionsblock „DME/DDE Daten lesen“ wurde in  
+//*          |       |    „Motor Daten lesen“ umbenannt;
+//*          |       |    Daten des Elektrofahrzeuges E82-e werden in dem 
+//*          |       |    Funktionsblock „Motor Daten lesen“ ausgegeben;
+//*          |       |    Der aktuelle Ladestatus von Elektrofahrzeugen wird anstatt 
+//*          |       |    dem Tankinhalt auf dem Startbildschirm angezeigt
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*07.11.2010|       |.5  Bugfix für die BZEDIAG Daten, diese werden wieder bei     
+//*          |       |    Fahrzeugen ohne AEP ausgelesen;
+//*          |       |    Es werden zusätzlich folgende Baureihen unterstützt: 
+//*          |       |    F15, F16, F32, F33;
+//*02.11.2010|       |.4  Die Funktion zum löschen der TMS Infospeicher ist nun
+//*          |       |    entkoppelt von der Funktion IS löschen separat durchführbar 
+//*          |       |    (Auswählbar in TD-530.cfg oder Inpa Startcenter);
+//*          |       |    SME_10 Fehlerspeichereinträge werden vorübergehend in
+//*          |       |    einem separaten Block „SME_10 Fehlerspeichereinträge lesen“
+//*          |       |    angezeigt, da noch keine Fehlerspeicher Details ausgelesene
+//*          |       |    werden können;In dem Funktionsblock „Headunit Daten lesen“
+//*          |       |    wurden neue Rubrikbezeichnungen für die Kartendaten 
+//*          |       |    und die Festplattendaten eingeführt;
+//*26.10.2010|       |.3  Der Block „Hybrid Daten lesen“ wurde überarbeitet und 
+//*          |       |    zusätzliche Daten der SME_10 werden ausgelesen;
+//*          |       |    Es wird ein neuer Funktionsblock „TRSVC Daten lesen“ 
+//*          |       |    erzeugt in dem die Kalibrierdaten der Top-, Rear, 
+//*          |       |    Sideview Kamera angezeigt werden (Auswählbar in 
+//*          |       |    TD-530.cfg oder Inpa Startcenter);
+//*          |       |    Die Bezeichnungen für Ladungsbereich, Temperaturbereich,
+//*          |       |    LEM und IGR haben sich geändert;
+//*20.10.2010|       |.2  Vor dem löschen des ZFS bei einem CheckOut wird die 
+//*          |       |    Funktion ROE (aktive Fehlermeldung) aktiviert; 
+//*          |       |    Fensterheber Logger Daten werden bei den L7 Baureihen 
+//*          |       |    aus dem REM und FEM ausgelesen;
+//*          |       |    TMS Daten von F20 und F30 werden aus dem FEM_20 ausgelesen;  
+//*13.10.2010| 3.98  |.1  Die SDARS ESN wird auch bei CICR, CICMR und CHAMP2R 
+//*          |       |    ausgelesen;Der Funktionsblock „Powermanagement Daten“ 
+//*          |       |    wurde um die Jobs STAT_IGR_AEP_QREKUP_WERT und 
+//*          |       |    STAT_ANZAHL_SCHLECHTE_LABI_GESAMT erweitert;
+//*          |       |    Bugfix, Doppelte BZE Daten in der Rubrik „PM Daten lesen“
+//*          |       |    wurden entfernt
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*23.09.2010|       |.3  FASTA Daten werden auch für Mini R5x und R6x ausgelesen;
+//*          |       |    Absturz von Inpa beim Auslesen der Hybrid-Daten 
+//*          |       |    wurde behoben;
+//*21.09.2010|       |.2  Beim Löschen der Infospeicher wird nun auch  
+//*          |       |    der Infospeicher des TMS gelöscht;
+//*          |       |    Bugfix für auslesen der PM daten für E-Baureihen  
+//*          |       |    und Mini;   
+//*15.09.2010| 3.97  |.1  NBT Headunit Daten werden ausgelesen;
+//*          |       |    CAS SGBD wird durch Gruppendatei aufgerufen; 
+//*          |       |    Der Menüpunkt Transportmodus Ein/Aus wurde entfernt;  
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*24.08.2010|       |.3  Doppelte Powermanagement Daten Blöcke aus Result
+//*          |       |    entfernt; Daten der Start/Stop Automatik für 
+//*          |       |    SGBD AEP angepasst;Erweiterung für ICM_DATEN_LESEN;
+//*          |       |    Die Funktion ZFS_LESEN (zentraler Fehlerspeicher
+//*          |       |    lesen) umgestaltet/ umstrukturiert;
+//*17.08.2010|       |.2  ECU_WATCH_DOG um neue Fehlerbeschreibungen erwei-
+//*          |       |    tert, es werden jetzt die SVK, die IDENT_DATEN und
+//*          |       |    VCM Daten überwacht und multiple Error Ausgaben ange-
+//*          |       |    angezeigt; TMS_Codierdaten_China eingefügt, wegen Pro-
+//*          |       |    blem mit falschen codierdaten in manchen Fahrzeu-
+/(/*         |       |    gen erstellt;Revisions und Package Nummer in 
+//*          |       |    Powermanagement Daten eingefügt; 
+//*02.08.2010| 3.96  |.1  Auskommentierung von doppelten Datensätzen in 
+//*          |       |    Powermanagement Daten; Erweiterung des else-
+//*          |       |    Zweiges in Powermanagement Daten für z.B E7x
+//*          |       |    Fahrzeuge;Results der SDARS ESN in Headunit Daten
+//*          |       |    lesen eingefügt;
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*28.07.2010|       |.4  FEM_SW_Komponenten eingefügt: es werden die Kom-
+//*          |       |    ponenten des FEM angezeigt.
+//*06.07.2010|       |.3  ECU_WATCH_DOG eingefügt, der überwacht ob alle
+//*          |       |    Steuergeräte des Fahrzeuges richtig antworten 
+//*          |       |    die im Fahrzeugauftrag aufgelistet sind und ob 
+//*          |       |    SG antwortet, welches nicht im FA ist. Wenn ja
+//*          |       |    wird ein Fehler der ID_DATEN_LESEN ausgegeben ->
+//*          |       |    Auslesevorgang am Terminal ist dann auf Fehler 
+//*          |       |    gesetzt;
+//*          |       |    Auslesen der BZEDIAG(2) aus dem AEP eingefügt;
+//*          |       |    Interface wird in result angezeigt;AEP Bit 3 u.
+//*          |       |    4 Bugfix; Wenn ein Fehler in ID Daten lesen dann
+//*          |       |    Ausgabe von Fehlerstatus;Neu eingefügt in PM:
+//*	     |	     |    STAT_IGR_AEP_QREKUP_WERT, STAT_ANZAHL_SCHLECHTE_
+//*          |       |    LABI_GESAMT
+//*29.06.2010|       |.2  Problem FSIS lesen/loeschen gelöst; Funktion
+//*          |       |    SGBD_CUT_MUCH_SPACES implementiert wegen 
+//*          |       |    SGBD MEVD172 Problem;Für Auslesen aller Daten 
+//*	     |       |    (INPA,XO,BLUE) über Ethernet am Ende des CheckIn
+//*          |       |    ETHERNET_OFF eingefügt zum beenden der Flash Verb.;
+//*14.06.2010| 3.95  |.1  Bei Klemmenwechsel wird FZG_GET_SGBD neu aus-
+//*	     |	     |    ausgeführt; Für F012 TMS- und DWA- Lesen       
+//*	     |	     |    angepasst;
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*14.06.2010| 3.94  |WA  Parsingproblem wegen MEVD172(Y) behoben
+//*	     |	     |    Problem mit Headunitbuild gelöst       
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*07.05.2010|       |.4  TD-530_Vorlage wurde erweitert und Bugs entfernt;
+//*          |       |    Getriebedaten GSB231 eingefügt; PB-Batterie-Daten
+//*          |       |    eingefügt;Log-File wird auf Nacharbeitsserver 
+//*          |       |    gespeichert (mit Result Datei),Problem mit IGR-Sta-
+//*	     |	     |    tus behoben, Batteriekapazität wird in Resultdatei
+//*          |       |    angezeigt; Workaround EME_10
+//*07.05.2010|       |.3  Logfile wird nun auch wie Resultfile benamt,
+//*          |       |    jedoch dahinter mit Resultname+".LOG", da dies so  
+//*          |       |    in Konventionen vereinbart wurde;->keine Funktion
+//*          |       |    Getriebedaten GSB233 eingefügt;
+//*30.04.2010|       |.2  PM_DATEN_LESEN:Für alle Fxx den AEP,IGR-Status
+//*          |       |    gleich aus SGBD "AEP" erhalten; 
+//*          |       |    IGR-STATUS-Abfrage ist nun richtig für alle Fxx
+//*          |       |    gemacht; Wenn kein BN2k Steuergerät vorhanden
+//*          |       |    wird der Block Programmierstatus nicht angezeigt;
+//*          |       |    SME_04 STATUS_LESEN ARGUMENTE bei Hybriddaten
+//*          |       |    lesen eingefügt;
+//*22.04.2010| 3.93  |.1  Workaround für ICM_25 lesen für Woller Stefan
+//*          |       |    INPAapiJob() durch SGBD_JOB() ersetzt;
+//*          |       |    INPAapiResultAnalog() durch SGBD_RES_REAL() ersetzt;
+//*          |       |    In SGBD_JOB Anzahl der Sätze eingefügt;
+//*          |       |    Fensterheberproblem behoben;
+//*---------------------------------------------------------------------
+//*
+//*---------------------------------------------------------------------
+//*21.04.2010|       |.15 Fasta bei Header bei else umgestaltet;
+//*          |       |    Text für DLLversion gekürzt;
+//*16.04.2010|       |.14 DTC in Hex implementiert, jedoch auskommentiert
+//*09.04.2010|       |.13 Die Umordnung der Abarbeitung der Funktionen
+//*          |       |    wurde einkommentiert. Verusch der DLL änderung
+//*          |       |    zum Ermitteln der aktualität der TD-530.DLL
+//*01.04.2010|       |.12 Konfig aus .cfg in .Log Datei eingfügt;Funktion 
+//*          |       |    INI_VALUES_WRITE implementiert, mit der aus einer
+//*          |       |    Datei Text ausgelesen wird und in eine andere 
+//*          |       |    Datei eingefügt wird; MOTORDATEN LESEN E70/71,F25
+//*          |       |    eingefügt;
+//*25.03.2010|       |.11 Fensterheber lesen fertig implementiert;
+//*          |       |    Anzeige Systemzeit in INPA auch ohne ange-
+//*	     |       |    schlossenem Fahrzeug; Schaltanzahl der Relais
+//*          |       |    in "Hybrid Daten Lesen" eingefügt; Konfiguration-
+//*          |       |    einstellungen im Startcenter unten an Log Datei 
+//*          |       |    angefügt; Vermeidung eines Fehlerpeicherzeit-
+//*          |       |    punktes in der Zukunft
+//*23.03.2010|       |.10 Fensterheber des Fxx löschen in schon bestehende
+//*          |       |    Funktion FHENSTERHEBER_LOESCHEN eingefügt;
+//*          |       |    nach jedem 16. Zeichen Leerzeile eingefügt bei 
+//*          |       |    SGBD_BIN_TO_LIST;
+//*19.03.2010|       |. 9 Fasta Daten aufgeteilt und nach jedem 2ten
+//*          |       |    zeichen Lerrzeichen eingefügt.
+//*          |       |    SGBD_BIN_TO_LIST umgeschrieben, jetzt kann man
+//*          |       |    gleich auf zeilen aufteilen/Leerzeichne einfügen
+//*16.03.2010|       |. 8 Konfigurationsdaten in LOG Datei eingefügt;
+//*          |       |    Fensterheber Logger von FRM3, JBBF3 löschen;
+//*15.03.2010|       |. 7 Problem mit Fasta Daten (da zu lang) durch 
+//*          |       |    UTIL_CUT_FOR_WORD_WRAP in 4 zeilen aufgeteilt;
+//*12.03.2010|       |. 6 Logger Reversierer und Denormierer von 
+//*          |       |    Fensterheber löschen als Funktion in CheckOut
+//*          |       |     als Funktion eingefügt
+//* 10.03.10 |	     |. 5 Mapversion (NUMMER, TEXT) von HU auslesen und 
+//*          |       |    anzeigen(Siehe CR1160); 
+//*	     |       |    Problem mit AEP gelöst(Siehe CR1161)
+//* 05.03.10 |       |. 4 Neuer Funktionsblock zum Auslesen der FASTA
+//*          |       |    Daten aus dem DSC
+//* 05.03.10 |       |. 3 Menü AIRGAB wurde testweise aus Hauptmenü 
+//*          |       |    herausgenommen.
+//* 15.02.10 |       |. 2 Die Reihenfolge der Funktionsblöcke wurde
+//*          |       |    optimiert. Nun sind sie nach Kategorien geordnet.
+//* 20.02.10 | 3.92  |. 1 Erstellung der neuen Rubrik RLS Daten lesen.
+//*          |       |    Es muss geklärt werden,ob diese dauerhaft im
+//*          |       |    Skript verbleibt
+//*---------------------------------------------------------------------
+//* 23.02.10 | 3.91  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 12.02.10 |       |.13 Es wird nun ein Fortschrittsbalken beim Auslesen
+//*          |       |    angezeigt.
+//* 26.01.10 |       |.12 Der IGR-Status-Ablauf wurde nun erneut optimiert,
+//*          |       |    es wird nun auch das BITS1 berücksichtigt.
+//* 25.01.10 |       |.11 Die Resultnamen beim BT_RUEKO_LESEN der SGBDen
+//*          |       |    Champ2r,Cmediar und Rad2 wurden angeglichen.
+//* 25.01.10 |       |.10 Wenn beim Auslesn der Seriennummer eines Steuer-
+//*          |       |    gerätes beim Ident Daten lesen ein unbekanntes
+//*          |       |    Ergebnis liefert,wird in der Ergebnis-Datei
+//*          |       |    das entsprechende Feld mit "-" befüllt.
+//* 18.01.10 |       |. 9 Die Rubrik "Programmierstatus lesen" wird nun
+//*          |       |    auch bei F-Baureihen ausgeführt
+//* 15.01.10 |       |. 8 Beim Betriebsstundenzähler wird nun zusätzlich
+//*          |       |    die Einheit mit angegeben.
+//* 12.01.10 |       |. 7 Die Rubrik Infospeicher lesen wird bei
+//*          |       |    Problemen mit den BN2K-Steuergeräten manuell
+//*          |       |    ausgelesen.
+//* 07.01.10 |       |. 6 Unter der Rubrik Headunit Daten lesen wird nun
+//*          |       |    die Hardwarevariante in lesbarer Form sowie der
+//*          |       |    Hardwarelieferant angezeigt.
+//* 07.01.10 |       |. 5 Da es Probleme mit der Umsetzung bzgl.V3.90 RC5
+//*          |       |    beim Parsen des Ausleseterminals kommt, werden
+//*          |       |    nun die restlichen Felder mit "-" befüllt.
+//* 18.12.09 |       |. 4 In der Ergebnis-Datei steht nun am Ende die 
+//*          |       |    neue Rubrik "Zusammenfassung",in der die Zeit 
+//*          |       |    des Auslesevorgangs, die aktuelle INPA-, sowie 
+//*          |       |    BaureihenSGBD- und T-GRTB-Version aufgelistet wird.
+//* 15.12.09 |       |. 3 Die Nacharbeitsversion wurde nun so gestaltet,
+//*          |       |    dass diese auch im automatischen Modus ausgeführt
+//*          |       |    werden kann.
+//* 14.12.09 |       |. 2 In der Rubrik "Telefon Daten lesen" werden nun
+//*          |       |    nur die Daten ausgelesen, wenn in der Headunit
+//*          |       |    ein Telefon verbaut und die entsprechende SA
+//*          |       |    vorhanden ist. Desweiteren wird die MOST Registry
+//*          |       |    nur gelesen, wenn keine MSA vorhanden ist.
+//* 12.12.09 | 3.91  |. 1 Werden in der Rubrik "IS/FS/HS lesen Details"
+//*          |       |    nicht ausreichend Daten von einem Steuergerät 
+//*          |       |    geliefert bzw.antwortet dies nicht ordnungsgemäß,  
+//*          |       |    so wird dieses Steuergerät trotzdem aufgelistet.
+//*---------------------------------------------------------------------
+//* 10.12.09 | 3.90  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 18.11.09 |       |. 7 Unter Telefondaten lesen wird nun bei einer
+//*          |       |    verbauten Combox die Softwarelieferung,Hardware-
+//*          |       |    lieferung und die Gerätevariante angezeigt.
+//* 11.11.09 |       |. 6 Die IGR-Status-Abfrage wurde nun umstrukturiert,
+//*          |       |    damit dieser in Abhängigkeit der verbauten Batterie
+//*          |       |    bei F-Baureihen problemlos funktioniert und 
+//*          |       |    angezeigt wird.Bekannte Fehler der E-Baureihen
+//*          |       |    wurden beseitigt.
+//*          |       |    Desweiteren wurde der Transportmodus für alle
+//*          |       |    Motorvarianten angepasst.
+//* 05.11.09 |       |. 5 Wenn ein Steuergerät auf den funktionalen Job
+//*          |       |    "svk_lesen_funktional" nicht erwartungsgemäß
+//*          |       |    antwortet,wird dies nun im Result angezeigt
+//*          |       |    und die Daten nicht mehr durcheinandergebracht
+//* 29.10.09 |       |. 4 Die Daten der Bordnetzwelligkeitsdiagnose der
+//*          |       |    EPS werden unter der Rubrik "EPS Daten lesen"
+//*          |       |    angezeigt
+//* 27.10.09 |       |. 3 Der Tabellenspeicher für die Batterie der 
+//*          |       |    sogenannten Bordnetzerweiterung wird unter der
+//*          |       |    neuen Rubrik "EPS Daten lesen",sofern 
+//*          |       |    unterstützt,angezeigt. 
+//* 26.10.09 |       |. 2 Die Batteriezustandserkennungs-Daten werden beim 
+//*          |       |    Auslesen der Powermanagementdaten angezeigt 
+//* 23.10.09 | 3.90  |. 1 Betriebsstundenzähler funktioniert nun bei 
+//*          |	     |    allen Motorvarianten
+//*--------------------------------------------------------------------- 
+//* 22.10.09 | 3.89  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 07.10.09 |       |. 4 Anzeige Betriebsstunden unter Fahrzeugdaten und
+//*          |       |    in der Kopfzeile des INPA-Skripts hinzugefügt
+//* 05.10.09 |       |. 3 In der Rubrik Powermanagementdaten wird nun
+//*          |       |    bei CAS4_2 Klemmenhistorie die Zeit absolut im
+//*          |       |    Ergebnis angezeigt 
+//* 01.10.09 |       |. 2 Sensorenident der Fensterheber werden ausgelesen
+//* 23.09.09 | 3.89  |. 1 Reifen Druck Control (RDC) - Daten werden nun
+//* 	     |	     |	  bei Fahrzeugen die diese SA haben ausgelesen
+//*---------------------------------------------------------------------
+//* 22.09.09 | 3.88  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 22.09.09 |       |. 3 Im Nacharbeit Modus wird jetzt immer die Datei
+//*          |       |    TD-530NA.CFG als Konfiguration verwendet.
+//* 22.09.09 |       |. 2 Im Menü für Nacharbeit Version wurde Menüpunkt
+//*          |       |    zum Drucken entfernt
+//* 17.09.09 |       |. 1 In der Rubrik Head Unit Daten lesen werden 
+//*          |       |    jetzt auch die Hardware-Variante sowie die
+//*          |       |    Seriennummer DOM angezeigt
+//*---------------------------------------------------------------------
+//* 03.09.09 | 3.87  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 03.09.09 |       |.11 Meldung das keine Verbindung besteht wird bei 
+//*          |       |    Beendigung des INPA Skriptes nun ausgeblendet 
+//* 03.09.09 |       |.10 Kopieren der Ergebnisdatei bei Aufruf in     
+//*          |       |    Nacharbeitsmodus funktioniert jetzt fehlerfrei
+//* 03.09.09 |       |. 9 Bluetooth Status und Bluetooth Erkennungsmodus
+//*          |       |    bei BN2010 COMBOX wird jetzt auch fehlerfrei
+//*          |       |    ausgelesen
+//* 25.08.09 |       |. 8 Bluetooth Geräte Adressen bei L6 werden jetzt    
+//*          |       |    auch fehlerfrei ausgelesen
+//* 24.08.09 |       |. 7 Bugfix zum Auslesen der Bluetooth Daten bei  
+//*          |       |    COMBOX RÜKO Variante
+//* 19.08.09 |       |. 6 Bei den Telefondaten werden die USB Daten für
+//*          |       |    BN2010 jetzt vollständig ausgelesen (Stick +
+//*          |       |    iPOD + MTP Player + Unbekannt)
+//* 18.08.09 |       |. 5 Auslesen des IGR Status funktioniert jetzt 
+//*          |       |    auch bei Verwendung mit englischen SGBDs    
+//* 09.07.09 |       |. 4 Formatierung des Textes beim Auslesen der 
+//*          |       |    Motordaten für L6 Fahrzeuge ist nun richtig
+//* 09.07.09 |       |. 3 Telefondaten können jetzt auch bei CHAMP2
+//*          |       |    INBOX Telefon ausgelesen werden
+//* 09.07.09 |       |. 2 Telefondaten können jetzt auch bei RADIO2 
+//*          |       |    INBOX Telefon ausgelesen werden
+//* 08.07.09 |       |. 1 Telefondaten können jetzt auch bei COMBOX RÜKO
+//*          |       |    ausgelesen werden
+//*---------------------------------------------------------------------
+//* 03.07.09 | 3.86  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 02.07.09 |       |.12 ID Daten werden bei BN2010 Rubrik jetzt nicht
+//*          |       |    mehr falsch angezeigt, fall keine IDENT Daten 
+//*          |       |    für die Adresse ermittelt werden konnten.
+//* 22.06.09 |       |.11 Neue Funktion zum Auslesen der RDC Daten
+//* 19.06.09 |       |.10 INPA Skript stürzt jetzt nicht mehr ab, wenn
+//*          |       |    eine Konfiguration ohne aktiven Funktionsblock
+//*          |       |    im CheckIn und CheckOut aufgerufen wird
+//* 19.06.09 |       |. 9 Optimiertes Auslesen der ACC Daten
+//* 19.06.09 |       |. 8 Optimiertes Auslesen der EGS Daten
+//* 18.06.09 |       |. 7 RPA Daten werden jetzt nur noch ausgelesen 
+//*          |       |    wenn kein RDC (SA2VB) verbaut ist
+//* 18.06.09 |       |. 6 Fensterheber Daten von E70 werden jetzt auch
+//*          |       |    ausgelesen
+//* 18.06.09 |       |. 5 Optimiertes Auslesen der HYBRID Daten
+//* 18.06.09 |       |. 4 Optimiertes Auslesen der SMC Daten
+//* 16.06.09 |       |. 3 Optimiertes Auslesen der NOX Daten
+//* 10.06.09 |       |. 2 Optimiertes Auslesen der TMC Daten
+//* 10.06.09 |       |. 1 Optimiertes Auslesen der Powermanagement Daten
+//*---------------------------------------------------------------------
+//* 14.05.09 | 3.85  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 14.05.09 |       |. 2 Optimiertes Auslesen der Fensterheber Daten
+//* 14.05.09 |       |. 1 Optimiertes Auslesen der Telefon Daten
+//*---------------------------------------------------------------------
+//* 29.04.09 | 3.84  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 29.04.09 |       |. 7 Fehler beim Auslesen von F20 Fahrzeugen wurde
+//*          |       |    beseitigt.
+//* 24.04.09 |       |. 6 Diverse Hilfsfunktionen zur Identifizierung 
+//*          |       |    der Steuergeräte wurden wieder entfernt
+//* 23.04.09 |       |. 5 Auslesenn des Kilometerstandes erfolgt jetzt
+//*          |       |    bei BN2010 Fahrzeugen immer über KOMBI  
+//*          |       |    Gruppendatei
+//* 23.04.09 |       |. 4 Kann eine Datei nicht geöffnet werde, wird   
+//*          |       |    jetzt immer eine detaillierte Fehlermeldung  
+//*          |       |    mit dem entsprechenden Dateinamen angezeigt
+//* 19.04.09 |       |. 3 Nicht mehr benötigte Funktionen wurden entfernt
+//* 19.04.09 |       |. 2 Manuell konfiguriertes ResultDir funktioniert
+//*          |       |    jetzt auch, wenn es nicht mit einem Backslash
+//*          |       |    endet.
+//* 19.04.09 |       |. 1 In der Rubrik QC SVK Daten lesen wird jetzt
+//*          |       |    zusätzlich auch der ausgeschriebene Steuer-  
+//*          |       |    gerätename angezeigt
+//*---------------------------------------------------------------------
+//* 17.04.09 | 3.83  |. 0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 15.04.09 |       |.10 Rubrik QC SVK Daten lesen enthält jetzt für 
+//*          |       |    jedes Steuergerät neben dem SGBD Namen auch
+//*          |       |    die Diagnoseadresse und den Grobnamen
+//* 26.03.09 |       |. 9 Archivator kann jetzt Dateien auch sichern
+//*          |       |    wenn sie sich in einem anderen ResultDir
+//*          |       |    als C:\FAHRZEUG.DAT befinden
+//* 26.03.09 |       |. 8 DLL Funktion werden jetzt nur noch aufgerufen
+//*          |       |    wenn auch eine TD-530.DLL vorhanden ist
+//* 24.03.09 |       |. 7 Funktionsblock HeadUnit Daten Lesen wurde 
+//*          |       |    optimiert
+//* 24.03.09 |       |. 6 Funktionsblock HeadUnit Daten Lesen wird nur 
+//*          |       |    angezeigt, wenn die entsprechenden Daten auch
+//*          |       |    ausgelesen werden konnten
+//* 23.03.09 |       |. 5 Funktion zum Auslesen und Anzeigen der SWT 
+//*          |       |    Daten im QC Format wurde komplett neu implementiert
+//*          |       |    um die bisherigen Fehler zu vermeiden
+//* 19.03.09 |       |. 4 Es wird jetzt auch im Verzeichnis C:\EC-APPS\INPA\BIN 
+//*          |       |    nach der TD-530.DLL gesucht
+//* 17.03.09 |       |. 3 Nicht mehr benötigte Funktionen wurden 
+//*          |       |    entfernt
+//* 10.03.09 |       |. 2 MOST Registry kann jetzt auch bei CIC-MID und
+//*          |       |    CHAMP2 Fahrzeugen ausgelesen werden
+//* 10.03.09 |       |. 1 Auslesen des Klemmenstatus wurde auf G_CAS
+//*          |       |    umgestellt, damit zukünftig auch L7 Fahrzeuge
+//*          |       |    mit FEM ausgelesen werden können
+//*---------------------------------------------------------------------
+//* 25.02.09 | 3.82  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 19.02.09 |       |.12 PM Daten erweitert --> JBBF3 STAT_FAHRPROFIL_EES_LESEN
+//* 19.02.09 |       |.11 PM Daten erweitert --> FRM3 status_zusatzinfos_energie_licht
+//* 19.02.09 |       |.10 PM Daten erweitert --> CAS4_2 status_klemmen_verhinderer
+//* 19.02.09 |       |. 9 PM Daten erweitert --> CAS4_2 status_pm_schlafbereitschaft
+//* 19.02.09 |       |. 8 PM Daten erweitert --> CAS4_2 status_zv_historie
+//* 19.02.09 |       |. 7 PM Daten erweitert --> CAS4_2 status_pm_historie
+//* 18.02.09 |       |. 6 PM Daten erweitert --> CAS4_2 status_klemmen_historie 
+//* 18:02.09 |       |. 5 F04 Funktion Hybrid Daten Lesen an neue I-Stufe angepasst
+//* 17.02.09 |       |. 4 SWT Daten Lesen angepasst 
+//* 16.02.09 |       |. 3 Bug bei der Berechnung des Fehlerzeitpunktes beseitigt
+//* 13.02.09 |       |. 2 ID Daten lesen ( BN2010 ) Spaltenbreite angepasst
+//* 09.02.09 |       |. 1 CBS-Daten erweitert "CBSEinheit" "ID"
+//*---------------------------------------------------------------------
+//* 16.12.08 | 3.81  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 16.11.08 |       |.8 Trace-Aufzeichnung verfeinert
+//* 15.11.08 |       |.7 Tel-Daten werden nun auch bei CheckOut angezeigt
+//* 11.10.08 |       |.6 Standverbraucherhistory bei PM-Daten verfeinert 
+//* 10.10.08 |       |.5 Headunit-Daten werden nun auch bei CheckOut angezeigt 
+//* 10.10.08 |       |.4 Neue Funktion bei CheckIn und -Out (F004) --> "Hybrid Daten Lesen" 
+//* 09.12.08 |       |.3 SME und EME bei F004 Fahrzeugen werden nun angezeigt
+//* 09.12.08 |       |.2 HV-Kapazität bei F004 Fahrzeugen wird nun im Header angezeigt
+//* 08.12.08 |       |.1 Separate Ausgabe der PM-Daten ist nun möglich
+			 Steuerbar über den Parameter "Separate_PM-File = 1"
+//*---------------------------------------------------------------------
+//* 01.12.08 | 3.80  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 19.11.08 |       |.8 Umweltzeit , Datum und Uhrzeit nun einzeilig
+//* 18.11.08 |       |.7 Bug bei Anzeige von Umweltzeit beseitigt
+//* 05.11.08 |       |.6 Bug bei Transportmodus ausschalten beseitigt
+//* 27.10.08 |       |.5 Programmierstatus lesen bei L6 Fahrzeugen hinzugefügt 
+//* 23.10.08 |       |.4 Bug bei Most Analyse Audio beseitigt
+//* 21.10.08 |       |.3 Neue Funktion bei CheckOut  --> Energiesparmode ausschalten
+//* 15.10.08 |       |.2 Neue CheckIn-Funktion bei L6 Fahrzeuben --> Treibermodul Scheinwerfer lesen
+//* 14.10.08 |       |.1 FH_Daten lesen bei L6 Fahrzeugen hinzugefügt 
+//*---------------------------------------------------------------------
+//* 13.10.08 | 3.79  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 07.10.08 |       |.5 Bug beseitigt, SVK Daten bei F07 werden nun komplett dargestellt
+//* 06.10.08 |       |.4 Baureihenkennung bei L6 Fahrzeugen wird nun 4-stellig ausgegeben
+//* 04.10.08 |       |.3 Trace Aufzeichnung wieder hinzugefügt
+//* 01.10.08 |       |.2 Bug beseitigt, Auslesen von RR04 Fahrzeugen nun möglich
+//* 25.09.08 |       |.1 Formatierte Ausgabe der Headunit-Daten für Terminal-Parser
+//*---------------------------------------------------------------------
+//* 19.09.08 | 3.78  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 17.09.08 |       |.1 BugFix -> Sporadische Fehler beim Auslesen der
+//*	     |	     |   IDENT und SVK Daten bei L6 Fahrzeugen beseitigt
+//*---------------------------------------------------------------------
+//* 27.08.08 | 3.77  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 25.08.08 |       |.5 RPA Daten bei allen Baureihen erweitert
+//* 18.08.08 |       |.4 PM Daten und GW History für F01 erweitert
+//* 08.08.08 |       |.3 Reifenpanneninformation werden beim F01 angezeigt
+//* 01.08.08 |       |.2 DME und DDE Motordaten erweitert
+//* 31.07.08 |       |.1 Fehlerinformation bei der Klemmenerkennung verfeinert
+//*---------------------------------------------------------------------
+//* 28.07.08 | 3.76  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 28.07.08 |       |.9 HC2 Daten werden beim F01 ausgelesen
+//* 28.07.08 |       |.8 SWNR wird beim QC-Format vom RSEH01 durch die Buildnummer ersetzt
+//* 25.07.08 |       |.7 DME und DDE Motordaten werden beim F01 ausgelesen
+//* 23.07.08 |       |.6 INPA erstellt eine Statusdatei, welche Rubriken nicht ausgelesen werden konnten, unter anderem für die Terminal software
+//* 21.07.08 |       |.5 Beim FS und IS lesen werden die Umweltzeit in Datum und Uhrzeit umgerechnet
+//* 21.07.08 |       |.4 R60 in Skript mit aufgenommen
+//* 17.07.08 |       |.3 Diagnoseadressen bei E72 hinzugefügt
+//* 25.06.08 |       |.2 F25 kann man jetzt auch auslesen
+//* 24.06.08 |       |.1 I-Stufe wird bei E89 angezeigt
+//*---------------------------------------------------------------------
+//* 17.06.08 | 3.75  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 05.06.08 |       |.7 SWT Daten werden beim F01 nun ausgelesen
+//* 04.06.08 |       |.6 CCC lesen und CIC lesen wurde zu Headunit lesen zusammen gefasst
+//* 30.05.08 |       |.5 F5 und F6 Tasten bei Fehler- und Infospeicher lesen aktiviert
+//* 29.05.08 |       |.4 Alarmspeicher für F01 eingebunden
+//* 20.05.08 |       |.3 Check Control History wird bei F01 nun angezeigt
+//* 20.05.08 |       |.2 BZE Info werden bei PM Daten von F01 angezeigt
+//* 20.05.08 |       |.1 Telefondaten mit "Anzahl Reconnects" erweitert und Jobs angepasst
+//*---------------------------------------------------------------------
+//* 13.05.08 | 3.74  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 06.05.08 |       |.8 PM Daten an F01 angepasst
+//* 30.04.08 |       |.7 Zeit und Datum werden bei CheckOut beim F01 neu gesetzt
+//* 30.04.08 |       |.6 Tankinhalt bei allen Baureihen vertauscht (Hebelgeber 2 => linke Tankkammer, Hebelgeber 1 => rechte Tankkammer)
+//* 24.04.08 |       |.5 Tankinhalt wird bei F01 angezeigt
+//* 24.04.08 |       |.4 Kilometerstand wird richtig angezeigt
+//* 23.04.08 |       |.3 I-Stufe Werk und I-Stufe HO wird bei F01 angezeigt
+//* 15.04.08 |       |.2 IGR Status wird bei F01 angezeigt
+//* 12.04.08 |       |.1 SWNR wird beim QC-Format vom CIC durch die Buildnummer ersetzt
+//*---------------------------------------------------------------------
+//* 11.04.08 | 3.73  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 11.04.08 |       |.4 Bei BN2000 werden beim F01 wieder alle Felder ausgefüllt
+//* 10.04.08 |       |.3 CBS Daten werden nun bei F01 angezeigt
+//* 10.04.08 |       |.2 PM Daten erweitert bei F01
+//* 08.04.08 |       |.1 Tankinhalt bei E70 und E71 vertauscht
+//*---------------------------------------------------------------------
+//* 01.04.08 | 3.72  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 01.04.08 |       |.6 Batterieanzeige bei F01 auf der Menüseite angepasst 
+//* 26.03.08 |       |.5 Löschen und lesen des Diagnose Master Speicher im Menü F4 mit aufgenommen
+//* 25.03.08 |       |.4 PM Daten an F01 angepasst 
+//* 19.03.08 |       |.3 Ergebniss von "FA Details" wird bei E90, E91, E92 und E93 nicht mehr angezeigt
+//* 17.03.08 |       |.2 Systemzeit bei F01 im Header richtig ausgerichtet
+//* 17.03.08 |       |.1 Folgende Baureihen werden zusätzlich unterstützt
+//*	     |	     |	 (F01, F02, F03, F04, F07, F10, F11, F12, F13, F18) 
+//*---------------------------------------------------------------------
+//* 05.03.08 | 3.71  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 05.03.08 |       |.2 Block 4, 5, 6 Inforingspeicher komplett und Spannungsmonitor wieder einkommentiert
+//* 05.03.08 |       |.1 MessageBox Meldungen beim starten von INPA Script bei F01 entfernt
+//*---------------------------------------------------------------------
+//* 29.02.08 | 3.70  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 27.02.08 |       |.13 Sonderfunktion Übergabedurchsicht deaktivieren
+//* 25.02.08 |       |.12 FH LOGGER DENORMIERER erweitert, nun auch beim R56
+//* 29.01.08 |       |.11 PM Daten Lesen - Erweiterung BN2010
+//* 29.01.08 |       |.10 CIC_Daten_Lesen -> Bugfix
+//* 29.01.08 |       |.9 ICMQL-Status_Adaptivdaten werden gelesen
+//*	     |       |   GW_History_Speicher wird beim F01 nicht mehr ausgelesen
+//* 29.01.08 |       |.8 SZL-Lenkwinkelsensor Offset wird beim F01 nicht mehr ausgelesen
+//* 29.01.08 |       |.7 SVK Daten im QC Format - ERweiterung für ungültige Einträge
+//* 28.01.08 |       |.6 MOST Registry Daten werden gelesen F01
+//* 22.01.08 |       |.5 Fehlerspeicher von SG des BN2K werden jetzt ausgelesen
+//* 14.01.08 |       |.4 BugFix -> SG die nicht korrekt auf FS_IS_HS Lesen Funktional antworten 
+//*          |       |   werden nun korrekt behandelt und ausgelesen
+//* 08.01.08 |       |.3 F10 & F11 werden unterstützt
+//* 08.01.08 |       |.2 BugFix -> ausschliesslich CIC auf Adr A0 wird manuell hinzugefügt
+//* 08.01.08 |       |.1 BugFix -> Zentraler Fehlerspeicher wird nur bei F01 ausgelesen
+//*---------------------------------------------------------------------
+//* 12.12.07 | 3.69  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 11.12.07 |       |.7 FDM300_E60_KGM Block 15 wird ausgelesen
+//* 26.11.07 |       |.5 CAS4 Schlüsseldaten korrigiert (die ersten 4 Bytes werden ignoriert)
+//* 26.11.07 |       |.4 E72 Steuergeräte manuell hinzugefügt: DDE/DME("12"), CIC("A0") 
+//* 07.11.07 |       |.3 JBBF70 -> Weckringspeicher auslesen auskommentiert da das SG nicht Richtig antwortet,
+//*          |       |   Lösung folgt mit den nächsten I-Stufen
+//* 07.11.07 |       |.2 Prüfzonenablauf - Menu Spezial, Pruefzone
+//* 07.11.07 |       |.1 Energiesparmode über Parameter setzbar -> "Parameter";"SetEnergieSparModeRR"
+//*---------------------------------------------------------------------
+//* 06.11.07 | 3.68  |.0 Version freigegeben - BugFix Klemmenstatus
+//*---------------------------------------------------------------------
+//* 31.10.07 | 3.67  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 25.10.07 |       |.8 Disconnect als Parameter wieder eingeführt. Programm schliesst erst bei
+//*          |       |   abstecken des Kabels
+//* 25.10.07 |       |.7 KGM60 Daten werden bis 09/08 nicht mehr ausgelesen
+//* 15.10.07 |       |.6 Bugfix GetFaFromNCSEXPER, "Fatal error" bleibt in Zukunft aus
+//* 12.10.07 |       |.5 CAS Schlüsseldaten auslesen für CAS4_2 erweitert
+//* 08.10.07 |       |.4 
+//* 04.10.07 |       |.3 JobExists logfile Ausgaben auskommentiert (zur besseren Übersicht)
+//* 01.10.07 |       |.2 Neue Funktion bei F4 (FS/HS/IS) -> Shift+F9 - DMA löschen. Diagnosemaster wird gelöscht
+//* 27.09.07 |       |.1 Wenn IDENT_FUNKTIONAL nicht erfolgreich werden auch keine SG manuell hinzugefügt
+//*---------------------------------------------------------------------
+//* 26.09.07 | 3.66  |.0 Version freigegeben
+//*---------------------------------------------------------------------
+//* 26.07.07 | 3.65  |.0 Software im WIKI veröffentlicht.
+//* 01.08.07 |       |.1 Bug beseitigt bei STATUS_VCM_GET_FA
+//* 04.09.07 |       |.2 Erweiterung für F07
+//* 05.09.07 |       |.3 Erweiterung für RR3
+//*	     |       |.4 FZG_INIT() überarbeitet, Schiebedach und Fensterheber INIT auskommentiert
+//* 10.09.07 |       |.5 FS_IS_HS_LESEN Funktion erweitert, SGs die fehlerhaft auf FUNKTIONALEN Job geantwortet haben
+//*	     |       |   werden nochmals einzeln abgefragt.
+//* 10.09.07 |       |.6 Erweiterung für E72, Hybrid Komponenten manuell hinzugefügt
+//* 16.09.07 |       |.7 
+//* 20.09.07 |       |.8 KGM Daten lesen (Historienspeicher Block 4,5,6 Inforingspeicher und Spannungsmonitor)
+//*          |       |   KGM Daten werden bei GS_HS_Daten_Lesen ausgelesen  
+//* 26.09.07 |       |.9 Archivator NF (Speichern über F9)
+//*---------------------------------------------------------------------
+//* 23.07.07 | 3.64  |.0 SGBD-Jobs STATUS_VIN_LESEN und STAT_VCM_GET_FA wurden geändert, Script entsprechend angepasst. 
+//*          |       |.1 Bug beseitigt wenn beim Script start kein Kabel angesteckt war, wurde der Klemmenstatus nicht richtig
+//*          |       |   angezeigt.
+//*          |       |.2 Bug beseitigt, bei E87 und E90 wurde bei den ID Daten kein RLS angezeigt
+//* 24.07.07 |       |.3 Erweiterung für RR4
+//*          |       |.4 Bug beseitigt. Bei FS_LESEN und FS_LESEN_DETAIL wurden eine falsche Anzahl angezeigt.
+//*          |       |.5 Bug beseitigt. Bei ID Daten lesen wurden teilweise manche Results doppelt angezeigt, dadurch stimmte
+//*          |       |   die Formatierung nicht mehr
+//*          |       |.6 Bug beseitigt. Wurde der Klemmenstatus nicht richtig gelesen, wurde der Text "Bitte ein Fzg an." durch
+//*          |       |   das Statusfenster verdeckt.
+//*          |       |.7 Erweiterung der Funktion MSA_LESEN() für Co2-Umfänge
+//*          |       |.8 Neue Funktion SGBD_GET_RESULTS() liefert alle verfügaberen Results
+//* 26.07.07 |       |.9 Neue Funktion ICM_DATEN_LESEN() 
+//*          |       |.10 Bug beseitigt bei MOST_REGISTRY_LESEN 
+//*---------------------------------------------------------------------
+//* 23.07.07 | 3.63  |Version freigegeben 
+//*---------------------------------------------------------------------
+//* 13.06.07 | 3.61  |.0 Bug beseitigt bei ID_LESEN. Wenn bei F01 der Ident_Funktional mit der F01BN2K SGBD
+//*          |       |   fehlgeschlage ist, wurden die BN2010 SGs in der Rubrik der BN2K SG´s angezeigt
+//*          |       |.1 Bedinung nochmals beschleunigt-> Funktion FZG_DATEN_LESEN wird nun nor noch ausgefürhrt bei einem
+//*          |       |   Screen wechsel( Tastendruck auf F-Tasten ) oder wenn der Timer ( 30sec.) abgelaufen ist
+//*          |       |.2 MSA Funktion überarbeitet, es werden nuch noch JOBS ausgefürht, die auch verfügbar sind. 
+//*          |       |.3 FUNC_SET_CHECKOUT_FAST() erweitert. Es wird hier nach löschen des FS/IS dir Uhrzeit im Fzg. gestellt
+//*          |       |.4 Bug bei Log-Funktion in SGBD_JOB_EXISTS() behoben, war das Logging nicht aktiviert, führt das zu Fehlern
+//*          |       |.5 Erweiterung für neue Terminal - Version : Zusatz (BN2000 ) bei Ergebnis: ID Daten lesen
+//*          |       |.6 Bug in MSA_LESEN() Funktion beseitigt. (Es wurden Teilweise Falsche SGBD aufgerufen )
+//*          |       |.7 Bug beseitigt im Menu - Most ( Wurde Read_Current/Default_Registry  direkt aus dem Menü Most
+//*          |       |   aufgerufen, führte dies zu einem ArrayRead-Fehler
+//*          |       |.8 Funktional-Jobs modifiziert: Anzeige der aktuellen Satznummer, sowie SG-Adr
+//*---------------------------------------------------------------------
+//* 13.06.07 | 3.60  |.1 Funktionen für MOST Current/Default Registry Lesen
+//*          |       |   zu einer Funktion zusammengefasst und die neuen Jobs 
+//*          |       |   READ_DEVIDS_..._REGISTRY verwendet.
+//*          |       |
+//*          |       |.2 Datum der SG´s bei den ID Daten für das Terminal angepasst
+//*          |       |   ( Hintergrund:  Manche SG liefern Datum in der Form dd.mm.yy 
+//*          |       |     und nicht wie für das Terminal erforderlich
+//*          |       |     in dd.mm.yyyy )
+//*          |       |
+//*          |       |.3 E_Wörter und Ho_Wörter aus FA mit ausgelesen und in ErgebnissDatei angezeigt.
+//*          |       |.4 Job KlemenStatus lesen für F01 erweitert .
+//*          |       |.5 Neuer Funktionsblock DiagnoseMaster Daten lesen 
+//*          |       |   GWSZ und TankInhalt Status für F01 erweitert
+//*          |       |
+//*          |       |.6 Neue Funktionen SGBD_RESULT_EXISTS() und SGBD_RESULTS_EXISTS implementiert.
+//*---------------------------------------------------------------------
+//* 24.05.07 | 3.59  | Neuer Funktionsblock : MSA_DATEN_LESEN() 
+//*---------------------------------------------------------------------
+//* 21.05.07 | 3.58  | Bug beseitigt: SGBD_JOB() uberprüfung ob übergebene SGBD
+//*          |       | und Job auch gültig sind, nur dann wird Job an SG geschickt
+//*          |       | 
+//*          |       | ID_LESEN() optimiert: Unterscheidung BN2K/BN2010 nicht mehr anhand
+//*          |       | des Jobs SVK_LESEN sondern, ob SG mit F01-SGBD oder F01BN2K SGBD ermittelt wurde
+//*          |       | 
+//*          |       | Anzeige des Fehlercodes beim Starten des Skriptes wenn der Klemmenstatus nicht 
+//*          |       | korrekt ausgelesen werden konnte.
+//*          |       |
+//*          |       | Den Text "(intelligente Generatorregelung)" im Ergebnis File bei "Status iGR" 
+//*          |       | hinzugefügt um verwechslungen zu vermeiden!
+//*---------------------------------------------------------------------
+//* 14.05.07 | 3.57  | Funktionen MOST Default Registry lesen und MOST Current
+//*          |       | Registry lesen für CIC erweitert.
+//*          |       | Neuen Funktionsblock CIC Daten lesen eingefügt
+//*          |       | 
+//*          |       | Funktionen FA_LESEN, I_STUFE_LESEN für F01 erweitert
+//*---------------------------------------------------------------------
+//* 10.05.07 | 3.56  | Erweiterung ZGM_HS_LESEN: Damit die Daten auch mit der
+//*          |       | L2 bwz. L4 richtig ausgelesen werden, wurde diese Funk.
+//*          |       | entsprechend erweitert.
+//*---------------------------------------------------------------------
+//* 08.05.07 | V3.55 | Funktion hinzugefügt: Nox-Kat Adaption Daten lesen
+//*          |       | 
+//*          |       | VersionsNummer des InpaSkripts wird nun auch im Log-
+//*          |       | angezeigt
+//*          |       |
+//*          |       | Bug beseitigt bei SMC-Daten lesen. SMC Daten können nur
+//*          |       | bei Kurvenlicht Fahrzeugen ausgelesen werden -> SA 524
+//*---------------------------------------------------------------------
+//* 07.05.07 | V3.54 | Dummy-Job zur F01 Erkennung eingefügt.
+//*          |       | Damit erkennt das TD-53x jetzt automatisch ob ein F01 
+//*          |       | angeschlossen ist, solange die Jobs beim F01 noch nicht 
+//*          |       | implementiert sind.
+//*          |       |
+//*          |       | Erweiterung der Funktion TransportModus. 
+//*          |       | Nach dem Setzen des Autos in den TraMod, wird der FS
+//*	     |       | zur Kontrolle gelesen und angezeigt.
+//*          |       |
+//*          |       | FS_LESEN_DETAIL erweitert für F01 
+//*          |       |
+//*---------------------------------------------------------------------
+//* 24.04.07 | V3.53 | Delay-Time vor Funktion IDENT_FUNKTIONAL eingerichtet.
+//*          |       | Damit nach einem Klemmenwechsel alle SGs genug Zeit
+//*          |       | zum Hochfahren haben, wird hier 5sec gewartet.
+//*          |       | 
+//*          |       | Neuer Funktionsblock: auslesen der SMC Daten
+//*---------------------------------------------------------------------
+//* 19.04.07 | V3.52 | Parameter NotepadView in CFG Datei augenommen.
+//*          |       | Über diesen Parameter kann eingestellt werden,
+//*          |       | ob die Ergebnisse in einem seperaten Notepad-
+//*          |       | fenster angezeigt werden sollen.
+//*---------------------------------------------------------------------
+//* 18.04.07 | V3.51 | Erweiterung der Funktion FA_Lesen
+//*          |       | Bei E6x und E65 wird der FA zusätlich aus dem LM 
+//*          |       | gelesen und E8x und E9x aus dem FRM
+//*          |       | 
+//*          |       | Beschleunigung der SkriptBedienung. In der Haupt-
+//*          |       | schleife wird nur noch der Klemmenstatus abgefragt
+//*          |       | und nur wenn sich dieser ändert, werden die 
+//*          |       | weiteren Daten gelesen.
+//*          |       |
+//*          |       | Bug beseitigt: Bei der Erweiterung für den F01 
+//*          |       | wurde die Überschrift ID Daten Lesen verändert.
+//*          |       | Diese wurde wieder zurückgesetzt, das es zu 
+//*          |       | Problemen bei der weitern Datenverarbeitung führte.
+//*          |       |
+//*          |       | Bei den Telefondaten wird die SerNr. des SG mit 
+//*          |       | angezeigt. Hintergrund: Zum Freischalten von 
+//*          |       | TeleDiensten wird diese immer benötigt.
+//*---------------------------------------------------------------------
+//* 29.03.07 | V3.50 | Bug beseitigt, HardwareNr. wurden nicht angezeigt
+//*          |       | bei Ergebnisse ID-DATEN, da falscher JOB gesetzt 
+//*          |       | war.
+//*---------------------------------------------------------------------
+//* 28.03.07 | V3.49 | zusätliche Abfrage in der Funktion iGR Status 
+//*          |       | lesen. Es wird überprüft ob die iGR kodiert ist 
+//*          |       | oder nicht. ( STAT_IGR1_BITS0 )
+//*---------------------------------------------------------------------
+//* 27.03.07 | V3.48 | Bug beseitigt, Text abgeändert in iGR Status im 
+//*          |       | ErgebnisFile
+//*          |       | Funktionen TransportMode Aus und Kundenmodus er-
+//*          |       | weitert: - Uhrzeit und Datum wird synchronisiert
+//*---------------------------------------------------------------------
+//* 21.03.07 | V3.47 | Neuer Funktionsblock:  Auslesen der CAS Schlüssel
+//*          |       | Daten 
+//*---------------------------------------------------------------------
+//* 21.03.07 | V3.46 | Erweiterung der Funktion FS_IS_HS_LESEN() für den
+//*          |       | F01. 
+//*          |       |
+//*          |       | Erweiterung der Funktion ID_LESEN() für den F01
+//*          |       | Es werden nun beide Formate unterstützt und ange-
+//*          |       | zeigt.
+//*---------------------------------------------------------------------
+//* 15.03.07 | V3.45 | Wurde der FA aus der CAS oder der LM oder aus beiden
+//*          |       | nicht richtig ausgelesen, wird dies im Hauptmenü 
+//*          |       | angezeigt.
+//*---------------------------------------------------------------------
+//* 15.03.07 | V3.44 | Bug beseitigt. In der Funktion SG_LESEN_DETAIL 
+//*          |       | wurden die Ergebnisse GET_RESULT_AS_STR ausge-
+//*          |       | lesen. Die Ergebnisse werden jetzt mit SGBD_RES 
+//*          |       | gelesen, damit die DebugAusgabe sowie ErrorHandling
+//*          |       | funktioniert.
+//*---------------------------------------------------------------------
+//* 15.03.07 | V3.43 | Information über angeschlossene USB-Geräte ( an 
+//*	     |       | MULF2-HI ) werden ausgelesen und in der Rubrik 
+//*	     |       | Telefondaten angezeigt.
+//*---------------------------------------------------------------------
+//* 13.03.07 | V3.42 | Bug beseitigt. Bei einem KM-Stand über 40000 wurde
+//*          |       | der CAS KM-Stand falsch angezeigt.
+//*---------------------------------------------------------------------
+//* 12.03.07 | V3.41 | Bug beseitigt.Ausrichtung bei FS,IS,HS Detail
+//*          |       | Durch die Erweiterung für den F01
+//*          |       | wurden die Spalten in der Detailansicht zu den jw.
+//*          |       | Einträgen verbreitert.
+//*---------------------------------------------------------------------
+//* 07.03.07 | V3.40 | Telefondaten werden auch ausgelesen, wenn nur eine
+//*          |       | MULF2_HI und keine TCU verbaut ist.
+//*---------------------------------------------------------------------
+//* 06.03.07 | V3.39 | iGR-Status im Hautpmenü und in der Ergebnisdatei 
+//*          |       | anzeigen. 
+//*          |       | TransportModus Funktionen implementiert im Menü
+//*          |       | Spezial:  - Transport Ein 
+//*          |       |           - Transport Aus
+//*          |       |           - Kundenmodus
+//*---------------------------------------------------------------------
+//* 01.03.07 | V3.38 | CAS Kilometerstand wird mit abgefragt und im 
+//*          |       | Hauptmenü und der Ergebnisdatei mit angezeigt
+//*---------------------------------------------------------------------
+//* 28.02.07 | V3.37 | E87 und E90 Abfragen zusammengefaßt
+//*---------------------------------------------------------------------
+//* 26.02.07 | V3.36 | Über eine Parameter in der CFG-Datei kann aus-
+//*	     |       | gewählt werden, ob IDENT_FUNKTIONAL bei jedem
+//*          |       | Klemmenwechsel ausgeführt wird oder nicht. 
+//*---------------------------------------------------------------------
+//* 26.02.07 | V3.35 | Beseitigung eines Bugs beim Ausführen der 
+//*          |       | Funktionsblöcke in den Auto-Modi. Fehler be-
+//*          |       | seitigt Falls kein Funktionsblock in CFG gewählt 
+//*          |       | ist. 
+//*          |       | Beseitigung eines Bugs, Klemmenstatus wird nicht
+//*          |       | mehr ausgelesen, wenn kein Fahrzeug angeschlossen
+//*          |       | ist.
+//*---------------------------------------------------------------------
+//* 22.02.07 | V3.34 | Anzeigen des Pfades für die Konfigurationsdatei
+//*          |       | Anzeige "Auf Klemmenstatus warten" 
+//*---------------------------------------------------------------------
+//* 20.02.07 | V3.33 | Anpassung an E84
+//*---------------------------------------------------------------------
+//* 31.01.07 | V3.32 | Werte der Umweltbedingungen werden jetzt wieder 
+//*	     |       | im Originalformat und nicht mehr als Dezimalzahl
+//*	     |       | dargestellt
+//*---------------------------------------------------------------------
+//* 26.01.07 | V3.31 | Beseitigung eines Bugs beim ID Daten lesen. Daten
+//*          |       | werden jetzt auch angezeigt, wenn keine SGBD
+//*          |       | zurückgeliefert wurde
+//*---------------------------------------------------------------------
+//* 17.01.07 | V3.30 | Unterstützung für R55 und R57
+//*---------------------------------------------------------------------
+//* 16.01.07 | V3.29 | Unterstützung für F01 optimiert
+//*---------------------------------------------------------------------
+//* 10.01.07 | V3.28 | Unterstützung für E89 (Z4 Nachfolger)
+//*---------------------------------------------------------------------
+//* 20.12.06 | V3.27 | Anpassung an E82
+//*---------------------------------------------------------------------
+//* 04.12.06 | V3.26 | Batteriespannung wird jetzt ausgelesen
+//* --------------------------------------------------------------------                                 
+//* 28.11.06 | V3.25 | Anpassung an E70/E71
+//*---------------------------------------------------------------------
+//* 24.11.06 | V3.24 | Check Control History kann jetzt auch bei 
+//*          |       | KOMB70.PRG ausgelesen werden
+//*---------------------------------------------------------------------
+//* 17.11.06 | V3.23 | Powermanagement: Hier wurden im Abschnitt iGR-
+//*          |       | Info die Texte den Werten angepasst
+//*---------------------------------------------------------------------
+//* 10.11.06 | V3.22 | Bei TELE60_3 wird jetzt auch der TCU Typ
+//*          |       | ausgelesen
+//*---------------------------------------------------------------------
+//* 07.11.06 | V3.21 | SVS-Daten werden bei den Sweeping Technology 
+//*          |       | Daten jetzt auch ausgelesen
+//*---------------------------------------------------------------------
+//* 02.11.06 | V3.20 | Current Registry wird jetzt zusammen mit der 
+//*          |       | Default Registry ausgelesen
+//*---------------------------------------------------------------------
+//* 24.10.06 | V3.19 | Erweiterung in der Rubrik Powermanagement:
+//*          |       | Status iGR mit Abfrage STATUS_SYSTEMCHECK_IGR_AUS
+//*---------------------------------------------------------------------
+//* 17.10.06 | V3.18 | Optimierung der Fahrzeugerkennung durch
+//*          |       | Verwendung von Gruppendateien
+//*---------------------------------------------------------------------
+//* 17.10.06 | V3.17 | Telefondaten werden jetzt auch bei verbauter  
+//*          |       | MULF_60 bzw. MULF2_60 ausgelesen
+//*---------------------------------------------------------------------
+//* 12.10.06 | V3.16 | Es werden nur noch die per Bluetooth gekoppelten  
+//*	     |	     | Handys angezeigt
+//*---------------------------------------------------------------------		       
+//* 05.10.06 | V3.15 | Intelligente Auswertung der Jobs AIF_LESEN,
+//*          |       | C_FG_LESEN, INFO, PHYSIKALISCHE_HW_NR_LESEN,
+//*          |       | SERIENNUMMER_LESEN
+//*---------------------------------------------------------------------
+//* 20.09.06 | V3.14 | Auslesen sowie Löschen der Fensterheber Daten 
+//*          |       | (Reversierer, Denormierer) möglich. 
+//*---------------------------------------------------------------------
+//* 19.09.06 | V3.13 | Uhrzeit bei Dateiname auf Sekunden genau.
+//*          |       | --> kein Überschreiben der Dateien bei gesetztem
+//*          |       | AutoCheckInAndOut mehr möglich
+//*---------------------------------------------------------------------
+//* 14.09.06 | V3.12 | Funktion FUNC_ADD_UHRZEIT_STELLEN in Funktion 
+//*          |       | FUNC_SET_CHECKOUT eingefügt um diese beim Checkout
+//*          |       | ausführen zu können.
+//*---------------------------------------------------------------------  
+//* 11.09.06 | V3.11 | Intelligente Ausführung der Jobs BT_PASSKEY_LESEN;
+//*          |       | BT_GERAETENAME_LESEN; STATUS_BLUETOOTH; 
+//*          |       | =>Unterscheidung in der Funktion TEL_NR_LESEN
+//*---------------------------------------------------------------------
+//* 07.09.06 | V3.10 | Weitere Anpassung der Baureihenauswertung beim
+//*          |       | Auslesen der Powermanagement Daten
+//*---------------------------------------------------------------------
+//* 31.08.06 | V3.09 | Ist in der TD-530.cfg AutoExit nicht gesetzt,
+//*	     |       | wird das Skript beendet
+//*---------------------------------------------------------------------
+//* 23.08.06 | V3.08 | Auslesen von zusätzlichen Telefondaten mit Infos
+//*          |       | über Handydaten
+//*---------------------------------------------------------------------
+//* 22.08.06 | V3.07 | PC-Name und User-Name in Header aufgenommen
+//*---------------------------------------------------------------------
+//* 10.08.06 | V3.06 | Anpassung der Baureihenauswertung beim Auslesen 
+//*	     |       | der Powermanagement Daten
+//*---------------------------------------------------------------------
+//* 10.08.06 | V3.05 | Auslesen von zusätzlichen Telefon Daten mit Infos
+//*	     |       | über Bluetooth und NAD
+//*---------------------------------------------------------------------
+//* 19.07.06 | V3.04 | Einfügen von dezimalzahlen bei den 
+//*	     |       | Umweltbedingungen
+//*---------------------------------------------------------------------
+//* 18.07.06 | V3.03 | Bugfix nachtragen in Vehicles, Anzahl immer mit 
+//*	     |       | checken
+//*---------------------------------------------------------------------
+//* 04.07.06 | V3.02 | Einbau ES-412 anfragen
+//*	     |	     |	(Angabe Fahrzeugpool in .cfg,
+//*	     |	     |	 erweiterungen in ExtendedFileName,
+//*	     |	     |	 Dauerbetrieb INPA)
+//*---------------------------------------------------------------------
+//* 08.06.06 | V3.01 | Logging-Datei wird nur auf Logging = On erstellt
+//*---------------------------------------------------------------------
+//* 06.06.06 | V3.00 | Logging von TD-530.ini nach TD-530.cfg verlegt
+//*	     |       |	(wegen Ausleseterminal)
+//*---------------------------------------------------------------------
+//* 30.05.06 | V2.99 | Wartezeit nachdem Klemme 15 aktiviert wurde
+//*	     |	     | bei AutoCheckIn und AutoCheckOut
+//*---------------------------------------------------------------------
+//* 23.05.06 | V2.98 | Bei AutoCheckOut wird die Uhrzeit im Auto
+//*          |       | synchronisiert
+//*---------------------------------------------------------------------
+//* 23.05.06 | V2.97 | Lenkwinkelsensor Anpassung an neue SGBD
+//*---------------------------------------------------------------------
+//* 23.05.06 | V2.96 | Report Datei nicht mehr vorhanden
+//*---------------------------------------------------------------------
+//* 23.05.06 | V2.95 | Telefon Einstellungen für SA639 abgeändert, da
+//*          |       | bei US-Modellen die Abfrage nicht funktionierte
+//*---------------------------------------------------------------------
+//* 10.05.06 | V2.94 | Ziff Programmierstatus auslesen und anzeigen
+//*---------------------------------------------------------------------
+//* 09.05.06 | V2.93 | Ruhestrom Anzeigefehler behoben
+//*---------------------------------------------------------------------
+//* 09.05.06 | V2.92 | Extended File Name Bugfix
+//*	     |       | ging nur über 4 Angaben
+//*---------------------------------------------------------------------
+//* 04.05.06 | V2.91 | Ruhestrom Update. 
+//*	     |       | IGR,LEM,BZE,MSA werden ausgelesen
+//*---------------------------------------------------------------------
+//* 25.04.06 | V2.90 | Check Control History Bugfix(Parameter umbenannt)
+//*---------------------------------------------------------------------
+//* 21.04.06 | V2.89 | RR2 Bugfix (falsche SGBD)
+//*---------------------------------------------------------------------
+//* 20.04.06 | V2.88 | Extended File Name teilweise frei wählbar
+//*---------------------------------------------------------------------
+//* 19.04.06 | V2.87 | RR2 eingebunden
+//*---------------------------------------------------------------------
+//* 19.04.06 | V2.86 | Fehler bei Temperaturbereich im Powermanagement 
+//*		     | behoben
+//*---------------------------------------------------------------------
+//* 12.04.06 | V2.85 | Anzeigen der FGNR jedes Steuergerätes in Fzg
+//*	     |       | Ident
+//*---------------------------------------------------------------------
+//* 11.04.06 | V2.84 | Selbstdefinierten Ordner (in .cfg) als    
+//*          |       | Ergebnisordner verwenden.
+//*---------------------------------------------------------------------
+//* 06.04.06 | V2.83 | Beseitigung eines Fehlers beim Ermitteln des    
+//*          |       | aktuellen Verzeichnisses (Klein - Großschreibung)
+//*---------------------------------------------------------------------
+//* 05.04.06 | V2.82 | Neuer Funktionsblock im CheckIn zum Auslesen der
+//*          |       | Getriebe Daten (ZIF, AIF, ...) 
+//*---------------------------------------------------------------------
+//* 05.04.06 | V2.81 | Ermittlung der FDM SGBD erfolgt jetzt mit Hilfe
+//*          |       | der Gruppendatei D_FDM
+//*---------------------------------------------------------------------
+//* 03.04.06 | V2.80 | Verbreiterung der Spalte SGBD bei den IDENT Daten
+//*---------------------------------------------------------------------
+//* 31.03.06 | V2.79 | Bei Fahrzeug Identdaten wird jetzt auch die 
+//*          |       | SGBD Revision ausgelesen und angezeigt.
+//*---------------------------------------------------------------------
+//* 23.03.06 | V2.78 | Integration der MOST Datenbewertung in CheckIn
+//*---------------------------------------------------------------------
+//* 20.03.06 | V2.77 | Optimierung der Parameter aus TD-530.CFG Datei
+//*---------------------------------------------------------------------
+//* 16.03.06 | V2.76 | Beim CheckIn werden jetzt auch die MOST Daten
+//*          |       | zur Bewertung von MOST Fehlern ausgelesen
+//*---------------------------------------------------------------------
+//* 09.03.06 | V2.75 | Beim CheckIn werden jetzt auch die SWT Daten des
+//*          |       | NIVI ausgelesen
+//*---------------------------------------------------------------------
+//* 06.03.06 | V2.74 | Beseitigung eines Fehlers beim FS/IS/HS Airbag
+//*          |       | Untermenü. Texte der Buttons werden jetzt ange-
+//*          |       | zeigt.
+//*---------------------------------------------------------------------
+//* 01.03.06 | V2.73 | Löschen der FMD Diagnosedaten jetzt auch bei 
+//*          |       | FIT CheckOut im Menü Spezial            
+//*---------------------------------------------------------------------
+//* 28.02.06 | V2.72 | Anpassung für neue FDM Versionen und Unter-
+//*          |       | stützung des FDM bei allen Baureihen.
+//*---------------------------------------------------------------------
+//* 19.02.06 | V2.71 | Optimierung Zusammensetzung der verschiedenen 
+//*          |       | Menüfunktionen
+//*---------------------------------------------------------------------
+//* 02.02.06 | V2.70 | Unterstützung für TCU1.5                     
+//*---------------------------------------------------------------------
+//* 31.01.06 | V2.69 | Anpassungen beim Lesen von Telefondaten hinsicht-
+//*          |       | lich US TCU                                  
+//*---------------------------------------------------------------------
+//* 27.01.06 | V2.68 | Anpassung von Telefondaten lesen und setzen bei  
+//*          |       | CheckIn und CheckOut an Vorgaben von EI-43
+//*---------------------------------------------------------------------
+//* 26.01.06 | V2.67 | Neue Funktion beim CheckIn zum Auslesen von      
+//*          |       | speziellen CCC Daten
+//*---------------------------------------------------------------------
+//* 18.01.06 | V2.66 | Anpassung der Sicherungsfunktion beim Aufruf des 
+//*          |       | Archivators. Nach Archivator wird jetzt zusätz-
+//*          |       | lich im Funktionenpool Verzeichnis gesucht.
+//*---------------------------------------------------------------------
+//* 17.01.06 | V2.65 | Tankinhalt jetzt auch bei Rolls Royce
+//*---------------------------------------------------------------------
+//* 13.01.06 | V2.64 | Bei Fahrzeug CheckOut wird jetzt auch am ALBV
+//*          |       | am Fahrer- und Beifahrersitze eine 
+//*          |       | Initialisierung
+//*---------------------------------------------------------------------
+//* 12.01.06 | V2.63 | Optimierung der Funktion zum Auslesen der CFG und  
+//*          |       | INI Einstellungen
+//*---------------------------------------------------------------------
+//* 11.01.06 | V2.62 | Über TD-530.CFG kann jetzt mit Hilfe vom Parameter 
+//*          |       | ExtendedFileName eine Erweiterte Abspeicherung
+//*          |       | der Ergebnisdaten in einem Dateinamen mit voraus-
+//*          |       | gesetztem Datum und Uhrzeit eingeschaltet
+//*---------------------------------------------------------------------
+//* 07.01.06 | V2.61 | Auslesen und anzeigen der Steuegeräte 
+//*          |       | Seriennummer bei den IDENT Daten
+//*---------------------------------------------------------------------
+//* 07.01.06 | V2.60 | Optimierung des internen Programmablaufs zur 
+//*          |       | Ermittlung der Baureihe
+//*---------------------------------------------------------------------
+//* 05.01.06 | V2.59 | Beseitigung eines Fehlers: Beim E89x wird jetzt
+//*          |       | auch das RLS erkannt und ausgelesen.
+//*---------------------------------------------------------------------
+//* 15.12.05 | V2.58 | Erweiterung der Konfigurationsmöglichkeit. Ablauf
+//*          |       | von CheckIn und CheckOut kann jetzt in TD-530.CFG
+//*          |       | festgelegt werden                           
+//*---------------------------------------------------------------------
+//* 12.12.05 | V2.57 | Anzeige besonderer Ereignisse (z.B. Weihnachten)
+//*---------------------------------------------------------------------
+//* 06.12.05 | V2.56 | Unterstützung für E88 wurde integriert
+//*---------------------------------------------------------------------
+//* 02.12.05 | V2.55 | Verbesserung des Auslesen der CBS Daten. Durch
+//*          |       | eine intellegente Auswertung, sollten jetzt
+//*          |       | die CBS Daten sowohl bei alten alten wie auch 
+//*          |       | neuen Motoren angezeigt werden.
+//*---------------------------------------------------------------------
+//* 01.12.05 | V2.54 | Integration KGM HS Lesen (Beseitgung von Bugs)
+//*---------------------------------------------------------------------
+//* 30.11.05 | V2.53 | Integration KGM HS Lesen (erste Testversion)  
+//*---------------------------------------------------------------------
+//* 29.10.05 | V2.52 | Beseitigung eines Bugs bei Spezialversion für 
+//*          |       | EI-44
+//*---------------------------------------------------------------------
+//* 28.10.05 | V2.51 | Implementierung einer Spezialversion mit redu-
+//*          |       | ziertem CheckIn / CheckOut für EI-44
+//*---------------------------------------------------------------------
+//* 26.10.05 | V2.50 | Da beim Setzen des LWS Offset beim CheckOut ohne 
+//*          |       | vorherigen CheckIn ein falscher Wert gesetzt 
+//*          |       | wurde, wird dieser nun nicht mehr beim CheckOut
+//*          |       | durchgeführt
+//*---------------------------------------------------------------------
+//* 17.10.05 | V2.49 | Unterstützung für E81 integriert
+//*---------------------------------------------------------------------
+//* 23.08.05 | V2.48 | ACC Daten werden jetzt nur ausgelesen, wenn ein 
+//*          |       | ACC verbaut ist.
+//*---------------------------------------------------------------------
+//* 17.08.05 | V2.47 | Verbesserte Texte bei Anzeige ACC Daten
+//*---------------------------------------------------------------------
+//* 17.08.05 | V2.46 | Verbesserte Texte bei Anzeige Prüfsummenbytes
+//*---------------------------------------------------------------------
+//* 17.08.05 | V2.45 | Zusätzlicher Aufgabenblock bei CheckIn zum Aus-
+//*          |       | lesen von ACC Daten
+//*---------------------------------------------------------------------
+//* 16.08.05 | V2.44 | Erweiterung beim Spezial CheckIn von ES-47 zum
+//*          |       | setzen von Einstellungen für die Erprobung
+//*---------------------------------------------------------------------
+//* 16.08.05 | V2.43 | Auslesen der Telefonnummern jetzt auch bei E87 
+//*          |       | und E9x
+//*---------------------------------------------------------------------
+//* 08.08.05 | V2.42 | Unterstützung des FDM 3.x
+//*---------------------------------------------------------------------
+//* 23.07.05 | V2.41 | Auslesen und Anzeigen Steuergeräte Seriennummer
+//*          |       | bei IDENT Daten
+//*---------------------------------------------------------------------
+//* 23.07.05 | V2.40 | Unterstützung für R56 (Mini) wurde integriert
+//*---------------------------------------------------------------------
+//* 21.07.05 | V2.39 | Beseitigung eines Fehlers im Protokollmodus
+//*---------------------------------------------------------------------
+//* 13.07.05 | V2.38 | ZGM Historyspeicher lesen jetzt auch bei E90 und
+//*          |       | E87
+//*---------------------------------------------------------------------
+//* 13.07.05 | V2.37 | CheckControl History wird jetzt auch bei E87 und
+//*          |       | E9x ausgelesen.
+//*---------------------------------------------------------------------
+//* 11.07.05 | V2.36 | Anpassung Archivator Aufruf für automatischen
+//*          |       | Modus
+//*---------------------------------------------------------------------
+//* 27.06.05 | V2.35 | Beseitigung eines Fehlers. Rücksprung vom Fehler-
+//*          |       | speichermenü in Hauptmenü funktioniert wieder.
+//*---------------------------------------------------------------------
+//* 27.06.05 | V2.34 | Beim Auslesen der Fahrzeugdaten für den Header 
+//*          |       | wird jetzt zusätzlich der Tankinhalt ausgelesen
+//*---------------------------------------------------------------------
+//* 27.06.05 | V2.33 | Beim Auslesen der Fahrzeugdaten für den Header 
+//*          |       | wird jetzt zusätzlich das Produktionsdatum
+//*          |       | ausgelesen
+//*---------------------------------------------------------------------
+//* 23.06.05 | V2.32 | Umstellung des Archivator Aufrufs 
+//*---------------------------------------------------------------------
+//* 02.06.05 | V2.31 | Powermanagement Daten werden jetzt auch bei RR
+//*          |       | E87, E9x und E70 ausgelesen
+//*---------------------------------------------------------------------
+//* 20.05.05 | V2.30 | Verbesserte Fahrzeugerkennung. Steuergeräteident
+//*          |       | wird ab jetzt nur noch durchgeführt, wenn sich
+//*          |       | der Fahrzeugauftrag oder der Klemmenstatus ändert
+//*---------------------------------------------------------------------
+//* 20.05.05 | V2.29 | Beseitigung eines Fehlers beim Setzen der 
+//*          |       | Übergabedurchsicht
+//*---------------------------------------------------------------------
+//* 19.05.05 | V2.28 | Beseitigung eines Fehlers beim Archivator
+//*          |       | Aufruf
+//*---------------------------------------------------------------------
+//* 10.05.05 | V2.27 | Neuer Parameter in TD-530.CFG Datei WaitForClamp
+//*          |       | durch den beim AUTO Modus das Skript erst ge-
+//*          |       | startet wird, wenn der gesetze Klemmenstatus 
+//*          |       | vorhanden ist.
+//*---------------------------------------------------------------------
+//* 10.05.05 | V2.26 | Modifikation Archivator Schnittstelle
+//*---------------------------------------------------------------------
+//* 04.05.05 | V2.25 | Integration Archivator Schnittstelle
+//*---------------------------------------------------------------------
+//* 22.04.05 | V2.24 | Erweiterung beim Auslesen der Powermanagement 
+//*          |       | Daten. Zusätzlich wird jetzt der Parameter
+//*          |       | "Startfähigkeit bei Kl0 gefährdet" ausgelesen und
+//*          |       | angezeigt.
+//*---------------------------------------------------------------------
+//* 30.03.05 | V2.23 | Erweiterung der Funktion RPA Lesen für M5/M6
+//*---------------------------------------------------------------------
+//* 29.03.05 | V2.22 | Neue Funktion im Menü Spezial zum Setzen der 
+//*          |       | Übergabedurchsicht
+//*---------------------------------------------------------------------
+//* 24.03.05 | V2.21 | Neue Funktion RPA Lesen im CheckIn zum Auslesen
+//*          |       | der RPA Initialisierungszähler
+//*---------------------------------------------------------------------
+//* 09.02.05 | V2.19 | Beseitigung eines Bugs beim Löschen der FDM 
+//*          |       | Diagnosedaten
+//*---------------------------------------------------------------------
+//* 09.02.05 | V2.18 | Umstellung Menü "Daten auf Server sichern" auf
+//*          |       | neue Verzeichnisstruktur
+//*---------------------------------------------------------------------
+//* 07.02.05 | V2.17 | Beseitigung eines Bugs beim Sichern von Daten
+//*---------------------------------------------------------------------
+//* 03.02.05 | V2.16 | Unterstützung für E68 (Wasserstoff) hinzugefügt
+//*---------------------------------------------------------------------
+//* 14.01.05 | V2.15 | Beseitigung eines Problems beim Auslesen eines
+//*          |       | E92
+//*---------------------------------------------------------------------
+//* 12.01.05 | V2.14 | Beseitigung eines Problems beim Lesen eines       
+//*          |       | Fehlerspeichereintrages, der mehrmals aufgetreten
+//*          |       | ist und deshalb mehrere Umweltdatensätze hat.  
+//*---------------------------------------------------------------------
+//* 14.12.04 | V2.13 | Umstellung des Spezial Modus Auto_Save. Ist der   
+//*          |       | Parameter gesetzt, so wird jetzt beim Aufstarten 
+//*          |       | automatisch in das Menü zur Datensicherung gewe
+//*          |       | wechselt                                          
+//*---------------------------------------------------------------------
+//* 14.12.04 | V2.12 | Erweiterung FDM Menü zum Auslesen und Löschen der 
+//*          |       | FDM Diagnosedaten und zum Ein und Ausschalten der
+//*          |       | SMS Übertragung                                   
+//*---------------------------------------------------------------------
+//* 01.12.04 | V2.11 | Umstellung Texte (Deutsch / Englisch) für 
+//*          |       | Referenzierung    
+//*---------------------------------------------------------------------
+//* 29.11.04 | V2.10 | Beim Auslesen der FDM Daten wird jetzt zwischen 
+//*          |       | einem FDM mit der alten Hardware (HW=02) und der
+//*          |       | neuen Hardware (HW=11) unterschieden, da die
+//*          |       | Daten dabei in unterschiedlichen Blöcken abgelegt
+//*          |       | werden.
+//*---------------------------------------------------------------------
+//* 15.11.04 | V2.09 | Implementierung eines neuen AutoSkript Modus, in
+//*          |       | dem es nur möglich ist Fehler- und Infospeicher
+//*          |       | auszulesen und zu löschen.
+//*---------------------------------------------------------------------
+//* 10.11.04 | V2.08 | Erweiterung des Skripts zur Unterstützung von E70
+//*          |       | (nicht am Fahrzeug getestet)
+//*---------------------------------------------------------------------
+//* 29.10.04 | V2.07 | Beim Auslesen der FDM Daten werden jetzt auch
+//*          |       | die aufgezeichneten WakeUps und die Fehler- und
+//*          |       | Infospeichereinträge ausgelesen und angezeigt.
+//*---------------------------------------------------------------------
+//* 14.10.04 | V2.05 | Erweiterung der Parameterangaben in der Datei    
+//*          |       | TD-530.CFG. Jetzt kann zusätzlich der Pfad für
+//*          |       | die automatische Sicherung angelegt werden.   
+//*---------------------------------------------------------------------
+//* 08.10.04 | V2.04 | Anzeige des Skript Version im Ergebnis, damit    
+//*          |       | bei Fehlermeldungen die Zuordnung möglich ist.  
+//*---------------------------------------------------------------------
+//* 08.10.04 | V2.03 | Beseitigung eines Bugs beim Aufruf der TD-530.BAT
+//*          |       | zum Sichern der Daten. Das Sichern von Daten ist
+//*          |       | jetzt auch möglich, wenn INPA in einem anderen
+//*          |       | Verzeichnis als "C:\INPA" installiert ist.
+//*---------------------------------------------------------------------
+//* 07.10.04 | V2.02 | Neue Funktion im Auto Modus. Integration eines
+//*          |       | Ablaufes für ES47
+//*---------------------------------------------------------------------
+//* 27.09.04 | V2.01 | Beseitigung eines Fehlers beim Setzen des Über-
+//*          |       | gabeparameter für die Arbeitsgruppe bei der 
+//*          |       | Datensicherung  
+//*---------------------------------------------------------------------
+//* 22.09.04 | V2.00 | Erweiterung der Sicherungsfunktion. Beim Sichern
+//*          |       | von Daten besteht der Verzeichnisname jetzt aus
+//*          |       | Datum, Uhrzeit und einer Kurzbezeichnung der 
+//*          |       | Arbeitsgruppe. Die Arbeitsgruppe wird aus der
+//*          |       | Datei TD-530.CFG ermittelt. In diese Datei wurden
+//*          |       | jetzt ebenfalls die Automatisierungsparameter
+//*          |       | verschoben. 
+//*---------------------------------------------------------------------
+//* 17.09.04 | V1.99 | Der Start von Spezialversionen wird jetzt durch
+//*          |       | das Setzen von den Parametern Script und AutoExit
+//*          |       | in der Rubrik [Automation] der INI Datei 
+//*          |       | gesteuert.
+//*---------------------------------------------------------------------
+//* 06.09.04 | V1.98 | Beim Auslesen der Telefondaten werden jetzt
+//*          |       | zusätzlich zu den Telefonnummern auch die ICC ID
+//*          |       | und die IMEI ausgelesen.
+//*---------------------------------------------------------------------
+//* 18.08.04 | V1.97 | Beseitigung eines Fehlers beim HS Lesen. Die
+//*          |       | HS Details werden jetzt nicht mehr über den
+//*          |       | Fehlercode, sondern über die Fehlernummer 
+//*          |       | ermittelt.
+//*---------------------------------------------------------------------
+//* 17.08.04 | V1.96 | Neue Funktion im Menü Spezial zum Löschen von
+//*          |       | FS, IS und HS = FIT CheckOut 
+//*---------------------------------------------------------------------
+//* 16.08.04 | V1.95 | Neue Funktion im Menü Spezial zum gezielten Aus-
+//*          |       | lesen sämtlicher Daten für eine Ruhestromanalyse
+//*---------------------------------------------------------------------
+//* 09.08.04 | V1.94 | Beim CheckOut wird jetzt bei der Fahrzeuginbe-
+//*          |       | triebnahme auch ein Êinlauf der Klimaanlage
+//*          |       | durchgeführt und der RLS initialisiert.
+//*---------------------------------------------------------------------
+//* 09.08.04 | V1.93 | Beim Auslesen der Powermanagementdaten wird jetzt
+//*          |       | nicht mehr die SGBD MSV70 verwendet, sondern
+//*          |       | die SGBD für den im Fahrzeug verbauten Motor
+//*---------------------------------------------------------------------
+//* 19.07.04 | V1.92 | Telefondatein für E65 LZQ werden jetzt aus der
+//*          |       | Datei E65.TEL geladen
+//*---------------------------------------------------------------------
+//* 19.07.04 | V1.91 | Zusätzliche Spalte beim Auslesen der ZGM History
+//*          |       | zur Anzeige von Hinweisen (SV_A = Standverbrau-
+//*          |       | cher Abschaltung und UBat = Unterspannung)
+//*---------------------------------------------------------------------
+//* 13.07.04 | V1.90 | Anstatt der Datei FERTIG.TXT wird nun nach der
+//*          |       | Durchführung eines kompletten CheckIn bzw. Check-
+//*          |       | Out die Datei REPORT.TXT angelegt. In dieser
+//*          |       | Datei sind Informationen über fehlgeschlagenen
+//*          |       | Jobs, bzw. fehlgeschlagene Ergebnisauswertungen.
+//*---------------------------------------------------------------------
+//* 12.07.04 | V1.89 | Beseitigung eines Fehlers beim CBS Daten lesen
+//*          |       | von ME9N62_2
+//*---------------------------------------------------------------------
+//* 30.06.04 | V1.88 | Neue Funktion bei CheckIn: Auslesen der DME/DDE
+//*          |       | Daten (ZIF,Datenreferenz und falls vorhanden IBS)
+//*---------------------------------------------------------------------
+//* 29.06.04 | V1.87 | Batteriekapazität wird jetzt auch bei E60, E61
+//*          |       | E63 und E64 angezeigt.
+//*---------------------------------------------------------------------
+//* 29.06.04 | V1.86 | Kleinere Erweiterungen innerhalb des Auslesen der
+//*          |       | Powermanagementdaten
+//*---------------------------------------------------------------------
+//* 22.06.04 | V1.85 | Unterstützung für erweiterte Fehlerausblenddatei-
+//*          |       | en mit Zeitpunkt des Endes der Bauabweichung
+//*---------------------------------------------------------------------
+//* 21.06.04 | V1.84 | Auslesen der Powermanagement jetzt auch für E60
+//*          |       | E61, E63 und E64
+//*---------------------------------------------------------------------
+//* 21.06.04 | V1.83 | Auslesen des CheckControl Namen bei der 
+//*          |       | CC History
+//*---------------------------------------------------------------------
+//* 04.06.04 | V1.82 | Beseitigung eines Fehlers beim Lesen der CBS 
+//*          |       | Daten aus einem Top-Diesel bzw. vom NG6
+//*---------------------------------------------------------------------
+//* 01.06.04 | V1.81 | ZGM History Speicher wird beim CheckOut nicht 
+//*          |       | mehr gelöscht, damit bei der Analyse die voll-
+//*          |       | ständige History verfügbar ist.
+//*---------------------------------------------------------------------
+//* 01.06.04 | V1.80 | Beim Auslesen des Fahrzeuges wird jetzt zu-
+//*          |       | sätzlich das Zeitkriterum und der Typschlüssel
+//*          |       | ausgelesen und angezeigt.
+//*---------------------------------------------------------------------
+//* 26.05.04 | V1.79 | Zusätzlicher Parameter beim Aufrufen der Batch
+//*          |       | Datei zum Sichern der Daten, damit nur die Daten
+//*          |       | vom aktuellen Datum gesichert werden.
+//*---------------------------------------------------------------------
+//* 25.05.04 | V1.78 | Unterstützung für Rolls Royce (RR1) wurde 
+//*          |       | integriert
+//*---------------------------------------------------------------------
+//* 13.05.04 | V1.77 | CheckControl History wird jetzt auch beim E65 
+//*          |       | ausgelesen
+//*---------------------------------------------------------------------
+//* 12.05.04 | V1.76 | Beseitigung eines Fehlers: Beim E65 wird jetzt
+//*          |       | auch die SINE erkannt und angesteuert.
+//*---------------------------------------------------------------------
+//* 12.05.04 | V1.75 | Bei den Fehlerausblendungen wird jetzt nach 
+//*          |       | Steuergeräten unterschieden.
+//*---------------------------------------------------------------------
+//* 11.05.04 | V1.74 | Hinweis bei ausgeblendeten Fehlern. Mit Hilfe der
+//*          |       | Fehlerausblenddateien im Unterverzeichnis 
+//*          |       | "..\FAB" wird jetzt bei jedem ausgeblendeten 
+//*          |       | Fehler ein entsprechender Hinweis angezeigt.
+//*---------------------------------------------------------------------
+//* 06.05.04 | V1.73 | Bei der Spezial Version LZQ CheckOut werden jetzt
+//*          |       | bei allen Fahrzeugen die Telefonnummern aus der 
+//*          |       | Datei "LZQ_E65i.TEL" gesetzt.
+//*---------------------------------------------------------------------
+//* 06.05.04 | V1.72 | Anpassung der Fensterheber Initialisierung
+//*          |       | beim E6x auf das neue Parameterformat
+//*          |       | STEUERN_CFL ECU;AUTOINIT_ENDMONTAGE;<BAUREIHE>
+//*---------------------------------------------------------------------
+//* 04.05.04 | V1.71 | Die Spezial Versionen unterstützen jetzt den 
+//*          |       | INI Parameter "STATUS" in der Rubrik "AUTOEXIT"
+//*          |       | Ist dieser auf "ON" gesetzt, so wird nach dem 
+//*          |       | Durchlaufen des Skriptes INPA automatisch beendet
+//*---------------------------------------------------------------------
+//* 27.04.04 | V1.70 | Bei der Spezial Version für den E65 LZQ CheckIn
+//*          |       | wird jetzt nach der Durchführung des CheckIn
+//*          |       | im Verzeichnis "C:\FAHRZEUG.DAT" die Datei
+//*          |       | "FERTIG.TXT" erstellt. Dadurch können andere
+//*          |       | Programme das Skript einbinden und den Auslese-
+//*          |       | prozess komplett automatisieren
+//*---------------------------------------------------------------------
+//* 23.04.04 | V1.69 | Sicherung von Daten ist jetzt auch möglich, wenn
+//*          |       | das TD-53x INPA Skript in dem Verzeichnis 
+//*          |       | C:\EC-Apps\INPA\SGDAT installiert ist.
+//*---------------------------------------------------------------------
+//* 14.04.04 | V1.68 | Logging kann jetzt den Parameter "Status" in der 
+//*          |       | Section "Logging" der TD-530.INI ein- bzw. aus-
+//*          |       | geschaltet werden.
+//*---------------------------------------------------------------------
+//* 14.04.04 | V1.67 | Unterstützung für E91, E93 und E94
+//*---------------------------------------------------------------------
+//* 14.04.04 | V1.66 | Umstellung der Datensicherung auf INI Datei.
+//*          |       | Dadurch können jetzt auch Personen außerhalb von
+//*          |       | TD-53x die Funktion zum Sichern von Daten (Haupt-
+//*          |       | menü F9) verwenden. Konfiguration erfolgt über
+//*          |       | TD-530.INI und TD-530.BAT Datei.
+//*---------------------------------------------------------------------
+//* 26.03.04 | V1.65 | Durch die Umstellung der Ergebnisdarstellung beim
+//*          |       | Ausführen der Jobs READ_DEFAULT_REGISTRY und 
+//*          |       | READ_CURRENT_REGISTRY in der SGBD CCCG60 kam es
+//*          |       | zu einem Fehler. Dieser Fehler wurde beseitigt.
+//*---------------------------------------------------------------------
+//* 25.03.04 | V1.64 | Neue Funktion im Menü "Daten auf Server sichern"
+//*          |       | zum Wegsichern von NG6 Analysedaten
+//*---------------------------------------------------------------------
+//* 18.03.04 | V1.63 | Anzeige und Ausgabe der Batteriekapazität bei E65 
+//*---------------------------------------------------------------------
+//* 15.03.04 | V1.62 | Verbesserung der Datensicherung. Es wird jetzt
+//*          |       | zusätzlich zum Datum auch die Uhrzeit im Ver-
+//*          |       | zeichnisnamen angegeben.
+//*---------------------------------------------------------------------
+//* 11.03.04 | V1.61 | Unterstützung von ULF Telefon beim CheckOut
+//*---------------------------------------------------------------------
+//* 03.03.04 | V1.60 | Beseitigung eines Fehlers beim Löschen der Ergeb-
+//*          |       | nislisten 
+//*---------------------------------------------------------------------
+//* 02.03.04 | V1.59 | Neue Funktion zum Sichern der Daten von E61 KNG 
+//*          |       | Fahrzeugen
+//*---------------------------------------------------------------------
+//* 27.02.04 | V1.58 | Erweiterungen zur Unterstützung von E90
+//*---------------------------------------------------------------------
+//* 27.02.04 | V1.57 | Erweiterungen zur Unterstützung von E87
+//*---------------------------------------------------------------------
+//* 26.02.04 | V1.56 | Spezial Versionen für E65 LZQ
+//*---------------------------------------------------------------------
+//* 26.02.04 | V1.55 | Umstellung auf Datei "BMW_STD.H" 
+//*---------------------------------------------------------------------
+//* 17.02.04 | V1.54 | Löschen des FDM Diagnosespeichers + Reset beim
+//*          |       | CheckOut
+//*---------------------------------------------------------------------
+//* 17.02.04 | V1.53 | Auslesen der Powermanagement Daten beim E65 beim
+//*          |       | CheckIn
+//*---------------------------------------------------------------------
+//* 22.01.04 | V1.52 | Unterstützung für Bluetooth Telefon beim E65
+//*---------------------------------------------------------------------
+//* 21.01.04 | V1.51 | Verbesserte Logging Funktionalität
+//*---------------------------------------------------------------------
+//* 16.01.04 | V1.50 | Neue Funktion im CheckIn zum Auslesen der Check  
+//*          |       | Control History bei E60 Fahrzeugen.
+//*---------------------------------------------------------------------
+//* 15.01.04 | V1.49 | Verbessertet CheckIn: Die CBS Daten, der LWS Off-
+//*          |       | set und die Telefonnummern werden jetzt nur ein-
+//*          |       | malig ausgelesen und dann in den entsprechenden
+//*          |       | Dateien abgespeichert.
+//*---------------------------------------------------------------------
+//* 14.01.04 | V1.48 | Im Menü "Fahrzeugdaten Sichern" wurde ein neuer 
+//*          |       | Menüpunkt zum Sichern der E65 LZQ Daten hin-
+//*          |       | zugefügt
+//*---------------------------------------------------------------------
+//* 13.01.04 | V1.47 | Beim Löschen des ZGM HS Speichers wird jetzt 
+//*          |       | anschließend kein erneutes Lesen durchgeführt.
+//*---------------------------------------------------------------------
+//* 12.01.04 | V1.46 | Auslesen des ZGM Historyspeichers beim CheckIn
+//*---------------------------------------------------------------------
+//* 07.01.04 | V1.45 | Schneller Abfragezeiten (Abtastzeiten) bei der 
+//*          |       | Durchführung einer Trace Messung
+//*---------------------------------------------------------------------
+//* 19.12.03 | V1.44 | Unterstützung für Englische Texte integriert.
+//*---------------------------------------------------------------------
+//* 18.12.03 | V1.43 | Unterstützung für Fehlerausblendungen (FAB) und
+//*          |       | Problemdatenbank (PDB) wurde auskommentiert, da 
+//*          |       | diese Funktionen nicht mehr unterstützt werden.
+//*---------------------------------------------------------------------
+//* 17.12.03 | V1.42 | Sämtliche Texte sind jetzt in Konstanten abgelegt
+//*          |       | Dadurch ist jetzt eine Unterstützung von anderen
+//*          |       | Sprachen möglich
+//*---------------------------------------------------------------------
+//* 11.12.03 | V1.41 | Umstellung auf verbesserte Parameter, welche 
+//*          |       | nicht direkt im Source Code enthalten sind.
+//*---------------------------------------------------------------------
+//* 11.12.03 | V1.40 | Unterstützung für Logdatei integriert
+//*---------------------------------------------------------------------
+//* 05.12.03 | V1.39 | Unterstützung für E87 hinzugefügt. Funktion am
+//*          |       | E87 muß erst noch überprüft werden.
+//*---------------------------------------------------------------------
+//* 25.11.03 | V1.38 | Verbesserte Routinen zum Auslesen und Löschen
+//*          |       | des Fehler-, Info- und Historyspeichers
+//*---------------------------------------------------------------------
+//* 24.11.03 | V1.37 | Verbesserung der Trace Aufzeichnung. 
+//*---------------------------------------------------------------------
+//* 18.11.03 | V1.36 | Beim ID Daten Lesen werden jetzt auch die ZB
+//*          |       | Nummer und die HW Nummer eingelesen und angezeigt
+//*---------------------------------------------------------------------
+//* 18.11.03 | V1.35 | Neue Funktion zum Aufzeichnen von Messungen in 
+//*          |       | Trace Dateien mit der Datei TRACE.TST als 
+//*          |       | Konfiguration
+//*---------------------------------------------------------------------
+//* 05.11.03 | V1.34 | Beim Auslesen des Fahrzeugauftrages werden jetzt
+//*          |       | zusätzlich die SA Nummern ermittelt und angezeigt
+//*---------------------------------------------------------------------
+//* 03.11.03 | V1.33 | Erweiterung beim Lesen und Setzen der Telefon-
+//*          |       | nummern um GATS SMSC und PROVIDER Nummer
+//*---------------------------------------------------------------------
+//* 17.10.03 | V1.32 | Beim CCC Checkout wird beim ASK jetzt zwischen 
+//*          |       | den Baureihen E60, E63 und E64 unterschieden.
+//*---------------------------------------------------------------------
+//* 17.10.03 | V1.31 | Beim CCC Checkout werden jetzt die Telefonnummern
+//*          |       | in Abhängigkeit der Baureihe gesetzt.
+//*---------------------------------------------------------------------
+//* 17.10.03 | V1.30 | Zusätzliche Überprüfung der Telefonsoftware beim
+//*          |       | CCC Checkout
+//*---------------------------------------------------------------------
+//* 16.10.03 | V1.29 | Beseitigung eines Fehlers in der Funktion 
+//*          |       | SGBD_Result
+//*---------------------------------------------------------------------
+//* 14.10.03 | V1.28 | Schnellere Ausführung von TEST_PROCESS_JOB. Wird
+//*          |       | unmittelbar hintereinander die gleiche SGBD und 
+//*          |       | der gleiche Job übergeben, so wird dies nicht 
+//*          |       | ausgeführt, sondern nur noch das Ergebnis gelesen
+//*---------------------------------------------------------------------
+//* 14.10.03 | V1.27 | Jetzt wird zusätzlich die Fehlerursache abgelegt,
+//*          |       | wenn beim Ausführen der Funktion TEST_PROCESS_JOB  
+//*          |       | ein Fehler auftritt.
+//*---------------------------------------------------------------------
+//* 06.10.03 | V1.26 | Neue Funktion zum Setzen von Datum und Uhrzeit
+//*          |       | im MOST Menü
+//*---------------------------------------------------------------------
+//* 06.10.03 | V1.25 | Neue Funktion zum Ausführen von Toolset Tests
+//*---------------------------------------------------------------------
+//* 01.10.03 | V1.24 | Auslesen und Überwachung der MOST 3dB Absenkung
+//*          |       | wurde verändert. Jetzt wird der Timer immer vor
+//*          |       | dem Senden von Jobs neu gestartet.
+//*---------------------------------------------------------------------
+//* 30.09.03 | V1.23 | Neue Funktion TEST_PROCESS zum Ausführen von 
+//*          |       | Toolset Testdateien. Wird im CCC Checkout verwen-
+//*          |       | det, um die CCC Komponenten zu überprüfen.
+//*---------------------------------------------------------------------
+//* 30.09.03 | V1.22 | Reihenfolge im Menü MOST 3dB Absenkung ist jetzt
+//*          |       | beim E65 nicht nach SG Adressen sortiert, sondern
+//*          |       | nach der Reihenfolge auf dem MOST Bus
+//*---------------------------------------------------------------------
+//* 16.09.03 | V1.21 | Neue Funktion beim CheckOut zur Inbetriebnahme
+//*          |       | verschiedener Fahrzeugfunktionen (Fensterheber,
+//*          |       | Schiebehebedach, Datum, Uhrzeit)
+//*---------------------------------------------------------------------
+//* 04.09.03 | V1.20 | Verbesserung der MOST Funktion 3dB Absenkung.
+//*          |       | Jetzt kann die Absenkung für alle MOST Teilnehmer
+//*          |       | getrennt ein- bzw. ausgeschaltet werden
+//*---------------------------------------------------------------------
+//* 01.09.03 | V1.19 | Neue Funktion im Menü Spezial zur Durchführung 
+//*          |       | aller CheckOut Aufgaben nach einer CCC Flash-
+//*          |       | aktion
+//*---------------------------------------------------------------------
+//* 28.08.03 | V1.18 | Beseitigung eines Bugs zur Ansteuerung des FDM
+//*---------------------------------------------------------------------
+//* 25.08.03 | V1.17 | Beseitigung eines Fehlers beim Lesen des Fahr-
+//*          |       | auftrages.
+//*---------------------------------------------------------------------
+//* 23.08.03 | V1.16 | Zusätzliche Funktionen bei CheckIn und CheckOut
+//*          |       | zum Auslesen und Löschen des ZGM Historyspeichers
+//*---------------------------------------------------------------------
+//* 22.08.03 | V1.15 | Beseitigung eines Fehlers beim Festlegen der 
+//*          |       | durchzuführenden Aufgaben. Telefon anmelden und
+//*          |       | Telefonnummer lesen bzw. setzen jetzt nur noch
+//*          |       | beim E60
+//*---------------------------------------------------------------------
+//* 20.08.03 | V1.14 | Erweiterung des Airbag Menü: Neu Funktion zum 
+//*          |       | Auslesen der Systemzeit aller Airbag Steuergeräte
+//*---------------------------------------------------------------------
+//* 18.08.03 | V1.13 | Beseitigung eines Fehlers beim Lesen der Default
+//*          |       | und Current Registry bei Fahrzeugen mit CCC
+//*---------------------------------------------------------------------
+//* 01.08.03 | V1.12 | Beseitigung eines Fehlers beim ausführen aller 
+//*          |       | Aufgaben in CheckIn und Checkout
+//*---------------------------------------------------------------------
+//* 01.08.03 | V1.11 | Neue Funktion MENU_TEXT zum Anzeigen der ver-     
+//*          |       | schiedenen Menüpunkte im Menü Screen.
+//*---------------------------------------------------------------------
+//* 31.07.03 | V1.10 | Änderung der Funktionen zum Sichern der Fahrzeug
+//*          |       | Daten auf die neue Menüstruktur auf dem Server
+//*---------------------------------------------------------------------
+//* 15.07.03 | V1.09 | Verbesserte Menüauswahl
+//*---------------------------------------------------------------------
+//* 10.07.03 | V1.08 | Verbesserung der anzeige der Parameter in der 
+//*          |       | Message Box
+//*---------------------------------------------------------------------
+//* 27.06.03 | V1.07 | Verbesserte Anzeige der Message Box. Beim Senden
+//*          |       | von SGBD Jobs werden jetzt auch die Parameter
+//*          |       | angezeigt.
+//*---------------------------------------------------------------------
+//* 27.06.03 | V1.06 | Beseitigung eines Fehlers beim Setzen des LWS
+//*          |       | Offsets
+//*---------------------------------------------------------------------
+//* 18.06.03 | V1.05 | Beseitigung eines Fehlers beim Lesen der Fehler-
+//*          |       | ausblenddateien
+//*---------------------------------------------------------------------
+//* 18.06.03 | V1.04 | Beseitigung eines Fehlers beim Setzten des LWS
+//*          |       | Offset
+//*---------------------------------------------------------------------
+//* 13.06.03 | V1.03 | Beseitigung eines Fehlers bei der Anzeige eines
+//*          |       | Fehlers im Fahrzeugauftrag von Lichtmodul und 
+//*          |       | CAS
+//*---------------------------------------------------------------------
+//* 12.06.03 | V1.02 | Zusätzliche Funktion zum Auslesen und Setzen der
+//*          |       | Telefonnummern (Service, Breakdown, Hotline, 
+//*          |       | Emergency)
+//*---------------------------------------------------------------------
+//* 11.06.03 | V1.01 | Im Menü Spezial wird jetzt beim Auslesen der 
+//*          |       | Flashdaten zusätzlich die ZB Nummer ausgelesen
+//*          |       | bzw. angezeigt.
+//*---------------------------------------------------------------------
+//* 11.06.03 | V1.00 | Verbesserung beim Lesen des Fahrzeug Auftrages
+//*          |       | Fahrzeug kann jetzt auch angesteuert werden, wenn
+//*          |       | der Fahrzeugauftrag nur im CAS oder im LM gesetzt
+//*          |       | ist.
+//*---------------------------------------------------------------------
+//* 04.06.03 | V0.99 | Beseitigung eines Fehlers beim Sichern der Daten
+//*          |       | auf dem ZARZ Server
+//*---------------------------------------------------------------------
+//* 23.05.03 | V0.98 | Beseitigung eines Fehlers bei der Anzeige des 
+//*          |       | Textes "Infospeicher löschen" statt "... lesen"
+//*---------------------------------------------------------------------
+//* 22.05.03 | V0.97 | Neue Funktion zum Ein- und Ausschalten der 
+//*          |       | FDM Datenübertragung
+//*---------------------------------------------------------------------
+//* 21.05.03 | V0.96 | Neue Funktion zum Löschen des FDM Diagnose Daten
+//*          |       | Diese Funktion wird immer in Verbindung mit 
+//*          |       | Fehler Speicher Löschen beim CheckOut ausgeführt.
+//*---------------------------------------------------------------------
+//* 19.05.03 | V0.95 | Verbessertes Management zur Erkennung des Fahr-
+//*          |       | zeuges. Es wird jetzt immer über den Fahrzeug-
+//*          |       | auftrag überprüft, ob ein Fahrzeug angeschlossen
+//*          |       | ist.
+//*---------------------------------------------------------------------
+//* 19.05.03 | V0.94 | Neue Funktion Sleep Mode setzen im MOST 3dB Menü
+//*---------------------------------------------------------------------
+//* 19.05.03 | V0.93 | Beim E6x wird jetzt zusätzlich die I-Stufe aus
+//*          |       | dem CAS ausgelesen und angezeigt.
+//*---------------------------------------------------------------------
+//* 09.05.03 | V0.92 | Beseitigung eines Fehlers beim Setzen des LWS
+//*---------------------------------------------------------------------
+//* 09.05.03 | V0.91 | Beseitigung eines Fehlers bei  SG_LESEN_DETAIL
+//*---------------------------------------------------------------------
+//* 08.05.03 | V0.90 | Optimierung des ID_DATA Arrays für schnelleren
+//*          |       | Zugriff.
+//*---------------------------------------------------------------------
+//* 28.04.03 | V0.89 | Optimierung der Programmstruktur. Index und Länge
+//*          |       | der einzelnen Ergebnis Parameter werden jetzt
+//*          |       | aus den jeweiligen Header Zeilen ermittelt.
+//*          |       | Alle bisherigen Indexparameter wurden entfernt.
+//*---------------------------------------------------------------------
+//* 17.04.03 | V0.88 | Neu Funktion zum Auslesen der physikalischen 
+//*          |       | Hardwarenummer im Menü Spezial
+//*---------------------------------------------------------------------
+//* 14.04.03 | V0.87 | Beim Fehler- und Infospeicher Detail Lesen
+//*          |       | wird jetzt zusätzlich zum Grob Namen immer die
+//*          |       | SGBD, sowie der vollständige Name angegeben.
+//*---------------------------------------------------------------------
+//* 10.04.03 | V0.86 | Erweiterung für E60. Im CheckOut und MOST Menü
+//*          |       | steht jetzt eine Funktion zur Verfügung, über die
+//*          |       | der Bluetooth SBDH angemeldet werden kann.
+//*---------------------------------------------------------------------
+//* 09.04.03 | V0.85 | Bugfix für E66 und E67. Laut Auskunft von Herrn
+//*          |       | Drexl muss beim E66 und E67 auch immer die SGBD
+//*          |       | E65 verwendet werden.
+//*---------------------------------------------------------------------
+//* 09.04.03 | V0.84 | Bugfix für E67. Es wird jetzt die SGBD E67 ver-
+//*          |       | wendet.
+//*---------------------------------------------------------------------
+//* 07.04.03 | V0.83 | Es werden jetzt bei jeder Funktion in der Ergeb-
+//*          |       | nisdatei die Fahrzeugdaten im Dateiheader ange-
+//*          |       | geben.
+//*---------------------------------------------------------------------
+//* 04.04.03 | V0.82 | Beseitigung eines Fehlers beim Lesen der CBS
+//*          |       | Daten. Jetzt werden auch beim Durchführen aller
+//*          |       | CheckIn Aufgaben die Fahrzeug Daten in der Datei
+//*          |       | abgespeichert.
+//*---------------------------------------------------------------------
+//* 03.04.03 | V0.81 | Beseitigung eines Fehlers beim Schreiben der CBS
+//*          |       | Daten. Es Job CBS_RESET wurde zweimal gesendet.
+//*          |       | Wenn als Service Zähler der Wert "31" verwendet
+//*          |       | wurde, wurden deshalb der Zähler zweimal erhöht
+//*---------------------------------------------------------------------
+//* 02.04.03 | V0.80 | Beseitigung eines Fehlers beim Schreiben der CBS
+//*          |       | Daten. Es wird jetzt beim Service Zähler nicht
+//*          |       | mehr der Wert "31" verwendet, da hier ein Fehler
+//*          |       | in den SGBDs für den E60 vorhanden ist.
+//*---------------------------------------------------------------------
+//* 14.03.03 | V0.79 | Beseitigung eines Fehlers beim Sichern der Daten
+//*          |       | auf den entsprechenden Server Verzeichnissen
+//*---------------------------------------------------------------------
+//* 14.03.03 | V0.78 | Funktion zum Sichern der E60 KNG Fahrzeuge auf 
+//*          |       | dem entsprechenden Server Verzeichnis
+//*---------------------------------------------------------------------
+//* 13.03.03 | V0.77 | Einlesen der Problemdatenbank Hinweise aus den
+//*          |       | mit dem Word Makro erstellten Format
+//*---------------------------------------------------------------------
+//* 10.03.03 | V0.76 | Zeilenumbruch bei Problem Datenbank Hinweisen
+//*---------------------------------------------------------------------
+//* 07.03.03 | V0.75 | Beim Fehlerspeicherlesen werden jetzt beim  E60 
+//*          |       | die aktuellen Hinweise aus der ProblemDB ausge-
+//*          |       | geben
+//*---------------------------------------------------------------------
+//* 05.03.03 | V0.74 | Auslesen der aktuellen Offsetwerte des LWS beim
+//*          |       | CheckIn
+//*---------------------------------------------------------------------
+//* 28.02.03 | V0.73 | Unterstützung für E67 zum Auslesen von SECUR1 und
+//*          |       | SECURE2                              
+//*---------------------------------------------------------------------
+//* 27.02.03 | V0.72 | Bei CBS Daten Lesen und Setzten werden jetzt zu-
+//*          |       | sätzlich die Fahrzeugdaten angezeigt
+//*---------------------------------------------------------------------
+//* 17.02.03 | V0.71 | Beim FS und IS Lesen wird jetzt beim Fehlerort
+//*          |       | die Fehlernummer auch in Hex angezeigt
+//*---------------------------------------------------------------------
+//* 10.02.03 | V0.70 | Nach jedem Klemmenwechsel werden durch Senden 
+//*          |       | des Jobs IDENT_FUNKTIONAL alle ansteuerbaren
+//*          |       | Steuergeräte ermittelt
+//*---------------------------------------------------------------------
+//* 10.02.03 | V0.69 | Optimierung der Funktion zum Einstellen des 
+//*          |       | Steuergeräteumfangs
+//*---------------------------------------------------------------------
+//* 09.01.03 | V0.68 | Beseitigung eines Fehlers beim Lesen der GWSZ
+//*          |       | Werte des E65
+//*---------------------------------------------------------------------
+//* 19.11.02 | V0.67 | Beseitigung eines Fehlers beim Setzen der CBS
+//*          |       | Daten
+//*---------------------------------------------------------------------
+//* 18.11.02 | V0.66 | Beseitigung eines Fehlers beim Ausdrucken der 
+//*          |       | Ergebnisse
+//*---------------------------------------------------------------------
+//* 15.11.02 | V0.65 | Ergebnisdateien im MOST, AIRBAG und FS/IS Menü 
+//*          |       | werden jetzt durchnummeriert
+//*---------------------------------------------------------------------
+//* 14.11.02 | V0.64 | Beseitigung eines Fehlers beim Löschen des Info
+//*          |       | speichers
+//*---------------------------------------------------------------------
+//* 13.11.02 | V0.63 | Test der Lautsprecher im MOST Menü jetzt auch bei
+//*          |       | E60 funktionsfähig
+//*---------------------------------------------------------------------
+//* 13.11.02 | V0.62 | Verbesserung des Menüs FS/IS zum Auslesen von
+//*          |       | einzelnen Steuergeräten und zum Aufruf aus jedem
+//*          |       | beliebigen anderen Menü
+//*---------------------------------------------------------------------
+//* 11.11.02 | V0.61 | Verbesserung der Funktion SG_DETAIL_LESEN
+//*---------------------------------------------------------------------
+//* 11.11.02 | V0.60 | Neuer Menüpunkt AIRBAG Analyse
+//*---------------------------------------------------------------------
+//* 08.11.02 | V0.59 | Beseitigung eines Fehlers beim Setzen von Datum
+//*          |       | und Uhrzeit während des CBS Daten setzen
+//*---------------------------------------------------------------------
+//* 05.11.02 | V0.58 | Beseitigung eines Fehlers beim Umfang der 
+//*          |       | AIRBAG Steuergeräte beim E60 
+//*---------------------------------------------------------------------
+//* 05.11.02 | V0.57 | Neuer Umfang bei FS/IS Menü für Karosserie CAN
+//*---------------------------------------------------------------------
+//* 05.11.02 | V0.56 | Neue Funktion im MOST Menü zum Durchtesten aller
+//*          |       | Lautsprecher
+//*---------------------------------------------------------------------
+//* 04.11.02 | V0.55 | Beseitigung eines Fehlers. Nach der Ermittlung
+//*          |       | der aktuellen Fehlerausblendungen wird wieder 
+//*          |       | der alte Steuergeräte Umfang gesetzt
+//*---------------------------------------------------------------------
+//* 04.11.02 | V0.54 | FS und IS Lesen im Menü MOST - 3dB Absenkung 
+//*          |       | hinzugefügt
+//*---------------------------------------------------------------------
+//* 04.11.02 | V0.53 | Beim Verlassen des MOST - 3dB Absenkung Menüs
+//*          |       | wird die Absenkung jetzt immer ausgeschaltet
+//*---------------------------------------------------------------------
+//* 04.11.02 | V0.52 | Bei FS/IS Fahrwerk wird jetzt auch das CIM aus-
+//*          |       | gelesen
+//*---------------------------------------------------------------------
+//* 30.10.02 | V0.51 | Lesen und Schreiben der MOST Registry für E6x
+//*---------------------------------------------------------------------
+//* 29.10.02 | V0.50 | Besseres Umschalten des 
+//*          |       | TV Kanals
+//*---------------------------------------------------------------------
+//* 29.10.02 | V0.49 | Neues Untermenü im MOST Menü zur Einstellung des 
+//*          |       | TV Kanals
+//*---------------------------------------------------------------------
+//* 28.10.02 | V0.48 | Baureihe wird in allen Menüs mitangezeigt
+//*---------------------------------------------------------------------
+//* 28.10.02 | V0.47 | Beseitigung eines Fehlers beim Lesen und Setzen 
+//*          |       | der CBS Daten
+//*---------------------------------------------------------------------
+//* 25.10.02 | V0.46 | Beseitigung einiger Fehler zur Unterstützung 
+//*          |       | des E60
+//*---------------------------------------------------------------------
+//* 24.10.02 | V0.45 | Beseitigung einiger Fehler zur Unterstützung 
+//*          |       | des E60
+//*---------------------------------------------------------------------
+//* 23.10.02 | V0.44 | Automatische Erkennung der Baureihe durch
+//*          |       | Auslesen des Fahrzeugauftrags aus dem Lichtmodul
+//*---------------------------------------------------------------------
+//* 22.10.02 | V0.43 | Beim Menüpunkt Fehler- und Infospeicher wurde
+//*          |       | eine Umschaltung des Steuergeräteumfangs für
+//*          |       | alle Fahrwherksteuergeräte implementiert.
+//*---------------------------------------------------------------------
+//* 14.10.02 | V0.42 | Überprüfung der Fehlerausblenddateien beim
+//*          |       | Auslesen der Fehlerspeicher. Ist ein Fehler-
+//*          |       | speichereintrag ausgeblendet, so wird dies ent-
+//*          |       | sprechend vermerkt.
+//*---------------------------------------------------------------------
+//* 11.10.02 | V0.41 | Bessere Aufteilung im MOST Menü
+//*---------------------------------------------------------------------
+//* 10.10.02 | V0.40 | Neue Funktion im MOST Menü zum Senden eines
+//*          |       | Steuergeräte Resets an die MOST Geräte
+//*---------------------------------------------------------------------
+//* 10.10.02 | V0.39 | Bessere Formatierung der Ergebnisse in den an-
+//*          |       | gezeigten Dateien
+//*---------------------------------------------------------------------
+//* 10.10.02 | V0.38 | Beseitigung eines Fehlers beim Sperren und Frei-
+//*          |       | geben des NAVI Fehlerspeichers
+//*---------------------------------------------------------------------
+//* 09.10.02 | V0.37 | Neue Funktion zum Sperren und Freigeben des NAVI
+//*          |       | Fehlerspeichers im MOST Menü
+//*---------------------------------------------------------------------
+//* 09.10.02 | V0.36 | Neue Funktion zur Anzeige des aktuellen Klemmen-
+//*          |       | status
+//*---------------------------------------------------------------------
+//* 08.10.02 | V0.35 | Schnelleres Lesen des Fehler- und Infospeichers
+//*---------------------------------------------------------------------
+//* 08.10.02 | V0.34 | Anzeige des zurückgelieferten JobStatus im
+//*          |       | Infofenster
+//*---------------------------------------------------------------------
+//* 08.10.02 | V0.33 | Unterstützung für MMI Fond bei FS_LESEN, 
+//*          |       | FS_LOESCHEN, IS_LESEN, ...
+//*---------------------------------------------------------------------
+//* 07.10.02 | V0.32 | Beseitigung eines Fehlers beim Schreiben der 
+//*          |       | Registry im MOST Menü
+//*---------------------------------------------------------------------
+//* 02.10.02 | V0.31 | Anzeige des absoluten Gesamtwegstreckenzählers
+//*---------------------------------------------------------------------
+//* 02.10.02 | V0.30 | Verbesserung des Menüaufbaus
+//*---------------------------------------------------------------------
+//* 02.10.02 | V0.29 | Integration der Funktionen Registry lesen und
+//*          |       | schreiben in das CheckIn und CheckOut Menü
+//*---------------------------------------------------------------------
+//* 02.10.02 | V0.28 | Neue Funktionen "Current Registry Lesen" und
+//*          |       | "Default Registry Lesen" im MOST Menü
+//*---------------------------------------------------------------------
+//* 01.10.02 | V0.27 | Bessere Anzeige der MCGW Temperaturwerte
+//*---------------------------------------------------------------------
+//* 01.10.02 | V0.26 | Beseitigung eines Fehlers beim Senden von      
+//*          |       | Diagnosejobs an nicht verbaute Steuergeräte
+//*---------------------------------------------------------------------
+//* 27.09.02 | V0.25 | Beseitigung eines Fehlers beim CBS Daten setzen
+//*---------------------------------------------------------------------
+//* 27.09.02 | V0.24 | Änderung des MOST Menüs. Neuer MOST Menüpunkt
+//*          |       | Steuergeräte Temperaturen
+//*---------------------------------------------------------------------
+//* 26.09.02 | V0.23 | Überarbeitung der Funktionen. Verbessertes   
+//*          |       | Auslesen und Anzeigen, kürzere Routinen
+//*---------------------------------------------------------------------
+//* 26.09.02 | V0.22 | Beseitigung eines Fehlers bei der Anzeige der
+//*          |       | Fehlerspeicher und Infospeicher Details
+//*---------------------------------------------------------------------
+//* 25.09.02 | V0.21 | Zusätzliche Anzeige der aktuell durchgeführten
+//*          |       | Aktionen (Jobs)
+//*---------------------------------------------------------------------
+//* 24.09.02 | V0.20 | Umstellung der Funktionen auf das SGBD Adress 
+//*          |       | Array
+//*---------------------------------------------------------------------
+//* 24.09.02 | V0.19 | Neuer Menüpunkt zum direkten Lesen und Löschen
+//*          |       | von Fehler- und Infospeicher
+//*---------------------------------------------------------------------
+//* 23.09.02 | V0.18 | Infospeicher löschen wieder möglich bei 
+//*          |       | Fahrzeug Checkout
+//*---------------------------------------------------------------------
+//* 12.09.02 | V0.17 | Beseitigung eines Fehlers beim Auslesen der 
+//*          |       | Fehler- und Infospeicherdetail von PCODE und 
+//*          |       | PCODE7
+//*---------------------------------------------------------------------
+//* 12.09.02 | V0.16 | Infospeicher löschen ist nicht mehr möglich,
+//*          |       | damit die Fahrzeug History nicht gelöscht wird
+//*---------------------------------------------------------------------
+//* 11.09.02 | V0.15 | Integration von Infospeicher lesen und Info-
+//*          |       | löschen
+//*---------------------------------------------------------------------
+//* 10.09.02 | V0.14 | Verbesserung der Funktionen CBS Daten lesen und
+//*          |       | setzen. Integration der DDE
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.13 | Automatische Ermittlung aller verbauten Steuer-
+//*          |       | geräte beim Anstecken der Diagnoseleitung
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.12 | Überprüfung der Fahrzeugdaten nur alle 1000ms
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.11 | Wartemeldung während des Auslesen der Fahrzeug-
+//*          |       | daten
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.10 | Beseitigung eines Fehlers beim CBS Daten setzen
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.09 | Datum und Uhrzeit setzen jetzt automatisch bei
+//*          |       | CBS Daten setzen
+//*---------------------------------------------------------------------
+//* 30.07.02 | V0.08 | Automatisches Auslesen der Fehlerspeicherdetails
+//*---------------------------------------------------------------------
+//* 24.07.02 | V0.07 | Erkennung aller verbauten Steuergeräte
+//*---------------------------------------------------------------------
+//* 22.07.02 | V0.06 | Beseitigung Fehler Systemzeit starten (SIM)
+//*---------------------------------------------------------------------
+//* 19.07.02 | V0.05 | Überprüfen, ob SGBD verbaut 
+//*---------------------------------------------------------------------
+//* 18.07.02 | V0.04 | Bessere Funktionen
+//*---------------------------------------------------------------------
+//* 10.07.02 | V0.03 | Bessere Menüstruktur
+//*---------------------------------------------------------------------
+//* 05.07.02 | V0.02 | Unterstützung für CKM
+//*---------------------------------------------------------------------
+//* 04.07.02 | V0.01 | Erstellung                         
+//*---------------------------------------------------------------------
+//*
+//**********************************************************************

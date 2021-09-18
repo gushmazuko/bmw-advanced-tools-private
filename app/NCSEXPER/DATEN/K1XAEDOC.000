@@ -1,0 +1,128 @@
+// Änderungsdokumentation: K1X
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   xyz
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       K24AEDOC.000
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 00000000   a     xx.04.08   EI-73   Konstantin Diek (KD)
+//ECCO ItemNr:  000000      Rev.Nr.: A
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     25.03.08 KD                                                         - Erstellen neuer Dateien
+     12.09.09 RW                                                         - Eweiterung mit E und H-Wörtern
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_b   b     22.06.09   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  000000      Rev.Nr.: A
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+    22.06.09                                 K1XAT.000                  - SA131, 146 hinzu (PX870_055)
+    22.06.09                                 K1XAT.000                  - Typschlüssel 0171, R13/31 CKD, hinzu (PX862_115)
+    22.06.09                                 K1XAT.000                  - SA147, SA CKD, hinzu (PX862_116)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_c   c     xx.03.10   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  000000      Rev.Nr.: C
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+    15.03.10                                 K1XAT.000                  - Typschlüssel 0188, 0189, 0136, 0146, 0135, 0131, 0132, 0133, 0134 hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_d   d     02.02.11   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+    09.09.10  Ha                             K1XAT.000                  - Typschlüssel 0131, 0132, 0133 und 0134 gelöscht, sind nicht Bestandteil der BR K1X
+    02.02.11  Ha                             K1XAT.000                  - SA 287, Betriebsanleitung tschechisch, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_e   e     04.03.11   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+    04.03.11  Ha                             K1XAT.000                  - Typschlüssel 0137 hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_f   f     14.03.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+    08.03.11  Ha                             K1XAT.000                  - SA291, Betriebsanleitung Koreanisch, hinzu
+    14.03.11  So                             K1XAT.000                  - SA286, Betriebsanleitung slowakisch, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_g   g     24.05.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    24.05.11 Ha                                 K1XAT.000                       - SA285, Betriebsanleitung Slowenisch, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_h   h     24.11.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    24.11.11 Ha                                 K1XAT.000                       - SA145, Speichenräder, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_j   j     29.11.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    29.11.11 Ha                                 K1XAT.000                       - SA290, Betriebsanleitung Russisch, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_k   k     19.12.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: D
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    19.12.11 Ha                                 K1XAT.000                       - E-Wort BMSE hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_l   l     22.12.11   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: L
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    22.12.11 Ha                                 K1XSGET.000, K1XSGFAM..DAT                       - SG BMSE in Codierdaten neu angelegt
+                                                K1X_CONF.BAP, BMSE.C00
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_m   m     23.01.12   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: L
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    23.01.12                                    K1XSGFAM.DAT                    - SGBD für die BMS18 geändert von MRBMSE auf MRBMSE13
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_n  n      27.03.12   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: N
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    27.03.12 Ha                                 K1XAT.000                       - Y852, LA Indien, und X300, SA Typschild Indien, hinzu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL 000000_o  o      04.05.12   EI-73   Bernhard Haller (Ha) Boris Sominsky (So)
+//ECCO ItemNr:  000000      Rev.Nr.: O
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    03.05.12 Ha                                 K1XAT.000                       - X293A, Betriebsanleitung Ungarisch hinzu
+
+
+
+

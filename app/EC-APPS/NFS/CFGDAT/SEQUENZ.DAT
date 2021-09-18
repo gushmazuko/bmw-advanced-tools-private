@@ -1,0 +1,52 @@
+; SEQUENZ.DAT
+;
+; Liste der Flashbedingungen und Programmierreihenfolgen für Ein- und Mehrkanalbetrieb
+;
+; Datenformat einer Zeile:
+;
+; 1. Integrationsstufe EXXX-XX-XX-XXX
+;    alphanumerisch 14-stellig                  Wildcard ? erlaubt
+;
+;    Integrationsstufe XX.XXXX ( altes Format )
+;    alphanumerisch 4 bis 7-stellig             Wildcard ? erlaubt
+;
+; 2. SG-Adresse 2-stellig hex
+;
+; 3. Typschlüssel T + 4-stellig alpanumerisch   Wildcard ? erlaubt  Negation ! erlaubt
+;
+; 4. Sonderausstattung S + 3-stellig numerisch  Wildcard ? erlaubt  Negation ! erlaubt
+;
+; 5. Bedingung BKL_0 oder BKlemme_0 bzw. BKL_R oder BKlemme_R bzw. BKL_15 oder BKlemme_15
+;    Defaultwert ist BKL_15, also Programmieren bei Klemme 15 ( Zündung ein )
+;
+; 6. Kanal K + 1-stellig numerisch Programmierkanal
+;    Defaultwert ist 1
+;
+; 7. Zeile Z + 2-stellig numerisch Reihenfolge der Programmierung
+;    Defaultwert ist 50
+;
+; 8. Rang R + 2-stellig numerisch Reihenfolge der Programmierung innnerhalb einer Zeile
+;    Defaultwert ist 50
+;
+; 9. Wartezeit W + 2-stellig numerisch Wartezeit nach der Programmierung
+;    Defaultwert ist 00
+;
+;
+
+[MUSTER]
+????-??-??-???      0F     T????                                     R01
+
+????-??-??-???      02     T????                           BKlemme_R R01 W05
+; SG-Adresse 0F wird bei Klemme 15 programmiert mit Rang 1, also als erstes SG
+; SG-Adresse 02 wird bei Klemme R  programmiert mit Rang 1 und einer Wartezeit von 5 sek 
+;
+
+[E65]
+
+[E60]
+
+[RR1]
+
+[E89X]
+
+; EOF

@@ -1,0 +1,1234 @@
+// Änderungsdokumentation: E39
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 364 091.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   ET-130    KARL JOCHEN              V-1-T-22  WERTHER CHRISTIAN
+//   ET-421    HIRSCH THOMAS            V-2-S-2   HUNDHAMMER MAX
+//   PD-142    BAUER VITUS              VK-21     HERRMANN WERNER
+//   TD-P-51   MEIER MAXIMILIAN         VK-24     KLOETZER THOMAS
+//   TD-1010   MATHE GERHARD            VT-30     GORNY RAIMUND
+//   TD-140    HILPERT WERNER
+//   TD-450    ARNDT ROBERT
+//   TD-460    BACHHUBER JOHANN
+//   V-1-T-22  LEINTHALER JOSEF         ZS-M-6    HUEBNER WOLFGANG
+//   V-1-T-22  WEISS PAUL
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E39AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5356.G  a      11.05.94   EE-12   Knöchel
+                E38VN.000/      -Daten neu erstellt für 3. Baugruppe
+                8000000000      -Sonderausstattungen o.k.
+                                -ABG o.k.
+                                -IHR/IHKA o.k.
+                                -GM3 o.k.
+                                -KMB o.k.
+                                -IKE o.k.
+                                -EDC vorläufige Daten
+                                -GR2 für M62 u. M52B28
+                                -ASC5 für M52B25/B28
+                                -LCM teilweise
+                                -alle Fzg. mit 70l-Tank
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5523.G  b      22.07.94   EE-12   Knöchel
+                GTK.050-51      -IKE/Kombi Datenänderung bzgl. M51, M43, M62
+                                 Öltemperatur (M5)
+                GTK.050-51      -Fzg. mit SA220 Niveaureg. mit 78l-Tank auáer
+                STK.050, SGERM   Diesel, aber noch alle m. 70l-Tank
+                STK.050         -Entf. SA537 Standlüft., SA536 Standhzg/-lüft.
+                                 SA555 High-BC + Standlüft.
+                EHC.050, SGERM  -EHC o.k. E39 Lim. Daten, Freisch. in SGERM.000
+                GTK.050-51      -ASC5 für M52, M62
+                SGERM.000        Freischaltung in SGERM.000
+                ABG.051-52      -Neuer ZAE Datensatz 03, Neuer BAE Datensatz 07
+                IKEB.050        -Offset-Werte DZM, KVA, Tacho nicht codieren
+                EHC.050         -Datensatz 114 für BG3 (and. Drehsinn Sensor)
+                LM.050, STK.050 -Integration LCM in die Codierdaten (vorläufig)
+                GTK.050-51
+                E39ZST          -Neuorientierung der SA's und Serienausstattung
+                GTK.060-61      -Integration GM3 mit Codierindex 04
+                STK.060,GM3.060
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5911.G  c      16.12.94   EE-12   Knöchel
+                GTK.060-61      -DWA mit Notstromsirene
+                EWS.050         -Integr. EWS-Steuergerät
+                GTK.060-61
+                GM3.050,60      -Servotronik Kennfeld: E38 KL1 für 8-Zylinder
+                GTK.*            E38 KL4 für 4- und 6-Zylinder
+                IHKA.050,STK.60 -Änderungen in der IHKA
+                GTK.060-61
+                GTK.*, IKEB.*   -Tacho-Offset kompl. nicht codieren (Adr. EC)
+                LCM.050, *.*    -LCM-Daten jetzt unter LCM, Daten aktualis.
+                IKEB.07?        -B4-Muster Kombi integr. Codierindex 02h (DS2)
+                E39ZST.*, SGERM -E39/2 integr. (Touring)
+                GTK.060-61       DG51/52/61/62/71/72/81/82, DH11/12/21/22
+                GTS.050          DH31/32/33/41/42/43/51/52/53/61/62/63
+                                 DJ11/12/21/22/31/32/41/42/51/52/53/61/62/63
+                IKE.*, KMB.*    -Kombi unter KMB, IKE unter IKE
+                GTK.*, STK.*
+                GM3.070-75      -Alle SG, die über IKE bzw. KMB codiert werden,
+                IHKA/R.070       erhalten neues VM-Gerüst für
+                EHC.070          DS2-Kommunikation
+                GTK.060-61      -3.BG ohne Notstromsirene (GM3 Adr.09 Bit 0)
+                LCM*.*          -Codierindex 11h hinzu (ausschlieálich)
+                GTK.06?         -Einspritzsteigung M52, M62
+                STK.060         -Gong bei SA550 u. 528i
+                GTK.06?         -Gong nicht bei Japan
+                GTK.06?         -SIA-Werte M51
+                KMB.070         -Kühlmittelfehler B4-Kombi
+                ./.GTK.0?1      -SA877 Entf. Überkreuzbed.
+                GTK.*, EHC      -EHC neue Daten
+                ?TK.060,LCM.0?5 -LCM Codierindex 12h =>LCM2
+                SGERM.000
+                ?TK.060,EHC.070 -EHC geänderte Sensorik
+                GTK.060         -geänderte ASC5-Codierung
+                ASC5.050-51      M52/62 CI 02h, M51 CI 03h
+                GTK.060         -neue TKL für 70l-Tank und 76l-Tank
+                IKE.*, KMB.*     Adr. C0-D3
+                GTK.060         -neue SIA-Literwerte M52
+                IHKA/R.070      -geänderte Codierdaten in IHKA und IHR
+                ?TK.060, SGERM
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5090.H  d      09.03.95   EE-12   Knöchel
+                GTK.060, EHC.*  -EHC neue Kennlinien: lf_153 und lf_154
+                ZST.*           -SA's nach SWV v. 18.01.95
+                GTK.060, EHC.*  -EHC neue Kennlinien: lf_155 und lf_156
+                ?TK.060,LCM.076 -LCM Codierindex 13h =>LCM3
+                SGERM, VN.000
+                ZST.?00         -E-Worte entf.: E LCM2, E ZAE , E FB__, E DS_2
+                                 E-Wort hinzu: E LCM3
+                alle            -LA's Europa 804, 809, 811, 813, 819, 827
+                ?TK.060, GM.075 -Überarbeitung GM-Daten
+                alle            -LA's: 807, 810, 812, 822, 824, 838
+                alle            -CKD'S: DD35/45, DD17/27, DD56/66, DD64,
+                                 DD59/69, DD67, DE67, DD19
+
+                GTK.060,LCM.076 -LCM CI 13h neue Daten
+                GTK.060         -ASC5 Codierung M52
+                ?TK.060         -Datenkorrekturen in Kombi und IKE
+                IKE.070,KMB.070
+                GTK.060         -ASC5 Codierung M52 rückg.
+                                -Umstellung IHK auf IHR und IHA
+                ASC.050-51      -ASC5: M52,M62,M51 Kurvenlogik nicht aktiv
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5325.H  e      19.05.95   EE-12   Knöchel
+                //Achtung! Daten nach Möglichkeit erst kurz vor Anlauf der
+                //         2. Vorserie in die Anlage einspielen, da für die
+                //         IKE erst ab da eine neue TKL gültig ist!
+                E39ZST.000      -Dateien neu erstellt
+                CVT, SGET,
+                ZCSUT, CBD's
+                CVT             -GR. opt_Alarm >DAUERTON entf.
+                CVT             -Entfall GR. Frankr_Engl
+                CVT, IKE.C05,   -Korrektur FSW SCHWELLE_UEBERDREHZAHL
+                KMB_E39.C02
+                KMB_E39.C03,    -Kombi neu für 2.Vorserie, IKE geändert
+                IKE.C05, SGET    (Tankanzeige) für 2. Vorserie
+                CVT, ZST        -LA 830 Nordland ersetzt LA 827 Skandinavien
+                LCM.C14, SGET   -LCM mit CI 14h für 2. Vorserie
+                FGR2.C04, SGET  -FGR2 mit CI 04h neu hinzu
+                ZAE2.C03, SGET  -ZAE2 mit CI 03h neu hinzu
+                EHC.C06, SGET   -EHC mit CI 06h neu hinzu
+                CVT
+                ABGB.C02        -Gültiger Datensatz für BAE
+                CVT             -3.Bremsleuchte beim Touring nicht überwacht
+                ASC5.C06, SGET  -ASC5 mit CI 06h für M52
+                ZST             -E-Wort: entfallen: E LCM3; hinzu: E VS_1
+                CVT, ZST        -SA 1243 neu (nur für HO relevant)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5686.H  f      01.09.95   EE-12   Knöchel
+     M1001.H  f      16.06.95   EE-12   Knöchel
+                CVT             -SLEEP_MODE: gesch_pull_up statt perm_pull_up
+                CVT, ZST        -LA 802 (Korea: Entf. NSL + SA'S 845,876,992)
+                CVT             -SCHAERFEN/ENTSCHAERFEN: Frankreich, England
+                                 und Belgien bekommen SA 877
+                ZST, SGET       -E-Wort FGR2 für FGR2 Redesign CI 04
+     M1002.H  f      26.06.95   EE-12   Knöchel
+                CVT             -IHR bei SA 555 falsche Info in CBD:
+                                 STANDHEIZUNG_KONZEPT sh_high_ohne_sperrventil
+                ABGB.C02        -Neuer Datensatz E39
+     M1003.H  f      28.06.95   EE-12   Knöchel
+                CVT, GM3.C04    -Im GM3 wird die Servotronik-Kennl. im EEPROM
+                                 codiert, nicht die im ROM verwendet.
+     M1004.H  f      06.07.95   EE-12   Knöchel
+                CVT, LCM.C14    -Neue Umfänge im LCM hinzu: CAN-Daten
+                ZST             -SA's 602,609 incl. Standlüftung
+                CVT, ZST,       -Kombi mit Codierindex 04h hinzu
+                KMB_E39.C04      => E-Wort: KMB4 ab KW 35/95 für Automatik-Fzg.
+                ZST             -Entfall: E-Wort: VS_1
+     M1005.H  f      18.07.95   EE-12   Knöchel
+                ZST, SGET, CVT  -SG MRSZ neu hinzu (SA 260 Seitenairbag)
+                MRSZ.C04         Serie bei 540i/A US
+                ZST, CVT        -Integration Sicherheitsfzg. DE81/82
+                CVT             -wieder 2 NSL im Serienumfang
+                ZST             -neues E-Wort: ZAE2 N0396 (Einsatz ab 03/96)
+     M1006.H  f      25.07.95   EE-12   Knöchel
+                ZST             -neue Typen: DD37/47 (523i/A Indonesien)
+                                 Entfall: DD17/27, DD56 (520i/A, 528i Indones.)
+                CVT             -LA 810 Australien mit Panik-Modus (PI 8319/29)
+                CVT             -LA 807 Japan immer mit MID (PI 8319/29)
+                CVT             -Bei Limousine kein 76l-Tank (PI 8121/78)
+     M1007.H  f      03.08.95   EE-12   Knöchel
+                ZST, SGET, CVT  -Neues EWS-SG mit CI 02h (codierbar für EWS 3)
+                ZCSUT, EWS.C02
+                IHKA_E39.C01    -Korrektur der CBD's, GEBLAESE_KONZEPT hinzu
+                IHR_E39.C01,CVT
+                ASC5.C03        -Aktivierung der Kurvenlogik bei M51
+     E5686.H  f      01.09.95   EE-12   Knöchel
+                EHC.C06, CVT    -geänderte EHC-Daten
+                LCM.C14         -Datensätze Version 14.04 (mit MoBaC 7.4)
+                ZST             -Entf. SA 805 Aktivkohlefilter (PI 8319/30)
+                ZST, CVT        -4-Zyl. auskommentiert
+                IHKA.C01, CVT   -GEBLAESE_KONZEPT auf wert_01 für alle E39
+                ZST             -DD33/43, DD53/63 mit DWA (SA 302)
+                ZST             -Übernahme des E-Wortes FGR2 in die G-Zeile
+                ZST             -A-Zeile für SA 500 (ab 03/96 mit Regensensor)
+                LCM.C14         -TOGKALTS geändert
+                CVT             -528iA US mit 4-Gang-Automatik
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5768.H  g      09.10.95   EE-12   Knöchel
+     M1008.H  g      12.09.95   EE-12   Knöchel
+                ZST             -SA's 274 und 768 hinzu
+                CVT, EDC3P.C25  -DV068 für E39 M62 Lim. (Vorl. auch für andere)
+     E5768.H  g      09.10.95   EE-12   Knöchel
+                EWS.C02         -SCHALT_KRITERIUM_EWS_3: Daten geändert
+                ZAE2.C03, CVT   -neue Parametersätze für ZAE2 (E 5758.H) und
+                MRSZ.C04         MRSZ (ohne E-Nummer)
+                CVT, ZST        -Thailand/Malaysia/Vietnam/Mexiko > 4-Gang-Aut.
+                ZST             -neue E-Worte: EWS2 für Steuergerät CI 02h
+                                 MOT3 für EWS-Motronik-Schnittstelle 3
+                                 E-Wort: LSM jetzt auch bei US+456/459
+                ASC5.C06 .C08   -Wert für Kurvenlogik von C0h auf E0h
+                CVT              M51 ab jetzt mit ASC5 CI 08h
+                                 !!!! zeitgenaues Einspielen der Daten zum !!!!
+                                 !!!! Einsatz des neuen ASC-Steuergeräts   !!!!
+                CVT             -LA 830 Nordland mit zwei Nebelschluáleuchten
+                LCM.C15, ZCSUT  -E-Wort: LCM5 für M51+555/602/609 und alle
+                SGET, ZST, CVT           Japan-Fzg.
+                ZST             -SA 214 ASC+T in G-Zeile integriert
+                CVT             -SCHRITTABSTAND bei LCM CI 14 => Kennlinie 2
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5945.H  h      27.11.95   EE-12   Knöchel
+     M1009.H  h      12.10.95   EE-12   Knöchel
+                CVT, LCM.C14-15 -Programmvariante "nordland" mit 2 NSL
+                CVT             -Sprache "englisch" auch mit US möglich
+                FGR2.C04        -Korrektur der Checksummen bei Defaultdaten
+     M1010.H  h      25.10.95   EE-12   Knöchel
+                KMBI_E38.C10    -Integr. des integrierten Kombi's E38 (ersetzt
+                ZST, CVT, ZCSUT  die IKE) und der E-Worte CAN und KMBI
+                SGET             Bereinigung der SGET um 1. Vorserie Umfänge
+                SGET            -ASC.C06 für M62, ASC.C08 für M51
+                ZST, SGET       -H-Wort DMEG: Entfall des FGR2 für DME mit
+                                 integr. Geschw.reg. (noch gesperrt)
+                CVT, GM3, ZST   -Integration der März'96-Maánahmen, E MA96
+                FGR2.C04        -Korrektur CS bei M62B44 Handschalter
+     E5945.H  h      27.11.95   EE-12   Knöchel
+                ZST, CVT, SGET  -E-Wort CAN beinhaltet die Worte MOT3 und DMEG
+                                 => Entfall der Worte und VN-Bits
+                                 Motronik enthält auch Tempomat und ASC
+                LCM.C15, CVT    -Katalysator-Meldung nur bei Japan ohne M62
+                                 neue M51 TOG-Daten, DRL-Dimmung für Kanada,
+                                 neue Programmparameter mit SW-Reset (16.11.95)
+                KMBI_E38.C10    -Neue CBD mit zusätzlichen Funktionen
+                CVT
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6043.H  j      19.01.96   EE-12   Knöchel
+     M1011.H  j      07.12.95   EE-12   Knöchel
+                CVT             -Japan und GUWA => keine CC-Meldung Gurtwarnung
+                FGR2.C04        -CBD umstrukturiert ohne Änderung Dateninhalte
+                MRSZ.C04, CVT   -Neue Parametersätze: MRSZ 150_05 statt 150_02
+                ZAE2.C03         ZAE2: 140_10 statt 140_02
+                CVT, EHC.C06    -Neuer Datensatz für E39/2: lf_170
+                CVT, ZST        -Manuelle LWR codierrelevant ab 03/96
+                ZST, CVT        -SA 510 (man. LWR) ab 03/96 codierrelevant
+                GM3.C04         -Neue Kennlinie für Servotronik M52/M51
+     E6043.H  j      19.01.96   EE-12   Knöchel
+                FGR2.C04        -M52B20 Datensätze hinzu
+                CVT             -Australien mit selektiver ZV
+                CVT, SGET,ZCSUT -Aut. LWR codierrelevant ab Serieneinsatz
+                LWR.C02
+                CVT, MRSZ.C04   -Neuer Crashparametersatz 150_07
+                KMB_E39, IKE,   -Schwelle Überdrehzahl geändert (max_wert)
+                KMBI_E38, CVT
+                CVT, ZST        -DD45 zunächst als DD62 mit SA963
+                ZST, CVT        -Übernahme SA 202 in Serie bei 528, 535, 540
+                                 auáer US und 4-Gang-Getriebe (03/96)
+                ZST, CVT        -SA430 ab 04/96 mit Spiegeleinklappen
+                GM3.C04, CVT    -neue Umfänge hinzu im Grundmodul
+                EDC3P.C25, CVT  -Datensatz DV070 für M52 (EDC)
+                LCM.C15/C14     -neue TOG-Daten  für M62B44
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5953.J  k      09.02.96   EE-12   Knöchel
+                EHC.C06, CVT    -neue Offset-Werte für AB-Sensor, ab PU96 auch
+                                 für Limousinen der Datensatz lf_171
+                EDC3P.C25, CVT  -neuer Datensatz (DV071) für M62 Automatik
+                LCM.C16, SGET,  -LCM2 neu hinzu CI 16h, Groáversuch ab KW09/96
+                ZST, ZCSUT, CVT  Serieneinsatz PU96
+                GM3.C04, CVT    -Servotronic-Kennlinie für M62
+                CVT             -M52 ohne CAN ohne Kennfeldkühlung (IHR,IHKA)
+                                 M52 mit CAN mit Kennfeldkühlung (IHR,IHKA)
+                ZAE2, MRSZ      -Neue Datensätze ohne Heckcrasherkennung
+                ZST             -E-Wort LSM: geänderte Zuordnung: M52B28 hinzu
+                                 E-Wort LCM6 hinzu: bei LCM mit CI 16h (LCM2)
+                                 E-Wort PU96 hinzu: PU96-Maánahmen
+                CVT             -Motorölstand Predrive aktiv (rückwirkend)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5919.J  l      01.03.96   EE-12   Knöchel
+                ZST             -SA227 für Touring hinzu (Niveaureg.)
+                                 Statusbericht 96/01 eingearbeitet
+                                -Steptronic ab PU96 Serie für 520/523 Aut.
+                                 nicht bei 523/528 Japan und Südafrika
+                                 => A-Wörter für Typschlüssel 520/535/540
+                                    E-Wort S202 für Typschlüssel 523/528
+                                -Regensensor bei CDN-Fzg nicht verbaut (8022/01)
+                                 => A-Wort für SA500 wird durch E-Wort RESE
+                                    ersetzt
+                                -Seitenairbag Serie ab PU96 (8003/02)
+                                 => A-Wort für SA260
+                CVT, ZST        -DWA-Vereinheitlichung Länder (8319/35)
+                                 => A-Wort für LA804 (nicht mehr codierrel.)
+                CVT, ZST, SGET  -Neue Airbag-Steuergeräte ZAE2 mit CI 05h,
+                ZAE2.C05, ZCSUT  MRSZ mit CI 06h, ab PU96, rückwirkend gültig
+                MRSZ.C06         => E-Wort ZAE5 für beide Steuergeräte
+                ZST             -SA430 bleibt ohne Spiegeleinklappen
+                                 => Löschung des A-Wortes
+                                 Spiegeleinklappen erst ab PU96 bei SA430
+                                 ab 528i        =>   E-Wort: E S430 N0996
+                LCM.C14, .C15   -geänderte Programmdaten im LM-Teil
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6141.J  m      09.04.96   EE-12   Knöchel
+                GM3.C04, CVT    -Neue CBD mit PU96-Umfängen (E6132.J)
+                CVT             -76l-Tank entfällt beim E39/2 mit Niveaureg.
+                CVT             -GEBLAESE_KONZEPT mit wert_02 ab 04/96
+                LCM.C16, CVT    -Funktion BL_DIMMEN hinzu (E6137.J)
+                EDC3P.C25, CVT  -Neuer Datensatz DV072 für M62 Handschalter
+                CVT             -US-PU96-Maánahmen: EWS immer auf Automatik
+                                 codieren: Anlaásperre für Handschalter
+                LCM.C14, C15    -Korrektur der TOG-Daten
+                ZST             -DD53/63 ab PU96 ohne SHD => A-Worte
+                                -E-Wort TEL: bei SA640 + US-Fzg.
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6301.J  n      14.06.96   EE-12   Knöchel
+     M1012.J  n      03.05.96   EE-12   Knöchel
+                LCM.*           -Wert für Kaltüberwachung AL von 00h auf 74h
+                KMB_E39.C05,CVT -neues Kombi: SE PU97, rückwirkend als Ersatz
+                ZST,SGET,ZCSUT   VN-Bit: 0000040000, ASW: KMB_CI_05
+                LCM.C15/C16     -Neue LM-Programmdaten für SA581 Taxi
+                CVT, ZST         => SA 581 codierrelevant
+                CVT, ZST        -PU97 Maán.: CAN für M52,M62
+     E6301.J  n      14.06.96   EE-12   Knöchel
+                IKE.C05, CVT    -Funktion ZUHEIZBETRIEB hinzu
+                CVT             -Tipp zu Funktion auch für Australien ab PU96,
+                                 aber weiterhin keine Komfortschlieáung mit FB
+                LWR.C03, SGET,  -neues LWR-Steuergerät, LWR3, dyn. LWR
+                ZCSUT, ZST       E-Wort: LWR3
+                IHKA.C02, SGET, -neues IHKA-Steuergerät
+                ZCSUT, ZST       E-Wort: IHK2
+                EWS.C81, SGET,  -EWS 3 (K-Bus) neues Steuergerät E39/2 ab SE
+                CVT, ZST, ZCSUT  E39 Lim. ab 03/97
+                FGR2.C04        -neue Kennlinien für M62
+                LCM.C15/C16     -Fkt. Kühlwasserstand, Clockmonitor geändert
+     E6301.J  n      19.06.96   EE-12   Knöchel
+                GT.C01,TV1.C01, -Videomodul (Grafikteil + TV-Teil) ab PU96
+                SGET,ZCSUT,CVT   neu hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6800.J  o      11.10.96   EE-12   Knöchel
+                SGET            -Videomodul nicht codierrel. bei LA807 (Japan)
+                CVT             -US mit Dauerton statt Intervall
+                ZST             -Korea ohne SA 845 (akust.Gurtwarnung)
+                ZST             -Achtung! neue Bedingung für E LSM: DD45+SA456
+                ZST             -E-Wort: E S508 => Bei E39/2 mit SA508 (PDC)
+                ZST             -DD46 hinzu: CKD Ägypten (entspricht DD41)
+                ZST             -DD24/DD44 hinzu: CKD Malaysia
+                CVT             -Korrektur Codierung GM3 bei E39/2
+                                 UEBERWACH_FENSTER_BF_HI        aktiv
+                ZST,SGET,ZCSUT, -FGR2 CI 05h integriert => E-Wort: FGR5
+                CVT, FGR2.C05
+                ZST             -E-Wort: S202: Erweiterung um DH41/42,DH61/62
+                CVT             -Überarbeitung der CBD KMB_E39.C05
+                CVT             -Änderung in LWR.C03: AGRENZE für M62
+                CVT             -Änderungen für Sicherheitsfahrzeug
+                CVT             -Änd. CAN-Schalter CAN_INSTR1_SENDEN
+                CVT, ZST        -SPIEGELEINKLAPPEN ab PU96 für Golf und Korea,
+                                 für Italien ab März 97
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6206.J  p      17.12.96   EE-12   Knöchel
+     M1013.J  p      25.10.96   EE-12   Knöchel
+                CVT, ASC5.C06   -Kurvenlogik neu hinzu typ_3 für E39/2 M62B44
+                                 Wert 00h
+     M1014.J  p      07.11.96   EE-12   Knöchel
+                ZST             -SPIEGELEINKLAPPEN setzt für Italien nicht ein
+                                 Statusbericht 96/08 v. 25.10.96
+                CVT,ZST,IKE.C05 -Neu hinzu DE61/62 mit SA920 ALPINA
+     M1015.J  p      29.11.96   EE-12   Knöchel
+                CVT             -US-Fzg. immer mit MID (ANZEIGEGERAETE)
+                CVT,ZST,LCM.C16 -M57-Fzg. integr. (DL71/72/81/82, DP71/72/81/82)
+                CVT,ZST         -SA 265 Reifendruckkontrollsystem codierrel.
+     E6206.J  p      17.12.96   EE-12   Knöchel
+                CVT, EDC3P.C25, -Neuer Datensatz dv073 für EDC bei E39 Lim.
+                ZST              mit LA 807/810 oder SA 826
+                CVT,ZST,ZCSUT,  -Integr. MRS2-Steuergerät u. SA261 Seitenairbag
+                SGET,MRS2.C07    hinten u. SA260 mit ITS-Kopfairbag ab PU97
+                KMB_E39.C05,CVT -Neue CBD für Kombi CI 05h
+                ZST,ZCSUT,SGET, -Neue CBD für IHKA CI 03h ab März '97
+                CVT,IHKA_E39.C03
+                ZST             -DD24/44/64 mit 5-Gang-Getriebe und Steptronic
+///////////////////////////////////////////////////////////////////////////////
+NAEL E5870.K  q      10.03.97   EE-12   Knöchel
+                PDC.C01,ZCSUT,  -Neues codierrelevantes Steuergerät PDC
+                SGET,ZST,CVT     Touring mit SA508, Lim. mit SA508 ab PU97
+                CVT             -Sicherheitsfzg. ohne Tipp-Zu und ohne
+                                 Komfortschlieáfunktionen
+                LCM.C16,CVT,ZST -Neue SA Tagfahrlicht für ECE und US
+                SGET            -Umstellung der SGET auf A-Zeilen (Angabe der
+                                 CABD-, C-SGBD- und VM-Gerüst-Namen)
+                TV2.C02,ZCSUT,  -Neues SG (TV2 für SA602 Bordmonitor) zu PU97,
+                SGET,CVT         GT auch neu, aber gleiche Codierung (nur noch
+                                 bei SA609 Navigation) =>ersetzt TV1, nicht GT
+                LWS5.C01,ZCSUT, -Neues SG: verbaut bei DSC3 => ab PU97 bei
+                SGET,CVT         M62B44 Automatik
+                CVT,KMB.C05,    -Neue Kühlmitteltemperaturkennlinie
+                KMBI_E38.C11
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6232.K  r      16.06.97   EE-12   Knöchel
+     M1016.K  r      18.03.97   EE-12   Knöchel
+                CVT, CBDen      -Individualisierung eingearbeitet
+                CVT             -Entriegeln 30s nach Klemme R ein deaktiviert
+                                 bei EWS III (K-Bus)
+                CVT             -LA824 (ZA) mit selektiver ZV
+     E6232.K  r      16.06.97   EE-12   Knöchel
+                CVT, PDC.C01    -Daten für E39/2 geändert
+                CVT, EDC3P.C25  -Neuer Datensatz DV074 ersetzt DV070/071/072:
+                                  Einsatz mit neuen Fahrwerksteilen!!
+                CVT, IHKA.C03   -Erweiterung der Codierdaten um GEBL_OFF_MODE
+                ZST, CVT        -ASW TU eingeführt für Fzg. MJ99, alle Typen
+                                 für MJ99 eingefügt
+                ZST             -LA802 (Korea) ab PU97 nicht mehr codierrel.
+                                 (PI 8022/52 und 8022/54)
+                ZST             -SA411 (FH hinten) wird Serie (auáer Sich.fzg.)
+                                 (PI 8003/05/033)
+                ZST             -CKD Indien hinzu: DD79/89, DF79/89 (8022/56)
+                CVT             -Alpina ab PU97 auch bei Meilentacho mit
+                                 eigener Kombi (=> Alpina-Codierung)
+                ZST             -Sicherheitsfzg. mit SA216 Serie
+                CVT             -Japan PU97 ohne "Overheat"-Umfang (PN8022/62)
+                ZST, CVT        -Integration SA446 => ANZEIGEGERAETE anders
+                ZST, CVT, SGET  -Integration DE91/92 (M5)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6606.K  s      29.08.97   EE-12   Knöchel
+                CVT             -Integr. Fehlermeldung REIFENCONTROL_INAKTIV
+                CVT, KMB.C05,   -Eigene SIA-Litergrenze für CKD Indien
+                KMBI.C11
+                CVT,SGET,ZCSUT  -Integration neuer Kombi-Generation für PU98:
+                ZST, KMB.C06,    Basis-Kombi Codierindex 06h,
+                KMBI.C12         integrierte High-Kombi Codierindex 12h
+                ZST             -DE83/87 neu hinzu (ebenso DN83/87)
+                ZST,ZCSUT,SGET, -DSP-Verstärker integriert
+                CVT,SGFAM,CONF,  (ab 03/98 mit SA677 Top-Hifi)
+                DSP.C01
+                CVT             -DRL_DIMMUNG wert_02 auch bei US mit SA896
+                CVT,ZST         -Deaktivierung Airbags (PN 8003/041)
+                ZCSUT,SGET,     -RDC integriert (SG codierrelevant, SA265)
+                CVT,SGFAM,CONF,
+                RDC.C01
+                ZST,CVT         -SA541 (ACC) hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6849.K  t      17.10.97   EE-92   Knöchel
+                CVT, LCM.C16    -neue Motorkennlinien für M52 LEV
+                LCM.C17, ZCSUT  -Integr. LCM mit Codierindex 17h
+                CVT, SGET, ZST
+                ZST             -E TEL bei SA640 + (US od. SA645 od. LA802)
+                                 PI 8026/141
+                ZST             -DR63 Steptronic Serie, DN63 Steptronic über
+                                 SA Sportvariante (202,289,481,339,704)
+                                 PI 8022/074
+                GM3.C04,CVT     -Ultraschall- statt Funkinnenraumschutz
+                                 Tour. ab 03/98, Lim. ab PU98
+                EDC3P.C25,CVT   -Datensatz 077 für E39/3 (Sicherheitsfzg.)
+                DSP.C01, CVT    -geänderte Daten für DSP
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6988.K  u      19.11.97   EE-92   Knöchel
+                CVT,ZST,LCM.C17 -ZUENDSCHL_GONG_R_EIN neu hinzu
+                KMB,KMBI,CVT    -Neue Daten, Neues FSW: MEMO_FLAG
+                CVT             -Indien ohne NSL (wie US)  (PN 8022/083)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7055.K  v      17.12.97   EE-92   Knöchel
+                ASC57.C09, SGET -ASC 5.7 und DSC 5.7 hinzu
+                DSC57.C10, CONF
+                CVT,ZST,ZCSUT,
+                SGFAM
+                IHKA.C03, CVT   -Neue Daten für IHKA Codierindex 03h
+                                 Einsatz ab PU98 (rückwirkend)
+                ZST, CVT        -SA445 Fondorientierte Mittelkonsole
+                                 codierrelevant ASW FOND_GEBLAESE
+                ZST             -DE93 integriert (M5 US)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6551.L  w      02.03.98   EE-92   Knöchel
+     M1017.L  w      30.01.98   EE-92   Knöchel
+                CVT             -Korrektur EC-Lüfter für M5
+     E6551.L  w      30.01.98   EE-92   Knöchel
+                SGET,CONF,CVT,  -ab PU98 keine IHR mehr, sondern IHKR
+                ZCSUT,SGFAM      nicht rückwirkend gültig
+                SGET,ZCSUT,CVT  -ab PU98 MRS3 (K-Bus Steuergerät), nicht rück-
+                                 wirkend gültig
+                ZST             -Japan und ZA ab PU98 mit Jatcogetriebe mit
+                                 Steptronic => DM41/42/61/62, DR41/42/61/62
+                                 mit Steptronic im Typschlüssel (PN 8452/009)
+                                 => E-Wort E S202 entfällt ab PU98
+                ZST             -SA510 (man. LWR) serienmäáig ab PU98 auáer
+                                 bei US/Kanada => Entfall SA510
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6844.L  x      06.04.98   EE-92   Knöchel
+     M1018.L  x      04.03.98   EE-92   Knöchel
+                IHKR.C10,SGET,  -Umbenennung von IHKR_E39.C01 in IHKR_E39.C10
+                ZCSUT
+                CVT             -vorübergehende Deaktivierung der Stufe 2 beim
+                                 Beifahrerairbag bis KW 17/98
+     E6844.L  x      06.04.98   EE-92   Knöchel
+                CVT,SGET,ZCSUT, -Neues PDC-Steuergerät mit Codierindex 02
+                ZST
+                CVT,SGET,ZCSUT, -SM integriert (Sitzmemory)
+                ZST,SGFAM,CONF   Codierindex 02h
+                CVT,SGET,ZCSUT, -BIT integriert (Basis-Interface Telefon)
+                ZST,SGFAM,CONF   Codierindex 01h
+                CVT,SGET,ZCSUT, -Radio CD43 integriert, Codierindex 01h
+                ZST,SGFAM,CONF
+                CVT             -IHKR korrigiert (wurde bei SA555/609 ohne
+                                         SA536/534 auf Standheizung codiert)
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7030.L  y      11.05.98   EE-92   Knöchel
+                CVT             -HBA beim M5 auf wert_02 statt wert_03
+                CVT,ZST         -Centerlocktaste aktiv bei Schutzverglasung
+                CVT,ZST         -Centerlocktaste aktiv bei Sicherheitsfzg.
+                CVT             -Beifahrerairbag Stufe 2 wieder aktiv (KW18/98)
+                CVT,SGET        -neue CBD IHKA CI 03 mit Codierung der
+                                 Unterspannungsschwellen motorabhängig
+                CVT,ZST         -Nokia-Handy SA627 mit eigenem SA-Bit
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7064.L  z      29.06.98   EE-92   Knöchel
+     M1018.L  z      18.05.98   EE-92   Knöchel
+                CVT,ZST,ZCSUT,  -LCM Codierindex 18h integriert (SE PU98)
+                SGET
+                CVT,SGET        -MRS3 doch nicht ab PU98, sondern erst ab 03/99
+                                 bis dahin weiterhin MRS2
+     E7064.L  z      29.06.98   EE-92   Knöchel
+                CVT             -neue Codierung für DSC und ASC 5.7
+                CVT             -LWR mit M5-Daten
+                CVT             -LA810 Austr. mit Komfortschliessung über FB
+                ZST             -E-Wort LSM auch bei M57 mit SA456 od. 459
+                                 und geänderte SA-Umfänge bei M57 (8003/056)
+                ZST             -SA521 Regensensor für US ab 03/99 (8009/142)
+                CVT             -Neue CBDen IHKA.C03, LCM.C18, KMBI_E38.C12,
+                                 KMB_E39.C06
+                CVT             -EWS auf x.2-Schnittstelle für M51 mit CAN
+                CVT,ZST         -SA165 Deaktivierung ITS-Airbags neu hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7277.L  aa     02.07.98   EE-92   Knöchel
+                CVT             -Wasserpumpe wird bei IHKR auch bei M52 codiert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E7331.L  ab     31.08.98   EE-92   Knöchel
+                ZST             -SA641 Tel.vorber. codierrel. hinzu (8009/145)
+              -----------------------------------------------------------------
+                                EE-92   Lanny
+                ZST             -SA's 705/715/788/791 hinzu (8569/005)
+                                -E-Wort MA99 hinzu
+                                -Thailand und Vietnam mit 5-Gang-Schrittsch.
+                CVT             -ab MAERZ99 mls f. KANADA möglich (8009/130)
+                                -ab MAERZ99 GURT_MRS gurtmeldung_von_mrs (LCM.C18)
+                                -GFG_GONG aktiv ab PU99
+                ZST             -SA534 nicht Serienumfang f. DM67
+                                -SA261 nicht Serienumfang f. DN87
+                                -DM87 (528iA) Sicherheitsfzg. Mexiko hinzu
+                CVT             -70_l_prozentskala für M5
+                ZST,SGET,CVT    -MRS3.C10 hinzu
+                ZCSUT,AUSBL
+                CVT             -geänderte IHKA.C03,IHKR.C10 (ZUHEIZER,ZUHEIZUNG,
+                                 UNTERSPANNUNGSSCHWELLEN) ab MAERZ99
+                SGET,CONF,      -ZHZ.C01 hinzu (neues SG)
+                SGFAM,ZCSUT
+                CVT             -INDIVID HBA_DSC_5_7 hinzu
+                ZST             -SA´s 263/434  hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3140.M  ac     25.09.98   EE-92   Lanny
+                IHKA_E39.C03    -neue Codierdatengruppe: Geblaeseautomatik_Normalber
+                                 neues FSW: GEBLAESEAUTOMATIK_2
+                                 wert_02 von GEBLAESEAUTOMATIK geändert
+                CVT             -GEBLAESEAUTOMATIK_2 hinzu
+                                -Klima-Sonderprogramm nur noch für US und GOLF
+                                 Verknüpfung mit TROPEN entfällt
+                                -RADIO_US hinzu
+                ZST             -SA 645 (RADIO_US) codierrel. hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3435.M  ad     17.11.98   EE-92   Lanny
+     M2001.M  ad     06.11.98   EE-92   Lanny
+                ZST             -neue Typen: DM71/72/81/82, DR71/72/81/82
+                                             DL01/02/91/92, DP01/02/91/92
+                                -neues ASW: M57D25
+                                -SA986/987/994 hinzu (nicht codierrel.)
+                CVT, SGET       -M47D20, M57D25 hinzu
+                SGET            -RDC-Ausschluß f.M5
+                CVT             -EDC_KENNFELD Entfall LA's 807/810 ab MJ99
+                                -CAN_EBV, SIA_LITER_GRENZE für M47D20/M57D25 hinzu
+                                -GFG_GONG nicht_aktiv SE, MOTOR_FAKTOR can_bus (M47)
+                                -SERVOTRONIK nicht_aktiv für M5
+                                -BAUART, TELEMATIK, AUTOMATISCHER_NOTRUF hinzu
+                                -ZUSATZWASSERPUMPE nicht_aktiv f. Diesel ab 3/99
+                SGET            -ZHZ.C01 auch für SA536
+                SGET,ZST,ZCSUT  -GT.C02 hinzu
+     E3435.M  ad     17.11.98   EE-92   Lanny
+                CVT             -ZUHEIZER k_bus ab 3/99 f. Diesel und SA536
+                ZST,CVT         -SA791: ASW M_SERVOTRONIC u. neue Kennlinien hinzu
+                                        SERVOTRONIK, SERVO_KENNL_GESCHW,
+                                        SERVO_KENNL_STROM
+                                        und QUELLE_SERVOTRONIK_KENNF neu bedingt
+                ZST             -E-Wort BLSN und ASW BLS_KORR hinzu
+                CVT             -neues FSW: BLS_PRUEFEN
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3619.M  ae     16.12.98   EE-92   Lanny
+                CVT             -Korrektur EDC-Kennfeld-Codierung
+                                -ALARMSCHALTER_SI_FZG aktiv f. E39/3 (LCM.C18)
+                                -QUIT_OPT_ENTSCH aktiv f. SA194 (GM3.C04)
+                ZST             -neue Typen: DM58/68, DL38/48
+                                -SA194: ASW FERNSTART hinzu
+                SGET            -EWS.C02 f. SA194
+                MRS2.C07        -neue Crashparameter
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3679.M  af     21.01.99   EE-92   Lanny
+
+Ab EXPERTENTOOL und NCS-Serve Version 2.x.x (SE 03/99) bitte folgende Datenanpassungen vornehmen:
+                E39ZCSUT.NEU auf E39ZCSUT.000 kopieren.
+                E39_CONF.BAP befindet sich ab V 2.x.x im Verzeichnis CABI\DATEN\
+                Es muß E39_CONF.NEU auf E39_CONF.BAP kopiert werden.
+
+                ZST             -SA316 HECKKLAPPE_HYDR hinzu
+                                -SA´s 455,780,970,975,976,979,980 hinzu (nicht codierrel.)
+                                -SA791 M_SERVOTRONIC gelöscht
+                                -LA802 KOREA wieder codierrelevant
+                CVT             -Gruppe hydr._Heckklappe hinzu
+                                -M_SERVOTRONIC-Bedingungen gelöscht
+                                -Zwangsausschluß SA522 bei LA802 (KOREA)
+                SGET            -Ausschluß LWR für LA802 (KOREA)
+                MRS3.C10        -neue Crashparameter
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3831.M  ag     18.12.98   EE-92   Lanny
+                ZST             -SA791 hinzu (nicht codierrel.)
+                CVT,DSC5_7.C10  -CODIERWERT_DSC5.7 wert_18 bis wert_20 hinzu f. M52B20/25,
+                                 ACC_DSC_5_7 hinzu (DSC5_7.C10)
+                CVT             -ZUSATZWASSERPUMPE neu bedingt lt. IHKA.C03-Kommentar (SA536)
+                CVT,GM3.C04     -neu hinzu: SONDERFHZG_MIT_WSA, CLT_AKTIV_IM_CRASH_MODE,
+                                 AUTO_ZV_2_MIN, ZV_VR_BEDIENSTELLE_HECK, ZV_V_SCHWELLE_8KMH,
+                                 ZV_BEDIENST_BT_DISABLE, ENTFALL_ZV_BEDIENST_HECK,
+                                 FH_TIPP_DISABLE_TUER_AUF, AUTO_ZV_DISABLE, DWA_ALARM_MODE_GB,
+                                 ZV_V_SCHWELLE_4KMH, ZV_V_SCHWELLE_16KMH
+                CVT,LCM.C18     -TASTER_NSW_NSL aktiv ab PU99, NSW_KEIN_TASTER hinzu
+                                 KUEHLWASSER_BEDAEMPFUNG neu bedingt f. M57
+                ZCSUT           -Umrechnung für Bit-Recycling hinzu
+                SGET,ZCSUT,SGVT -PDC_CI_03 hinzu
+                CVT,PDC.C03     -neu hinzu: NUR_KL15_BETRIEB, EIS_AUSBLENDEN, LAUTSTAERKE_HINTEN,
+                                 MESSBEREICH_HECKKL_ECKE, MESSBEREICH_HECKKL_MITTE,
+                                 LAUTSTAERKE_VORN
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE099.M  ah     23.03.99   EE-92   Lanny
+                SGVT,ZST        -MRS2_CI_07, ZAE2 recycled
+                CVT             -Gruppe Crashparameter neu bedingt wg. Recycling
+                                -ZV_VR_BEDIENSTELLE_HECK,SONDERFHZG_MIT_WSA neu bedingt (SA190)
+                                -ENTFALL_ZV_BEDIENST_HECK neu bedingt
+                                -GRUPPE Selektive_ZV neu bedingt
+                                -NOTSTROMSIRENE individualisierbar ab 09/99
+                                -GRUPPE SIA neu bedingt (LA807)
+                                -GRUPPE Getriebe neu bedingt (AUT_GM5)
+                CVT,GM3.C04     -AUTO_ZV_2_MIN erstzt durch VERRIEGELN_AUT_NACH_2_MIN,
+                                 ZV_V_SCHWELLE_4KMH,ZV_V_SCHWELLE_8KMH,ZV_V_SCHWELLE_16KMH
+                                 erstzt durch VERRIEGELUNGSSCHWELLE,
+                                 DWA_ALARM_MODE_GB ersetzt durch ALARM_AKUSTISCH_LANG,
+                                 VERRIEGELN_AUT_AB_8_KM/H ersetzt durch VERRIEGELN_AUT_AB_X_KM/H
+                                 VERRIEGELN_8KM/H_SENDER_1-4 ersetzt durch VERRIEGELN_XKM/H_SENDER_1-4
+                CVT,KMB_39.C06, -neu hinzu: CAN_KL61,SIA_RESET_SCHWELLE_LITER,
+                KMBI_E38.C12     SIA_RESET_SCHWELLE_TAG
+                                -neue PSW f.SA984 und M54 hinzu
+                ZST             -SA190 WE_SPRECHANLAGE codierrelevant hinzu
+                                -DM63, DP63: AUT_GM5 ab 09/99 neu hinzu
+                                -DE83, DN83, DE93: SA261 ab 06/99 nicht codierrel.
+                                 dafür E-Wort S261 hinzu
+                                -SA984 SIA_INTERVALL hinzu
+                SGET,CONF,SGVT, -HKM.C01 hinzu (neues SG)
+                SGFAM,ZCSUT
+                CVT,HKM.C01     -neu hinzu: FUNKTION_TOEHKI, TYP, FUNKTION_FBZV,
+                                 MAX_AUF_ZEIT_BER_3_LOW, MAX_AUF_ZEIT_BER_3_HIGH,
+                                 VENTILVERZ_STOP_LOW, VENTILVERZ_STOP_HIGH, MAX_ZU_ZEIT_BER_2_LOW,
+                                 MAX_ZU_ZEIT_BER_2_HIGH, MAX_AUF_ZEIT_BER_1_LOW, REVERSIERZEIT_LOW,
+                                 MAX_AUF_ZEIT_BER_1_HIGH, MAX_SCA_LAUFZEIT_LOW, REVERSIERZEIT_HIGH,
+                                 MAX_SCA_LAUFZEIT_HIGH, MAX_ZU_ZEIT_BER_1_LOW, MAX_ZU_ZEIT_BER_1_HIGH,
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE246.M  ai     12.04.99   EE-92   Lanny
+                CVT,SGVT,ZCSUT  -GM3.C05 Codierindex für GM3 mit PU'99-Stand auf 05 gesetzt
+                .                Tabellen angepaßt
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE315.M  aj     12.04.99   EE-92   Lanny
+                ZST             -DM65 neu hinzu
+                                -SA249 hinzu (nicht codierrel.)
+                                -DE91/92/93: SA265 Serie ab PU99
+                                -E-Wort STR2 und ASW SERVO_2 hinzu
+                CVT             -neue Kennlinien f. SERVO_2 hinzu
+                                 SERVO_KENNL_GESCHW, SERVO_KENNL_STROM
+                                 und QUELLE_SERVOTRONIK_KENNF neu bedingt
+                ZST             -LA802 nicht codierrel., weil ab 03/99 Xenon in KOREA erlaubt
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE688.M  ak     21.06.99   EE-62   Lanny
+                ZST             -DE91/92/93: SA265 nicht Serie
+                                -LA802 nicht codierrel., weil f. M5 XENON ab 07/99 in KOREA erlaubt
+                                -zukünftige E-Worte MA00, PU00 u. PU01 hinzu (Recycle-Bits verwendet)
+                                -E-Worte MA99, GT2 u. S202 entfallen
+                                -ASW's, die durch SGVT bestimmt werden, aus H-Zeilen entfernt u. an
+                                 Maßnahmen-Bits gekoppelt (Ausnahme: LCM_CI_18 bleibt als Sicherung
+                                 und entfällt erst zusammen mit E-Wort RB99)
+                                -H-Zeile NAVI f. Nachrüstung Navigation ohne Bordmonitor hinzu (ab PU96)
+                                -SA988 SIA_KURZ hinzu
+                CVT             -wg. NAVI-Nachrüstung: ASW NAVIGATION bei GRUPPE (Zuheizbetrieb, Anzeige)
+                                 u. INDIVID (Temperatur_Einheit, Sprache, Verbrauch_Einheiten, Weg_Einheiten,
+                                 Zeit_Einheiten) integriert
+                                -FGR_KENNDATEN neu bedingt
+                CVT,GM3.C05     -ENTFALL_ZV_BEDIENST_HECK neu bedingt
+                                -GRUPPE opt_Quit neu hinzu wg. Quittierung DWA
+                                -DWA_QUITTIERUNG aktiv ab MAERZ00
+                                -INDIVID HYDRAUL_HECKKLAPPE hinzu, HYDRAUL_HECKKLAPPE nicht_aktiv f. alle
+                                -INDIVID Panik_Modus nur ohne SA316
+                                -PANIK_MODUS nicht_aktiv bei SA316
+                CVT,LCM.C18     -SCHALTER2_BL nicht_aktiv f. alle
+                                 U_POTI_STELLUNG_2 wert_03 neu hinzu
+                                 Parameterschlüsselworte ece_acc u. us__acc hinzu
+                                 TANKDECKL_OFFEN melden ab PU99 f. M5 US
+                CVT,ASC5_7.C09  -M47 aut. jetzt GETRIEBEVARIANTE typ_1 (vorher typ_2)
+                CVT,HKM.C01     -ANZAHL_ANFRTEL_ZUSAETZL neu hinzu
+                CVT,MRS3.C10    -GRUPPE  Kopfairbag_Fond neu hinzu
+                CVT,PDC.C03     -GRUPPE Touring_PU99 neu hinzu (neue Werte f. Lautstärke_hinten)
+                                -INDIVID LAUTSTAERKE_HINTEN hinzu
+                CVT,KMB.C06,    -SIA_LITER_GRENZE neue Werte u. neue PSW's f. M47/57 u. SA988 hinzu
+                KMBI.C12
+///////////////////////////////////////////////////////////////////////////////
+NAEL E0E14.M  al     19.08.99   EE-62   Lanny
+                ZST             -A-Zeile f. SA261 entfallen
+                                -LA953 hinzu (nicht codierrelevant)
+                                -LA851 DEUTSCH hinzu
+                                -DM26 hinzu
+                                -SA603 FONDMONITOR hinzu
+                                -SA's 651/861 hinzu (nicht codierrelevant)
+                                -SA's 630/631/632 hinzu (nicht codierrelevant)
+                                -M54-Typen: DS11/12/21/22/31/32/33/41/42/43/51/52/53/61/62/63,
+                                 DT11/12/21/22/24/26/31/32/33/35/37/38/41/42/43/44/45/46/47/48/49,
+                                 DT51/52/53/55/59/61/62/63/65/66/67/68/69/87 hinzu
+                                -E-Wort IFL (bei SA185, SA186) hinzu
+                CVT             -GRUPPE Sprache neu bedingt wg. LA851 DEUTSCH
+                                -M54-Umfänge hinzu (vorab)
+                                -AUTOMATISCHER_NOTRUF neu bedingt (aktiv ab März99)
+                CVT,PDC.C01+02  -GRUPPE Tongeber_PU_99 hinzu
+                CVT,GM3.C05     -GRUPPEN Warnblinker u. opt_Alarm neu bedingt,
+                                 GRUPPE US_DWA hinzu (SA302 hinzu)
+                CVT,TV2.C02     -GRUPPE Widescreen_Modi hinzu
+                CVT,LCM.C18     -GRUPPE US_ACC ergänzt um ece_ifl (SA185/186)
+                                -GRUPPE TagfahrlichtECE neu bedingt (NORDLAND)
+                SGET            -TV2 für US mit SA603
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3E12.M  am     22.09.99   EE-62   Haller
+                KMBI_E38.C12    -neues FSW "TNK_DECKEL_WARNUNG" integriert
+                KMB_E39.C06      Codierdaten für SIA_LITER_GRENZE M47 Touring hinzu
+                E39CVT.000       Codierdaten für SIA_LITER_GRENZE M57D25 überarbeitet
+                LCM.C18         -Codierwert MOTOR_KENNFELD für M47D20 neu hinzu
+                                -ece_ifl auch für PL
+                                 Programmparamter ergänzt wg. Zündprobleme Xenonlicht
+///////////////////////////////////////////////////////////////////////////////
+NAEL EEE46.M  an     20.12.99   EE-62   Haller
+                                - Produktionsfreigabe für 09/2000, kann sofort einsetzen
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3003.N  ao     20.01.00   EE-62   Lanny
+                SGET            -RA_NG.C01 hinzu (neues SG)
+                SGVT            -Ausschluß PDC.C02 ab PU00
+                TV2.C02         -MULTIFUNCTION_1 neue Werte, WIDESCREEN_MODI wert_00 hinzu
+                CVT,SGVT,SGET,  -GT.C03 integriert
+                ZCSUT
+                CVT,IHKA_E39.C03-KOMPRESSOR_GEREGELT nicht_aktiv f. M47
+                                -SOLARSENSOR neu hinzu (aktiv ab PU00)
+                CVT,PDC.C03     -Änderung der Daten auf 8-Kanal-Betrieb
+                CVT,RA_NG.C01   -neu hinzu: RDS-AF_SWITCHING, KEY_MEMORY_RADIO
+                CVT,LCM.C18     -MOTOR_KENNFELD M54-Daten hinzu
+                CVT,ASC5_7.C09  -GETRIEBEVARIANTE M54-Daten geändert
+                                -BMR_TYP_5.7 neu bedingt
+                CVT             -GRUPPE PU_00 neu hinzu
+                                -GRUPPE  8_Kanal-PDC neu hinzu (M5 ab PU00)
+                                -PSW tp_wt_autosuchlauf geändert zu tp
+                                -ZV_VR_BEDIENSTELLE_HECK nicht_aktiv
+                                -ENTFALL_ZV_BEDIENST_HECK neu bedingt wg. PL
+                                -U_POTI_STELLUNG_2 !LWR_MAN ersetzt durch US
+                                -RDKS u. AKUSTIK_RDKS aktiv b. SA364
+                                -neue PSWs f. GAL_DEFAULT u. LAUTSTAERKE_HINTEN
+                                -FH_TUEREN_HINTEN_TIPP_AUF nicht_aktiv f. PL
+                                -FUNK_INNENRAUMSCHUTZ, FUNKINNENRAUMSCHUTZ_HI, NEIGUNGSGEBER,
+                                 MITTENFREQUENZ_BAND1, SUBWOOFER_KOPPLUNG entfallen f. CKM
+                ZST             -Bit-Recycling: alle bisherigen Maßnahmen- u. Serien-Bits
+                                 gehen in PU99-Bit über u. können in Verbindung mit PU00-Bit
+                                 wiederverwendet werden
+                                -SA257 OH_THORAX_HI neu hinzu
+                                 E-Wort S261 entfällt mit Einsatz der SA257
+                                 gleichzeitig wird SA261 wieder codierrelevant
+                                 A-Zeile für SA261
+                                -A-Zeile f. folgende Typen (SA520 wird Serie ab PU00):
+                                 DM11/12/21/22/24, DR11/12/21/22
+                                -A-Zeile für SA666 (Entfall ab PU00)
+                                -A-Zeile für SA661 RADIO_NG ab PU00
+                                -A-Zeile für SA364 RDW (ab 03/00 codierrelevant)
+                                -SA169/308/360/361/650/752/977 hinzu (nicht codierrelevant)
+                                -SA396 RDW neu hinzu
+                                -Entfall SA624/625
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3316.N  ap     25.02.00   EE-62   Lanny
+                SGET,CVT,ZST,   -SA752 M_SOUND neu hinzu
+                DSP.C01
+                CVT             -INDIVID SHD_Tipp_zu/auf neu bedingt
+                SGET,SGVT,CVT,  -neu hinzu: NACHLAUF_ZEIT_H,NACHLAUF_ZEIT_MIN,FAHRZEUG_MMI,
+                ZCSUT,TEL.C02    GAL_ANZAHL_STUFEN,GAL_KMH_STUFUNG,GAL_KMH_HYSTERESE
+                CVT,LCM.C18     -LED_RUECKLICHT_OPTION hinzu
+                                -GRUPPE US_M5 neu bedingt
+                CVT,KMB         -SIA_LITER_GRENZE m54b22-Werte hinzu
+                CVT,EWS.C81     -PARK/NEUTRAL_EINGANG neu bedingt f. M5 mit LA807
+                ZST             -E-Wort PU00 hinzu
+                                -A-Zeilen f. SAs 602/609 (RADIO_NG hinzu ab 02/01)
+                                -SA630 TELEFON SIEMENS_GSM neu
+                                -SA632 TELEFON V_SERIE neu
+                                -A-Zeile f. DM71/DR71 (NSW Serie)
+                                -A-Zeile f. DL71/72/DL81/82/DM64/66/DN11/12/21/22/51/52/61/62/81/82
+                                 DE91/92/DP71/72/81/82/DR51/52/61/62/DS51/52/61/62
+                                 DT51/52/55/59/61/62/65/66/68/69 (SA661 Serie)
+                SGET            -RA_NG neu bedingt
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3498.N  aq     13.03.00   EE-62   Lanny
+                ZST             -E-Wort MA00 entfallen
+                                -H-Zeile f SA260 geändert
+                                -G-Zeile neu
+                                -2 GVN-Zeilen verbessert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3564.N  ar     22.03.00   EE-62   Lanny
+                ZST             -neue Typen hinzu: DA91, DG91
+                                -neue ASW hinzu: AEGYPTEN,INDONESIEN,MALAYSIA,MEXICO,PHILIPPINEN,VIETNAM
+                CVT             -GRUPPE Kopfairbag_Fond neu bedingt (E39/2 nicht_aktiv)
+                                -GRUPPE Standrueckschaltung_Wischer neu bedingt
+                                -INDIVID DWA_Quittierung neu bedingt
+                                -GRUPPE opt_Quit neu bedingt
+                CVT,KMB_E39.C07, -neu hinzu:TACHO_AUF_DAEMPFUNG, DZM_AUF_AB_DAEMPFUNG,
+                KMBI_E38.C12     TACHO_AB_DAEMPFUNG, ACC_V_SET_MIN, ACC_V_SET_MAX, KL_50_CAN
+                SGET,ZCSUT,SGVT -KMB_E39.C07, GT.C04 hinzu
+                                -a_kmb2, a_gt3, c_gt3 integriert
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3756.N  as     10.04.00   EE-62   Lanny
+                CVT,PDC.C03     -NUR_KL15_BETRIEB Bedingung geändert
+                CVT,KMB         -SIA_LITER_GRENZE neue PSW f. N43B20 hinzu
+                CVT,DSC5_7.C10  -CODIERWERT_DSC5.7 endgültige Werte f. M54 hinzu
+                SGET            -ZHZ.C01 mit N43B20
+                ZST             -A-Zeilen f. DT59/69 entfallen
+                                -A-Zeile f. DT33/43/53/63/DN53/63/83/DE93/DS33/43/DR63
+                CVT             -INDIVID DWA_Quittierung neu bedingt
+                                -N43-Umfänge hinzu (z.T. vorab)
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE354.N  at     30.06.00   EE-62   Lanny
+     M2002.N  at     17.04.00   EE-62   Lanny
+                ZST             -E-Wort NGR hinzu (zusteuern f. Radio C53/CD53/CD54/MD53 mit MID)
+                                -SA661 nicht mehr codierrelevant (A-Zeile entfallen)
+                                -A-Zeilen f. SA670 hinzu
+                                -A-Zeilen f. DE91/92/93/DL71/72/81/82/DP71/72/81/82
+                                 DN11/12/21/22/51/52/53/61/62/63/81/82/83
+                                 DR51/52/61/62/63/DS33/43/51/52/61/62
+                                 DT33/43/51/52/53/55/61/62/63/65/66/68 entfallen
+                SGET            -RA_NG.C01 neu bedingt
+                CVT             -INDIVID KeymemoryRadio neu bedingt (PU00 ersetzt RADIO_NG)
+                                -GRUPPE Anzeige neu bedingt (RADIO_NG_MID hinzu)
+                                -GRUPPE Widescreen_Modi neu bedingt (BM_RADIO ersetzt RADIO_NG)
+                                -GRUPPE Codierwert wert_09 nicht gültig, vorab durch wert_10
+                                 ersetzt (Parameter getauscht)
+     EE354.N  at     30.06.00   EE-62   Lanny
+                ZST             -A-Zeilen f. DN87 hinzu (SA261 hinzu)
+                                -A-Zeilen f. DM64/66 entfallen
+                                -A-Zeilen f. DE93/DN83 hinzu (SA261/257 hinzu)
+                                -A-Zeilen f. SA364 entfallen
+                                -A-Zeile f. SA632 hinzu (SG wird ab 03/01 codiert)
+                                -A-Zeilen f. DN53/63/83, DR63 neu hinzu (SM Serie)
+                                 DS33/43,DT33/43/53/63 Typ-Zeilen geändert
+                                -SA397 hinzu (nicht codierrelevant)
+                                -H-Zeile LEDR f. Nachrüstung LED-Rückleuchte eingefügt
+                CVT             -GRUPPE Kopfairbag_Fond Bedingung geändert wg. SICH_FZG
+                                -CAN_KL61 can_bus f. N43 hinzu
+                                -GRUPPE LED_Ruecklicht_PU_00 neu hinzu wg. Nachrüstung
+                CVT,EWS.C81     -ABSCHALTDREHZAHL_ANLASSER um M47/M57 ergänzt
+                CVT,IHKA        -ZUSATZWASSERPUMPE nicht_aktiv,ZUHEIZUNG aktiv f. N43
+                CVT,DSP.C01     -POLLING_TIMEOUT mid_basis_fond_mid neu hinzu (ab PU00 bei SA446)
+                CVT,RA_NG.C01   -GRUPPE RDS_AF_Switching geändert (OZEANIEN)
+                                -GRUPPE Kanada_spezifisch hinzu
+                                -PTY_TABELLE, REG neu hinzu
+                CVT,LCM.C18     -U_DIMMUNG_STANDL wert_03 neu hinzu
+                                -RL_INNEN_BLINKT neu hinzu
+                                -STANDLICHT_VORNE, RUECKLICHT_INNEN_FEHLT, BLK_V_GED_ALS_SIDEMARK,
+                                 BLK_V_GED_ALS_PARKLICHT,SL_VORNE_ALS_ZUSATZ_BLK neu bedingt
+                                -neue Parameter f. ece u. us
+                SGET,SGVT       -MRS4_CI_12 hinzu (noch inaktiv)
+                SGET            -RA_NG.C01 nicht für AEGYPTEN
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N  au     22.09.00   EE-62   Finster
+                CVT,IHKA             -ZUSATZWASSERPUMPE aktiv f. N43
+                CVT,ZCSUT,SGET,SGVT  -neue CBD MRS4_16.C12 hinzu: Einsatz zu 02/01
+                CVT,KMB_E39.C07      -FSW ASC3_AUSWERTUNG, DSC_DEF_GONG, BRAKE_FORCE, BFD_AX_REF_SCHWELLE, BFD_HYSTERESE neu hinzu
+                CVT,KMBI_E38.C12.....-identisch zu Änderung aufgrund der KMB_E39.C07 CBD u K_Zahl f. ALPINA geändert
+                CVT,LCM.C18          -FSW CHECK_FILL_CAP neu hinzu
+                                      PSW m54b30_e39,m54b25_e39,m54b22_e39 durch m54bxx_e39 ersetzt(Eintrag in E39ausblend.dat!)
+                CVT,RA_NG.C01        -PTY_TABELLE us um das ASW RADIO_US (SA645) erweitert.
+                ZST [bh]             -BM_RADIO für FZG mit 602/609 Serie in Typ-Zeile aufnehmen
+                                      GRUPPE Codierwert wert_09 nicht gültig, vorab durch wert_10 ersetzt (DSC5_7)
+                                      SA378,SA379,SA450,SA470,SA498,SA571,SA996 neu ( S )
+                SGET                 -Verwendung neuer CABD A_RA_NG wegen Ein-/Ausschalten beim Codieren von NG_Radios
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N  av     17.01.01   EE-82   Finster
+                ZST [bi]             -E-Wort SCHR hinzu (ab 03/01 bei DT43, DT63, DS43 SA202 Serie PNT_8022_260)
+                                     -E-Wort E S261 entfällt ab PU00
+                                     -A-Wort S261 deakt.
+                                     -bei DE91/92/93 (M5) SA261 ab 03/01 frei waehlbar
+                                     -SA 632 nicht mehr codierrelevant lt. H. Dietz EE-430
+                                     -SA 540 GESCHW_REG ab 09/00 S lt. STB 7
+                                     -SA 612 BMW ASSIST ab 03/01 neu 0 lt. STB
+                                     -DT27 CKD Indon. ab 03/01 neu (PNT_8022_269)
+                                     -SA 715 SPORTPAKET ab 03/01 neu (ZWAKO P337)
+                                     -SA 983 Modelljahrescode Export neu 0
+                SGET                 -TEL.C02 nur mehr bei SA 630 (ohne SA632 V_Serie)
+                CVT                  -bei FSW HANDY_TYP wurde PSW v_serie entfernt (s.o.)
+                                     -STANDHEIZUNG_KONZEPT mit N43B20 erweitert
+                TEL_US.C01           -Telefoninterface US (Mayday-Modul) integriert, nur Nachrüstumfang in US ab 09/2000
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3243.P  aw     14.02.01   EE-82   Finster
+                CVT,ZCSUT,SGET,SGVT  -neue CBD LCM.C19: Einsatz zu 09/01
+                ZST [bj]             -E-Wort PU01 hinzu
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3566.P  ax     30.03.01   EE-82   Finster
+                ZST [bk]             -SA 358 wird codierrelevant wegen RLS.C02
+                                     -SA 167 Abgasnorm EU4 integriert
+                CVT                  -FSW SICHERHEITSFAHRZEUG wieder auf nicht_aktiv gesetzt
+                                     -Integration CKM-Funktion FLC_SCHWELLWERT_SATZ fuer Fzg. ab PU01 mit Regensensor SA 521
+                                     -FSW DSC_INAKTIV auf nicht_melden gesetzt (lt. H.Moser (EE-54))
+                RLS.C02              -Integration RLS.C02 ab PU01 bei SA 521
+                                      Betroffene Dateien CBD,E39SGET,E39ZCSUT,E39CVT,E39CONF.BAP,E39SGFAM,E39ZST.000
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3915.P  ay     30.05.01   EE-82   Finster
+                LCM.C19 [d]          -Integration neuer CBD (veraenderte Parameter)
+                PDC.C03 [j], CVT     -Integration neuer CBD (Sensor 4.Gen. ab PU01)
+                GT.C04 [d], CVT      -Integration neuer CBD (Aenderung FSW TELEMATIK und AUTOMATISCHER_NOTRUF)
+                ZST [bl], CVT        -LA802 KOREA wieder codierrel., weil FSW EINKLEMMSCH_REVERSIEREN ab PU99 auf lang gesetzt
+                                     -E-Wort MAERZ02 hinzu
+                                     -A-Zeile für SA 612 BMW_ASSIST da codierrelevant ab PU01
+                                     -SA 102 /Behördenfahrwerk/-Bremsen verst. integriert (STB von 05/01)
+                                     -SA 601 TV /TV-Funktion integriert (PNT_8003_140)
+                SGET                 -TV2.C02 wegen SA 601 angepasst
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE405.P  az     03.07.01   EE-82   Finster
+                DSP.C01 [e]          -Integration neuer CBD (veraenderte Parameter fuer M5)
+                ZST [bm]             -Kommentar fuer E-Wort L807 erweitert (ALPINA TOUR + LIM -SA822)
+                                     -A-Zeile für DE93 entfaellt; fuer DE91/DE92 NEUE A-Zeilen ab 09/01 ohne SA521
+                CVT [h]              -FSW PARK/NEUTRAL_EINGANG erweitert (ALPINA/Japan Fzg. LL+RL)
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E1E48.P  ba     13.09.01   EE-82   Ralf Hahn
+                CVT [i]              -INDIVID FH_TUEREN_HINTEN_TIPP_AUF auf =!SICH_FZG geändert, war =E39
+                PDC.C03 [k]          -Integration neuer CBD (Sensor 4.Gen. ab PU01), (Änderung)
+                ZST [bn],CVT [i]     Anhängerkupplung codierrelevant ab PU01
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E2E14.P  bb     21.09.01   EE-82   Ralf Hahn
+                CVT [j],DSP.C01 [f]  -GAL_DEFAULT bei M-Sound auf Wert01 gesetzt
+                Mrs4_16.c12 [b]      -PN 8003/144: Kopfairbag im Fond Serie bei E39 US ab 09/02
+                ZST [bo]             -E-Wort PU02 hinzu
+                                     -A-Zeilen für SA602, SA609, SA612 entfallen
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E4E89.P  bc     16.10.01   EE-82   Ralf Hahn
+                ZST [bp]             -neue A-Zeile für SA602 zu MAERZ02
+                                     -SA 912 OE-Paket integriert
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E5E41.P  bd     05.11.01   EE-82   Ralf Hahn
+                RA_NG.C01 [e],CVT [k]-TP_MINIMAL_VOLUME fuer BM-Radios erhoeht
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEB48.P  be     18.01.02   EE-82   Ralf Hahn (DIS-CD V29.0)
+                ZST [bq]             -SA908 Spoc (Shortest possible order cycle) integriert
+                                     -SA638 Autotelefon Professional, SA639 Vorbereitung
+                                      Autotelefon US, SA644 Vorbereitung Autotelefon Bluetooth
+                                      und SA646 Vorbereitung Autotelefon Japan integriert
+                CVT [l],GM3.C05      -EINKLEMMSCH_REVERSIEREN ab PU02 für alle lang
+                SGET, SGVT, CVT[m]   -neue CBD RA_NG.C02 integriert
+                CVT[m]               -CBD'en Kmbi_E38.c12 und Kmb_E39.c07 integriert (Gurtwarnung EURO NCAP E53)
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3492.R  bf     21.02.02   EE-82   Ralf Hahn (DIS-CD V30.0)
+                ZST [br]             -SA893 SA-Paket integriert
+                CVT[n],HKM[E3497.R]  -Schliessfunktion der Heckklappe ueber den Funkschluessel
+                                     nicht_aktiv für E39/2 ab PU02, car & key vorbereitet
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E3935.R  bg     28.03.02   EE-82   Ralf Hahn (01.03.02)
+                ZST                  -SA212 Ausstattung Bremsanlage Länder integriert
+                IHKA_E39[E3735.R]    -Deaktivierung der Key-Memory-Funktion
+                CVT                   für US-Fahrzeuge ab PU01 (default)
+                Kmbi_E38,Kmb_E39,CVT -[E3565.R] neue Funktionen für NG-Motoren integriert
+                CVT ,GM3.C05         -FH_ABSCHALTKRITERIUM ab PU02 für alle us-codiert
+                LCM[E3808.R]         -neues Steuergerät LCM.C20 integriert
+                ULF[E3849.R]         -neues Steuergerät ULF.C01 integriert
+                CVT,ZST,ZCSUT,SGET,AUSBL,CONF,SGFAM
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEA11.R bh     09.04.02   EE-82   Ralf Hahn (DIS-CD V31.0)
+                LCM[E3808.R]         -Blöcke jeweils bis Byte 1E mit UNBELEGT aufgefüllt
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEB99.R bx     23.04.02   EE-82   Ralf Hahn 16.04.02 (Zeichnungindex an TAIS angeglichen)
+                ZST                  -SA725 (Premiumpaket) integriert
+                SGET                 -Ausschluß LWR für LA802 (KOREA) entfällt
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL NEB99.R by    03.05.02    EE-82   Bernhard Haller
+                CVT                  -Korrektur bei "MANUELLE_LWR" in Verbindung mit LA Korea
+                LCM.C20 CVT          -CBD überarbeitet, in CVT integriert
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEC55.R bz    24.05.02    EE-82   Ralf Hahn
+                ULF[EEC19.R]         -geänderte CBD für Steuergerät ULF.C01 integriert
+                SGET,SGVT,ZST        -Einsatz von LCM.C20 auf MAERZ03 verschoben
+                                     -neue A-Zeile für SA522, beginnend mit MAERZ03
+                LCM.C20 [EEG16.R]    -überarbeitete CBD LCM.C20, in E39CVT eingearbeitet
+//////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EEG78.R ca    11.06.02    EE-82   Ralf Hahn
+                TCU_IBUS[EEJ70.R]    -neues Steuergeraet fuer Autotelefonvorbereitung US (SA639)
+                ZST,SGET              und Autotelefon professional (SA638) integriert
+                GM3.C05 [EEJ58.R]    -ueberarbeitete CBD GM3.C05, in E39CVT eingearbeitet
+                LCM.C20 [EEL53.R]    -ueberarbeitete CBD LCM.C20, in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEP56.R cb    01.08.02    EE-82   Ralf Hahn
+               LCM.C20 [EEP57.R]     -CBD LCM.C20[EEP57.R] in E39CVT eingearbeitet
+               ULF.C01 [EEP92.R]     -CBD ULF.C01[EEP92.R] in E39CVT eingearbeitet
+               TCU_IBUS[EEP07.R]     -CBD TCU_IBUS.C01[EEP07.R] in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EES13.R cc    01.08.02    EE-82   Ralf Hahn
+               ULF[EES94.R]          -CBD ULF.C01[EES94.R] in E39CVT eingearbeitet
+               TCU_IBUS[EEU14.R]     -CBD TCU_IBUS.C01[EEU14.R] in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3895.R cd    01.10.02    EE-82   Ralf Hahn
+               ULF[NES94.R]          -CBD ULF.C01[NES94.R] in E39CVT eingearbeitet
+               ULF[E3616.R]          -CBD ULF.C02[E3616.R] in E39CVT eingearbeitet
+               GM3.C10[EEC51.R]      -CBD GM3.C10[EEC51.R] in E39CVT eingearbeitet
+               ZCSUT                 -Bitrecycling angefangen
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE138.R ce    18.10.02    EE-82   Ralf Hahn
+               GM3.C05[EE140.R]      -ueberarbeitete CBD GM3.C05[EE140.R] eingearbeitet
+               GM3.C10[EE141.R]      -ueberarbeitete CBD GM3.C10[EE141.R] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL NE138.R cf    22.10.02    EE-82   Ralf Hahn
+               SGET                  -Andere SGBD fuer GM3.C10, jetzt wieder ZKE3_GM5
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE223.R cg    23.10.02    EE-82   Ralf Hahn
+               ZCSUT                 -ZCSUT-Umschluesselung geaendert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE347.R ch    11.11.02    EE-82   Ralf Hahn
+               SGET                  -fuer TCU verschiedene CABDen ECE und US
+               TCU_IBUS[EE027.R]     -CBD TCU_IBUS.C02[EE027.R] in E39CVT eingearbeitet
+               GT.C04[EE380.R]       -ueberarbeitete CBD GT.C04[EE380.R] eingearbeitet
+               DSP[BE515.R]          -ueberarbeitete CBD DSP.C01[BE515.R] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE760.R cj    13.12.02    EE-82   Ralf Hahn
+               ZST                   -E-Worte PU03 und MA03 hinzu
+               LCM.C20 [EE754.R]     -CBD LCM.C20[EE754.R] in E39CVT eingearbeitet
+               ULF[EEW97.R]          -CBD ULF.C02[EEW97.R] in E39CVT eingearbeitet
+               ULF[EE784.R]          -CBD ULF.C01[EE784.R] in E39CVT eingearbeitet
+               KMBI_E38[EE815.R]     -CBD KMBI_E38.C12[EE815.R] in E39CVT eingearbeitet
+               KMB_E39[EE816.R]      -CBD KMBI_E39.C07[EE816.R] in E39CVT eingearbeitet
+               ZCSUT                 -ZCSUT-Umschluesselung geaendert
+               LCM.C20 [EE976.R]     -CBD LCM.C20[EE976.R] in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0E64.R ck    19.12.02    EE-82   Ralf Hahn
+               ULF[E0E65.R]          -ueberarbeitete CBD ULF.C01[E0E65.R] eingearbeitet
+               ULF[E0E66.R]          -ueberarbeitete CBD ULF.C02[E0E66.R] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3471.S cl    18.02.03    EE-62   Ralf Hahn
+               LCM[E3487.S]          -ueberarbeitete CBD LCM.C20[E3487.S] eingearbeitet
+               ZST                   -SA0964, NAVI DVD bei Auslieferung anfordern, integriert
+               LCM[E3594.S]          -ueberarbeitete CBD LCM.C20[E3594.S] eingearbeitet
+               GM3[E3461.S]          -ueberarbeitete CBD GM3.C10[E3461.S] eingearbeitet
+               GT.C04[E3683.S]       -ueberarbeitete CBD GT.C04[E3683.S] eingearbeitet
+               LCM[E3665.S]          -CBD LCM.C20[E3665.S] Programmparameter wegen Flackern
+                                      der Ruecklichter geaendert
+               ZST                   -E-Worte MA02 und PU02 enfallen, in GVN uebernommen
+                                      A-Zeilen fuer SA602, DE91, DE92 entfallen
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3816.S cm    25.02.03    EE-62   Bernhard Haller
+               GM3.C10 E39CVT.000    - Codierung fuer OPT_ENTRY_HELP auf nicht_aktiv [E3817.S]
+               LM.C20  E39CVT.000    - TOENS-Daten fuer LCM.C20 korrigiert[EEA17.S]
+                   11.03.03    EE-62   Ralf Hahn
+               LM.C20  E39CVT.000    - LCM.C20 als Ersatzteil freigeschaltet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEA12.S cn    31.03.03    EE-62   Ralf Hahn
+               KMBI_E38[EEA62.S]     -ueberarbeitete CBD KMBI_E38.C12[EEA62.S] eingearbeitet
+               KMB_E39[EEA60.S]      -ueberarbeitete CBD KMBI_E39.C07[EEA60.S] eingearbeitet
+               GM3[EEA52.S]          -ueberarbeitete CBD GM3.C10[EEA52.S] eingearbeitet
+               ULF[EEA13.S]          -CBD ULF.C03[EEA13.S] in E39CVT eingearbeitet
+               GT[E3680.S]           -CBD GT.C05[E3680.S] in E39CVT eingearbeitet
+               DSP2[EEB15.S]         -CBD DSP2.C02[EEB15.S] in E39CVT eingearbeitet
+               LCM[EEA17.S]          -ueberarbeitete CBD LCM.C20[EEA17.S] eingearbeitet
+               LCM[EED09.S]          -CBD LCM.C21[EED09.S] in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEU69.S co    27.06.03    EE-62   Ralf Hahn
+               E39ZST.000            -SA 08SF und 08SG nicht codierrelevant hinzu (16.05.03, Ha)
+               LCM[EEU68.S]          -ueberarbeitete CBD LCM.C21[EEU68.S] eingearbeitet
+               DSP2[EEV34.S]         -ueberarbeitete CBD DSP2.C02[EEV34.S] eingearbeitet
+               PDC.C03[EEU73.S]      -CBD PDC.C03[EEU73.S] Stand aktualisiert
+               TCU_IBUS[EEY34.S]     -ueberarbeitete CBD TCU_IBUS.C02[EEY34.S] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE265.S cp    03.10.03    EE-62   Ralf Hahn
+               KMBI_E38[E1E23.S]     -ueberarbeitete CBD KMBI_E38.C12[E1E23.S] eingearbeitet
+               KMB_E39[E1E20.S]      -ueberarbeitete CBD KMBI_E39.C07[E1E20.S] eingearbeitet
+               TCU_IBUS[EE279.S]     -ueberarbeitete CBD TCU_IBUS.C02[EE279.S] eingearbeitet
+               LWS5.C01[EFN99.S]     -ueberarbeitete CBD LWS5.C01[EFN99.S] eingearbeitet
+               GM3[E1E14.S]          -CBD GM3[E1E14.S] Stand aktualisiert
+               PDC.C03[EE711.S]      -CBD PDC.C03[EE711.S] Stand aktualisiert
+               TCU_IBUS[EE910.S]     -ueberarbeitete CBD TCU_IBUS.C02[EE910.S] eingearbeitet
+               LCM[E2E50.S]          -ueberarbeitete CBD LCM.C21[E2E50.S] eingearbeitet
+               LCM[E2E84.S]          -CBD LCM.C22[E2E84.S] in E39CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E5E14.S cq    10.10.03    EE-62   Ralf Hahn
+               E39CVT               -E-CALL_HARDKEY_FITTED neu Bedingt
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E5E50.S cr    10.11.03    EE-42   Ralf Hahn
+               TCU_IBUS[E5E61.S]      -CBD TCU_IBUS.C03[E5E61.S] neu hinzu
+               GM3[E3P37.S]           -CBD GM3.C10[E3P37.S] Stand aktualisiert
+               LWS5.C01[EFT89.S]      -ueberarbeitete CBD LWS5.C01[EFT89.S] eingearbeitet
+               E39CVT                 -Gruppe LCM_C20 neu Bedingt
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3P79.S cs    10.12.03    EE-42   Ralf Hahn
+               SGET                         -neue CABD(A_TCUDS2) fuer TCU_IBUS.C03
+               PDC.C03[E4R21.S]             -CBD PDC.C03[E4R21.S] Stand aktualisiert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0000.T ct    08.04.2004  EE-42    Bernhard Haller
+               TCU_IBUS.C04[EEM45T]    -CBD TCU_IBUS.C04[EEM45T] als Ersatzteil hinzu
+               LCM.C21[EER70T]         -CBD LCM.C21[EER70T] überarbeitet
+               LCM.C22[EER69T]         -CBD LCM.C22[EER69T] überarbeitet
+               LCM.C23[EER71T]         -CBD LCM.C23[EER71T] als Ersatzteil hinzu
+               KMB_E39.C07[EEP42T]     -CBD KMB_E39.C07[EEP42T] überarbeitet, keine Auswirkung auf E39
+               KMBI_E38.C07[EEP42T]    -CBD KMBI_E38.C07[EEP42T] überarbeitet, keine Auswirkung auf E39
+               ULF.C04[EEA92T]         -CBD ULF.C04[EEA92T] als Ersatzteil hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0001.T cu    17.07.2004  EE-42    Bernhard Haller
+               LCM.C23[EE622T]         -Neue FSW in LCM.C23 in E39CVT ergänzt
+               TCU_IBUS.C04[EGL39.T]   -CBD TCU_IBUS.C04 [EGL39.T] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0002.T cv    19.07.2004  EE-42    Bernhard Haller
+               LCM.C19                 -alle LCM: SW-Patch wegen GM3.C10 Fehler hinzu
+               LCM.C20                  Patch gültig für alle E39-Fahrzeuge ab März 2003
+               LCM.C21
+               LCM.C22
+               LCM.C23
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0003.T cw    22.07.2004  EE-42    Bernhard Haller
+               LCM.C22                 -Korrektur der CBD LCM.C22
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0004.T cx    12.10.2004  EE-42    Stefan Miehling
+               TCU_C05                 -CBD TCU_C05[EG039T] neu hinzu
+               CVT                     -neues FSW INTERNAL_VOICE_REC, FSW VOICE_REC_LANGUAGE, NON_TELEMATIC_ECALL_NR hinzu
+               ULF.C04[EG940T]         -CBD ULF.C04[EG940T] überarbeitet, Bedingung DSP_ULF (DSP_1,DSP_2) geändert
+               PDC.C03[EGS00T]         -CBD PDC.C03[EGS00T] überarbeitet
+               LCM.C21[EG420T]         -überarbeitete CBD LCM.C23[EG420T] integriert
+               LCM.C22[EG421T]         -überarbeitete CBD LCM.C23[EG421T] integriert
+               LCM.C23[EG422T]         -überarbeitete CBD LCM.C23[EG422T] integriert
+               RA_NG[ENA38T]           -überarbeitete CBD RA_NG.C02[ENA38T] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0005.T cy       22.12.04  EE-42  Stefan Miehling
+               TCU_IBUS[ENG24T]        -TCU_IBUS.C04[ENG24T] SVT Parameter angepasst
+               TCU_IBUS[ENG24T]        -TCU_IBUS.C05[ENG24T] SVT Parameter angepasst
+               GT.C06[EG898.T]         -neue CBD GT.C06 [EG898.T] integriert
+               CVT,SGET,SGVT           -neue FSW DEFAULT_SMSC_ADDRESS, HOTLINE_ADDRESS, BACKUP_SMSC_ADDRESS,
+                                        DEF_DESTINATION_ADDRESS BACKUP_DESTINATION_ADDRES AKTIV_GM3_PATCH hinzu 
+               LCM.C24[ENG33T]         -neue CBD LCM.C24 [ENG33T] integriert
+               KMBI_E38[ENS22T]        -CBD KMBI_E38.C12[ENS22T] überarbeitet
+               ULF.C04[ENV61T]         -überarbeitete CBD ULF.C04 [ENV61T] integriert
+               KMBI_E38[ENW85T]        -CBD KMBI_E38.C12[ENW85T] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0006.T cz       06.04.05  EE-42  Stefan Miehling Freigabe HO-CD 42.0
+               SGET SGVT               -neue CBD GT.C07[EEA96U] integriert 
+                                       -neue CBD ULF.C05[EEG59U] integriert
+               GT.C07[a]               -neue CBD GT.C07[EEA96U] integriert (FSW hinzu ANZEIGE_POSITION_AUS, FUHRPARK_FLOTTENMODUS)
+               ULF.C05[a]              -neue CBD ULF.C05[EEG59U] integriert (FSW hinzu SYNCML_EIN_AUS, ATC_EIN_AUS)
+               TCU_TBUS.C03[b]         -überarbeitete CBD TCU_TBUS.C03[EED57U] integriert (FSW hinzu CALL_WAITING)
+               RA_NG.C01[f]            -überarbeitete CBD RA_NG.C01[EEB86U] integriert (FSW hinzu DSP_CDC_DIGITALLTG)
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0007.T da       04.07.05  EE-42  Stefan Miehling Freigabe HO-CD 43.0
+               CVT,SGET,SGVT           -neue FSW TEL18H_SCHWELLE1 TEL18H_SCHWELLE2
+               KMBI_E38.C12[s]         -CBD KMBI_E38.C12[EEV90U] überarbeitet
+               KMBI_E38.C12[t]         -CBD KMBI_E38.C12[EE239U] überarbeitet
+               KMBI_E38.C12[u]         -CBD KMBI_E38.C12[EGJ37U] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0008.T db       06.10.05  EE-42  Stefan Miehling Freigabe HO-CD 44.0
+               CVT,SGET,SGVT           -neue CBD ULF.C06[EG450U] integriert
+               TCU_IBUS.C05[c]         -CBD TCU_IBUS.C05[EGZ37U] überarbeitet
+               ULF.C06[a]              -neue CBD ULF.C06[EG450U] integriert
+               RA_NG.C01[h]            -CBD RA_NG.C01[EGW82U] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0009.T dc       30.01.06  EE-42  Konstantin Diek Freigabe HO-CD 21.0
+               CVT                     - geaenderte CBD TCU_IBUS.C02 [ENU93.U] eingearbeitet.
+                                       - geaenderte CBD TCU_IBUS.C03 [ENU93.U] eingearbeitet.
+                                       - geaenderte CBD TCU_IBUS.C04 [ENU93.U] eingearbeitet.
+                                       - geaenderte CBD TCU_IBUS.C05 [ENU93.U] eingearbeitet.
+                                       - geaenderte CBD TCU_IBUS.C06 [E3154.V] eingearbeitet.
+                                       - geaenderte CBD TCU_IBUS.C07 [E3154.V] eingearbeitet.
+                                       - geaenderte CBD RA_NG.C01 [E3486.V] eingearbeitet.
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 016573dd dd   31.10.06   EE-42   Konstantin Diek Freigabe HO-CD 24.0
+  28.03.06  HO                PDC.C03       [EEM03.V, aa]            - CBD eingearbeitet, no change for E39.
+  18.04.06  HO                SGET                                   - neue SGBD TELIBUS3 ab TCU CI 07 eingeführt.
+  18.04.06  HO                RA_NG.C01     [EET34.V,  k]            - CBD eingearbeitet, no change for E39.
+  25.04.06  HO                TCU_IBUS.C07  [EEW10.V,  b]            - CBD eingearbeitet, (new FSW).
+  09.05.06  HO                GT.C07        [EEZ45.V,  b]            - CBD eingearbeitet, no change for E39.
+  16.05.06  HO                ULF.C06       [EE106.V,  b]            - CBD eingearbeitet, no change for E39.
+  25.07.06  HO                PDC.C03       [EGM62.V, ab]            - CBD eingearbeitet, no change for E39.
+  23.08.06  HO                ULF.C06       [EGW68.V,  c]            - CBD eingearbeitet, no change for E39.
+  18.09.06  HO                GT.C08        [EGU12.V,  a]            - neues CI 08 eingearbeitet
+  04.10.06  HO                TCU_IBUS.C07  [EG901.V,  c]            - CBD eingearbeitet
+  17.10.06  HO                TCU_IBUS.C07  [ENA47.V,  d]            - CBD eingearbeitet
+  17.10.06  HO                GT.C08        [ENA51.V,  b]            - CBD eingearbeitet
+  19.10.06  HO                IHKA_E39.C03  [ENE47.V,  i]            - CBD eingearbeitet, am 27.10.06 Änderung storniert
+  19.10.06  HO                IHKR_E39.C10  [ENE47.V   e]            - CBD eingearbeitet, am 27.10.06 Änderung storniert
+  23.10.06  HO                E39_CONF.BAP                - folgende Zeilen angepasst:
+                                                          ; Dateiname der Fahrzeugauftragstabelle
+                                                          AT:      -
+  25.10.06  HO                TCU_IBUS.C07  [ENG57.V,  e]            - CBD eingearbeitet
+  30.10.06  HO                ULF.C06       [ENH23.V,  d]            - CBD eingearbeitet, no change for E39.
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 016573de de   05.02.07   EG-75   Konstantin Diek Freigabe HO-CD 25.0
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     20.11.06 Di                      GT     GT.C08       [ENR72.V, c] - CBD eingearbeitet, no change for E39
+     01.02.07 OS              HO      LCM    LCM.C24      [E3978.W, d] - Steuerung fuer K-Wort LEDR; Korrektur Maskierung AKTIV_GM3_PATCH
+     02.02.07 OS                      GM3    GM3.C10      [E3935.W, p] - no change for E39
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// CIP V25.0 ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+NAEL 016573df df   12.10.11   EI-73   Bernhard Haller (HA)
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     04.10.11 Ha                      TV1    TV2.C03      [ENM95.V, c] - Als Ersatzteil hinzu
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////

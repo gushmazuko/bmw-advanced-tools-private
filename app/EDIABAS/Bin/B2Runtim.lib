@@ -1,0 +1,1418 @@
+;**************************************************************
+;
+;
+; @(#)BEST2 RUNTIME LIB Version 2.14 (2006) Softing AG@(#)
+;
+;
+; each Library entry has the following Format
+;  functionname: parmater declaration
+;       opcode [[<nr of parameter>|CONSTANT ] [,<nr of parameter>|CONSTANT ]]]
+;  ;end
+;
+; each library function may use: L0,L1, F0,F1 and S1
+; each library function must push a long value on the stack
+; each non string Parameter is a long value
+;
+; parameter description:
+;  ##
+;  |^
+;  ||
+;  |+--> access:
+;  |       W = write access (variable)
+;  |       R = read access (variable)
+;  |       X = read access (constant value or variable)
+;  |       E = result access (constant value or variable)
+;  |
+;  +---> data type:
+;         V  = char, int or long
+;         A  = string
+;         F  = real
+;
+;***************************************************************
+
+;---------------------------------------------------------------
+open_communication:
+            xconnect
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+close_communication:
+            xhangup
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+set_communication_pars: AX
+            xsetpar     <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+set_answer_length: AX
+            xawlen      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+send_and_receive: AW AX
+            clear       <1>
+            xsend       <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+recv_keybytes: AW
+            xkeyb       <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+send_frequent: AX
+            xsendf      <1>
+            push        #1.L
+;end
+
+
+;---------------------------------------------------------------
+recv_frequent: AW
+            clear       <1>
+            xrequf      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+stop_frequent:
+            xstopf
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+set_repeat_counter: VX
+            xreps       <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+get_battery_voltage:
+            xbatt       L0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+get_ignition_voltage:
+            xignit      L0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+set_program_voltage: VX
+            move        l0,<1>
+            xprog       i0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifboot:
+            xboot
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifreset:
+            xreset
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifgetport: VX
+            xgetport    L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ifsetport: VX VX
+            move        l0,<1>
+            move        l1,<2>
+            xsetport    l0,l1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifloopt:
+            move        L0,#0.L
+            xloopt      I0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ifrequeststate: AW
+            xstate      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifsireset: VX
+            move        l0,<1>
+            xsireset    i0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+iftype: AW
+            xtype       <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifvers:
+            move        L0,#0
+            xvers       I0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ifrawmode: AW AX
+            xraw        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifsend:    AX
+            xsendr      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ifrecv:    AW VX
+            xrecv       <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+new_set_of_results:
+            enewset
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+parcount:
+            parn        L0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+strcat: AW AX
+            strcat      <1>,<2>        ;strcat
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+strcut: AW VX
+            clear       s1             ;strcut
+            strcat      s1,<1>
+            move        l0,<2>
+            adds        l0,#1
+            scut        s1,l0
+            slen        l0,s1
+            move        s1[l0],#0
+            clear       <1>
+            move        <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+strcmp: AW AX
+            move        l0,#1           ;strcmp
+            strcmp      <1>,<2>
+            jz          %1
+            move        l0,#0           ;identical
+%1:         push        l0
+;end
+
+;---------------------------------------------------------------
+strcpy: AW AX
+            clear       <1>             ;strcpy
+            strcat      <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+strncpy: AW AX VX
+            move        s1,<2>         ;strncpy
+            move        l0,<3>
+            move        <1>,s1[#0]l0
+            move        s1,<1>
+            clear       <1>
+            strcat      <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+strlen: AX
+            clear       s1              ;strlen
+            move        s1,<1>
+            strlen      l0,s1
+            push        l0
+;end
+
+;---------------------------------------------------------------
+strerase: AW VX VX
+            clear       s1              ;strerase
+            move        s1,<1>
+            move        l0,<3>
+            serase      s1[<2>],l0
+            clear       <1>
+            strcat      <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+strinsert: AW AX VX
+            clear       s1              ;strinsert
+            strcat      s1,<2>
+            scut        s1,#1
+            spaste      <1>[<3>],s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+get_token: AW AX AX VX
+            setspc      <3>,<4>         ;get_token
+            stoken      <1>,<2>
+            jz          %1
+            push        #1.L
+            jump        %2
+%1:         push        #0.L
+            clear       <1>
+%2:
+;end
+
+;---------------------------------------------------------------
+strrevers: AW
+            clear       s1              ;strrevers
+            move        s1,""
+            strcat      s1,<1>
+            scut        s1,#1
+            srevrs      s1
+            scat        s1,""
+            move        <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+atoi:   AX
+            a2fix       L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+bcd2ascii: AW AX VX VX
+            move        s1,<2>          ; source
+            move        l0,<3>          ; l0 is position
+            move        l1,<4>          ; l1 is count
+            clear       <1>
+            y2bcd       <1>,s1[l0]l1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+hex2ascii: AW AX VX VX
+            move        s1,<2>          ; source
+            move        l0,<3>          ; l0 is position
+            move        l1,<4>          ; l1 is count
+            clear       <1>
+            y2hex       <1>,s1[l0]l1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ascii2hex: AW AX VX
+            move        l0,<3>          ; l0 is destination position
+            move        l1,#1.L         ; l1 is return value
+            hex2y       s1,<2>
+            jnc         %1
+            move        l1,#0.L         ; error !
+%1:         move        <1>[l0],s1      ; move always
+            push        l1
+;end
+
+;---------------------------------------------------------------
+itoad:  AW VX
+            move        L0,<2>
+            fix2dez     <1>,L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+uitoad:  AW VX
+            move        L0,<2>
+            ufix2dez    <1>,L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+itoax:  AW VX
+            move        L0,<2>
+            fix2hex     <1>,L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+itor: FW VR
+            move        L0,<2>
+            fix2flt     <1>,L0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ator: FW AR
+            move        S1,<2>
+            a2flt       <1>,S1
+            push        L0
+;end
+
+;---------------------------------------------------------------
+rtoa: AW FW VX
+            setflt      <3>
+            flt2a       <1>,<2>
+            slen        L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+atoy: AW AX
+        a2y     <1>,<2>
+        slen    L0,<1>
+        push    L0
+;end
+
+;---------------------------------------------------------------
+isSimulation:
+        clear   L0
+        cfgig   I0,"SIMULATION"
+        push    L0
+;end
+
+;---------------------------------------------------------------
+isDebugLevel:
+        clear   L0
+        cfgig   I0,"BIPDEBUGLEVEL"
+        push    L0
+;end
+
+;---------------------------------------------------------------
+getCfgString: AW AX
+        clear   <1>
+        cfgsg   <1>,<2>
+        slen    L0,<1>
+        push    L0
+;end
+
+;---------------------------------------------------------------
+getCfgInt: AX
+        clear   L0
+        cfgig   I0,<1>
+        push    L0
+;end
+
+;---------------------------------------------------------------
+enableIfhTrace: VX
+        move    L0,<1>
+        cfgis   "IFHTRACE",I0
+        push    #1.L
+;end
+
+;---------------------------------------------------------------
+enableUBattHandling: VX
+        move    L0,<1>
+        cfgis   "UBATTHANDLING",I0
+        push    #1.L
+;end
+
+;---------------------------------------------------------------
+enableIgnitionHandling: VX
+        move    L0,<1>
+        cfgis   "IGNITIONHANDLING",I0
+        push    #1.L
+;end
+
+;---------------------------------------------------------------
+enableClampHandling: VX
+        move    L0,<1>
+        cfgis   "CLAMPHANDLING",I0
+        push    #1.L
+;end
+
+;---------------------------------------------------------------
+realadd: FW FR
+            fadd        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+realsub: FW FR
+            fsub        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+realmul: FW FR
+            fmul        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+realdiv: FW FR
+            fdiv        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+realresult: AE VX VX
+            move        l0,<2>
+            fix2flt     f0,l0
+            move        l0,<3>
+            fix2flt     f1,l0
+            fdiv        f0,f1
+            ergr        <1>,f0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+var_result_long: AE VX
+            move        l0,<2>
+            ergl        <1>,l0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+var_result_real: AE FW
+            ergr        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+var_result_string: AE AX
+            ergs        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+var_result_data: AE AX
+            ergy        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+set_variable_result: AE VX VX FW AX AX
+            move        l0,<2>
+            comp        l0,#1
+            jnz         %1
+            move        l0,<3>
+            ergd        <1>,l0
+            jump        %4
+%1:         comp        i0,#2
+            jnz         %2
+            ergr        <1>,<4>
+            jump        %4
+%2:         comp        i0,#3
+            jnz         %3
+            ergs        <1>,<5>
+            jump        %4
+%3:         comp        i0,#4
+            jnz         %5
+            ergy        <1>,<6>
+%4:         push        #1.L
+            jump        %6
+%5:         push        #0.L
+%6:
+;end
+
+;---------------------------------------------------------------
+dataclear: AW
+            clear       <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+datacmp: AW AX
+            scmp        <1>,<2>
+            jnz         %1
+            push        #0.L
+            jump        %2
+%1:         push        #1.L
+%2:
+;end
+
+;---------------------------------------------------------------
+datacopy: AW AX VX VX
+            move    s1,<2>
+            move    l0,<3>
+            move    l1,<4>
+            move    <1>,s1[l0]l1
+            slen    l0,<1>
+            push    l0
+;end
+
+;---------------------------------------------------------------
+datalen: AX
+            slen    l0,<1>              ;datalen
+            push    l0
+;end
+
+;---------------------------------------------------------------
+datarevers: AW
+            srevrs      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+dataset: AW VX VX
+            move    l0,<3>
+            move    l1,<2>
+            move    i1,#0
+%2:         move    <1>[i1],b4
+            adds    i1,#1
+            comp    i1,i0
+            jz      %1
+            comp    i1,#1024
+            jnz     %2
+%1:         push    #1.L
+;end
+
+;---------------------------------------------------------------
+datacat: AW AX
+            scat        <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+datainsert: AW AX VX
+            move        s1,<2>
+            spaste      <1>[<3>],s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+dataerase: AW VX VX
+            move        L0,<3>          ;dataerase
+            serase      <1>[<2>],L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+fopen: AX
+            clear       L0
+            fopen       B0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+fclose: VW
+            move        L0,<1>
+            fclose      B0
+            push        L0
+;end
+
+;---------------------------------------------------------------
+fread: VW
+            move        L1,<1>
+            clear       L0
+            fread       B0,B4
+            jnc         %1
+            move        L0,#-1
+%1:         push        L0
+;end
+
+;---------------------------------------------------------------
+freadln: AW VW
+            clear       <1>
+            move        L1,<2>
+            freadln     <1>,B4
+            jc          %1
+            slen        L0,<1>
+            jump        %2
+%1:         clear       <1>
+            move        L0,#-1
+%2:         push        L0
+;end
+
+;---------------------------------------------------------------
+fseek: VX VW
+            move        L1,<2>
+            fseek       B4,<1>
+            move        L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+fseekln: VX VW
+            move        L1,<2>
+            fseekln     B4,<1>
+            move        L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ftell: VW
+            move        L1,<1>
+            ftell       L0,B4
+            push        L0
+;end
+
+;---------------------------------------------------------------
+ftellln: VW
+            move        L1,<1>
+            ftellln     L0,B4
+            push        L0
+;end
+
+;---------------------------------------------------------------
+get_error: VX
+            move    l1,#1
+            move    l0,<1>
+            jz      %1
+            jt      %2,l0
+            jump    %3
+%1:         jt      %2
+%3:         move    l1,#0
+%2:         clrt
+            push    l1
+;end
+
+;---------------------------------------------------------------
+get_error2:
+            move    l0,#0
+%1:         adds    l0,#1
+            comp    l0,#30
+            jz      %3
+            jt      %2,l0
+            jump    %1
+%2:         clrt
+            push    l0
+            jump    %4
+%3:         push    #0.L
+%4:
+;end
+
+;---------------------------------------------------------------
+clear_error:
+            clrt
+            push    #1.L
+;end
+
+;---------------------------------------------------------------
+make_error: VX
+            sett    <1>                 ;make_error
+            eerr
+            push    #1.L
+;end
+
+;---------------------------------------------------------------
+set_trap_mask: VX
+            move    l0,<1>
+            gettmr  l1
+            settmr  l0
+            push    l1
+;end
+
+;---------------------------------------------------------------
+get_trap_mask:
+            gettmr  l0
+            push    l0
+;end
+
+;---------------------------------------------------------------
+generateRunError: VX
+            generr  <1>                 ;generateRunError
+;end
+
+;---------------------------------------------------------------
+gettime: AW
+            time        <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+getdate: AW
+            date        <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+getasciitime: AW
+            clear       <1>
+            time        s1
+            move        l0,s1[#0]
+            fix2dez     s1,b0
+            move        b0,s1[#1]
+            jnz         %1
+            strcat      <1>,"0"
+%1:         strcat      <1>,s1
+            strcat      <1>,":"
+            fix2dez     s1,b1
+            move        b1,s1[#1]
+            jnz         %2
+            strcat      <1>,"0"
+%2:         strcat      <1>,s1
+            strcat      <1>,":"
+            fix2dez     s1,b2
+            move        b2,s1[#1]
+            jnz         %3
+            strcat      <1>,"0"
+%3:         strcat      <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+getasciidate: AW
+            clear       <1>
+            date        s1
+            move        l0,s1[#0]
+            move        l1,s1[#4]
+%W1:        comp        b4,#1
+            jnz         %W2
+            strcat      <1>,"MO "
+%W2:        comp        b4,#2
+            jnz         %W3
+            strcat      <1>,"DI "
+%W3:        comp        b4,#3
+            jnz         %W4
+            strcat      <1>,"MI "
+%W4:        comp        b4,#4
+            jnz         %W5
+            strcat      <1>,"DO "
+%W5:        comp        b4,#5
+            jnz         %W6
+            strcat      <1>,"FR "
+%W6:        comp        b4,#6
+            jnz         %W7
+            strcat      <1>,"SA "
+%W7:        comp        b4,#7
+            jnz         %W8
+            strcat      <1>,"SO "
+%W8:        fix2dez     s1,b0
+            move        b0,s1[#1]
+            jnz         %1
+            strcat      <1>,"0"
+%1:         strcat      <1>,s1
+            strcat      <1>,"."
+            fix2dez     s1,b1
+            move        b1,s1[#1]
+            jnz         %2
+            strcat      <1>,"0"
+%2:         strcat      <1>,s1
+            strcat      <1>,"."
+            fix2dez     s1,b2
+            move        b2,s1[#1]
+            jnz         %3
+            strcat      <1>,"0"
+%3:         strcat      <1>,s1
+            strcat      <1>," KW:"
+            fix2dez     s1,b3
+            move        b3,s1[#1]
+            jnz         %4
+            strcat      <1>,"0"
+%4:         strcat      <1>,s1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+wait: VX
+            move        l0,<1>
+            wait        i0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+tabset: AX
+            tabset      <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+tabsetext: AX AX
+            tabsetex    <2>,<1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+tabseek: AX AX
+            move        s1,<2>
+            tabseek     <1>,s1
+            jz          %1
+            push        #1.L
+            jump        %2
+%1:         push        #0.L
+%2:
+;end
+
+;---------------------------------------------------------------
+tabline: VX
+            move        L0,<1>
+            tabline     L0
+            jz          %1
+            push        #1.L
+            jump        %2
+%1:         push        #0.L
+%2:
+;end
+
+;---------------------------------------------------------------
+tab_suche_index: AX VX
+            move        l0,<2>
+            fix2hex     s1,b0
+            tabseek     <1>,s1
+            jz          %1
+            push        #1.L
+            jump        %2
+%1:         push        #0.L
+%2:
+;end
+
+;---------------------------------------------------------------
+tabget: AW AX
+            tabget      <1>,<2>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+tab2fix: VW AX
+            tabget      s1,<2>
+            a2fix       l0,s1
+            move        <1>,l0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+bittest: AX AX VW
+            move        s1,<1>         ;
+            move        <3>,#0.l       ;result is false
+            tabseek     "NAME",s1      ;suche nach dem namen
+            jz          %4             ;nicht gefunden
+            tabget      s1,"BYTE"      ;hole das byte
+            a2fix       l0,s1          ;in l0
+            move        s1,<2>         ;hole das telegramm nach s1
+            clear       l1
+            move        b4,s1[l0]      ;hole das byte nach b4
+            tabget      s1,"MASK"      ;hole die maske
+            a2fix       l0,s1          ;in l0
+            move        b5,b0          ;nach b5
+            tabget      s1,"VALUE"     ;hole den sollwert
+            a2fix       l0,s1          ;in l0
+            and         b4,b5          ;mask the bits wanted
+            xor         b4,b0          ;xor with value
+            jnz         %3             ;not treu
+            move        <3>,#1.l       ;result is true
+%3:         push        #1.L           ;NO ERROR
+            jump        %5             ;to end
+%4:         push        #0.L           ;ERROR
+%5:
+;end
+
+;---------------------------------------------------------------
+bytetest: AX AX VW VW
+            tabset      "BYTES"        ;set table to bytefield
+            move        s1,<1>         ;
+            tabseek     "NAME",s1      ;suche nach dem namen
+            jz          %4             ;nicht gefunden
+            tabget      s1,"BYTE"      ;hole das byte
+            a2fix       l0,s1          ;in l0
+            move        s1,<2>         ;hole das telegramm nach s1
+            clear       l1
+            move        b4,s1[l0]      ;hole das byte nach b4
+            tabget      s1,"DIV"       ;hole den teiler
+            a2fix       l0,s1          ;in l0
+            move        <4>,l0         ;
+            tabget      s1,"MIN"       ;hole das minimum
+            a2fix       l0,s1          ;in l0
+            comp        b4,b0          ;vergleiche wert mit minimum
+            jae         %1             ;über minimum
+            tabget      s1,"MINDEF"    ;hole den default min wert
+            a2fix       l0,s1          ;in l0
+            move        <3>,l0         ;
+            push        #-1.L          ; -1 signs under
+            jump        %3
+
+%1:         tabget      s1,"MAX"       ;hole das maximum
+            a2fix       l0,s1          ;in l0
+            comp        b4,b0          ;vergleiche wert mit maximum
+            jbe         %2             ;unter maximum
+            tabget      s1,"MAXDEF"    ;hole den default min wert
+            a2fix       l0,s1          ;in l0
+            move        <3>,l0         ;
+            push        #1.L           ; 1 signs over
+            jump        %3
+
+%2:         push        #0.L           ; 0 signs in range
+            tabget      s1,"A"         ;hole den multiplikator
+            a2fix       l0,s1          ;in l0
+            mult        l1,l0          ; wert * A -> l1
+            tabget      s1,"B"         ;hole die Konstante
+            a2fix       l0,s1          ;in l0
+            adds        l1,l0          ; wert * A + B -> l1
+            move        <3>,l1
+            jump        %3
+
+%4:         push        #0.L
+            move        <3>,#-1.L
+            move        <4>,#-1.L
+            jump        %3
+
+%3:
+;end
+
+;---------------------------------------------------------------
+getETXblock: AX VW VX AW VW
+            clear       <4>
+            move        s1,<1>
+            move        l0,<2>          ;lade ...
+            move        b7,b0           ;statusbyte in B7
+            move        l0,<3>          ;lade ...
+            move        b6,b0           ;blocknumber in B6
+
+            clear       l0
+            move        i0,#0           ;Blockzeiger
+            move        b5,#1           ;Blockzaehler
+
+%1:         comp        s1[i0,#2],b7    ;Abfrage auf statusbyte
+            jnz         %2              ;Sprung wenn falsches statusbyte
+            move        b2,s1[i0]       ;i1 (b2,b3) : Blocklaenge
+            comp        b5,b6
+            jz          %3
+
+            adds        b5,#1           ;Blockzaehler++
+            adds        i0,i1
+            adds        i0,#1           ;da Block mit ETX
+            jump        %1
+
+%2:         move        <5>,#0
+            clear       l1
+            move        b4,s1[i0,#2]
+            move        <2>,l1          ;nicht korrektes Statusbyte
+            push        #0.l
+            jump        %4
+
+%3:         adds        i0,#3
+            subb        b2,#3
+            move        <4>,s1[i0]i1
+            clear       l1
+            move        b4,b2
+            move        <5>,l1
+            push        #1.l
+%4:
+;end
+
+;---------------------------------------------------------------
+userbreak:
+            break;                      ;userbreak
+                                        ;push nicht notwendig
+;end
+
+;---------------------------------------------------------------
+shdataset: AX AX
+            shmset      <1>,<2>         ;set shared data
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+shdataget: AX AW
+            shmget      <2>,<1>         ;get shared data
+            jc          %1
+            push        #1.L            ;shared data found and copied
+            jump        %2
+%1:         push        #0.L            ;shared data not found
+%2:
+;end
+
+;---------------------------------------------------------------
+doNewInit:
+            ergsysi     "!INITIALISIERUNG",#1
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+rtoi: FR
+            flt2fix     L0,<1>
+            push        L0
+;end
+
+;---------------------------------------------------------------
+updateInfo: AX
+            iupdate     <1>
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+setProgressRange: VX
+            move        L0,<1>
+            irange      L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+incProgressPos: VX
+            move        L0,<1>
+            iincpos     L0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+ascii2ascii: AX AW
+            clear       l0              ;ascii2ascii
+            clear       l1
+            move        s1,<1>
+            slen        i0,<2>
+            jz          %2
+%1:         subb        i0,#1
+            move        b2,<2>[i0]
+            move        b4,s1[i1]
+            move        <2>[i0],b4
+            comp        i0,#0
+            jnz         %1
+%2:         push        #1.L
+;end
+
+;---------------------------------------------------------------
+tab_suche_unsigned: AX VX
+            tabseeku    <1>,<2>
+            jz          %1
+            push        #1.L
+            jump        %2
+%1:         push        #0.L
+%2:
+;end
+
+;---------------------------------------------------------------
+data_to_real: FW AW VX VX VX
+            clear       s1
+            move        l0,<4>
+            jnz         %2              ; double ?
+
+            ; float
+            move        s1,<2>[<3>]#4
+            move        l0,<5>
+            jz          %1              ; little endian ?
+            swap        s1[#0]#4        ; big endian
+%1:         y42flt      <1>,s1[#0]
+            jump        %4
+
+%2:         ; double
+            move        s1,<2>[<3>]#8
+            move        l0,<5>
+            jz          %3              ; little endian ?
+            swap        s1[#0]#8        ; big endian
+%3:         y82flt      <1>,s1[#0]
+
+%4:         push        #1.L
+;end
+
+;---------------------------------------------------------------
+real_to_data: AW FR VX VX VX
+            clear       s1
+            move        l0,<4>
+            jnz         %2              ; double ?
+
+            ; float
+            flt2y4      s1[#0],<2>
+            move        l0,<5>
+            jz          %1              ; little endian ?
+            swap        s1[#0]#4        ; big endian
+%1:         move        <1>[<3>],s1[#0]#4
+            jump        %4
+
+%2:         ; double
+            flt2y8      s1[#0],<2>
+            move        l0,<5>
+            jz          %3              ; little endian ?
+            swap        s1[#0]#8        ; big endian
+%3:         move        <1>[<3>],s1[#0]#8
+
+%4:         push        #1.L
+;end
+
+;---------------------------------------------------------------
+GetKWP2000Block: VW AW VW VW VW VW AW
+                                        ;GetKWP2000Block
+            clear       <7>              ;Löschen des Datenpuffers
+                                        ;Vorbelegung von Index auf Response org (i4)
+            move        i5,i4           ;Vorbelegung von Index auf Response     (i5)
+            move        l3,#0           ;Vorbelegung von Format                 (bc)
+                                        ;Vorbelegung von Target 1. Tel          (bd)
+                                        ;Vorbelegung von Source 1. Tel          (be)
+                                        ;Vorbelegung von SID    1. Tel          (bf)
+            slen        i8,<2>           ;Vorbelegung von Pufferlänge            (i8)
+
+%1:         comp        i4,i8           ;Funktion beenden, wenn der Index
+            jz          %10             ;am Telegrammende+1
+            jnc         %9              ;Fehler wenn der Index hinter dem
+                                        ;Telegrammende+1
+            move        b0,<2>[i5]       ;Formatinfo+Headerlaenge
+            move        bc,b0
+            and         bc,#$C0
+
+            comp        bc,#$40         ;***** OBDII *****************************
+            jz          %9              ;wird hier nicht unterstützt -> Fehler
+
+            comp        bc,#$C0         ;***** FUNCTIONAL ADDRESSING *************
+            jz          %9              ;wird hier nicht unterstützt -> Fehler
+
+            comp        bc,#$00         ;***** 1 oder 2 BYTE HEADER **************
+            jnz         %4
+            clear       b1
+            and         b0,#$3F         ;Prüfen der Laengenangabe im Formatbyte
+            jnz         %2
+                                        ;***** 2 BYTE HEADER
+            adds        i5,#1           ;Index + 1 (für Laengenbyte)
+            move        b0,<2>[i5]       ;Laengenbyte (b0 (i0))
+
+%2:                                     ;***** 1 BYTE HEADER
+            move        bd,#0           ;Target 1. Telegramm
+            move        be,#0           ;Source 1. Telegramm
+            move        b2,#0           ;Source aktuelles Telegramm
+            comp        bf,#0           ;SID des 1. Telegramms nur beim
+            jnz         %3              ;ersten Durchlauf belegen
+            move        bf,<2>[i5,#1]    ;SID 1. Telegramm
+            move        <7>[#0],bf       ;erste SID in den Datenpuffer kopieren
+%3:         move        b3,<2>[i5,#1]    ;SID aktuelles Telegramm
+            adds        i5,#2           ;Index + 1 (für Headerlaenge u. SID)
+            jump        %8              ;Sprung zum Vergleich von Source und SID
+
+%4:                                     ;*** 3 oder 4 BYTE HEADER ****************
+            clear       b1
+            and         b0,#$3F         ;Prüfen der Laengenangabe im Formatbyte
+            jnz         %6
+                                        ;***** 4 BYTE HEADER
+            move        b0,<2>[i5,#3]    ;Laengenbyte (b0 (i0))
+            comp        bf,#0           ;Source, Target u. SID des 1. Telegramms
+            jnz         %5              ;nur beim ersten Durchlauf belegen
+            move        bd,<2>[i5,#1]    ;Target 1. Telegramm
+            move        be,<2>[i5,#2]    ;Source 1. Telegramm
+            move        bf,<2>[i5,#4]    ;SID    1. Telegramm
+            move        <7>[#0],bf       ;erste SID in den Datenpuffer kopieren
+%5:         move        b2,<2>[i5,#2]    ;Source aktuelles Telegramm
+            move        b3,<2>[i5,#4]    ;SID    aktuelles Telegramm
+            adds        i5,#5           ;Index + 5 (für Headerlaenge u. SID)
+            jump        %8
+
+%6:                                     ;***** 3 BYTE HEADER
+            comp        bf,#0           ;Source, Target u. SID des 1. Telegramms
+            jnz         %7              ;nur beim ersten Durchlauf belegen
+            move        bd,<2>[i5,#1]    ;Target 1. Telegramm
+            move        be,<2>[i5,#2]    ;Source 1. Telegramm
+            move        bf,<2>[i5,#3]    ;SID    1. Telegramm
+            move        <7>[#0],bf       ;erste SID in den Datenpuffer kopieren
+%7:         move        b2,<2>[i5,#2]    ;Source aktuelles Telegramm
+            move        b3,<2>[i5,#3]    ;SID    aktuelles Telegramm
+            adds        i5,#4           ;Index + 4 (für Headerlaenge u. SID)
+
+%8:         comp        b0,#0           ;Die Datenlänge darf NIE 0 sein!!
+            jz          %9              ;=> Fehler
+
+            comp        b2,be           ;Vergleich, ob das aktuelle Telegramm noch
+            jnz         %10             ;zum Block gehört?
+            comp        b3,bf           ;Wenn nicht, wird die Schleife verlassen
+            jnz         %10
+
+            subb        i0,#1           ;Daten ohne SID
+            scat        <7>,<2>[i5]I0     ;kopieren
+            adds        i5,i0           ;Index + Datenlänge - 1
+            adds        i5,#1           ;Index + 1 (für Chksum)
+            move        i4,i5           ;der Index für das Ergebnis wird aktualisiert
+            jump        %1              ;Schleife zum nächsten Telegramm
+
+%9:         push        #0.L            ;Fehler
+            clear       <7>              ;Datenpuffer löschen
+            jump        %11
+%10:        push        #1.L            ;Fertig
+%11:        clear       i5              ;Index (L2) Wiederherstellen
+            clear       l0
+            move        b0,bd           ;Target (L4)
+            move        <4>,l0
+            move        b0,be           ;Source (L5)
+            move        <5>,l0
+            move        b0,bc           ;Format (L3)
+            move        <3>,l0
+            slen        <6>,<7>           ;Length
+;end
+
+;---------------------------------------------------------------
+AdjustKWP2000TesterPrStartComm: AW
+                                        ;AdjustKWP2000TesterPrStartComm
+            move        b0,<1>[#5]      ;B0 enthaellt SG Adresse
+
+          ;********** TesterPresent
+
+            move        b3,<1>[#47]     ;B3 enthaellt Telegrammlaenge aus Parameter
+            move        b2,<1>[#49]     ;B2 enthaellt Formatbyte
+
+            test        b2,#$80
+            jz          %2
+
+%1:         ;3/4-Byte Header
+            move        <1>[#50],b0     ;Adresse in TesterPresent einfuegen
+            jump %2
+
+%2:         move        b4,#50          ;Position im Telegramm
+            subb        b3,#2           ;Schleifenzaehler
+            move        b1,<1>[#49]     ;Startwert
+%3:         adds        b1,<1>[b4]
+            adds        b4,#1
+            subb        b3,#1
+            jnz         %3
+            move        <1>[b4],b1
+
+          ;********** StartCommunication
+
+            move        b3,<1>[#64]     ;B3 enthaellt Telegrammlaenge aus Parameter
+
+            move        <1>[#67],b0     ;Adresse in StartCommunication einfuegen
+
+            move        b4,#67          ;Position im Telegramm
+            subb        b3,#2           ;Schleifenzaehler
+            move        b1,<1>[#66]     ;Startwert
+%4:         adds        b1,<1>[b4]
+            adds        b4,#1
+            subb        b3,#1
+            jnz         %4
+            move        <1>[b4],b1
+
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+realcomp: FW AX FW
+                                         ; realcomp
+            clear       s1
+            move        s1,<2>
+            strlen      l0,s1
+            comp        l0,#1            ;1 byte operator ?
+            jz          %1
+            comp        l0,#2            ;2 byte operator ?
+            jz          %4
+            jump        %9               ;unknown operator
+
+%1:         move        b0,s1[#0]        ;1 byte operator: <,>
+            comp        b0,#60
+            jz          %2
+            comp        b0,#62
+            jz          %3
+            jump        %9               ;unknown operator
+
+%2:         fcomp       <1>,<3>          ;"<"
+            jl          %10              ;TRUE
+            jump        %9               ;FALSE
+
+%3:         fcomp       <1>,<3>          ;">"
+            jg          %10              ;TRUE
+            jump        %9               ;FALSE
+
+%4:         move        b0,s1[#1]        ;2 byte operator: <=,>=,==,!=
+            comp        b0,#61           ;byte 2 = '=' ?
+            jnz         %9               ;unknown operator ?
+            move        b0,s1[#0]
+            comp        b0,#60           ;"<=" ?
+            jz          %5
+            comp        b0,#62           ;">=" ?
+            jz          %6
+            comp        b0,#61           ;"==" ?
+            jz          %7
+            comp        b0,#33           ;"!=" ?
+            jz          %8
+            jump        %9               ;unknown operator
+
+%5:         fcomp       <1>,<3>          ;"<="
+            jle         %10              ;TRUE
+            jump        %9               ;FALSE
+
+%6:         fcomp       <1>,<3>          ;">="
+            jge         %10              ;TRUE
+            jump        %9               ;FALSE
+
+%7:         fcomp       <1>,<3>          ;"=="
+            jz          %10              ;TRUE
+            jump        %9               ;FALSE
+
+%8:         fcomp       <1>,<3>          ;"!="
+            jnz         %10              ;TRUE
+            jump        %9               ;FALSE
+
+%9:         push        #0.L             ;FALSE
+            jump        %11
+
+%10:        push        #1.L             ;TRUE
+
+%11:
+;end
+
+;---------------------------------------------------------------
+gettickcount:
+            ticks   l0
+            push    l0
+;end
+
+;---------------------------------------------------------------
+waitex: VX
+            move        l0,<1>
+            waitex      l0
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+open_channel: VX
+	move		l0,<1>
+	jz		%1
+	clear		l0
+        xswitch		l0		;Default channel
+        jump		%2
+%1:
+	xopen		l0		;New channel
+%2:
+        push		l0
+;end
+
+;---------------------------------------------------------------
+close_channel:
+            xclose
+            push        #1.L
+;end
+
+;---------------------------------------------------------------
+closeall_channel:
+	xcloseex
+	push		#1.L
+;end
+
+;---------------------------------------------------------------
+switch_channel: VR
+	move		l0,<1>
+        xswitch		l0
+        push		#1.L
+;end
+
+;---------------------------------------------------------------
+send: AX
+	xsendex		<1>
+	push		#1.L
+;end
+
+;---------------------------------------------------------------
+receive: AW
+	clear		l0
+	xrecvex		<1>
+        slen		l0,<1>
+        push		l0
+;end
+
+;---------------------------------------------------------------
+tabcolumns:
+	tabcols		l0
+        push		l0
+;end
+
+;---------------------------------------------------------------
+tabrows:
+	tabrows		l0
+        push		l0
+;end

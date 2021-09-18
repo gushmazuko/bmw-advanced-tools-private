@@ -1,0 +1,61 @@
+.forbeg
+inpafor_kopf,80,12
+.varbeg
+df_titel,28,2,22,INPA - Bildschirmabzug
+df_sw_comp,3,5,40,INPA Vx.y.z
+df_bearb,46,4,12,Bearbeiter :
+df_nacharb,46,6,12,Nacharbeit :
+df_datum_str,46,8,6,Datum:
+df_datum,53,8,10,tt-mm-jjjj
+df_zeit_str,46,9,6,Zeit :
+df_zeit,53,9,8,hh:mm:ss
+.varend
+.drmbeg
+******************************************************************************
+* BMW AG                   INPA - Bildschirmabzug               Softing GmbH *
+******************************************************************************
+*                                          * Bearbeiter :                    *
+* INPA                                     *---------------------------------*
+*                                          * Nacharbeit :                    *
+******************************************************************************
+*                                          * Datum: tt-mm-jjjj               *
+*                                          * Zeit : hh:mm:ss                 *
+*                                          *                                 *
+******************************************************************************
+*                                                                            *
+.drmend
+.forend
+.forbeg
+inpafor_zeile,80,1
+.varbeg
+df_zeile,3,1,74,---
+.varend
+.drmbeg
+*                                                                            *
+.drmend
+.forend
+.forbeg
+inpafor_tlinie,80,1
+.varbeg
+.varend
+.drmbeg
+******************************************************************************
+.drmend
+.forend
+.forbeg
+inpafor_elinie,80,1
+.varbeg
+.varend
+.drmbeg
+******************************************************************************
+.drmend
+.forend
+.forbeg
+inpafor_leer_zeile,80,1
+.varbeg
+df_leer_zeile,1,1,80,---
+.varend
+.drmbeg
+                                                                                
+.drmend
+.forend

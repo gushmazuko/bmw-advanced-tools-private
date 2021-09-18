@@ -1,0 +1,83 @@
+// Änderungsdokumentation: KH2AEDOC.000
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   xxxxxxx.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       KH2AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+NAEL x36541_a  a    13.10.11   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: a
+//  Datum   |SB| I-Stufe EWE   |HO-rel.| SGFAM | Datei-Name    | NAEL, AEI     |Kommentar
+//******************************************************************************************************************************************
+    15.09.11 Ha KH24-11-12-500                                                  - Datenpaket KH24 neu angelegt auf Basis K024 [cb]
+    29.09.11 Ha KH24-11-12-500          KMB18   KMBI_K18.C03    [EXP24.1]       - CBD überarbeitet
+    11.10.11 Ha KH24-11-12-500                  KH24SGFAM                       - Tabelle überarbeitet
+
+
+NAEL x36541_b  b    28.11.11   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: b
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    14.11.11 Ha                                 KH2AT.000, KH2CVT.000           - H61 integriert
+    18.11.11 Ha KH24-12-02-500          KMB18   KMBI_K18.C03    [EXU16.1, d]    - CBD überarbeitet
+
+
+NAEL x36541_c  c    09.02.12   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: C
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    30.11.11                    ja              KH2AT.000                       - K-Wort NUNR eingefügt
+    20.01.12                                    KH2AT.000                       - E-Wort STRT, ASIA und DISP eingefügt
+    25.01.12 Ha KH24-12-02-500          KMB18   KMBI_K18.C03    [E5144.2, e]    - CBD überarbeitet
+
+
+NAEL x36541_d  d    25.05.12   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: D
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    25.04.12 Ha                                 KH2AT.000                       - E-Wort OABS und SA123 hinzu
+    11.05.12 Ha KH24-12-08-500                  KH2CVT.000                      - H61 im Individ-Bereich ergänzt, PRESSURE_UNIT im Individ-Bereich gelöscht
+    14.05.12 Ha KH24-12-08-500          KMB18   KMBI_K18.C03    [EXE93.2, g]    - CBD überarbeitet
+    22.05.12 Ha KH24-12-08-500          DWA     DWA_K25.C04     [EXE93.2, u]    - CBD überarbeitet, CKM-Umfänge hinzu
+
+
+NAEL x36541_e  e    18.07.12   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: E
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    18.07.12 Ha                HO               KH2AT.000                       - K-Wort +NUNB hinzu
+
+
+NAEL x36541_f  f    28.11.12   EI-73   Bernhard Haller (Ha)
+//ECCO ItemNr:  1236541      Rev.Nr.: F
+//   Datum  |SB|I-Stufe EWE | HO-rel. | SGFAM | Datei-Name    |  NAEL, AEI    | Kommentar
+//******************************************************************************************************************************************
+    06.11.12 Ha                                 KH24AT.000                      - Typschlüssel 0H03, 0H04, 0H31, 0H32 und 0H33 hinzu
+                                                                                  Zeitkriterium #0213 hinzu
+    06.11.12 Ha KH24-13-02-500                  KH2CVT.000                      - H92 hinzu
+    26.11.12 Ha KH24-13-02-500          KMB18   KMBI_K18.C03    [EXX49, j]      - CBD ueberarbeitet neue Parameter fuer H92 hinzu
+
+

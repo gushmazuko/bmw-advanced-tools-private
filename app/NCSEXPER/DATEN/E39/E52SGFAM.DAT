@@ -1,0 +1,16 @@
+; Baureihen-SGFAM-/ZCS-Datei E52, 31.07.97, Kn
+;
+; SG    ABD      SGBD     ZCS FA KOMMENTAR
+S ABG   A_MRS3   C_MRS3   0   0
+S CVM   A_CVM46  C_CVM46  0   0
+S DSC   A_DSC57  C_DSC57  0   0
+S ELV   A_ELV    C_ELV    0   0
+S EWS   A_EWS3   C_EWS3   1   0
+S GM5   A_GM5    C_GM5    0   0
+S GT    A_GT     C_GT     0   0
+S IHKS  A_IHK39  C_IHK    0   0
+S IKE   A_IKE52  C_KMB    1   0
+S LCM   A_LCM    C_LCM3   0   0
+S LWR   A_LWR    C_LWR    0   0
+S LWS   A_LWS5   C_LWS5   0   0
+S RAD   A_RADIO  C_RADIO  0   0

@@ -1,0 +1,1841 @@
+// Aenderungsdokumentation: E36
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 353 266.5
+// NAEL-Nr.:       E 6242.J
+// Zeichn.-Index:  ba
+//
+//                     Kurzz.  Datum      Name
+// Bearbeiter:         EE-12   14.09.94   LÇonard
+// Geprueft:           EE-12   14.09.94   LÇonard
+// Verantwortlicher:   EE-12   14.09.94   LÇonard
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//     Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//     Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//     zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//     Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//     Eintragung vorbehalten.
+//
+//
+//
+// Verteiler:
+//     EE-12
+//     ET-421
+//
+//
+// Tabpositionen  1 (NAEL-Nummer)
+//               15 (Index)
+//               17 (geaenderte/neue Tabelle)
+//               22 (Datum)
+//               33 (Kurzzeichen bzw. Kurzbeschreibung)
+//               41 (Name)
+
+DATEINAME        E36AEDOC.000
+
+//NAEL-Nr.    Index  Datum      Kurzz.  Name
+
+NAEL E5024.C  a      03.07.90           Haller
+
+                E36VN.000       -Tabellen neu erstellt fuer 3. Vorserie.
+                                 0000000000
+
+
+NAEL E5137.C  b      13.09.90           Haller
+
+                E36VN.000       -Tabellen neu erstellt fuer Produktionsanlauf.
+                                 0000000000, 0000000001, 0000000010, 0000000011
+
+
+NAEL E5226.C  c      12.10.90           Haller
+
+                E36VN.000        0000000000, 0000000001 0000000010, 0000000011,
+                                 0000000110, 0000000211
+                                -Laenderausfuehrungen AKF, NZ, Isr, Aus, Belg,
+                                 UK, Golf, Tropen, CDN freigegeben.
+                                -Fuer Kombi SW-Nr. 11.0 HW-Nr. 3.6 ergaenzt.
+                                -Kombi SW-Nr. 12.0 und 13.0 neu
+                                -LA 809 (Daenemark) neu
+                                -CA38, CA48, CB18, CB28, CB38 und CB48 (ZA-Umfaenge) neu
+                                -SA542, CCM fuer 320i, eingearbeitet
+                                -ZV-Adapter als Ersatz, ZV-Modul eingearbeitet
+
+
+NAEL E5285.C  d      07.11.90           Haller
+
+                E36VN.000       -Fuer Kombi SW 11.0 HW-Nr. 3.9 freigegegeben
+
+
+NAEL E5358.C  e      12.12.90   EE-73   Haller
+
+                E36VN.000       -In Tabelle E36KMB.001 SW 14.0, HW 4.0 und 4.1 ergaenzt
+                                 0000000000, 0000000001, 0000000010, 0000000011,
+                                 0000000110, 0000000211
+
+
+NAEL E5359.C  f      04.01.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -ZV fuer 318i/A, 318is/A und 325td/A Serie,
+                                 Tabelle ZTRSCHL.000 entsprechend geaendert
+                                -E36ST.000 u. E36ST.001 f. Schluessel 1510,,DWA korrigiert
+                                -Behoerden-SA in Tabelle ZTRSCHL.000 ergaenzt
+                                -LA Australien, Kilometer-Tacho als Serie,
+                                 Tabelle ZTRSCHL.000 entsprechend geaendert,
+                                 Tabellen E36GT.000 und E36GT.001 ergaenzt.
+                                -318is 4-Tuerer, alle LA Tabelle E36GT.001 und
+                                 ZTRSCHL.000 entprechend ergaenzt.
+                                -325i 2-Tuerer: ZA -Typen ergaenzt.
+                                -SA 210, SA 458,SA 488, SA 494 und SA 564 ab
+                                   sofort nicht mehr codier relevant wegen:
+                                   -ZV ab 318i Serie
+                                   -SE 316i in KW 10/91 in Verbindung mit ZV-Adapter
+                                   -Einsatz KSK
+                                 Tabelle ZTRSCHL.000 ueberarbeitet.
+                                -Tabellenzuordnung ueberarbeitet.
+                                 Tabellen E36ST.002 und E36ST.003 entfallen.
+                                 ZA-Umfaenge aus E36ST.003 in ST.001 integriert.
+                                -Fuer IHKRE36 SW-Nr. 0A in Tabelle E36IHKR.000
+                                 aufgenommen.
+
+
+NAEL E4880.D  g      19.02.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -SA241, SA633, SA715 fuer Codierung frei
+                                -SA155, SA176, SA660, SA661, SA662, SA663 u.
+                                 SA817 in Zentralschluesseltabelle neu hinzu
+                                -Fuer LA 807 (Japan) folgende Typschluessel frei-
+                                 geschaltet: BE62, BF42, GM-Schluessel in Tabelle
+                                 E36GT.001 ergaenzt.
+                                -Fuer BE51 bis BF48 Codierung el. FH als Serie
+                                -In Tabelle E36KMB.001 HW-Nr. 4.2 ergaenzt
+
+
+NAEL E4918.D  h      11.03.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -SIA Dieselfzg korrigiert
+                                -Kombi E36 HW 10.1, 10.2 (MM-Kombi) und 4.3
+                                 (VDO-Kombi) freigegeben
+
+
+NAEL E4949.D  i      08.05.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -Zentralschluesseltabelle Behoerdenumfaenge ueberarbeitet.
+                                -SA 845, ak. Gurtwarnung und SA 897, DWA Dauerton
+                                 (nur ECE LL) neu hinzu.
+                                -Nordlandcodierung fuer Klimaanlage entfaellt
+                                -Franzoesisch bei LA Golf hinzu
+                                -DWA III, SW-Nr. 50hex hinzu
+                                -Umrechentabellen fuer Versionsnummeraenderung hinzu                           ≥Haller   ≥
+
+
+NAEL E5110.D  k      03.07.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -CB42 LA 807, Japan hinzu. Tabelle E36GT.001 ergaenzt.
+                                -SA 545, km/h-Tacho mit Drehzahlmesser als co-
+                                 dierrelevante SA hinzu (nur 316i/A LL/RL).
+                                 Tabelle E36GT.001 um die Schluesselzeilen ergaenzt.
+                                 Zentralschluesseltabelle SA 545 ueberarbeitet.
+                                -Kombi E36, SW-Nr. 15.0 und 16.0 hinzu.
+                                -Kombi E36, HW-Nr. 4.4 (VDO) und 10.3 (MM) hinzu.
+                                -In Zentralschluesseltabelle SA 451, Beifahrer-
+                                 sitz Hoehenverstellung und SA 685, Antenne fuer
+                                 C-Netz-Telefon fuer E36 hinzu.
+                                -BCV, SW-Nr. 26 hinzu
+
+
+NAEL E5230.D  l      06.09.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -DWAIII, SW-Nr. 51 hinzu.
+                                -Codierdaten BCV fuer 316i und 318i hinzu,
+                                 Tabellen E36BCV.001 und E36GT.001 geaendert.
+                                -Korrektur Codierdaten ak. Gurtwarnung Tabelle
+                                 E36ST.001 ueberarbeitet.
+                                -CB16, 320i CKD Brasilien hinzu.
+                                -Codierschluessel fuer CKD und ZA-Typschluessel in
+                                 Zentralschluesseltabelle geaendert.
+                                 XSA-Umfaenge nicht mehr in Typschluesselzeile enthalten.
+                                -el. FH bei 325i-4 Serie Zentralschluesseltabelle geaendert.
+                                -Aenderung Delta-Schwelle (TKL) in Kombi E36.
+                                 Neue Werte rueckwirkend ab Kombi SW 12.0 gueltig.
+                                -Kombi Adresse 3C darf nicht mehr codiert werden
+                                 aus Layouttabelle gestrichen. Rueckwirkend gueltig!
+
+
+NAEL E5049.D  m      22.10.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -Codierung ASC+T in Datensaetze integriert.
+                                 Tabellen E36GT.001, E36ST.001, E36VN.000 ergaenzt.
+                                 Tabelle ZTRSCHL ASC+T fuer E36 frei.
+                                 Tabelle E36ASC.000 u. E36ASCU.000 neu erstellt
+                                -Codierrelevanter Aenderungsindex in Layout-
+                                 tabellen integriert.
+                                -Kombi E36 SW-Nr. 17.0 hinzu.
+                                -ZV-Modul Versions-Nr. V03 hinzu.
+                                -DWA III, SW-Nr. 52 hinzu
+                                -Bei SA Winterpaket codierung Innenlichtautomatik
+                                 hinzu
+
+
+NAEL E5217.D  n      04.12.91   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -Kombi E36, HW-Nr. 4.5 (VDO) und 10.4 (MM) hinzu
+
+
+NAEL E0056.E  o      23.01.92   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -Kombi E36, HW-Nr. 4.7 (VDO) hinzu             ≥        ≥EE-73    ≥
+
+
+NAEL E0051.E  p      29.01.92   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                -Entfall Soft on/off fuer:
+                                 - alle US-Typschluessel
+                                   inkl. LA 838 Kanada
+                                 - alle ZA-Typschluessel
+                                   - LA 807 Japan
+                                   - LA 810 Australien
+                                   - LA 812 England
+                                  Steuerung ueber VN-Schl. 0000000004
+                                  Tabelle E36ST.002 hinzu
+                                -CB13/CB23, nur LA Kanada hinzu.
+                                -Tabelle ZTRSCHL.000 ueberarbeitet und ergaenzt
+
+
+NAEL E0135.E  q      20.02.92   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                0000000014, 0000000015
+                                -BF91 inkl. europaeische LA's hinzu.
+                                -LA812 mit SA548 hinzu.
+                                -SA909 und SA944 in Tabelle ZTRSCHL.000 fuer
+                                 Codierung frei.
+                                -SA306, IR-Fernbedienung fuer ZV hinzu.
+                                -Alpina-Umfaenge 325i ergaenzt.
+
+
+NAEL E0233.E  r      24.04.92   EE-73   Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                0000000014, 0000000015
+                                -Umstellung der Codierdaten auf die optimierte
+                                   Darstellung.
+                                -Korrektur Einspritzkennlinie fuer M3.
+                                -Korrektur Alpina-Daten:
+                                 -Tachoendwert auf 276 km bei Kilometertacho
+                                 -Tachoendwert auf 260 km bei Meilentacho
+                                 -bei Sprache englisch Japan-Englisch und
+                                  Japan-Einheiten
+                                 -bei RL mit Kilometertacho Sprache Japan-Englisch
+                                  und Einheiten Japan
+
+
+NAEL E0283.E  s      17.07.92   EK-540  Haller
+
+                E36VN.000       0000000000, 0000000001, 0000000010, 0000000011
+                                0000000014, 0000000015
+                                -Fuer M3 RL folgende Typschluessel/LA hinzu:
+                                 - BF91 LA 807 Japan,
+                                 - BF92, BF92 LA810 und LA812, BF98.
+                                -Fuer 325td folgende Typschluessel/LA hinzu:
+                                 - CC12/22 RL mit LA 812
+                                -CC31/32/41/42, 325tds, inkl. europaeische LA hinzu
+                                -CB35/45, 325i Thailand hinzu
+                                -Fuer 316i/318i M43 folgende Typschluessel inkl.
+                                 LAs hinzu: CA71-CA98, CA01-CA08
+                                -Folgende SAs wurden integriert:
+                                 - SA302, DWA + Fernbed.
+                                 - SA508, PDC
+
+
+NAEL E0283.E  t      17.07.92   EK-540  Haller
+
+                E36VN.000       -Integration Cabrio E36:
+                                  BJ11, 21, 51, 52, 53, 58, 61, 62, 63, 68
+                                  BK53, 63 inkl. aller geplanten LA's
+                                -Integration GM IV fuer E36/2
+                                -Tabellenumstellung:
+                                  Abschaltung Innenlichtautomatik fuer Laender
+                                  (E0051.E) integriert
+                                  -> neue VN-Grundzeile 0000000014
+                                -Integration der Umfaenge Innenraumschutz und
+                                 Neigungsgeber in die SA DWA vorbereitet wegen
+                                 MoDiC-Diskette. VN-Kennung: 0000000100
+                                 Freigabe fuer Fertigung ca. Dez. 92
+                                -Integration Redesign-Kombi E36 (Grossversuch
+                                 (wechselbarer Codier-stecker)
+                                 ID Redesign-Kombi: Codierindex 26 SW-Nr. 21.0
+                                 VN-Kennung: 0000000030 SE Redesign-Kombi: PU __
+                                -Freischaltung Sprache D,I,E fuer LA Golf
+                                -Kombi Adresse 50,51 fuer LA Golf,US,CA in
+                                 GTK  000,001,002,003 geaendert
+                                 alt 50,10   51,01 -> neu 50,0B   51,04
+                                -Kombi Adresse 53 fuer LA Golf in
+                                 GTK 000,001,002,003 geaendert
+                                 alt 53,01 -> neu 53,03
+                                -ABS/ASC neue SW-Nr. A3 h und A4 h hinzu
+                                -IHKR neue SW.Nr. 16 und 19 hinzu
+                                -Ergaenzung Zentralschluesseltabelle
+                                -Kombi SW 20.0 hinzu (PUKO integriert)
+                                -Codierrelevanz der LA 813 Frankreich, LA 814
+                                 Italien, LA 819 Spanien vorbereitet.
+                                 Mit Einsatz GM4 wird fuer diese Laender und fuer
+                                 England, Skandinavien u. Niederland Schaerfen
+                                 Entschaerfen der DWA nur m. Fernbedienung,
+                                 soweit verbaut, freigegeben.
+                                -SA 411, el. FH vorn und hinten Umstellung auf
+                                 eigenen SA-Schluessel vorbereitet. Mit Einsatz
+                                 GM4 im E36/4 ist die SA 411 unterschiedlich
+                                 zur SA 410, el. FH vorn zu codieren.
+
+
+NAEL E0641.E  u      11.01.93   EK-540  LÇonard
+
+                STK.002-018     -Zusammengefasste SA's gesplittet
+                                 - alt 0000000000000010 SA 401, SA 410, SA 411
+                                   neu 0000000000000010 SA 410 el. FH v.
+                                   neu 0000000001000000 SA 401 el. SHD
+                                   neu 0000000004000000 SA 411 el. FH v.u.h.
+                                 - alt 0000000000001000 SA 537, SA 554
+                                   neu 0000000000001000 SA 554 BC V
+                                   neu 0000000008000000 SA 537 Standluefung
+
+                STS.002-014     -Freischaltung der o.g. neuen SA-Schluessel
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                VERNR.000,M00   -Freigabe der Integrat. SA 0303 in 0301
+
+                STK.003,006,008 -Vorlaeufige Codierdaten fuer E36/4  und /2 mit
+                STK.013,015,017  ZKE IV integriert.
+
+                GTS.003,013     -ZKE IV-Schluessel in den GT-Tabellen E36/2/4
+                                 gesperrt.
+
+                CVM.000         -Codierdaten fuer CVM aktualisiert.
+
+
+NAEL E2650.E  v      29.01.93   EK-540  LÇonard
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                VERNR.000,M00   -Freigabe der Integrat. SA 0303 in 0301
+                ZTRSCHL.000.M00  fuer E36/2/4/C
+
+                VERNR.000,M00   -Freigabe der LA's 0812, 0813, 0814, 0819,
+                ZTRSCHL.000,M00  0827 u. SA 0897 fuer E36 Cabrio
+
+                ZTRSCHL.000,M00 -Integration M-S50/M3 Cabrio BJ91, BJ92
+                GTK.003,013
+                GTS.003, 013
+
+                GMIV.000,001    -Codierindex GMIV um 02 hex ergaenzt.
+                GMIVU.*
+
+                GTK.003,013     -Codierung GMIV fuer LA 0812 aufgrund gesetz-
+                                 licher Vorschriften  geaendert.
+                                 03,38 -> 03,39
+
+
+NAEL E0664.E  w      15.03.93   EK-540  LÇonard
+
+                DWA.002         -Integration DWA IV (nur als Ersatz fuer DWA III
+                STK.019-025
+
+                GTK.002,003     -Integration M43 B16
+                GTS.002,003      - CoupÇ BE11/12, BE21/22
+                ZTRSCHL.000,M00  - Lim. CA71/72, CA81/82
+                                 - Touring CE11/12, CE21/22
+                                 - Compact CG11/12, CG21/22
+
+                GTK.002,003     -Integration M43 B18
+                GTS.002,003      - Cabrio BH31/32, BH41/44
+                ZTRSCHL.000,M00  - Lim. CA01/02/04/05/07, CA91/92/94/95/96/97
+                                 - Touring CE31/32, CE41/42
+
+                GTK.002,003     -Integration M44 B19
+                GTS.002,003      - CoupÇ BE71/72/73, BE81/82/83
+                ZTRSCHL.000,M00  - Cabrio BH73,BH83
+                                 - Lim. CD71/72/73/78, CD81/82/83/88
+                                 - Touring CG71/72/73, CG81/82/83
+
+                GTK.003,013     -Einstiegshilfe fuer Cabrio und CoupÇ gilt nicht
+                                 fuer US/CDN und Australien ab GM IV CD 02h
+
+
+NAEL E3010.F  x      24.04.93   EK-540  LÇonard
+
+                GTK.003,013     -Entfall Einstiegshilfe fuer Cabrio und CoupÇ
+
+                GTK.002,003,011 -Integration M52 B20
+                GTK.013,GTS.002  - CoupÇ BF51/52, BF61/62
+                GTS.003,011,013  - Cabrio BJ31/32, BJ41/42
+                                 - Lim. CB51/52/53/56/58, CB61/62/63/68
+                                 - Touring CE51/52, CE61/62
+
+                GTK.002,003,011 -Integration M52 B25
+                GTK.013,GTS.002  - CoupÇ BF71/72/73/78, BF81/82/83/88
+                GTS.003,011,013  - Cabrio BJ71/72/73/78, BJ81/82/83/88
+                                 - Lim. CB71/72/73/75/78/79, CB81/82/B83/85/88
+                                 - Touring CE71/72, CE81/82
+
+                KMB.001         -Aenderung der Grenzdrehzahl alle Typen ohne M3
+                                 3A,FF -> 3A,3A
+
+                KMB.002         -Aenderung der Grenzdrehzahl alle Typen ohne M3
+                                 4C,FF -> 4C,3A
+
+                GTK.003,013     -Aenderung Lowbyte EKS fuer ZKE IV alle Cabrio's
+                                 0C,20 -> 0C,22
+
+
+NAEL E3277.F  y      24.05.93   EK-540  LÇonard
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                SGERM.000,ESP   -Codierdatenermittelung ueber SG-Ermittlungsdatei
+
+                ABG.001,002     -Integration Airbag ZAE und BAE
+                GTK.002,STK.002
+                STK.003,004,005
+                STS.002,003,004
+                STS.005,VN.000
+                VERNR.000,M00
+
+                ASC.001,GTK.002 -Integration ASC- SG mit SW- Stand A4
+
+                BCVL.000,GTK.002-Integration E36/5 f. MoBaC- Codierung ohne
+                STK.004,005      Uhren/BC [SA 550]
+
+                GTS.001,002     -Freischalten 320i E36/4 Indonesien CB17, CB27
+                ZTRSCHL.000,M00
+
+                GTK.001,002     -Aenderung ZKE IV E36/C Einklemmschutz
+                                 GMIV, 0C,20 -> 0C,26
+
+                STK.003,005     -Ent- /Schaerfen nur ueber Fernbedienung, wenn
+                VERNR.000,M00    SA 0301 in Verbindung mit SA 0306 geordert wurde.
+                VN.000
+
+                GTK.001,002     -Quittierung auch bei Entschaerfen bei SA 0897
+                                 GMIV, 04,20 -> 04,30
+
+                GTK.000,001,002 -BC V Einheiten fuer RL mit km- Tacho neu hin-
+                                 zu [06,01]
+
+                GTK.001,002     -Steigung Einspritzkennlinie s'=3,14 fuer      ≥        ≥         ≥
+                                 M51 tds abgestimmt.
+                                 BCV, 02,D7, 03,12
+                                 KMB2, 0E,D7, 0F,12
+
+                GM4.001         -Aenderung der FH spezif. Codierdaten in der     ≥        ≥         ≥
+                                 ZKE IV f. Einsatz d. Siemens FH- Motoren zu
+                                 PU '93
+                                 06,12, 07,0F, 08,1E, 09,2B, 0A,2B, 0C,22,
+                                 0D,01, 0E,D6, 0F,02, 10,12
+
+                GTK.002          - CoupÇ  GMIV 06,0C, 0E,E5, 10,26
+                                 - Cabrio GMIV 06,0C, 0C,24, 0E,E5, 10,26
+
+
+NAEL E3602.F  z      09.07.93   EK-540  LÇonard
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                GTK.002         -Aenderung der Wegimpulszahl fuer Einsatz SA
+                                 Reifen 225/50R16 ab PU '93 fuer alle Fzg.
+                                 ausser M3 und Alpina
+                                 - KMB2  00,97, 01,02, 02,68, 03,FD
+                                 - BCV   00,37
+                                 - IHKR  08,37
+
+                KMB.001         -Aenderung Temp.-Anzeigen Tableau von 75¯ - 105¯
+                                 auf 75¯ - 110¯ fuer E36/2/3/4/C ausser M3/Alpina
+                                 37,D8 -> 37,DC
+
+                GTK.001,002      -fuer M3/Alpina KMB2 37,D8
+
+                GTK.002          -Aenderung der FH spezif. Codierdaten in der
+                                  ZKE IV f. Einsatz d. Siemens FH- Motoren zu
+                                  PU '93
+                                  - Cabrio u. CoupÇ  GMIV 06,0B
+
+                ZTRSCHL.000,M00 -Freigabe E36 Airbag BAE-/ZAE- Codierung
+
+                ASC.001,GTK.002 -Freigabe ASC- SG mit SW- Stand A4 fuer Fzg.
+                                 ab PU '93
+
+                GTK.001,002     -Codierdaten SG IHKR fuer Lim. 320i/A Indonesien
+                                 CB17/CB27 korregiert.
+
+
+NAEL E3963.F  aa     20.08.93   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                GTK.002         -Aenderung Airbag-Cod. BAE/ZAE fuer E36/7
+                                 - Entfall Gurtstraffer f. Fahrer/Beifahrer
+
+                GTK.002         -Aenderung der FH spezif. Daten fuer E36/5
+                                 GM4  0E,E0, 10,1C
+
+                KMB.000,001     -Entfall der Tachoendwertcodierung Adr. 04
+                GTK.000,001,002  rueckwirkend f. alle E36
+
+                ABGU.001,002    -Umschluesselung von Airbag BAE auf ZAE f.
+                                 MoDiC - Codierung
+
+                GTK.002,GTS.002 -Integration CoupÇ M3 Aut. US ( BF03 )
+
+                GTK.001,002     -Aenderung Skalenendanz. DZM fuer M43- Motoren
+                                 3B,DB (7000 U/m) -> 3B,D8 (6912 U/m)
+
+                GTK.002         -Aenderung der ZKE IV fuer CoupÇ
+                                 06,09
+
+
+NAEL E4212.F  ab     10.09.93   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -Ergaenzung Zentralschluesseltabelle
+
+                GTK.002         -Integration u. Freigabe UHRENBC fuer E36/5
+
+                GTK.001,002     -Aenderung Skalenendanz. DZM fuer 316i / M43
+                                 3B,D8 (6912 U/m) -> 3B,DB (7000 U/m)
+
+                STK.002,003,004 -Codierung Airbag ohne Gurtschloss f. FA. / BF.
+                STK.005,VN.000
+                VERNR.000,M00
+                ABGU.000
+
+                GM4.001,GTK.002 -Aenderung in der ZKE IV
+                                 - E36/2/3/4/5 09,2B, 0A,2B -> 09,2E, 0A,2E
+                                 - E36/C 09,2B, 0A,2B -> 09,30, 0A,30
+
+                GTK.002         -Aenderung M3 BF03, BF93
+                                 - Einspritzkennlinie 02,80, 03,22 -> 02,E6, 03,18  ≥        ≥         ≥
+                                 - Entfall OEltemp.Anzei. 10,75  -> 10,71         ≥        ≥         ≥
+
+                GTK.002         -Aenderung E36/5 GM4 02,00 -> 02,80
+
+
+NAEL E5212.F  ac     11.10.93   EE-12   LÇonard
+
+                ABG.001,002     -Aenderung der Layouttabelle und VM-Geruest
+                                 Airbag auf Speicher schreiben statt
+                                 Codierdaten schreiben.
+                ABG.002         -Aenderung der Tabellenbytes bei BAE
+                                 B632,05, B633,06 ->B632,03, B633,04
+
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                ! Achtung! Einsatz nur mit MoBaC-Version 5.4 !
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                STK.000,001,002 -Integration ZVM mit ZS- Direkt ab CD 41 neue Teielnummer
+                STK.004,ZVM.000  01,0? -> 01,2?
+                                 Codierung alter SG mit CD 31 auf 01,2?
+                                 problemlos moeglich, loest jedoch keine Funktion aus ≥        ≥         ≥
+
+
+NAEL E4292.F  ad     01.11.93   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -M3 US ohne Tuerschlosshzg und SA 0413
+                                 Gepaecknetz freigegeben
+
+                GM4.002,GTK.003 -ZS-Direkt fuer ZKE IV ab 1/94 ab CD 02
+                                 Adresse 02,80
+
+                SGERM.000,ESP   -Codierung UHRENBC gesperrt, da
+                                 Einspritzkennlinie zu ungenau
+
+
+NAEL E4555.F  ae     17.12.93   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -SA 0779 Tuergriff und CA99/09 freigeschaltet.
+
+                BCL.000         -Aenderung Tankkennlinie fuer E36/5
+
+                KMBL.000        -Integration Tankkennlinie fuer E36/5
+
+                KMB.001,002     -Aenderung Grenzdrehzahl M40, M43
+                GTK.001,002,003  3A,E1 -> 3A,D8
+
+                GTK.003         - KMB1 Integration E36/5 M43 Japan                  ≥        ≥         ≥
+
+                GTK.003         - BCL Integration E36/7 Tankkennlinie              ≥        ≥         ≥
+
+                GTK.003         - DWAR Integration DWA IV fuer E36/7                  ≥        ≥         ≥
+
+                GTK.003         - IHKR Integration CA09/ CA99
+
+                GTS.003         -Freischaltung E36/7
+                                 - M-M44 CH71/72/73, CH81/82/83
+                                 - M-M43 CJ11/12, CJ21/22
+                                 - M-M42 CJ31/32/33, CJ41/42/43
+
+                GTS.003         -Freischaltung E36/4 ZA f. Exp. nach Austral.
+                                 CA09/ CA99
+
+                SGERM.000,ESP   -Freischaltung UHRENBC f. E36/5 und E36/7
+
+                BCL.000,GTK.001 -Aenderung Einspritzkennlinie
+                GTK.002,003      - M43 s'=2,84 -> s'=2,67
+                                   -BCL 02,D5 -> 02,20
+                                   -BCV  02,5C, 03,0B -> 02,AE, 03,0A
+                                   -KMB2 0E,5C, 0F,0B -> 0E,AE, 0F,0A
+                                   -KMB4 4A,5C, 4B,0B -> 4A,AE, 4B,0A
+                                 - M42 s'=3,48 -> s'=2,90
+                                   -BCL  02,80, 03,0E -> 02,15, 03,0C
+                                   -BCV  02,EC, 03,0D -> 02,99, 03,0B
+                                   -KMB2 0E,EC, 0F,0D -> 0E,99, 0F,0B
+                                   -KMB4 4A,EC, 4B,0D -> 4A,99, 4B,0B
+                                 - M44 s' 3,48 -> 2,84
+                                   -BCL  02,80, 03,0E -> 02,00, 03,10
+                                   -BCV  02,EC, 03,0D -> 02,5C, 03,0F
+                                   -KMB2 0E,EC, 0F,0D -> 0E,5C, 0F,0F
+                                   -KMB4 4A,EC, 4B,0D -> 4A,5C, 4B,0F
+
+                GTK.002,003     -Aenderung EKS- Empfindlichkeit in d. ZKE IV fuer
+                                 E36/5  06,0F -> 06,0E
+
+
+NAEL E5002.G  af     11.02.94   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -CB59 E36/4 320i M52 LL TS. Vietnam freige-
+                GTK.002,003      schaltet
+                GTS.002,003
+
+                ZTRSCHL.000,M00 -SA 273, SA 766, SA 964 freigeschaltet
+
+                STK.004,005     -Integration Gurtschloss fuer ZAE/ US              ≥        ≥         ≥
+
+                IHKA.000        -Integration IHKA-,GR2-Stg.
+                GR2.000,GTK.003  ab VN- Nr. 000000A000
+                STK.004,005
+
+
+NAEL E5146.G  ag     03.03.94   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -SA 337 freigeschaltet
+
+                GTK.001,002,003 -ASC Datenaenderung
+                                  - M52B25 13,BB, 14,C4 -> 13,BC, 14,C3
+                                  - M52B28 13,BC, 14,C3 -> 13,BB, 14,C4
+
+                BCL.000,GTK.002 -Aufgrund fehlender Diagnoseleitung beim
+                GTK.003,STK.002  E36/5/7 wird der UHRBC nicht mehr als "Uhr"
+                STK.003,004,005  codiert. Die Diagnoseleitungen werden nur
+                SGERM.000,ESP    bei SA 550 BC verbaut, somit ist eine
+                                 Codierung nur als BC moeglich.
+
+
+NAEL E5156.G  ah     15.04.94   EE-12   LÇonard
+
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                !! Achtung! Einsatz ab ESP- Version 5.1 !!
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                ZTRSCHL.000,M00 -Freischaltung Stg. IHKA und GR II
+                SGERM.000,ESP     (SA 534), GR2 (SA 540)
+                GTK.002,003
+
+                ZTRSCHL.000,M00 -Integrat. LA 821 Aegypten
+
+                GTK.002,003     -Aenderung M41 OElservice-Intervall von 3 auf 2
+                                 - E36/5 57,5A -> 57,52
+                                 - CD 25 E36/4 09,B2 -> 09,A2
+                                 - CD 27 E36/4 55,5A -> 55,52
+
+                GTK.001,002     -Aenderung GM IV-Daten fuer
+                GM4.001,002      - E36/4 08,1E, 0C,22 -> 08,23, 0C,24
+                                 - E36/5 08,1E, 0C,22 -> 08,20, 0C,24
+
+
+NAEL E5369.G  ai     11.05.94   EE-12   LÇonard
+
+                ZTRSCHL.000,M00 -Entfall von Modellen
+                GTK.003,003      - Touring 325td/325tdA CF71/72/81/82
+                GTS,003,003      - Touring 318tdA CF61/62
+
+                ZTRSCHL.000,M00 -Integration von Modellen
+                GTK.003,003      - Touring 325tds/325tdsA CF91/92/01/02
+                GTS,003,003
+
+                KMBL.000        -Aenderung in E36/5 Kombi-Codierung ( Bit fuer
+                                 SIA Zeitinspektionfuehren )
+                                 ECE    57,52 -> 57,12
+                                 US/CDN 57,10 -> 57,50
+
+
+NAEL E5339.G  ak     17.06.94   EE-12   LÇonard
+
+                GM4.001,002     -Aenderung der ZKE IV- Daten
+                GTK.002,003      -E36/5 06,0F, 0C,24 -> 06,0E, 0C,28
+                                 -E36/4 06,0F, 0C,24 -> 06,0D, 0C,28
+
+                GR2.000,GTK.002 -Kennlinie fuer E36 GR II integriert.              ≥        ≥         ≥
+                GTK.003          -M43B16 Hand u. Automatik
+                                 -M43B18 Hand u. Automatik
+                                 -M42B18 Hand u. Automatik
+                                 -M52B20 Hand u. Automatik
+                                 -M52B25 Hand u. Automatik
+                                 -M50B25 Hand u. Automatik
+                                 -M3S50  Hand
+
+                GTK.000.001,002 -SA 897 DWA Dauerton und SA 899 DWA mit opt.
+                GTK.003,STK.000  Alarm Abblendlicht frei zusteuerbar.               ≥        ≥         ≥
+                STK,001,002,003
+                STK.004,STS.000
+                STS.001,002,003
+                STS.004
+                ZTRSCHL.000,M00
+                ZTR.000,M00
+
+
+NAEL E5568.G  al     08.07.94   EE-12   LÇonard
+
+                STK.004         -Korrektur DWA-Funktion fuer SA-Nr. 302           ≥        ≥LÇonard  ≥
+
+                GTK.002,003     -Korrektur FH-Funktionen fuer E36/5                ≥        ≥         ≥
+
+                ASC.002         -ASC mit SW-Stand A5 ab PU '94 m. M52-Datensaetzen≥        ≥         ≥
+                ASCU.000,VN.000
+                VERNR.000,M00
+
+
+NAEL E5581.G  am     02.09.94   EE-12   LÇonard
+
+                GTK.002,003,004 -Aenderung Einspritzkennlinie fuer M52-B20/28
+                                 von 4,15 auf 3,984 rueckwirkend.
+
+                GTK.002,003,004 -Integration GRII f. M50B20
+
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                !! Achtung Einsatz erst mit!!
+                                !! - MoBaC 6.1             !!
+                                !! - Ersatzplatz 6.0       !!
+                                !! - Codierkoffer 6.0      !!
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                                Ab 1/95 Einsatz folgender Umfaenge ab
+                                VN-Nr. 00007A000
+
+                GTK.004,010     -Integration EWS- SG
+                VN.000,EWS.000
+                VERNR.000,M00
+
+                GTK.004         -Drehzahlimpulse f. M51 td geaendert auf
+                                 2 Imp./Umdr.
+                                 - KMB2 -> LL 10,70, RL 10,71
+                                 - KMB4 -> 57,83
+                                 - IHKR -> LL 07,21, RL 07,01
+
+                GTK.004         -Einspritzsignal f. M51 td geaendert auf s'=3,14
+                                 - KMB2 -> 0E,D7, 0F,12
+                                 - KMB4 -> 4A,D7, 4B,12
+                                 - BCV  -> 02,D7, 03,12
+
+                GTK.004         -LA 897 beinhaltet nur noch DWA- Dauerton
+
+                GTK.004         -LA 899 DWA mit optischem Alarm Abblendlicht
+                                 und Quitt. beim Entschaerfen.
+                GTK.004         -Sollte die SA 809 nicht zu 3/95 entfallen,
+                                 wird Sie beim DWA- Umfang um die Funktion
+                                 opt. Alarm erweitert.
+
+                ZTR.000,M00     -Die SA 300 wird bei allen Fahrzeugen SE,
+                                 somit sind folgende Fahrzeuge zu erweitern.
+                                 - Compact CG11,CG21,CJ51
+                                 - Lim. CA71,CA72,CC51
+
+
+NAEL E5846.G  an     14.10.94   EE-12   LÇonard
+
+                EWS.000,GTK.004 -EWS-Daten korrigiert, wurden bereits als Vor-
+                GTK.010,011      abkopie am 13.09.94 fuer die Vorserie ans Band
+                                 gesendet.
+                GTK.002,003,004 -Entfall CF72/82 Touring RL 323i/A M52
+                                 lt. PJ 8107/09, 8311/07, 8404/32, 8312/09 vom 18.08.94
+                ZVM.000,ZVMU.000-Codierindex 51 hinzugefuegt
+
+
+NAEL E5921.G  ao     24.10.94   EE-12   LÇonard
+
+                E36CVT.000      -Aenderung des Ausloesealgorithmus ZAE- SG fuer
+                ABGZ.C01         folgende US/CDN Fahrzeuge
+                                 - Lim.    6 Zyl. incl. M3
+                                 - CoupÇ   6 Zyl. incl. M3
+                                 - Touring 6 Zyl.
+                                 Die Daten gelten auch rueckwirkend fuer o.g.
+                                 US/CDN Fahrzeuge.
+
+
+NAEL E5977.G  ap     12.12.94   EE-12   LÇonard
+
+                E36ZST*         -Integration BF99 M3 CoupÇ GT International
+                                 Codierung analog BF91, Einsatz mit EWS- Stufe II
+                E36CVT.000,     -IHKA-Codierung m. Geblaeseanhebung auf High-Variante
+                IHKA_E36.C01     fuer US incl. Canada, Golf,Australien, Japan und Tropen
+                FGR2.C04,E36ZST*-Integration GR II - SG m. CD 04 ab VN 0000080000
+                E36CVT.000,      rueckwirkend einsetzbar bis Anlauf GR II -SG (PU '94)
+                E36SGET.000
+                E36ZST*         -E36/7 Airbag und ZV werden Serie
+                E36ZST*         -SA 271 und SA 272 LM- Raeder freigeschaltet
+                E36CVT.000,     -Integration Ueberkreuzbedienung bei SA 302 ab
+                E36ZST*          3/95 mit VN 0000100000
+                KMB_E36.C27     -Aenderung der Tankparameter fuer E36 Kombi mit CD 27h
+                                 -A6,0F -> A6,10
+                                 -A8,3B -> A8,25
+                KMB_E36.C25     -Aenderung der Einspritzkennlinie
+                KMB_E36.C27      -M42B18    2,90  -> 3,24
+                BCL.C01          -M42B18 US 2,90  -> 3,84
+                BCV.C25          -M52B20    3,984 -> 3,98
+                                 -M52B25    4,15  -> 3,98
+                                 -M52B28    3,984 -> 4,85
+
+NAEL E5937.G  aq     10.02.95   EE-12   LÇonard
+
+                E36ZST.*,ERL.C01-Integration ERL- Stg. fuer M51tds
+                E36SGET.000,
+                E36CVT.000
+                E36CVT.000      -Korrektur der Anzeige im IHKA- Stg.
+                                 fuer US- Fzg. von C¯ auf F¯
+                                -Datenkorrektur E36 Kombi
+                KMB_E36.C25      -1D,EF -> 1D,E9
+                KMB_E36.C27      -95,EF -> 95,E9
+                ZST.*           -Integration SA 0283 LM- Felge
+                ZST.*           -Integration CD27 M52B28 Lim. CKD Mexico
+                E36CVT.000      -Entfall Ueberkreuzbedien. bei SA 875 bleibt
+                                 auch nach Maerz bestehen.
+                GM4.C01,GM4.C03 -Integration ZKE IV CD 03
+                E36CVT.000
+                E36CVT.000      -Entfall Tuerschlo·hzg. bei SA 305,
+                                 SA 306 und SA 302
+                E36CVT.000      -Umstellung RL auf C¯ wirksam ab PU '95 mit
+                E36ZST*          VN 0000300000, E36/7 ab SE
+                E36ZVT.*        -Aenderung K-Zahl von 4712 Imp/km auf
+                                 4663 Imp/km fuer M3 TUe
+                                 -CoupÇ  BG91, BG92
+                                 -Cabrio BK91, BK92
+                                 -Lim.   CD91, CD92
+
+
+NAEL E5219.H  ar     01.04.95   EE-12   LÇonard
+
+                E36CVT.000      -E36/5 US Parametersatz f. Airbag-Stg. geaendert
+                KMB_E36.C25,    -Korrektur M50B25 Alpina Einspritzkennlinie
+                KMB_E36.C25,
+                BCV.C25
+                E36ZST*,BCV.C25 -Integration M60B40-Motor fuer Alpina Lim.,
+                IHKA_E36.C01,    Cabrio, CoupÇ und Touring
+                IHR_E36.C25,
+                E36SGET.000,
+                GR2.C02,FGR.C04
+                KMB_E36.C25,
+                KMB_E36.C27
+                E36CVT.000      -DWA Funktion korrigiert SA 302
+                                 in Verbindung mit SA 875
+                                  
+
+NAEL E5244.H  as     24.04.95   EE-12   LÇonard
+
+                E36ZST*         -Integration M50B25 CKD Mexiko ab 1/95
+                E36CVT.000      -HKL-Schlo· vollwertige Bedienstelle beim
+                                 Touring einflie·end mit Vorabkop. in KW 12
+                E36CVT.000      -Aenderung M52B25 ASC-Kennlinie auf M52B28
+                E36CVT.000      -Aenderung Oelservice-Intervall f. M51 ab
+                                 PU '95 auf 15000 km
+                                  KMB2 09,B2 -> 09,A2
+                                  KMB4 55,5A -> 55,52
+                E36ZST*         -SA 0185 hinzu
+                E36ZST*         -CD33/43 hinzu ab PU '95
+                GTK.000-GTK.005 -IHKA fuer Nachruestung integriert ab E36 SE
+                STK.000-STK.010
+                VN.000
+                E36CVT.000      -Integration Airbag fuer E36/7
+                KMB_E36.C25     -Aenderung Einspritzkennlinie M42B18 US
+                KMB_E36.C27       3,84 -> 3,24
+                BCV.C25,BCL.C01
+                E36CVT.000      -HKL-Schlo· vollwertige Bedienstelle beim
+                                 Compact ab PU'95
+                E36CVT.000      -ASC fuer M43,M44,M51td integriert
+
+
+NAEL E5490.H  at     28.06.95   EE-12   LÇonard
+                                -!!!! Achtung !!!! Einsatz ab MoBaC 7.0 !!!!
+                                -Codierdatenfreigabe fuer "Neues Codier-System"
+                                -Integration M52B25 CKD Thailand
+                                -Integration M43B18 CKD Indonesien
+                                -Codierung von ASC-SG ERL.C02 fuer M43,M44,M51td
+                                 mit 65535 Pumpentaktzyklen. Codierung erst mit
+                                 MoBaC > 7.2 moeglich.
+                E36CVT.000      -Entfall Geblaeseanhebung High-Variante fuer IHKA
+                E36CVT.000      -Aenderung Oelservice-Intervall fuer alle Typen au·er
+                                 M3 und Alpina
+                E36CVT.000      -HKL-Schlo· vollwertige Bedienstelle bei allen
+                                 Typen ab PU'95
+                E36ZST.000/M00  -Entfall M43B18 u. M44B19 fÅr E36/7 C Z5
+                E36ZST.000/M00  -Integration SA 399 vollautomat. Verdeck
+                E36CVT.000
+                BCL.C01,BCV.C25 -Aenderung der Einspritzkennlinie fÅr M44B19
+                KMB_E36.C25      von 3,84 auf 4,52
+                KMB_E36.C27
+
+
+NAEL E5684.H  au     11.08.95   EE-12   LÇonard
+                E36ZST.*        -Entfall E36/7 M43 RL lt. PJ 8244/37 v. 06.07.95
+                E36ZST.*        -Neu hinzu E36/4 M52B25 Indonesien lt. PJ 8312/26 v. 05.07.95
+                E36CVT.000      -Entall Notraderkennung fÅr ASC- Stg. ERL.C01/C02
+                                 E36/7 und E36/5
+                E36ZST.*        -Integration M51D25WA3 mit EG II fÅr ASC- Codierung
+                E36CVT.000       im Stg. ERL.C01/C02
+
+NAEL E5768.H  av     16.10.95   EE-12   LÇonard
+                BC5.C25         -Aenderung der Einspritzkennlinie fÅr M52B28 Alpina
+                KMB_E36.C25/27
+                E36ZST.*        -Integration CB69 M52B20 Pilipinen
+                BCL.C01         -Einspritzkennlinie fÅr M3 Roadster hinzu
+                KMB_E36.C25/27  -Entfall der Codierung fÅr Tank- und KÅhlmitteltemp.winkel
+                ABGZ.C01        -E36US Cabrio mit M52 Motor erhÑlt anderen Crashparametersatz
+                E36CVT.C00      -Integration Funkinnenraumschutz fÅr DWA (gilt nicht
+                E36ZST.*         fÅr Cabrio und Open air Compact). Einsatz Åber Steuerwort
+                                 A 0302
+                ZAE2.C03,       -Integration ZAE 2 Åber Steuerwort ZAE2, fÅr MoDiC-
+                E36CVT.000       Codierung herausgenommen, da Daten evt. nicht Serienstand
+                E36ZST.*
+                E36ZST.*        -Integration CC38 325tds ZA CKD
+                                -Integration SA 918 fÅr Alpina B3 Steuerung
+
+NAEL E5959.H  aw     27.11.95   EE-12   LÇonard
+                E36ZST.*        -Integration SA 761 Sonnenschutzverglasung
+                                -M3 S50B32 Tö Lim. ( CD93/03) und
+                                 CoupÇ BG93/03 erhalten ASC als Serienumfang
+                E36CVT.*        -Entfall FensterÅberwachung bei DWA mit Funk-
+                SWT*.*           innenraumschutz
+                CVM.C01         -Codierdaten fÅr vollautomat. Verdeck integriert
+                SWT*.*
+                E36SGET.000     -Integration ASC fÅr M44 Cabrio
+                ZAE2.C03        -Crashparameter fÅr ZAE2 integriert
+                FRGR.C04        -Checksummenfehler beseitigt
+
+NAEL E6043.h  ax     10.01.96   EE-12   LÇonard
+                E36ZST.*        -Entfall TypschlÅssel CD41 M52B28 Lim. Werk 10
+                                -énderung SA 756 von Open-Air-Compact Softheckscheibe
+                                 auf BMW LM-Rad Rundspeichenstyling
+                                -énderung SA 775 von Individualserie 93 Japan ZSW
+                                 auf Dachhimmel antrahzit
+                                -SA 949 Premium Paket fÅr Lateinamerika hinzu
+                                -SA 950 Lateinamerika Paket hinzu
+                                -énderung SA 970 von Aktionspaket auf Sonderausstattungspaket
+                                -SA 971 Exclusiv- Paket hinzu
+                                -SA 972 Komfort- Paket hinzu
+                                -Entfall E-Wort EG2, da es Åber die A-Worte fÅr
+                                 M51D25WA3 bereits gesteuert wird
+                                -S50B32 US CD03/CD93 erhÑlt SA 710 als SE. Steuerung Åber A-Wort
+                E36ZST.*,       -Alpina verbaut ab 3/96 in die M52B28 Modelle nicht
+                E36CVT.*         mehr den M50B25, sondern den M52B28. Daraus resultierend
+                                 ergibt sich eine EinspritzkennlinienÑnderung auf BMW SE.
+                                -Integration E PU96 fÅr PU '96 UmfÑnge
+                                 SA 804 Schweiz erhÑlt bei DWA Intervallton
+                KMB_E36.C27     -énderung der Adresse B6
+                                  alt  OELTEMP_GAS  00001000b
+                                         gastank        1
+                                         oel_temp       0
+                                  neu  OELTEMP_GAS  00001000b
+                                         gastank        0
+                                         oel_temp       1
+                                -énderung der Einspritzkennlinie M3 US fÅr Cabrio, CoupÇ
+                                 Lim. mit S50B32 auf 19h 1Dh, entspricht M52B28 SE.
+NAEL E5953.J  ay     08.02.96   EE-12   LÇonard/Obrman
+                E36ZST.*        -Aufgrund der Funkinnenraumschutzverschiebung von
+                                 3/96 auf PU 96 ergeben sich folgende énderungen
+                                 -Entfall A 0302 N0396
+                                 -Entfall A 0755 N0396
+                                -E ASCT N0396 neu hinzu, fÅr alle 6 Zylinder Benziner und Diesel,
+                                 jedoch nicht M3. GÅltig ab PU 96
+                                -SA 793 wird codierelevant, Handschalter M3 wird im FGR.C04
+                                 auf Automatik codiert.
+                                -Werkskennungen eingefÅhrt
+                                 - W01 MÅnchen
+                                 - W06 Regensburg
+                                 - W75 Spartanburg
+                                 Einspielen der E36ZST.M00 in Regensburg vor
+                                 der Vercodung von ASG-Fahrzeugen zwingend
+                                 erforderlich!
+                                -Pyro. Techn. Gurtstraffer SE ab PU96, in E-Wort integriert
+                E36CVT.*        -MRA- Taktung fÅr M60B40 Alpina im ASC5- SG auf aktiv geÑndert.
+                ZAE2.C03        -Neue CrashparametersÑtze fÅr Roadster: Entfall
+                                 Heckcrasherkennung (wg. Sensorproblemen) keine Ansteuerung des
+                                 pyrotechn. Gurtstraffers. Ab PU'96 kommt neues
+                                 ZAE2-SG mit neuem Codierindex und verbesserter
+                                 Heckcrasherkennung (Sensor)
+                                !Datenstand fÅr MoDiC V7.0
+                ***************************************************************
+NAEL E5919.J  az     26.02.96   EE-12   Obrman
+                                -ZAEII CI03 ab 03/96 Serie fÅr /2,/3,Cabrio als Ersatz fÅr den entfallenen
+                                 ZV-Sto·schalter (ohne Airbagfunktion!). PUSY Regensburg bitte dahingehend anpassen, da·
+                                 E ZAE2 N0396 immer bei /2 oder /3 oder +Cabrio in Verbindung mit MÑrzma·nahme
+                                 vercodet wird. (PUSY fÅr Åbrige Typen bleibt bei MÑrzma·nahme und Airbag.)
+                                -<E PYRO N0695> auch gÅltig fÅr M und REG mit PU-Ma·nahme.
+                                 PUSY: Ab PU96 mÅssen alle E36-AusfÅhrungen eine Airbag-Elektronik
+                                 vercodet und codiert bekommen, auch wenn kein Airbag im Auftrag steht,
+                                 wegen der Ansteuerung der Pyrotechnischen Gurtstraffer. Das bedeutet, da· das
+                                 Wort <E ZA22 N0996> (ZAEII Codierindex 05 ab PU96) oder ggf.
+                                      <E ZAE2 N0396> (ZAEII Codierindex 03 ab MÑrz 96) ebenfalls vercodet werden mu·.
+                                 Siehe E6034.J Hr. Zweck, EE-20.
+                                -Roadster Z5 erhÑlt immer ZKE IV. (PUSY anpassen nicht nîtig, da im Typschl. bereits vercodet.)
+                                -Projektinfo 8026/71:"ZAE Serie fÅr alle E36/2-/4-/5-/Cabr. US/CAN"
+                                 lt. Telefonat 9.2.96 mit Hr. Detsch bleibt die Zusteuerung fÅr alle Ausf.
+                                 (auch ECE, LA's) bei 100% SA! Wenn andere Infos bekannt werden, bitte dringend
+                                 rÅckmelden, dann mu· die ZST angepa·t werden. Ansonsten wird fÅr betroffene
+                                 AusfÅhrungen kein Airbag codiert!!!
+                                 Ausnahme M3 US Mö, Z3, Z5 bekommen Seriensteuerung (BG93, CD03, CD93)
+                                 Achtung: A-Worte fÅr BG03, BG93, CD03, CD93 Regensburg entfallen, PUSY lîschen!
+                                -Roadster Z3 erhÑlt ZKE IV bei DWA und/oder el. FH ab PU96.
+                                 D.h. PUSY fÅr E ZKE4 N0393 entsprechend ergÑnzen!
+                                -Neue TypschlÅsselnummern CC93, CC03 eingearbeitet.
+                                -FIS setzt erst MÑrz '97 lt. Aussage Hr. Buselmeier, EE-20, ein.
+                                -LA 804 wird Åber die neuen énderungssteuerworte
+                                 <A 0804 V/N0996> steuerbar. Neue PUSY erforderlich:
+                                  A 0804 V0996: LA 804 ohne PU96-Ma·nahme (DWA-Dauerton)
+                                  A 0804 N0996: LA 804 mit PU96-Ma·nahme  (DWA-Intervallton - ECE-Anpassung)
+                                -Neuer ZAEII-Stand mit Codierindex 05 ab PU96. Ersatz fÅr
+                                 ZAEII CI 03 sowie ZAEI/BAE.
+                                 PUSY: Alle E36-AusfÅhrungen mit Pyrotechn. Gurtstraffer (s.o.) mÅssen eine Airbag-Elektronik
+                                 vercodet und codiert bekommen, auch wenn kein Airbag im Auftrag steht,
+                                 wegen der Ansteuerung der Pyrotechnischen Gurtstraffer. Siehe E6034.J Hr. Zweck, EE-20.
+                                -ôlserviceintervall CC38: 10000 km
+                                -CKD-Teilesatzinfo: Nur <E PYRO N0695> ist eine echte Ma·nahme fÅr PU96. Alle anderen
+                                 ErgÑnzungssteuerworte werden aut. umgeschlÅsselt oder sind Ausstattungsbedingt (ASC Serie)
+                     13.03.96   -Vorbereitung ErgÑnzungssteuerwort (Regensburg) E ABG  N0996 (als Kommentar)
+                                 Airbag SA 710 Serie fÅr alle M3 ab PU96: BG91/92, BK91/92, CD91/92
+                                 Steuerung auch Åber TypschlÅsselzeilen mîglich.
+                     22.03.96   -ASCT neue SW B1,B2,B3,B4 fÅr PU96 ergÑnzt.
+                                -Bedingung ZAE2 CI 03 fÅr MÅnchen korrigiert.
+                     29.03.06   -SA 907 frei in ZST. "James Bond Edition"
+
+
+                                EE-12   Obrman
+                                -ZAEII CI03 from 03/96 on Basic-Equipment for /2,/3,Convertable in excange
+                                 for the dropped ZV bump switch (without airbag function!)
+                                 (CAS <E ZAE2 N0396> for all other versions remains with the conditions "March + Airbag")
+                                -<E PYRO N0695> also valid in Munich and Regensburg for PU-package.
+                                 CAS: With PU96 (pyrotechn. buckle pre-tensioner) in all E36-Versions the Airbag-electronic has
+                                 to be codet even if there is no Airbag ordered. (Release of the Pyrotechn Belt)
+                                 Therefore <E ZA22 N0996> (ZAEII Coding Index 05) or if necessary
+                                           <E ZAE2 N0396> (ZAEII Coding Index 03 starting march 96) has to be codet.
+                                 See E6034.J Hr. Zweck, EE-20.
+                                -Z5 recieves always ZKE IV. (CAS adaption not necessary, because the bit is already
+                                 codet with the type key.
+                                -Project Information 8026/71: "ZAE Standard equipment for all E36/2-/4-/5-/Cabr. US/CAN"
+                                 according to an interview with Hr. Detsch, G-L, ordering for all versions
+                                 (also ECE, LA) sticks to 100%! (Ordering has to add 100% options to the order)
+                                 If there is any other information known, please report. Otherwise airbags
+                                 will not be codet in concerned types!!
+                                 Exception: M3 US S50B32 and Z3,Z5 get airbag basic equipment. (the bit is already
+                                 codet with the type key.)
+                                -Z3 gets ZKE IV when anti theft alarm system and/or elektr. windows starting with PU96-package
+                                 i.e. adapt CAS for <E ZKE4 N0393>!
+                                -New type keys CC93, CC03 added
+                                -Optional FIS (interior radio interference suppression system) has been postponed to march '97.
+                                -LA Switzerland 804 has to be controlled with the new changing words
+                                 <A 0804 V/N0996> New CAS:
+                                  A 0804 V0996: LA 804 before PU96package (continuous tone for DWA)
+                                  A 0804 N0996: LA 804 mit PU96-Ma·nahme  (intermitted tone for DWA - ECE-adaption)
+                                -New ZAEII version with coding index 05 starting with PU96 package.
+                                 In exchange for ZAEII CI 03 as well as ZAEI/BAE.
+                                 CAS: All versions E36 with pyrotechn. buckle pre-tensioner (see above) have
+                                 to be codet even if there is no Airbag ordered. (Release of the Pyrotechn Belt)
+                                 Therefore <E ZA22 N0996> (ZAEII Coding Index 05) or if necessary
+                                           <E ZAE2 N0396> (ZAEII Coding Index 03 starting march 96) has to be codet.
+                                 See E6034.J Hr. Zweck, EE-20.
+                                -Oil service intervall CC38: 10.000 km
+                     22.03.96   -ASCT new SW B1,B2,B3,B4 for PU96 package added.
+                     29.03.96   -Option 907 released "James Bond Edition"
+NAEL E6242.J  ba     16.04.96   EE-12   Obrman
+                                -Start-lock Åber EWS fÅr US-HS-AusfÅhrungen ab PU 96:
+                                 Neues ZCS-Bit in "E ZA22 N0996" integriert: E36ZST.M00 in Auftragssteuerung einspielen!
+                                 Betroffene PU96-Fzge mÅssen neuen ZCS erhalten!
+                                -M3 Roadster neue TankdÑmpfung.
+                                -SA 532 "Klimaanlage ZG" codierrelevant eingearbeitet
+                                -EWS 2.3-Codierung fÅr CAN-VT's integriert
+
+                                -Interlock for all E36 US/CDN with manual transmission
+                                -M3 Roadster new tank damping
+                                -SA 532 "Airconditioning ZG" for 812 integrated
+                                -EWS 2.3-Coding for CAN integrated
+
+NAEL E6301.J  bb                EE-12 Obrman
+                     23.04.96   -E ABG  N0996 fÅr Airbag Serie M3 (W6) ab PU96
+                                -GM4 fÅr Z3 mit CBD-Datenstand (Hr. Buselmeier, EE-20) 8 373 195.5 E6332.J  d
+                     24.04.96   -E36CVT.000 Bedingung fÅr TUERSCHLOSSHEIZUNG geÑndert:
+                                 bei ROA3, ROA5, COMP immer nicht_aktiv
+                     10.05.96   -LA 809 wird Åber die neuen énderungssteuerworte
+                                 <A 0809 V/N0996> steuerbar. Neue PUSY erforderlich:
+                                  A 0809 V0996: LA 809 ohne PU96-Ma·nahme (ohne optische Quittierung SchÑrfen Åber Warnblinker)
+                                  A 0809 N0996: LA 809 mit PU96-Ma·nahme  (mit -"-:  ECE-Anpassung)
+                                -LA 810 Australien ab PU96 Tippfunktion Schlie·en Beifahrerfenster aktiv
+                                -FIS fÅr Z5 ab BG2/Pulk2, fÅr Z3 ab 3/97. HierfÅr mu· <E FIS  N0196> von EE-12
+                                 aktiviert werden und eine PUSY erstellt werden.
+                                -ZAEII CI03 ab 03/96 Serie fÅr /2,/3,Cabrio als Ersatz fÅr den entfallenen
+                                 ZV-Sto·schalter (ohne Airbagfunktion!). Da Leitungen fehlen, wird bei Fahrzeugen
+                                 ohne SA Airbag auch nicht codiert. Damit darf auch nichtmehr E ZAE2 N0396 bei /2 oder /3 oder +Cabrio
+                                 in Verbindung mit MÑrzma·nahme vercodet werden.
+                                 Wenn Teile nicht verfÅgbar sind, wird BAE/ZAE codiert: Bei der Vercodung berÅcksichtigen!
+                      17.06.96  -KMB CI 27: Bereich AE-B5 wird nichtmehr variantencodiert: fester Wert
+                                 fÅr Serie und Ersatz
+                      19.06.96  -Integration 323ti (/5+M52B25): CG31, CG41
+                                 FÅr Funktionsbau zunÑchst H DWA  N0396, da fÅr div. LÑnder
+                                 (LA, PAK-Nr.) Serienumfang. SpÑter wird ein E-Wort daraus (PUSY).
+                                -Integration SA 260 MRSZ CI 04 fÅr Vorserie.
+                                -Cabrio M52B28 US erhÑlt ab PU96 vollaut. Verdeck serienmÑ·ig:
+                                 Neue Worte <A BK73/83 V/N0996> nur fÅr Werk 6 eingefÅhrt.
+                                 PUSY erstellen: ..V..= AuftrÑge ohne "MJ97(PU96)"; ..N.. mit.
+                      27.06.96  -Z3 und Z5 mit GM4: keine ScheibenÅberwachung.
+                      04.07.96  -Integration MRSZ.C06 ab PU96 (in Verb. mit E ZA22...) fÅr E36/2/3/4/5/Cabr
+                                -Z3 neuer Airbag-Auslîsealgorithmus, rÅckwÑrts austauschbar.
+                                -schaerfen/entscharfen in der CVT fÅr AuftrÑge: DWA+FERNBED+!NUR_FERNBED+!PU93+!UEBERKREUZBED+!ENTF_UEBERKREUZ+!CABR ergÑnzt
+
+
+                     23.04.96   -E ABG  N0996 Airbag Basic Equiment M3 from PU96 on.
+                                 Word relevant only for plant 6 (W06)
+                                -GM4 for Z3 with CBD-Dataversion (Hr. Buselmeier, EE-20) 8 373 195.5 E6332.J  d
+                     24.04.96   -E36CVT.000 Codition for TUERSCHLOSSHEIZUNG (door lock heating)
+                                 changed: for ROA3, ROA5, COMP always "nicht_aktiv"
+                     10.05.96   -LA 809 has to be controlled with the new changing words
+                                 <A 0809 V/N0996> New CAS:
+                                  A 0809 V0996: LA 809 before PU96package
+                                  A 0809 N0996: LA 809 from PU96-measure on
+                                -LA 810 Australia MY 97: Quick touch closing of the right front window active
+                                -FIS for Z5 with BG2/Pulk2, for Z3 from 3/97 on. EE-12 will have to activate <E FIS  N0196>
+                                 and a CAS will have to be installed.
+                                -ZAEII CI03 from 03/96 on Basic-Equipment for /2,/3,Convertable in excange
+                                 for the dropped ZV bump switch (without airbag function!) Because there are no
+                                 strips in vehicles without Airbag-Option, the ZAEII is not coded and CAS may not
+                                 add the ZAEII CI03 in the Coding Key of such orders <E ZAE2 N0396>
+                                 If parts are not available, ZAE/BAE has to be codet: do not encode this word!
+                      17.06.96  -KMB CI 27: AE-B5 a fix value is codet.
+                      19.06.96  -Integration of 323ti (/5+M52B25): CG31, CG41
+                                -Integration SA 260 MRSZ coding index 04 for Preseries.
+                                -Cabrio M52B28 US: automatic soft top mechanism in Basic equipment for MY97
+                                 New words <A BK73/83 V/N0996> integrated only for plant 6 relevant
+                      27.06.96  -Z3 and Z5 with GM4: no control of the windows in anti theft system.
+                      04.07.96  -Integration MRSZ.C06 from PU96 on (in combination with E ZA22...) for E36/2/3/4/5/Cabr
+                                -Z3 new SRS release-algorithm. Please store the VIN of the first
+                                 car coded with this dataversion!
+
+                                !Datenstand fÅr MoDiC V8.0; ab MoBaC 7.6!, Ersatzplatz 7.5!
+
+NAEL E6662.J  bc                EE-12 Obrman
+                      05.08.96  -ZAEII, MRSZ Crashparameter 140_11 bzw. 20ms (rÅckw.) entfallen
+                                 Bitte Einsatz Fahrgestellnummer notieren und
+                                 rÅckmelden! Danke.
+                                 Werk 6: 29.08.96  8:15 Bd2:   JE 23674;JE23642
+                                                        Bd3:   ER 59457;EP69029
+NAEL E6800.J  bd      22.08.96  EE-12 LÇonard
+                                -GM4.C03 und E36CVT.000 FH- Werte geÑndert fÅr Roadster
+                                 und an Hr. Fischer gesendet.
+                      02.10.96  EE-12 Obrman
+                                -Neuer Typ CD98 hinzu
+                                -Integration FGR2 Codierindex 05. SE ab 3/97.
+                                 HierfÅr gilt neues E-Wort "E GR23 N0397" mit
+                                 Bedingung "MÑrzma·nahme"
+                                -IHKA Codierung der GeblÑseanhebung entfallen
+                                -Integration TypschlÅssel BF73/83 und BJ73/83
+                                -Nachtrag Serienausstattung 323ti: UhrBC, FFB
+                                -Neue Typen: BF73/83, BJ73/83
+                                 Z3, Z3/2 MJ99: CM11, CH31/2/3, CH93,
+                                                CL31/2, CK51/2/3
+
+                      22.08.96  EE-12 LÇonard
+                                -GM4.C03 and E36CVT.000 FH- Values changed for Z3
+                      02.10.96  EE-12 Obrman
+                                -New model code CD98 added
+                                -Integration FGR2 coding index 05. SOP from 3/97 on.
+                                 This will be controlled by the new word "E GR23 N0397"
+                                 Condition: "March Measures" CAS!!
+                                -IHKA Coding of the fan raise dropped
+                                -New model code BF73/83 and BJ73/83 added
+                                -Basic equipment intergated for 323ti: clock-BC,
+                                 remote control for central locking system
+                                -New model codes: BF73/83, BJ73/83
+                                 Z3, Z3/2 MY99: CM11, CH31/2/3, CH93,
+                                                CL31/2, CK51/2/3
+
+                                !Datenstand fÅr DIS/MoDiC V9.0
+                                ***********************************************
+     M1015.J          15.10.96  EE-12 Obrman ZwischenstÑnde:
+                                Integration eines Japan-E-Wortes fÅr Werk 1.
+                                E36ZST.* mit Index ax
+                      24.10.96  PUSY! - E36ZST.* Entfall:
+                  E36ZST.* ay   E ZAE  N0993, E KMB  N1294, E EWS  N0196,
+                                E ZAE2 N0396, E ASCT N0396, E ZA22 N0996,
+                                E ABG  N0996 (W06), A 0920 ... (W06)
+                                Vercodungsanteile fest in Typ/SA/LA/G-Zeile
+                                Siehe Detaildokumentation zstm00.txt
+                                CKD: Vercodungsergebnisse auf Basis
+                                H GVN  N0996 bzw H GVN  N1296 (mit EWS CI 02)
+                                fÅhren ggf zu neuen Teilesatz-ZCS.
+                      25.11.96  Integration neues E-Wort fÅr Spartanburg:
+                  E36ZST.* az   <E FIS  N0196> fÅr Funkinnenraumschutz Z3.
+                                Entfallene A-Worte:
+                                A 0804 V/N0996, A 0809 V/N0996
+
+                      15.10.96  Integration of a new Japan-E-Word for plant 1
+                      24.10.96  CAS! - E36ZST.* Deletion:
+                  E36ZST.* ay   E ZAE  N0993, E KMB  N1294, E EWS  N0196,
+                                E ZAE2 N0396, E ASCT N0396, E ZA22 N0996,
+                                E ABG  N0996 (W06), A 0920 ... (W06)
+                                Bits fix integratet in model/option/country-key
+                                or G-line. See details in file zstm00.eng
+                  E36ZST.* az   CAS: New E-controlword for Spartanburg:
+                                <E FIS  N0196> for FIS Z3.
+                                Dropped A-controlwords:
+                                A 0804 V/N0996, A 0809 V/N0996
+
+NAEL E5804.K  be      15.10.96  EE-12 Obrman
+                      29.11.96  MRSZ.C04 fÅr Vorserien vor PU96 ungÅltig fÅr
+                                Serie und Ersatz.
+                      04.12.96  Integration ZA Export TypschlÅssel:
+                  E36ZST.* ba   CP21/81/71/32/42/72/82/02
+                      14.01.97  ABS/ASC ERL CI 03: Neues E-Wort E ERL3 N0197
+                  E36ZST.* ba   fÅr TNR 1 164 899 ohne blauem Farbpunkt bei der Steckerleiste.
+                                (Blaue Farbpunkte kommen lt Hr. Stangl, EF-71 nur nach Spartanburg)
+                                Notraderkennung Åberarbeitet.
+                      21.01.97  ZCSUT-UmschlÅsselung BF-Airbag=>F+BF-Airbag eingefÅgt.
+                  E36ZST.* bb   E-Wort fÅr Japan (Werk 1) entfallen.
+
+                      29.11.96  MRSZ.C04 for preseries before MY97 not longer
+                                valid for series and sparepart
+                      04.12.96  Integration ZA export models:
+                  E36ZST.* ba   CP21/81/71/32/42/72/82/02
+                      14.01.97  ABS/ASC ERL CI 03: New CAS E-word E ERL3 N0197!
+                  E36ZST.* ba   to be activated for partnr. 1 164 899 only without
+                                blue mark at the multipoint connector.
+                                (blue makred parts are delivered only to
+                                Spartanburg: Hr. Stangl, EF-71)
+                                update for ABS/ASC ERL emergency wheel detection
+                                !Datenstand fÅr DIS/MoDiC V9.1
+                                ****************************************************
+NAEL E5870.K  bf      04.03.97  EE-12 Obrman
+                  E36ZST.* bd   Neue Steuerwîrter:
+                                E ABGF N0997 Fahrer-Airbag Serie ab PU97
+                                E PU97 N0997 fÅr Modelljahr 98 (MainSwitch und neue CVM-Steuerung)
+                                E ASC  N0997 ASC Serienumfang fÅr z.B. M44 US/CDN ab PU97
+                                E BCL2 N0197 UhrBC mit CI 02 Nr. 8 377 996.0 ab PU97
+                                A 0838 V0997 Kanada vor PU97 mit SA 314 Serie
+                                A 0838 N0997 Kanada nach PU97 ohne SA 314 Serie (SA-Zusteuerung)
+                                A 0810 V0997 Australien KM-Tacho Serie
+                                A 0810 N0997 Australien Entfall KM-Tacho aus Serie (SA-Zusteuerung)
+                                A 0822 V0997 Golf Ak.Gurtwarn. Serie
+                                A 0822 N0997 Golf Entfall ak. Gurtwarn. aus Serie (SA-Zusteuerung)
+                                A CH71 V0997/N0997 el.FH Serienumfang ab PU97 nur Spartanburg
+                                A CH72 V0997/N0997 el.FH Serienumfang ab PU97 nur Spartanburg
+                                A CH73 V0997/N0997 el.FH Serienumfang ab PU97 nur Spartanburg
+                                A CJ11 V0997/N0997 el.FH Serienumfang ab PU97 nur Spartanburg
+                  E36CVT.000    MainSwitch Geschwindigkeitsregler ab PU97 Åber
+                                Multifunktionslenkrad
+                  E36CVT.000    Reifentoleranzabgleich ABS/ASC ERL fÅr Diesel
+                                ab CI 03 (1 164 899.9) aktiviert. ASC-PrÅfstand anpassen!
+                                Notraderkennung ABS/ASC ERL wieder entfallen fÅr:
+                                M43B16/B18 E36/2/3/4/5/C/7 (alle Modelle, US nur Ersatz) in Verbindung mit CI 03
+                                M44B19 E36/2/3/4/5/7 (nur US Modelle) (immer CI 02)
+                                ASC-PrÅfstand anpassen!
+                                ErgÑnzung fÅr NCSII:
+                                fÅr Stufe II NCS bitte umkopieren der Dateien:
+                                AUTOEXEC.NCS nach AUTOEXEC.BAT
+                                E36SGET.NCS  nach E36SGET.000
+                                fÅr Wiederherstellung der VMG-Codierung bitte kopieren:
+                                AUTOEXEC.ALT nach AUTOEXEC.BAT
+                                E36SGET.ALT nach E36SGET.000
+                                Dateien E36_CONF.BAP, E36SGFAM.DAT, BR_REF.dat hinzu
+
+                  E36ZST.* bd   New control words:
+                                E ABGF N0997 drivers airbag standard equipment for MY98
+                                E PU97 N0997 for MY98
+                                E ASC  N0997 ASC standard equipment for e.g. M44 US/CDN MY98
+                                E BCL2 N0197 low BC with CodingIndex 02 partnr. 8 377 996.0 for MY98
+                                A 0838 V0997 Canada MY97: SA 314 standard equipment
+                                A 0838 N0997 Canada MY98: SA 314 no longer standard (has to be ordered 100%)
+                                A 0810 V0997 Australia MY97: km units standard equipment
+                                A 0810 N0997 Australia MY98: km units no longer standard (has to be ordered 100%)
+                                A 0822 V0997 Golf MY97: acoustic belt warning standard equipment
+                                A 0822 N0997 Golf MY98: acoustic belt no longer warning standard (has to be ordered 100%)
+                                A CH71 V0997/N0997 power windows become standard Z3 variants with MY98
+                                A CH72 V0997/N0997 power windows become standard Z3 variants with MY98
+                                A CH73 V0997/N0997 power windows become standard Z3 variants with MY98
+                                A CJ11 V0997/N0997 power windows become standard Z3 variants with MY98
+                  E36CVT.000    MainSwitch for cruise control in the
+                                multiy function steering wheel with MY98.
+                  E36CVT.000    New ABS/ASC ERL coding for M51 and M41 for
+                                CodingIndex 03 (1 164 899.9) activated. ASC-test stand has to be adapted!
+                                Deletion emergency wheel detection ABS/ASC ERL for:
+                                M43B16/B18 E36/2/3/4/5/C/7 (all variants, US nur Ersatz) for CodingIndex 03
+                                M44B19 E36/2/3/4/5/7 (only US varinants) (always CodingIndex 02)
+                                ASC-test stand has to be adapted!
+
+NAEL M0001.K          07.03.97  EE-12 Obrman
+                  E36CVT.000    EntschÑrfung MY98 Japan + Englisch
+                  E36CVT.000    Korrektur FGR2.C05 MAIN_SWITCH. Dieser Datenstand mu·
+                                spÑtestens ab FGR2 Codierindex 05 "E GR23 N0397"
+                                aktiviert sein: Kein MFL fÅr E36!
+                  E36SGET.000   ERL fÅr alle M44B19, M43B16, M43B18, M41D17 generell
+                                freigeschaltet.
+                  E36CVT.000    Neue Fensterheberwerte fÅr Z5
+                  GM4.C03
+                                Die oben beschriebene Datenbereitstellung fÅr den
+                                öbergang zum NCS ELDI gilt bis zum flÑchendeckenden Einsatz
+
+                                Troubleshooting for MY98 Japan + english
+                                Debuging for FGR2.C05 MAIN_SWITCH
+                                ABS/ASC ERL for all versions M44B19, M43B16, M43B18, M41D17
+                                released.
+                  E36CVT.000    New values for electric windows Z5
+                  GM4.C03
+                                Addition for NCS ELDI:
+                                please copy (overwrite) for NCS ELDI (new Coding System)
+                                files below:
+                                AUTOEXEC.NCS to AUTOEXEC.BAT
+                                E36SGET.NCS  to E36SGET.000
+                                restore the old Coding System by copying the files:
+                                AUTOEXEC.ALT to AUTOEXEC.BAT
+                                E36SGET.ALT to E36SGET.000
+                                files E36_CONF.BAP, E36SGFAM.DAT, BR_REF.dat added
+                                The E36 codingfiles will be released in this way until
+                                the NCS ELDI has launched in 100% E36 production places.
+
+                                !Datenstand fÅr DIS/MoDiC V10
+                                ****************************************************
+
+NAEL E6232.K  bg      24.04.97  EE-12 Obrman
+                  E36ZST.* bk  -CD98: Fahrerairbag und Entfall Neigungsgeber Serie
+                               -Z3 Kombi SW7: Ersatzteilcodierung eingearbeitet
+                               -Kombi: énderung der Temperaturkennlinie rÅckwirkend
+                               -CB89 SKD Mexico neu hinzu
+                               -Ab PU97 neue Temperaturkennlinie fÅr M3 ECE, Z3 HP ECE und US
+                               -Neue M3 US Cabrio-Typen BK93/03 integriert.
+                                neue ZST-Worte (PUSY!):
+                               -E ABGF N0997 Airbag Serie ab PU97 alle Typen o.M3: /2/C/4/5/T
+                               -A 0209 V/N0997 Sperrdifferential 25% wird fÅr Z3 ERL codierrelevant
+                                             ab MY97. ASC PrÅfstand updaten!!
+
+                  E36ZST.* bk  -CD98: Drivers Airbag and deletion tilt alarm sensor basic equipment
+                               -Z3 Kombi SW7: spare part coding added.
+                               -Kombi: update temperature for instrument cluster
+                               -CB89 SKD Mexico added
+                               -Ab PU97 new temperatur instr.cluster for M3 ECE, Z3 HP ECE and US
+                               -Newe M3 US convertables BK93/03 added.
+                               * new ZST-words (CAS!):
+                               -E ABGF N0997 Airbag basic equipment for MY98 all types besides M3: /2/C/4/5/T
+                               -A 0209 V/N0997 slip differential 25% becomes coding relevant for ERL Z3 MY97.
+                                             Update ASC test stand!!
+
+NAEL M0001.K          12.06.97  EE-12 Obrman
+                               -ZKE4: BeifahrertÅre Bedienstelle aktiv generell fÅr
+                                Z3, Z5
+                      16.06.97 -Einbinden der FGR2.C05-CBD mit korrigierter
+                                Checksum fÅr 316i Aut.
+
+                               -ZKE4: front passenger door is control point for all
+                                Z3, Z5
+                               -Integration of FGR2.C05 with debugged checksum
+                                for 316iA
+
+                                !Datenstand fÅr DIS/MoDiC V11
+                                ****************************************************
+NAEL M0002.K          10.07.97 -Verwendung der Geschwindigkeitsregler FGR_KENNDATEN
+                                fÅr M44B19 (bisher M42B18)
+                      14.07.97 -ASCT fÅr 323ti wird wie Z3 codiert.
+                                Achtung: Beim ASC-PrÅfstand berÅcksichtingen!
+                               -Bitte diesen Datenstand in allen Zielsystemen aktivieren!
+
+                               -Using M44B19 coding for cruise control instead of M42B18
+                               -ASCT for 323ti(Compact) will be coded like Z3 M52B28
+                               -Please activate this dataversion in all stations!
+
+NAEL M0003.K          24.07.97 -FÅr ASC MK20 EI mit der Sachnummer 1 164 142 (Codierindex 02)
+                                neues PUSY-Wort: E MK20 N0697
+                                Spartanburg: Bitte AuftrÑge mit E MK20 N0697 immer auch mit
+                                E PU97 N0997 vercoden! (Umgekehrt keine ZWAKO!)
+                                (Im Sept. wird mit einem neuen E-Wort der
+                                 Codierindex 03-Stand fÅr Sachnr 1 164 896 kommen)
+                               -VollstÑndige Umstellung auf NCSII:
+                                AUTOEXEC.BAT, E36SGET.000 gÅltig fÅr NCSII!
+
+                      24.07.97 -For ASC MK20 EI with partnumber 1 164 142 (coding index 02)
+                                new CAS-word: E MK20 N0697
+                                Spartanburg: Please encode orders with E MK20 N0697 always with
+                                E PU97 N0997 too! (vice versa no mandatory assignment!)
+                                (In Sept. will come a new CAS-word for
+                                 coding index 03 for partnumber 1 164 896)
+                               -datas complete shifted to NCSII:
+                                AUTOEXEC.BAT, E36SGET.000 valid only for NCSII (WINELDI)!
+
+NAEL E6747.K  bh      10.10.97 -Neue Typen /5EU3: CT31/CT41 M52B25
+                               -FÅr MJ99 /5(nicht M52B25) und /7 wird immer
+                                TOENS (ThermischerOelniveauSensor AuswertegerÑt)
+                                mitcodiert.
+                               -CP31/CP51 ZA Export nach Deutschland
+                               -Neues PUSY-Wort:
+                                E MK03 N1097 fÅr ASC MK20 CI 03 Tnummer: 1 164 896
+                               -HO AirbagabrÅstungen hinzu Åber Pseudo-SA's:
+                                1240 Deaktivierung Fahrerairbag
+                                1243 Deaktivierung Beifahrerairbag
+                                1260 Deaktivierung Seitenairbag
+
+                               -New types: /5EU3: CT31/CT41 M52B25
+                               -MJ99 /5(besides M52B25) and /7 the new TOENS
+                                will be coded.
+                               -CP31/CP51 ZA Export to Germany
+                               -New CAS-word:
+                                E MK03 N1097 for ASC MK20 CI 03 partnumber: 1 164 896
+                               -HO Deactivation Airbags with Pseudo-SA's:
+                                1240 deactivation driver airbag
+                                1243 deactivation  front passenger airbag
+                                1260 deactivation side airbags
+
+NAEL E6941.K  bi      02.12.97 -Neue PUSY-Worte:
+                       E36ZST   E PU98 N0998 mit Umfang EWS3D Teilenummer 8 378 992
+                       bo       fÅr Z3, Z3/2, /5EU3
+                                E KMBC N0998 fÅr CAN-Kombi
+                               -Entfallene PUSY-Worte:
+                                A 0209 V/N0997 Sperrdifferential fest als 0209 codierrelevant.
+                                A 0810 V/N0997 Australien km-Tacho Åber 100% SA, nichtmehr Serie
+                                A 0822 V/N0997 Golf ak.Gurtwarnung Åber 100% SA, nichtmehr Serie
+                                A 0838 V/N0997 Kanada SA 314 Åber 100% SA, nichtmehr Serie
+                                A CH71 V/N0997 Fensterheber fest als Serie
+                                A CH72 V/N0997 Fensterheber fest als Serie
+                                A CH73 V/N0997 Fensterheber fest als Serie
+                                A CJ11 V/N0997 Fensterheber fest als Serie
+                                E PYRO N0695 Pyrotechn. Gurtstraffer Serie fÅr alle Typen (in G-Zeile)
+                                E GR23 N0397 FGR2 CI 05 ab 3/97 Serie fÅr alle Typen
+                                E ERL3 N0197 ERL_CI03 (1 164 899) Serie fÅr 4Zyl,Diesel ohne USM44TLEV
+                                E BCL2 N0197 UhrBC CI 02 Nr. 8 377 996.0 Serie f. alle Typen (in G-Zeile)
+                                E ABGF N0997 Airbag Fahrer Serie f. alle Typen (in G-Zeile)
+                                E PU97 N0997 MJ98: Entfall CVM bei öRS ohne el.Verdeck (in G-Zeile)
+                               -FÅr E MK03 N1097 wurde mit BA 1805.K auch die Sachnr. 1 164 142 feigegeben!
+                               -Typschl. CM12 hinzu
+                               -Neuer Crashparametersatz fÅr MRSZ.C06 (SA 260):
+                                Diese Daten mÅssen zwingend vor Einsatz des neuen
+                                Sensor Seitenairbag 8 382 564 aktiv sein! (E 6941.K)
+                               -CM93 und CM91 Japan geÑnderte Codierung wg.
+                                geÑnderter Heckklappe. (Abstimmung mit ZS Hr.
+                                Sanladerer offen!)
+
+                               -New CAS-words:
+                                E PU98 N0998 with content EWS3D partnumber 8 378 992
+                                for Z3, Z3/2, /5EU3
+                                E KMBC N0998 for CAN-Kombi
+                               -Deleted CAS-wordse:
+                                A 0209 V/N0997 Limited slip differential (25 %) fix as 0209 coding relevant.
+                                A 0810 V/N0997 Australia km-Tacho with 100% SA, no loger basic equipment
+                                A 0822 V/N0997 Gulf acoustic belt warning with 100% SA, no loger basic equipment
+                                A 0838 V/N0997 Kanada SA 314 with 100% SA, no loger basic equipment
+                                A CH71 V/N0997 electric windows basic equipment
+                                A CH72 V/N0997 electric windows basic equipment
+                                A CH73 V/N0997 electric windows basic equipment
+                                A CJ11 V/N0997 electric windows basic equipment
+                                E PYRO N0695 Pyrotechnical buckle pre-tensioner basic equipment for all types (in G-line)
+                                E GR23 N0397 FGR2 CI 05 from 3/97 basic equipment for all types
+                                E ERL3 N0197 ERL_CI03 (1 164 899) basic equipment for 4cyl,diesel besides USM44TLEV
+                                E BCL2 N0197 UhrBC CI 02 Nr. 8 377 996.0 basic equipment f. all types (in G-line)
+                                E ABGF N0997 Airbag driverr basic equipment f. all types (in G-line)
+                                E PU97 N0997 MJ98: deletion CVM with öRS without el.soft top (in G-line, only relevant for CABRIO=Regensburg!)
+                               -for E MK03 N1097 has been released with BA 1805.K also partno. 1 164 142!
+                               -type CM12 integrated
+                               -New crashparameter for MRSZ.C06 (SA 260):
+                                These datas have to be activated before the new
+                                sensor sidebag 8 382 564! (E 6941.K)
+                               -CM93 and CM91 Japan changed coding of the
+                                trunk lock. (o.k. from ZS. Hr. Sanladerer is missing!)
+                              !Datenstand fÅr DIS V12 ECE
+                              ****************************************************
+
+
+
+NAEL M0004.K          08.12.97 -ErgÑnzung fÅr AbrÅstung BF-Airbag in der HO US:
+                                Bedingungen fÅr GURTSCHLOSS_BEIFAHRER_1, .._2, .._3
+                                und GURTSTRAFFER_BEIFAHRER_1, .._2, .._3 angepa·t.
+
+                              !Datenstand fÅr DIS V12 nur US-Markt DIS V13
+                              ****************************************************
+
+NAEL M0001.K          13.01.98 -ASC5.C01 fÅr Roadster HP US (Serienumfang) integriert:
+                      ZST bq    fÅr Spartanburg PUSY-Worte neu hinzu:
+                                A CM93 V0998, A CM93 N0998
+                                A CK93 V0998, A CK93 N0998
+                               -Anpassung ZAE2.C03/05, MRSZ.C04/06  an die neuen FSW's
+
+
+                               -Ultrasonic interieur protection (DWA) for Z3 coupe
+                                has to be encoded also with "E FIS  N0196".
+                      ZST bq   -ASC5.C01 for Roadster HP US (basicequipment) integrated:
+                                new CAS word for Spartanburg:
+                                A CM93 V0998, A CM93 N0998
+                                A CK93 V0998, A CK93 N0998
+                                please encode "..V.." for orders without ASC5.C01
+                                please encode "..N.." for orders with ASC5.C01
+                               -adaption ZAE2.C03/05, MRSZ.C04/06  to new FSW's
+
+NAEL M0002.L          19.02.98 -TOENSAWG.C10 integriert. Codierung von C01 nicht
+                                mehr mîglich (ggf. alten Datenstand verwenden)
+                                Bitte die neueste C_TOENS.PRG (20.02.98) von REFERENZ verwenden!
+
+                               -TOENSAWG.C10 integrated. Coding of C01 no
+                                more posible (use old data version)
+                                Please use the most recent C_TOENS.PRG (20.02.98) from REFERENZ!
+
+NAEL E6897.L    bk    02.04.98 -CM93 and CM91 Japan changed coding of the
+                                trunk lock.
+                               -CK91 without remote control in the basic equipment (type key line)
+                                see Proj.Inf. 8541/10.
+
+                                Neues Batchfile "LADEN.BAT" fÅr WINDOWS NT.
+                                New batch "LADEN.BAT" for copying datas onto a
+                                Windows NT Station.
+
+                              !Datenstand fÅr DIS V13 mit neu konvertierter E36ZCSUT
+                               und die CM93/CK93-TempKL-Korrekur (CVT)
+                              ****************************************************
+
+                      04.05.98 -CT31/41 EWS-Motronik-Schnittstelle .2
+                   E36ZST.* bv -ZKE4 in alle Compact-Typen integriert
+                               -Neue SIA-Literwerte fÅr Compact M43B19
+
+                   E36ZCSUT    -konvertiert mit alter .SHO wg alter Zielsoftware.
+                   MK20e_i.c03 -Korrektur von EF.
+
+                      25.05.98 -Temperaturkennlinie CM93, CK93 geÑndert
+                               -characteristic temperature CM93, CK93 changed
+                                    
+NAEL E7064.L    bl    22.06.98 -Neues FSW fÅr LA England verlÑngerter Alarm hinzu
+                               -New function "long acoustic alarm" for England integratet.
+
+                               -GeÑnderte TOENSAWG.C10 E8119.L integriert.
+
+                              !Datenstand fÅr DIS V14
+                              ****************************************************
+NAEL E7331.L    bm    20.08.98 -LWS5 bei DSC3 ITT integriert.
+                                hierfÅr "E DCS3 N0499" nur fÅr Spartanburg
+                                fÅr DSC3 ITT-AuftrÑge darf MK20:
+                                =E MK20 N0697 und/oder E MK03 N1097
+                                nicht vercodet werden!
+                               -Ansteuerung CAN-KMB fÅr DSC3
+                               -ITT DSC3 fÅr Z3 integriert
+
+                               -LWS5 for DSC3 ITT integrated.
+                                New CAS-word (only Spartanburg): "E DSC3 N0499"
+                                Notice: do not encode MK20 for DSCIII-orders!
+                                =E MK20 N0697 and/or E MK03 N1097
+                               -Coding CAN-KMB for DSC3.
+                               -ITT DSC3 for Z3 integrated
+
+NAEL M0003.L                   -MÑrz-99-Ma·nahme
+                                Steuerung Åber "E MRZ9 N0399" nur Spartanburg (PN 8009/130)!
+                                MRS3D Teilenr. 8 386 192 (PN 8020/081)
+                                Herauslîsen der versteckten SA KM-Tacho aus LA Kanada (PN 8009/130)
+
+                               -March-99-measure:
+                                use new CAS-word (only Spartanburg): "E MRZ9 N0399"
+                                MRS3D Partnr 8 386 192 (PN 8020/081)
+                                Extraction of the hidden option KM from country Canada. (PN 8009/130)
+
+NAEL E3323.M    bn    28.10.98 -Neue Typen: CN11 CN12 CN33 CN51 CN52 CN63 CK71 CK73
+                                integriert.
+                               -Neue CBD MK20,DSC3 mit verÑnderten Daten:
+                                Achtung ASC-PrÅfstand anpassen!
+
+                               -New Typs integrated:
+                                CN11 CN12 CN33 CN51 CN52 CN53 CK71 CK73
+                               -New CBD MK20, DSC3 with changed datas:
+                                ASC-teststand has to be adapted!
+
+NAEL M0004.L          30.10.98 -Neue Typen: CL91/2/3, CN91/2/3
+
+NAEL E3679.M    bo    15.01.98 
+                               -Seitenairbag Satelliten mit SA 260 bedingt: CBD-Korr.
+                               -DSCIII: DELTA_PSI_BETA_LIMIT_KORR abh‰ngig von
+                                SA 209 SPERRDIFF bedingt. Aus CL31/32 SA 209 als Serienumfang
+                                entfernt gem. TAIS und EF-Aussagen.
+                               -Neue Kombi Anzeigeflags: HBA fester Wert;
+                                mit neuem E-Wort E PU99 N0199 steuern (synchron mit 10/99 Maﬂnahmen
+                                Kabelbaum-ƒnderung E3758.M und Kombi ƒnderung E3143.M):
+                                BREMSFLUESSIGK_INV: aktiv ab PU99 bei DSCIII
+                               -Ab neuer NCS-Serve Version zu M‰rz 99 wird E36ZCSUT.NEW benˆtigt:
+                                Bitte kopieren auf E36ZCSUT.000!
+
+                               -Sidebag satellites are now caused by SA 260.
+                               -DSCIII: DELTA_PSI_BETA_LIMIT_KORR caused by
+                                SA 209. From CL31/32 SA 209 as standard equipment deleted
+                                acording to TAIS and EF.
+                               -New instrument cluster indication flags: HBA fix data.
+                                With new E-word E PU99 N0199 for all MY00 orders
+                                (synchronized to 10/99 measures wiring harness E3758.M and
+                                 instrument cluster change E3143.M)
+                                BREMSFLUESSIGK_INV: aktiv from PU99 on in combination with DSCIII
+                               -Ab neuer NCS-Serve Version zu M‰rz 99 wird E36ZCSUT.NEW benˆtigt:
+                                Bitte kopieren auf E36ZCSUT.000!
+NAEL M0001.M          02.02.98
+                               - MRS3.C09 mit neuem Crashparametersatz
+                               - GURTSCHLOSS_SPANNUNGSS_1 und GURTSCHLOSS_FAHRER_1
+                                 mit neuer Bedingung laut neuer CBD:
+                                 nicht_aktiv bei SA 845 Gurtwarnung
+                               - Neuer (zweiter) Crashparametersatz - Fehlerbehebung 
+
+                               - MRS3.C09 with new crash dates
+                               - GURTSCHLOSS_SPANNUNGSS_1 and GURTSCHLOSS_FAHRER_1
+                                 with new condition according to new MRS3.C09
+                                 nicht_aktiv with  SA 845 driver belt buckle warning
+                               - New(2nd) crash parameters - bug fix
+                               
+                               -Datenstand f¸r CD 17
+                                ****************************************************
+NAEL EE099.M    bp   20.03.99
+                    E36CVT.000 - Korrektur KMBC ak. Gurtwarnung: GONG_T3 aktiv f¸r ECE+SA845.
+                               - PN 8009/00/179: ƒnderung SIA Zeitz‰hlung Japan:
+                                 R¸ckwirkend seit PU98 wie US codiert: ohne Zeitsymbol und -intervall
+                               - Sitzbelegungserkennung II f¸r (Z3, Z3/2)US ab PU99
+                               - DSCIII SA 210 (Z3, Z3/2)6zylinder ohne HP sowie E36/5:
+                                 Invertierte Bremsfl¸ssigkeitsanzeige aktiv (Kombi-Codierung).
+                                 Zeitsynchron zum Entfall des Inverterrelais.
+                    E36ZST.*     Index cb: E PU99 N0199 wird auch f¸r M¸nchen codierrelevant!
+                               - DSCIII SA 210 erg‰nzt f¸r M43B19: CM11, CM12
+                               - M54 Automatik bekommt immer fest Schrittschaltung codiert
+                               - Z3 HP und SA 992 (US Kennzeichenbefestigung) 
+                                 Codierung HK_LOGIK_WIE_FB aktiv (KBB wie US,Japan)
+                    E36ZST.*     Index cb: hierf¸r wurde die SA 992 generell codierrelevant!
+                               - Sitzbelegungserkennung 2. Generation f¸r Z3 US ab MJ 2000
+                    E36ZST.*     Index cb: hierf¸r E SBE2 N0199 neu hinzu f¸r Spartanburg
+
+                               - Bugfix KMBC ac. beltwarning: GONG_T3 aktiv for ECE+SA845.
+                               - PN 8009/00/179: Change SIA timecontrol Japan: 
+                                 Since PU98 codet like US without timesymbol and -intervall.
+                               - seat occupant recognition (SBEII) for (Z3, Z3/2)US + PU99
+                               - DSCIII SA 210 (Z3, Z3/2) 6cyl. without HP and E36/5:
+                                 Inverted brake fluid indication signal (Instrument cluster coding)
+                                 Has to be synchroniosly coded with the deletion of the Inverter relay
+                               - DSCIII SA 210 for M43B19: CM11, CM12
+                               - M54 automatic transmission has coded always "schrittschaltung"
+                               - Z3 HP and SA 992 (US licence attachment) 
+                                 coding HK_LOGIK_WIE_FB aktiv (wiring like US,Japan)
+                    E36ZST.*     Index cb: Option 992 has become coding relevant in general!
+                               - Seat occupation control 2nd generation: for MY2000 US Z3
+                    E36ZST.*     Index cb: E SBE2 N0199 added for orders MY2000 (10/99) US Z3
+NAEL EE202.M    bq   31.03.99  
+                    E36CVT.*   - Codierung im Kombi KMB_E36.C02 fuer Z3/Z5 US, Kanada in Adr. B5 geaendert.
+                    KMB_E36.C02
+
+                    E36CVT.*   - Change coding instrument cluster KMB_36.C02 for Z3,Z5 US,Kanada 
+                    KMB_E36.C02  in Adr. B5 
+
+NAEL EE368.M    br   23.04.99  - Neues CAN-Kombi Codierindex 03 integriert.
+                                 Zusammen mit E3143.M, (Z.B. TeileNrn. 690303?, 690304?, 690149?, 6901500 und 6901502)
+
+                               - New KMBC CI 03 integrated: please encode E KMB3 N0199
+                                 Together with E3143.M, (E.g. part-no. 690303?, 690304?, 690149?, 6901500 und 6901502)
+
+                               - Datenstand f¸r CD 18
+                                ****************************************************
+NAEL EE688.M    bs   10.05.99  - Kanada, Golf, Japan, US mit beliebieger Sprachkombination.
+                               - ITT DSC CI07 integriert: keine Steuerung ¸ber ZCS-Bit mehr,
+                                 automatische Codierdatengenerierung direkt aus der Steuerger‰te-ID (SGVT)
+                                 Hierf¸r ist NCSSERVE 2xx erforderlich.
+                               - MK20 CI 04 integriert: keine Steuerung ¸ber ZCS-Bit mehr,
+                                 automatische Codierdatengenerierung direkt aus der Steuerger‰te-ID (SGVT)
+                                 Hierf¸r ist NCSSERVE 2xx erforderlich. 
+                                 (Das Wort "E MK03 N1097" ist in die zutreffenden Typen fest integriert, siehe weiter unten.)
+                     ZST.* cd  - PUSY-Worte entfallen: 
+                                 E ZKE4 N0393: Integration in G-Zeile. Ist in allen Auftr‰gen Standard
+                                 E FIS  N0196 (W75): Integration in die Typen CK91/2, CM91/2, CH31/2, CL31/2, CK51, CM11/2.
+                                 E PU98 N0998: Integration in die G-Zeile. EWS3D wird in der SGET nur f¸r /7 und Comp. bedingt.
+                                 E KMBC N0998: Integration in Typen:
+                                               COMP: CJ51/2, CG11/12/21/22, CG71/72/73/81/82/83, CS11/12/21/22, CT31/41
+                                               /7: CM11/2, CL31/2, CH93, CH31/2/3, CK51/2/3
+                                 E ASC  N0997: Integration in Typen: (6-Zyl war schon integriert)
+                                               Cabrio: BH31/32/41/42/73/83 
+                                               Tour: CF51/52, CE11/12/21/22/31/32/41/42/51/52/61/62/71/72/81/82, CF11/12/21/22
+                                               Comp: CJ51/52, CG11/12/21/22, CG71/72/73/81/82/83, CS11/12/21/22, (CT31/41)
+                                               Roadster: CL31/32, CH93/31/32/33, CK51/52/53
+                                 E MK20 N0697: Vollst‰ndig aus der Codierung entfallen: Das Bit wird im Notfall recycelt, da keine ZCS damit beim Kunden.
+                                 E MK03 N1097: Serie f¸r aktuelle zutreffende Typen. Dort integriert.
+                                               Wird bei SA 210 (Z3, Z3/2) mit ITT_DSC ersetzt. (Wird in der SGET ausgeschlossen.)
+                                               Cabrio:BH31/32/41/42
+                                               Tour: CF51/52, CE31/32/41/42, CF91/92
+                                               Comp: CJ51/52, CG11/21/72/82, CS11/12/21/22
+                                               Z3: CM11/12, CL31/32, CH93/31/32/33
+                                               Z3/2: CK51/53
+                                 E DSC3 N0499: ‹berf¸hrung in SA 0210, da SA nur f¸r Z3, Z3/2 ohne HP g¸ltig lt. TAIS.
+                                               Bedingt SG ITT_DSC,LWS5 und ersetzt MK20 dann. MK20 wird in der SGET ausgeschlossen.
+                                 A CK93 V/N0998 und A CM93 V/N0998: CK93, CM93 mit ASC Serienumfang
+                                 E MRZ9 N0399: Integriert in aktuelle Z3 Typen:
+                                               CM11/12, CL31/32, CH31/32/33/93, CK91/92/93, CK51/52/53, CM91/92/93
+                               - PUSY-Wort hinzu f¸r M¸nchen: E KMB3 N0199 (Kombis CI 03 z.B.: 6 903 03?, 6 903 04?, 6 901 49?, 6 901 500 und 6 901 502 mit E3143.M)
+
+                               - Kanada, Golf, Japan, US with free combination of the language
+                               - ITT DSC CI07 integrated: no coding control by ZCS-bit any more,
+                                 the coding datas are generated automatically from the ECU-ID (SGVT)
+                                 NCSSERVE 2xx is neccesary!
+                               - MK20 CI 04 integrated: no coding control by ZCS-bit any more,
+                                 the coding datas are generated automatically from the ECU-ID (SGVT)
+                                 NCSSERVE 2xx is neccesary!
+                                 (The word "E MK03 N1097" has been fix integrated in relevant type keys, see bewlow.)
+                     ZST.* cd  - CAS-words deleted: 
+                                 E ZKE4 N0393: Integration in G-line. Is standard in all orders
+                                 E FIS  N0196 (W75): Integration in types CK91/2, CM91/2, CH31/2, CL31/2, CK51, CM11/2.
+                                               (there is no need to combine with 302 option!)
+                                 E PU98 N0998: Integration in G-line. EWS3D is coded only for /7 and Comp by the SGET.
+                                 E KMBC N0998: Integration in types:
+                                               COMP: CJ51/2, CG11/12/21/22, CG71/72/73/81/82/83, CS11/12/21/22, CT31/41
+                                               /7: CM11/2, CL31/2, CH93, CH31/2/3, CK51/2/3
+                                 E ASC  N0997: Integration in types: (6-cyl. has already been integrated)
+                                               Cabrio: BH31/32/41/42/73/83 
+                                               Tour: CF51/52, CE11/12/21/22/31/32/41/42/51/52/61/62/71/72/81/82, CF11/12/21/22
+                                               Comp: CJ51/52, CG11/12/21/22, CG71/72/73/81/82/83, CS11/12/21/22, (CT31/41)
+                                               Roadster: CL31/32, CH93/31/32/33, CK51/52/53
+                                 E MK20 N0697: Completely dropped from E36 coding. The Bit will be recycelt in the worst case because no such orders/ZCS with this bit are at the market.
+                                 E MK03 N1097: Standard for current relevant types, there integrated.
+                                               Is replaced when SA 210 (Z3, Z3/2) with ITT_DSC. (SGET excluses)
+                                               Cabrio:BH31/32/41/42
+                                               Tour: CF51/52, CE31/32/41/42, CF91/92
+                                               Comp: CJ51/52, CG11/21/72/82, CS11/12/21/22
+                                               Z3: CM11/12, CL31/32, CH93/31/32/33
+                                               Z3/2: CK51/53
+                                 E DSC3 N0499: Now SA 0210, because SA 0210 is valid only for Z3, Z3/2 without HP according to TAIS.
+                                               Causes ECU ITT_DSC,LWS5 and replaces then MK20. MK20 is excluded by SGET.
+                                 A CK93 V/N0998 and A CM93 V/N0998: CK93, CM93 with ASC standard
+                                 E MRZ9 N0399: Integrated in current Z3 types:
+                                               CM11/12, CL31/32, CH31/32/33/93, CK91/92/93, CK51/52/53, CM91/92/93
+NAEL M002.M    bs   01.07.99  
+                           CVT - Korrektur: f¸r Kompakt und CAN-Kombi Codierindex 03 wird immer die 
+                                 Bremsfl¸ssigkeitsanzeige invertiert codiert. (Sonst brennt die BFL-Lampe)
+
+                           CVT - Bug fix: for Compact with CAN-Kombi Coding Index 03 will be codede
+                                 the brake fluid indication lamp always inverted. (otherwise the BFI lamp will be on)
+
+                               - Datenstand f¸r CD 19
+                                
+NAEL E0E17.M   bt   26.07.99   - Codiermˆglichkeit EWS3D 8 Zylinder hinzu:
+                           CVT   Z3 M52B28+MAN+M60B40+ALPINA mit oder ohne AUTOMATIK
+               CVT,KMB_E36.C03 - Neu hinzu: TACHO_AUF_DAEMPFUNG, Neu DZM_AUF_AB_DAEMPFUNG
+                                 GETRIEBE_TYP auf 3 Bit erweitert.
+                           CVT - Codierung SBEII (Z3 US/CDN) Hinweisleuchte integriert
+               ZST,CVT,SGET,   - Neues E-Wort f¸r Spartanburg: E MK60 N0400            
+                                 f¸r ASC/DSC MK60, neue Generation
+                         SGVT  - Korrektur: Kein Ausschluﬂ div. Motoren f¸r DSC3 CI 07 mehr.
+               ZST,CVT         - SA 851 "Sprachversion deutsch" integriert.
+
+                               - feature EWD3D 8 cyl. integrated
+                               - New Can Kombi flags added:
+                               - TACHO_AUF_DAEMPFUNG, Neu DZM_AUF_AB_DAEMPFUNG 
+                                 GETRIEBE_TYP now 3 bits.
+                               - Coding SBEII (Z3 US/CDN): Indication light integrated
+                               - New CAS Word for Spartanburg: E MK60 N0400 for new generation
+                                 ASC/DSC MK60. Codes now Can Kobi flag. ECU MK60 will be integrated soon.
+                               - bug fix for DSC3 CI 07
+                               - Opt. 851 "language version german" integrated.
+
+NAEL E3E12.M    bu   23.09.99   - Integration CN13
+                                - Die B_Satelliten bleiben aktiv bei Abr¸stung Seitenairbag in der HO
+                                - Neuer Parametersatz Z3: 17604T26
+                                - Integration ITT DSC3 MK60
+                                - BCL.C02 TANK_FENSTER_SCHWELLE_MAX, ..._MIN in Codierdatenbereich ¸bernommen.
+                                - Spartanburg: E SBE2 N0199 new launching dates/regard comment in ZST
+                                                                
+                                Datenstand f¸r CD 20
+                                ****************************************************
+NAEL EM003.M                    MRSZ.C06 CVT - Neuer MRSZ.C06 neuer Crashparameter e36_m3_us f¸r US+S50B32+SEITENAIRBAG E36/4/2/C     
+                              - Datenstand f¸r CD 20.1
+                                ****************************************************
+
+NAEL E8E18.M    bv   17.12.99
+                     MRS3.C11 - from 6/00 on. Mandatory for SBE2 but coming for all orders.
+                     SGVT       Launching with part no: 6 908 896
+                     SGET       Datas for the new coding index will be automatically generatet by SGVT.  
+                     ZCSUT      Spare part for MRS3.C09.
+                     
+                  ITT_DSC.C09 - New part, new coding index launching earliest in 3/00
+                     SGVT       Datas for the new coding index will be automatically generatet by SGVT.
+                     SGET       Not valid for Z3 HP TU.
+                     
+                  ITT_DSC.C08 - New part, new coding index exclusively, mandatory for Z3 M3 HP
+                                Integration SA 0210 (DSC) and SA 0209 (SMG Sequentiel M-gear for M3)
+                                in the S54B32 types as basic equipment.
+                                
+                              - ZCSUT ABG (C05) das Bitmuster VN 00040.. (ZAE2 nicht gesetzt) erg‰nzt.
+                              - MY01: 0807 Japan man. with start lock.
+                  E36ZST.*    - New CAS words for Spartanburg:
+                  Index cg      E MY01 N1199 for Spartanburg: JAPAN with start lock
+                                E LEAT N0600 Relevant for orders with SBE2: leather Q***, R***, O*** and Z1XX,Z9XX
+                                E ALEA N0600 Relevant for orders with SBE2: artificial leather K***
+                                E 0481 N0600 orders with SBE2 and option 0481 sport seats.
+                                E 0494 N0600 orders with SBE2 and option 0494 seat heating.
+                              - Deleted CAS word:
+                                E PU99 N0199, integrated in all Z3 types. Spartanbug
+                                E KMB3 N0199, wird aut. umgeschl¸sselt ¸ber ZCSUT. Spartanbug/M¸nchen
+
+
+
+NAEL E3003.N    bw   27.01.00 - Korrektur BCL.C02, um den ganzen Codierdatenbereich mit VMP zu schreiben
+                                Relevant in der HO zu Korrekturen von Altfahrzeugen. Die aktuelle Anlieferungscodierung
+                                f¸r die Werke ist bereits richtig.
+                              - Datenstand f¸r CD 21
+                                ****************************************************
+
+NAEL E3564.N    bx   27.03.00 - SA 209 aus den Typen CN11 und CN12 entfallen gem. BFT.
+                              - SA 209 in den Typ CK73 als Serienumfang integriert.
+                              - Heckklappenlogik S54B32 wie S50B32.
+                   SBE2.C01   - Neue CBD: Entfall der Wˆrter KAPAZITAET_G/E_ANT1_MAX, LEERKAPAZITAET_ANTENNE1
+                                durch Zusammenfassung. Entfall Codierindex 11.
+                  KMB_E36.C03 - S54B32 Z3HP: MOTOR_OELSTAND_PREDRIVE nicht_aktiv: da nur Motorsteuerung MSS52 ansteuern soll
+                              
+                              - Option 209 not standard for CN11 and CN12: dropped according to BFT.
+                              - Option 209 integrated in CK73 as basic equipment.
+                              - Trunk lock coding S54B32 like S50B32.
+                   SBE2.C01   - New CBD: FSW dropped: KAPAZITAET_G/E_ANT1_MAX, LEERKAPAZITAET_ANTENNE1
+                                Deletion of Coding Index 11.
+                  KMB_E36.C03 - S54B32 Z3HP: MOTOR_OELSTAND_PREDRIVE nicht_aktiv: because only MSS52 shall trigger.
+
+NAEL EE354.N    by   04.07.00 - ITT_DSC3.C08 auf neue Motorsport-PSW aktualisiert.
+                              - Datenstand f¸r CD 23
+                                ****************************************************
+                                
+                                
+                                
+NAEL E6E96.N    bz   16.10.00 - SA 278 in der ZST erg‰nzt. M00 nach EK-INTRA und in CODIERDA.TEN eingestellt.
+                              - Ge‰nderte/Neue FSW MK60.C01 in CVT aufgenommen: LENKWINKELKENNLINIE, BAUART_MK60
+                              
+                                Datenstand f¸r Test-CD 24.1 mit der neuen Datenstruktur 3XX
+                                ******************************************************
+                              
+                ITT_DSC3.C08  - Korrektur f¸r Z3 HP: DV_OFFSET soll line1. War falsch line0, DSC regelt nicht rechtzeitig.
+                        CVT     Betroffen sind nur VT's.
+                MK60.C03      - Neu hinzu als Ersatzteil. Aut. Steuerung ¸ber SGVT.
+                E36ZST.*      - CAS-word clean up:
+                                
+                                Seat occupation control 2nd generatoin 
+                                E SBE2 N0199, E ALEA N0600, E LEAT N0600, E 0481 N0600, E 0494 N0600
+                                
+                                E MY01 N1199 has migrated in the G-line and HGVN-line.
+                                conditions are setted in CVT at keyword "PARK/NEUTRAL_EINGANG"
+                                (so that all orders can get the MY01 bit.)
+                                
+                                H MK60 N1099: relevant types have got the MK60 bit at any time since 0201. 
+                                Conditions with SA210 are realized in SGET.
+
+                
+                
+                
+                
+                                Datenstand f¸r CD 25 Neue Datenstruktur 3XX erstmals in die HO
+                                ******************************************************
+
+

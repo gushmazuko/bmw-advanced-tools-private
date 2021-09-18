@@ -1,0 +1,1329 @@
+// Auftragsdatei: E65AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 911 378.5
+DATUM 10.07.2012
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-92
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                        Datum    Name
+// E3959.N  a           Erstfreigabe fuer FA
+// ...
+// ...
+// ...
+// S1E57.P  af          SA 950 hinzu,
+//                      Z #1101 entfaellt, ASW M_DME in Zeile Z #1001 integriert                 01.10.01 Haller
+//                      2 Typen fuer CKD Thailand hinzu, GN25 (basis GN22) und GN45 (basis GN42) 09.10.01 Wagener
+//
+//
+//
+DATEINAME                             E65AT.000
+//
+//
+//      zukuenftige Aktionen:
+//      ASW zu E-Wort "E PA5M" nach sicherem Einsatz in Abstimmung mit der naechsten HO-CD in Zeitkriterium integrieren
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevanz)
+//
+//  ACHTUNG:  SE MJ02 fuer US zu 07/00 (PN 8016/074)
+//
+
+Z #0907                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05 MAERZ06 PU06 MAERZ07 PU07     //E65MUe zu 09/07, 06-09-500
+
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0100                                                                                                                                                         //PPP-Stand 09_99
+A #1100                                                                                                                                                         //Vorserie 1
+A #0201                 VS2                                                                                                                                     //Vorserie 2
+A #0301                 VS2 VS2_PULK8                                                                                                                           //Vorserie 2 Pulk 8, Montagestart 26.03.01
+A #0401                 VS2 VS2_PULK8 VS3                                                                                                                       //Vorserie 3 Pulk 1, Montagestart 23.04.01, Datenfestschreibung 6.40
+A #0501                 VS2 VS2_PULK8 VS3                                                                                                                       //Vorserie 3 Pulk 6, Montagestart 28.05.01, Datenfestschreibung 6.50
+A #0701                 VS2 VS2_PULK8 VS3 SERIE                                                                                                                 //Serienstart
+A #0801                 VS2 VS2_PULK8 VS3 SERIE I6_53                                                                                                           //Datenfestschreibung I6.53, SE 20.08.01
+A #1001                 VS2 VS2_PULK8 VS3 SERIE I6_53                                                                                                           //Datenfestschreibung I6.54, SE ca. 20.10.01
+A #1101                 VS2 VS2_PULK8 VS3 SERIE I6_53                                                                                                           //Datenfestschreibung I6.55, November 2001, codierrelevantes Telefon US
+A #0302                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02                                                                                                   //Maerz 2002, I 6.
+A #0902                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02                                                                                              //Sep 2002 gem. S.Buegl I 6.87
+A #0103                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03                                                                                    //Jan. 2003, SE EVEREST-Plattform fuer US, I 6.093.1
+A #0303                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03                                                                            //Maerz 03/03, I6.100
+A #0603                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110                                                                     //Juni 06/03, I6.110
+A #0903                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03                                                                //PU 09/03, I6.126
+A #1203                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03                                                                //Q-Massnahme zu 12/03, 03-12-500
+A #0304                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04                                                        //Maerz 04, 04-03-500
+A #0904                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04                                                   //PU 09/04, 04-09-500
+A #0305                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05                                           //E65MUe zu 03/05, 05-03-500
+A #0605                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05                                    //E65MUe zu 06/05, 05-06-510
+A #0905                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05                               //E65MUe zu 09/05, 05-09-500
+A #0306                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05 MAERZ06                       //E65MUe zu 03/06, 06-03-500
+A #0906                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05 MAERZ06 PU06                  //E65MUe zu 03/06, 06-03-500
+A #0307                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05 MAERZ06 PU06 MAERZ07          //E65MUe zu 03/07
+A #0907                 VS2 VS2_PULK8 VS3 SERIE I6_53 MAERZ02 PU02 JANUAR_03 MAERZ03 I6_110 PU03 MAERZ04 PU04 MAERZ05 JUNI05 PU05 MAERZ06 PU06 MAERZ07 PU07     //E65MUe zu 09/07, 06-09-500
+
+//******************************************************************************
+//E: aktive Ergaenzungszeilen (PUSY-Relevanz fuer Steuerung SA<100)
+E LEDE                  LEDER                           //Lederausstattung
+E EWS4                                                  //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+
+//E-Zeilen aus Sonderoptionen E67; Reserviert hierfuer sind die Nummernkreise 7xxS
+E 701S                  E67_701S                        //E67-Sonderoption 701S
+E 702S                  E67_702S                        //E67-Sonderoption 702S
+E 703S                  E67_703S                        //E67-Sonderoption 703S
+E 704S                  E67_704S                        //E67-Sonderoption 704S
+E 705S                  E67_705S                        //E67-Sonderoption 704S
+E 706S                  E67_706S                        //E67-Sonderoption 704S
+E 707S                  E67_707S                        //E67-Sonderoption 707S
+E 708S                  E67_708S                        //E67-Sonderoption 708S
+E 709S                  E67_709S                        //E67-Sonderoption 709S
+E 710S                  E67_710S                        //E67-Sonderoption 711S
+E 711S                  E67_711S                        //E67-Sonderoption 711S
+E 712S                  E67_712S                        //E67-Sonderoption 712S
+E 713S                                                  //E67-Sonderoption 704S
+E 714S                  E67_714S                        //E67-Sonderoption 714S
+E 715S                  E67_715S                        //E67-Sonderoption 715S
+E 716S                  E67_716S                        //E67-Sonderoption 716S
+E 717S                  E67_717S                        //E67-Sonderoption 704S
+E 718S                  E67_718S                        //E67-Sonderoption 704S
+E 719S                  E67_719S                        //E67-Sonderoption 719S
+E 720S                  E67_720S                        //E67-Sonderoption 704S
+E 721S                  E67_721S                        //E67-Sonderoption 704S
+E 722S                  E67_722S                        //E67-Sonderoption 704S
+E 723S                  E67_723S                        //E67-Sonderoption 723S
+E 724S                  E67_724S                        //E67-Sonderoption 704S
+E 725S                  E67_725S                        //E67-Sonderoption 725S
+E 726S                  E67_726S                        //E67-Sonderoption 704S
+E 727S                  E67_727S                        //E67-Sonderoption 704S
+E 728S                  E67_728S                        //E67-Sonderoption 704S
+E 729S                  E67_729S                        //E67-Sonderoption 704S
+E 730S                  E67_730S                        //E67-Sonderoption 730S
+E 731S                  E67_731S                        //E67-Sonderoption 731S
+E 732S                  E67_732S                        //E67-Sonderoption 732S
+E 733S                  E67_733S                        //E67-Sonderoption 733S
+E 734S                  E67_734S                        //E67-Sonderoption 734S
+E 735S                  E67_735S                        //E67-Sonderoption 735S
+E 736S                  E67_736S                        //E67-Sonderoption 736S
+E 737S                  E67_737S                        //E67-Sonderoption 737S
+E 738S                                                  //E67-Sonderoption 738S
+E 739S                                                  //E67-Sonderoption 739S
+E 740S                  OHNE_AHPS_LI OHNE_AHPS_RE       //E67-Sonderoption 740S
+E 741S                  E67_741S                        //E67-Sonderoption 741S
+E 742S                  E67_742S                        //E67-Sonderoption 742S
+E 743S                  E67_714S E67_718S E67_720S E67_721S E67_722S    //E67-Sonderoption 743S, Zusammenfassung von 5 Sonderoptionen
+E 744S                  ENTFALL_FKA                     //E67-Sonderoption 742S, Entfall Fondklimaanlage
+E 745S                  //E67_745S                        //E67-Sonderoption, Entfall Xenonlicht ab MUe
+E K638                  NACHRUEST_TCU                   //Nachruestung Telefon ECE TCU
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+H I110                  I6_110                          //Test HKL.C02 zur I-Stufe 6.110
+H TRSW                  TARNSCHEINW                     //nur eine Blinkleuchten je Frontscheinwerfer (Tarnscheinwerfer), nur PPP
+H MBOS                  MIT_BOS                         //Codierung BOS im CAS aktiv
+H ONAK                  OHNE_NAV_KOMBI                  //keine Anzeige der Navi-Richtungsinformation im Kombi, nur VS2 Pulk 8 und 9
+H OACC                  OHNE_ACC                        //Aufbau mit ACC, ACC inaktiv
+H ORLS                  OHNE_RLS                        //Aufbau mit RLS, RLS inaktiv
+H LEDE                  LEDER                           //Lederausstattung
+H OEHC                  OHNE_EHC                        //Aufbau mit Luftfederung, Luftfederung inaktiv
+H OPGS                  OHNE_PGS                        //Aufbau mit PGS, PGS inaktiv
+H PA5M                  KURZES_DELAY                    //Kurzes Timedelay Beifahrerairbag
+H LMTE                  LM_TEST                         //FIZ-FAHRZEUGE; Warmueberwachung Ruecklicht/Bremslicht akt
+H LSCH                  L_SCHLOSS                       //ab 0902 fest im FA
+H 456L                  MIT_AKT_KOPF_FA                 //Aktivierung Aktive Kopfstuetze Fahrerseite bei Umbau nur Fahrer-Basissitz auf Fahrer-Komfortsitz ohne Spiegelmemory-Funktion. Individual!!
+H I671                  I6_71                           //EKP ab sofort bis I6.71 einsetzt
+H I685                  I6_85                           //Datenfestschreibung I6.85
+H KEMU                  KEX_MUE                         //E-Wort fuer KEX-Fahrzeuge E65 MUe
+H KEX2                  //KEX_2C                          //E-Wort fuer KEX_2C-Fahrzeuge die die neuen Ruecklichter bekommen
+H RSEM                                                  //RSE mid System  RSE_MID
+H RSEH                                                  //RSE high System  RSE_HIGH
+H EWS4                                                  //Vorhalt fuer neue EWS Generation (nicht codierrelevant!)
+H 744S                  ENTFALL_FKA                     //E67-Sonderoption 742S, Entfall Fondklimaanlage
+H MEKA                  ENTFALL_MEKKA                   //K-Wort fuer den Mekkapfeil im Navi
+H EFZG                                                  //Steuerung fuer CLASS_PWR
+H CEUS                  BIVALENT_US                     //Bivalenter Umbau E68 auf US
+H NZEV                  MONOVALENT_US                   //Monovalenter Aufbau E68 fuer US
+H FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal
+H FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich
+
+//
+//H-Zeilen aus Sonderoptionen E67
+H 701S                  E67_701S                        //E67-Sonderoption 701S
+H 702S                  E67_702S                        //E67-Sonderoption 702S
+H 703S                  E67_703S                        //E67-Sonderoption 703S
+H 704S                  E67_704S                        //E67-Sonderoption 704S
+H 705S                  E67_705S                        //E67-Sonderoption 704S
+H 706S                  E67_706S                        //E67-Sonderoption 704S
+H 707S                  E67_707S                        //E67-Sonderoption 707S
+H 708S                  E67_708S                        //E67-Sonderoption 708S
+H 709S                  E67_709S                        //E67-Sonderoption 709S
+H 710S                  E67_710S                        //E67-Sonderoption 711S
+H 711S                  E67_711S                        //E67-Sonderoption 711S
+H 712S                  E67_712S                        //E67-Sonderoption 712S
+H 713S                                                  //E67-Sonderoption 704S
+H 714S                  E67_714S                        //E67-Sonderoption 714S
+H 715S                  E67_715S                        //E67-Sonderoption 715S
+H 716S                  E67_716S                        //E67-Sonderoption 716S
+H 717S                  E67_717S                        //E67-Sonderoption 704S
+H 718S                  E67_718S                        //E67-Sonderoption 704S
+H 719S                  E67_719S                        //E67-Sonderoption 719S
+H 720S                  E67_720S                        //E67-Sonderoption 704S
+H 721S                  E67_721S                        //E67-Sonderoption 704S
+H 722S                  E67_722S                        //E67-Sonderoption 704S
+H 723S                  E67_723S                        //E67-Sonderoption 723S
+H 724S                  E67_724S                        //E67-Sonderoption 704S
+H 725S                  E67_725S                        //E67-Sonderoption 725S
+H 726S                  E67_726S                        //E67-Sonderoption 704S
+H 727S                  E67_727S                        //E67-Sonderoption 704S
+H 728S                  E67_728S                        //E67-Sonderoption 704S
+H 729S                  E67_729S                        //E67-Sonderoption 704S
+H 730S                  E67_730S                        //E67-Sonderoption 730S
+H 731S                  E67_731S                        //E67-Sonderoption 731S
+H 732S                  E67_732S                        //E67-Sonderoption 732S
+H 733S                  E67_733S                        //E67-Sonderoption 733S
+H 734S                  E67_734S                        //E67-Sonderoption 734S
+H 735S                  E67_735S                        //E67-Sonderoption 735S
+H 736S                  E67_736S                        //E67-Sonderoption 736S
+H 737S                  E67_737S                        //E67-Sonderoption 737S
+H 738S                                                  //E67-Sonderoption 738S
+H 739S                                                  //E67-Sonderoption 739S
+H 740S                  OHNE_AHPS_LI OHNE_AHPS_RE       //E67-Sonderoption 740S
+H 741S                  E67_741S                        //E67-Sonderoption 741S
+H 742S                  E67_742S                        //E67-Sonderoption 742S
+H 743S                  E67_714S E67_718S E67_720S E67_721S E67_722S    //E67-Sonderoption 743S, Zusammenfassung von 5 Sonderoptionen
+H 744S                  ENTFALL_FKA                     //E67-Sonderoption 742S
+H 745S                  //E67_745S                        //E67-Sonderoption, Entfall Xenonlicht ab MUe
+
+//H-Zeilen aus gemeinsamen E- und K-Worte
+H B080                  BATTERIE_HO BATTERIE_80AH       //Steuerung Batterie auf 80AH
+H B090                  BATTERIE_HO BATTERIE_90AH       //Steuerung Batterie auf 90AH
+H B095                  BATTERIE_HO BATTERIE_95AH       //Steuerung Batterie auf 95AH
+H B110                  BATTERIE_HO BATTERIE_110AH      //Steuerung Batterie auf 110AH
+H ID4P                  ID_GEBER_4                      //4 ID-Geben fuer Passiv Access
+H GUJA                  SEATBELT_JAPAN                  //Seatbelt-Reminder Fahrer Japan
+
+//H-Zeilen ausschliesslich aus K-Worten
+H TELD                  TELEMATIC_DIS                   //Deaktivierung Funktion Telematic fuer TCU_MOST
+H EVER                  EVEREST_TELEFON                 //Nachruestung Everest-Plattform
+H NAV2                                                  //Nachruestung Navi2 in Fahrzeuge vor 03/03, notwendig zur Dokumentation und KMM fuer Ersatzteilversorung
+H OI01                  OHNE_FA_AIRBAG                  //Deaktivierung Fahrerairbag
+H OI02                  OHNE_BF_AIRBAG                  //Deaktivierung Beifahrerairbag
+H OI03                  OHNE_SIDEBAG_VL                 //Deaktivierung Sidebag vorn links
+H OI04                  OHNE_SIDEBAG_VR                 //Deaktivierung Sidebag vorn rechts
+H OI05                  OHNE_AHPS_LI                    //Deaktivierung AHPS links
+H OI06                  OHNE_AHPS_RE                    //Deaktivierung AHPS rechts
+H OI07                  OHNE_SIDEBAG_HL                 //Deaktivierung Sidebag Fond links
+H OI08                  OHNE_SIDEBAG_HR                 //Deaktivierung Sidebag Fond rechts
+H OI09                  OHNE_KNIESCH_VL                 //Deaktivierung Knieschutz vorn links
+H OI10                  OHNE_KNIESCH_VR                 //Deaktivierung Knieschutz vorn rechts
+H K302                  NACHR_ALARMANL                  //Nachruestung DWA mit Innenraumschutz und Notstromsierene, ohne Batterieanpassung
+H K235                  NACHRUEST_AHK                   //Nachruestung Anhaengerkupplung, ohne Batterieanpassung
+H K536                  NACHRUEST_SHZH                  //Nachruestung Standheizung
+H K601                  NACHRUEST_TV                    //Nachruestung TV-Modul
+H K609                  NACHRUEST_NAVI                  //Nachruestung Navigation
+H K630                  NACHRUEST_TEL                   //Nachruestung Telefon ECE
+H ORGS                  O_REIZGASSENSOR                 //Deaktivierung Reizgassensoren
+H PVCA                  AKT_PERS_V_CALL                 //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung
+H TAST                  NACHR_TASTEN                    //Nachruestung der Controllertasten vorne und hinten
+H KK09                  NACHRUEST_NAVI                  //Kundendienstnachruestung Korea SA 609 ab MUe05
+H NNBL                  NACHR_MUE_BEL                   //Nachruestung der MUe-Beleuchtung
+H BENI                                                  //Nachruestung Video Benin
+H NNIC                  NACHRUEST_NIC                   //Nachruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"
+H TVHY                                                  //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul
+H TAIN                  TANKKLAPP_VER                   //(Tankklappe Indonesien)
+H VIDR                  UMRUEST_VID                     //Umruestung wegen ruckelndem TV-Bild
+H K242                                                  //Umruestung zur Leistungsanhebung 745d
+H IPOD                  IPOD                            //Nachruestung iPod
+H K638                  NACHRUEST_TCU                   //Nachruestung Telefon ECE TCU
+H UMDA                  UMRUEST_DAEMPF                  //Umruestung Daempfer
+H IBAC                                                  //Nachruestung
+H KPLC                                                  //Nachruestung
+H NL12                                                  //Umruestung Schlag nach Schiebephase - Holland
+H KLED                  LED_AHM                         //Nachruestung LED Leuchten für Anhänger
+H RCIQ                                                  //Umruestung Kaltstart Leerlaufqualität
+H MGUS                                                  //Getriebesteuerung US in KMM
+//******************************************************************************
+//K: Kundendienst-Ergaenzungszeilen (keine PUSY-Relevanz)
+//*******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//Achtung: Nummernkreis 7xxS sind fuer Sonderumfaenge Sicherheitsfahrzeug reserviert
+
+K TELD                  TELEMATIC_DIS                   //Deaktivierung Funktion Telematic fuer TCU_MOST
+K EVER                  EVEREST_TELEFON                 //Nachruestung Everest-Plattform
+K NAV2                                                  //Nachruestung Navi2 in Fahrzeuge vor 03/03, notwendig zur Dokumentation und KMM fuer Ersatzteilversorung
+
+K OI01                  OHNE_FA_AIRBAG                  //Deaktivierung Fahrerairbag
+K OI02                  OHNE_BF_AIRBAG                  //Deaktivierung Beifahrerairbag
+K OI03                  OHNE_SIDEBAG_VL                 //Deaktivierung Sidebag vorn links
+K OI04                  OHNE_SIDEBAG_VR                 //Deaktivierung Sidebag vorn rechts
+K OI05                  OHNE_AHPS_LI                    //Deaktivierung AHPS links
+K OI06                  OHNE_AHPS_RE                    //Deaktivierung AHPS rechts
+K OI07                  OHNE_SIDEBAG_HL                 //Deaktivierung Sidebag Fond links
+K OI08                  OHNE_SIDEBAG_HR                 //Deaktivierung Sidebag Fond rechts
+K OI09                  OHNE_KNIESCH_VL                 //Deaktivierung Knieschutz vorn links
+K OI10                  OHNE_KNIESCH_VR                 //Deaktivierung Knieschutz vorn rechts
+K OI11                  OHNE_FA_SBR                     //Deaktivierung FAHRER SEATBELTREMINDER
+K OI12                  OHNE_BF_SBR                     //Deaktivierung BEIFAHRER SEATBELTREMINDER
+
+K K302                  NACHR_ALARMANL                  //Nachruestung DWA mit Innenraumschutz und Notstromsirene, ohne Batterieanpassung
+K K235                  NACHRUEST_AHK                   //Nachruestung Anhaengerkupplung, ohne Batterieanpassung
+K K536                  NACHRUEST_SHZH                  //Nachruestung Standheizung
+K K601                  NACHRUEST_TV                    //Nachruestung TV-Modul
+K K609                  NACHRUEST_NAVI                  //Nachruestung Navigation
+K K630                  NACHRUEST_TEL                   //Nachruestung Telefon ECE
+K K631                  ZWEITHOERER                     //Umruestung Telefon ECE TCU
+K K633                  BT_AKTIVIERUNG                  //Nachruestung BT Aktivierung bei TCU (nur bei SA639,SA641 und SA664) (Handy ueber BT) bis c06
+K K638                  NACHRUEST_TCU                   //Nachruestung Telefon ECE TCU
+K B080                  BATTERIE_HO BATTERIE_80AH       //Batterietausch auf 80 Ah-Batterie
+K B090                  BATTERIE_HO BATTERIE_90AH       //Batterietausch auf 90 Ah-Batterie
+K B095                  BATTERIE_HO BATTERIE_95AH       //Batterietausch auf 95 Ah-Batterie
+K B110                  BATTERIE_HO BATTERIE_110AH      //Batterietausch auf 110 Ah-Batterie
+K BA90                  BATTERIE_HO BATTERIE_90AGM      //Batterietausch auf 90AGM
+K ID4P                  ID_GEBER_4                      //4 ID-Geben fuer Passiv Access
+K ORGS                  O_REIZGASSENSOR                 //Deaktivierung Reizgassensoren
+K PUMP                  NACHRUEST_EKP                   //Nachruestung neue Kraftstoffpunpe
+K PVCA                  AKT_PERS_V_CALL                 //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung
+K TAST                  NACHR_TASTEN                    //Nachruestung der Controllertasten vorne und hinten
+K KK09                  NACHRUEST_NAVI                  //Kundendienstnachruestung Korea SA 609 ab MUe05
+K NNBL                  NACHR_MUE_BEL                   //Nachruestung der MUe-Beleuchtung
+K BENI                                                  //Nachruestung Video Benin
+K NNIC                  NACHRUEST_NIC                   //Nachruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"
+K TVHY                                                  //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul
+K TAIN                  TANKKLAPP_VER                   //(Tankklappe Indonesien)
+K MNVD                                                  //N73-Motor Niederverdichtet
+K UEDC                  UMRUEST_EDC                     //Umruestung EDC fuer E67
+K VIDR                  UMRUEST_VID                     //Umruestung wegen ruckelndem TV-Bild
+K K242                                                  //Umruestung zur Leistungsanhebung 745d
+K IPOD                  IPOD                            //Nachruestung iPod
+K OEOE                  OEOE                            //Oeffnen ohne Entriegeln
+K KFDM                                                  //Nachruestung Flexibles Diagnose Modul
+K USEC                  UMRUEST_US_ECE                  //Umruestung Kommunikationsumfaenge von US nach ECE-spezifikation
+K KONI                  KONTRAST                        //Umruestung Nightvision Kontrast
+K BELL                  LAUTSTAERKE_TEL                 //Nachruestung (KWort BELL: ab #0305, SA638 oder K638, getrennte Regelung der Lautstaerke des Klingeltons, Anforderung VS-21 Herr Schuemmer)
+K BTBT                  PRIVACY_MODE                    //Nachruestung 164, Ueberstellen eines Telefongespraechs in den Privacy Mode
+K MEKA                  ENTFALL_MEKKA                   //K-Wort fuer den Mekkapfeil im Navi
+K KOAB                                                  //Komfortlichtabschaltung
+K UMDA                  UMRUEST_DAEMPF                  //Umruestung Daempfer
+K IBAC                                                  //Nachruestung
+K KPLC                                                  //Nachruestung
+K NL12                                                  //Umruestung Sclag nach Schiebephase - Holland
+K KLED                  LED_AHM                         //Nachruestung LED Leuchten für Anhänger
+K RCIQ                                                  //Umruestung Kaltstart Leerlaufqualität
+K MGUS                                                  //Getriebesteuerung US in KMM
+K GUJA                  SEATBELT_JAPAN                  //Seatbelt-Reminder Fahrer Japan
+K FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal
+K FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//******************************************************************************
+//SA/LA/PS-Zeilen
+//                                                       //Alu-Guss Rad 245/50 R18 auf 8J X 18, Styling 91
+//                                                       //20"-Raeder; Sonderzubehoer
+W 116                                                   //Standartenhalter links
+W 117                                                   //Standartenhalter rechts
+W 118                   SPEED_LIMIT                     //Reduzierung Hoechstgeschwindigkeit
+W 131                                                   //Waffenhalterung fuer 3 Waffen
+W 144                   TONFOLGEANLAGE                  //RKA I Abnehmb. Tonf. Polizeisch.
+W 167                                                   //Abgasnorm EU4 (fuer Dieselmotor)
+W 168   V0903           MILANSTEUERUNG                  //Abgasnorm EU2
+W 169                                                   //Abgasnorm EU3
+W 170                   FUNKGERAET                      //VB einb. AEG
+W 172                                                   //Vorb. ethanolhaltiger Kraftstoff, Entfaellt lt. PN 8445/037
+W 179                   REIZGASSENSOREN                 //Reizgassensoren
+W 180                                                   //VB Dachantenne
+W 181                                                   //Montage Heckantenne
+W 182                   FEUERLOESCHER                   //Feuerloescher
+W 184                   NOTAUSSTIEG                     //Notausstieg ueber Frontscheibe
+W 187                                                   //Bodenschutz
+W 188                   FH_VO_RE FH_VO_LI               //Tuerscheibe absenkbar V RE+LI
+W 189                   FH_VO_LI FH_VO_RE FH_HI_LI FH_HI_RE      //Tuerscheibe absenkbar V+H
+W 190                   W_SPRECHANLAGE                  //Wechselsprechanlage
+W 191                   FH_VO_RE                        //Tuerscheibe absenkbar V RE
+W 192                   FH_VO_LI                        //Tuerscheibe absenkbar V LI
+W 193                   ENTF_H_FRONTSCH                 //Entfall beheitz Frontscheibe
+W 194                   FERNSTART                       //Motorfernstart
+W 198                   FRISCHLUFT                      //Zusaetzliche Frischluftanlage
+W 199                   MILANSTEUERUNG OHNE_KAT         //Ausstattung fuer bleihaltigen Kraftstoff
+W 1CA                                                   //Selektion CO2 (conformity of production)
+W 202                   STEPTRONIC                      //Steptronik, Zeile wird fuer PPP's benoetigt
+W 212                                                   //Bremsanlage fuer Laende
+W 216   V0905           SERVOTRONIC                     //Servotronik
+W 220                   NIVEAUREG                       //Niveauregulierung in Verbindung mit Luftfederung an HA
+//W 220   N0305           NIVEAUREG EDC ARS               //Niveauregulierung mit Zwangszusteuerung SA 2VA FAHRWERKSABSTIMMUNG ADAPTIVE DRIVE ab 03/05
+W 223   V0905           EDC                             //EDC-K   (Elektronische Daempferkontrolle)
+W 226   V0905           SPORTFAHRWERK                   //Sportliche Fahrwerksabstimmung
+W 229                   ARS                             //aktive Rollstabilisierung bis 03/05
+W 235                   ANH_KUPPLUNG                    //Anhaengerkupplung mit Anhaengerfederung
+W 236                                                   //Mischbereifung "Top of the Line" (Styling 92)
+W 238                                                   //Alu-Guss Rad 245/50 R18 auf 8J X 18, Styling 93
+W 239                                                   //Alu-Guss Rad 245/50 R18 auf 8J X 18, Styling 94
+W 245                   LSM                             //Lenksaeulenverstellung elektrisch
+W 248                   LENKRADHEIZUNG                  //Lenkradheizung
+W 250                                                   //SEITENAIRBAGS F. FOND-Passagiere
+W 251                   RPA                             //Reifen Pannen Anzeige
+W 252                   AKTIVER_KNIEBAG                 //Knieairbag fuer Vorne
+W 255                                                   //Sport-Lederlenkrad
+W 257                   OH_THORAX_HI                    //Ohne Thoraxairbag hinten, US only
+W 261                   FONDSICHERHEIT                  //Seitenairbags fuer Fondpassagiere
+W 265                   RDC                             //RDC
+W 268                                                   //LM-Raeder mit Mischbereifung VA: LM 245/50 R19, HA: LM 275/45 R19 (Styling 95)
+W 2BK                                                   //LM R. DOPPELSPEICHE 17
+W 2BL                                                   //LM R. DOPPELSPEICHE 17
+W 2C1                                                   //LM R. STERNSPEICHE 175
+W 2C2                                                   //LM R. STERNSPEICHE 175
+W 2EA                                                   //LM RAEDER Y-SPEICHE 14
+W 2M2                                                   //LM RAEDER V-SPEICHE
+W 2RD                                                   //LM RAEDER SP. STYLING
+W 2R6                                                   //LM Rad Sternspeiche 231 mit Mischbereifung 19"
+W 2VA                   EDC ARS                         //FAHRWERKSABSTIMMUNG ADAPTIVE DRIVE ab 03/05
+W 2VB                   DIRECT_RDC                      //DIREKTE REIFENDRUCKKONTROLLE (OHNE RPA) (PU09/05)s.PA440/271
+W 302                   ALARMANLAGE                     //Alarmanlage: DWA mit Innenraumschutz und Notstromsierene
+W 316                   AUTOM_HECKKL                    //aut. Heckklappe
+W 319                                                   //integrierte Universalfernbedienung
+//W 319                   FERNBEDIENUNG                   //integrierte Universalfernbedienung
+W 320                                                   //Modellschriftzug Entfall
+W 322                   PASSIV_ACCESS                   //Passiv Access SE fuer ECE 09/02;Jap/US 03/03
+W 323                   SCA                             //Soft Close Automatik mit Kindersicherung
+W 330   V0305           SPORTFAHRWERK                   //Sportpaket immer mit Sportfahrwerk
+W 330   N0305           SPORTFAHRWERK ARS               //Sportpaket mit Zwangszusteuerung SA 229 aktive Rollstabilisierung (Dynamic Drive)
+W 339                                                   //Shadow Line
+W 354                                                   //Gruenkeil Frontscheibe
+W 356                   KLIMAGLAS                       //Klimakomfort-Verglasung (rundum)
+W 357                   SCHUTZGLAS                      //Schutzverglasung
+W 358                   KLIMA_FRONTSCH                  //Klimakomfort-Frontscheibe (IR-beschichtete Frontscheibe)
+W 396                                                   //SICHERHEITSBEREIFUNG
+//W 401                   SHD                             //Stahl-Schiebe-Hebedach
+W 403                   GLAS_SHD                        //Glas-Schiebe-Hebedach
+W 415                   HECKROLLO                       //Sonnenschutzrollo Heckscheibe elektrisch
+W 416                   SEITENROLLO                     //wie 0415 inkl. Sonnenschutzrollo Seitenscheibe elektr.
+W 423                                                   //Veloursmatten vorn und hinten
+W 428                                                   //Warndreieck und Verbandstasche
+W 430                   SPIEGELPAKET                    //Innen- und Aussenspiegel autom. abblendend
+W 431                                                   //Innenspiegel automatisch abblendend
+W 435                                                   //Edelholzausfuehrung Kirsche hell matt
+W 436                                                   //Edelholzausfuehrung Kirsche dunkel matt
+W 437                                                   //Edelholzausfuehrung, Eschen Maser hell
+W 438                                                   //Edelholzausfuehrung Eschen Maser dunkel
+W 441                                                   //Raucherpaket
+W 442                                                   //Cupholder vorn/hinten
+W 451                   AKTIVSITZ_FA LORDOSE            //Aktivsitz Fahrer /PA 446
+W 453                   SITZBELUEF_VORN                 //aktive Sitzbelueftung vorn
+W 454                   SITZBELUEF_FOND                 //aktive Sitzbelueftung hinten
+W 455                   AKTIVSITZ_FA_BF LORDOSE         //Aktivsitz Fahrer/Beifahrer
+W 456                   KOMFORTSITZ LORDOSE             //Komfortsitze el. mit Memory fuer Fahrer/Beifahrer inkl. Lehnenbreitenverstellung
+W 459                   SITZMEMORY_FA                   //El. Sitzverstellung inkl. Fahrer-Memory
+W 460                   EL_SITZVER_FOND                 //Sitzverstellung el. im Fond
+W 464                                                   //Skisack
+W 466                                                   //Dachleiste in Wagenfarbe
+W 470                                                   //ISO-FIX Kindersitzbefestigung
+W 481                   SPORTSITZ                       //Sportsitze
+W 488                   LORDOSE                         //Lordosenstuetze elektrisch
+W 490                                                   //LEHNENBREITENVERSTELLUNG
+//W 490                   LEHNENBREIT_VER               //LEHNENBREITENVERSTELLUNG
+W 494                   SITZHEIZUNG_VO                  //Sitzheizung Fahrer und Beifahrer
+W 496                   SITZHEIZUNG_HI                  //Sitzheizung im Fond
+W 4AH                                                   //EDELHOLZAUSFUEHRUNG AM
+W 4ML                                                   //BMW Individual Interieurleisten Pianolack schwarz inkl. Dachhaltegriffe
+W 502                   SWA                             //Scheinwerfer-Waschanlage
+W 508                   PDC                             //PDC
+W 521                   REGENSENSOR                     //Regensensor ab 09/05 Serie fuer alle 6-/und 8-Zylinder (nicht fuer E67) PA440/298
+W 522                   XENONLICHT                      //Bi-Xenonlicht
+W 523                   F_KLIMA_KUEHL                   //Fondklimaanlage mit Kuehlbox
+W 524                   ALC                             //Adaptiv Light Control (36/09/03)
+W 525                   KUEHLBOX                        //Kuehlbox (E38-L7-Anlage)
+W 533                                                   //Fond-Klimatisierung
+W 534                   KLIMA_HIGH                      //Klimaautomatik "High" + gek. Ablagefach in Mittelkonsole
+W 536                   STANDHEIZUNG                    //Standheizung
+W 539                   STANDKLIMA                      //Standklimatisierung zu 03/03
+W 541                   ACC                             //Adaptive Geschwindigkeitsregelung II
+W 548                   KM_TACHO                        //KM-Tacho fuer RL und Kanada
+W 584                                                   //LM-Rad Vielspeiche 94 mit Notlauf
+W 596                                                   //LM-Rad E65-Sportpaket
+W 597                                                   //LM-Rad E65- Sternspeiche
+W 5AB                   OHNE_BFD                        //ZWEISTUFIGE BREMSLEUCHTEN ENTFALL (BFD)
+W 5AC                   FLA                             //Fernlichtassistent (zu 09/05), nicht fuer Japan
+W 5DS                                                   //Kofferraumnotentriegelung
+W 601                   TV                              //TV-Funktion incl. Videorecorder-Anschluss
+W 603                   FONDMONITOR                     //Fondbildschirm inkl. Fond-Commander zu 09/02
+W 605                   TELEMATIK_VORB                  //Telematik-Vorbereitung, Einsatz offen, Bedarf bei E65MUe I-Stufe 05-09-100, Entfall zu 09/05 (PA440/274)
+W 607                   VORB_TELESERVIC                 //TELEService VORBEREITUNG,Entfall zu 09/05 (PA440/274)
+W 609                   NAVIGATION                      //Navi-System ohne TV, neuer Serieneinsatz in Verbindung mit LA802 03/06 (PA623/103)
+W 611                   NIGHT_VISION                    //NIGHT VISION CONTROL (zu 09/05) geplanter Einsatz 03/06 (lt. Statusbericht 12/05)
+W 612                   BMW_ASSIST                      //BMW-Assist
+W 613                   INTERNET                        //Internetbasierte Dienste nur mit SA 616, nicht fuer US;V4 und V5 Maerkte
+W 616                   ONLINEPLATTFORM                 //Internetzugang; Nur mit SA 609 und SA630;nicht fuer US
+W 620                   SPRACHEINGABE                   //Spracheingabe fuer Navi, Telefon und Radio
+W 621                   HANDY_US_STANDA BAT_TELEFON    //Vollintegriertes Handy Korea auf Basis US-Handy PA190/130 Einsatz verschoben SA664 ab 10/03
+W 622                                                   //Zweithoerer im Fond (Funk mit eigener Karte)
+W 630                   TELEFON BAT_TELEFON             //Telefon
+W 631                   ZWEITHOERER                     //Zweithoerer im Fond (soll zu 09/05 durch 6NA ersetzt werden (PA440/232))
+W 633                   VORB_TEL_BUSINE                 //Handyvorbereitung Business mit Bluetoothschnittstelle geplant zu 09/05; nur i.V. mit SA609
+W 638                   TEL_PROFESIONEL BAT_TELEFON     //Autotelefon Professional (EVEREST_TCU, ohne US)zu 03/03und ers. SA630 (PN8440/037) Entfall zu 08/05 (lt. Statusbericht 06/05)
+W 639                                                   //KOMPLETTVORB. HANDY US   (serie bei GL83)
+W 641                   VORB_TEL_AMPS BAT_TELEFON       //Autotelefon AMPS-Netz vorbereitung(ab 03/03 entfall)
+W 642                   TELEFON_AMPS BAT_TELEFON        //Autotelefon AMPS/CDMA (ab 03/03 nur noch KOREA)
+W 644                                                   //Universal-Handy-Vorbereitung, Einsatz offen, Bedarf bei E65MUe I-Stufe 05-03-100
+W 645                   RADIO_US                        //Radio-Steuerung US
+W 650                   CD_LAUFWERK                     //Radio mit CD-Laufwerk
+W 651                   MINIDISK                        //Radio mit MD-Laufwerk
+W 653                   RADIO_DIGITAL                   //DIGITALRADIO US (IBOC) ab 09/05 (High Definition Radio)
+W 654                   RADIO_DAB                       //DAB-Tuner, Einsatz offen, Bedarf bei E65MUe I-Stufe 05-03-100, neuer Serieneinsatz 03/06 (PA623/103), Einsatz zu 09/06 lt. Statusbericht 02_06
+W 655                   SATELITENRADIO                  //Digitales Satellitenradio (LL/US 03/04)
+W 663                   RADIO                           //Radio BMW Professional
+W 664                   HANDY_US_STANDA BAT_TELEFON    //ab 09/05 neue Hardware   bisher   HANDY US STANDARD (EVEREST_TCU, Serie zu 03/03 neue Generation)PA190/130 auch KOREA
+W 670                   CASSETTEN_LW RADIO              //Radio mit CC-Laufwerk
+W 672                   CD_WECHSLER                     //Audio-CD-Wechsler fuer 6 CD ab MUe auch MP3
+W 676                   HIFI_SYSTEM                     //HiFi-System
+W 677                   TOP_HIFI                        //HiFi System Professional
+W 690                                                   //Casettenhalterung
+W 691                                                   //CD-Halterung
+W 693                                                   //Satellitentuner Vorbereitung Fuer US Typen(GL63,GN63,GN83)ab 09/03 PA190/094
+W 696                   DVD_WECHSLER                    //DVD-Wechsler
+W 697                   DVD_AREA_CODE_1 SETCODE         //DVD-Area code 1 US/Can
+W 698                   DVD_AREA_CODE_2 SETCODE         //DVD-Area code 2 ECE/Jp
+W 699                   DVD_AREA_CODE_3 SETCODE         //DVD-Area code 3 Phi/Mai/Ocn
+W 6AA                                                   //BMW TeleService ab 03/07
+W 6NA                   FONDTELEFON                     //Autotelefon im Fond mit separatem Kartenleser (zu 09/05)PA440/232, nicht fuer Japan, Korea und Suedamerika
+W 6UD                   RUSSISCH                        //Sprachversion Russisch  (zu 09/05), nicht zusammen mit SA620
+W 6UE                                                   //Diebstahlschutz Navigations-DVD
+W 6UF                                                   //Vorbereitung Navigation zu 03/06 (PA623/181) - Sperre ab 09/06
+W 700                   DVD_AREA_CODE_4 SETCODE         //DVD-Area code 4 SAm/Mex/Austr
+W 701                   DVD_AREA_CODE_5 SETCODE         //DVD-Area code 5 Rus/Ind/Afg
+W 702                   DVD_AREA_CODE_6 SETCODE         //DVD-Area code 6 China
+W 703                                                   //Dummy
+W 706                                                   //Dummy
+W 734                                                   //Levant-Paket
+W 735                                                   //Dummy
+W 760                                                   //Individual Hochglanz Shadowline
+W 761                                                   //Individual Sonnenschutzverglasung ab B-Saeule nach hinten
+W 775                                                   //Individual Dachhimmel anthrazit
+W 776                                                   //Individual Dachhimmel Alcantara anthrazit
+W 778                                                   //Einstiegsleiste mit BMW Individual Schriftzug, beleuchtet
+W 785                                                   //Individual "weisse Blinkleuchten"
+W 791                   KUEHLBOX_KOMPR                  //Kuehlbox mit Kompressor zu 03/03 (PM Batterie!!)
+W 7AA                                                   //DUMMY
+W 7AB                                                   //DUMMY
+W 7AC                                                   //DUMMY
+W 7BE                                                   //BMW       MINI REPAIR Inclusive (3 Jahre / 60.000km)
+W 7CA                                                   //BMW       Service Inclusive (3 Jahre / 100.000km)
+W 7CB                                                   //BMW       Service Inclusive (4 Jahre / 80.000km)
+W 7CC                                                   //BMW       Service Inclusive (4 Jahre / 100.000km)
+W 7CD                                                   //BMW       Service Inclusive (5 Jahre / 100.000km)
+W 7CE                                                   //BMW       Service Inclusive (5 Jahre / 120.000km)
+W 7CF                                                   //BMW       Repair Inclusive (3 Jahre / 80.000km)
+W 7CG                                                   //BMW       Repair Inclusive (3-Jahrespaket)
+W 7CH                                                   //BMW       Repair Inclusive (4-Jahrespaket)
+W 7CK                                                   //BMW       Repair Inclusive (5-Jahrespaket)
+W 7DA                                                   //BMW Basic Service Inclusive (3 Jahre / 90.000km)
+W 7DB                                                   //BMW       Service Inclusive (3 Jahre / 90.000km)
+W 7DC                                                   //BMW       Service + Repair Inclusive (3 Jahre / 90.000km)
+W 7DD                                                   //BMW Basic Service Inclusive (4 Jahre / 60.000km)
+W 7DE                                                   //BMW       Service Inclusive (4 Jahre / 60.000km)
+W 7DF                                                   //BMW       Service + Repair Inclusive (4 Jahre / 60.000km)
+W 7DG                                                   //BMW       Service Inclusive
+W 7DH                                                   //BMW       Service + Repair Inclusive (3 Jahre / 150.000km)
+W 7DK                                                   //BMW       Service + Repair Inclusive (6 Jahre / 200.000km)
+W 7DL                                                   //BMW Basic Service Inclusive (10 Jahre / 100.000km)
+W 7DM                                                   //BMW       Service Inclusive (10 Jahre / 100.000km)
+W 7DN                                                   //BMW Basic Service Inclusive (10 Jahre / 150.000km)
+W 7DP                                                   //BMW       Service Inclusive (10 Jahre / 150.000km)
+W 7DR                                                   //BMW Basic Service Inclusive (1-Jahrespaket)
+W 7DS                                                   //BMW Basic Service Inclusive (2-Jahrespaket)
+W 7DT                                                   //BMW Basic Service Inclusive (3-Jahrespaket)
+W 7DU                                                   //BMW Basic Service Inclusive (4-Jahrespaket)
+W 7DV                                                   //BMW Basic Service Inclusive (5-Jahrespaket)
+W 7DW                                                   //BMW       Service Inclusive (1-Jahrespaket)
+W 7DX                                                   //BMW       Service Inclusive (2-Jahrespaket)
+W 7DY                                                   //BMW       Service Inclusive (3-Jahrespaket)
+W 7DZ                                                   //BMW       Service Inclusive (4-Jahrespaket)
+W 7D1                                                   //BMW       Service Inclusive (5-Jahrespaket)
+W 7D2                                                   //BMW       Service + Repair Inclusive (1-Jahrespaket)
+W 7D3                                                   //BMW       Service + Repair Inclusive (2-Jahrespaket)
+W 7D4                                                   //BMW       Service + Repair Inclusive (3-Jahrespaket)
+W 7D5                                                   //BMW       Service + Repair Inclusive (4-Jahrespaket)
+W 7D6                                                   //BMW       Service + Repair Inclusive (5-Jahrespaket)
+W 7D7                                                   //BMW       Basic Service Inclusive (2 Jahre / 40.000km)
+W 7D8                                                   //BMW       Service Inclusive (2 Jahre / 40.000km)
+W 7M2                                                   //Individual Komposition 1
+W 7NA                                                   //BMW       Service Inclusive
+W 7NB                                                   //BMW       Service + REPAIR Inclusive
+W 7NC                                                   //BMW       Service Inclusive
+W 7ND                                                   //BMW       Service + REPAIR Inclusive
+W 7NE                                                   //BMW       Service Inclusive
+W 7NF                                                   //BMW       Service + REPAIR Inclusive
+W 7NG                                                   //BMW basic service inclusive (3Year 60.000km)         //BMW Service INCLUSIVE (PA623/052)
+W 7NH                                                   //BMW basic service inclusive (5Year 100.000km)        //BMW Service INCLUSIVEPN (PA623/052)
+W 7NK                                                   //BMW       service inclusive (5Year 60.000km)               //BMW Service INCLUSIVE (PA623/052)
+W 7NL                                                   //BMW       service+repair inclusive (5Year 60.000km)        //BMW Service INCLUSIVE (PA623/052)
+W 7NM                                                   //neue      Service-SA BMW Service Inclusive (3 Jahre / 60.000 km)
+W 7NN                                                   //neue      Service-SA BMW Service + Repair Inclusive (3 Jahre / 60.000 km)
+W 7NP                                                   //BMW BASIC Service INCLUSIVE 3/100
+W 7NR                                                   //BMW       Service INCLUSIVE 3/100
+W 7NS                                                   //BMW       Service + REPAIR INCL. 3/100
+W 7NT                                                   //BMW Basic Service Inclusive (3 Jahre / 80.000km)
+W 7NU                                                   //BMW       Service Inclusive (3 Jahre / 80.000km)
+W 7NV                                                   //BMW       Service + Repair Inclusive (3 Jahre / 80.000km)
+W 7NW                                                   //BMW Basic Service Inclusive (5 Jahre / 60.000km)
+W 7NX                                                   //BMW Basic Service Inclusive (4 Jahre / 80.000km)
+W 7NY                                                   //BMW       Service Inclusive (4 Jahre / 80.000km)
+W 7NZ                                                   //BMW       Service + Repair Inclusive (4 Jahre / 80.000km)
+W 7N1                                                   //BMW Basic Service Inclusive (4 Jahre / 100.000km)
+W 7N2                                                   //BMW       Service Inclusive (4 Jahre / 100.000km)
+W 7N3                                                   //BMW       Service + Repair Inclusive (4 Jahre / 100.000km)
+W 7N4                                                   //BMW Basic Service Inclusive (4 Jahre / 120.000km)
+W 7N5                                                   //BMW       Service Inclusive (4 Jahre / 120.000km)
+W 7N6                                                   //BMW       Service + Repair Inclusive (4 Jahre / 120.000km)
+W 7N7                                                   //BMW Basic Service + Repair Inclusive (5 Jahre / 80.000km)
+W 7N8                                                   //BMW       Service Inclusive (5 Jahre / 80.000km)
+W 7N9                                                   //BMW       Service + Repair Inclusive (5 Jahre / 80.000km)
+W 7R3                                                   //Ukrainepaket
+W 7R7                                                   //Innovationspaket
+W 7R8                                                   //Innovationspaket Plus
+W 7SH                                                   //Hotel Paket
+W 7SP                                                   //Navigationssystem Professional mit integrierter Handyvorbereitung Bluetooth
+W 7T1                                                   //Basis Service Inclusive      (5 Jahre / 120.000km)
+W 7T2                                                   //Basis Service Inclusive      (6 Jahre / 150.000km)
+W 7T3                                                   //Basis Service Inclusive      (6 Jahre / 200.000km)
+W 7T4                                                   //Basis Service Inclusive      (10 Jahre / 200.000km)
+W 7T5                                                   //Service Inclusive            (10 Jahre / 200.000km)
+W 7U9                                                   //Entfall BMW Basic Service Inclusive
+W 801                   DEUTSCHLAND                     //Auftragssteuerung ZD
+W 802                   KOREA                           //Korea-Ausfuehrung
+W 807                   JAPAN                           //Japan-Ausfuehrung
+//W 807                   JAPAN PASSIV_ACCESS ACC         //Japan-Ausfuehrung
+W 810                   AUSTRALIEN                      //Australien-Ausfuehrung
+W 812                   ENGLAND                         //England-Ausfuehrung
+W 815                                                   //Schlechtwegpaket
+W 818                                                   //Batteriehauptschalter
+W 821                   AEGYPTEN                        //Aegypten-Ausfuehrung Entfall zu 09/06 lt.PA623/198
+W 822                   GOLF                            //Golf-Ausfuehrung
+W 823                   HEISSLAND                       //Heissland-Ausfuehrung
+W 824                   SUEDAFRIKA                      //Suedafrika-Ausfuehrung (Entfall zu 02/06 lt. Statusbericht 09/05)
+W 825                   OZEANIEN                        //Radio-Steuerung Ozeanien
+W 826                                                   //Fahrwerk-Exportabstimmung
+W 833                                                   // "SINGAPUR-AUSFUEHRUNG"
+W 837                   ENTF_NAVIGATION                 //Entfall Navigation
+W 838                   KANADA                          //Kanada-Ausfuehrung
+W 842                   KALTLAND                        //Kaltlandausfuehrung
+W 843                                                   //Motorauslegung
+W 845                   AK_GUWA                         //Akustische Gurtwarnung
+//W 846 V1203             TAIWAN                          //Taiwan-Ausfuehrung
+W 846                   TAIWAN                          //Taiwan-Ausfuehrung
+W 849                   OHNE_NOTRUF                     //ENTFALL AUTOMATISCHER NOTRUF, Entfall zu 09/05 (PA440/274)
+W 850                                                   //Zusaetzliche Tankbefuellung Export
+W 851                   DEUTSCH                         //Sprache Deutsch
+W 852                   JAPANISCH                       //Sprache Japanisch
+W 853                   ENGLISCH                        //Sprache Englisch
+W 854                   FRANZOESISCH                    //Sprache Franzoesisch
+W 855                   ITALIENISCH                     //Sprache Italienisch
+W 856                   SPANISCH                        //Sprache Spanisch
+W 858                   FUSEL                           //Motorauslegung fuer minderwertigen Kraftstoff
+W 859                   OHNE_TV_VORN                    //Decodierung TV Funktion vorne
+W 861                   MILANSTEUERUNG                  //Aenderung Codierdatensatz "MIL-OFF" (Motor!)
+W 863                                                   //Europa-Haendlerverzeichnis
+W 864                                                   //Uebersee-Haendlerverzeichnis
+W 866                   CHINESISCH_TRAD                 //Sprache Chinesisch traditionell
+W 867                   KOREANISCH                      //Sprache Koreanisch
+W 868                   NIEDERLAENDISCH                 //Sprache Niederlaendisch
+W 869                   SCHWEIZ                         //Sprache Schweiz
+W 873                   VERBUNDSCHEIBE                  //Steuerung Verbundglasfrontscheibe
+W 874                                                   //Funkfrequenz 434,2MHz
+W 876                                                   //Funkfrequenz 315 MHz
+W 877                   ENTF_UEBERKREUZ                 //Entfall Ueberkreuzbedienung
+W 878                                                   //Klimakomfortverbundverglasung, ohne Gruenkeil (Frontscheibe ohne IR-Beschichtung)
+W 879                                                   //Deutsch/Betriebsanl./Serviceheft
+W 880                                                   //Englisch/Betriebsanl./Serviceheft
+W 881                                                   //Franzoesisch/Betriebsanl./Serviceheft
+W 883                                                   //Spanisch/Betriebsanl./Serviceheft
+W 884                                                   //Italienisch/Betriebsanl./Serviceheft
+W 885                                                   //Schwedisch/Betriebsanl./Serviceheft
+W 886                                                   //Hollaendisch/Betriebsanl./Serviceheft
+W 887                                                   //Arabisch/Betriebsanl./Serviceheft
+W 888                                                   //Daenisch/Betriebsanl./Serviceheft
+W 889                                                   //Portugiesisch/Betriebsanl./Serviceheft
+W 891                                                   //Russisch/Betriebsanl./Serviceheft
+W 892                                                   //Chinesisch trad./ Bordliteratur, Serviceheft
+W 893                                                   //MO-Paket III
+W 896                   TAGFAHRLICHT                    //Tagfahrlicht
+W 8AA                   CHINA                           //CHINA-AUSFUEHRUNG
+W 8AC                                                   //Russland-AUSFUEHRUNG SKD
+W 8AE                                                   //Griechisch/Betriebsanl./Serviceheft
+W 8AF                                                   //Koreanisch/Betriebsanl./Serviceheft
+W 8LA                                                   //Indien Ausfuehrung
+W 8LF                                                   //Laendersteuerung 02331
+W 8LH                   HONGKONG                        //Laendersteuerung 04825 fuer Hongkong zu 03/06
+W 8LS                                                   //Laendersteuerung 00780 zu 03/07
+W 8LT                   TAIWAN2                         //Laendersteuerung 04142 fuer Taiwan zu 09/06
+W 8S2                   ALARMSIGNAL                     //Kodierung Alarmsignal zu 09/05 (Verlaengerte Warntonausgabe fuer Niederlande) PA603/050
+W 8S6                                                   //Vorverkauf fuer Export (lt. Statusbericht 03/2006)
+W 8S9                                                   //Non Fuel Fahrzeuge
+W 8SA                                                   //Laenderspezifische NAVI-Freischaltung
+W 8SB                                                   //Laenderspezifische Telematicfreischaltung, Entfall zu 09/05 (PA440/274)
+W 8SC                                                   //Laenderspezifische Teleservicefreischaltung, Entfall zu 09/05 (PA440/274)
+W 8SL                                                   //Vorbereitung fuer Anhaengerkupplung
+W 8SM                                                   //FAHRGESTELLNUMMER von aussen sichtbar
+W 8SP                                                   //COP STEUERUNG
+W 8ST                   SIA_EXTRA_KURZ                  //Codierung Wartungsintervall S2
+W 8SW                                                   //Transportschutz Aussenhaut
+W 8SX                   PROVIDERZUORD                   //Providerzugang fuer Telematik-und Online-Dienste  zu 09/05
+W 8SY                                                   //Berichtigung Gebrauchte Automobile
+W 901                                                   //Sonderkontrolle allgemein
+W 902                                                   //Sonderkontrolle Pressewagen
+W 903                                                   //Sonderkontrolle Stand/Fotowagen
+W 904                                                   //Sonderkontrolle Typpruefwagen
+W 905                                                   //Sonderkontrolle Vorfuehrwagen
+W 906                                                   //Sonderkontrolle Fotofahrz.b.Neuanl.
+W 908                                                   //Shortest possible order cycle (SPOC)
+W 909                   DIAGNOSE_PLUS                   //Diagnose-Dose-PLUS
+W 910                   E_FZG_O_UEBERGA                 //Entwicklungsfzg ohne Uebergabeinsp
+W 911                                                   //Entwicklungsfzg mit Uebergabeinsp
+W 912                                                   //OE-Paket
+W 914                                                   //Luxury Paket
+W 915                                                   //Entfall Aussenhautkonservierung  Statusbericht 11/04
+W 916                   E_FZG_O_KONSERV                 //Entwicklungsfzg. ohne Konservierung  Statusbericht 11/04
+W 917                                                   //Transpack,
+W 920                   ALPINA                          //Alpina ohne Brief  (N62B44)
+W 925                                                   //Versandschutzpaket
+W 926                                                   //Ersatzrad wie Laufrad
+W 928                                                   //Reifensteuerung
+W 930                                                   //Beruecksichtigung Preisabhaengigkeit
+W 931                                                   //Winterreifen fuer Autovermieter
+W 932                                                   //Winterreifen zusaetzlich
+W 933                                                   //Radkappen fuer Winterraeder
+W 934                                                   //Winterreifen auf LM-Raedern
+W 936                                                   //BMW HANDY BEI AUSLIEF.
+W 937                                                   //NAVI CD ROM bei Auslieferung anfordern
+W 938                                                   //Steuerung ZS-Individualisierung
+W 940                                                   //Sonderwunsch Ausstattung - "Limousine Special Edition Exclusive"
+W 941                                                   //EXTERNE NACHRUESTUNG
+W 942                                                   //Storno Sonderwunsch
+W 944                                                   //Nachtraeglicher  Umbau durch ZS
+//W 945                                                   //Beruecksichtigung Preisabhaengigk.
+W 948                                                   //Kernmodelpaket V-5-KA
+W 949                                                   //LA-Sportpaket
+W 950                                                   //Lateinamerika-Paket Steuerung
+W 951                                                   //Sommer-Paket
+W 952                                                   //China-Paket Steuerung
+W 953                                                   //Taiwan-Paket Steuerung
+W 955                                                   //MO-Paket II
+W 956                                                   //Middle East Paket 1
+W 957                                                   //Hong-Kong-Paket Steuerung
+W 962                                                   //Entfall Kennzeichentraeger vorn
+W 964                                                   //NAVI DVD BEI AUSLIEFER
+W 969                                                   //NAVI DVD E60 BEI AUSL. ANFO
+W 972                                                   //Comfort-Paket
+W 973                                                   //Winter Paket
+W 975                                                   //Highline OE (735/745 Li)
+W 976                                                   //Pilot-Paket
+W 977                                                   //V5-KA Exclusive-Line
+W 978                                                   //Innovationspaket nur fuer PAK 08084 06/04
+W 983                                                   //Modelljahrescode fuer Export
+W 984                   SIA_INTERVALL                   //Codierung Wartungsintervall
+W 986                                                   //TERMINPRUEFUNG
+W 987                                                   //Existenzpruefung
+W 988                   SIA_INTERVALL2                  //Codierung Wartungsintervall S2
+W 991                                                   //Steuerung Vorserie
+W 992                                                   //Steuerung Kennzeichenbefestgung
+W 993                                                   //Modelljahrescode
+//W 994                                                   //Sondersteuerung
+W 995                                                   //Aenderungssperre
+W 997                                                   //Haendlerpraesentation Export
+W 998                                                   //Anlaufsteuerung interne Bedarfe
+W 999                                                   //Auftragssteuerung HEA
+W 9AA                                                   //Zusteuerung Oberflaechenschutz / Aussenhautschutz
+W 9AB                                                   //Aussenhautschutz Entfall Soko-Fzg
+W 9AW                                                   //Auslieferung BMW Welt
+W 9WR                                                   //Winterraeder BMW Welt
+W 9XA                                                   //Alpina Package
+W XAA                                                   //RSE high System  RSE_HIGH
+W XAB                                                   //RSE mid System  RSE_MID
+W XD1                                                   //Special Edition Exclusive Carbonschwarz/Goldbraun
+W XD2                                                   //Special Edition Exclusive Stratus/Ecru
+W XD3                                                   //Special Edition Exclusive Carbonschwarz/Ecru
+W XD4                                                   //Special Edition Exclusive Stratusgrau/Goldbraun
+//
+//
+//                                                        //Passiv entry
+//******************************************************************************
+// ZUSAMMENFASSUNG ALLER TYPSCHLUeSSEL
+//*******************************************************************************
+// E65
+//--------------------------------------------------------------------------------------------
+W GL21  V0302           E65 M54B30 LL ECE STEPTRONIC                                                    //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL21  N0302           E65 M54B30 LL ECE STEPTRONIC LSM                                                //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL21  N0902           E65 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL21  N0903           E65 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL21  N0304           E65 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK RPA     //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL22  V0302           E65 M54B30 RL ECE STEPTRONIC                                                    //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL22  N0302           E65 M54B30 RL ECE STEPTRONIC LSM                                                //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL22  N0902           E65 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL22  N0903           E65 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL22  N0304           E65 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK RPA     //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL41  V0701           E65 N62B36 LL ECE STEPTRONIC                                                    //735i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL41  N0701           E65 N62B36 LL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK SERVOTRONIC         //735i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL41  N0304           E65 N62B36 LL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK SERVOTRONIC         //735i EUR LL
+>>>                     RPA
+//--------------------------------------------------------------------------------------------
+W GL42  V0701           E65 N62B36 RL ECE STEPTRONIC                                                    //735i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL42  N0701           E65 N62B36 RL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK SERVOTRONIC         //735i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL42  N0304           E65 N62B36 RL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK SERVOTRONIC         //735i EUR RL
+>>>                     RPA
+//--------------------------------------------------------------------------------------------
+W GL61  V0701           E65 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //745i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL61  N0701           E65 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC LSM
+>>>                     FONDSICHERHEIT CD_LAUFWERK                                                      //745i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL61  N0304           E65 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC LSM
+>>>                     FONDSICHERHEIT CD_LAUFWERK RPA                                                  //745i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL62  V0701           E65 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //745i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL62  N0701           E65 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC LSM FONDSICHERHEIT       //745i EUR RL
+>>>                     CD_LAUFWERK
+//--------------------------------------------------------------------------------------------
+W GL62  N0304           E65 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC LSM FONDSICHERHEIT       //745i EUR RL
+>>>                     CD_LAUFWERK RPA
+//--------------------------------------------------------------------------------------------
+W GL63  V0903           E65 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC                  //745i US LL, mit Fahrzeugbeschreibung abgestimmt
+//--------------------------------------------------------------------------------------------
+W GL63  N0903           E65 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC
+>>>                     STEPTRONIC CD_LAUFWERK                                                          //745i US LL, mit Fahrzeugbeschreibung abgestimmt
+//--------------------------------------------------------------------------------------------
+W GL63  N0304           E65 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC
+>>>                     STEPTRONIC CD_LAUFWERK RPA                                                      //745i US LL, mit Fahrzeugbeschreibung abgestimmt
+//--------------------------------------------------------------------------------------------
+//W GL63  N0304           E65 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+//>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC
+//>>>                     STEPTRONIC CD_LAUFWERK RPA                                                      //745i US LL, mit Fahrzeugbeschreibung abgestimmt
+//--------------------------------------------------------------------------------------------
+W GL81  V0701           E65 N73B60 LL ECE SITZMEMORY_FA KM_TACHO STEPTRONIC SERVOTRONIC                 //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL81  N0701           E65 N73B60 LL ECE ARS LSM
+>>>                     ALARMANLAGE HECKROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH SPIEGELPAKET
+>>>                     KOMFORTSITZ SWA REGENSENSOR KLIMA_HIGH NAVIGATION PDC
+>>>                     STEPTRONIC XENONLICHT CD_LAUFWERK TOP_HIFI SERVOTRONIC                          //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL81  N0304           E65 N73B60 LL ECE ARS LSM
+>>>                     ALARMANLAGE HECKROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH SPIEGELPAKET
+>>>                     KOMFORTSITZ SWA REGENSENSOR KLIMA_HIGH NAVIGATION PDC
+>>>                     STEPTRONIC XENONLICHT CD_LAUFWERK TOP_HIFI SERVOTRONIC RPA                      //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W GL82  V0701           E65 N73B60 RL ECE ARS LSM ALARMANLAGE
+>>>                     HECKROLLO REGENSENSOR
+>>>                     KOMFORTSITZ SWA KLIMA_HIGH NAVIGATION
+>>>                     TELEFON BAT_TELEFON STEPTRONIC SERVOTRONIC                                      //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL82  N0701           E65 N73B60 RL ECE ARS LSM ALARMANLAGE
+>>>                     HECKROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH SPIEGELPAKET PDC
+>>>                     XENONLICHT KOMFORTSITZ SWA REGENSENSOR KLIMA_HIGH NAVIGATION
+>>>                     STEPTRONIC CD_LAUFWERK TOP_HIFI SERVOTRONIC                                     //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL82  N0304           E65 N73B60 RL ECE ARS LSM ALARMANLAGE
+>>>                     HECKROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH SPIEGELPAKET PDC
+>>>                     XENONLICHT KOMFORTSITZ SWA REGENSENSOR KLIMA_HIGH NAVIGATION
+>>>                     STEPTRONIC CD_LAUFWERK TOP_HIFI SERVOTRONIC RPA                                 //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W GL83  V0701           E65 N73B60 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC                  //760i kurz US LL Basis 745i US, nur fuer VT-Fahrzeuge
+//--------------------------------------------------------------------------------------------
+W GL83  N0304           E65 N73B60 LL US ARS LSM LORDOSE SERVOTRONIC STEPTRONIC
+>>>                     NIVEAUREG EDC AK_GUWA GLAS_SHD SWA REGENSENSOR XENONLICHT
+>>>                     KLIMA_HIGH RADIO_US ALARMANLAGE NAVIGATION CD_LAUFWERK RPA                     //760i US "Sport", ab 03/04
+//--------------------------------------------------------------------------------------------
+//W GL83  N0304           E65 N73B60 LL US ARS LSM LORDOSE SERVOTRONIC STEPTRONIC
+//>>>                     NIVEAUREG EDC AK_GUWA GLAS_SHD SWA REGENSENSOR XENONLICHT
+//>>>                     KLIMA_HIGH RADIO_US ALARMANLAGE NAVIGATION CD_LAUFWERK RPA                     //760i US "Sport", ab 03/04
+//--------------------------------------------------------------------------------------------
+W GM21  V0302           E65 M57D30 LL ECE STEPTRONIC                                                    //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM21  N0302           E65 M57D30 LL ECE STEPTRONIC LSM                                                //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM21  N0902           E65 M57D30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM21  N0903           E65 M57D30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM21  N0304           E65 M57D30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK RPA     //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM22  V0302           E65 M57D30 RL ECE STEPTRONIC                                                    //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM22  N0302           E65 M57D30 RL ECE STEPTRONIC LSM                                                //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM22  N0902           E65 M57D30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM22  N0903           E65 M57D30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM22  N0304           E65 M57D30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK RPA     //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM41  V0701           E65 M67D40 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //740d EUR LL
+//--------------------------------------------------------------------------------------------
+W GM41  N0701           E65 M67D40 LL ECE SITZMEMORY_FA STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK SERVOTRONIC                                                         //740d EUR RL
+//--------------------------------------------------------------------------------------------
+W GM41  N0304           E65 M67D40 LL ECE SITZMEMORY_FA STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK SERVOTRONIC RPA                                                     //740d EUR RL
+//--------------------------------------------------------------------------------------------
+//
+// E66
+//--------------------------------------------------------------------------------------------
+W GN21  V0302           E66 M54B30 LL ECE STEPTRONIC                                                    //730iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN21  N0302           E66 M54B30 LL ECE STEPTRONIC LSM                                                //730iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN21  N0902           E66 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN21  N0903           E66 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730iL EUR LL
+>>>                     HECKROLLO
+//--------------------------------------------------------------------------------------------
+W GN21  N0304           E66 M54B30 LL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730iL EUR LL
+>>>                     HECKROLLO RPA
+//--------------------------------------------------------------------------------------------
+
+W GN22  V0302           E66 M54B30 RL ECE STEPTRONIC                                                    //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN22  N0302           E66 M54B30 RL ECE STEPTRONIC LSM                                                //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN22  N0902           E66 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT                     //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN22  N0903           E66 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730iL EUR RL
+>>>                     HECKROLLO
+//--------------------------------------------------------------------------------------------
+W GN22  N0304           E66 M54B30 RL ECE STEPTRONIC LSM SERVOTRONIC FONDSICHERHEIT CD_LAUFWERK         //730iL EUR RL
+>>>                     HECKROLLO RPA
+//--------------------------------------------------------------------------------------------
+
+W GN25  V0302           E66 M54B30 RL CKD THAILAND STEPTRONIC                                           //730iL EUR RL, basis GN22
+//--------------------------------------------------------------------------------------------
+W GN25  N0302           E66 M54B30 RL CKD THAILAND STEPTRONIC LSM                                       //730iL EUR RL, basis GN22
+//--------------------------------------------------------------------------------------------
+W GN25  N0902           E66 M54B30 RL CKD THAILAND STEPTRONIC LSM SERVOTRONIC                           //730iL EUR RL, basis GN22
+//--------------------------------------------------------------------------------------------
+W GN25  N0903           E66 M54B30 RL CKD THAILAND STEPTRONIC LSM SERVOTRONIC HECKROLLO CD_LAUFWERK     //730iL EUR RL, basis GN22
+//--------------------------------------------------------------------------------------------
+W GN25  N0304           E66 M54B30 RL CKD THAILAND STEPTRONIC LSM SERVOTRONIC HECKROLLO CD_LAUFWERK
+>>>                     RPA NIVEAUREG FONDSICHERHEIT                                                    //730iL EUR RL, basis GN22
+//--------------------------------------------------------------------------------------------
+W GN41  V0701           E66 N62B36 LL ECE STEPTRONIC                                                    //735iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN41  N0701           E66 N62B36 LL ECE STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC                                               //735iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN41  N0304           E66 N62B36 LL ECE STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC RPA                                           //735iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN42  V0701           E66 N62B36 RL ECE STEPTRONIC                                                    //735iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN42  N0701           E66 N62B36 RL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK
+>>>                     HECKROLLO SERVOTRONIC                                                           //735iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN42  N0304           E66 N62B36 RL ECE STEPTRONIC LSM FONDSICHERHEIT CD_LAUFWERK
+>>>                     HECKROLLO SERVOTRONIC RPA                                                       //735iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN45  V0304           E66 N62B36 RL CKD THAILAND STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC                                               //735iL EUR RL, basis GN42
+//--------------------------------------------------------------------------------------------
+W GN45  N0304           E66 N62B36 RL CKD THAILAND STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC RPA NIVEAUREG                                 //735iL EUR RL, basis GN42
+//--------------------------------------------------------------------------------------------
+W GN61  V0701           E66 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //745iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN61  N0701           E66 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC
+>>>                     LSM FONDSICHERHEIT CD_LAUFWERK HECKROLLO SERVOTRONIC                            //745iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN61  N0304           E66 N62B44 LL ECE SITZMEMORY_FA STEPTRONIC
+>>>                     LSM FONDSICHERHEIT CD_LAUFWERK HECKROLLO SERVOTRONIC RPA                        //745iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN62  V0701           E66 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //745iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN62  N0701           E66 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC                                               //745iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN62  N0304           E66 N62B44 RL ECE SITZMEMORY_FA STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC RPA                                           //745iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN63  V0903           E66 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC                  //745iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN63  N0903           E66 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC STEPTRONIC
+>>>                     CD_LAUFWERK                                                                     //745iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN63  N0304           E66 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC STEPTRONIC
+>>>                     CD_LAUFWERK RPA                                                                 //745iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+//W GN63  N0304           E66 N62B44 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+//>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC STEPTRONIC
+//>>>                     CD_LAUFWERK RPA                                                                 //745iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN81  V0701           E66 N73B60 LL ECE SITZMEMORY_FA STEPTRONIC SERVOTRONIC                          //760iL EUR LL, VT vor 07/01
+//--------------------------------------------------------------------------------------------
+W GN81  N0701           E66 N73B60 LL ECE SITZMEMORY_FA STEPTRONIC
+>>>                     LSM FONDSICHERHEIT CD_LAUFWERK HECKROLLO SERVOTRONIC                            //760iL EUR LL, VT vor 11/01
+//--------------------------------------------------------------------------------------------
+W GN81  N1101           E66 N73B60 LL ECE ARS LSM PDC SERVOTRONIC ALARMANLAGE SWA
+>>>                     HECKROLLO SEITENROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH
+>>>                     SPIEGELPAKET CD_LAUFWERK KOMFORTSITZ EL_SITZVER_FOND REGENSENSOR
+>>>                     KLIMA_HIGH TOP_HIFI NAVIGATION STEPTRONIC XENONLICHT                            //760iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN81  N0304           E66 N73B60 LL ECE ARS LSM PDC SERVOTRONIC ALARMANLAGE SWA
+>>>                     HECKROLLO SEITENROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH
+>>>                     SPIEGELPAKET CD_LAUFWERK KOMFORTSITZ EL_SITZVER_FOND REGENSENSOR
+>>>                     KLIMA_HIGH TOP_HIFI NAVIGATION STEPTRONIC XENONLICHT RPA                        //760iL EUR LL
+//--------------------------------------------------------------------------------------------
+W GN82  V0701           E66 N73B60 RL ECE ARS LSM SERVOTRONIC ALARMANLAGE SWA
+>>>                     HECKROLLO SEITENROLLO KOMFORTSITZ EL_SITZVER_FOND REGENSENSOR
+>>>                     KLIMA_HIGH NAVIGATION TELEFON BAT_TELEFON STEPTRONIC                            //760iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN82  N0701           E66 N73B60 RL ECE SITZMEMORY_FA STEPTRONIC LSM FONDSICHERHEIT
+>>>                     CD_LAUFWERK HECKROLLO SERVOTRONIC                                               //760iL EUR RL, VT vor 11/01
+//--------------------------------------------------------------------------------------------
+W GN82  N1101           E66 N73B60 RL ECE ARS LSM TOP_HIFI SERVOTRONIC ALARMANLAGE
+>>>                     HECKROLLO SEITENROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH
+>>>                     SPIEGELPAKET CD_LAUFWERK KOMFORTSITZ EL_SITZVER_FOND SWA REGENSENSOR
+>>>                     KLIMA_HIGH NAVIGATION STEPTRONIC PDC XENONLICHT                                 //760iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN82  N0304           E66 N73B60 RL ECE ARS LSM TOP_HIFI SERVOTRONIC ALARMANLAGE
+>>>                     HECKROLLO SEITENROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH
+>>>                     SPIEGELPAKET CD_LAUFWERK KOMFORTSITZ EL_SITZVER_FOND SWA REGENSENSOR
+>>>                     KLIMA_HIGH NAVIGATION STEPTRONIC PDC XENONLICHT RPA                             //760iL EUR RL
+//--------------------------------------------------------------------------------------------
+W GN83  V0701           E66 N73B60 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC                  //760iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN83  N0701           E66 N73B60 LL US LSM ARS SITZMEMORY_FA GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE RADIO_US SERVOTRONIC                  //760iL US LL, VT vor 11/01
+//--------------------------------------------------------------------------------------------
+W GN83  N1101           E66 N73B60 LL US ARS LSM HECKROLLO SEITENROLLO
+>>>                     KOMFORTSITZ EL_SITZVER_FOND GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE NAVIGATION
+>>>                     STEPTRONIC RADIO_US SERVOTRONIC                                                 //760iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN83  N0903           E66 N73B60 LL US ARS LSM HECKROLLO SEITENROLLO
+>>>                     KOMFORTSITZ EL_SITZVER_FOND GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE NAVIGATION
+>>>                     STEPTRONIC RADIO_US SERVOTRONIC CD_LAUFWERK                                     //760iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+W GN83  N0304           E66 N73B60 LL US ARS LSM HECKROLLO SEITENROLLO
+>>>                     KOMFORTSITZ EL_SITZVER_FOND GLAS_SHD SWA REGENSENSOR
+>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE NAVIGATION
+>>>                     STEPTRONIC RADIO_US SERVOTRONIC CD_LAUFWERK RPA                                 //760iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+//W GN83  N0304           E66 N73B60 LL US ARS LSM HECKROLLO SEITENROLLO
+//>>>                     KOMFORTSITZ EL_SITZVER_FOND GLAS_SHD SWA REGENSENSOR
+//>>>                     AK_GUWA XENONLICHT KLIMA_HIGH ALARMANLAGE NAVIGATION
+//>>>                     STEPTRONIC RADIO_US SERVOTRONIC CD_LAUFWERK RPA                                 //760iL US LL, abgestimmt mit Fzg-Beschreibung
+//--------------------------------------------------------------------------------------------
+//
+//
+// E67
+//
+//--------------------------------------------------------------------------------------------
+W GP61                  E67 N62B44 LL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA         //745iL ECE LL E67 (ZU 11/03)
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SITZMEMORY_FA TOP_HIFI
+>>>                     KLIMA_HIGH CD_LAUFWERK SERVOTRONIC
+//--------------------------------------------------------------------------------------------
+W GP62                  E67 N62B44 RL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA         //745iL ECE RL E67 (ZU 12/03)
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SITZMEMORY_FA TOP_HIFI
+>>>                     KLIMA_HIGH CD_LAUFWERK SERVOTRONIC
+//--------------------------------------------------------------------------------------------
+W GP81  V0902           E67 N73B60 LL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA         //760iL ECE LL E67 (ZU 03/03)
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET EL_SITZVER_FOND
+>>>                     KLIMA_HIGH CD_LAUFWERK SERVOTRONIC KOMFORTSITZ
+>>>                     TOP_HIFI SWA PDC NAVIGATION TELEFON BAT_TELEFON
+//--------------------------------------------------------------------------------------------
+W GP81  N0902           E67 N73B60 LL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA         //760iL ECE LL E67  (ZU 03/03)
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SWA PDC SITZMEMORY_FA
+>>>                     KLIMA_HIGH NAVIGATION CD_LAUFWERK SERVOTRONIC
+>>>                     TOP_HIFI
+//--------------------------------------------------------------------------------------------
+W GP82                  E67 N73B60 RL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA         //760iL ECE RL E67 (ZU 10/03)
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SWA PDC SITZMEMORY_FA
+>>>                     KLIMA_HIGH NAVIGATION CD_LAUFWERK SERVOTRONIC
+>>>                     TOP_HIFI
+//--------------------------------------------------------------------------------------------
+//
+//
+// E68
+//
+//--------------------------------------------------------------------------------------------
+W GX81  V0304           E68 N73B60 LL ECE LSM                                                              //760LH EUR LL
+//--------------------------------------------------------------------------------------------
+W GX81  N0304           E68 N73B60 LL ECE ARS LSM PDC SERVOTRONIC ALARMANLAGE SWA
+>>>                     SEITENROLLO FONDSICHERHEIT SCA KLIMAGLAS KLIMA_FRONTSCH
+>>>                     SPIEGELPAKET CD_LAUFWERK KOMFORTSITZ
+>>>                     KLIMA_HIGH TOP_HIFI NAVIGATION STEPTRONIC XENONLICHT                         //760iL EUR LL
+//--------------------------------------------------------------------------------------------
+
+//********************Neue TYPEN***AB 03/05*********************
+//
+W HL21  V0905           E65 N52B30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                               //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL21  N0905           E65 N52B30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //730i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL22  V0905           E65 N52B30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                               //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL22  N0905           E65 N52B30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //730i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL61  V0905           E65 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                        //740i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL61  N0905           E65 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                            //740i EUR LL
+//--------------------------------------------------------------------------------------------
+//W HL61  V0906           E65 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+//>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                            //740i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL61  N0906           E65 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //740i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL62  V0905           E65 N62B40 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                               //740i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL62  N0905           E65 N62B40 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //740i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL81  V0905           E65 N62B48 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK                                                           //750i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL81  N0905           E65 N62B48 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                               //750i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL82  V0905           E65 N62B48 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK                                                           //750i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL82  N0905           E65 N62B48 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                                //750i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL83                  E65 N62B48 MUE LL US ARS SERVOTRONIC LSM RPA AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD
+>>>                     SITZMEMORY_FA LORDOSE SWA XENONLICHT KLIMA_HIGH RADIO_US CD_LAUFWERK REGENSENSOR     //750i US LL
+//--------------------------------------------------------------------------------------------
+//W HL83  N0905         E65 N62B48 MUE LL US ARS SERVOTRONIC LSM DIRECT_RDC AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD
+//>>>                   SITZMEMORY_FA LORDOSE SWA XENONLICHT KLIMA_HIGH RADIO_US CD_LAUFWERK REGENSENSOR     //750i US LL
+//--------------------------------------------------------------------------------------------
+W HL01  V0906           E65 N73B60 MUE LL ECE STEPTRONIC SERVOTRONIC NIVEAUREG EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ LORDOSE SWA PDC XENONLICHT KLIMA_HIGH
+>>>                     CD_LAUFWERK TOP_HIFI REGENSENSOR                                                //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL01  N0906           E65 N73B60 TUE MUE LL ECE STEPTRONIC SERVOTRONIC NIVEAUREG EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ LORDOSE SWA PDC XENONLICHT KLIMA_HIGH
+>>>                     CD_LAUFWERK TOP_HIFI REGENSENSOR                                                //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W HL02  V0906           E65 N73B60 MUE RL ECE STEPTRONIC SERVOTRONIC NIVEAUREG EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ LORDOSE SWA PDC XENONLICHT KLIMA_HIGH
+>>>                     CD_LAUFWERK TOP_HIFI REGENSENSOR                                                //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL02  N0906           E65 N73B60 TUE MUE RL ECE STEPTRONIC SERVOTRONIC NIVEAUREG EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ LORDOSE SWA PDC XENONLICHT KLIMA_HIGH
+>>>                     CD_LAUFWERK TOP_HIFI REGENSENSOR                                                //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W HL03  V0906           E65 N73B60 MUE LL US SERVOTRONIC STEPTRONIC NIVEAUREG ARS EDC LSM RPA
+>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD SPORTSITZ LORDOSE AK_GUWA SWA
+>>>                     REGENSENSOR XENONLICHT KLIMA_HIGH RADIO_US NAVIGATION CD_LAUFWERK                           //760i US "Sport", ab 03/04
+//--------------------------------------------------------------------------------------------
+W HL03  N0906           E65 N73B60 TUE MUE LL US SERVOTRONIC STEPTRONIC NIVEAUREG ARS EDC LSM RPA
+>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD SPORTSITZ LORDOSE AK_GUWA SWA
+>>>                     REGENSENSOR XENONLICHT KLIMA_HIGH RADIO_US NAVIGATION CD_LAUFWERK                           //760i US "Sport", ab 03/04
+//--------------------------------------------------------------------------------------------
+//W HL03  N0905           E65 N73B60 MUE LL US SERVOTRONIC STEPTRONIC NIVEAUREG ARS EDC LSM DIRECT_RDC
+//>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD SPORTSITZ LORDOSE AK_GUWA SWA
+//>>>                     REGENSENSOR XENONLICHT KLIMA_HIGH RADIO_US NAVIGATION CD_LAUFWERK                           //760i US "Sport", ab 03/04
+//--------------------------------------------------------------------------------------------
+W HM21  V0905           E65 M57D30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                               //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W HM21  N0905           E65 M57D30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //730d EUR LL
+//--------------------------------------------------------------------------------------------
+W HM22  V0905           E65 M57D30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK                                                               //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W HM22  N0905           E65 M57D30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SWA
+>>>                     XENONLICHT CD_LAUFWERK REGENSENSOR                                                   //730d EUR RL
+//--------------------------------------------------------------------------------------------
+W HM61  V0905           E65 M67D44 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK                                                           //745d EUR RL
+//--------------------------------------------------------------------------------------------
+W HM61  N0905           E65 M67D44 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT SITZMEMORY_FA
+>>>                     SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                               //745d EUR RL
+//--------------------------------------------------------------------------------------------
+//
+// E66
+//--------------------------------------------------------------------------------------------
+W HN21  V0905           E66 N52B30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK                                                 //730iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN21  N0905           E66 N52B30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                     //730iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN22  V0905           E66 N52B30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK                                                 //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN22  N0905           E66 N52B30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                     //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN25  V0905           E66 N52B30 MUE RL CKD THAILAND STEPTRONIC SERVOTRONIC LSM RPA
+>>>                     FONDSICHERHEIT HECKROLLO SWA XENONLICHT CD_LAUFWERK                                  //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN25  N0905           E66 N52B30 MUE RL CKD THAILAND STEPTRONIC SERVOTRONIC LSM RPA
+>>>                     FONDSICHERHEIT HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                      //730iL EUR RL
+//--------------------------------------------------------------------------------------------
+//W HN45                  E66 N62B36 MUE RL CKD                                       //735iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HM41  V0905           E66 M57D30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     SWA XENONLICHT CD_LAUFWERK                                            //730dL EUR LL
+//--------------------------------------------------------------------------------------------
+W HM41  N0905           E66 M57D30 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                //730dL EUR LL
+//--------------------------------------------------------------------------------------------
+W HM42  V0905           E66 M57D30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     SWA XENONLICHT CD_LAUFWERK                                            //730dL EUR RL
+//--------------------------------------------------------------------------------------------
+W HM42  N0905           E66 M57D30 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                //730dL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN61  V0905           E66 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK                                           //740iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN61  N0905           E66 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                               //740iL EUR LL
+//--------------------------------------------------------------------------------------------
+//W HN61  V0906           E66 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+//>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                               //740iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN61  N0906           E66 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                     //740iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN62  V0905           E66 N62B40 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK                                                 //740iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN62  N0905           E66 N62B40 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                                     //740iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN65  V0905           E66 N62B40 MUE RL CKD THAILAND STEPTRONIC SERVOTRONIC LSM RPA
+>>>                     FONDSICHERHEIT HECKROLLO SWA XENONLICHT CD_LAUFWERK                                  //740iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN65  N0905           E66 N62B40 MUE RL CKD THAILAND STEPTRONIC SERVOTRONIC LSM RPA
+>>>                     FONDSICHERHEIT HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                      //740iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN66                  E66 N62B40 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SWA XENONLICHT CD_LAUFWERK REGENSENSOR                               //740iL EUR LL, SKD fuer Aegypten, SA AEGYPTEN entfaellt zu 09/06
+//--------------------------------------------------------------------------------------------
+W HN81  V0905           E66 N62B48 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK                                   //750iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN81  N0905           E66 N62B48 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK REGENSENSOR                       //750iL EUR LL
+//--------------------------------------------------------------------------------------------
+W HN82  V0905           E66 N62B48 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK                                   //750iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN82  N0905           E66 N62B48 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RPA FONDSICHERHEIT
+>>>                     HECKROLLO SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK REGENSENSOR                       //750iL EUR RL
+//--------------------------------------------------------------------------------------------
+W HN83                  E66 N62B48 MUE LL US ARS SERVOTRONIC LSM RPA AKTIVER_KNIEBAG ALARMANLAGE
+>>>                     LORDOSE SWA REGENSENSOR XENONLICHT KLIMA_HIGH RADIO_US AK_GUWA CD_LAUFWERK
+>>>                     GLAS_SHD SITZMEMORY_FA                                                               //750iL US LL
+//--------------------------------------------------------------------------------------------
+//W HN83  N0905           E66 N62B48 MUE LL US ARS SERVOTRONIC LSM DIRECT_RDC AKTIVER_KNIEBAG ALARMANLAGE
+//>>>                     LORDOSE SWA REGENSENSOR XENONLICHT KLIMA_HIGH RADIO_US AK_GUWA CD_LAUFWERK
+//>>>                     GLAS_SHD SITZMEMORY_FA                                                             //750iL US LL
+//--------------------------------------------------------------------------------------------
+W HN01  V0906           E66 N73B60 MUE LL ECE STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO SEITENROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA PDC REGENSENSOR XENONLICHT
+>>>                     KLIMA_HIGH CD_LAUFWERK TOP_HIFI                                           //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W HN01  N0906           E66 N73B60 TUE MUE LL ECE STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO SEITENROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ LORDOSE SWA PDC REGENSENSOR XENONLICHT
+>>>                     KLIMA_HIGH CD_LAUFWERK TOP_HIFI                                           //760i EUR LL
+//--------------------------------------------------------------------------------------------
+W HN02  V0906           E66 N73B60 MUE RL ECE STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO SEITENROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA PDC REGENSENSOR
+>>>                     XENONLICHT KLIMA_HIGH CD_LAUFWERK TOP_HIFI                                 //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W HN02  N0906           E66 N73B60 TUE MUE RL ECE STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     FONDSICHERHEIT ALARMANLAGE SCA KLIMAGLAS KLIMA_FRONTSCH HECKROLLO SEITENROLLO
+>>>                     SPIEGELPAKET KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA PDC REGENSENSOR
+>>>                     XENONLICHT KLIMA_HIGH CD_LAUFWERK TOP_HIFI                                 //760i EUR RL
+//--------------------------------------------------------------------------------------------
+W HN03  V0906           E66 N73B60 MUE LL US STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD HECKROLLO SEITENROLLO
+>>>                     KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA REGENSENSOR XENONLICHT KLIMA_HIGH
+>>>                     NAVIGATION RADIO_US AK_GUWA CD_LAUFWERK                                              //760i US LL
+//--------------------------------------------------------------------------------------------
+W HN03  N0906           E66 N73B60 TUE MUE LL US STEPTRONIC SERVOTRONIC EDC ARS LSM RPA
+>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD HECKROLLO SEITENROLLO
+>>>                     KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA REGENSENSOR XENONLICHT KLIMA_HIGH
+>>>                     NAVIGATION RADIO_US AK_GUWA CD_LAUFWERK                                              //760i US LL
+//--------------------------------------------------------------------------------------------
+//W HN03  N0905           E66 N73B60 MUE LL US STEPTRONIC SERVOTRONIC EDC ARS LSM DIRECT_RDC
+//>>>                     AKTIVER_KNIEBAG ALARMANLAGE GLAS_SHD HECKROLLO SEITENROLLO
+//>>>                     KOMFORTSITZ EL_SITZVER_FOND LORDOSE SWA REGENSENSOR XENONLICHT KLIMA_HIGH
+//>>>                     NAVIGATION RADIO_US AK_GUWA CD_LAUFWERK                                              //760i US LL
+//
+//
+// E67
+//
+//--------------------------------------------------------------------------------------------
+W HP61                  E67 N62B44 MUE LL ECE STEPTRONIC SERVOTRONIC LSM RDC FONDSICHERHEIT   //750iL ECE LL   //Keine Motoranpassung gem.PA004/006
+>>>                     SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK EDC                             // Keine Umstellung auf N62B48 siehe auch PA 446/177
+//--------------------------------------------------------------------------------------------
+W HP62                  E67 N62B44 MUE RL ECE STEPTRONIC SERVOTRONIC LSM RDC FONDSICHERHEIT   //750iL ECE RL   //Keine Motoranpassung gem.PA004/006
+>>>                     SITZMEMORY_FA SWA XENONLICHT CD_LAUFWERK EDC                             // Keine Umstellung auf N62B48 siehe auch PA 446/177
+//--------------------------------------------------------------------------------------------
+W HP81                  E67 N73B60 MUE LL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA  //760iL ECE LL
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SWA PDC SITZMEMORY_FA
+>>>                     XENONLICHT KLIMA_HIGH NAVIGATION CD_LAUFWERK SERVOTRONIC
+>>>                     TOP_HIFI                                          //760iL ECE LL
+//--------------------------------------------------------------------------------------------
+W HP82                  E67 N73B60 MUE RL ECE STEPTRONIC EDC LSM FONDSICHERHEIT RDC ALARMANLAGE SCA  //760iL ECE RL
+>>>                     HECKROLLO SEITENROLLO SPIEGELPAKET SWA PDC SITZMEMORY_FA
+>>>                     XENONLICHT KLIMA_HIGH NAVIGATION CD_LAUFWERK SERVOTRONIC
+>>>                     TOP_HIFI                                      //760iL ECE RL
+//--------------------------------------------------------------------------------------------
+//

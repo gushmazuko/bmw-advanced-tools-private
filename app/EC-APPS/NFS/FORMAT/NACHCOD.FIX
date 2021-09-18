@@ -1,0 +1,21 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer Nachprogrammiervorschrift
+; z.B. M3_1.NCH
+; Autor: Ta
+; Datum: 13.09.94
+; Aenderungen:
+; 30.08.95  Stei  Checksumme steht jetzt auch im Formatstring
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+C "$"
+;
+; NP-Vorschriftszeile: 
+;ZB(alt) ZB(neu)   SW-Nr   AM     ANZSG M-Nr CS
+;1703811,1740337,1740323NA,1FFFFFFFFFG,1,1 G
+M "%7L"
+P "MOD36"
+F "%7L,%7L,%9S,%11S,%1B,%1B +%*C"
+N "ZBANR,ZBNNR,SWNR,AM,ANZSG,MNR"
+; ENDE

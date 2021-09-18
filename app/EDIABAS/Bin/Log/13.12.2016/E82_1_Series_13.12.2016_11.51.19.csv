@@ -1,0 +1,58 @@
+Results;SA_Code;Description
+BR;E82_;
+LACK;0300;Alpinweiss III 
+SA_1;1CA;Selection of COP relevant vehicles
+SA_2;249;Multifunction steering wheel
+SA_3;2MR;M light alloy wheels Double-spoke style 261 M with mixed tyres
+SA_4;2TC;Sports automatic transmission with double clutch
+SA_5;2VB;Tyre Pressure Monitor
+SA_6;321;Exterior parts in body colour
+SA_7;337;M Sports package
+SA_8;403;Glass roof, electrical
+SA_9;423;Floor mats in velour
+C_TYP;UC93;E82 Coup N55B30M0 LHD
+SA_10;459;Seat adjustment, electrical with memory
+SA_11;473;Armrest front
+SA_12;481;Sport seats for driver and front passenger
+SA_13;488;Lumbar support for driver and front passenger
+SA_14;4DH;Decorative strip Alpine white
+SA_15;4NE;Engine ventilation heating
+SA_16;502;Headlight washer system
+SA_17;521;Rain sensor
+SA_18;522;Xenon Light
+SA_19;524;Adaptive headlight
+SA_20;534;Automatic air conditioning
+SA_21;540;Cruise control
+SA_22;570;Stronger electricity supply
+SA_23;645;Radio control US
+SA_24;663;Radio BMW Professional
+SA_25;676;HiFi loudspeaker system
+SA_26;693;Preparation for satellite tuner
+SA_27;697;Area code 1 for DVD
+SA_28;6FL;USB audio interface
+SA_29;6NN;Hands-free system
+SA_30;704;M Sports suspension
+SA_31;760;BMW Individual high-gloss Shadow Line
+SA_32;775;BMW Individual headliner anthracite
+SA_33;7XA;M leather steering wheel with gearshift paddles
+SA_34;823;Hot-climate version
+SA_35;840;High-speed tuning
+SA_36;845;Acoustic seat-belt warning
+SA_37;850;Additional tank filling, export
+SA_38;853;Language version English
+SA_39;876;Radio frequency 315 MHz
+SA_40;8TN;Daytime driving lights light menu adjustable
+SA_41;925;Shipping protection package
+C_DATE;0911;09.2011
+SA_ANZ;41;
+POLSTER;LWSW;
+VERSION;02;
+E_WORT_1;B080;Battery 80 Ah, DO
+E_WORT_2;EMOA;Deletion of MOST adapter
+HO_WORT_1;KRAD;Radio replacement without virtual control unit
+HO_WORT_2;NPOW;Conversion Power Kit
+E_WORT_ANZ;2;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;2;
+STANDARD_FA;E82_#0911*UC93%0300&LWSW$1CA$249$2MR$2TC$2VB$321$337$403$423$459$473$481$488$4DH$4NE$502$521$522$524$534$540$570$645$663$676$693$697$6FL$6NN$704$760$775$7XA$823$840$845$850$853$876$8TN$925-B080-EMOA+KRAD+NPOW;

@@ -1,0 +1,41 @@
+; Baureihen-SGFAM-/ZCS-Datei E39, 25.11.97, Kn
+;
+;-----------------------------------------------------------------------
+; 20.08.98  Ln  ZHZ integriert
+; 05.03.99  Ln  HKM integriert
+; 16.01.01  Fi  TUS integriert
+; 15.03.01  Fi  RLS integriert
+; 27.03.02  RH  ULF integriert
+; 27.05.02  RH  TCU integriert
+;-----------------------------------------------------------------------
+; SG    ABD      SGBD     ZCS FA  KOMMENTAR
+S IKE   A_KMB    C_KMB    1   0
+S KMB   A_KMB    C_KMB    1   0
+S GM3   A_GM3    C_GM3    0   0
+S LCM   A_LCM    C_LCM    0   0
+S EWS   A_EWS    C_EWS    1   0
+S ABG   A_ZAE2   C_ZAE2   0   0
+S IHR   A_IHK39  C_IHK    0   0
+S IHKR  A_IHK39  C_IHK    0   0
+S IHKA  A_IHK39  C_IHK    0   0
+S ASC5  A_ASC5   C_ASC5   0   0
+S EHC   A_EHC    C_EHC    0   0
+S EDC   A_EDC3   C_EDC3   0   0
+S GR2   A_FGR2   C_FGR2   0   0
+S LWR   A_LWR    C_LWR    0   0
+S GT    A_GT     C_GT     0   0
+S TV1   A_TV1    C_TV1    0   0
+S PDC   A_PDC    C_PDC    0   0
+S LWS   A_LWS5   C_LWS5   0   0
+S DSP   A_DSP    C_DSP    0   0
+S RDC   A_RDC    C_RDC    0   0
+S DSC   A_DSC57  C_DSC57  0   0
+S BIT   A_BIT    C_BIT    0   0
+S SM    A_SM38   C_SM38   0   0
+S RAD   A_RADIO  C_RADIO  0   0
+S ZHZ   A_ZHZ    C_ZHZ    0   0
+S HKM   A_HKM    C_HKM    0   0
+S TUS   A_TELUS  TEL_US   0   0
+S RLS   A_RLS    RLS_DS2  0   0
+S ULF   A_ULF    ULF      0   0
+S TCU   A_TELIB  TELIBUS  0   0

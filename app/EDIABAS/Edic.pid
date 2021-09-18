@@ -1,0 +1,35 @@
+;{{00013199}} Created by PSIGN 2.6 - Do not modify this file !
+[Package]
+Title = EDIC-BMW
+Description = Hardwarespezifische Dateien: EDIC
+Version = 7.54a (7.3.0_Package_1.0)
+Manufacturer = Copyright Softing AG
+Language =
+
+[Files]
+File1=HARDWARE\EDIC\AUTORUN.INF
+File2=HARDWARE\EDIC\Config32.dll:VXWIN
+File3=HARDWARE\EDIC\EDICInstallationGuide.pdf
+File4=HARDWARE\EDIC\EDICSetup.exe:VXWIN
+File5=HARDWARE\EDIC\EDICSetup.ini:VXEXIST
+File6=HARDWARE\EDIC\ReadMe.txt
+
+File7=Hardware\EDIC\Driver\Win2000\CONMANSRV.exe
+File8=HARDWARE\EDIC\Driver\Win2000\EDIC2K.sys
+File9=Hardware\EDIC\Driver\Win2000\EDICBLUE.dll
+File10=HARDWARE\EDIC\Driver\Win2000\EDICDP32.dll:VXWIN
+File11=Hardware\EDIC\Driver\Win2000\EDICSWT5.dll
+File12=Hardware\EDIC\Driver\Win2000\EDICTCP.dll
+File13=Hardware\EDIC\Driver\Win2000\EDICUSB.dll
+File14=Hardware\EDIC\Driver\Win2000\EDICUSB.sys
+File15=HARDWARE\EDIC\Driver\Win2000\EW2KINST.dll:VXWIN
+File16=Hardware\EDIC\Driver\Win2000\SOFTINGEDIC.cat
+File17=HARDWARE\EDIC\Driver\Win2000\SOFTINGEDIC.INF
+File18=Hardware\EDIC\Driver\Win2000\SOFTINGEDICDRIVER.ini:VXEXIST
+
+File19=HARDWARE\EDIC\System\English\VCREDIST.exe:VXWIN
+File20=HARDWARE\EDIC\System\English\VCREDIST-INFO.pdf
+File21=HARDWARE\EDIC\System\German\VCREDIST.exe:VXWIN
+
+; EOF
+

@@ -1,0 +1,34 @@
+; Baureihen-SGFAM-/ZCS-Datei E38, 24.11.98, Ha
+
+; SG    CABD     C_SGBD  ZCS FA    KOMMENTAR
+S IKE   A_KMB    C_KMB   1   0
+S CCM   A_CCM    C_CCM   0   0
+S GM3   A_GM3    C_GM3   0   0
+S LM    A_LCM    C_LCM   0   0
+S LCM   A_LCM    C_LCM   0   0
+S ABG   A_ZAE2   C_ZAE2  0   0
+; ABGB, ABGZ, ZAE2, MRSZ, MRS2  --> ID lesen testen
+S ASC5  A_ASC5   C_ASC5  0   0
+; ASC5, DSC                  0
+S IHK   A_IHK38  C_IHK   0   0
+S EDC   A_EDC3   C_EDC3  0   0
+S EWS   A_EWS    C_EWS   1   0
+; EWS2, EWS3 -> Achtung ZCS lesen EWS2/EWS3 gleich?
+S GR2   A_FGR2   C_FGR2  0   0
+; GR2, FGR2  ---> ID lesen testen
+S EML   A_EML3S  C_EML3S 0   0
+S LWR   A_LWR    C_LWR   0   0
+S GT    A_GT     C_GT    0   0
+S TV1   A_TV1    C_TV1   0   0
+S PDC   A_PDC    C_PDC   0   0
+S LWS   A_LWS5   C_LWS5  0   0
+S DSP   A_DSP    C_DSP   0   0
+S RDC   A_RDC    C_RDC   0   0
+S SHD   A_SHD    C_SHD   0   0
+S SM    A_SM38   C_SM38  0   0
+S BIT   A_BIT    C_BIT   0   0
+S ZHZ   A_ZHZ    C_ZHZ   0   0
+S ACC   A_ACC    C_ACC   0   0
+S HKM   A_HKM    C_HKM   0   0
+S SEC   A_SEC    C_SEC   0   0
+S TUS   A_TELUS  TEL_US  0   0

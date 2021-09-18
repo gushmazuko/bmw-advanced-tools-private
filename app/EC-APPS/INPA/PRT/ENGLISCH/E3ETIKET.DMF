@@ -1,0 +1,36 @@
+.forbeg
+for_etikett,62,15
+.varbeg
+df_sw_vers,47,3,5,Vx.yz
+df_fzgtyp,25,4,4,tttt
+df_fahrgnr,25,5,7,#######
+df_zae_bae_cod,13,6,29,  
+df_datum,42,4,10,tt-mm-jjjj
+df_zeit,42,5,8,hh:mm:ss
+df_ekm_gm_txt,13,6,2,GM
+df_ekm_gm_code,16,6,8,12345678
+df_ekm_sa_txt,28,6,2,SA
+df_ekm_sa_code,31,6,16,1234567890123456
+df_ekm_vn_txt,13,7,2,VN
+df_ekm_vn_code,16,7,10,1234567890
+df_ekm_am_txt,28,7,2,AM
+df_ekm_am_code,31,7,10,1234567890
+.varend
+.drmbeg
+                                                              
+          ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄ¿
+          ³ SELF-TEST                  ELDI/3 V1.0  ³Rework  ³
+          ³ Vehcl type: tttt      Date : tt-mm-jjjj ³        ³
+          ³ VIN       : #######   Time : hh:mm:ss   ³        ³
+          ³                                         ÃÄÄÄÄÄÄÄÄ´
+          ³                                         ³Tester: ³
+          ³    No errors in the control units !     ³        ³
+          ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÙ
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              
+.drmend
+.forend

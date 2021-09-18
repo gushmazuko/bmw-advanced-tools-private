@@ -1,0 +1,28 @@
+; Baureihen-SGFAM-/ZCS-Datei E36, 09.12.99, CO
+; 04.12.02  Leonard SG- Familiennamen angepasst, wegen Umstellung VMP nach CABD/SGBD 
+
+; SG    CABD     SGBD     ZCS FA KOMMENTAR
+S ABG   A_ZAE2   C_ZAE2   0   0
+;ABGB,ABGZ,ZAE2,MRSZ,MRS2,MRS3 --> ID lesen i.O.
+S AS2   A_ERL    C_ERL    0   0
+S AS5   A_ASC5   C_ASC5   0   0
+S ASC   A_ASCT   C_ASCT   0   0
+S BCL   A_BCL    C_BCL    0   0
+S BCV   A_BCV    C_BCV    0   0
+S CVM   A_CVM36  C_CVM    0   0
+S DSC   A_ASCDSC C_ASDSC  0   0
+S DWA   A_DWA3_4 C_DWA3   0   0
+S EWS   A_EWS    C_EWS    1   0
+S GM4   A_GM4    C_GM4    0   0
+S GR2   A_FGR2   C_FGR2   0   0
+S IHA   A_IHK36  C_IHKA36 0   0
+S IHR   A_IHR36  C_IHKR36 0   0
+S KMB   A_KMB361 C_KMB36  1   0
+S CKMB  A_KMB36  C_KMB    1   0
+S GKMB  A_KMB361 C_KMB36  0   0
+S LKMB  A_KMB362 C_KMB36L 0   0
+S LWS   A_LWS5   C_LWS5   0   0
+S MK20  A_ASCDSC C_ASCDSC 0   0
+S MK60  A_ASCDSC DSC_MK60 0   0
+S TOEN  A_TOENS  C_TOENS  0   0
+S ZVM   A_ZVM    C_ZVM36  0   0

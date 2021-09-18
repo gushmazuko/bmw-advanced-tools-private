@@ -1,0 +1,302 @@
+// Änderungsdokumentation: E53
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 377 063.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E53AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6501.L  a      11.09.98   EE-92   Knöchel
+     EvgBG.1    AEDOC, SGFAM,   -Daten neu erstellt für vorgezogene Baugruppe
+                ZST, CVT, SGET,
+                ZCSUT, CONF
+     EvgBG.2    DSC5_7.C10,     -DSC 5.7 neu hinzu
+                CVT,SGET,CONF,
+                ZCSUT,SGFAM
+     EvgBG.3    CVT             -Kopfairbag deaktiv, da nicht verbaut
+                                 Codierung LCM auf Tarnleuchtenumfang
+     EBG11.1    SGET,CVT        -DSP integriert
+                SGET,CVT        -IHKR/IHKA integriert
+                SGET,CVT        -RDC integriert
+                SGET,CVT        -LWS5 integriert
+                SGET,CVT,ZCSUT, -MRS3 integriert
+                ZST
+                SGET,ZCSUT,CVT  -Kombi CI 06 und KMBI CI 12 neu hinzu
+                SGET,ZCSUT      -DSC 5.7 mit Codierindex 11 statt 10
+     EBG11.2  a      07.05.98   EE-92   Knöchel
+                CVT             -Änderung LCM-Funktionen (mit Hr.Moser EE-21)
+                CVT,SGET        -Neue CBD IHKA_E39.C03
+                LWS5.C01        -Neue CBD LWS5.C01
+     EBG11.3  a      18.05.98   EE-92   Knöchel
+                CVT             -Änderung LCM-Funktionen (mit Hr.Moser EE-21)
+     EBG11.4  a      06.07.98   EE-92   Knöchel
+                CVT             -Einarbeitung neue CBD IHKA.C03
+                CVT             -Wasserpumpe aktiv bei M52 (IHKR.C10)
+                CVT             -SIA-Literwerte und Töns-Kennlinien neu (E39/2)
+                CVT             -Änderung GM-Funktionen (CBD GM3_E53.C04)
+                SM_E46.C01,CVT, -Sitzmemory E46 neu hinzu (Car & Key Memory)
+                SGET,ZCSUT,
+                SGFAM,CONF
+                CVT             -Car & Key Memory integriert
+                CVT             -CAN_GANGANZEIGE nicht aktiv bei Handschalter
+     E6501.L  a      11.09.98   EE-92   Knöchel
+                CVT,ZST,SGET    -Daten für PTO überarbeitet bzgl. MRS3, DSC,
+                                 DSP, GM3, IHKA/IHKR, KMB, LCM
+                CVT,SGET,ZCSUT, -Steuergeräte neu hinzu:
+                SGFAM,CONF,ZST,  Radio CD43, Zuheizer, aut. LWR, BIT
+                RA_CD43.C01,
+                ZHZ.C01,LWR.C03,
+                BIT.C01
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3619.M  b      14.12.98   EE-92   Knöchel
+                IHKA_E53.C03,   -new CBD for IHKA (now separated from E39)       -neue CBD für IHKA (jetzt getrennt von E39)
+                SGET,CVT         with new fct. blower automatic normal range      mit neuer Fkt. Gebläseautomatik Normalbereich
+                CVT,SGET        -ZHZ is also built in with park heating,         -Zuheizer auch bei Standheizung verbaut,
+                                 coding data changed for IHKA and IHKR            Codierung in IHKA und IHKR geändert
+                CVT             -Revising of data in CBD LCM.C18                 -Einarbeitung Änderung der CBD LCM.C18
+                MRS3.C08        -sharp parameters for MRS 170/08/T04             -scharfer Parametersatz 170/08/T04
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3831.M  c      01.03.99   EE-92   Knöchel
+                CVT,ZST         -SA645 controls radio version US (PS8021/017)    -SA645 steuert Radio-Version US (PN8021/017)
+                GT.C02,         -Integr. graphics part codingindex 02 (GT.C02)   -Integr. Graphikteil Codierindex 02 (GT.C02)
+                SGET,SGVT,CVT
+                CVT, EHC.C06    -New CBD EHC.C06: coding data changed,           -Neue CBD EHC.C06: geänderter Datensatz,
+                                 offset values changed                            andere Offsetwerte
+                CVT,KMB_E39.C06 -Following CBDs changed                          -Geänderte CBDen
+                                 KMB_E39.C06/KMBI_E38.C12: tank curve 92 liter    KMB_E39.C06/KMBI_E38.C12: Tankkennlinie 92-Liter
+                                 DSP.C01: curves adapted                          DSP.C01: Kennlinien angepaßt
+                                 LCM.C18: data adapted KUEHLWASSER_BEDAEMPFUNG    LCM.C18: Daten angepaßt KUEHLWASSER_BEDAEMPFUNG
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE146.M  d      16.04.99   EE-92   Knöchel
+                LWS5.C01        -new LWS5-coding data                            -neue LWS5-Codierdaten
+                KMBI_E38.C12    -Japan without time servicing (PS 8009/179)      -Japan ohne Zeitinspektion (PN 8009/179)
+                KMB_E39.C06      SIA_LITER_GRENZE new for M62, M54, M57           SIA_LITER_GRENZE neu für M62, M54, M57
+                CVT, ZST         Integr. SA984 Coding maintenance interval        Integr. SA984 Codierung Wartungsintervall
+                CVT,SGET        -Revising of data for aircondition               -Überarbeitung der Daten für Klima-SG
+                                 IHKA_E53.C03 and IHKR_E53.C10                    IHKA_E53.C03 und IHKR_E53.C10
+                CVT             -TOENS-curve M62B44 added and changing of        -TOENS-Kennlinie M62B44 hinzu und Änderung der
+                                 Programmparameter in LCM.C18                     Programmparameter im LCM.C18
+                CVT             -Revising of data for GM3                        -Überarbeitung der Daten für GM3
+                CVT             -Deactivating of Sideairbags fond for            -Deaktivierung der Seitenairbags hinten für
+                                 US/CDN-cars with SA261 (Side airbag fond)        US/CDN-Fzg. mit SA261 (Seitenairbag hinten)
+                                 headairbags fond are not active for all cars!    Kopfairbags hinten für alle Fzg. nicht_aktiv!
+                ZST,CVT         -SA533 Fond aircondition coding rel. added       -SA533 Fond-Klimatisierung codierrel. hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE688.M  e      28.06.99   EE-62   Haller
+     M9901.M  e      02.06.99   EE-62   Knöchel
+                ZST             -2-axle-LVL/CTL/SYS (SA221) always with          -2-Achs-Niveaureg. (SA221) immer mit High-Kombi
+                                 high instrument cluster (PS 8455/040)            (PN 8455/040)
+                SGET, CVT       -new airbag-ECU integrated: MRS3.C10             -neues Airbag-SG integriert: MRS3.C10
+                ZST             -Drop-out LA820 Latin America (PS 8021/040)      -Entfall LA 820 Brasilien (PN 8021/040)
+                ZST             -SA249 multifunction f steering wheel added      -SA 249 Multifunktion für Lenkrad hinzu
+                                 (PS 8016/037)                                    (PN 8016/037)
+                CVT,LCM.C18     -new program parameter (Lightning brake light)   -neue Programmparameter (Flackern Bremslicht)
+                                 SCHALTER2_BL nicht_aktiv,                        SCHALTER2_BL nicht_aktiv,
+                                 U_POTI_STELLUNG_2 now wert_03 at cars without    U_POTI_STELLUNG_2 auf wert_03 bei Fzg.en ohne
+                                 LWR or with aut. LWR                             LWR oder mit aut. LWR
+                ZST             -FA53 and FB33 as A-words: the serial equipment  -FA53 und FB33 als A-Worte: Es ändert sich lt.
+                                 is changed (look at vehicle descr. of 28.05.99)  Fzg.Beschr. vom 28.05.99 die Serienausstattung
+                                 FA53: w/o SA534, with SA645,SA823,SA845          FA53: ohne SA534, mit SA645,SA823,SA845
+                                 FB33: w/o SA555,SA403, with SA645,SA823,SA845    FB33: ohne SA555,SA403, mit SA645,SA823,SA845
+                ZST             -SA 944 new added                                -SA 944 neu hinzu
+     EE688.M  e      28.06.99   EE-62   Haller
+                IHKA_E53,CVT    -deletion of the folling FSW:                    -Entfall folgender FSW:
+                                 ENTFROSTUNGSANTEIL, FUSSRAUMKURVEN,              ENTFROSTUNGSANTEIL, FUSSRAUMKURVEN,
+                                 GEBLAESEAUTOMATIK, GEBLAESEAUTOMATIK2            GEBLAESEAUTOMATIK, GEBLAESEAUTOMATIK2
+                DSP             -new parameter for sound processor               -neue DSP-parameter
+                CVT,ZST         -new option code 0988 for extrem short           -neue SA 0988 für extrem verkürzte
+                                 SIA-LITER_GRENZE, for M57D30 only                SIA-LITER_GRENZE, nur für M57D30
+                MRS3.C10        -new crash parameters 174/08/T14                 -neuer Crashparametersatz 174/08/T14
+                GM3_E53         -new parameter for power steering                -neue Parameter für Servotronik
+////////////////////////////////////////////////////////////////////////////////
+NAEL E0E17.M  f      28.07.99   EE-62   Knöchel
+                CVT             -Adaption Acknowledge locking/unlocking          -Anpassung Quittierungsfunktionen bei Fzg. mit
+                                 w/o alarm-system (coding and Car&Key Memory)     und ohne DWA (Codierung und Car&Key Memory)
+                                 PS 8008/099                                      PN 8008/099
+                ZST             -SA840 High-speed-tuning added                   -SA840 Hochgeschwindigkeitsabstimmung frei-
+                                 (PS 8455/055)                                    geschalten (PN 8455/055)
+                ZST,CVT         -SA851 Instrument lettering german added         -SA851 Sprachversion Deutsch neu hinzu
+                                 (PS 8003/093)                                    (PN 8003/093)
+                ZST,CVT,RDC     -SA926(full-size-spare-wheel) has to be coded    -SA926(Ersatzrad) jetzt codierrelevant
+                                 ANZAHL_RAEDER_VERBAUT                            ANZAHL_RAEDER_VERBAUT
+                LCM.C18         -Program-parameters LCM changed                  -Programmparameter LCM geändert
+                PDC,CVT         -Parameters f.Sensibility changed (PDC)          -Schwellwerte PDC geändert
+                                 scaling -factors changed to 0.65                 Skalierungsfaktoren in 0.65 geändert
+////////////////////////////////////////////////////////////////////////////////
+NAEL E1E31.M  g      13.08.99   EE-62   Knöchel
+     M9902.M  g      03.08.99   EE-62   Knöchel
+                CVT,ZST         -E-word BLSN (check Brake-light-switch)          -E-Wort BLSN (Bremslichtschalter prüfen)
+                                 integrated                                       neu hinzu
+     E1E31.M  g      13.08.99   EE-62   Knöchel
+                SGVT,SGET       -New PDC-ECU, temporary until a new holder for   -Neues PDC-SG, vorübergehend bis Einsatz neuer
+                PDC.C00          the sensor is supported, isn't coded             Halter für Sensor, wird nicht codiert
+                CVT             -Panic-mode also for Australia (LA810)           -Panic-Modus auch für Australien (LA810)
+                LWR.C03,CVT     -New data-set for LWR                            -Neuer Datensatz für LWR
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3E12.M  h      01.10.99   EE-62   Haller
+                MRS3.C10        -New Crash paramter for Airbag-system           -Neue Crashparameter für Airbag
+                                 sent to factory at 20.09.99                     vorab ans Band am 20.09.99
+                TV2.C02         -new PSW for FSW "WIDESCREEN_MODI"              -geänderte PSW für FSW "WIDESCREEN_MODI"
+                E53CVT.000
+                LCM.C18         -CBD revised                                    -CBD überarbeitet
+                                -dimmed flash-light as park-light for US only    gedimmter Blinker als Parklicht nur für US
+                KMBI_E38.C12    -Integration of new FSW "TNK_DECKEL_WARNUNG"    -neues FSW "TNK_DECKEL_WARNUNG" integriert
+                KMB_E39.C06
+                E53CVT.000
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6E10.M  i      22.11.99   EE-62   Lanny
+     M9903.M  i      12.10.99   EE-62   Lanny
+                ZST             -deletion of A-words FA53 and FB33               -Entfall A-Worte FA53 u. FB33
+                                -FA53: w/o SA459                                 -FA53: ohne SA459
+                TV2.C02         -values changed                                  -neue Werte
+     M9904.M  i      28.10.99   EE-62   Lanny
+                CVT,LCM.C18     -SCHALTER2_BL aktiv for all E53                  -SCHALTER2_BL aktiv für alle E53
+     E6E10.M  i      22.11.99   EE-62   Lanny
+                CVT             -MITTENFREQUENZ_BAND1 integrated                 -MITTENFREQUENZ_BAND1 integriert
+                                 for Car&Key Memory                               in Car&Key Memory
+                                -GRUPPE Fondseitenairbag condition changed       -GRUPPE Fondseitenairbag neu bedingt
+                ZST             -SA257 OH_THORAX_HI new added                    -SA257 OH_THORAX_HI neu hinzu
+                                -SA641 TELEFON new added                         -SA641 TELEFON neu hinzu
+                                -SA's255/861 new added                           -SA's255/861 neu hinzu
+                                -new A-words FA53 and FB33 have to be used       -Neue A-Zeilen f. FA53 u. FB33 aktiv ab 12/99
+                                 from 12/99 on
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3003.N  j      24.01.00   EE-62   Lanny
+     M0001.N  j      12.01.00   EE-62   Lanny
+                LCM.C18         -TOENS-curve M62B44 new values                   -neue Werte f. M62B44-TOENS-Kennlinie
+     E3003.N  j      24.01.00   EE-62   Lanny
+                GM3_E53.C04     -new values for power steering                   -neue Werte für SERVO_KENNL_STROM
+                CVT,RA_NG.C01   -new added: RDS-AF_SWITCHING,KEY_MEMORY_RADIO    -neu hinzu: RDS-AF_SWITCHING, KEY_MEMORY_RADIO
+                CVT             -GAL_DEFAULT new PSWs                            -GAL_DEFAULT neue PSWs
+                                -LAUTSTAERKE_HINTEN new PSWs                     -LAUTSTAERKE_HINTEN neue PSWs
+                                -WIDESCREEN_MODI new PSWs                        -WIDESCREEN_MODI neues PSW
+                                -SUBWOOFER_KOPPLUNG, MITTENFREQUENZ_BAND1,       -SUBWOOFER_KOPPLUNG, MITTENFREQUENZ_BAND1,
+                                 FUNK_INNENRAUMSCHUTZ,NEIGUNGSGEBER               FUNK_INNENRAUMSCHUTZ,NEIGUNGSGEBER
+                                 deleted f. CKM                                   entfallen f. CKM
+                SGET            -RA_NG.C01 added (new ECU)                       -RA_NG.C01 hinzu (neues SG)
+                SGVT,SGET       -GT.C03 added                                    -GT.C03 hinzu
+                ZST             -SA's650/651/663 new added                       -SA's650/651/663 neu hinzu
+                                -deletion of SA624                               -Entfall SA624 (PU99)
+                                -new A-words FA53, FB31, FB32 and FB33           -Neue A-Zeilen f. FA53, FB31, FB32 u. FB33
+                                 have to be used from 10/00 on                    aktiv ab 10/00
+                                -new A-word SA662                                -A-Zeile f. SA662
+                                -new A-word SA661 RADIO_NG                       -A-Zeile f. SA661 RADIO_NG neu hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3316.N  k      25.02.00   EE-62   Lanny
+                ZST             -E-word MY01 integrated                          -E-Wort MY01 hinzu
+                                -SA's 785/983 added                              -SA's 785/983 hinzu
+                                -SA630 TELEFON SIEMENS_GSM added                 -SA630 TELEFON SIEMENS_GSM hinzu
+                                -SA632 TELEFON V_SERIE added                     -SA632 TELEFON V_SERIE hinzu
+                CVT             -INDIVID SHD_Tipp_zu/auf condition changed       -INDIVID SHD_Tipp_zu/auf neu bedingt
+                CVT,SGET,SGVT,  -new added: NACHLAUF_ZEIT_H,NACHLAUF_ZEIT_MIN,   -neu hinzu: NACHLAUF_ZEIT_H,NACHLAUF_ZEIT_MIN,
+                TEL.C02          FAHRZEUG_MMI,GAL_ANZAHL_STUFEN,GAL_KMH_STUFUNG,  FAHRZEUG_MMI,GAL_ANZAHL_STUFEN,GAL_KMH_STUFUNG,
+                                 GAL_KMH_HYSTERESE                                GAL_KMH_HYSTERESE
+                CVT,LCM.C18     -GRUPPE Niveauregelung condition changed         -GRUPPE Niveauregelung neu bedingt
+                                -GRUPPE US_PU_00 added                           -GRUPPE US_PU_00 neu hinzu
+                                -LED_RUECKLICHT_OPTION added                     -LED_RUECKLICHT_OPTION neu hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3564.N  l      29.03.00   EE-62   Lanny
+                ZST             -E-word MA01 integrated                          -E-Wort MA01 hinzu
+                                -SA's 321/775/950 added                          -SA's 321/775/950 hinzu
+                                -A-words SA602/609 deleted                       -A-Zeilen f. SA's 602/609 entfernt
+                CVT             -GRUPPE WidescreenModus condition changed        -GRUPPE WidescreenModus neu bedingt
+                                -GRUPPE DWA condition changed                    -GRUPPE DWA neu bedingt (LA807 entfallen)
+                SGET,SGVT       -KMB_E39.C07, GT.C04 added                       -KMB_E39.C07, GT.C04 hinzu
+                SGET            -RA_NG.C01 condition changed                     -RA_NG.C01 neu bedingt
+                                -a_gt3, c_gt3, a_kmb2 integrated                 -a_gt3, c_gt3, a_kmb2 integriert
+                CVT,KMB_E39.C07,-KL_50_CAN, TACHO_AUF_DAEMPFUNG,                 -KL_50_CAN, TACHO_AUF_DAEMPFUNG,          
+                KMBI_E38.C12     DZM_AUF_AB_DAEMPFUNG,TACHO_AB_DAEMPFUNG,         DZM_AUF_AB_DAEMPFUNG,TACHO_AB_DAEMPFUNG, 
+                                 ACC_V_SET_MIN, ACC_V_SET_MAX integrated          ACC_V_SET_MIN, ACC_V_SET_MAX integriert  
+                LCM.C18,CVT     -MOTOR_KENNFELD new PSW m54b30_e53               -MOTOR_KENNFELD neues PSW m54b30_e53
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE354.N  m      19.04.00   EE-62   Hahn
+                ZST             -Package SAs 955/956/948 permitted               -Paket SA 955/956/948 zugelassen
+                                -SA 986 added                                    -SA 986 hinzu (nicht codierrelevant)
+                                -new A-words SA632                               -A-Zeile f. SA632 hinzu (SG wird ab 03/01 codiert)
+                CVT             -GROUP RDS-AF_SWITCHING, conditions changed      -GRUPPE RDS-AF_SWITCHING neu bedingt
+                                -RA_NG, GROUP PTY-Tabelle_RA_NG added            -RA_NG, GRUPPE PTY-Tabelle_RA_NG hinzugefügt
+                                -RA_NG, GROUP REG-RA_NG added                    -RA_NG, GRUPPE REG-RA_NG hinzugefügt
+                                -E53 specific parameter record in EHC_KENNFELD   -spezieller Parametersatz für E53 in EHC_KENNFELD ab PU2000
+                CBD             -new CBD MRS3.C10 with new algorithm parameters  -neue CBD MRS3.C10 mit neuen Algorithmusparametern verwendet
+                                 parameter blocknumber = 174/08/T22               Parametersatznummer = 174/08/T22
+     EE354.N  m       28.06.00  EE-62   Lanny
+                ZST             -deletion of A-word SA661                        -Entfall A-Wort SA661
+                                -deletion of A-words FA53, FB31, FB32 and FB33   -Entfall A-Worte FA53, FB31, FB32 and FB33
+                                -deletion of E-word MA01                         -Entfall E-Wort MA01
+                                -E-word NGR added (for NG-radio with MID)        -E-Wort NGR hinzu (für Radios mit MID ab 10/00)
+                                -new A-word SA 602/609 - BM_RADIO (NG_radio)     -A-Zeile f. 602/609 hinzu - BM_RADIO (NG-Radio)
+                CVT,LCM.C18     -RL_INNEN_BLINKT added                           -RL_INNEN_BLINKT neu hinzu
+                CVT,EWS.C81     -ABSCHALTDREHZAHL_ANLASSER 6_zylinder_diesel_m57 -ABSCHALTDREHZAHL_ANLASSER 6_zylinder_diesel_m57 hinzu
+                                 added
+                SGET            -RA_NG.C01 conditions changed                    -RA_NG.C01 neu bedingt
+                CVT,SGET,EHC_2,
+                CONF.BAP,SGFAM,
+                ZST,ZCSUT       -EHC_2.C20 integrated but still inactive (SA221) -EHC_2.C20 integriert, noch nicht aktiv (SA221)
+/////////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N  n       22.09.00  EE-62   Reisenauer
+                ZST             -Package SAs 949/952/957 permitted               -Paket SA 949/952/957 von S auf 0 setzen     
+                                -Package SA 953 added                            -Paket SA 953 hinzu 
+                                -E-word CD43 (for car radio CD-43) integrated    -E-wort CD43 (für Radio CD43 )hinzu
+                                -SA 459 for FA53 only seat for passenger         -über SA 459 erhält FA53 nur elektr. Beifahrersitz
+                                -SA 987 added                                    -SA 987 hinzu (nicht codierrelevant)
+                CVT,LCM.C18     -Integration of new FSW: CHECK_FILL_CAP          -Neues FSW: CHECK_FILL_CAP integriert
+                CVT,RA_NG.C01   -new ASW RADIO_US for LAENDERVARIANTE_RADIO us,   LAENDERVARIANTE_RADIO us, TP_FUNKTION, PTY_TABELLE us,        
+                                 TP_FUNKTION, PTY_TABELLE us,                     RDS-AF_SWITCHING rds_on/af_man
+                                 RDS-AF_SWITCHING rds_on/af_man extended with     um das ASW RADIO_US (SA645) erweitert.
+                                 ASW RADIO_US (SA645)                                     
+                CVT,RA_NG.C01   -PTY_TABELLE, Canada coded on us                 -PTY_TABELLE, Kanada wird auf us codiert, war ece
+                CVT,KMB_E39.C07,-FSW ASC3_AUSWERTUNG, DSC_DEF_GONG, BRAKE_FORCE, -FSW ASC3_AUSWERTUNG, DSC_DEF_GONG, BRAKE_FORCE, BFD_AX_REF_SCHWELLE, BFD_HYSTERESE neu hinzu
+                KMBI_E38.C12     BFD_AX_REF_SCHWELLE, BFD_HYSTERESE added
+                SGET            -new CABD-file: A_RA_NG for switch on NG-radio   -neue CABD: A_RA_NG wegen Einschalten der NG-Radios vor dem Codieren
+                                 before coding
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0E22.N  o       27.09.00  EE-62   Reisenauer
+                LCM.C18         -new parameterset for FSW MOTOR_KENNFELD         -neue Kennlinien-daten für FSW MOTOR_KENNFELD psw m57d_e53 
+                                 for PSW m57d_e53
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N  p       08.01.01  EE-62   Reisenauer
+     M0E22.N  p       29.09.00  EE-62   Reisenauer
+                SGET            -EHC_2.C21 added (new ECU)                       -EHC_2.C21 hinzu (neues SG)
+                                -new SGBD-file EHC_2N2                           -neue SGBD EHC_2N2
+                      24.11.00  EE-62   Ralf Hahn
+                ZST             -SA632 is not longer coding relevant             -SA 632 nicht mehr codierrelevant ASW V_Serie faellt weg
+                SGET            -TEL.C02 only at SA630 (without SA632 V_Serie)   -TEL.C02 nur mehr bei SA630 (ohne SA632 V_Serie)
+                CVT             -at FSW HANDY_TYP is PSW v_serie deleted         -bei FSW HANDY_TYP wurde PSW v_serie entfernt (s.o.)
+                      12.12.00..EE-62   Ralf Hahn
+                CVT,ZST         -new Motor generation M62B46 is added            -neue Motorgeneration M62B46 für Alpina hinzugefügt
+                      08.01.01  EE-82   Ralf Hahn
+                CVT,SGET        -MRS4 integrated                                 -MRS4 integriert
+                SGVT,SGET       -EHC_2.c22 integrated                            -EHC_2.c22 integriert
+                ZST             -SA433 Interieur Strips red, integrated          -SA433 Interieurleisten rot, integriert
+                                -SA923 gets Deletion Titan line                  -SA923 wird zum Entfall Titan-Line
+                                -Sa937 Navi CD-ROM                               -SA937 Navi CD-ROM bei Auslieferung anfordern
+                CVT,SGET,SGVT   -DSC5_7.C14 and DSC5_7.C15 integrated            -DSC5_7.C14 und DSC5_7.C15 integriert
+                AUSBL
+                      17.01.01  EE-82   Ralf Hahn
+                CVT,SGET,ZST....-Telefoninterface US integrated (Mayday-Modul),  -Telefoninterface US (Mayday-Modul) integriert,
+                ZCSUT            only add-on kit in USA from 09/2000              nur Nachrüstumfang in US ab 09/2000
+                      24.01.01  EE-82   Ralf Hahn
+                ZST             -H-word NAVI (add-on kit Navigation) integrated  -H-Wort NAVI (für Nachrüstung Navigation )hinzu
+                      25.01.01  EE-82   Ralf Hahn
+                CVT             -new Parameterkeywords in CBD LCM.C18            -neue Parameterschlüsselworte in der CBD LCM.C18
+                ZST             -SA612 BMW Assist intgratet                      -SA612 BMW Assist integriert
+///////////////////////////////////////////////////////////////////////////////////

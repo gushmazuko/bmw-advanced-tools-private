@@ -1,0 +1,44 @@
+; Baureihen-SGFAM-/ZCS-Datei R56,   .  .  , SK
+;
+;  06/07/04  M. Wolf    Initial version.
+;-----------------------------------------------------------------------
+
+; SG    CABD     C_SGBD   ZCS FA KOMMENTAR
+
+S CAS   A_E65CAS CAS      0   1
+S ABG   A_PL2MRS ACSM60   0   0
+S SPEG  A_R56RW  SPEG56   0   0
+S FRM   A_PL2FRX FRM_70   0   1
+S EPS   A_E65C   EPS_56   0   0
+S AHM   A_E65    AHM_E65  0   0
+S PDC   A_E65R   PDC_87   0   0
+S KOMBI A_PL2KMB KOMB56   0   0
+S 1RAD  A_E65R   RAD1     0   0
+S 2RAD  A_E65R   RAD2     0   0
+S MULF  A_E65DR  ULF2_60  0   0
+S CAPPL A_E60CAP CCCA60   0   0
+S CTUNE A_E65    ANT_60   0   0
+S CAUDI A_CASK   ASK_60   0   0
+S CGATE A_CGW    CCCG60   0   0
+S CHOST A_E60CCC CCC_60   0   0
+S HAMP  A_E65R   AMPH56   0   0
+S PGS   A_E65    PGS_56   0   0
+S IHS   A_E65    IHS_56   0   0
+S IHKS  A_E65    IHKS56   0   0
+S IHKA  A_E65    IHKA56   0   0
+S DSC   A_R56DC  DSC_56   0   0
+S SHD   A_E65R   SD_KWP   0   0
+S RLS   A_R56RLS SPEG56   0   0
+S 4DMOT A_DMOT   D60PSA0  0   0
+S 2MULF A_E65DR  ULF2_HI  0   0
+S 4BMOT A_PL2N46 MED17_2N 0   0
+S SZL   A_E65R   SZL_56   0   0
+S CVM   A_E65CR  CVM_57   0   0
+S CID   A_E65R   CID_90   0   0
+S CHAMP A_E65MMI CHAMP2R  0   0
+S MEDIA A_E65R   CMEDIAR  0   0
+S 42DMO A_DMOT   D72N47B0 0   0
+S LSMC  A_SMCKWL FRM_70   0   0
+S RSMC  A_SMCKWR FRM_70   0   0
+S MCIC  A_CIC    CICMR    0   0
+S RDCLC A_E65    RDCKWP   0   0

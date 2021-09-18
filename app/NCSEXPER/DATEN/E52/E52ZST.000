@@ -1,0 +1,204 @@
+;Tabelle: E52ZST.000                 Index: i   vom: 22.02.07     NAEL: E3307.R
+I i
+U 20070222154125
+V E52ZST.000
+;
+;Stand:  Fahrzeugbeschreibung E52               Ausgabe 4.0 v. 01.07.98
+;Stand:  Fahrzeugbeschreibung E52 Länder        Ausgabe vom 13.10.98
+;
+;Schl        GM-Schl. SA-Schlüssel     VN-Schl.  FG ASW Beschreibung
+;---------------------------------------------------------------------------------------------
+B ZUSATZ      //Bereichskennung für ZEKO!!
+;
+;Historie Grundversionsnummer (GVN)
+H GVN  N0897 00000000 0000000000000000 8000000000 1
+H GVN  N0598 00000000 0000000000000000 C000000000 1
+H GVN  N1298 00000000 0000000000000000 E000000000 1  //FUNKTIONSBAU
+H GVN  N0599 00000000 0000000000000000 F000000000 1  //VS_1
+H GVN  N0999 00000000 0000000000000000 0000000000 1
+H GVN  N0902 00000000 0000000000000000 0000000001 1  //PU02
+;
+;Aktuelle Grundversionsnummer (GVN)
+G            00000000 0000000000000000 0000000000 1
+H E52  N0897 00000000 0000000000000000 0000000000 1 E52 //Baureihe E52
+;
+;Ehemalige zeitbedingte E-Worte (für ZEKO ein-/ausgeblendet)
+H BG12 N0598 00000000 0000000000000000 4000000000 1
+H BG12 N0598 00000000 0000000000000000 0000000000 1    //ausblenden fuer ZeKo
+H FB   N1298 00000000 0000000000000000 2000000000 1  //FUNKTIONSBAU
+H FB   N1298 00000000 0000000000000000 0000000000 1    //ausblenden fuer ZeKo
+H VS   N0599 00000000 0000000000000000 1000000000 1  //VS_1
+H VS   N0599 00000000 0000000000000000 0000000000 1    // ausblenden fuer ZeKo
+H VS2  N0599 00000000 0000000000000000 F000000000 1  // 1.Vorserie und 2. Vorserie
+H VS2  N0599 00000000 0000000000000000 0000000000 1    //ausblenden fuer ZeKo
+H PU02 N0502 00000000 0000000000000000 0000000001 1  // PU02
+H PU02 N0902 00000000 0000000000000000 0000000000 1    //ausblenden fuer ZeKo
+;
+;Steuergeräte, die durch SA oder Typ bestimmt sind (für ZEKO ausgeblendet)
+;
+;Zeitlich gesteuerte Maßnahmen (für ZEKO ausgeblendet)
+;
+;Steuergeräte, zeitgesteuert eingesetzt, aber rückwirkend gültig
+;
+;Aktuelle E-Worte
+E BLSN N0799 00000000 2000000000000000 0000000000 1 BLS_KORR //Korrektur Bremslichtschalter Siemens, alle Fahrzeuge, siehe E 0E01.M
+E PU02 N0502 00000000 0000000000000000 0000000001 1 PU02     // Alle Fzg. ab PU 09/02
+E LCM4 N0402 00000000 0000000000000000 0000000002 1 LCM_IV //Einsatz LCM.C20 mit integrierter LWR
+;
+;Zukünftige E-Worte
+;
+B SALA        //Bereichskennung für ZEKO!!
+;********************************* Vergebene VN-Bits *************************
+; 1.BG                                 8000000000      //1. Baugruppe
+; BG12                                 4000000000 BG_1 //1. Baugruppe Pulk2
+; FB                                   2000000000      //Funktionsbau
+; VS                                   1000000000      //Vorserie 1 und Vorserie 2
+; PU02                                 0000000001 PU02 // PU02
+; LCM4                                 0000000002 LCM_IV //Einsatz LCM.C20 mit integrierter LWR
+;********************************* Vergebene VN-Bits *************************
+;******************** Vergebene SA-Bits **************************************
+;0845                 0000000000000001 AK_GUWA //Akustische Gurtwarnung
+;0875                 0000000000000002 INFRAROT //Infrarotfernbedienung
+;0877                 0000000000000004 ENTF_UEBERKREUZ //Entfall Überkreuzbedienung DWA
+;0896                 0000000000000008 TAGFAHRLICHT //Tagfahrlicht
+;1240                 0000000000000010 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag
+;1243                 0000000000000020 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag
+;1260                 0000000000000040 ENTF_SEITENAIRB //Deaktivierung Seitenairbag
+;0645                 0000000000000080 RADIO_US //C33 BMW Business RDS "US-Radio"
+;0825                 0000000000000100 OZEANIEN //Steuerung Radio Ozeanien
+;0837                 0000000000000200 ENTF_NAVI //Entfall Navigation
+;BLSN                 2000000000000000 BLS_KORR //Korrektur Bremslichtschalter Siemens, siehe E 0E01.M
+;******************** Vergebene SA-Bits **************************************
+;******* Vergebene GM-Bits ***************************************************
+;0548        00000010 KM_TACHO
+;******* Vergebene GM-Bits ***************************************************
+;
+1240         00000000 0000000000000010 0000000000 1 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag
+1243         00000000 0000000000000020 0000000000 1 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag
+1260         00000000 0000000000000040 0000000000 1 ENTF_SEITENAIRB //Deaktivierung Seitenairbag inkl. ITS-Airbag
+;
+01CA         00000000 0000000000000000 0000000000 0     //Steuerung CoP/CO2 Selektion
+0199         00000000 0000000000000000 0000000000 0     //Katalysator-Entfall
+0313         00000000 0000000000000000 0000000000 0     //Aussenspiegelpaket
+0330         00000000 0000000000000000 0000000000 0     //Sportpaket
+0337         00000000 0000000000000000 0000000000 0     //M Technik Sportpaket
+0394         00000000 0000000000000000 0000000000 0     //Verdeck dunkelbeige
+0428         00000000 0000000000000000 0000000000 0     //Warndreieck und Verbandskasten
+0434         00000000 0000000000000000 0000000000 0     //Interieurleisten
+0442         00000000 0000000000000000 0000000000 0     //Getränkehalter
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO //Kilometertacho
+0642         00000000 0000000000000000 0000000000 0     //AMPS/CDMA Telefon
+0645         00000000 0000000000000080 0000000000 1 RADIO_US //C33 BMW Business RDS "US-Radio"
+0672         00000000 0000000000000000 0000000000 0     //CD-Wechsler für 6 CDs
+0694         00000000 0000000000000000 0000000000 0     //Vorb.Pioneer/Alpine CD-Wechsler
+0703         00000000 0000000000000000 0000000000 0     //Ungarn-Paket 
+0706         00000000 0000000000000000 0000000000 0     //V5-Paket 
+0725         00000000 0000000000000000 0000000000 0     //Basispaket
+0730         00000000 0000000000000000 0000000000 0     //Advantage Paket
+0734         00000000 0000000000000000 0000000000 0     //Dummy Paket
+0735         00000000 0000000000000000 0000000000 0     //Dummy Paket
+0775         00000000 0000000000000000 0000000000 0     //Individual Dachhimmel anthrazit
+07AA         00000000 0000000000000000 0000000000 0     //Dummy Paket
+07AB         00000000 0000000000000000 0000000000 0     //Dummy Paket
+07AC         00000000 0000000000000000 0000000000 0     //Dummy Paket
+08SP         00000000 0000000000000000 0000000000 0     //CO2 Steuerung
+0801         00000100 0000000000000000 0000000000 0     //Auftragssteuerung ZD
+A 0802 V0302 00000200 0000000000000000 0000000000 0     //Korea-Ausführung
+A 0802 N0302 00000200 0000000000000000 0000000000 1 KOREA //Korea-Ausführung
+0807         00000700 0000000000000000 0000000000 1 JAPAN //Japan - Ausführung
+0812         00001200 0000000000000000 0000000000 1 ENGLAND //England - Ausführung
+0818         00000000 0000000000000000 0000000000 0     //Batteriehauptschalter
+0822         00002200 0000000000000000 0000000000 1 GOLF //Golf - Ausführung
+0825         00000000 0000000000000100 0000000000 1 OZEANIEN //Steuerung Radio Ozeanien
+0837         00000000 0000000000000200 0000000000 1 ENTF_NAVI //Entfall Navigation
+0838         00003800 0000000000000000 0000000000 1 KANADA //Kanada - Ausführung
+0845         00000000 0000000000000001 0000000000 1 AK_GUWA //Akustische Gurtwarnung
+0846         00004600 0000000000000000 0000000000 0     //Taiwan - Ausführung
+0850         00000000 0000000000000000 0000000000 0     //Zusätzlich Tankfüllung Export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH //Armaturenbeschriftung deutsch
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH //Armaturenbeschriftung englisch
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH //Armaturenbeschriftung französisch
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH //Armaturenbeschriftung italienisch
+0856         00000006 0000000000000000 0000000000 1 SPANISCH //Armaturenbeschriftung spanisch
+0863         00000000 0000000000000000 0000000000 0     //Händlerverzeichnis Europa
+0864         00000000 0000000000000000 0000000000 0     //Händlerverzeichnis Übersee
+0875         00000000 0000000000000002 0000000000 1 INFRAROT //Infrarotfernbedienung
+0876         00000000 0000000000000000 0000000000 0     //Funkfrequenz 315 MHz
+0877         00000000 0000000000000004 0000000000 1 ENTF_UEBERKREUZ //Entfall Überkreuzbedienung DWA
+0879         00000000 0000000000000000 0000000000 0     //Bordliteratur deutsch
+0880         00000000 0000000000000000 0000000000 0     //Bordliteratur englisch
+0881         00000000 0000000000000000 0000000000 0     //Bordliteratur französisch
+0883         00000000 0000000000000000 0000000000 0     //Bordliteratur spanisch
+0884         00000000 0000000000000000 0000000000 0     //Bordliteratur italienisch
+0885         00000000 0000000000000000 0000000000 0     //Bordliteratur schwedisch
+0886         00000000 0000000000000000 0000000000 0     //Bordliteratur holländisch
+0887         00000000 0000000000000000 0000000000 0     //Bordliteratur arabisch
+0888         00000000 0000000000000000 0000000000 0     //Bordliteratur dänisch
+0889         00000000 0000000000000000 0000000000 0     //Bordliteratur portugiesisch
+0893         00000000 0000000000000000 0000000000 0     //MO-Paket III
+0894         00000000 0000000000000000 0000000000 0     //HK-2 Paket
+0896         00000000 0000000000000008 0000000000 1 TAGFAHRLICHT //Tagfahrlicht
+0900         00000000 0000000000000000 0000000000 0     //anerk. Wegfahrsicherung lt. AZT/TÜV
+0901         00000000 0000000000000000 0000000000 0     //Sonderkontrolle allgemein
+0902         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Pressewagen
+0903         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Stand/Fotowagen
+0904         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Typprüfwagen
+0905         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Vorführwagen
+0906         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Fotofahrz.b.Neuanl.
+0908         00000000 0000000000000000 0000000000 0     //Spoc (Shortest possible order cycle)
+0909         00000000 0000000000000000 0000000000 0     //Diagnosedose plus
+0910         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg ohne Übergabeinsp
+0911         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg mit Übergabeinsp
+0912         00000000 0000000000000000 0000000000 0     //OE-Paket
+0914         00000000 0000000000000000 0000000000 0     //LA-Premiumpaket
+0915         00000000 0000000000000000 0000000000 0     //Entfall Außenhautkonservierung
+0916         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg. ohne Konservierung
+0917         00000000 0000000000000000 0000000000 0     //Überseekonservierung
+0920         00000040 0000000000000000 0000000000 1 ALPINA //Alpina, ohne Brief
+0925         00000000 0000000000000000 0000000000 0     //Versandschutzpaket
+0932         00000000 0000000000000000 0000000000 0     //Winterreifen zusätzlich
+0933         00000000 0000000000000000 0000000000 0     //Radkappen für Winterräder
+0934         00000000 0000000000000000 0000000000 0     //Winterreifen auf Alu
+0938         00000000 0000000000000000 0000000000 0     //Winterpaket WA
+0940         00000000 0000000000000000 0000000000 0     //Sonderwunsch Ausstattung
+0941         00000000 0000000000000000 0000000000 0     //Sonderwunschabwicklung
+0942         00000000 0000000000000000 0000000000 0     //Storno Sonderwunsch
+0945         00000000 0000000000000000 0000000000 0     //Berücksichtigung Preisabhängigk.
+0948         00000000 0000000000000000 0000000000 0     //Kernmodellpaket V5-KA
+0949         00000000 0000000000000000 0000000000 0     //LA-Sportpaket
+0950         00000000 0000000000000000 0000000000 0     //Lateinamerika-Paket
+0951         00000000 0000000000000000 0000000000 0     //Korea-Paket, ab KW 23/02 Sommerpaket
+0952         00000000 0000000000000000 0000000000 0     //China-Paket
+0953         00000000 0000000000000000 0000000000 0     //Taiwan-Paket
+0955         00000000 0000000000000000 0000000000 0     //Middle-East-Paket II
+0956         00000000 0000000000000000 0000000000 0     //Middle-East-Paket I
+0957         00000000 0000000000000000 0000000000 0     //Hongkong-Paket
+0964         00000000 0000000000000000 0000000000 0     //SA NAVI DVD bei Auslieferung anfordern
+0972         00000000 0000000000000000 0000000000 0     //Comfort Paket
+0973         00000000 0000000000000000 0000000000 0     //Malaysia Paket, ab KW 23/02 Winterpaket
+0975         00000000 0000000000000000 0000000000 0     //Highline OE
+0976         00000000 0000000000000000 0000000000 0     //Pilot-Paket
+0977         00000000 0000000000000000 0000000000 0     //Exclusive Line
+0981         00000000 0000000000000000 0000000000 0     //Top Comfort Paket
+0986         00000000 0000000000000000 0000000000 0     //Terminpruefung
+0990         00000000 0000000000000000 0000000000 0     //Steuerung Anlaufserie
+0991         00000000 0000000000000000 0000000000 0     //Steuerung Vorserie
+0992         00000000 0000000000000000 0000000000 0     //Kennzeichenbefestigung wie US
+0993         00000000 0000000000000000 0000000000 0     //Modelljahrescode (in FgstNr.)
+0996         00000000 0000000000000000 0000000000 0     //Auftragssteuerung HEA alt
+0997         00000000 0000000000000000 0000000000 0     //Händlerpräsentation Export
+0998         00000000 0000000000000000 0000000000 0     //Anlaufsteuerung intern
+0999         00000000 0000000000000000 0000000000 0     //Pilotprojekt Termintreue
+;
+B TYP         //Bereichskennung für ZEKO!!
+H EJ11 V0198 70110000 0000000000000000 0000000000 1 E52    //Z8 ECE
+H EJ13 V0198 70130000 0000000000000000 0000000000 1 E52 US //Z8 US
+EJ11         90110000 0000000000000000 0000000000 1 E52    //Z8 ECE    // Einsatz 01/00 bis 12/03
+EJ13         90130000 0000000000000000 0000000000 1 E52 US //Z8 US     // Einsatz 12/99 bis 12/03
+EJ71         90710000 0000000000000000 0000000000 S M62B44 MAN LL      // nie produziert
+EJ72         90720000 0000000000000000 0000000000 S M62B44 MAN RL      // nie produziert
+EJ73         90730000 0000000000000000 0000000000 S M62B44 MAN LL US   // nie produziert
+EJ81         90810000 0000000000000000 0000000000 S M62B44 AUT LL      // nie produziert
+EJ82         90820000 0000000000000000 0000000000 S M62B44 AUT RL      // nie produziert
+EJ83         90830000 0000000000000000 0000000000 S M62B44 AUT LL US   // nie produziert
+C 58

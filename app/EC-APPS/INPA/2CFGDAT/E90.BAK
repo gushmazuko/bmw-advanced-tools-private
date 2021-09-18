@@ -1,0 +1,119 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E90.GER
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 09.01.2002 rd V0.01 Erstellung
+//* 26.03.2002 rk V0.02 Anpassung an KMG
+//* 13.08.2002 rd V0.03 Umstellung auf E87
+//* 20.08.2002 rd V0.04 EXX neu dazu
+//* 22.08.2002 rd V0.05 DSC_87 name berichtigt
+//* 17.10.2002 rd V0.06 Motor überarbeitet
+//* 28.11.2002 GR V0.07 CCCA60 hinzugefügt
+//* 13.08.2003 rd V0.10 Motorvarianten hinzu
+//* 18.08.2003 gr V0.11 MDS_90 -> SHD_MDS
+//* 18.08.2003 gr V0.11 LDM_90 hinzu
+//* 18.08.2003 gr V0.11 DXC8 fuer Allrad hinzu
+//* 21.08.2003 gr V0.12 EKP in EKP_60, EC_E65 in ZBE_E87, PDC_E65 in PDC_E87, CID_60 in CID_90, Telefon in TEL_E65 geaendert
+//* 21.08.2003 gr V0.12 AFS_60 in AFS_90, AMP_E65 in AMP_60 geaendert
+//* 21.08.2003 gr V0.12 RDC, EHC, FBI entfallen komplett 
+//* 21.08.2003 gr V0.12 Einsatz EPS erst spaeter
+//* 21.08.2003 gr V0.12 ACC2 neu hinzu
+//* 27.08.2003 gr V0.13 EKPM60_2 neu hinzu
+//* 10.09.2003 rd V0.14 PGS geändert
+//* 11.12.2003 rd V0.15 DXC8_p geändert
+//* 07.01.2004 gr V0.16 RLS_87 hinzu, SSG_60 ersetzt durch S_GS30NA 
+//* 16.01.2004 gr V0.17 MSV70 hinzu
+//* 16.02.2004 rd V0.90 Umstellung auf 32-Bit INPA
+//* 19.02.2004 rd V0.91 DDE6 M57 neu
+//* 17.03.2004 rd V0.92 Kommunikationssysteme überarbeitet
+//* 19.05.2004 rd V0.93 Sitzmodule hinzu
+//* 19.05.2004 rd V0.93 Sitzmodule hinzu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E90 V0.93
+ENTRY=     EXX,Funktionale Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=  D50M47,DDE 5.0  für M47 TÜ,
+ENTRY= DDE6M47,DDE 6.0  für M47 TÜ2,
+ENTRY=,,
+ENTRY=  D50M57,DDE 5.0  für M57 TÜ,
+ENTRY= DDE6M57,DDE 6    für M57TOP / M57TÜ2,
+ENTRY=,,
+ENTRY=ME9NG4TU,ME9.2 / MEV9 für N45 / N46,
+ENTRY=   MS450,MS 45.0      für M54,
+ENTRY=   MSV70,MSV 70.0     für N52 (NG6),
+ENTRY=,,
+ENTRY=   MSS60,MSS60        für S65 (M3),
+ENTRY=,,
+ENTRY=EKPM60_2,Elektrische Kraftstoffpumpe,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=    GS19,Getriebesteuergerät GS19,
+ENTRY=    GS30,SSG Getriebesteuergerät,
+ENTRY=  VGSG90,Verteilergetriebe 4x,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=  DSC_87,Dynamische Stabilitätskontrolle,
+ENTRY=  DXC8_P,Dynamische Stabilitätskontrolle Allrad,
+ENTRY=  AFS_90,Active Front Steering,
+ENTRY=  ACC2,Adaptive Cruise Control,
+;ENTRY= EHC_E65,Luftfeder,
+;ENTRY=  EPS_90,Elektrische Lenkung,
+ENTRY=  LDM_90,Längs Dynamik Management,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=    MRS5,Airbag Steuergerät,
+ENTRY= AHM_E65,Anhängermodul,
+ENTRY=     CAS,Car Access System,
+ENTRY= DWA_E65,Diebstahlwarnanlage,
+ENTRY= SINE_65,DWA Sirene und Neigungsgeber,
+ENTRY=  ZBE_E87,Ergo Commander,
+ENTRY=  FRM_87,Fußraummodul Fahrer,
+ENTRY=  KOMB87,Instrumentenkombi,
+ENTRY=  JBBF87,Junction Box Beifahrer,
+ENTRY=  IHKA87,Klimaautomatik/ -regelung Bedienteil,
+ENTRY= PDC_E87,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY=  FZD_87,Funktionszentrum Dach,
+ENTRY= SHD_MDS,Schiebehebedach für Touring,
+ENTRY=  RLS_87,Regen/Licht-Sensor,
+ENTRY=SHZH_E65,Standheizung Zuheizer,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY= FAS_87,Sitzmodul Fahrer,
+ENTRY= BFS_87,Sitzmodul Beifahrer,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  MCGW60,MOST/CAN-Gateway,
+ENTRY=  CCC_60,Infotainment Computer,
+ENTRY=  CID_90,Zentrales Info Display Color,
+ENTRY=  MASK60,Basis-Radio+,
+ENTRY=    RAD1,Radio Stufe 1/2,
+ENTRY=  DAB_60,Digitalradio terrestrisch DAB,
+ENTRY=  IBOC60,Hybrid Radio USA IBOC,
+ENTRY=  SAT_60,digitaler Satellitentuner USA,
+ENTRY= CDC_E65,Audio CD-Changer,
+ENTRY=  CCCA60,Car Communication Computer (Application),
+;ENTRY= NAV_E65,Navigationssystem,
+ENTRY=  TEL_E65,Telefon,
+;ENTRY=  TELU60,Telefon USA,
+;ENTRY=  TELJ60,Telefon Japan,
+ENTRY=  AMP_60,Top HIFI Verstärker,
+ENTRY= VID_E65,Videomodul,
+;ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=  JNAV60,Navigationssystem Japan,
+

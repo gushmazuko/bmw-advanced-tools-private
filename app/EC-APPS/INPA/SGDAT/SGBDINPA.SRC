@@ -1,0 +1,256 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen SgbdInpa.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* 12.03.2003 iS V1.05 Aufteilung der Funktionen(SgbdInpaCheck,GroupCheck)
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* SgbdInpaCheck
+//*
+//* Überprüfung ob SGBD zu INPA passt
+//*
+//**********************************************************************
+SgbdInpaCheck()
+{
+  string sgbd_version;             // für Versionskontrolle
+  string inpa_version;             // für Versionskontrolle
+  string inpa_sprache="@sprache@"; // für Sprachvariante
+  string variante="???";           // für Variantenkontrolle
+  string err_text;                 // Fehlertext
+  bool   fehlerflag;               // Fehlerflag
+  string temp;
+  string temp1;
+  int    i;
+  int    k;
+  int    kk;                       // für neue VersionsnummernKontrolle
+  int    ii;
+  int    a;
+  int    aa;
+  int    i1;
+  int    i2;
+  int    i3;                       // für neue VersionsnummernKontrolle
+  string sgbd_String_Lang;
+  string sgbd_von_inpa_version;
+  string ver_temp;
+  string ver_temp1;
+  string ver_temp2;
+  string ver_temp3="--";
+  real Version_SGBD;
+  real Version_INPA;
+
+  settitle(titel+" @Version@ "+version);
+  a=0;
+  ii=0;
+  i3=0;
+  kk=0;
+  aa=0;
+  i=0;
+  k=0;
+  fehlerflag=FALSE;
+
+  instr(i,k,","+gruppe+",",",");
+  while ((i >= 0) && (fehlerflag == FALSE))
+  {
+    k=i+1;
+    instr(i,k,","+gruppe+",",",");
+    if (i >= 0)
+    {
+      midstr(temp,","+gruppe+",",k,i-k);
+      INPAapiJob(temp,"INITIALISIERUNG","","");
+      INP1apiResultText(fehlerflag,variante,"VARIANTE",0,"");
+      if (fehlerflag == TRUE) gruppe=temp;
+    }
+  }
+
+  if (fehlerflag == FALSE)
+  {
+    INP1apiErrorText(err_text);
+    messagebox("@Variantenkontrolle@",
+               "@Gruppendatei@ : "+gruppe+". "+CRLF+
+               err_text+". "+CRLF+
+               "@Das Programm wird abgebrochen!@");
+    exit();
+  }
+
+  i1=0;
+  i2=0;
+  instr(i1,0,","+sgbd+",",","+variante+",");
+  if (i1 < 0)
+  {
+    instr(i2,0,","+sgbd+",",","+variante+"/");
+    if (i2 < 0)
+    {
+      messagebox("@Variantenkontrolle@",
+                 "@Gesuchtes Steuergerät@: '"+sgbd+"' @nicht gefunden.@ "+CRLF+
+                 "@Gefundenes Steuergerät@: '"+variante+"'. "+CRLF+
+                 "@Das Programm wird abgebrochen!@");
+      exit();
+    }
+
+    ver_temp3 = "--";
+    instr(ii,i2,sgbd+",",",");
+    if (ii >= 0)
+    {
+      midstr(ver_temp3,sgbd+",",i2,ii);
+      instr(i3,0,ver_temp3,"/");
+      if (i3 >= 0)
+      {
+        a = i2+i3+1;
+        aa = ii-i2+i3-1;
+        midstr(ver_temp3,sgbd+",",a,aa);
+      }
+    }
+  }
+
+  sgbd_String_Lang = sgbd;
+  sgbd=variante;
+
+//
+// Info: Informatinon bei aufruf ohne BMW_STD.SRC
+//
+// ####################################################
+// # //für Info                                       #
+// #   string sgbd_ecu;                               #
+// #   string sgbd_origin;                            #
+// #   string sgbd_revision;                          #
+// #   string sgbd_package;                           #
+// #   string sgbd_sprache;                           #
+// #   string sgbd_comment;                           #
+// #   string gruppe_ecu;                             #
+// #   string gruppe_origin;                          #
+// #   string gruppe_revision;                        #
+// #   string gruppe_comment;                         #
+// #                                                  #
+// #   #include "SgbdInfo.src"                        #
+// ####################################################
+//
+//
+  SgbdInfo(sgbd, sgbd_ecu, sgbd_origin, sgbd_revision, sgbd_package, sgbd_comment, sgbd_sprache);
+// Bitte VARIABLEN als Globale variable aktivieren und Include (siehe Block //INFO)   
+//
+//
+
+  //Versionskontrolle Auf 3 stellen vor / hinter dem "." 
+  instr(i3,0,ver_temp3,"V");
+  if(i3>=0) 
+  {
+    instr(i2,0,ver_temp3,",");
+    midstr(ver_temp3,ver_temp3,i3+1,i2-1);
+    stringtoreal(ver_temp3,Version_INPA);
+    realtostring(Version_INPA,"3.3",ver_temp3);
+    midstr(sgbd_von_inpa_version,ver_temp3,0,2);
+  }
+  stringtoreal(version,Version_INPA);
+  realtostring(Version_INPA,"3.3",version);
+  midstr(inpa_version,version,0,2);
+
+  stringtoreal(sgbd_revision,Version_SGBD);
+  realtostring(Version_SGBD,"3.3",sgbd_revision);
+  midstr(sgbd_version,sgbd_revision,0,2);
+
+  temp=inpa_version;
+  temp1=sgbd_version;
+
+  if (ver_temp3 == "--")
+  {
+    // Vergleichen mit Versionsnummer INPA & SGBD
+    if (inpa_version != sgbd_version)
+    {
+      messagebox("@Versionskontrolle@",
+                 "@Nicht zusammenpassende Versionen.@ "+CRLF+
+                 "@Fehlfunktion ist möglich!@");
+    }
+    else
+    {
+      if (temp == "0.")
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "SGBD @Version@: "+sgbd_revision+CRLF+
+                     "INPA @Version@: "+version);
+        }
+        else
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "INPA @Version@: "+version);
+        }
+      }
+      else
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "SGBD @Version@: "+sgbd_revision);
+        }
+      }
+    }
+  }
+  else
+  {
+    // Vergleichen mit Versionsnummer INPA(SGBD Vorwahl) & SGBD
+    if (sgbd_von_inpa_version != sgbd_version)
+    {
+      messagebox("@Versionskontrolle@",
+                 "@Nicht zusammenpassende Versionen.@ "+CRLF+
+                 "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                 "SGBD @Version@: "+ ver_temp3 +" (in INPA) "+CRLF+
+                 "SGBD @Version@: "+ sgbd_revision +CRLF+
+                 "INPA @Version@: "+ version);
+    }
+    else
+    {
+      if (temp == "0.")
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "SGBD @Version@: "+sgbd_revision+CRLF+
+                     "INPA @Version@: "+version);
+        }
+        else
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "INPA @Version@: "+version);
+        }
+      }
+      else
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("@Versionskontrolle@",
+                     "@Programm noch in der Entwicklungsphase.@ "+CRLF+
+                     "@Fehlfunktion ist möglich!@"+CRLF+CRLF+
+                     "SGBD @Version@: "+sgbd_revision);
+        }
+      }
+    }
+  }
+
+  if (inpa_sprache != sgbd_sprache)
+  {
+    messagebox("@Sprachvariantenkontrolle@",
+               "@Nicht zusammenpassende Sprachvariante.@ "+CRLF+
+               "@Fehlfunktion ist möglich!@");
+  }
+} 
+
+// -- EOF --

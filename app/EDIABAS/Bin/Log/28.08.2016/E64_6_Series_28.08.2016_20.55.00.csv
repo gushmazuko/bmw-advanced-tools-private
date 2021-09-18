@@ -1,0 +1,65 @@
+Results;SA_Code;Description
+BR;E64_;
+LACK;0475;Saphirschwarz Metallic 
+SA_1;1CA;Selection of COP relevant vehicles
+SA_2;205;Automatic transmission
+SA_3;217;Active steering
+SA_4;229;Dynamic drive
+SA_5;248;Steering-wheel heating
+SA_6;255;Sports leather steering wheel
+SA_7;302;Alarm system
+SA_8;319;Integrated universal remote control
+SA_9;354;Windscreen with green shade band
+C_TYP;EK13;E64 Conv N62B48 T1 LHD US
+SA_10;388;Softtop black
+SA_11;423;Floor mats in velour
+SA_12;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_13;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_14;436;Fine-wood trim
+SA_15;441;Smoker's package
+SA_16;442;Cupholder
+SA_17;459;Seat adjustment, electrical with memory
+SA_18;464;Skibag
+SA_19;481;Sport seats for driver and front passenger
+SA_20;494;Seat heating for driver and front passenger
+SA_21;502;Headlight washer system
+SA_22;508;Park distance control
+SA_23;522;Xenon Light
+SA_24;524;Adaptive headlight
+SA_25;534;Automatic air conditioning
+SA_26;540;Cruise control
+SA_27;563;Lights package
+SA_28;595;Light alloy wheels ellipsoid styling 121 with runflat tyres and mixed tyres
+SA_29;609;Navigation system Professional
+SA_30;620;Voice control
+SA_31;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_32;645;Radio control US
+SA_33;653;High Definition Radio
+SA_34;655;Satellite tuner
+SA_35;677;HiFi system Professional
+SA_36;697;Area code 1 for DVD
+SA_37;760;BMW Individual high-gloss Shadow Line
+SA_38;785;White direction indicator lights
+SA_39;818;Battery master switch
+SA_40;823;Hot-climate version
+SA_41;845;Acoustic seat-belt warning
+SA_42;850;Additional tank filling, export
+SA_43;853;Language version English
+SA_44;876;Radio frequency 315 MHz
+SA_45;925;Shipping protection package
+SA_46;992;Control of number-plate attachment
+SA_47;9AA;External skin protection
+C_DATE;0905;09.2005
+SA_ANZ;47;
+POLSTER;LCGE;
+VERSION;02;
+E_WORT_1;B110;Battery 110 Ah, DO
+E_WORT_2;NMUW;New MUW sensors E63/E64
+HO_WORT_1;HADS;Conversion correction downshift behaviour
+HO_WORT_2;IPOD;Retrofit, iPod interface
+HO_WORT_3;NAUX;Retrofit, AUX-In socket with M-ASK/CCC tuner
+E_WORT_ANZ;2;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;3;
+STANDARD_FA;E64_#0905*EK13%0475&LCGE$1CA$205$217$229$248$255$302$319$354$388$423$430$431$436$441$442$459$464$481$494$502$508$522$524$534$540$563$595$609$620$639$645$653$655$677$697$760$785$818$823$845$850$853$876$925$992$9AA-B110-NMUW+HADS+IPOD+NAUX;

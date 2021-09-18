@@ -1,0 +1,384 @@
+//**********************************************************************
+//*
+//*	Spezielle Version zum Auslesen von Ueberdrehzahl, Fusshebelfehlbedienung und Momenteneingriffen
+//*
+//*   Sourcedatei MS430.SRC
+//*
+//**********************************************************************
+//*   Zeiler / EA-33
+//**********************************************************************
+//*   History         
+//**********************************************************************
+
+#pragma winedit
+
+#include "..\sgdat\inpa.h"
+
+// Umrechnungsfaktoren deutsch / englisch
+// Grad Celsius -> Fahrenheit
+// km           -> miles
+// Liter        -> Gallon US
+real  m_c    = 1.0;
+real  a_c    = 0.0;
+real  m_km   = 1.0;
+real  m_l    = 1.0;
+
+// Version, Verantwortung, Steuergerät
+string titel  ="MS 43.0";           // Titel Nacharbeitsprogramm
+string version="1.00";                // Version Nacharbeitsprogramm
+string origin ="BMW TI-433 Schiefer"; // Verantwortung Nacharbeitsprogramm
+string sgbd   ="ms43_sp2";            // Steuergerät 				spezielle SGBD 
+string gruppe ="D_0012";              // Gruppendatei
+
+string sgbd_ecu;                      // für Info
+string sgbd_origin;                   // für Info
+string sgbd_revision;                 // für Info
+string sgbd_sprache;                  // für Info
+string sgbd_comment;                  // für Info
+
+string text_var;                      // allgemeine Variable
+real   zahlen_var;                    // allgemeine Variable
+int    ganz_zahl;                     // allgemeine Variable
+bool   logik_var;                     // allgemeine Variable
+string job_state;                     // JOB_STATUS Variable
+int    input_state;                   // Eingabestatus
+int    input_ok=0;                    // Eingabe  mit OK beendet
+
+int    val1;                          // Variable 1
+int    val2;                          // Variable 2
+string high_low_anz;                  // Speicher lesen
+string adresse="0x0000";              // Speicher lesen
+int    anzahl=16;                     // Speicher lesen
+int    seg;                           // Speicher lesen
+int    high;                          // Speicher lesen
+int    mid;                           // Speicher lesen
+int    low;                           // Speicher lesen
+int    varInteger;                    // Hilfsvariable
+string varText;                       // allgemeine Variable
+string varText2;                       // allgemeine Variable
+real   varReal;                       // allgemeine Variable
+bool   varBool;                       // allgemeine Variable
+string varJobState;                   // JOB_STATUS Variable
+int la;                               //
+
+// ****************************************************************************
+// ***                         U S E R - Funktionen                         ***
+// ****************************************************************************
+
+// Ausgabe eines Ergebnisses des 1. Satzes als Text mit Job-Status-Ueberpruefung
+ergebnisTextAusgabe(in: string ergebnis,in: int y,in: int x,
+                    in: int textgroesse, in: int textattr)
+{
+         string tmpText;
+
+    INPAapiResultText(tmpText,ergebnis,1,"");
+    ftextout(tmpText,y,x,textgroesse,textattr);
+}
+
+// Ausgabe eines Ergebnisses als Digitalwert des 1. Satzes mit Job-Status-Ueberpruefung
+ergebnisDigitalAusgabe(in: string ergebnis,in: int y,in: int x,
+                       in: string trueText,in: string falseText)
+{
+    bool tmpBool;
+    
+    INPAapiResultDigital(tmpBool,ergebnis,1);
+    digitalout(tmpBool,y,x,trueText,falseText);
+}
+
+// Ausgabe eines Ergebnisses als Analogwert des 1. Satzes mit Job-Status-Ueberpruefung
+ergebnisAnalogAusgabe(in: string ergebnis,in: int y,in: int x,
+                      in: real min,in: real max,in: real minGueltig,in: real maxGueltig)
+{
+    real tmpReal;
+    
+    INPAapiResultAnalog(tmpReal,ergebnis,1);
+    analogout(tmpReal,y,x,min,max,minGueltig,maxGueltig,"4.2");
+}
+
+// Ausgabe eines umzurechnenden Ergebnisses als Analogwert des 1. Satzes mit
+// Job-Status-Ueberpruefung (Grenzen werden ebenfalls umgerechnet=
+ergebnisUmrechnungAnalogAusgabe(in: string ergebnis,in: real faktor,in: real summe,
+                                in: int y,in: int x,
+                                in: real min,in: real max,in: real minGueltig,in: real maxGueltig)
+{
+    real tmpReal;
+    
+    INPAapiResultAnalog(tmpReal,ergebnis,1);
+    analogout(tmpReal*faktor+summe,y,x,
+                    min*faktor+summe,max*faktor+summe,
+                    minGueltig*faktor+summe,maxGueltig*faktor+summe,
+                    "4.2");
+}
+
+// Ansteuerung
+//      job  = Job fuer Ansteuerung
+//      info = Auszugebender Text (ohne "angesteuert")
+ansteuerung(in: string job,in: string info)
+{
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+    // Ansteuern
+//    INPAapiJob(sgbd,job,"","");
+//    INPAapiCheckJobStatus("OKAY");
+    // Auswertung
+
+//     userboxopen(0,1,35,1,50,
+//                    "     Steuern",
+//                    "    "+info+" angesteuert");
+    // sicherheitshalber neu starten
+//    start();
+}
+
+// ****************************************************
+// ***             M e n ü a u f b a u              ***
+// ****************************************************
+// **************************
+// *** Hauptmenü          ***
+// **************************
+MENU m_main()
+{
+  INIT  {
+    setmenutitle("Hauptmenü");
+  }
+    ITEM( 9 ,"Druck")  {
+        printscreen();
+    }
+  
+    ITEM( 10 ,"Zurück")  {
+        blankscreen();
+        userboxclose(0);
+        setscreen( s_main ,TRUE);
+        setmenu( m_main );
+    }
+
+    ITEM( 1 ,"Überdrehzahl")  {
+       setscreen(s_ueberdrehzahl,TRUE);
+    }
+
+    ITEM( 2 ,"Fusshebel")  {
+       setscreen(s_fusshebel,TRUE);
+    }
+    ITEM( 3 ,"F2 löschen")  {
+       userboxclose(0);
+       viewclose();
+       INPAapiJob(sgbd,"FUSSHEBELFEHLBEDIENUNG_LOESCHEN","","");
+       INPAapiCheckJobStatus("OKAY");
+       userboxopen(0,8,35,5,50,"Eintraege Fusshebelfehlbetaetigung loeschen","");
+       userboxftextout(0,"Die Einträge Fusshebelfehlbetätigung wurden gelöscht!",1,3,0,0);
+    }
+
+    ITEM( 4 ,"Momente")  {
+       setscreen(s_moment,TRUE);
+    }
+    ITEM( 5 ,"F4 löschen")  {
+       userboxclose(0);
+       viewclose();
+       INPAapiJob(sgbd,"MOMENTEN_EINGRIFF_LOESCHEN","","");
+       INPAapiCheckJobStatus("OKAY");
+       userboxopen(0,8,35,5,50,"Eintraege Momentenreduzierung loeschen","");
+       userboxftextout(0,"Die Einträge Momentenreduzierung wurden gelöscht!",1,3,0,0);
+    }
+  
+    ITEM( 20 ,"Exit")  {
+      userboxclose(0);
+      exit();
+    }
+}
+
+// ****************************************************************************
+// ***                       S c r e e n a u f b a u                        ***
+// ****************************************************************************
+
+
+// **************************
+// *** Hauptscreen        ***
+// **************************
+SCREEN s_main()
+{
+  ftextout("Überdrehzahl / Fusshebelfehlbedienung / Momentenreduzierungseingriffe",1,0,0,1);
+  ftextout("",3,0,0,0);
+  INPAapiJob(sgbd,"IDENT","","");
+  INPAapiCheckJobStatus("OKAY");
+  LINE("","")
+  {
+    ftextout("< F1>  Überdrehzahl"            			, 4,5,0,1);
+    ftextout("< F2>  Fusshebelfehlbedienung"   			, 6,5,0,1);
+    ftextout("< F3>  Fusshebelfehlbedienung löschen"  	, 8,5,0,1);
+    ftextout("< F4>  Momentenreduzierungseingriffe"   	, 10,5,0,1);
+    ftextout("< F5>  Momentenreduzierungseingriffe löschen" , 12,5,0,1);
+    ftextout("<Shift> + < F10>  Exit"          			,22,45,0,1);
+  }
+}
+
+
+
+// *************************
+// ***   Ueberdrehzahl    **
+// *************************
+SCREEN s_ueberdrehzahl()
+{
+    ftextout("Überdrehzahl M54",1,0,1,0);
+    ftextout("",3,0,0,0);
+
+
+    LINE("-max Überdrehzahl auslesen-","")
+    {
+        // maximale Ueberdrehzahl auslesen
+        text(1,0,"max Überdrehzahl");
+        text(2,0,"[1/min]");
+        INPAapiJob(sgbd,"STATUS_MAX_UEBERDREHZAHL","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_MAX_UEBERDREHZAHL_WERT", 3,0, 0.0, 10240.0, 0.0, 10240.0);
+    }
+
+    LINE("-Betriebsstundenzaehler auslesen-","")
+    {
+        // Betriebsstundenzaehler auslesen
+        text(1,0,"Betriebsstundenzähler");
+        text(2,0,"[min]");
+        INPAapiJob(sgbd,"STATUS_BETRIEB_UEBERDREHZAHL","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_BETRIEB_UEBERDREHZAHL_WERT", 3,0, 0.0, 393210, 0.0, 393210);
+    }
+    LINE("-Zaehler Überdrehzahl auslesen-","")
+    {
+        // Zaehler Ueberdrehzahl auslesen
+        text(1,0,"Zähler Überdrehzahl");
+        text(2,0,"[-]");
+        INPAapiJob(sgbd,"STATUS_ZAEHLER_UEBERDREHZAHL","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_ZAEHLER_UEBERDREHZAHL_WERT", 3,0, 0.0, 255, 0.0, 255);
+    }
+}
+
+// *****************************
+// *** Fusshebelfehlbedienung **
+// *****************************
+SCREEN s_fusshebel()
+{
+    ftextout("Fusshebelfehlbedienung",1,0,1,0);
+    ftextout("",3,0,0,0);
+// Werte auslesen
+
+    LINE("-Fusshebelfehlbedienung auslesen-","")
+    {
+        // Datenbyte 1 CTR_BLS_PVS
+        text(1,0,"CTR_BLS_PVS");
+        text(2,0,"[-]");
+        INPAapiJob(sgbd,"STATUS_FUSSHEBELFEHLBETAETIGUNG","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_FUSSHEBELFEHLBETAETIGUNG_WERT",3,0, 0.0, 255, 0.0, 255);
+
+        // KM-Eintrag bei Fusshebelfehlbedienung
+        text(1,40,"KM-Eintrag");
+        text(2,40,"[km]");
+        ergebnisAnalogAusgabe("STAT_FUSSHEBELFEHLBETAETIGUNG_KM_MAX_WERT",3,40, 0.0, 65535, 0.0, 65535);
+
+    }
+}
+
+// *****************************
+// ***  Momentenreduzierung  **
+// *****************************
+SCREEN s_moment()
+{
+    ftextout("Momentenreduzierungeingriffe",1,0,1,0);
+    ftextout("",3,0,0,0);
+// Werte auslesen
+
+    LINE("-Schleppzeigergrößen Momentenreduzierung auslesen-","")
+    {
+        // maximale Höhe des Eingriffs
+        text(1,0,"max Höhe des Eingriffs");
+        text(2,0,"[Nm]");
+        INPAapiJob(sgbd,"STATUS_MAX_EINGRIFF","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_MAX_EINGRIFF_WERT",3,0, -1024.0, 1023.0, -1024.0, 1023.0);
+    }
+
+    LINE("-Schleppzeigergrößen Momentenreduzierung auslesen-","")
+    {
+        // maximaler Zeiteingriff
+        text(1,0,"max Zeiteingriff");
+        text(2,0,"[s]");
+        INPAapiJob(sgbd,"STATUS_MAX_ZEITEINGRIFF","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_MAX_ZEITEINGRIFF_WERT",3,0, 0.0, 655.35, 0.0, 655.35);
+    }
+
+    LINE("-Schleppzeigergrößen Momentenreduzierung auslesen-","")
+    {
+        // Anzahl der Eingriffe
+        text(1,0,"Anzahl der Eingriffe");
+        text(2,0,"[-]");
+        INPAapiJob(sgbd,"STATUS_ANZAHL_EINGRIFFE","","");
+        INPAapiCheckJobStatus("OKAY");
+        ergebnisAnalogAusgabe("STAT_ANZAHL_EINGRIFFE_WERT",3,0, 0.0, 65535, 0.0, 65535);
+    }
+
+}
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  string sgbd_version;             // für Versionskontrolle
+  string inpa_version;             // für Versionskontrolle
+  string inpa_sprache="deutsch";   // für Sprachvariante
+  string variante="ms43_sp2";      // für Variantenkontrolle
+  bool   fehlerflag;               // Fehlerflag
+  string err_text;                 // Fehlertext
+
+  
+  settitle(titel+" Version "+version);
+  INPAapiInit();
+//  INPAapiJob(gruppe,"INITIALISIERUNG","","");
+//  INP1apiResultText(fehlerflag,variante,"VARIANTE",0,"");
+/*  if (fehlerflag == FALSE)
+  {
+    INP1apiErrorText(err_text);
+    messagebox("Variantenkontrolle",  
+		err_text+". "+
+               "Das Programm wird abgebrochen!");
+//    exit();
+  }*/
+  if (variante != sgbd)
+  {
+    messagebox("Variantenkontrolle",
+               "Gesuchtes Steuergerät: '"+sgbd+"' nicht gefunden. "+
+               "Gefundenes Steuergerät: '"+variante+"'. "+
+               "Das Programm wird abgebrochen!");
+//  exit();
+  }
+
+  INPAapiJob(sgbd,"INFO","","");
+  INPAapiResultText(sgbd_ecu,"ECU",1,"");
+  INPAapiResultText(sgbd_revision,"REVISION",1,"");
+  INPAapiResultText(sgbd_origin,"ORIGIN",1,"");
+  INPAapiResultText(sgbd_comment,"COMMENT",1,"");
+  INPAapiResultText(sgbd_sprache,"SPRACHE",1,"");
+//  midstr(inpa_version,version,0,2);
+//  midstr(sgbd_version,sgbd_revision,0,2);
+//  if (inpa_version != sgbd_version)
+//  {
+//         messagebox("Versionskontrolle",
+//               "Nicht zusammenpassende Versionen. "+
+//               "Fehlfunktion ist möglich!");
+//  }
+/*if (inpa_sprache != sgbd_sprache)
+  {
+    messagebox("Sprachvariantenkontrolle",
+               "Nicht zusammenpassende Sprachvariante. "+
+               "Fehlfunktion ist möglich!");
+  }*/
+   setmenu(m_main);
+   setscreen(s_main,TRUE);
+}
+inpaexit()
+{
+  INPAapiJob(sgbd,"DIAGNOSE_ENDE","","");
+  INPAapiCheckJobStatus("OKAY");
+  INPAapiEnd();
+}
+

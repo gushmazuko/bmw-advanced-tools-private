@@ -1,0 +1,50 @@
+;*************************************************
+; NCS-PRINT 
+;
+; Aenderungen
+; Datum     Name          Aenderungsdokumentation
+; 23.09.96  Gra  Softing  Ersterstellung
+; 10.12.96  Gra  Softing  Erweiterung V 0.9.1
+;
+;*************************************************
+; Achtung: Die Texte links von "=" nicht aendern!!    
+; Leerzeichen vor und nach "=" werden ignoriert!!
+;*************************************************
+
+
+[SYSTEM]
+; ------- System-Texte ---------------------- 
+NCSPRINT = NCSPRINT
+
+[DIALOG]
+; ------- Texte fuer Dialogboxen ------------ 
+Alle markieren = Alle markieren 
+Drucken = Drucken 
+Löschen = Löschen
+Info = Info über ...
+Drucker Setup = Drucker Setup
+Beenden = Beenden
+
+Abbrechen = Abbrechen
+
+Druck wiederholen? = Druck wiederholen?
+Drucke = Drucke    
+auf = auf
+an = an
+
+Drucker auswählen: = Drucker auswählen: 
+Schließen = Schließen
+Standard = Standard 
+Verbunden mit: = Verbunden mit: 
+     
+Ersteller = Ersteller 
+
+[ERROR]
+; ------- Fehler-Texte ---------------------- 
+Fehler = Fehler
+Keine Dateien gefunden: = Keine Dateien gefunden: 
+Datei schreibgeschützt oder nicht gefunden: = Datei schreibgeschützt oder nicht gefunden:
+
+;*************************************************
+; DATEI-ENDE
+;*************************************************

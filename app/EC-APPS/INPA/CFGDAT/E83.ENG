@@ -1,0 +1,93 @@
+
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E83.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 24.09.2002 rd V0.01 Erstellung
+//* 24.09.2002 rd V0.02 Überarbeitet
+//* 11.02.2003 rd V0.03 DXC8 dazu
+//* 28.02.2003 rd V0.90 NAV_JAP, SVT hinzu
+//* 07.04.2003 tm V0.91 Schiebehebedach geändert
+//* 13.08.2003 rd V0.92 Motorvarianten hinzu
+//* 18.09.2003 rd V1.00 VGSG neu dazu
+//* 31.10.2003 mp V1.01 OC3 hinzu
+//* 16.02.2004 rd V1.02 Umstellung auf 32-Bit INPA
+//* 04.04.2005 GA V1.03 MSV80 dazu
+//* 19.05.2005 MP V1.04 DXC_83 dazu
+//* 27.06.2005 GA V1.05 RDC_53 dazu
+//* 06.02.2006 gr V1.06 DDE6 M57 added
+//* 16.03.2006 TB V1.07 CID_85 added, bmbt_mir and bm_wide removed
+//* 16.03.2006 GA V1.07 AIRBAG durch MRS5K ersetzt, RDC_53 durch RDC_GEN2 ersetzt, RDC_53 aus Karosserie entfernt
+//* 28.03.2006 GA V1.07 gs19, gs1912 dazu, bmbt46rn, bmbt46tn entfernt
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E83 V1.07
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=  D50M47,DDE 5.0  for M47 new,
+ENTRY=  D50M57,DDE 5.0  for M57 new,
+ENTRY= DDE6M57,DDE 6   For M57TOP / M57TU2,
+ENTRY=,,
+ENTRY=ME9NG4TU,ME9.2 / MEV9 for N45 / N46,
+ENTRY=,,
+ENTRY=   MS450,MS  45.0 for M56,
+ENTRY=   MSV80,MSV 80.0 for N52KP (NG6),
+ENTRY=,,
+ENTRY= EKP_DS2,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=    gs19,GS19,
+ENTRY=  gs1912,GM6,
+ENTRY=   gsds2,GS8.xx / GS 20,
+ENTRY=  vgsg83,DXC Gearbox VGSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY=    dxc8,DXC8,
+ENTRY=  dxc_83,DXC8 Plus from 09/06,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+ENTRY=  svt_83,Servotronic,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=   mrs5k,Airbag,
+ENTRY=     OC3,Seat Occupation Recognition US vehicle OC3,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=klima_5B,Air conditioning IHKA,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     lsz,Light switch center LSZ,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY= shd_mds,Sunroof module SHD,
+ENTRY=    sm46,Seat memory M46,
+ENTRY=   spmft,Mirror memory driver,
+ENTRY=   spmbt,Mirror memory passenger,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY= xenon_l,Xenon Lights left,
+ENTRY= xenon_r,Xenon Lights right,
+ENTRY=    zke5,Central body electronics ZKE5,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=  cid_85,flap monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=videomod,Video module,
+

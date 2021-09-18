@@ -1,0 +1,14 @@
+; Kommentardefinitionen
+C ";"
+;
+R "STATIONID"
+M "ID"
+F "ID *%S *"
+N "STATIONID"
+;
+R "PRGIFSEL"
+M "SG "
+F "SG +%S +%S +%S +%S +%S +%S +%S +%S +%S +%S +%S *"
+N "SGBEZ,INTERFACE,HARDWARE,INFO,PROTOKOLL,PARA1,PARA2,RES1,RES2,RES3,RES4"
+;
+; ENDE

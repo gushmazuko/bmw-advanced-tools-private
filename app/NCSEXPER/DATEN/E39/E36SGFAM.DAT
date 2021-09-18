@@ -1,0 +1,14 @@
+; Baureihen-SGFAM-/ZCS-Datei E36, 09.12.99, CO
+
+; SG    CABD     SGBD     ZCS FA KOMMENTAR
+S GR2   A_FGR2   C_FGR2   0   0
+;FGR2 --> ID lesen testen i.O.0
+S ABG   A_ZAE2   C_ZAE2   0   0
+;ABGB,ABGZ,ZAE2,MRSZ,MRS2,MRS3 --> ID lesen i.O.
+S EWS   A_EWS    C_EWS    1   0
+S KMBC  A_KMB36  C_KMB    1   0
+S MK20  A_ASCDSC C_ASCDSC 0   0
+S MK60  A_ASCDSC DSC_MK60 0   0
+S DSC   A_ASCDSC C_ASDSC  0   0
+S TOEN  A_TOENS  C_TOENS  0   0
+S LWS   A_LWS5   C_LWS5   0   0

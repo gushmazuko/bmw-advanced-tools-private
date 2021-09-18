@@ -1,0 +1,15 @@
+Ergebnis: Telefonnummern auslesen
+---------------------------------
+
+Baureihe  : E60
+JobStatus : OKAY
+Anzahl    : 4
+----------------------------------------------------------------------------------------------
+Adr Grobname   JobStatus  Telefon Service   Telefon Nummer    
+36  TEL        OKAY       DEALER            +4987317622021    
+36  TEL        OKAY       BREAKDOWN         +491802343234     
+36  TEL        OKAY       HOTLINE           +498938225281
+36  TEL        OKAY       EMERGENCY         112               
+36  TEL        OKAY       GATS SMSC         
+36  TEL        OKAY       GATS PROVIDER     
+               

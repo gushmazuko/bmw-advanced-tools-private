@@ -1,0 +1,108 @@
+//**********************************************************************
+//*
+//* Includedatei  für alle MOST SG ab E65 
+//*
+//* MO02_INP.SRC  für Most-Stati
+//* ausgeführte Jobs: -MOST_VERSION_LESEN
+//*                   -STATUS_MOST_3DB
+//*                   -STATUS_WAKE_UP_STATUS
+//*                   -STATUS_ABILITY_TO_WAKE
+//*                                                               
+//* wird verwendet in: MCGW60.SRC                                                              
+//*                    MC_GW.SRC
+//*                    CCCG60.SRC                                           
+//*                                                               
+//**********************************************************************
+//* History         : 
+//* 25.09.2000 rg V0.01 Ersterstellung Grundumfang
+//* 12.12.2000 mm V0.02 WakeUp Status hinzugefügt
+//*   .  .2000 __ V1.00 Freigabe
+//* 13.09.2002 rg V1.01 nur noch ein Screen, STATUS_MOST_3DB eingefügt,
+//*                   Results angepasst
+//* 16.02.2004 rd V1.02 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+// *******************************
+// *** StatusMostversionScreen ***
+// *******************************
+SCREEN s_status_mostversion()
+{
+  ftextout("@Status@  Most",1,0,1,0);
+  ftextout("",3,0,0,0);
+
+  LINE("@Mostversion@","")
+  {
+   INPAapiJob(sgbd,"MOST_VERSION_LESEN","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//TRANSCEIVER_VERSION
+   ftextout("@Version des MOST Transceivers@",5,0,0,0);
+   ftextout(":", 5,30,0,0);
+   INPAapiResultText(text_var,"TRANSCEIVER_VERSION",1,"");
+   ftextout(text_var, 5,32,0,0);
+
+//NETSERVICES_VERSION
+   ftextout("@Version der Oasis NetServices@",6,0,0,0);
+   ftextout(":", 6,30,0,0);
+   INPAapiResultText(text_var,"NETSERVICES_VERSION",1,"");
+   ftextout(text_var, 6,32,0,0);
+
+//NETSERVICES_REVISION
+   ftextout("@Revision der Oasis NetServices@",7,0,0,0);
+   ftextout(":",7,30,0,0);
+   INPAapiResultText(text_var,"NETSERVICES_REVISION",1,"");
+   ftextout(text_var,7,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//Status der Lichtleistungsabsenkung
+   ftextout("@Status der Lichtleistungsabsenkung@",9,0,0,0);
+   ftextout(":",9,30,0,0);
+   INPAapiResultText(text_var,"STAT_MOST_3DB_TEXT",1,"");
+   ftextout(text_var,9,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_WAKE_UP_STATUS","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//WakeUp Status
+   ftextout("Wake Up Status",11,0,0,0);
+   ftextout(":",11,30,0,0);
+   INPAapiResultText(text_var,"STAT_WAKE_UP_STATUS_TEXT",1,"");
+   ftextout(text_var,11,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//Status Ability to Wake
+   ftextout("@SG darf wecken@",13,0,0,0);
+   ftextout(":",13,30,0,0);
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE_TEXT",1,"");
+   ftextout(text_var,13,32,0,0);
+
+  }
+}
+
+
+// *************************
+// *** StatusMost WakeUp ***
+// *************************
+SCREEN s_status_wakeup()
+{
+  ftextout("@Status@ Most WakeUp",1,0,1,0);
+  ftextout("",3,0,0,0);
+  
+  LINE("WakeUp","")
+  {
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE",1,"");
+   ftextout("WakeUp @Funktion@: "+text_var,5,0,1,0);
+
+   INPAapiJob(sgbd,"STATUS_WAKE_UP_STATUS","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_WAKE_UP_STATUS",1,"");
+   ftextout("@Status@ WakeUp: "+text_var,8,0,1,0);
+  }
+}
+// -- EOF --

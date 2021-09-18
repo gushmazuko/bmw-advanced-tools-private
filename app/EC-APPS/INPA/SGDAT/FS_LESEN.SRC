@@ -1,0 +1,607 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen FS_LESEN.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 21.11.2000 rd V0.10 Umweltbedingungen als Zahl oder Text ( 0-n, Hex )
+//* 02.03.2001 rd V0.11 Shadowspeicher umbenannt in Infospeicher
+//* 25.04.2002 rd V1.00 Erweiterung HS_LESEN
+//* 22.10.2002 rd V1.01 Erweiterung FS_LESEN
+//*               V1.01 PCODE und PCODE7 Ausgabe neu
+//*               V1.01 Fehlerbehandlung verbessert
+//* 19.11.2002 iS V1.02 Fehlerbehandlung F_ORT_TEXT, F_UW_ANZ, F_PCODE
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* Globale Variablen
+//*
+//**********************************************************************
+int    _FsMode        = 0x7FF; // alles ein
+string _FsFileMode    = "w";
+string _PreInfoFile   = "";
+string _PostInfoFile  = "";
+string _ApiFsJobName  = "FS_LESEN";
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+extern INPAapiFsMode_neu ( in: int FsMode, in: string FsFileMode,
+                           in: string PreInfoFile, in: string PostInfoFile,
+                           in: string ApiFsJobName);
+
+extern INPAapiFsLesen_neu( in: string ecu, in: string FileName);
+
+extern fs_protokoll_ort(in: int nr);
+extern fs_protokoll_PCode(in: int nr);
+extern fs_protokoll_PCode7(in: int nr);
+extern fs_protokoll_hfk(in: int nr);
+extern fs_protokoll_art(in: int nr);
+extern fs_protokoll_art_e(in: int nr);
+extern fs_protokoll_uwb(in: int nr);
+extern fs_protokoll_hex(in: int nr);
+
+//**********************************************************************
+//*
+//* INPAapiFsMode_neu kompatibel mit INPAapiFsMode
+//*
+//**********************************************************************
+INPAapiFsMode_neu(  in: int    FsMode,
+                    in: string FsFileMode,
+                    in: string PreInfoFile,
+                    in: string PostInfoFile,
+                    in: string ApiFsJobName)
+{
+  _FsMode       = FsMode;
+  _FsFileMode   = FsFileMode;
+  _PreInfoFile  = PreInfoFile;
+  _PostInfoFile = PostInfoFile;
+  _ApiFsJobName = ApiFsJobName;
+
+  INPAapiFsMode(_FsMode, _FsFileMode, _PreInfoFile, _PostInfoFile, _ApiFsJobName);
+
+  if (_ApiFsJobName=="") _ApiFsJobName="FS_LESEN";
+}
+
+//**********************************************************************
+//*
+//* INPAapiFsLesen_neu kompatibel mit INPAapiFsLesen
+//*
+//**********************************************************************
+INPAapiFsLesen_neu( in: string ecu, in: string FileName)
+{
+  string _ecu;
+  string _FileName;
+  bool   rc;
+  int    i;
+  int    k;
+  int    x1;
+  string temp1;
+  string temp2;
+  string temp11;
+  string temp12;
+  string temp21;
+  string temp22;
+  int    F_VERSION;
+  string JOB_STATUS;
+  string VARIANTE;
+  int    SETS;
+  int    UW_SETS;
+  string FS_CODE;
+  string F_PCODE;
+  string F_PCODE7;
+  string F1_VERSION;
+  
+  _ecu      = ecu;
+  _FileName = FileName;
+  INPAapiJob(_ecu, _ApiFsJobName,"","");
+  INP1apiResultInt(rc, F_VERSION, "F_VERSION",1 );
+  if ((rc == TRUE) && ( F_VERSION == 2 ))
+  {
+    getdate(temp1);
+    gettime(temp2);
+    INPAapiResultSets(SETS);
+    INPAapiResultText(VARIANTE, "VARIANTE", 0, "");
+    INPAapiResultText(JOB_STATUS, "JOB_STATUS", SETS, "");
+    fileopen ( _FileName, _FsFileMode);
+
+    if (_ApiFsJobName == "IS_LESEN")
+        filewrite( "           @I N F O S P E I C H E R   L E S E N@");
+    else
+      if (_ApiFsJobName == "HS_LESEN")
+        filewrite( "           @H I S T O R I E N S P E I C H E R   L E S E N@");
+      else
+        filewrite( "           @F E H L E R S P E I C H E R   L E S E N@");
+
+    filewrite( "           ---------------------------------------");
+    filewrite( "");
+    filewrite( "@Datum:     @"+temp1+" "+temp2);
+    filewrite( "@ECU:       @"+_ecu);
+    filewrite( "@JobStatus: @"+JOB_STATUS) ;
+    filewrite( "@Variante:  @"+VARIANTE);
+    filewrite( "-------------------------------------------------------------");
+
+    if ( JOB_STATUS == "OKAY")
+    {
+      filewrite( "");
+      if (SETS == 1)
+        filewrite( "           @>>>>>>>>>> Kein Fehler gefunden <<<<<<<<<<<@");
+      else
+      {
+        inttostring(SETS-1,temp1);
+        filewrite( "@ERGEBNIS:  @"+temp1+" @Fehler im Fehlerspeicher !@");
+        if ((_FsMode & 0x100) == 0)
+        {
+          i=1;
+          while ( i < SETS )
+          {
+            if (_FsMode != 0) 
+              filewrite( "-------------------------------------------------------------");
+            if ((_FsMode & 0x01) != 0) fs_protokoll_ort(i);
+            if ((_FsMode & 0x04) != 0) fs_protokoll_art(i);
+            if ((_FsMode & 0x40) != 0) fs_protokoll_hex(i);
+            i=i+1;
+          }
+        }
+        else
+        {
+          // Detail lesen
+          i=1;
+          StrArrayDelete(f_ort_nr_buffer);
+          StrArrayDelete(f_ort_text_buffer);
+          
+          while ( i < SETS )
+          {
+            INP1apiResultText(rc,temp1, "F_ORT_TEXT", i, "");
+            if (rc == TRUE) temp1="????";
+            
+            StrArrayWrite(f_ort_text_buffer,i,temp1);  
+            INPAapiResultInt(x1, "F_ORT_NR", i);
+            inttohexstring(x1, 4, temp1);
+            StrArrayWrite(f_ort_nr_buffer,i,temp1);
+            i=i+1;
+          }
+
+          i=1;
+          while ( i < SETS )
+          {
+            if (_FsMode != 0) 
+              filewrite( "-------------------------------------------------------------");
+
+            StrArrayRead(f_ort_nr_buffer,i,FS_CODE);  
+            INPAapiJob(_ecu, _ApiFsJobName+"_DETAIL", "0x"+FS_CODE, "");
+            INP1apiResultSets(rc, UW_SETS);
+            if (rc == TRUE)
+            {
+              INPAapiResultText(JOB_STATUS, "JOB_STATUS", UW_SETS, "");
+              if ( JOB_STATUS == "OKAY")
+              {
+                if ((_FsMode & 0x01)  != 0) fs_protokoll_ort(1);
+                if ((_FsMode & 0x200) != 0) fs_protokoll_PCode(1);
+                if ((_FsMode & 0x400) != 0) fs_protokoll_PCode7(1);
+                if ((_FsMode & 0x20)  != 0) fs_protokoll_hfk(1);
+                k=1;
+                while ( k < UW_SETS )
+                {
+                  filewrite( "");
+                  if ( UW_SETS > 2 )
+                  {
+                    inttostring(k,temp1);
+                    filewrite( temp1 + ". Umweltsatz");
+                  }
+                  if ((_FsMode & 0x02) != 0) fs_protokoll_uwb(k);
+                  k=k+1;
+                }
+                if ((_FsMode & 0x04) != 0) fs_protokoll_art(1);
+                if ((_FsMode & 0x04) != 0) fs_protokoll_art_e(1);
+                if ((_FsMode & 0x40) != 0) fs_protokoll_hex(1);
+              }
+              else
+              {
+                if ((_FsMode & 0x01) != 0)
+                {
+                  filewrite( "");
+                  StrArrayRead(f_ort_text_buffer,i,temp2);  
+                  filewrite( FS_CODE+"  "+temp2);
+                }
+                filewrite( _ApiFsJobName+"_DETAIL: JobStatus: "+JOB_STATUS) ;
+              }
+            }
+            else
+            {
+              if ((_FsMode & 0x01) != 0)
+              {
+                filewrite( "");
+                StrArrayRead(f_ort_text_buffer,i,temp2);  
+                filewrite( FS_CODE+"  "+temp2);
+              }
+              INP1apiErrorText(temp1);
+              filewrite( _ApiFsJobName+"_DETAIL: "+temp1);
+            }
+            i=i+1;
+          }
+        }
+      }
+    }
+    filewrite( "=============================================================");
+    fileclose();
+  }
+  else
+    INPAapiFsLesen( _ecu, _FileName);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerort
+//*
+//**********************************************************************
+fs_protokoll_ort(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string temp1;
+  string temp2;
+ 
+  i=nr;
+  filewrite( "");
+  INP1apiResultInt(rc,x1, "F_ORT_NR", i);
+  if (rc == TRUE)
+  {
+    inttohexstring(x1, 4, temp1);
+  }
+  else
+  {
+    temp1="????";
+  }
+
+  INP1apiResultText(rc,temp2, "F_ORT_TEXT", i, "");
+  if (rc == TRUE)
+  {  
+    filewrite( temp1+"  "+temp2);
+  }
+  else
+  { 
+    filewrite( temp1+"  "+"????");
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe PCODE
+//*
+//**********************************************************************
+fs_protokoll_PCode(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string tempPcodeText;
+  string tempPcodeString;
+  string tempPcodeHex;
+
+  i=nr;
+  INP1apiResultText(rc,tempPcodeString, "F_PCODE_STRING", i,"");
+  if (rc == TRUE)
+  {  
+    INP1apiResultText(rc,tempPcodeText, "F_PCODE_TEXT", i, "");
+    if (rc == TRUE)
+    {    
+      INP1apiResultInt(rc,x1, "F_PCODE", i);    
+      if (rc == TRUE)
+      {
+        inttohexstring(x1, 4, tempPcodeHex);
+      }
+      else
+      {
+        tempPcodeHex = "????";
+      }
+    }
+    else
+    {
+      tempPcodeText = "????";
+    }
+
+    if (tempPcodeString == "??")
+    {
+      filewrite( "");
+      filewrite( tempPcodeHex+"  "+tempPcodeText);
+    }
+    else
+    {
+      if (tempPcodeString != "--")
+      {
+        filewrite( "");
+        filewrite( tempPcodeText);
+      }
+    }
+  } 
+}  
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe PCODE7
+//*
+//**********************************************************************
+fs_protokoll_PCode7(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string tempPcode7Text;
+  string tempPcode7String;
+  string tempPcode7Hex;
+
+  i=nr;
+  INP1apiResultText(rc,tempPcode7String, "F_PCODE7_STRING", i,"");
+  if (rc == TRUE)
+  {
+    INP1apiResultText(rc,tempPcode7Text, "F_PCODE7_TEXT", i, "");
+    if (rc == TRUE)
+    {
+      INP1apiResultInt(rc,x1, "F_PCODE7", i);    
+      if (rc == TRUE)
+      {
+        inttohexstring(x1, 4, tempPcode7Hex);
+      }
+      else
+      {
+        tempPcode7Hex = "????";
+      }
+    }
+    else
+    {
+      tempPcode7Text = "????";
+    }
+
+    if (tempPcode7String == "??")
+    {
+      filewrite( "");
+      filewrite( tempPcode7Hex+"  "+tempPcode7Text);
+    }
+    else
+    {
+      if (tempPcode7String != "--")
+      {
+        filewrite( "");
+        filewrite( tempPcode7Text);
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerhäfigkeit
+//*
+//**********************************************************************
+fs_protokoll_hfk(in: int nr)
+{
+  int    i;
+  bool   rc;
+  string temp1;
+
+  i=nr;
+  filewrite( "");
+  INP1apiResultText(rc,temp1, "F_HFK", i, "");  
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="-1") filewrite( "@Fehlerhäufigkeit: @"+ temp1);
+
+  INP1apiResultText(rc,temp1, "F_LZ", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="-1") filewrite( "@Logistikzähler  : @"+ temp1);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerarten
+//*
+//**********************************************************************
+fs_protokoll_art(in: int nr)
+{
+  int    i;
+  bool   rc;
+  string temp1;
+
+  i=nr;
+  filewrite( "");
+  INP1apiResultText(rc,temp1, "F_SYMPTOM_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_READY_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_VORHANDEN_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_WARNUNG_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe erweiterte Fehlerarten
+//*
+//**********************************************************************
+fs_protokoll_art_e(in: int nr)
+{
+  int    i;
+  int    k;
+  int    F_ART_ANZ;
+  bool   rc;
+  string temp1;
+  string temp2;
+
+  i=nr;
+  INP1apiResultInt(rc,F_ART_ANZ, "F_ART_ANZ", i);
+  if (rc == TRUE)
+  {        
+    if ( F_ART_ANZ > 0 )
+    {
+      k=0;
+      while ( k < F_ART_ANZ )
+      {
+        k = k + 1;
+        inttostring(k,temp2);
+        INP1apiResultText(rc,temp1, "F_ART"+temp2+"_TEXT", i, "");
+        if (rc == FALSE)  temp1 ="????";
+        if (temp1 !="--") filewrite( "   "+ temp1);
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Umweltbedingungen
+//*
+//**********************************************************************
+fs_protokoll_uwb(in: int nr)
+{
+  int    i;
+  int    k;
+  int    F_UW_ANZ;
+  bool   rc;
+  string temp1;
+  string temp2;
+  string temp3;
+
+  i=nr;
+  INP1apiResultText(rc,temp1, "F_UW_KM", i, "6L");  
+  if (rc == FALSE) temp1="  ????";
+  if (temp1 != "524280")
+  {
+    temp2 = "@Kilometerstand                          @";
+    filewrite( "   " + temp2 + temp1 + "     km");
+  }
+
+  INP1apiResultInt(rc,F_UW_ANZ, "F_UW_ANZ", i);
+  if (rc == TRUE)
+  {
+    if ( F_UW_ANZ > 0 )
+    {
+      k=0;
+      while ( k < F_UW_ANZ )
+      {
+        k = k + 1;
+        inttostring(k,temp2);
+
+        INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+        if (rc == TRUE)
+        {
+          AnsiUpper(temp3,temp3);
+        }
+        else
+        {
+          temp3 = "????";
+        }
+        if ((temp3 == "0-N") || (temp3 == "HEX"))
+        {
+          INP1apiResultText(rc,temp1, "F_UW"+temp2+"_TEXT", i, "-20T");
+          if (rc == FALSE) temp1="????                ";
+          if (temp1 !="--                  ") //"--" + 18 Zeichen            
+
+          {
+            if ((_FsMode & 0x08) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_WERT", i, "28T");
+              if (rc == FALSE) temp3="????                        ";
+              temp1 = temp1 + " " + temp3;
+            }
+            if ((_FsMode & 0x10) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+              if (rc == FALSE) temp3="????";
+              temp1 = temp1 + "  " + temp3;
+            }
+            filewrite( "   "+ temp1);
+          }
+        }
+        else
+        {
+          INP1apiResultText(rc,temp1, "F_UW"+temp2+"_TEXT", i, "-40T");
+          if (rc == FALSE) temp1="????                                    ";
+          if (temp1 !="--                                      ")
+           {
+            if ((_FsMode & 0x08) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_WERT", i, "8.2R");
+              if (rc == FALSE) temp3=" ????   ";
+              temp1 = temp1 + " " + temp3;
+            }
+            if ((_FsMode & 0x10) != 0)
+            {    
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+              if (rc == FALSE) temp3="????";
+              temp1 = temp1 + "  " + temp3;
+            }
+            filewrite( "   "+ temp1);
+           }
+         }
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Hexcode
+//*
+//**********************************************************************
+fs_protokoll_hex(in: int nr)
+{
+  string nl;
+  int    i;
+  int    x1;
+  int    x2;
+  int    x3;
+  bool   rc;
+  string temp1;
+  string temp2;
+  string temp3;
+  
+  chr(10,nl);
+  i=nr;
+  filewrite( "");
+  INP1apiResultBinary(rc,"F_HEX_CODE", i);
+  if (rc == TRUE)
+  {
+    GetBinaryDataString ( temp1, x1);
+    x2 = 0;
+    x3 = 0;
+    temp2="";
+    while ( x2 < x1 )
+    {
+      midstr(temp3, temp1, x2, 2);
+      temp2 = temp2 + temp3;
+      x2 = x2 + 2;
+      x3 = x3 + 1;
+      if ( x2 < x1 )
+      {
+        if ( x3 < 16 )
+          temp2 = temp2 + " ";
+        else
+        {
+          x3 = 0;
+          temp2 = temp2 + nl + "            ";
+        }
+      }
+    }
+  }
+  else
+  {
+    temp2 = "????";
+  }
+  filewrite( "@Fehlercode: @"+temp2);
+}
+// -- EOF --

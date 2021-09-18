@@ -1,0 +1,297 @@
+//**********************************************************************
+//*
+//* Nacharbeitssource für INPA
+//*
+//* @Sourcedatei MUST_Exx.SRC@
+//*
+//**********************************************************************
+//* History         : 
+//* 06.04.2000 rd V0.01 Ersterstellung Grundumfang
+//*               V0.01 Identifikation Lesen ,
+//*               V0.01 Anwender Infofeld Lesen ,
+//*               V0.01 Fehlerspeicher Lesen, Löschen,
+//*               V0.01 Infospeicher (Shadowspeicher) Lesen, Löschen,
+//*               V0.01 Speicher Lesen
+//* 23.06.2000 rd V0.02 Überarbeitung für E65 und E85
+//* 19.12.2001 rd V0.03 Überarbeitung für E60, E81, E90 und RR01
+//* 14.08.2002 rd V0.04 E81 wird E87
+//* 16.02.2004 rd V0.05 Umstellung auf 32-Bit INPA
+//*   .  .2004 rd V1.00 Freigabe
+//**********************************************************************
+#include "inpa.h"
+#include "BMW_STD.H"
+
+// Titel, Version, Verantwortung, Steuergerät
+string titel  ="@MUSTER@ E60, E65, E85, E87, E90, RR01";   // Titel Nacharbeitsprogramm
+string version="0.05";                                     // Version Nacharbeitsprogramm
+string origin ="BMW TI-430 Drexel";                        // Verantwortung Nacharbeitsprogramm
+string sgbd   ="MUST_E60,MUST_E65,MUST_E85,MUST_E87,MUST_E90,MUST_RR1"; // Steuergerät
+string gruppe ="D_MUSTER";                                 // Gruppendatei
+
+string speicher_lesen_parameter="LAR;FLASH;UIFM;-ROMI;-ROMX;-RAMIS;-RAMIL;-RAMXX;-NVRAM";
+// Moegliche Speicher-Parameter: "LAR;FLASH;UIFM;ROMI;ROMX;RAMIS;RAMIL;RAMXX;NVRAM";
+// Bei Leerstring erfolgt kein Menüpunkt Speicher Lesen
+
+// allgemeine globale Variable
+string text_var;
+real   zahlen_var;
+int    ganz_zahl;
+bool   logik_var;
+string job_state;    // JOB_STATUS Variable
+int    input_state;  // Eingabestatus
+int    input_ok=0;   // Eingabe  mit OK beendet
+
+#include "BMW_STD.SRC"
+
+// ****************************************************
+// ***             Initialisierungsfunktion         ***
+// ****************************************************
+ScriptInit()
+{
+  if (sgbd=="MUST_E60") titel = "@MUSTER@ E60";
+  if (sgbd=="MUST_E65") titel = "@MUSTER@ E65";
+  if (sgbd=="MUST_E87") titel = "@MUSTER@ E87";
+  if (sgbd=="MUST_E85") titel = "@MUSTER@ E85";
+  if (sgbd=="MUST_E90") titel = "@MUSTER@ E90";
+  if (sgbd=="MUST_RR1") titel = "@MUSTER@ RR01";
+  settitle(titel+" @Version@ "+version);
+}
+
+// ****************************************************
+// ***             M e n ü a u f b a u              ***
+// ****************************************************
+// **************************
+// *** Statusmenü         ***
+// **************************
+MENU m_status()
+{
+  INIT {
+    setmenutitle("@Status lesen@");
+  }
+  ITEM( 1 ,"@Analog@")  {
+    setscreen( s_status_analog ,TRUE);
+  }
+  ITEM( 2 ,"@Digital@")  {
+    setscreen( s_status_digital ,TRUE);
+  }
+  ITEM( 3 ,"")  {
+    setscreen( s_status ,TRUE);
+  }
+  ITEM( 4 ,"")  {
+    setscreen( s_status ,TRUE);
+  }
+  ITEM( 5 ,"")  {
+    setscreen( s_status ,TRUE);
+  }
+  ITEM( 6 ,"")  {
+    setscreen( s_status ,TRUE);
+  }
+  ITEM( 7 ,"")  {
+    setscreen( s_status ,TRUE);
+  }
+  ITEM( 8 ,"@Auswahl@")  {
+    start();
+    select(TRUE);
+  }
+  ITEM(18 ,"@Gesamt@")  {
+    start();
+    deselect();
+  }
+  ITEM( 9 ,"@Druck@")  {
+    printscreen();
+  }
+  ITEM( 10 ,"@Zurück@")  {
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 20 ,"@Exit@")  {
+    exit();
+  }
+}
+
+// **************************
+// *** Steuernmenü        ***
+// **************************
+MENU m_steuern()
+{
+  INIT {
+    setmenutitle("@Steuern@");
+  }
+  ITEM( 2 ,"@Steuern@")  {
+    ganz_zahl=50;
+    inputint(ganz_zahl,"@Steuern@","0-100",0,100);
+    getinputstate(input_state);
+    if (input_state==input_ok)
+    {
+      // ansteuern
+      messagebox("@Steuern@","ok");
+    }
+  }
+  ITEM( 9 ,"@Druck@")  {
+    printscreen();
+  }
+  ITEM( 10 ,"@Zurück@")  {
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 20 ,"@Exit@")  {
+    exit();
+  }
+}
+
+// ****************************************************
+// ***             S c r e e n a u f b a u          ***
+// ****************************************************
+// **************************
+// *** Statusscreen       ***
+// **************************
+SCREEN s_status()
+{
+  ftextout("@Status lesen@",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    ftextout("< F1 >  @Status Analog lesen@"      , 4,5,0,1);
+    ftextout("< F2 >  @Status Digital lesen@"     , 6,5,0,1);
+    ftextout("< F8 >  @Auswahl@"                  ,18,5,0,1);
+    ftextout("< F9 >  @Bildschirmdruck@"          ,20,5,0,1);
+    ftextout("< F10>  @Ende@"                     ,22,5,0,1);
+
+    ftextout("<Shift> + < F8 >  @Gesamt@"         ,18,45,0,1);
+    ftextout("<Shift> + < F10>  @Exit@"           ,22,45,0,1);
+  }
+}
+
+// **************************
+// *** StatusAnalogscreen ***
+// **************************
+SCREEN s_status_analog()
+{
+  ftextout("@Status Analog lesen@",1,0,1,0);
+  ftextout("",3,0,0,0);
+  // INPAapiJob(sgbd,"STATUS_...","","");
+  // INPAapiCheckJobStatus("OKAY");
+
+  LINE("Temperatur-Beispiel","")
+  {
+    text(1,0,"Temperatur-Beispiel");
+    text(2,0,"@[Grad C]@");
+    // INPAapiResultAnalog(zahlen_var,"STAT_...",1);
+    zahlen_var=17.35; // Beispiel
+    analogout(zahlen_var*m_c+a_c, 3, 0,
+    10.0*m_c+a_c, 35.0*m_c+a_c,
+    10.0*m_c+a_c, 35.0*m_c+a_c, "3.1");
+  }
+  LINE("Motordrehzahl-Beispiel, Geschwindigkeit-Beispiel","")
+  {
+    text(1,0,"Motordrehzahl-Beispiel");
+    text(2,0,"@[1/min]@");
+    // INPAapiResultAnalog(zahlen_var,"STAT_...",1);
+    zahlen_var=1234.56; // Beispiel
+    analogout(zahlen_var, 3,0, 0.0, 8000.0, 1000.0, 7200.0, "4.0");
+
+    text(1,43,"Geschwindigkeit-Beispiel");
+    text(2,43,"@[km/h]@");
+    // INPAapiResultAnalog(zahlen_var,"STAT_...",1);
+    zahlen_var=123.456; // Beispiel
+    analogout(zahlen_var*m_km, 3,43,
+     0.0*m_km, 255.0*m_km,
+    10.0*m_km, 128.0*m_km, "3.0");
+  }
+  LINE("Entfernung-Beispiel","")
+  {
+    text(1,43,"Entfernung-Beispiel");
+    text(2,43,"@[km]@");
+    // INPAapiResultAnalog(zahlen_var,"STAT_...",1);
+    zahlen_var=1234.6; // Beispiel
+    analogout(zahlen_var*m_km, 3,43,
+     0.0*m_km, 2000.0*m_km,
+     0.0*m_km, 2000.0*m_km, "3.0");
+  }
+  LINE("Menge-Beispiel","")
+  {
+    text(1,21,"Menge-Beispiel");
+    text(2,21,"@[Liter]@");
+    // INPAapiResultAnalog(zahlen_var,"STAT_...",1);
+    zahlen_var=34.56; // Beispiel
+    analogout(zahlen_var*m_l, 3,21,
+     0.0*m_l, 65.0*m_l,
+     3.0*m_l, 65.0*m_l, "3.0");
+  }
+}
+
+// **************************
+// *** StatusDigitalscreen***
+// **************************
+SCREEN s_status_digital()
+{
+  ftextout("@Status Digital lesen@",1,0,1,0);
+  ftextout("",3,0,0,0);
+  // INPAapiJob(sgbd,"STATUS_...","","");
+  // INPAapiCheckJobStatus("OKAY");
+
+  LINE("Umschalten","")
+  {
+    logik_var= !logik_var; // Beispiel
+  }
+
+  LINE("Digital-1-Beispiel","")
+  {
+    text(1,1,"Digital-1-Beispiel");
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 3, 1,"@ein@ ","@aus@ ");
+
+    text(1,41,"Digital-1-Beispiel");
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 3,41,"@ein@ ","@aus@ ");
+  }
+
+  LINE("Digital-2-Beispiel","")
+  {
+    text(1,1,"Digital-2-Beispiel");
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 3, 1,"@ja@     ","@nein@  ");
+  }
+
+  LINE("Digital-3-Beispiel","")
+  {
+    text(1,41,"Digital-3-Beispiel");
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 3,41,"@high@","@low@   ");
+  }
+
+  LINE("Digital-4-5-6-Beispiel","")
+  {
+    ftextout("Digital-4-Beispiel",1,0,1,0);
+    ftextout(":", 1,39,1,0);
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 1,41,"@ja@     ","@nein@  ");
+
+    ftextout("Digital-5-Beispiel",4,0,1,0);
+    ftextout(":", 4,39,1,0);
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 4,41,"@ein@ ","@aus@ ");
+
+    ftextout("Digital-6-Beispiel",7,0,1,0);
+    ftextout(":", 7,39,1,0);
+    // INPAapiResultDigital(logik_var,"STAT_...",1);
+    digitalout(logik_var, 7,41,"@aktiv@          ","@nicht aktiv@");
+  }
+}
+
+// **************************
+// *** Steuernscreen      ***
+// **************************
+SCREEN s_steuern()
+{
+  ftextout("@Ansteuern@",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    ftextout("< F9 >  @Bildschirmdruck@"          ,20,5,0,1);
+    ftextout("< F10>  @Zurück@"                   ,22,5,0,1);
+    ftextout("<Shift> + < F10>  @Exit@"           ,22,45,0,1);
+  }
+}
+
+// -- EOF --

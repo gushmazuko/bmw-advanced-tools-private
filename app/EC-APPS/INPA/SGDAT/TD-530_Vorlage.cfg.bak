@@ -1,0 +1,303 @@
+;----------------------------------------------------------------------------------------------------
+; Datei : TD-530.CFG
+; Autor : Günter Straßer / TD-531
+; Datum : 23.01.2012
+;----------------------------------------------------------------------------------------------------
+; Funktionsweise:
+; Mit dieser Datei kann die Funktionsweise des TD-53x INPA Skriptes individualisiert werden.
+; Damit diese wirksam wird muss sich diese Datei im selben Verzeichnis wie die TD-530.IPO befinden
+; und mit TD-530.cfg benannt sein.
+; Ist die Datei nicht vorhanden, arbeitet das TD-53x INPA Skript im herkömmlichen Modus
+;----------------------------------------------------------------------------------------------------
+[Parameter]
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob zusätzlich zur .txt-Ergebnisdatei eine .xml-Ergebnisdatei erzeugt werden soll.
+; Voraussetzungen dafür (UND-Bedingungen):
+; 	- der Parameter LogToXML=1 in der Konfiguration gesetzt ist,                                       
+;	- der Parameter Logging=1  in der Konfiguration gesetzt ist,                                       
+;	- das Skript wird in einem Auto-Modus gestartet,                                                            
+;	- die beiden DLLs "TD-530LogToXML.dll" und "xerces-c_3_1_vc80.dll" sind im ...INPA\BIN-Verzeichnis.
+; Ist eine der Bedingungen nicht erfüllt, wird der Fehler vom Skript abgefangen und der Auslesevorgang startet nicht.
+; Die XML-Funktion lässt sich über diesen Parameter (LogToXML=0) komplett ausschalten.
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob eine Log-Datei erstellt wird oder nicht
+; Default Logging=off  (Off Logging aus; On Logging an)
+  Logging=On
+;----------------------------------------------------------------------------------------------------
+; Legt fest, in welchem Verzeichnis INPA die Daten ablegt
+; Default C:\Fahrzeug.Dat\  (Backslash am Ende wichtig)
+; ResultDir=C:\Fahrzeug.Dat\
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke beim CheckIn und CheckOut abgearbeitet werden sollen.
+; Nur Funktionsblöcke aus Konfiguration Rubrik [CheckIn] und [CheckOut] abarbeiten, wenn:
+; Control=CONFIG  
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob der Ident-Funktional bei jedem Klemmenwechsel durchgeführt wird.
+; ON : IdentFunktional wird bei jedem Klemmenwechsel ausgeführt. 
+; OFF: IdentFunktional wird nur ausgeführt wenn ein neues Fahrzeug angeschlossen worden ist.
+; IdentFunktional=Off
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob funktionale Jobs ausgeführt werden sollen (IDENT_FUNKTIONAL wird immer ausgeführt).
+; 1 : Funktionale Jobs werden ausgeführt.
+; 0 : Funktionale Jobs werden nicht ausgeführt.
+; FunktionalJobs = 1
+;----------------------------------------------------------------------------------------------------
+; Legt fest, in welchem Modus (automatisch/manuell) das Skript gestartet wird
+; Nach dem Starten des Skripts wird automatisch ein CheckIn durchgeführt
+; AutoScript=Auto_CheckIn  
+; Nach dem Starten des Skripts wird automatisch ein CheckOut durchgeführt 
+; AutoScript=Auto_CheckOut
+; Nach dem Starten des Skriptes wird lediglich automatisch die Fahrzeugidentifizierung durchgeführt (wie 
+; bei jedem der anderen Auto-Modi auch) und die ermittelten Daten in eine Datei im Ergebnisverzeichnis geschrieben.
+; AutoScript=Auto_FZGData    
+; Nach dem Starten des Skripts werden automatisch ein CheckIn und ein CheckOut durchgeführt
+; AutoScript=Auto_CheckInAndOut
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob bei einem automatischen Ablauf vor der Durchführung zuerst auf einen bestimmten 
+; Klemmenstatus gewartet werden soll
+; Warten, bis Fahrzeug auf Klemme 15 geschaltet wird
+, WaitForClamp=15 
+; Warten, bis Fahrzeug auf Klemme R geschaltet wird
+; WaitForClamp=R  
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob nach einem automatischen Ablauf das Skript gleich beendet werden soll (ON bzw OFF),
+; oder durch DISCONNECT wartet, bis der OBD-Stecker abgezogen wird.
+; Skript wird nach der Durchführung eines automatischen Ablaufs beendet
+; AutoExit=ON
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt das Arbeitsteam fest, das bei der Sicherung der Daten über den Archivator mit angegeben wird
+; Arbeitsteam Ausleseterminal
+; WorkTeam=AT     
+; Arbeitsteam MOST
+; WorkTeam=MOST   
+; Arbeitsteam Karosserie CAN
+; WorkTeam=CAN    
+; Arbeitsteam Ruhestrom
+; WorkTeam=RS     
+; Arbeitsteam Flashen
+; WorkTeam=FLASH  
+; Arbeitsteam ZARZ  
+; WorkTeam=ZARZ  
+; Arbeitsteam GV
+; WorkTeam=IGR-Terminal
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob die Ergebnisdaten in Dateien mit erweiterten Dateinamen abgespeichert werden
+; Momentan nur für kompletten CheckIN und CheckOUT
+;
+; Auswahl besteht zwischen:
+; date:     	   fügt das Datum in den Dateinamen mit ein
+; time:     	   fügt die Uhrzeit mit in den Dateinamen ein
+; fgnr:     	   fügt die Fahrgestellnummer mit ein
+; istufe:        fügt istufe des Werks mit ein
+; hoistufe:      fügt istufe der HO mit ein
+; fa:       	   fügt FA-Auftrag mit ein
+; km:       	   fügt km-Stand der Anzeige mit ein
+; br:      	     fügt Baureihe mit ein
+; type:     	   fügt typ mit ein (CheckIn,CheckOUT)
+; pcname:   	   fügt Computername hinzu
+; vehicleName:   fügt Fahrzeug Namen hinzu (sofern angegeben)
+; workteam: 	   fügt workteam hinzu
+;
+; wobei man die verschiedenen Optionen mit _ abgrenzen muss.
+; die Angabe ist beliebig.
+; keine Angabe bedeuted, dass die Datei unter der Fahrgestellnummer abgelegt wird
+;
+;   Beispiel für die Angabe:
+;
+;   ExtendedFilename=date_time_fgnr_km_fa_type_br
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke bei Verwendung des Parameters Control=CONFIG beim
+; CheckIn durchgeführt werden
+ [CheckIn]
+
+; Identifikations Daten auslesen
+  ID_DATEN_LESEN=1 
+
+; Steuergeräte die nicht oder falsch antworten anzeigen
+; NICHT_ANTWORTENDE_SG = 1  
+
+; Programmierstatus auslesen
+; PS_DATEN_LESEN=1       
+
+; Telefondaten auslesen
+; TEL_DATEN_LESEN=1      
+
+; Condition Based Service Daten auslesen
+; CBS_DATEN_LESEN=1      
+
+; Lenkwinkelsensor Offset auslesen
+; LWS_OFFSET_LESEN=1     
+
+; MOST Registry auslesen
+; MOST_REGISTRY_LESEN=1  
+
+; MOST Fehlerbewertung auslesen
+; MOST_DATEN_LESEN=1
+
+; Head Unit Daten auslesen
+; HEADUNIT_DATEN_LESEN=1      
+
+; Sweeping Technology Daten auslesen
+; SWT_DATEN_LESEN=1      
+
+; Fehlerspeicher auslesen
+; FS_LESEN=1             
+
+; Infospeicher auslesen
+; IS_LESEN=1             
+
+; Historyspeicher auslesen
+; HS_LESEN=1             
+
+; Zentralen Fehlerspeicher auslesen
+; ZFS_LESEN = 1
+
+; CheckControl History auslesen
+; CC_HISTORY_LESEN=1     
+
+; Gateway History auslesen
+; GW_HISTORY_LESEN=1     
+
+; Powermanagement Daten auslesen
+; PM_DATEN_LESEN=1     
+
+; Hybriddaten werden ausgelesen
+; HYBRID_DATEN_LESEN = 1 
+
+; Fensterheber Daten auslesen      
+; FH_DATEN_LESEN=1
+
+; Schiebe-/Hebedach Daten auslesen
+; SHD_DATEN_LESEN=1
+
+; Alarmspeicher Daten auslesen
+; ALARMSPEICHER_LESEN=1
+
+; Motor Daten auslesen
+; MOTOR_DATEN_LESEN=1   
+
+; Getriebe Daten auslesen
+; GETRIEBE_DATEN_LESEN = 1 
+
+; ACC Daten auslesen
+; ACC_DATEN_LESEN=1      
+
+; Reifen Daten (RPA bzw. RDC Daten) auslesen
+; REIFEN_DATEN_LESEN=1      
+
+; FDM Daten auslesen
+; FDM_DATEN_LESEN=1   
+
+; CAS Schlüsseldaten auslesen
+; CAS_SCHLUESSEL_DATEN_LESEN = 1   
+
+; MSA Daten auslesen
+; MSA_DATEN_LESEN = 1
+
+; SMC Daten auslesen
+; SMC_DATEN_LESEN = 1
+
+; Nox-Kat Daten auslesen
+; NOX_DATEN_LESEN = 1
+
+; Heading Control 2 Daten auslesen
+; HC2_DATEN_LESEN = 1
+
+; EPS Daten auslesen
+; EPS_DATEN_LESEN = 1
+
+; FEM Daten auslesen
+; FEM_DATEN_LESEN = 1
+
+; Top-, Rear, Sideview Kamera Daten auslesen
+; TRSVC_DATEN_LESEN = 1
+
+; KAFAS Daten auslesen
+; KAFAS_DATEN_LESEN = 1
+
+; Display Daten lesen (Front und Fond)
+; DISPLAY_DATEN_LESEN = 1
+
+; Daten der Subsensoren auslesen
+; SENSOREN_DATEN_LESEN = 1
+
+; KOMBI Daten auslesen
+; KOMBI_DATEN_LESEN = 1
+
+; Elektrofahrzeug Daten auslesen
+; ELEKTROFAHRZEUG_DATEN_LESEN = 1
+
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke bei Verwendung des Parameters Control=CONFIG beim
+; CheckOut durchgeführt werden
+[CheckOut]
+
+; Identifikations Daten auslesen
+; ID_DATEN_LESEN=1  
+
+; Steuergeräte die nicht oder falsch antworten anzeigen
+; NICHT_ANTWORTENDE_SG = 1     
+
+; Programmierstatus auslesen
+; PS_DATEN_LESEN=1       
+
+; Telefondaten setzen
+; TEL_DATEN_SETZEN=1     
+
+; Bluetooth Telefon verbinden
+; TEL_VERBINDEN=1        
+
+; Condition Based Service Daten setzen
+; CBS_DATEN_SETZEN=1     
+
+; MOST Registry setzen
+; MOST_REGISTRY_SETZEN=1 
+
+; Systemzeit der Airbay Komponenten starten
+; SYSTEMZEIT_STARTEN=1   
+
+; Initialisierung der Fahrzeug Komponenten durchführen
+; FAHRZEUG_INIT=1        
+
+; Fehlerspeicher löschen
+; FS_LOESCHEN=1          
+
+; Infospeicher löschen
+; IS_LOESCHEN=1          
+
+; FDM Daten löschen
+; FDM_DATEN_LOESCHEN=1
+ 
+; Fensterheber Daten löschen
+; FH_DATEN_LOESCHEN=1 
+
+; TMS Infospeicher löschen
+; TMS_IS_LOESCHEN=1
+
+;----------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------
+; Legt die Fahrgestellnummern der Fahrzeuge fest, bei denen nach dem CheckIn noch über die in der
+; Datei ERPROBUNGS_EINSTELLUNGEN.TST festgelegten Jobs spezielle Einstellungen für den Erprobungs-
+; betrieb gesetzt werden sollen.
+; Des Weiteren besteht hier die Möglichkeit, Fahrzeuge zu definieren, die in einem eigenen Fuhrpark 
+; geführt werden. Diese kann man mittels CheckVehicle prüfen lassen.
+; Zudem kann man den Fahrzeugen einen "Fahrzeugnamen" zuweisen. Dieser ist beliebig wählbar, z.B. VNummer. 
+; Diese kann man dann beim ExtendedFileName anhängen.
+[TestVehicle]
+; Angabe, ob auf Fahrzeuge geprüft, wird die im unten definierten "Fuhrpark" aufgeführt sind
+; CheckVehicle=on
+; Anzahl der folgenden Fahrzeuge (Wichtig! Muss richtig angegeben sein)
+; VehicleCount=1   
+; Fahrgestellnummer des 1. Erprobungsfahrzeuges
+; Vehicle1=CN78158
+; Vehicle1Name=VNUMMER
+; Fahrgestellnummer des 2. Erprobungsfahrzeuges
+; Vehicle2=DP00002 
+;----------------------------------------------------------------------------------------------------

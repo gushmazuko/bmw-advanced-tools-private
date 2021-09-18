@@ -1,0 +1,191 @@
+// Auftragsdatei: E60AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 921 824.5
+DATUM 20.09.2012
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EG-75             Wagener
+// Geprueft:           EG-75             Wagener
+// Verantwortlicher:   EG-75             Haller
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EG-75
+//   TD-433
+//   TI-430
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             E63AT.ZUS
+//
+Z #0310                                           //PU 03/10 
+A #0103                                           //SOP PU03/03 
+A #0903                                           //PU 09/03 
+A #1203                                           //DEZEMBER 12/03 (BFD) 
+A #0304                                           //MAERZ PU 03/04 
+A #0404                                           //APRIL 04/04 (neue Endbeschlagstrammer mit SFZ-5*) 
+A #0604                                           //JUNI 06/04 
+A #0904                                           //PU 09/04 
+A #0305                                           //MAERZ PU 03/05 (LM_AHL) 
+A #0905                                           //PU 09/05 (ACSM, KGM, SZL) 
+A #0306                                           //MAERZ PU 03/06 
+A #0606                                           //JUNI06  06/06 
+A #0906                                           //PU 09/06 
+A #0307                                           //MAERZ PU 03/07 
+A #0907                                           //PU 09/07 
+A #0308                                           //MAERZ PU 03/08 
+A #0908                                           //PU 09/08 
+A #0309                                           //MAERZ 03/09 
+A #0909                                           //PU 09/09 
+A #0310                                           //PU 03/10 
+E EWS4                                            //EWS4                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+E NMUW                                            //Einsatz neuer MUW Sensoren bei allen E63 und E64 (Akt. Innenraumschutz bei CANSINE CI03 && CI04) 
+E B080                                            //80 Ah-Batterie 
+E B090                                            //90 Ah-Batterie 
+E B110                                            //110 Ah-Batterie 
+E A090                                            //90 Ah-AGM Batterie (SA536) 
+E A080                                            //80 Ah-AGM Batterie  
+E ASIA                                            //MASK-Asien-Muster frei neben der SA China & Korea 
+E 701S                                            //Sondercodierung Sicherheitsfahrzeug Mexiko 
+E 702S                                            //Sondercodierung FH_HINTEN Sicherheitsfahrzeug Mexiko 
+E 703S                                            //Sondercodierung Schlüsselabziehen in jeder Getriebeschalterstellung 
+E OACC                                            //Steuerung von FZ mit ACC verbaut, aber Codierung nicht erfolgen soll!!  ACC inaktiv 
+E LM2A                                            //Steuerung fuer LM2, wenn aber noch die alten Scheinwerfer verbaut sind 
+E IGRX                                            //IRG-Codierung fuer 6Zyl. (MSV80.C05,MSD80.C10) 
+E ULF2                                            //Steuerung ULF2 in CCC_APP; SVS_MICRO  (most oder analog) 
+E HOS3                                            //Steuerung im Werk für den Aufbrauch von Teilen 
+E EFZG                                            //Steuerung im Werk der Funktion „CLASS_PWR“ im CAS 
+E CAKK                                            //Crash-Aktive-Kopfstütze nicht aktiv! 
+E FITT                                            //Sondercodierung FIT 
+E EBSE                                            //Steuerung im Werk zum Entfall vom Endbeschlagsstrammer Airbag bis 09/08 
+H EWS4                                            //EWS4                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H NNIC                                            //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+H BENI                                            //Nachrüstung Video Benin 
+H NMUW                                            //Einsatz neuer MUW Sensoren bei allen E63 und E64 (Akt. Innenraumschutz bei CANSINE CI03 && CI04) 
+H NKWI                                            //KLAPPE_WINKEL wenn K-Wort  aktiviert bei E61 (noch in Planug) 
+H MASK                                            //Fzg mit MASK anstelle CHAMP;Radio BMW Professional (SA663) with MASK 
+H TARN                                            //fuer alle E61 E63 und E64 PPP-Fzg. mit Tarnscheinwerfer 
+H B080                                            //80 Ah-Batterie 
+H B090                                            //90 Ah-Batterie 
+H B110                                            //110 Ah-Batterie 
+H A090                                            //90 Ah-AGM Batterie (SA536) 
+H A080                                            //80 Ah-AGM Batterie  
+H VSVL                                            //fuer alle E64 PPP Fzg. im FIZ mit Vorserienvorlaeufer Verdeck Baustand BIS 31.03.2003! 
+H LEDE                                            //bei Lederausstattung setzen, wegen DWA Codierung 
+H KB96                                            //"9,6kBaud" fuer FZG mit FBD-Schluessel Teilenummer 6 931 666 (neue CAS2 Empfaenger) 
+H OSIM                                            //Aufbau mit SGM, SIM Codierung inaktiv 
+H NBFD                                            //Break Force Display fuer alle E63 Motortypen bis PU12/03 (ohne SA5AB!) 
+H K536                                            //Nachruestung Standheizung 
+H OPSS                                            //TEMPORAERES E-WORT spez. fuer CAS & KOMBI ab I-5.20! (nur FIT/Labcar) 
+H AMP3                                            //TEMPORAERES E-WORT MP3 Funktion im MASK fuer 04-03-450 (ab 04-03-500 Anlieferzustand) (nur FIT/Labcar) 
+H VORZ                                            //TEMPORAERES E-WORT (Hoehenstandsseonsoren) Komplementbildung  Achssensoren (ALC/LM) (nur FIT/Labcar) 
+H ASIA                                            //MASK-Asien-Muster frei neben der SA China & Korea 
+H 701S                                            //Sondercodierung Sicherheitsfahrzeug Mexiko 
+H 702S                                            //Sondercodierung FH_HINTEN Sicherheitsfahrzeug Mexiko 
+H 703S                                            //Sondercodierung Schlüsselabziehen in jeder Getriebeschalterstellung 
+H 240S                                            //Sondercodierung Aufhebung der Vmax-Begrenzung auf 240 km/h für E60 Security 
+H KMP3                                            //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden) 
+H OACC                                            //Steuerung von FZ mit ACC verbaut, aber Codierung nicht erfolgen soll!!  ACC inaktiv 
+H FITT                                            //FITT                            //Extra-Steuerung nur fuers FIT 
+H NHFM                                            //Nachruestung HFM (Heiss-Film-Luftmassenmesser), dann die Motoren-SW vor 09/05 auf die N52B30 ECE ab 09/05 flashen (Steuerung nur fuer KMM) 
+H LM2A                                            //Steuerung fuer LM2, wenn aber noch die alten Scheinwerfer verbaut sind 
+H IGRX                                            //IRG-Codierung fuer 6Zyl. (MSV80.C05,MSD80.C10) 
+H IPOD                                            //Nachruestung iPod (gesteuert wie CD-Wechsler SA672 in den Headunits) 
+H ULF2                                            //Steuerung ULF2 in CCC_APP; SVS_MICRO  (most oder analog) 
+H HOS3                                            //Steuerung im Werk für den Aufbrauch von Teilen 
+H SWUL                                            //Software-Update Fuer die MULF1 
+H 21TI                                            //Nachrüstlösung KMM Steuerung 
+H KONI                                            //Umrüstung Nightvision Kontrast 
+H EFZG                                            //Steuerung im Werk der Funktion „CLASS_PWR“ im CAS 
+H TEMP                                            //Erhöhung der Verdampfertemp. in der IHKA bei Kundenbeanstandung 
+H DOFF                                            //ab 09/07 wird für den M5 US Handschalter (SA 2MA) die Funktion DSC-OFF verfügbar sein. 
+H ZBEP                                            //Steuerung in der KMM zur Umrüstung von der ZBEH auf Performance Controller  
+H EBSE                                            //Steuerung im Werk zum Entfall vom Endbeschlagsstrammer Airbag bis 09/08 
+H CAKK                                            //Crash-Aktive-Kopfstütze nicht aktiv! 
+H NKFB                                            //MASK-Funktionen ab 03/07 
+H FITT                                            //Sondercodierung FIT 
+H D2TR                                            //Steuerung in der KMM "D2 nach R mit Stoß nach Stop-and-Go" 
+H IBAC                                            //Steuerung in der KMM "Kriechruckeln" 
+H KLED                                            //Nachruestung LED Leuchten für Anhänger 
+H RUZU                                            //Steuerung in der KMM "Drehzahlschwankungen" 
+H FLCN                                            //Nachruestung Schwellwertsatz normal 
+H FLCS                                            //Nachruestung Schwellwertsatz sehr empfindlich 
+H WGAK                                            //Bei Beanstandungen N54 Fhzg. 06/06 bis 08/07 per K-Wort "WGAK" eine DME SW (Vermeidung Wastegateklirren) aufzuspielen 
+H HADS                                            //Umrüstung im Beanstandungsfall EDS und DME (harsh down shift) 
+H DIRU                                            //Umrüstung / E6x N53 MSD80 Ruckeln 
+H IRRE                                            //Nachrüstung Deaktivierung OneShot für Irland 
+H OSAT                                            //Deaktivierung SAtellitenbilder per Nachrüstung, Anforderung aus den Golfastaaten 
+K 21TI                                            //Nachrüstlösung KMM Steuerung 
+K BENI                                            //Nachruestung Video Benin 
+K C107                                            //Umruestung der Aktivierung des mech. Verfahrens (CKM_A107) (keine Aktivierung/Akt. nach Entriegeln mit FB/Akt. nach Entriegeln mit FB und Tuer oeffnen) 
+K CIFK                                            //CIC-Umrüstung FKD-Fahrzeuge 
+K D2TR                                            //Steuerung in der KMM "D2 nach R mit Stoß nach Stop-and-Go" 
+K DIRU                                            //Umrüstung / E6x N53 MSD80 Ruckeln 
+K DOFF                                            //ab 09/07 wird für den M5 US Handschalter (SA 2MA) die Funktion DSC-OFF verfügbar sein. 
+K FLCN                                            //Nachruestung Schwellwertsatz normal 
+K FLCS                                            //Nachruestung Schwellwertsatz sehr empfindlich 
+K HADS                                            //Umrüstung im Beanstandungsfall EDS und DME (harsh down shift) 
+K IBAC                                            //Steuerung in der KMM "Kriechruckeln" 
+K ID4P                                            //4 ID-Geben für Passiv Access (VORHALT PU09/05) 
+K IPOD                                            //Nachruestung iPod (gesteuert wie CD-Wechsler SA672 in den Headunits) 
+K IREG                                            //Stromkorrektur wegen kurzer Leitungslängen 
+K IRRE                                            //Nachrüstung Deaktivierung OneShot für Irland 
+K K302                                            //Nachruestung DWA mit INNENRAUMSCHUTZ UND NOTSTROMSIERENE (E60/E61) / CANSINE(E63/E64) 
+K K536                                            //Nachruestung Standheizung 
+K K633                                            //Nachruestung BT Aktivierung bei TCU (nur bei SA639,SA641 und SA664) (Handy über BT) ab CI06 
+K K639                                            //Nachruestung Everest-Plattform TEL_PROF(HANDY etc. nur US,kabelanbindung) (nur mit SA639 bis CI05) 
+K K641                                            //Aufruestsatz Universal Handyvorbereitung US Standard (Südamerika und Korea) nur bis 09/06 ab 09/06 SA664 
+K KFDM                                            //Nachruestung Flexibles Diagnose Modul 
+K KLED                                            //Nachruestung LED Leuchten für Anhänger 
+K KMP3                                            //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden) 
+K KONI                                            //Umrüstung Nightvision Kontrast 
+K MO6H                                            //Motorbedatung beim M54B22 in Heißländer beseitigung KMM-Probleme 
+K MUEB                                            //Nachruestung neue Beleuchtung (Front/Heck) für alte FZ 
+K NADX                                            //Nachruestung Xenon Nebelscheinwerfer E60 
+K NAUX                                            //Nachruestung AUX-IN Buchse bei MASK/CCC Tuner 
+K NBFD                                            //Nachruestung Break Force Display fuer alle E60 von PU09/03 bis PU12/03(nur EU! bei Fzg. ohne SA5AB) (FALLS IDENTISCHES E-WORT VORHANDEN ZUERST ENTFERNEN!!!) 
+K NDVD                                            //Nachruestung E60 FOND DVD PLAYER incl. E61 PD DWA MUW 
+K NHFM                                            //Nachruestung HFM (Heiss-Film-Luftmassenmesser), dann die Motoren-SW vor 09/05 auf die N52B30 ECE ab 09/05 flashen (Steuerung nur fuer KMM) 
+K NKWI                                            //KLAPPE_WINKEL wenn K-Wort  aktiviert bei E61 (BESCHLUSS NOCH OFFEN!!!) 
+K NNIC                                            //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+K OEOE                                            //  Oeffnen ohne Entriegeln 
+K OI01                                            //Deaktivierung Fahrerairbag 
+K OI02                                            //Deaktivierung Beifahrerairbag 
+K OI03                                            //Deaktivierung Sidebag vorn links 
+K OI04                                            //Deaktivierung Sidebag vorn rechts 
+K OI05                                            //HEAD Deaktivierung AHPS links 
+K OI06                                            //HEAD Deaktivierung AHPS rechts 
+K OI07                                            //Thorax Deaktivierung Sidebag Fond links 
+K OI08                                            //Thorax Deaktivierung Sidebag Fond rechts 
+K OI09                                            //Deaktivierung Knieschutz vorn links 
+K OI10                                            //Deaktivierung Knieschutz vorn rechts 
+K OI11                                            //Deaktivierung FAHRER SEATBELTREMINDER (bis PU03/04 im KOMBI ab PU03/04 im SGM! ab PU09/05 im ACSM) 
+K OI12                                            //Deaktivierung BEIFAHRER SEATBELTREMINDER (bis PU03/04 im KOMBI ab PU03/04 im SGM! ab PU09/05 im ACSM) 
+K OSAT                                            //Deaktivierung SAtellitenbilder per Nachrüstung, Anforderung aus den Golfastaaten 
+K OSVS                                            //Deaktivierung Funktion "Low Sprachverarbeitung" in MASK / M-ULF 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K RASK                                            //Aktivierung RING Bit im MASK/CHAMP 
+K RUZU                                            //Steuerung in der KMM "Drehzahlschwankungen" 
+K SIGE                                            //Umruestung/Nachruestung Anpassungen der Schaltkennlinien für Singapur NA32 + SA205 
+K SWUL                                            //Software-Update Fuer die MULF1 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST 
+K TEMP                                            //Erhöhung der Verdampfertemp. in der IHKA bei Kundenbeanstandung 
+K TVHY                                            //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul. 
+K U638                                            //Nachruestoption zur SA 638 ab 06/2003SA-638 Upgrade neue SIM Karten, zum erkennen der neuen Software 
+K UEGS                                            //Umrüstung EGS für NA38 
+K WGAK                                            //Bei Beanstandungen N54 Fhzg. 06/06 bis 08/07 per K-Wort "WGAK" eine DME SW (Vermeidung Wastegateklirren) aufzuspielen 
+K ZBEP                                            //Steuerung in der KMM zur Umrüstung von der ZBEH auf Performance Controller  
+K OKOS                                            //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877          //NA 190652 

@@ -1,0 +1,57 @@
+;****************************************************
+;******** Simulationsfile fuer den OBD     **********
+;****************************************************
+
+;--- Hinweis fuer UBATTCURRENT / IGNITIONCURRENT ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung ist aus
+;    1 -> UBatt / Zuendung ist ein
+;
+;--- Hinweis fuer UBATTHISTORY / IGNITIONHISTORY ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung war mindestens 1 mal aus
+;    1 -> UBatt / Zuendung war nicht aus
+;---------------------------------------------------- 
+
+[VERSION]
+Version = 02,02
+
+[POWERSUPPLY]
+;UBatt = 0
+UBatt = 12500
+UBATTCURRENT = 1
+UBATTHISTORY = 1
+
+[IGNITION]
+;Ignition = 0
+Ignition = 12000
+IGNITIONCURRENT = 1
+IGNITIONHISTORY = 1
+
+[REQUEST]
+init_ifr              = E0,00,XX,XX,XX,XX,XX,XX
+init_ifr2             = E0,00,XX,XX,XX,XX,XX,XX,XX,XX,XX
+start_pruefung        = E1,00,XX,XX,XX,XX
+start_pruefung2       = E1,00,XX,XX,XX,XX,XX,XX,XX
+ende_pruefung         = E2,00,XX,XX,XX,XX
+ende_pruefung2        = E2,00,XX,XX,XX,XX,XX,XX,XX
+set_port              = 21,00,XX,XX
+sleep                 = F1,00,01
+adresse_lesen         = F4,00
+master_version        = ED,00
+slave_version         = EC,00
+
+[RESPONSE]
+init_ifr              = 00
+init_ifr2             = 00
+start_pruefung        = 00
+start_pruefung2       = 00
+ende_pruefung         = 00
+ende_pruefung2        = 00
+set_port              = 00
+sleep                 = 00
+adresse_lesen         = 02,00,01,00
+master_version        = 00,00,20,51,00,00
+slave_version         = 00,00,01,00,00,00
+
+

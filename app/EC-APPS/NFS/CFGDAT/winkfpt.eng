@@ -1,0 +1,531 @@
+; WINKFPT.TXT
+
+[VERSION]
+Version=5.3.1
+
+[ERROR]
+1=CoapiKfInit: Initialization error!
+2=Memory error
+3=SetEvent-Overflow
+4=Write file
+5=Flow: FLOW_INFO_ERROR
+6=Directory could not be determined
+7=File not found
+8=ECU-Directory not found (see EDIABAS.INI)
+9=Cannot open Directory
+10=Too many instances!
+11=File %s could not be copied.
+12=COAPI Error text file "coapierr.<Lang>" not found
+13=COAPI Error text file %s has no Version
+14=COAPI Error text file %s has Version %s, COAPI Version is %s
+15=The following files may only appear in directory ..\EDIABAS\bin and must be deleted:
+16=Error on switching the language
+17=Error on refreshing (converting again) the common data files
+18=Error on setting the working directories from "winkfpt.ini"!  The default setting is used!
+19=Error on setting the working directories!  The last setting is used!
+
+100=P-SGBD needs ECU-Address
+100b=Enter ECU-Address first
+101=Vehicle identification number not existent  
+SGADRESS_ERROR1=ECE-Adress error
+102=2 digits (Hexadecimal) needed
+103=Only hex digits
+104=Wrong ECU-Address: %s
+105=Error on determining the current assembly identification number
+105b=Check HIS-File:
+106=Error on setting ECU-Adress.
+106b=Please check: Interface, PABD, P-SGBD
+107=VIN error
+ZUSB_ERROR1=ZUSB error
+108=7 digits necessary
+109=Only digits
+110=Error on converting the GDATEN logistic files !!
+111=Import not possible - Assembly file (xxx.dat) is missing !!
+112=ECU internal temperature is not supportted
+113=Batch control file is already used by another WinKFPT32-Instance:
+
+
+HWNR_ERROR2=Wrong ECU hardware number: %s
+HWNR_ERROR4=Check hardware number
+HWNR_ERROR5=Check historie.bsu + Configuration
+200=Error on reading HW-Number from ECU or logistic file
+200b=Please check: Connection of ECU, Diagnosis line, ECU-Address, Logstic files
+201=(BSU not possible)
+202=(BSU not possible, because historie.bsu is missing)
+203=(BSU not possible, bevause historie.bsu erroneous)
+204=BSU is possible, but not activated!!
+205=Check hardware reference
+205b=Hardware reference could not be read from ECU
+206=The user information field is full
+207=Programming order could not be determined!
+208=List of files to flash does not decrease
+208b=Endless loop in programming suspected
+209=UIF can not be read!
+210=BSU error!
+211=Error on flash programming!
+212=Error on checking data consitency ->
+212b=in program datafile (PAF)
+212c=in data datafile (DAF)
+
+
+300=First HW interface could not be initialized!
+301=HW interface could not be initialized!
+302=HW interface could not be occupied!
+303=HW interface is already used by another WinKFPT32-Instance!
+304=New HW  interface could not be occupied!
+
+400=Invalid parameter for WITH_MOSTFIREWALL:
+400b=Only ON/OFF permitted
+401=Invalid parameter for TESTER_ID:
+401b=Only hexdigits permitted
+
+
+500=Wrong ECU identifier
+501=Wrong project
+502=Wrong project variant
+503=Wrong program version
+
+600=Diagnosis: Error on reading ECU identification
+600b=Error on reading physical hardware numbmer
+601=Diagnosis: Error on reading ECU internal temperature
+602=Diagnosis: Error on reading the data reference
+603=Diagnosis: Error on reading the hardware reference
+604=Diagnosis: Error on reading the ZIF (Supplier Info Field)
+605=Diagnosis: Error on reading the ZIF Backup (Supplier Info Feld - Backup)
+606=Diagnosis: Error on reading the ECU programming status
+
+650=Special: Error on reading the UIF
+651=Special: Error on reading the ECU baudrate
+652=Special: Error on reading the calibration values
+653=Special: Error on writing the calibration values
+654=Special: Error on setting the VS20-Mode
+655=Special: Error on setting the DS2-Mode
+
+700=Logistic file could not be converted from binary to ASCII!
+700b=HW history
+700c=assembly file
+700d=assembly history
+
+701=Error on determining compatible HW numbers!
+701b=-> check HW history resp. assembly historie
+702=Error ECU member
+702b=Please check the syntax of Index/Address:
+703=Error in logistic file
+704=Error on determining the ZB number!
+704b=Check assembly file
+705=Error on determining the HW and SW number from ZB file
+706=Error on determining the diagnosis protokoll from "prgifsel.dat"
+
+800=Error on creating a list
+800b=of an assembly line data set (WDP)
+801=Error on deleting assembly line data set(s) (WDP)
+802=Error on export of a configuration of development files
+803=Error on export of a configuration of assembly line data files
+804=Error on re-import of a configuration of development files
+805=Error on re-import of a configuration of assembly line data files
+806=Error on import of assembly line data set(s)
+
+NO_CABDPAR=No CABD-Par
+ERROR=Error
+
+[DIALOG]
+OK=OK
+ABBRECHEN=Cancel
+ENTFERNEN=Remove
+ALLE_ENTFERNEN=Remove all
+ECU=ECU
+PSGBD=P-SGBD
+PABD=PABD
+AIF_INFO=UIF-Info
+EXPORT=Export
+AIF_X_TIMES_PROG=The user info field can still be programmed %d times
+PROG_SG=Program ECU?
+MULTIPLE_END=Multiple programming finished
+MULTIPLE_UPDATE_END=Multiple ZUSB-Update programming finished
+UPDATE_OK=ZUSB-Update programming OK
+PROG_OK=Programming OK
+BSU_OK=Bootsectorupdate OK
+PROG_PROG_OK=Program programming OK
+DAT_PROG_OK=Data programming OK
+PROG_NOT_POSSIBLE=Programming not possible!
+BSU_NOT_ACTIVE=Bootsectorupdate is not active!
+SELECT_INTERFACE=Please choose interface before batch mode!
+NO_FILE=No file found
+INTERN_ADRESS=P-SGBD uses internal Address
+NO_INTERFACE=<No interface>
+IMPORT=Import
+LOAD_LAST_KONF=Load last configuration?
+SAVE_KONF=Save current configuration?
+SAVE_KONF2=Save configuration in Ini file?
+IMPORT_DATA=Import assembly line data files
+ERROR_LOG_PATH=Directory for Error.log file
+DEVELOP_EXP_PATH=Base directory for export of development files
+WDP_EXP_PATH=Base directory for export of assembly line data files
+BASE_WORK_PATH=Base directory for working directories of WinKFPT
+NO_ERROR_LOG_PATH=Directory for Error.log file does not exist
+NO_DEVELOP_EXP_PATH=Base directory export of development files does not exist
+YES_DEVELOP_EXP_PATH=Directory for export of development files already exists
+NO_WDP_EXP_PATH=Base directoty for export of assembly line data files does not exist
+YES_WDP_EXP_PATH=Base directoty for export of assembly line data files already exists
+NO_BASE_WORK_PATH=Base directoty for working directories of WinKFPT does not exist
+NO_VALID_PATH=Directory name is invalid!
+NO_CREATE_PATH=Directory "%s" can not be created!
+ENTER_SGADR=Enter ECU address
+FILE_WITHOUT_EXT=Specify filename without extension!
+
+INFO_SWITCH_TO_KOMFORT1=You are about to enter the comfort mode, but
+INFO_SWITCH_TO_KOMFORT2=IPS is still set as PADB format. If you
+INFO_SWITCH_TO_KOMFORT3=proceed, the format will be set to IPO.
+INFO_UPDATE1=ECU -> ZBNr. from UIF:
+INFO_UPDATE2=Update -> current ZBNr.:
+INFO_UPDATE3=Program current ZBNr.?
+INFO_UPDATE4=Result - Assembly identification number update
+DISP_DATEN=Data file:
+DISP_PROG=Program file:
+DISP_NAAB=NAAB file:
+FROM_COAPI_INI=from   <COAPI.INI>
+DISP_DIAG_PROT=Diagnosis protocol:
+DISP_HW_INTERFACE=HW interface:
+DISP_UNIT=Unit:
+DISP_UPROG=Programming voltage
+FILE_EXISTS=File %s already exists!
+OVERWRITE_FILE=Overwrite file?
+WIN_IMPORT=WINKFPTool - Import
+INFO_SWITCH_TO_EXPERT1=The expert mode configuration contains a PABD in IPO format,
+INFO_SWITCH_TO_EXPERT2=but currently IPS is still set. Switch to IPO?
+INFO_SWITCH_TO_EXPERT3=The expert mode configuration contains a PABD in IPS format,
+INFO_SWITCH_TO_EXPERT4=but currently IPO is still set. Switch to IPS?
+INFO_SWITCH_TO_IPS1=You choosed the PABD format IPS,
+INFO_SWITCH_TO_IPS2=but an IPO file is already selected.
+INFO_SWITCH_TO_IPS3=Really use IPS?
+INFO_SWITCH_TO_IPS4=The PABD format IPS is used.
+INFO_SWITCH_TO_IPS5=To communication with the ECU, you must  
+INFO_SWITCH_TO_IPS6=choose a new PABD in expert mode next. 
+INFO_SWITCH_TO_IPO1=You choosed the PADB format IPO,    
+INFO_SWITCH_TO_IPO2=but an IPS file is already selected.
+INFO_SWITCH_TO_IPO3=Really use IPO?
+INFO_SWITCH_TO_IPO4=The PABD format IPO is used.
+INFO_SWITCH_TO_IPO5=To communication with the ECU, you must  
+INFO_SWITCH_TO_IPO6=choose a new PABD in expert mode next or
+INFO_SWITCH_TO_IPO7=start the comfort mode and implicitly choose
+INFO_SWITCH_TO_IPO8=a PABD by selecting a ZB number.
+IMPORT_FLASH_DATA=Import Data/Program/BSU NAAB Files
+IMPORT_SGBD=Import PSGBD
+IMPORT_PABD=Import PABD (Flash sequence description file)
+DIR_EXISTS=Directory %s already exists!
+DEL_REWRITE_DIR=Delete and re-write directory?
+DIR_EXISTS_NOT=Directory %s does not exist!
+DIR_CREATE=Create directory %s?
+FILE_EXISTS2=Abort! A file with the name of the target directory exists: %s !
+PLEASE_CHECK=Please check !
+JOB_OK=Job OK!
+ERR_CODE=Code
+ERR_LEVEL=Level
+ERR_MODUL=Module
+ERR_PROC=Procedure
+ERR_TEXT=Text
+ERR_INDEX=Index
+START_COMPILER=Starting compile mode
+COMPILER_ERR_FILE=Error in file
+FILE=File
+COMPILE_SUCCEED=compiled without error
+NOT_IMPLEMENTED=The function is not implementet at the moment!
+WARNING_NO_SG_REFERENZ=Warning! Reference could not be read from ECU
+KOMP_DATEN_PROGRAM=Compatibility between data and program can not be determined!!
+KOMP_PROGRAM_HARDWARE=Compatibility between program and hardware con not be determined!!
+WINKFP_COAPI_FEHLER=Error
+EDIABAS_PATH=Attention!! EDIABAS-Path must be entered in Windowspath (PATH)!
+CHECK_SYSTEM_PATH=Check environment variable "PATH" in system settings - System
+WDP_LOESCHEN=Delete assembly line data files 
+WDP_ALLE_LOESCHEN=Delete all shown assembly line data?
+WDP_SEL_LOESCHEN=Delete all selected assembly line data?
+COMMON_LEER=The COMMON files HWNR.DA2, KFCONFXX.DA2 and SWTCONFx.DAT will be emptied completely!
+COMMON_KORR=Corresponding entries will be removed from the COMMON files HWNR.DA2, KFCONFXX.DA2 and SWTCONFx.DAT!
+WDP_WAEHLEN=There is no assembly line data selected!
+WDP_NICHT_VORHANDEN=There is no valid assembly line data present!
+EXP_KONF_DEVELOP=Export -> Configuration - Development data
+EXP_KONF_WDP=Export -> Configuration - Assembly line data
+EXP_BAS_DIR=Export - Base directory:
+IMP_KONF_DEVELOP=Import -> Configuration - Development data
+IMP_KONF_WDP=Import -> Configuration - Assembly line data
+WDP_KONFLIKT_TITLE=Import assembly line data sets
+WDP_KONFLIKT_T1=WDP-Conflict!
+WDP_KONFLIKT_T2=The following WDPs are already present:
+WDP_IMPORT=Import
+WDP_REPLACE=Replace
+WDP_MERGE=Merge
+KONF_NAME=Configuration name:
+BAUREIHE=Type series:
+I_STUFE=I-Level:
+WERKSDATEN=Assembly line data (ECU families):
+EXP_DEV_DATA=Export - Development data
+EXP_TOOLREL_DATA=Export - Tool relevant data
+IMP_DEVELOP_DATA=Import - Development data
+IMP_TOOLREL_DATA=Import - Tool relevant data
+INVALID_KONF_NAME=Configuration name "%s" is invalid!
+INVALID_BAUREIHE=Type series "%s" is invalid!
+INVALID_I_STUFE=I-Level "%s" is invalid!
+INVALID_EXP_PATH=Export directory "%s" is invalid!
+NO_EXPORT=Export not possible!
+EXIST_BASE_PATH=Check Configuration setting of the base directory "%s" an user entry "%s"
+OVERWRITE_DIR=Really overwrite directory "%s"?
+MIT_ENTWICKLUNGSDATEIEN=With development data
+OHNE_ENTWICKLUNGSDATEIEN=Without development data
+MIT_TOOLRELEVANTE_DATEN=With tool relevant data
+OHNE_TOOLRELEVANTE_DATEN=Without tool relevant data
+AKTIVIERT=ACTIVATED
+NICHT_AKTIVIERT=NOT ACTIVATED
+FILTER_DATPROG=All (*.paf;*.0pa;*.daf;*.0da;*.baf;*.0ba)|*.paf;*.0pa;*.daf;*.0da;*.baf;*.0ba;*.pbf;*.0pb;*.dbf;*.0db;*.bbf;*.0bb|Progams (*.paf;*.0pa)|*.paf;*.0pa;*.pbf;*.0pb|Data (*.daf;*.0da)|*.daf;*.0da;*.dbf;*.0db|BSU NAAB files(*.baf;*.0ba)|*.baf;*.0ba;*.bbf;*.0bb||
+FILTER_PSGBD=ECU description files (*.prg)|*.prg||
+FILTER_PABD=IPS- and IPO files (*.ips;*.ipo;)|*.ips;*.ipo|IPS files (*.ips)|*.ips|IPO files (*.ipo)|*.ipo||
+
+AIF_ENTRIES=Entries of the user info field:
+ENTRY=Entry
+FG_NR=Vehicle identification number
+DATUM=Date
+AENDERUNGS_INDEX=Change index
+SW_NR=Software number
+BEHOERDEN_NR=Office number
+ZB_NR=Assembly identification number
+SERIEN_NR=Seral number
+PROG_NR=Program number
+KM=Kilometer
+HAENDLER_NR=Dealer number
+ENDE_AIF=End of user info field
+POSS_BAUD=Possible Baudrates
+BAUDRATE=Baudrate
+ENDE_BAUD=End of baudrate table
+
+
+DATAREF_ENTRIES=Entries of data reference
+HWREF_ENTRIES=Entries of HW reference
+ZIF_ENTRIES=Entries of ZIF
+ZIF_BACKUP_ENTRIES=Entries of ZIF-Backup
+IDENT_ENTRIES=Entries of ECU identification
+TEMP_ENTRIES=Entries of ECU internal temperature
+SG_KENNUNG=ECU identifier
+PROJEKT=Project
+PROGRAMMSTAND=Program version
+DATENSATZ=Data version
+STATUS=Status
+BMW_HW_NR=BMW hardware number
+BMW_PROGRAMMSTAND=BMW program version
+BMW_TEILENR=BMW part number
+CODIER_INDEX=Coding index
+DIAG_INDEX=Diagnosis index
+VARIANTEN_INDEX=Variant index
+HERSTELLDATUM=Manufacturing date (DD.MM.YYYY)
+LIEFERANT_NR=Supplier number
+LIEFERANT=Supplier
+SW_NR_1=Software number (message catalogue version)
+SW_NR_2=Software number (functional software version)
+SW_NR_3=Software number (operating system version)
+SW_NR_4=Software number (reserved - currently unused)
+PHYS_HW_NR=Physical Hardware number
+SG_INNENTEMP=internal ECU temperature
+GRAD_C=degrees C
+
+
+MENU_DATEI=&File
+MENU_ANZEIGE=&Display
+MENU_IMPORT_EXPORT=&Import/Export
+MENU_KOMMUNIKATION=&Communication
+MENU_KONFIGURATION=C&onfiguration
+MENU_HILFE=&Help
+
+MENU_EXIT=&Exit
+
+MENU_CABIERR=&CABI.ERR
+MENU_ERRORLOG=&ERROR.LOG
+MENU_PABD_PARAMETER=PABD-&Parameter
+MENU_HW_HISTORIE=&HW history
+MENU_ZB_HISTORIE=Z&B history
+MENU_ZB_VORSCHRIFT=&ZB rule
+MENU_API_TRACEDATEI=&API trace file
+MENU_IFH_TRACEDATEI=&IFH trace file
+MENU_BATCH_MODUS=Batch &mode
+
+MENU_IMPORT=&Import
+MENU_WERKSDATEN_IMPORT_EXP_KONF=Exported configuration - assembly &line data
+MENU_ENTWICKLUNGSDATEN_IMPORT_EXP_KONF=Exported configuration - de&velopment data
+MENU_WERKSDATEN_IMPORT=&Assembly line data
+MENU_DAT_PROG_IMPORT=&Data / Program / BSU NAAB files
+MENU_PSGBD_IMPORT=P-&SGBD
+MENU_PABD_IMPORT=P&ABD
+
+MENU_EXPORT=&Export
+MENU_WERKSDATEN_KONF_EXPORT=Configuration - assembly &line data
+MENU_ENTWICKLUNGSDATEN_KONF_EXPORT=Configuration - de&velopment data
+
+MENU_LOESCHEN_WD=&Delete - assembly line data
+
+MENU_HW_INTERFACE=HW &interface
+MENU_DIAGPROT=Diagnosis &protocol
+
+MENU_INHALT=&Content
+MENU_INFO=Inf&o...
+
+
+MAINFRM_TEXT_SG_ADR=ECU address/integration position:
+MAINFRM_TEXT_FG=Vehicle identification number :
+MAINFRM_TEXT_ZUSB=Assembly identification number :
+MAINFRM_TEXT_HW=Hardware number :
+MAINFRM_BSU_STATUS=Bootsectorupdate
+
+TITLE_KONFIGURATION="Ini Options"
+KONF_PROGRAMMIERSPANNUNG_ANZEIGEN=Show programming voltage
+KONF_SCHNELLE_BAUDRATE=Fast baudrate
+KONF_TEST_CHECKSUMME=Test Checksum
+KONF_PROGPROG_ERZWINGEN=Force program programming in comfort mode
+KONF_BSU_AKTIVIEREN=activate Bootsectorupdate
+KONF_AIF_SCHREIBEN_DATEN=UIF write after data
+KONF_AIF_SCHREIBEN_PROG=UIF write after program
+KONF_AIF_SCHREIBEN_EXP=UIF write in expert mode
+KONF_AIF_SCHREIBEN_KONF=UIF write in comfort mode
+KONF_PABD_FORMAT=PABD format
+KONF_API_TRACELEVEL=API tracelevel
+KONF_IFH_TRACELEVEL=IFH tracelevel
+KONF_DIR_ERRORLOG=Directory for error file "error.log"
+KONF_DIR_ENTW=Base directory for exported configurations - development data
+KONF_DIR_WERKSDATEN=Base directory for exported configurations - assembly line data
+KONF_BASIS_WORKDIR=Base directory for working directories of WinKFPT
+
+TITLE_BATCH=WinKFPt Batch mode monitor
+BATCH_CONTROLFILE=Control file:
+BATCH_STATUS=Status:
+BATCH_FEHLER=Errors:
+BATCH_ABBRUECHE=Aborts:
+BATCH_TARGET_IF=Target interface:
+BATCH_MODE=Mode:
+BATCH_START=Start
+BATCH_STOP=Stop
+BATCH_DIALOG_ENDE=Close dialog
+BATCH_NO_CONTROLFILE_TEXT=no control file specified
+BATCH_TEXT_STARTED=started
+BATCH_TEXT_READING=reading control file
+BATCH_TEXT_RUNNING=programming active
+BATCH_TEXT_SLEEPING=wait for control file
+BATCH_TEXT_PROGRAMMING=wait for end of programming
+BATCH_TEXT_PROGRAMMING_FINISHED=programming ended
+BATCH_WAIT_TO_STOP=wait for end of batch mode
+BATCH_TEXT_STOPPED=not started
+
+TITLE_DIAGPROT=Choose diagnosis protocol
+
+TITLE_KONFEXP=Configuration - expert mode
+KONFEXP_HEADER=Configuration settings - expert mode:
+KONFEXP_SGADR=ECU-Address:
+KONFEXP_DATFILE=Data file:
+KONFEXP_PROGFILE=Program file:
+KONFEXP_BSUFILE=BSU NAAB file:
+
+TITLE_FGENTRY=Enter vehicle identification number
+FGENTRY_FG=VIN:
+FGENTRY_CS_CHECK=calculate checksumme
+
+
+TITLE_HWIF=Choose HW interface
+TITLE_LISTBOX=Choose
+
+TITLE_SG_ADR_EINGABE=Enter ECU-Address
+SG_ADR=ECU-Address
+SG_ADR_WERTEBEREICH=Range: 00 - FF               hexadecimal
+
+TITLE_SHOWERR=COAPI-Error
+SHOWERR_NORMAL=Normal view
+SHOWERR_ERWEITERT=Extended view
+SHOWERR_COAPILIST=COAPI error entries:
+
+TITLE_SHOWFILE=Show file content
+
+TITLE_ZUSB_EING=Enter ZUSB
+ZUSB_EING_ZUSB=ZUSB:
+
+TITLE_ZUSB_AUS=Choose assembly identification number / integration position
+ZUSB_AUS_SGFAM=ECU familiy:
+ZUSB_AUS_NR=ZB-Number:
+ZUSB_AUS_VERBAUORT=Integration position:
+
+Konfiguration=Configuration
+Konfiguration speichern?=Save Configuration?
+Testmodus auswaehlen...=Select Testmode...
+Einzeln,Auswahl,Skript=Single,Selection,Script
+Funktion auswaehlen...=Select Function...
+Skript speichern?=Save Script?
+Skript ausfuehren?=Run Script?
+Start HDDownload?=Start HDDownload?
+SGBM-ID auswaehlen...=Select SGBM-ID ...
+
+
+[BATCH]
+MODE_KOMFORT=Comfort mode
+MODE_EXPERT=Expert mode
+MODE_NOT_DEFINED=not defined
+PROG_IO=Programming ok
+PROG_NIO=Programming not ok. Abort
+PROG_FATAL=Programming not ok. Fatal Error
+FGNR_SET=Vehicle identification number was set
+ERROR_ACTIVATE_INTERFACE=Error: HW interface could not be activated!
+ERROR_NO_INTERFACE=Error: No HW interface present!
+INTERFACE_ACTIVATE=HW interface activted.
+ERROR_NO_PABD=Error: No PABD specified!
+ERROR_PABD_IPS_NEEDED=Error: PABD has wrong format: IPS needed!
+ERROR_PABD_IPO_NEEDED=Error: PABD has wrong format: IPO needed!
+ERROR_PABD_NOT_FOUND=Error: PABD not found!
+PABD_SET=PABD set.
+ERROR_NO_SGBD=Error: No P-SGBD specified!
+ERROR_SGDB_NOT_FOUND=Error: P-SGBD not found!
+SGBD_SET=P-SGBD set.
+ERROR_SET_SG_ADRESS=Error: ECU-Address could not be set!
+SG_ADRESS_SET=ECU-Address set.
+USE_INTERNAL_ADRESS=Internal ECU-Address will be used.
+ERROR_SG_NEEDS_ADRESS=Error: P-SGBD needs ECU-Address!
+ERROR_SET_PROTOKOLL=Error: Diagnosis protocol could not be set!
+PROTOKOLL_SET=Diagnosis protocol set.
+ERROR_NEED_DATA=Error: NAAB, program or data file needed!
+ERROR_DATA_FILE_NOT_FOUND=Error: Data file not found!
+ERROR_PROG_FILE_NOT_FOUND=Error: Program file not found!
+ERROR_NAAB_FILE_NOT_FOUND=Error: NAAB file not found!
+DATA_SET=Data and/or program and/or NAAB file set.
+NAAB_PROG=BSU activated! - NAAB will be programmed
+NAAB_NOT_PROG=BSU not activated! - NAAB was not programmed.
+PROG_PROG=Program will be programmed.
+DATA_PROG=Data will be programmed.
+UNKNOWN_BATCH_TYPE=Error: Batch file type unknown.
+BATCH_END=Batch mode ended
+NO_ZB_NR=Found no ZB-Numbers in control file
+
+[FKEYS]
+Komfort_Modus=Comfort
+Experten_Modus=Expert
+PABD=PABD
+P_SGBD=P-SGBD
+SG_Adresse=ECU Address
+Datendatei=Data file
+Programmdatei=Program file
+NAAB_Datei=NAAB file
+FGNR_eingeben=Enter VIN
+Fertig=Done
+ZUSB_eingeben=Identify ECU family
+ZUSB_auswählen=Choose Custom File
+ZUSB_update=Update ECU
+Prog_NAAB=Prog. NAAB
+Prog_Programm=Prog. Program
+Prog_Daten=Prog. Data
+Programmieren=Program
+Prog_ZBUpdate=Prog. ZB-Update
+Spezial=Special
+Diagnose=Diagnosis
+Zurück=Back
+AIF_lesen=Read UIF
+SG_Baudraten=ECU baudrates
+Abgleichwerte=Calibration values
+VS20_DS2_Mode=VS20/DS2-Mode
+EWS_Abgleich=EWS-Alignment
+VS20_Mode=VS20-Mode 
+DS2_Mode=DS2-Mode
+Abgl_lesen=Read Calib.
+Abgl_schreiben=Write Calib.
+SG_Status=ECU Status
+SG_Ident=ECU Ident
+SG_Innentemp=ECU intern. Temp.

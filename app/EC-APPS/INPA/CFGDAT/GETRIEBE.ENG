@@ -1,0 +1,34 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei GETRIEBE.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 15.03.95 rd V0.01 Erstellung
+//* 28.03.95 rd V1.00 Freigabe
+//* 29.04.96 rd V1.01 SMG neu dazu
+//* 30.11.98 rd V1.02 Text GS 20 hinzu
+//* 10.08.00 rd V1.03 SMG2 neu dazu
+//* 06.04.2001 rd V1.04 SSG neu dazu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Transmission V1.04
+ENTRY=   gsds2,AGS7.32 / GS8.xx / AGS9.22 / GS 20,
+ENTRY=,,
+ENTRY=   gs41x,GS4.1x,
+ENTRY=  gs7x_k,GS7.x Data field,
+ENTRY=    gs9x,GS9.2,
+ENTRY=,,
+ENTRY=   jatco,Jatco for M50 Japan / South Africa,
+ENTRY=,,
+ENTRY=     smg,Sequential M-Gearbox E36,
+ENTRY=,,
+ENTRY=    smg2,Sequential M-Gearbox E46,
+ENTRY=,,
+ENTRY=    gs30,Sequential Gearbox SSG,
+

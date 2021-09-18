@@ -1,0 +1,1757 @@
+TEST-Infotext
+print_line
+   
+
+    	h                   	h                    delete_line
+   
+
+     	h               	h               execute_print_line
+   
+
+           ÅJ    action_box_open
+   
+
+            ÅT         ! " # ÅV    $  % & ' ( ÅV    action_box_meldung
+   
+
+     ) * + , - . / ÅT    0 1 2 ÅX    3   4 5 6 7 ÅV    8  9 : ; < ÅV    message_box_open
+	   
+
+ 2  : = 	h         > ÅU    ? @ A B C D E ÅT    F G H ÅX    I   J K L M ÅV    N  O P Q R ÅV    S  T U V W ÅV X  :      message_box_iO
+
+   
+
+  Y  )      Z [ \ ] ^ _ ` ÅT    a b  ) ÅX    c d e f g h ÅV    i Å    message_box_niO
+   
+
+  j  )      Å    k l m n o p q ÅT    r s  ) ÅX    t u v w x y ÅV    z Å    action_box_close
+   
+
+     { ÅU    message_box_close
+   
+
+  |  :      } ÅU    delete_screen
+   
+
+     ~ Ä     Ä    Ä    Ä    screen_init
+   
+
+  Ä        s_sub
+    
+
+   !
+    
+
+ 
+      Å   Ä      Ç   Ä FSQUICK_E36_5
+    
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_KOMBI_LESEN
+   
+
+  É  !   Ñ         B Å  4 Ö 	h      Ü      á  #      B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  à  !   â         B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+  ä  !   ã         B Å    C Å %PRUEFUNG_ABS_ASC_LESEN
+   
+
+  å  !   ç  "   é         B Å    C Å %PRUEFUNG_ZVM_LESEN
+   
+
+  è  !   ê  "   ë         B Å    C Å %PRUEFUNG_DWA_LESEN
+   
+
+  í  !   ì         B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  î  !   ï         B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  ñ  !   ó         B Å    C	 Å %PRUEFUNG_GR2_LESEN
+	   
+
+  ò  !   ô         B Å    C
+ Å %PRUEFUNG_DME1_LESEN
+
+   
+
+  ö  !   õ  "   ú         B Å    C Å %PRUEFUNG_EGS_LESEN
+   
+
+  ù  !   û  "   ü         B Å    C Å %PRUEFUNG_BC_LESEN
+   
+
+  †  !   °         B Å    C Å %PRUEFUNG_TOENS_LESEN
+   
+
+  ¢  !   £         B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C Å %ABWARTEN
+   
+
+   FSQUICK_E36
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_KOMBI36_LESEN
+   
+
+  §  !   •  "   ¶         B Å  4 ß 	h      ®      ©  #      B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  ™  !   ´         B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+  ¨  !   ≠         B Å    C Å %PRUEFUNG_ABS_ASC_LESEN
+   
+
+  Æ  !   Ø  "   ∞         B Å    C Å %PRUEFUNG_KLIMA_LESEN
+   
+
+  ±  !   ≤  "   ≥         B Å    C Å %PRUEFUNG_ZVM_LESEN
+   
+
+  ¥  !   µ  "   ∂         B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  ∑  !   ∏         B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  π  !   ∫         B Å    C	 Å %PRUEFUNG_GR2_LESEN
+	   
+
+  ª  !   º         B Å    C
+ Å %PRUEFUNG_VNC_LESEN
+
+   
+
+  Ω  !   æ         B Å    C Å %PRUEFUNG_CVM_LESEN
+   
+
+  ø  !   ¿         B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+  ¡  !   ¬  "   √         B Å    C Å %PRUEFUNG_EGS_LESEN
+   
+
+  ƒ  !   ≈  "   ∆         B Å    C Å %PRUEFUNG_BC_LESEN
+   
+
+  «  !   »         B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C Å %ABWARTEN
+   
+
+   FSQUICK_E34
+	   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_KOMBI_LESEN
+   
+
+  …         !      B Å  4 À 	h      Ã      Õ  #      B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  Œ  !   œ         B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+  –  !   —         B Å    C Å %PRUEFUNG_ZVM_LESEN
+   
+
+  “  !   ”  "   ‘         B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  ’      ÷  !      B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  ◊      ÿ  !      B Å    C Å %PRUEFUNG_GR2_LESEN
+   
+
+  Ÿ  !   ⁄         B Å    C Å %PRUEFUNG_DDSHD_LESEN
+   
+
+  €  !   ‹         B Å    C	 Å %PRUEFUNG_DWA_LESEN
+	   
+
+  ›  !   ﬁ         B Å    C
+ Å %PRUEFUNG_BC_LESEN
+
+   
+
+  ﬂ  !   ‡         B Å    C Å %PRUEFUNG_SITZMEMORY_LESEN
+   
+
+  ·  !   ‚         B Å    C Å %PRUEFUNG_LSM_LESEN
+   
+
+  „  !   ‰         B Å    C Å %PRUEFUNG_EDC_LESEN
+   
+
+  Â  !   Ê         B Å    C Å %PRUEFUNG_ABS_ASC_LESEN
+   
+
+  Á  !   Ë  "   È         B Å    C Å %PRUEFUNG_KLIMA_LESEN
+   
+
+  Í  !   Î         B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+  Ï  !   Ì  "   Ó         B Å    C Å %PRUEFUNG_EGS_LESEN
+   
+
+  Ô  !     "   Ò         B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C Å %ABWARTEN
+   
+
+   FSQUICK_E31
+
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_KOMBI_LESEN
+   
+
+  Ú      Û  !      B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  Ù  !   ı         B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+  ˆ  !   ˜         B Å    C Å %PRUEFUNG_ZVM_LESEN
+   
+
+  ¯  "   ˘         B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  ˙      ˚  !      B Å    C Å %PRUEFUNG_AHK_LESEN
+   
+
+  ¸      ˝  !      B Å    C Å %PRUEFUNG_EKM_LESEN
+   
+
+  ˛      ˇ  !      B Å  4  	h            #      B Å    C Å %PRUEFUNG_LKM_LESEN
+   
+
+        !      B Å    C	 Å %PRUEFUNG_GR2_LESEN
+	   
+
+   !           B Å    C
+ Å %PRUEFUNG_DWA_LESEN
+
+   
+
+   !           B Å    C Å %PRUEFUNG_MID_LESEN
+   
+
+  	 !   
+        B Å    C Å %PRUEFUNG_SITZMEMORY_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_LSM_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_EDC_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_EML_LESEN
+   
+
+   !    "           B Å    C Å %PRUEFUNG_ABS_ASC_LESEN
+   
+
+   !    "           B Å    C Å %PRUEFUNG_KLIMA_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+   !    "           B Å    C Å %PRUEFUNG_DME2_LESEN
+   
+
+   !    "           B Å    C Å %PRUEFUNG_EGS_LESEN
+   
+
+   !     "   !        B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C Å %ABWARTEN
+   
+
+   FSQUICK_E38
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_IKE_LESEN
+   
+
+  " !   #        B Å  4 $	h      %     & #      B Å    C Å %PRUEFUNG_CCM_LESEN
+   
+
+  ' !   (        B Å    C Å %PRUEFUNG_LM_LESEN
+   
+
+  ) !   *        B Å    C Å %PRUEFUNG_ZKE3_LESEN
+   
+
+  + !   ,        B Å    C Å %PRUEFUNG_IHKA_LESEN
+   
+
+  - !   .        B Å    C Å %PRUEFUNG_ZIS_LESEN
+   
+
+  / !   0 "   1        B Å    C Å %PRUEFUNG_NAV_LESEN
+   
+
+  2 !   3 "   4        B Å    C Å %PRUEFUNG_RADIO_LESEN
+   
+
+  5 !   6        B Å    C	 Å %PRUEFUNG_EWS_LESEN
+	   
+
+  7 !   8        B Å    C
+ Å %PRUEFUNG_ABS_ASC_LESEN
+
+   
+
+  9 !   :        B Å    C Å %PRUEFUNG_AGS_LESEN
+   
+
+  ; !   <        B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  = !   >        B Å    C Å %PRUEFUNG_EDC_LESEN
+   
+
+  ? !   @        B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  A !   B        B Å    C Å %PRUEFUNG_GR2_LESEN
+   
+
+  C !   D        B Å    C Å %PRUEFUNG_MFL_LESEN
+   
+
+  E !   F        B Å    C Å %PRUEFUNG_DSP_LESEN
+   
+
+  G !   H        B Å    C Å %PRUEFUNG_LWR2A_LESEN
+   
+
+  I !   J        B Å    C Å %PRUEFUNG_FBZV_LESEN
+   
+
+  K !   L        B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  M !   N        B Å    C Å %PRUEFUNG_EML3_LESEN
+   
+
+  O !   P        B Å    C Å %PRUEFUNG_FOND_ZIS_LESEN
+   
+
+  Q !   R        B Å    C Å %PRUEFUNG_FHK_LESEN
+   
+
+  S !   T        B Å    C Å %PRUEFUNG_HKM_LESEN
+   
+
+  U !   V        B Å    C Å %PRUEFUNG_LWS5_LESEN
+   
+
+  W !   X        B Å    C Å %PRUEFUNG_RDC_LESEN
+   
+
+  Y !   Z        B Å    C Å %PRUEFUNG_V_GT_LESEN
+   
+
+  [ !   \        B Å    C Å %PRUEFUNG_V_TV_LESEN
+   
+
+  ] !   ^        B Å    C Å %PRUEFUNG_REGEN_LESEN
+   
+
+  _ !   `        B Å    C Å %PRUEFUNG_ELV_LESEN
+   
+
+  a !   b        B Å    C Å %PRUEFUNG_ETS_LESEN
+   
+
+  c !   d        B Å    C  Å %PRUEFUNG_SES_LESEN
+    
+
+  e !   f        B Å    C! Å %PRUEFUNG_SZM_LESEN
+!   
+
+  g !   h        B Å    C" Å %PRUEFUNG_SHD_LESEN
+"   
+
+  i !   j        B Å    C# Å %PRUEFUNG_ACC_LESEN
+#   
+
+  k !   l        B Å    C$ Å %PRUEFUNG_DME1_LESEN
+$   
+
+  m !   n "   o        B Å    C% Å %PRUEFUNG_DME2_LESEN
+%   
+
+  p !   q "   r        B Å    C& Å %PRUEFUNG_ZUENDUNG_AUS
+&   
+
+     B Å    C' Å %ENDE
+'   
+
+     B Å    C( Å %ABWARTEN
+(   
+
+   FSQUICK_E39
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_IKE_LESEN
+   
+
+  s !   t        B Å  4 u	h      v     w #      B Å    C Å %PRUEFUNG_LM_LESEN
+   
+
+  x !   y        B Å    C Å %PRUEFUNG_ZKE3_LESEN
+   
+
+  z !   {        B Å    C Å %PRUEFUNG_IHKA_LESEN
+   
+
+  | !   }        B Å    C Å %PRUEFUNG_IRIS_LESEN
+   
+
+  ~ !           B Å    C Å %PRUEFUNG_ZIS_LESEN
+   
+
+  Ä !   Å "   Ç        B Å    C Å %PRUEFUNG_NAV_LESEN
+   
+
+  É !   Ñ "   Ö        B Å    C Å %PRUEFUNG_RADIO_LESEN
+   
+
+  Ü !   á        B Å    C	 Å %PRUEFUNG_EWS_LESEN
+	   
+
+  à !   â        B Å    C
+ Å %PRUEFUNG_ABS_ASC_LESEN
+
+   
+
+  ä !   ã        B Å    C Å %PRUEFUNG_AGS_LESEN
+   
+
+  å !   ç        B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  é !   è        B Å    C Å %PRUEFUNG_EDC_LESEN
+   
+
+  ê !   ë        B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  í !   ì        B Å    C Å %PRUEFUNG_GR2_LESEN
+   
+
+  î !   ï        B Å    C Å %PRUEFUNG_MFL_LESEN
+   
+
+  ñ !   ó        B Å    C Å %PRUEFUNG_DSP_LESEN
+   
+
+  ò !   ô        B Å    C Å %PRUEFUNG_EHC_LESEN
+   
+
+  ö !   õ        B Å    C Å %PRUEFUNG_LWR2A_LESEN
+   
+
+  ú !   ù        B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  û !   ü        B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+  † !   °        B Å    C Å %PRUEFUNG_V_GT_LESEN
+   
+
+  ¢ !   £        B Å    C Å %PRUEFUNG_V_TV_LESEN
+   
+
+  § !   •        B Å    C Å %PRUEFUNG_REGEN_LESEN
+   
+
+  ¶ !   ß        B Å    C Å %PRUEFUNG_LWS5_LESEN
+   
+
+  ® !   ©        B Å    C Å %PRUEFUNG_RDC_LESEN
+   
+
+  ™ !   ´        B Å    C Å %PRUEFUNG_ELV_LESEN
+   
+
+  ¨ !   ≠        B Å    C Å %PRUEFUNG_ETS_LESEN
+   
+
+  Æ !   Ø        B Å    C Å %PRUEFUNG_SES_LESEN
+   
+
+  ∞ !   ±        B Å    C Å %PRUEFUNG_SZM_LESEN
+   
+
+  ≤ !   ≥        B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C  Å %ENDE
+    
+
+     B Å    C! Å %ABWARTEN
+!   
+
+   FSQUICK_E46
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_IKE_LESEN
+   
+
+  ¥ !   µ        B Å  4 ∂	h      ∑     ∏ #      B Å    C Å %PRUEFUNG_ZUHEIZ_LESEN
+   
+
+  π !   ∫        B Å    C Å %PRUEFUNG_LM_LESEN
+   
+
+  ª !   º        B Å    C Å %PRUEFUNG_ZKE3_LESEN
+   
+
+  Ω !   æ        B Å    C Å %PRUEFUNG_IHKA_LESEN
+   
+
+  ø !   ¿        B Å    C Å %PRUEFUNG_BM_LESEN
+   
+
+  ¡ !   ¬        B Å    C Å %PRUEFUNG_NAV_LESEN
+   
+
+  √ !   ƒ "   ≈        B Å    C Å %PRUEFUNG_RADIO_LESEN
+   
+
+  ∆ !   «        B Å    C	 Å %PRUEFUNG_EWS_LESEN
+	   
+
+  » !   …        B Å    C
+ Å %PRUEFUNG_ABS_ASC_LESEN
+
+   
+
+    !   À        B Å    C Å %PRUEFUNG_AGS_LESEN
+   
+
+  Ã !   Õ        B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  Œ !   œ        B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  – !   —        B Å    C Å %PRUEFUNG_GR2_LESEN
+   
+
+  “ !   ”        B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+  ‘ !   ’        B Å    C Å %PRUEFUNG_V_GT_LESEN
+   
+
+  ÷ !   ◊        B Å    C Å %PRUEFUNG_V_TV_LESEN
+   
+
+  ÿ !   Ÿ        B Å    C Å %PRUEFUNG_SHD_LESEN
+   
+
+  ⁄ !   €        B Å    C Å %PRUEFUNG_REGEN_LESEN
+   
+
+  ‹ !   ›        B Å    C Å %PRUEFUNG_SM_LESEN
+   
+
+  ﬁ !   ﬂ        B Å    C Å %PRUEFUNG_BF_SM_LESEN
+   
+
+  ‡ !   ·        B Å    C Å %PRUEFUNG_SPMFT_LESEN
+   
+
+  ‚ !   „        B Å    C Å %PRUEFUNG_SPMBT_LESEN
+   
+
+  ‰ !   Â        B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  Ê !   Á        B Å    C Å %PRUEFUNG_LWS5_LESEN
+   
+
+  Ë !   È        B Å    C Å %PRUEFUNG_RDC_LESEN
+   
+
+  Í !   Î        B Å    C Å %PRUEFUNG_ELV_LESEN
+   
+
+  Ï !   Ì        B Å    C Å %PRUEFUNG_ETS_LESEN
+   
+
+  Ó !   Ô        B Å    C Å %PRUEFUNG_SES_LESEN
+   
+
+   !   Ò        B Å    C Å %PRUEFUNG_SZM_LESEN
+   
+
+  Ú !   Û        B Å    C Å %PRUEFUNG_UEB2_LESEN
+   
+
+  Ù !   ı        B Å    C  Å %PRUEFUNG_CVM2_LESEN
+    
+
+  ˆ !   ˜        B Å    C! Å %PRUEFUNG_ZUENDUNG_AUS
+!   
+
+     B Å    C" Å %ENDE
+"   
+
+     B Å    C# Å %ABWARTEN
+#   
+
+   FSQUICK_E52
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_IKE_LESEN
+   
+
+  ¯ !   ˘        B Å  4 ˙	h      ˚     ¸ #      B Å    C Å %PRUEFUNG_LM_LESEN
+   
+
+  ˝ !   ˛        B Å    C Å %PRUEFUNG_ZKE3_LESEN
+   
+
+  ˇ !            B Å    C Å %PRUEFUNG_IHKA_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_NAV_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_RADIO_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_ABS_ASC_LESEN
+   
+
+  	 !   
+        B Å    C	 Å %PRUEFUNG_ZAE_BAE_LESEN
+	   
+
+   !           B Å    C
+ Å %PRUEFUNG_LWR2A_LESEN
+
+   
+
+   !           B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_REGEN_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_LWS5_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_RDC_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_ELV_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_ETS_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_SES_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_SZM_LESEN
+   
+
+   !           B Å    C Å %PRUEFUNG_CVM2_LESEN
+   
+
+   !            B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C Å %ABWARTEN
+   
+
+   FSQUICK_E53
+   
+
+        B Å    C  Å %PRUEFUNG_EINGANGSTEST
+    
+
+     B Å    C Å %PRUEFUNG_IKE_LESEN
+   
+
+  ! !   "        B Å  4 #	h      $     % #      B Å    C Å %PRUEFUNG_LM_LESEN
+   
+
+  & !   '        B Å    C Å %PRUEFUNG_ZKE3_LESEN
+   
+
+  ( !   )        B Å    C Å %PRUEFUNG_IHKA_LESEN
+   
+
+  * !   +        B Å    C Å %PRUEFUNG_ZIS_LESEN
+   
+
+  , !   - "   .        B Å    C Å %PRUEFUNG_NAV_LESEN
+   
+
+  / !   0 "   1        B Å    C Å %PRUEFUNG_RADIO_LESEN
+   
+
+  2 !   3        B Å    C Å %PRUEFUNG_EWS_LESEN
+   
+
+  4 !   5        B Å    C	 Å %PRUEFUNG_ABS_ASC_LESEN
+	   
+
+  6 !   7        B Å    C
+ Å %PRUEFUNG_AGS_LESEN
+
+   
+
+  8 !   9        B Å    C Å %PRUEFUNG_ZAE_BAE_LESEN
+   
+
+  : !   ;        B Å    C Å %PRUEFUNG_PDC_LESEN
+   
+
+  < !   =        B Å    C Å %PRUEFUNG_MFL_LESEN
+   
+
+  > !   ?        B Å    C Å %PRUEFUNG_DSP_LESEN
+   
+
+  @ !   A        B Å    C Å %PRUEFUNG_EHC_LESEN
+   
+
+  B !   C        B Å    C Å %PRUEFUNG_LWR2A_LESEN
+   
+
+  D !   E        B Å    C Å %PRUEFUNG_IRS_LESEN
+   
+
+  F !   G        B Å    C Å %PRUEFUNG_DME1_LESEN
+   
+
+  H !   I        B Å    C Å %PRUEFUNG_V_GT_LESEN
+   
+
+  J !   K        B Å    C Å %PRUEFUNG_V_TV_LESEN
+   
+
+  L !   M        B Å    C Å %PRUEFUNG_REGEN_LESEN
+   
+
+  N !   O        B Å    C Å %PRUEFUNG_LWS5_LESEN
+   
+
+  P !   Q        B Å    C Å %PRUEFUNG_RDC_LESEN
+   
+
+  R !   S        B Å    C Å %PRUEFUNG_ELV_LESEN
+   
+
+  T !   U        B Å    C Å %PRUEFUNG_ETS_LESEN
+   
+
+  V !   W        B Å    C Å %PRUEFUNG_SES_LESEN
+   
+
+  X !   Y        B Å    C Å %PRUEFUNG_SZM_LESEN
+   
+
+  Z !   [        B Å    C Å %PRUEFUNG_SM_LESEN
+   
+
+  \ !   ]        B Å    C Å %PRUEFUNG_ZUHEIZ_LESEN
+   
+
+  ^ !   _        B Å    C Å %PRUEFUNG_ZUENDUNG_AUS
+   
+
+     B Å    C Å %ENDE
+   
+
+     B Å    C  Å %ABWARTEN
+    
+
+   INIT_TEST
+   
+
+        Ä `       Å EINGANGSTEST
+   
+
+     P  a   Ä    bcdÄ    efgÄ    hiÄ    C  Å %ZUENDUNG_TELEGRAMM_SENDEN_EIN
+    
+
+ 2    jklmÅb      nopÅc   q	h     -      rsÅf   t	h     %    uvwxÅb    C Å 
+ ,    yzÄ    C  Å 
+ 2    Ä    C  Å %FG_NR_EWS_LESEN
+   
+
+ í { ;   | <   } =       ;  <  = Ä	    ~ÄÅÅo  /  ,    ,  / 	h     )     , Åp  , Ç	h     (    Ä    Å 
+       ÉÑÖÅc   Ü	h     è     % áàâÅc    ;   ä <    %  =       ;  <  = Ä	  %         &   ãåÅ%  9 ç	h     [  & é	`       9 è	h     c ê    ë 3        íÅy     $ Å{      ì	`    	`  î	`    	`  Å{     $ Å{    ï % 	`  Å{     $ Å{    Åz    ñóòôöÅl    Å 
+ í    C Å FS_LESEN_ALLGEMEIN_2
+   
+
+ °    U  Q  Q  Q  Q  õQ     Ä    ú  	`  ùûÄ    ü   	`  †	`  °¢Ä  !  ;   £ <   § =       ;  <  = Ä	     ! •¶ßÅo  /  ,    ,  / 	h     b     , Åp  , ®	h     a  "  ;       ;  <  = Ä	     " ©™´Åo  /  ,    ,  / 	h     a     , Åp  , ¨	h     `    Ä    Å 
+ O 
+ 1      ≠ÆØÅc    ;   ∞ <   ± =       ;  <  = Ä	  ' ≤	h     ô      ≥¥µÅo  /  ,    ,  / 	h     ñ     , Åp  , ∂	h     ï    Ä    Å 
+ Ñ    C  Å  ' ∑	h     °    C Å %FS_LESEN_2
+    
+
+ ø            - Åó    ;   ∏ <         Å  π  	`   =       -   Å   = ∫	`    	`   =       ;  <  = Ä	  ª	i     >  º	`      Ω	h     ;    Ä    Å 
+ >    C  Å  æ	h     e   ø	h    ¿	h  	k    ¡	h  	k     a ¬ <       ;  <  = Ä	      √ƒ≈Åb    ∆Å    Ä    Å  «	e     q » 3      … Å        Åk     - Åe      À - ÃÅc    =       ;  <  = Ä	  Õ	`       Œ	h     ≥   œ	h    –	h  	k    —	h  	k     Æ “ <       ;  <  = Ä	      ”‘’Åb    ÷Å    Ä    Å 
+ ø    Å  ◊	h     º    Å    C  Å %FS_LOESCHEN_2
+   
+
+ r    ;   ÿ <   Ÿ =       ;  <  = Ä	      ⁄€‹Åo  /  ,    ,  / 	h     )     , Åp  , ›	h     (    Ä    Å 
+       ﬁﬂ‡Åc  ·	`        =       ;  <  = Ä	   ‚	h     d   „	h    ‰	h  	k    Â	h  	k     _ Ê <       ;  <  = Ä	      ÁËÈÅb    ÍÅ    Ä    Å 
+ r    Å  Î	h     o    Ä    Å    C Å FS_LESEN_ALLGEMEIN
+   
+
+ |    ÏU  Q  Q  Q  Q     Ä    Ì  	`  ÓÔÄ       	`  Ò	`  ÚÛÄ  !  ;   Ù <   ı =       ;  <  = Ä	     ! ˆ˜¯Åo  /  ,    ,  / 	h     @     , Åp  , ˘	h     ?    Å 
+ 0      ˙˚¸Åc    ;   ˝ <       ;  <  = Ä	  ' ˛	h     t      ˇ Åo  /  ,    ,  / 	h     q     , Åp  , 	h     p    Ä    Å 
+ _    C  Å  ' 	h     |    C Å %FS_LESEN
+    
+
+ ~           - Åó    ;    <         Å    	`   =       -   Å   = 	`    	`   =    	i     9   	`        		h     6    Ä    Å 
+ 9    C  Å  
+	h     B    Ä    Å  	g     N  3      Å        Åk     - Åe      - Åc   =       ;  <  = Ä	   	`       	h     p    Å 
+ ~    Å   	h     {    Ä    Å    C  Å %FS_LOESCHEN
+   
+
+ R    ;    <    =       ;  <  = Ä	      Åo  /  ,    ,  / 	h     '     , Åp  , 	h     &    Å 
+      Åc   =       ;  <  = Ä	   	`       	h     D    Ä    Å 
+ R    Å   	h     O    Ä    Å    C Å SIA_GWSZ_RESET
+   
+
+ p     Q     Ä    !  	`  "#Ä       $	`  %&Ä  !  ;   ' <   ( =       ;  <  = Ä	     ! )*+Åo  /  ,    ,  / 	h     _     , Åp  , ,	h     ^  "  ;   - <   . =       ;  <  = Ä	     " /01Åo  /  ,    ,  / 	h     ^     , Åp  , 2	h     ]    Å 
+ N 
+ *      345Åc    ;       ;  <  = Ä	    C  Å %GWSZ_RESET
+    
+
+ -    ;   6 <   7 =       ;  <  = Ä	      89:Åb  /  ,    ,  / 	h     )     , Åp  , ;	h     (    Ä    Å 
+     Ä    Å ZUENDUNG_AUS
+   
+
+ $    P   ' <	h     
+    C  Å  ' =	h     $    Ä    >  	`  ?@Ä    AÄ       B       C  Å %ZUENDUNG_TELEGRAMM_SENDEN_AUS
+    
+
+   3 C	h     	    DEÅ    Å ENDE_BEHANDLER
+   
+
+       F	h         Å]    @ GÅ    A  Å    Å s_typ_select
+   
+
+   !
+    
+
+ ]    H  	`  IJKLÅJ    MNOPQÅJ    RSTUVÅJ    WXYZ[ÅJ    \]^_`ÅJ    abcdeÅJ    fghijÅJ    klmnoÅJ    pqrstÅJ    uvwxyÅJ    z{|}~ÅJ    ÄÅÇÉÅJ    ÑÖÜáàÅJ m_typ_select
+   
+
+     âÅ  $
+   E36/5/7
+
+  å       @  çÅ    A  Å    B  Å $
+   E36
+
+  ê       @  ëÅ    A  Å    B Å $
+   E46
+
+  î       @  ïÅ    A  Å    B Å $
+   E31
+
+  ò       @  ôÅ    A  Å    B
+ Å $
+   E52
+
+  ú       @  ùÅ    A  Å    B Å $
+   E38
+
+  †       @  °Å    A  Å    B Å $
+  	 E39
+
+  §       @  •Å    A  Å    B Å $
+  
+ Back
+
+    ®	h         Å]    @ ©Å    A  Å $
+   E34
+
+  ¨       @  ≠Å    A  Å    B	 Å $
+   E53
+
+  ∞       @  ±Å    A  Å    B Å s_info
+   
+
+   !
+    
+
+ …    ≤≥¥µ∂ÅJ    ∑∏π∫ªÅJ    ºΩæø¿ÅJ      ¡¬√ƒÅJ    ≈∆«»…ÅJ     ÀÃÕŒÅJ      œ–—“ÅJ    ”‘’÷◊ÅJ    ÿŸ⁄€‹ÅJ      ›ﬁﬂ‡ÅJ    ·‚„‰ÂÅJ    ÊÁËÈÍÅJ     
+ ÎÏÌÓÅJ    ÔÒÚÛÅJ    Ùıˆ˜¯ÅJ      ˘˙˚¸ÅJ    ˝˛ˇ ÅJ    ÅJ      	
+ÅJ    ÅJ    ÅJ      ÅJ    ÅJ     !"ÅJ      #$%&ÅJ   '	i     …    ()*+,ÅJ    -./01ÅJ      2345ÅJ s_main
+   
+
+   !
+    
+
+ [    6789:ÅJ    ;<=>?ÅJ    @ABCDÅJ    EFGHIÅJ    JKLMNÅJ    OPQRSÅJ    TUVWXÅJ    YZ[\]ÅJ    ^_`abÅJ    cdefgÅJ    hijklÅJ    mnopqÅJ    rstuvÅJ m_main
+    
+
+     wÅ  $
+   Info
+
+     @ zÅ $
+   show
+
+ "  3 }	h             Å\ ~       ÄÅÄ    ÇÉÅ  3 Ñ	h     "    ÖÜÅS    @ áÅ $
+   close
+
+    ä	h         Å]    ãåÅ    @ çÅ $
+   Read
+
+     êëÅ í '   ì 4   î       @ ïÅ    A Å $
+   Clear
+
+     òôÅ ö '   õ 3   ú 4   ù       @ ûÅ    A Å $
+  	 Print
+
+   3 °	h           ¢£§•Å    ¶ßÅ    @ ®Å  3 ©	h         ™´ÅS $
+  
+ End
+
+    Æ	h         Å]    Ä    Å $
+   Change
+
+     @ ±Å    ≤  	`  ≥	`    	`  ¥	`   
+ 	`  µ	`    	`  ∂	`    	`  Å[ $
+   VIN
+
+   9 π	h      ∫ 9      ªºÅS 
+  Ω 9      æøÅS inpainit
+   
+
+ A U  U  ¿¡P  U       ¬	`    	`  Å    √ƒÅ    Ä    Å` ≈ 
+        ∆	`    	`  Å «          »    …            	i     9    ÀÃÕ	`  ÅR    A  Å    @ ŒÅ    inpaexit
+   
+
+     Åa    __inpa_startup__
+    
+
+ 5                  	     
+               $   	  %   
+  +     ,     /     0     1     2     9     :      Ä __inpa_shutdown__
+   
+
+     Ä Global Data
+    
+
+ >  Constant Data
+    
+
+ œ..\sgdat\inpa.h
+1.41
+error memory test 
+BMW TI-433 Teepe
+all
+all
+  
+===========================================================================
+unknown
+                       Y command
+
+               Y message
+
+   	                  
+ Z message
+
+                  
+      Y message
+
+   o.K.              
+ $   ,      Y message
+
+   not o. K.
+ $   Ù                                                                       
+  D_0080
+instrument-cluster
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_00A4
+Airbag
+D_0044
+EWS
+D_0056
+D_0036
+anti lock system
+D_0021
+D_ZKE_GM
+Central locking
+D_0045
+Anti theft system
+D_00B9
+Remote control
+D_0060
+park-distance-control
+D_00A6
+cruise control
+D_0012
+D_0010
+engine control DME / DDE
+D_0032
+D_006C
+transmission control
+D_00CD
+onboard computer
+D_0016
+oil-level-sensor
+D_000D
+D_0080
+instrument-cluster                      
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET;AG_OEL_RESET
+D_00A4
+Airbag                             
+D_0044
+EWS                             
+D_0056
+D_0036
+anti lock system                      
+D_0059
+D_005B
+air condition                         
+D_0021
+D_ZKE_GM
+Central locking                  
+D_00B9
+Remote control                              
+D_0060
+park-distance-control                        
+D_00A6
+cruise control                        
+D_002C
+variabel camshaft-control          
+D_009B
+softtop-module                  
+D_0012
+D_0010
+engine control DME / DDE              
+D_0032
+D_006C
+transmission control                  
+D_00CD
+onboard computer
+instrument-cluster
+D_000D
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET;AG_OEL_RESET
+D_00A4
+Airbag ZAE / BAE
+D_0044
+EWS
+D_0021
+D_0011
+Central locking
+Remote control
+D_00B9
+park-distance-control
+D_0060
+D_00A6
+cruise control GR2
+D_0015
+double sunroof
+D_0045
+Anti theft system
+D_00CD
+onboard computer
+D_0071
+seat memory
+D_0035
+steering column memory
+D_002E
+damp control
+D_0056
+D_0036
+ABS / ASC
+D_0059
+air condition
+D_0010
+D_0012
+engine control DME / DDE
+D_0032
+D_006C
+transmission control
+instrument-cluster
+D_000D
+D_00A4
+Airbag
+D_0044
+EWS
+D_0011
+Central locking
+Remote control
+D_00B9
+aktive rear axle kinematik
+D_0086
+electronic instrument cluster module EKM
+D_0069
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET;AG_OEL_RESET
+lights control modul LKM
+D_00F5
+D_00A6
+cruise control GR2
+D_0045
+Anti theft system
+D_00CD
+multi-information-display
+D_0071
+seat memory
+D_0035
+steering column memory
+D_002E
+damp control
+D_0022
+D_0020
+electronic power control
+D_0056
+D_0036
+ABS / ASC
+D_0059
+air condition
+D_0010
+D_0012
+engine control DME 1
+D_0014
+D_0013
+engine control DME 2
+D_0032
+D_006C
+transmission control
+D_0080
+integrated combined-elektronic IKE
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_0030
+check-control
+D_00D0
+lights module
+D_ZKE_GM
+basic module E38 ZKE3
+D_005B
+air condition
+D_00C0
+D_00F0
+ZIS / boardmonitor
+D_00BB
+D_007F
+navigation-system
+D_0068
+radio
+D_0044
+EWS
+D_0056
+ABS5 / ASC5 / DSC5
+D_0032
+transmission control
+D_00A4
+Airbag
+D_002E
+damp control
+D_0060
+park-distance-control
+D_00A6
+cruise control GR2
+D_0050
+multi-funktional-steering-wheel
+D_006A
+dynamic sound-prozessor (DSP)
+D_009A
+headlight vertical aim control
+D_0040
+remote control
+D_00B9
+Remote control
+D_0022
+EML3
+D_00A0
+rear compartment information-system
+D_00A7
+rear compartment air-condition
+D_0024
+trunk lid module
+D_0057
+steering-ankle-sensor
+D_0070
+tire-pressure-control
+D_003B
+video-graphics part
+D_00ED
+Video-TV-part
+D_00E8
+rainsensor
+D_005A
+electrical steering-column-lock
+D_009D
+elektronical interrupt-switch
+D_00B0
+language-detecting-system
+D_SZM
+switch-center middle-console
+D_0008
+sunroof
+D_B8_D0
+adaptive cruise control
+D_0012
+D_0010
+engine control DME 1
+D_0014
+D_0013
+engine control DME 2
+D_0080
+integrated combined-elektronic IKE
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_00D0
+combined lights- / check-control module
+D_ZKE_GM
+basic module E38 ZKE3
+D_005B
+air condition
+D_00E0
+IRIS
+D_00C0
+D_00F0
+ZIS / boardmonitor
+D_00BB
+D_007F
+navigation-system
+D_0068
+radio
+D_0044
+EWS
+D_0056
+ABS5 / ASC5
+D_0032
+transmission control
+D_00A4
+Airbag
+D_002E
+damp control
+D_0060
+park-distance-control
+D_00A6
+cruise control GR2
+D_0050
+multi-funktional-steering-wheel
+D_006A
+dynamic sound-prozessor (DSP)
+D_00AC
+air suspension system (EHC)
+D_009A
+headlight vertical aim control
+D_00B9
+Remote control
+D_0012
+engine control DME / DDE
+D_003B
+video-graphics part
+D_00ED
+video-graphics part
+D_00E8
+rainsensor
+D_0057
+steering-ankle-sensor
+D_0070
+tire-pressure-control
+D_005A
+electrical steering-column-lock
+D_009D
+elektronical interrupt-switch
+D_00B0
+language-detecting-system
+D_SZM
+switch-center middle-console
+D_0080
+instrument cluster
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_ZUHEIZ
+additional-heater
+D_00D0
+center of light¥s switches
+D_ZKE_GM
+ground-module
+D_005B
+air condition
+D_00F0
+onboard-monitor
+D_00BB
+D_007F
+navigation-system
+D_0068
+radio
+D_0044
+EWS
+D_0056
+ABS / ASC
+D_0032
+transmission control
+D_00A4
+Airbag
+D_0060
+park-distance-control
+D_00A6
+cruise control GR2
+D_0012
+engine control DME / DDE
+D_003B
+video-graphics part
+D_00ED
+video-graphics part
+D_0008
+sunroof
+D_00E8
+rainsensor
+D_0072
+seat¥s memory
+D_00DA
+passenger¥s seat memory
+D_SPMFT
+mirror-memory driver's door
+D_SPMBT
+mirror-memory driver's door
+D_00B9
+Remote control
+D_0057
+steering-ankle-sensor
+D_0070
+tire-pressure-control
+D_005A
+electrical steering-column-lock
+D_009D
+elektronical interrupt-switch
+D_00B0
+language-detecting-system
+D_SZM
+switch-center middle-console
+D_009E
+roll-over-protection-system
+D_009C
+soft-top-module
+D_0080
+integrated combined-elektronic IKE
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_00D0
+combined lights- / check-control module
+D_ZKE_GM
+basic module E38 ZKE3
+D_005B
+air condition
+D_007F
+navigation-system
+D_0068
+radio
+D_0044
+EWS
+D_0056
+ABS5 / ASC5
+D_00A4
+Airbag
+D_009A
+headlight vertical aim control
+D_0012
+engine control DME / DDE
+D_00E8
+rainsensor
+D_0057
+steering-ankle-sensor
+D_0070
+tire-pressure-control
+D_005A
+electrical steering-column-lock
+D_009D
+elektronical interrupt-switch
+D_00B0
+language-detecting-system
+D_SZM
+switch-center middle-console
+D_009C
+soft-top-module
+D_0080
+integrated combined-elektronic IKE
+ TRIP-Reset
+OEL_RESET;WEG_RESET;ZEIT_RESET
+D_00D0
+combined lights- / check-control module
+D_ZKE_GM
+basic module E38 ZKE3
+D_005B
+air condition
+D_00C0
+D_00F0
+ZIS / boardmonitor
+D_00BB
+D_007F
+navigation-system
+D_0068
+radio
+D_0044
+EWS
+D_0056
+ABS5 / ASC5
+D_0032
+transmission control
+D_00A4
+Airbag
+D_0060
+park-distance-control
+D_0050
+multi-funktional-steering-wheel
+D_006A
+dynamic sound-prozessor (DSP)
+D_00AC
+air suspension system (EHC)
+D_009A
+headlight vertical aim control
+D_00B9
+Remote control
+D_0012
+engine control DME / DDE
+D_003B
+video-graphics part
+D_00ED
+video-graphics part
+D_00E8
+rainsensor
+D_0057
+steering-ankle-sensor
+D_0070
+tire-pressure-control
+D_005A
+electrical steering-column-lock
+D_009D
+elektronical interrupt-switch
+D_00B0
+language-detecting-system
+D_SZM
+switch-center middle-console
+D_0072
+seat¥s memory
+D_ZUHEIZ
+additional-heater
+   error memory test all models
+  Ignition test
+  switch on ignition
+
+UTILITY
+STATUS_ZUENDUNG
+
+
+JOB_STATUS
+ 
+OKAY
+STAT_ZUENDUNG
+ UTILITY
+STATUS_ZUENDUNG
+
+
+switch on ignition
+
+EWS
+FGNR_LESEN
+''; FG_NR
+EWS
+FGNR_LESEN
+
+FG_NR
+ JOB_STATUS
+ 
+OKAY
+FG_NR
+ 
+Ergebnis
+
+  .TMP
+ QUICK_FS.TMP
+  w
+   V
+                                 
+vehicle-identifikation-number:  
+? a
+
+
+
+  error memory test 
+  Check 
+                           
+  INITIALISIERUNG
+
+INITIALISIERUNG
+
+
+ INITIALISIERUNG
+
+
+ VARIANTE
+  
+FS_LESEN
+
+  FS_LESEN
+
+
+  FS_LESEN
+Ediabas-Fehlernr: 
+  S‰tze: 
+     DDE21K20
+ASCMK4
+ASCMK4G1
+DIAGNOSE_ENDE
+DIAGNOSE_ENDE
+
+
+Ù     JOB_STATUS
+
+ OKAY
+DDE21K20
+ASCMK4
+ASCMK4G1
+DIAGNOSE_ENDE
+DIAGNOSE_ENDE
+
+
+Ù FS_LOESCHEN
+
+FS_LOESCHEN
+
+
+ JOB_STATUS
+ 
+ OKAY
+DDE21K20
+ASCMK4
+ASCMK4G1
+DIAGNOSE_ENDE
+DIAGNOSE_ENDE
+
+
+Ù   error memory test 
+  Check 
+                           
+  INITIALISIERUNG
+
+INITIALISIERUNG
+
+
+ VARIANTE
+  
+FS_LESEN
+  FS_LESEN
+
+
+  FS_LESEN
+Ediabas-Fehlernr: 
+  S‰tze: 
+         JOB_STATUS
+
+ OKAY
+ FS_LOESCHEN
+
+FS_LOESCHEN
+
+
+ JOB_STATUS
+ 
+ OKAY
+   error memory test 
+                             
+  INITIALISIERUNG
+
+INITIALISIERUNG
+
+
+ INITIALISIERUNG
+
+INITIALISIERUNG
+
+
+ VARIANTE
+  
+GWSZ_RESET
+
+GWSZ_RESET
+
+
+    error memory test 
+   contens of error memories
+   
+   type-selection for 
+      Please select the model, you want to check.
+        <F4>  E36/5 'compact' and E36/7 'roadster'
+       <F5>  E36 limousine, coupe, convertible
+	       <F6>  E46
+       <F7>  E31
+       <F8>  E38
+       <F9>  E39
+      <F10>  back to functional-selection
+      <Shift> + <F5>  E34 sedan, touring
+	 -     <Shift> +  <F7>  E52
+ -     <Shift> +  <F9>  E53
+ -     <Shift> + <F10>  break of program
+ -      select menu of type
+ E36/5/7
+E36/5
+ E36
+E36
+ E46
+E46
+ E31
+E31
+ E52
+E52
+ E38
+E38
+	 E39
+E39
+
+ Back
+   E34
+E34
+ E53
+E53
+Information
+      Rework program
+      :
+ !     #    Version
+	      :
+	 !    	 #    Responsibility
+      :
+ !     #    Control unit description file
+      :
+ !     #    Control unit
+      :
+ !     #    Version
+      :
+ !     #    Responsibility
+      :
+ !     #    Language
+      :
+ !     #    
+Comment
+      :
+ !     #    error memory test for all models
+      Please select if you want to
+       read or erase error memory.
+       Then you can select the model
+	       to minmize the number of control units
+       <F1> =         information to programmversion
+      <F2> =         show error file
+      <F3> =         close error file
+      <F4> =         Read error memory
+      <F5> =         Clear error memory
+      <F9> =         print error file, if error in memory!
+      <Shift> + < F1 > = Change Editor
+ -     <Shift> + < F2 > = errorfile-name = VIN-Number
+ -      select menu for function
+ Info
+  show
+  error files
+       error files
+No errors in memory!
+  close
+      Read
+      Read error memory
+  Clear
+       Clear error memory
+ 	 Print
+ quick_fs.tmp
+
+
+      error files
+No errors in memory!
+
+ End
+  Change
+kvp_edit 
+;
+;
+: 
+;
+ VIN
+ error-file
+storage with VIN-number
+ error-file
+QUICK_FS.TMP
+English Metric
+???
+ Version 
+   all control units
+ Version 
+all control units
+BMW TI-433 Teepe
+
+English Metric
+Checking language variants
+Language variants do not match. 
+Malfunction possible!
+ 

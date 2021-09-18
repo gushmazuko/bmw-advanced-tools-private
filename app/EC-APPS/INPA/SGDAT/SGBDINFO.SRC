@@ -1,0 +1,47 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen SGBDINFO.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+extern SgbdInfo(in: string sg,
+                inout: string sg_ecu, inout: string sg_origin,
+                inout: string sg_revision, inout: string sg_package,
+                inout: string sg_comment, inout: string sg_sprache);
+
+//**********************************************************************
+//*
+//* SgbdInfo
+//*
+//* Versionsinformationen über SGBD
+//*
+//**********************************************************************
+SgbdInfo( in: string sg,
+          inout: string sg_ecu, inout: string sg_origin,
+          inout: string sg_revision, inout: string sg_package,
+          inout: string sg_comment, inout: string sg_sprache)
+{
+  INPAapiJob(sg,"INFO","","");
+  INPAapiResultText(sg_ecu,"ECU",1,"");
+  INPAapiResultText(sg_revision,"REVISION",1,"");
+  INPAapiResultText(sg_package,"PACKAGE",1,"");
+  INPAapiResultText(sg_origin,"ORIGIN",1,"");
+  INPAapiResultText(sg_comment,"COMMENT",1,"");
+  INPAapiResultText(sg_sprache,"SPRACHE",1,"");
+}
+
+// -- EOF --

@@ -1,0 +1,34 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei K25.GER
+//*
+//**********************************************************************
+//*   R.Drexel TI-430, G.Stoffregen UX-EE-1, T.Conrad UX-T-33, Sergl ESG
+//**********************************************************************
+//*   History:
+//* 30.09.2003 tc V0.01 Erstellung
+//* 14.10.2003 rs V0.02 Überarbeitung der Root-Verzeichnisse
+//* 16.02.2004 rd V1.01 Umstellung auf 32-Bit INPA
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl MR K25 V1.01
+ENTRY= MRK24W3,Motorrad Funktionale Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=MRBMSKW3,BMW Motorsteuerung - K,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=MRIABSW3,ABS-Steuergerät ABS-3,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY= MRDWAW3,Diebstahlwarnanlage,
+ENTRY= MREWSW3,Elektronische Wegfahrsperre EWS,
+ENTRY=MRKI25W3,Instrumentenkombi,
+ENTRY=MRZFELW3,Zentrale Fahrgestellelektronik Low,
+

@@ -1,0 +1,99 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei R56.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 17.01.2004 GA V0.02 Erstellung
+//* 22.02.2005 GA V0.03 D60PSA0, MEV17_2, MED17_2
+//* 21.03.2005 GA V0.04 AMPH56 dazu
+//* 08.06.2005 GA V0.05 EXX,    GSF21 , EPS_56, ACSM60, IHKAR56, IHS56 ,
+//* 08.06.2005 GA V0.05 PDC_87, RLS_56, SD_KWP, CCCG60, RAD2_GW, CCC_60,
+//* 08.06.2005 GA V0.05 CCCA60, ASK_60, ANT_60, CID_60, RAD1   , DAB_60,
+//* 08.06.2005 GA V0.05 IBOC60, SAT_60, CDC_E65,JNAV60, AMP_60 , VID_E65,
+//* 08.06.2005 GA V0.05 rdc_60
+//* 15.06.2005 GA V0.06 ACSM60 in ACSM    korrigiert
+//*            GA V0.06 KOMB56 in KOMB87  korrigiert
+//*            GA V0.06 PDC_87 in PDC_E87 korrigiert
+//*            GA V0.06 IHS56  ist IHKAR56 integriert
+//* 27.06.2005 GA V0.07 RDC_60 dazu
+//* 15.07.2005 GA V0.08 AMP_60 entfällt
+//* 16.02.2006 GA V0.09 NAV_60, TEL_E65 dazu
+//* 28.03.2006 GA V0.10 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl R56 V0.10
+ENTRY=     EXX,Functional Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=  D60PSA0,DDE6  for PSA EU4,
+ENTRY=  MEV17_2,MEV17 for N12,
+ENTRY=  MED17_2,MED17 for N14,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsf21,Gearbox,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY=  DSC_56,DSC TRW EBC450,
+ENTRY=  EPS_56,Electronic Power Steering,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  ACSM,Airbag,
+ENTRY= IHKAR56,Air Conditioning / +Heating,
+ENTRY=,,
+ENTRY=     CAS,Car Access System,
+ENTRY=  ZBE_56,Central Control Unit  ZBE,
+ENTRY=,,
+ENTRY=  FRM_70,Footwell Module Driver  FRM,
+ENTRY=  KOMB87,Instrument Cluster,
+ENTRY=,,
+
+ENTRY=  PDC_E87,Park-Distance-Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY=  SPEG56,Power / Electronic. Gateway  SPEG,
+ENTRY=,,
+//ENTRY=  RLS_56,Rain- light sensor RLS,
+ENTRY=  SD_KWP,Roof / Multidrive,
+ENTRY=,,
+ENTRY=  SZL_56,Steering Column  SZL,
+ENTRY=,,
+ENTRY=  RDC_60,Tire Pressure Monitoring,
+ENTRY= AHM_E65,Trailer Module,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  AMPH56,Amplifier / HIFI,
+ENTRY=  ASK_60,Audio System Controller CCC,
+ENTRY=,,
+ENTRY= CDC_E65,Changer / Audio,
+ENTRY=  CCCA60,Computer / CCC (Application),
+ENTRY=  CCC_60,Computer / Infotainment Computer,
+ENTRY=,,
+ENTRY=  CID_60,Display / Zentrales Info Display Color,
+ENTRY=  ULF_60,Freespeach / And Loading Unit  ULF,
+ENTRY=,,
+ENTRY=  CCCG60,Gateway / MOST/CAN CCC,
+ENTRY= RAD2_GW,Gateway / MOST/CAN Radio 2,
+ENTRY=,,
+ENTRY=    RAD1,Radio / Step 1/2,
+ENTRY=  DAB_60,Radio / Digitalradio Terrestrial DAB,
+ENTRY=  IBOC60,Radio / Hybrid Radio USA IBOC,
+ENTRY=,,
+ENTRY=  NAV_60,Navigation System,
+ENTRY=  JNAV60,Navigationssystem Japan,
+ENTRY=,,
+ENTRY=  TEL_E65,Telephone,
+ENTRY=  ANT_60,Tuner / Aerial Tuner CCC,
+ENTRY=  SAT_60,Tuner / Digital Satellite Radio USA,
+ENTRY=,,
+ENTRY= VID_E65,Videomodul,

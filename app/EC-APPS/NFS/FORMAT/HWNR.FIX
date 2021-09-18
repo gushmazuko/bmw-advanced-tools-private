@@ -1,0 +1,17 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer HWNR.DME bzw. HWNR.AGS
+; Autor: Stei
+; Datum: 06.04.93
+; Aenderungen:
+; 27.05.94   Stei   Austauschnummer und EPROM-Teilenummer neu
+; 24.02.97   Le     KFP10.0: SGNR %2XB -> %2S
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Hardwarenummernzeile: Hardwarenummer,Austauschnummer,EPROM-Nummer,SG-Nummer
+M "%7L"
+F "%7L,%7L,%7L,%2S"
+N "HWNR,ATNR,EPNR,SGNR"
+; ENDE

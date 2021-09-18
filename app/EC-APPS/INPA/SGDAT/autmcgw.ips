@@ -1,0 +1,425 @@
+//**********************************************************************
+//*
+//* Nacharbeitssource für INPA
+//*
+//* Sourcedatei AUTOINPA.SRC
+//*
+//* ACHTUNG: neue MOSTCAN-Gateway müssen hier eingetragen werden!!
+//*
+//**********************************************************************
+//* History         :
+//* 02.12.2007 fw  V1.00 Ergänzung MOSTCAN-Gateway
+//* 25.01.2007 fw  V1.01 Korrektur Fehler bei CHAMP und MASK2
+//**********************************************************************
+#include "inpa.h"
+#include "BMW_STD.H"
+
+// Titel, Version, Verantwortung, Steuergerät
+string titel  ="Skriptselektor";                 // Titel Nacharbeitsprogramm
+string version="1.01";                                                  // Version Nacharbeitsprogramm
+string origin ="BMW TI-431 Weber";                                       // Verantwortung Nacharbeitsprogramm
+
+// Alle möglichen Steuergerät
+string sgbd   ="ZGW_01,MC_GW,RAD2_GW,CCCG60,MASK2_GW,MCGW60,CHAMP_GW,CICR_GW";
+
+string gruppe ="G_ZGW,D_MOSTGW";                                              // zu durchsuchende Gruppendatei
+
+string speicher_lesen_parameter="LAR;FLASH;UIFM;-ROMI;-ROMX;-RAMIS;-RAMIL;-RAMXX;-NVRAM";
+// Moegliche Speicher-Parameter: "LAR;FLASH;UIFM;ROMI;ROMX;RAMIS;RAMIL;RAMXX;NVRAM";
+// Bei Leerstring erfolgt kein Menüpunkt Speicher Lesen
+
+// allgemeine globale Variable
+string text_var;
+real   zahlen_var;
+int    ganz_zahl;
+bool   logik_var;
+string job_state;    // JOB_STATUS Variable
+int    input_state;  // Eingabestatus
+int    input_ok=0;   // Eingabe  mit OK beendet
+
+bool gefunden=FALSE;
+string skriptname;
+
+
+// ****************************************************
+// ***             Initialisierungsfunktion         ***
+// ****************************************************
+ScriptInit()
+{
+
+  settitle(titel+" Version "+version);
+}
+
+// ****************************************************
+// ***             M e n ü a u f b a u              ***
+// ****************************************************
+
+
+
+//**********************************************************************
+//*
+//* SgbdInpaCheck
+//*
+//* Überprüfung ob SGBD zu INPA passt
+//*
+//**********************************************************************
+SgbdInpaCheck()
+{
+  string sgbd_version;             // für Versionskontrolle
+  string inpa_version;             // für Versionskontrolle
+  string inpa_sprache="deutsch"; // für Sprachvariante
+  string variante="???";           // für Variantenkontrolle
+  string err_text;                 // Fehlertext
+  int    errorcode;                // Errorcode
+  bool   fehlerflag;               // Fehlerflag
+  string temp;
+  string temp1;
+  string temp2;
+  int    i;
+  int    k;
+  int    kk;                       // für neue VersionsnummernKontrolle
+  int    ii;
+  int    a;
+  int    aa;
+  int    i1;
+  int    i2;
+  int    i3;                       // für neue VersionsnummernKontrolle
+  string sgbd_String_Lang;
+  string sgbd_von_inpa_version;
+  string ver_temp;
+  string ver_temp1;
+  string ver_temp2;
+  string ver_temp3="--";
+  real   Version_SGBD;
+  real   Version_INPA;
+  string CurDir;                   // Zur Prüfung ob Gruppendatei exisiert
+  int    ret_int;
+  int    Size;
+  int    filecheck;
+  string hinweis_text;
+  int 	group_number;
+  string ediabas_dir1;
+  string ediabas_dir2;
+  string ediabas_sim;
+  string ediabas_ecu;
+  string BS;
+  
+  chr( 9 , HT );
+  chr( 10, LF );
+  chr( 13, CR );
+  chr( 92, BS );
+  CRLF = CR + LF;
+
+  settitle(titel+" Version "+version);
+  a=0;
+  ii=0;
+  i3=0;
+  kk=0;
+  aa=0;
+  i=0;
+  k=0;
+  fehlerflag=FALSE;
+  temp1="";
+  temp2="";
+  group_number = 0;
+  ediabas_dir1 = "\ediabas";
+  ediabas_dir2 = "\ec-apps\ediabas";
+  ediabas_sim = "sim";
+  ediabas_ecu = "ecu";
+
+  // waiting dialogue
+  userboxopen(0,7,15,5,50,"Skriptselektor","");
+  userboxftextout(0,"Steuergeräte Identifizierung läuft! ... bitte warten",1,3,0,0);
+
+  // get current dir
+  Size=256;
+  space(CurDir,Size);
+  GetCurrentDirectory(256, CurDir, ret_int);
+	
+  //start checking groups
+  instr(i,k,","+gruppe+",",",");
+  while ((i >= 0) && (fehlerflag == FALSE))
+  {
+    k=i+1;
+    instr(i,k,","+gruppe+",",",");
+    if (i >= 0)
+    {
+      // cut out group
+      midstr(temp,","+gruppe+",",k,i-k);
+      
+      //check if group file is present
+      SetCurrentDirectory(ediabas_dir1+"\\"+ediabas_ecu, ret_int);
+      fileexist(temp+".GRP",filecheck);
+      SetCurrentDirectory(CurDir, ret_int);
+      if (filecheck == 0)	group_number = group_number+1;
+      else 
+      {
+      	SetCurrentDirectory(ediabas_dir2+"\\"+ediabas_ecu, ret_int);
+      	fileexist(temp+".GRP",filecheck);
+      	SetCurrentDirectory(CurDir, ret_int);
+      	if (filecheck == 0)	group_number = group_number+1;
+      }
+      
+      // get variant via init
+      INPAapiJob(temp,"INITIALISIERUNG","","");
+      INP1apiResultText(fehlerflag,variante,"VARIANTE",0,"");
+      if (fehlerflag == TRUE) gruppe=temp;
+      else
+      {
+        INP1apiErrorCode(errorcode);
+        if (errorcode == 36)//Fehlende oder fehlerhafte Simulationsdatei
+        {           
+           SetCurrentDirectory(ediabas_dir1+ediabas_sim, ret_int);
+           fileexist(temp+".SIM",filecheck);
+           SetCurrentDirectory(CurDir, ret_int);
+           if (filecheck == 0)
+           {
+             temp1= temp1+", "+temp+".SIM";//Fehlerhafte Simulationsdatei
+           }
+           else
+           {
+				 //check also new ediabas directory
+				 SetCurrentDirectory(ediabas_dir2+ediabas_sim, ret_int);
+             fileexist(temp+".SIM",filecheck);
+             SetCurrentDirectory(CurDir, ret_int);
+				 if (filecheck == 0)
+	          {
+	            temp1= temp1+", "+temp+".SIM";//Fehlerhafte Simulationsdatei
+	          }
+	          else
+	          { 
+	            temp2= temp2+", "+temp+".SIM";//Fehlende Simulationsdatei
+	          }
+           }
+        }
+      }
+    }
+  }
+
+  instr(i,0,gruppe,"d");//erstes Zeichen ein 'd'?
+  instr(k,0,gruppe,"D");//erstes Zeichen ein 'D'?
+  if ((i == 0) || (k == 0))
+       hinweis_text= "das Steuergerät liefert einen falschen Varianten- und / oder Diagnose-Index.";// bis F01: Gruppendateien fangen mit D_... an
+  else hinweis_text= "das Steuergerät liefert einen falschen SGBD-Index.";//gilt ab F01, Gruppendateien fangen mit G_... an
+
+  if (fehlerflag == FALSE)
+  {
+     //Fehlende oder fehlerhafte Gruppen-Simulationsdatei
+     if (errorcode == 36)
+     {
+        //Fehlerhafte Simulationsdatei
+        if (temp1 != "")
+        {
+          strlen(k,temp1);
+          instr(i,k,temp1+",",",");//letztes Zeichen ein ','?
+          if (i != -1) k= k-1;     //Zeichenlänge um 1 kürzen
+          instr(i,0,temp1+",",",");//erstes Zeichen ein ','?
+          if (i == 0) midstr(temp1,temp1,1,k);//Kommata vor und hinter temp1 ausschneiden
+          temp1= "Fehlerhafte Simulationsdatei: "+temp1;
+        }
+        //Fehlende Simulationsdatei
+        if (temp2 != "")
+        {
+          strlen(k,temp2);
+          instr(i,k,temp2+",",",");//letztes Zeichen ein ','?
+          if (i != -1) k= k-1;     //Zeichenlänge um 1 kürzen
+          instr(i,0,temp2+",",",");//erstes Zeichen ein ','?
+          if (i == 0) midstr(temp2,temp2,1,k);//Kommata vor und hinter temp2 ausschneiden
+          temp2= "Fehlende Simulationsdatei  : "+temp2;
+        }
+
+        userboxclose(0);
+        messagebox("Variantenkontrolle",
+                   "Fehler!"+
+                   temp1+//Fehlerfafte Gruppen-Simulationsdateien
+                   temp2+//Fehlende     -//-
+                   CRLF+CRLF+
+                   ".  Das Programm wird abgebrochen!");
+        exit();
+     }
+     
+     // keine einzige Gruppendatei gefunden
+     if (group_number == 0) 
+     {
+     		userboxclose(0);
+     		messagebox("Variantenkontrolle",
+        "Fehler! Keine der Gruppendatein : "+gruppe+
+        " (.GRP) existieren im Verzeichnis "+CRLF+
+        ediabas_dir1+BS+ediabas_ecu+" oder "+ediabas_dir2+BS+ediabas_ecu+
+        "."+CRLF+
+        CRLF+
+        "Aktualisieren Sie SGBDen, Gruppendateien und INPA Skripte regelmäßig!"+CRLF+CRLF+
+        "Das Programm wird abgebrochen!");
+     }
+     else 
+     {
+	     instr(i,0,gruppe,",");
+	     if (i>=-1)
+	     {
+	         userboxclose(0);
+	         messagebox("Variantenkontrolle",
+              "Fehler! Keine Rückmeldung bei Aufruf über Gruppendatei : "+gruppe+" (.GRP)."+CRLF+CRLF+
+              "Steuergerät nicht verbaut oder Kommunikationsstörung.  "+CRLF+CRLF+
+              "Das Programm wird abgebrochen!");
+	     }
+	     else
+	     {
+  		     //Gruppendatei vorhanden?
+		     SetCurrentDirectory(ediabas_dir1+"\\"+ediabas_ecu, ret_int);
+		     fileexist(gruppe+".GRP",filecheck);
+		     SetCurrentDirectory(CurDir, ret_int);
+		     // check second ediabas directory
+		     if (filecheck != 0) 
+		     {
+		     		SetCurrentDirectory(ediabas_dir2+"\\"+ediabas_ecu, ret_int);
+					fileexist(gruppe+".GRP",filecheck);
+					SetCurrentDirectory(CurDir, ret_int);
+		     }
+		     if (filecheck == 0)//Gruppendatei vorhanden, SGBD-, Kommunikationsfehler hier ausgeben
+		     {
+		       INP1apiErrorText(err_text);//Fehler beim Aufruf der VARIANTE?
+		       if (errorcode == 92)//92=SYS-0002: SG-Variantenbeschreibungsdatei (SGBD) nicht gefunden
+		       {
+		         //T_GRTB.PRG vorhanden?
+		         SetCurrentDirectory(ediabas_dir1+"\\"+ediabas_ecu, ret_int);
+		         fileexist("T_GRTB.PRG",filecheck);
+		         SetCurrentDirectory(CurDir, ret_int);
+		         // check second ediabas directory
+		         if (filecheck != 0) 
+					{
+						SetCurrentDirectory(ediabas_dir2+"\\"+ediabas_ecu, ret_int);
+						fileexist("T_GRTB.PRG",filecheck);
+						SetCurrentDirectory(CurDir, ret_int);
+					}
+		         if (filecheck == 0)//T_GRTB.PRG ist vorhanden, somit fehlt die SGBD.
+		         {
+		           userboxclose(0);
+		           messagebox("Variantenkontrolle",
+		                      "Fehler!"+
+		                      err_text+"."+CRLF+CRLF+
+		                      "Das Steuergerät läßt sich zwar über die Gruppendatei: "+gruppe+".GRP"+" ansprechen,"+
+		                      "aber zur Diagnose fehlt eine entsprechende SGBD (*.PRG) im Verzeichnis "+CRLF+
+		                      ediabas_dir1+BS+ediabas_ecu+" oder "+ediabas_dir2+BS+ediabas_ecu+
+		                      "."+CRLF+CRLF+
+		                      "Aktualisieren Sie SGBDen, Gruppendateien und INPA Skripte regelmäßig!"
+		                      +CRLF+CRLF+
+		                      "Das Programm wird abgebrochen!");
+		         }
+		         else//T_GRT.PRG fehlt
+		         {	
+		           userboxclose(0);
+		           messagebox("Variantenkontrolle",
+		                     "Fehler!"+
+		                     err_text+"."+CRLF+CRLF+
+		                     "Die Datei T_GRTB.PRG fehlt im Verzeichnis "+CRLF
+		                     +ediabas_dir1+BS+ediabas_ecu+" oder "+ediabas_dir2+BS+ediabas_ecu+
+		                     "."+CRLF+CRLF+
+		                     "Aktualisieren Sie SGBDen, Gruppendateien und INPA Skripte regelmäßig!"
+		                     +CRLF+CRLF+
+		                     "Das Programm wird abgebrochen!");
+		         }
+		       }
+		       else if (errorcode == 102)//102= Identification error
+		       {
+		         instr(i,0,gruppe,"d");//erstes Zeichen ein 'd'?
+		         instr(k,0,gruppe,"D");//erstes Zeichen ein 'D'?
+		         if ((i == 0) || (k == 0))
+		              temp1= "das Steuergerät liefert einen falschen Varianten- und / oder Diagnose-Index.";// bis F01: Gruppendateien fangen mit D_... an
+		         else temp1= "das Steuergerät liefert einen falschen SGBD-Index.";//gilt ab F01, Gruppendateien fangen mit G_... an
+		         userboxclose(0);
+		         messagebox("Variantenkontrolle",
+		                    "Fehler! Aufruf über Gruppendatei : "+gruppe+".GRP."+CRLF+
+		                    err_text+".  "+CRLF+CRLF+
+		                    "Sie besitzen entweder eine veraltete T_GRTB.PRG Datei im Verzeichnis "+CRLF+
+		                    ediabas_dir1+BS+ediabas_ecu+" oder "+ediabas_dir2+BS+ediabas_ecu+CRLF+
+		                    ", und / oder"+
+		                    hinweis_text+CRLF+CRLF+
+		                    "Das Programm wird abgebrochen!");
+		       }
+		       else //alle anderen Fehler
+		       {
+		         userboxclose(0);
+		         messagebox("Variantenkontrolle",
+		                    "Fehler! Aufruf über Gruppendatei : "+gruppe+".GRP."+CRLF+CRLF+
+		                    err_text+"."+CRLF+CRLF+
+		                    "Das Programm wird abgebrochen!");
+		       }
+		     }
+		     else//Gruppendatei nicht vorhanden
+		     {
+		        userboxclose(0);
+		        messagebox("Variantenkontrolle",
+		        "Fehler! Gruppendatei : "+gruppe+".GRP "+
+		        "existiert nicht im Verzeichnis "+CRLF+
+		        ediabas_dir1+BS+ediabas_ecu+" oder "+ediabas_dir2+BS+ediabas_ecu+CRLF+CRLF+
+		        "Aktualisieren Sie SGBDen, Gruppendateien und INPA Skripte regelmäßig!"+CRLF+CRLF+
+		        "Das Programm wird abgebrochen!");
+		     }
+	     }
+     }
+     exit();
+  }
+
+  // INPA Tabelle um Variante zu finden
+
+  if( variante == "ZGW_01") { gefunden = TRUE; skriptname="ZGW_01"; }
+  if( variante == "MC_GW") { gefunden = TRUE; skriptname="MC_GW"; }
+  if( variante == "MASK2GW") { gefunden = TRUE; skriptname="MASK2_GW"; }
+  if( variante == "MCGW60") { gefunden = TRUE; skriptname="MCGW60"; }
+  if( variante == "RAD2_GW") { gefunden = TRUE; skriptname="RAD2_GW"; }
+  if( variante == "CCCG60") { gefunden = TRUE; skriptname="CCCG60"; }
+  if( variante == "CHAMPGW") { gefunden = TRUE; skriptname="CHAMP_GW"; }
+  if( variante == "CICR_GW") { gefunden = TRUE; skriptname="CICR_GW"; }
+
+  /* Muster
+  if( variante == "sgbd") { gefunden = TRUE; skriptname="inpa"; }
+  */
+
+  if( gefunden ) { scriptchange(skriptname); }
+  else 
+  { 
+		userboxclose(0);
+		messagebox("Skriptselektor",
+	      "Skript "+ variante+ " aus Gruppe "+gruppe+" gefunden."+CRLF+CRLF+
+	      "Aber kein passendes INPA Skript bisher zugeordnet."+CRLF+CRLF+
+	      "Bitte Rückmeldung an den Autor: "+origin);
+	   exit();
+  }
+}
+
+
+
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  string s1;
+
+  INPAapiInit();
+  //sg_adr=0x12;
+  settitle(titel+" Version "+version);
+  //aktivierungsbedingung(ab_0000,ab_0001,ab_0002,ab_0004,ab_0008,ab_0010,ab_0020,ab_0040,ab_0080,ab_0200,ab_0400,ab_0800);
+  //zyklusbeschreibung(st01,st02,st03,st04,st05,x001,x002,x003,x004,x005,x101,x102,x103,x104,x105,t01,t02,t03,t04,t05,tv);
+  SgbdInpaCheck();
+
+                                                       /* Über Identifikation wird der Programmstand abgefragt */
+
+  //stop();
+
+
+
+
+  ScriptInit();
+}
+
+inpaexit()
+{
+  INPAapiEnd();
+
+
+}
+
+
+// -- EOF --

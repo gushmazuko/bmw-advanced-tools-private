@@ -1,0 +1,53 @@
+; ------------------------------------------------------------
+; DIS-/MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer KFCONFaa.DAT
+; Autor: Stei
+; Datum: 06.04.1993
+;        08.12.1993 Stei Aenderung fuer KF 2.0: keine ' und , mehr
+;        07.12.1994 Stei KF 5.0: PRGMODE aufgenommen
+;        15.01.1996 Le   KF 8.0: Hardwarehistorie aufgenommen
+;        24.02.1997 Le   KFP10.0: SGBEZ %XB -> %2S
+;        04.09.1998 Le   KFP16.0: KFCONFaa.SHO aus KFCONF.SHO abgeleitet
+;                        (erweitert um $VERSIONKFCONF, CABD, C-SBGD)
+;        18.01.1999 Le   KFP16.1: 2. C-SGBD-Spalte fuer 12-Zylinder,
+;                        "$VERSIONKFCONF" -> "$ VERSIONKFCONF"
+;        18.10.1999 Le   KFP20.0: Anpassung 2. C-SGBD-Spalte
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Versionszeile: $ VERSIONKFCONF: kfconfaa.dat
+R "VER"
+M "$ VERSIONKFCONF"
+F "$ VERSIONKFCONF: +%S *"
+N "KFNAME"
+;
+; Hardwarenummerndateinamenzeile: HW  HWNR.DAT  -
+R "HW"
+M "HW "
+F "HW +%S +%S *"
+N "HWNAME,HWDIR"
+;
+; SG-Zeilen: 
+;   SG-Familiennummer
+;   |  SG-Bezeichner
+;   |  |      CABD-Name
+;   |  |      |            C-SGBD-Name
+;   |  |      |            |            C-SGBD-Name (2. Zyl.-Bank)
+;   |  |      |            |            |            Programmiermodus
+;   |  |      |            |            |            |       Historiendateiname+Dir-Datei
+;   |  |      |            |            |            |       |             Zusammenbauvorschriftsnamen+Dir-Datei
+;   |  |      |            |            |            |       |             |             Datensatzkennung
+;   |  |      |            |            |            |       |             |             |  Datensatzdirdatei
+;   |  |      |            |            |            |       |             |             |  |           Nachprogrammiervorschriftname+Dir-Datei
+;   |  |      |            |            |            |       |             |             |  |           |          Hardwarehistoriendateiname+Dir-Datei
+;   |  |      |            |            |            |       |             |             |  |           |          |
+;SG 02 M3_1   00M3_1.IPO   00M3_1.PRG   -            RB16K2  M3_1.HIS   -  M3_1.DAT   -  K  M3_1D.DIR   NPV.DAT -  -          -
+;SG 07 MD524  00MD524.IPO  00MD524.PRG  -            RBFLD2  MD524.HIS  -  MD524.DAT  -  B  MD524D.DIR  NPV.DAT -  MD524.HWH  -
+;SG 09 MD5217 00MD5217.IPO 00MD5217.PRG 00MX5217.PRG RBFLD2  MD5217.HIS -  MD5217.DAT -  F  MD5217D.DIR NPV.DAT -  MD5217.HWH -   
+R "SG"
+M "SG "
+F "SG +%2S +%S +%S +%S +%S +%S +%S +%S +%S +%S +%C +%S +%S +%S +%S +%S *"
+N "SGNR,SGBEZ,CABD,CSGBD,CSGBD2,PRGMODE,HISNAME,HISDIR,ZUSBNAME,ZUSBDIR,DATKENN,DATDIR,NCHNAME,NCHDIR,HWHNAME,HWHDIR"
+;
+; ENDE

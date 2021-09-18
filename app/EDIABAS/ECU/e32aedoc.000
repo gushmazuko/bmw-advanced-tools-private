@@ -1,0 +1,151 @@
+// Änderungsdokumentation: E32
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 356 252.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-12
+//   ET-420
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen bzw. Kurzbeschreibung)
+//                 41 (Name)
+
+DATEINAME                       E32AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+NAEL E5050.D  a      25.07.91   EE-73   Obrman
+                E32VN.000       -Tabellen neu erstellt
+
+NAEL E5149.D  b      01.08.91   EE-73   Obrman
+                E32EDC.000      -Integration des EDC+
+
+NAEL E5049.D  c      25.10.91   EE-73   Obrman, Knöchel
+                E32GT.000       -Integration ZA-Schlüssel mit ...10 im GM
+                E32DWAU.000     -Änderung E32DWAU.000
+                E32????.000     -Einbau Codierindex
+                E34GT.002       -Integration SA 194 Fernstartanlage in e32vernr
+                E32VERNR.000
+                E32GT.000-01    -740i von GT.001 nach .000 kopiert (SA220 Serie)
+                E32GT.*         -Integration Alpina-Umfänge
+                E32VERNR.000    -Versionsnummern-Tabelle G-Zeile auf 0000000080
+                                 gesetzt. SE EDCIII+ ist erfolgt.
+
+NAEL E0051.E  d      03.02.92   EE-73   Knöchel
+                E32GT.000-01    -740i wieder in GT.000 u. 001 (SA220 nicht Serie)
+                E32GT.*         -Kombi Adr.84 bei Alpina entfernt (Offset 45km)
+                E32GT.*         -M60 neue Steigung s=5,45 Kombi Adr.23, Wert D1
+                E32GT.*         -Integration RL Basis
+                E32GT.*         -Integration LA's für M60 LL und RL
+                E32GT.000       -Codierung des GC88 ZA mit 102l statt 91l Tank
+                E32GT.001       -Einfügen Jpn M30 in GT.001
+
+NAEL E0233.E  e      24.04.92   EE-73   Knöchel
+//      !!!!!!!!! Achtung !  Optimierte Darstellung der Codierdaten !!!!!!!
+                E32GTK.*        -Integration der EDC-Daten für die M60-Modelle
+                E32GTK.*        -Geänderte aktuelle TKL für Alpina-Fzg'e
+                E32GTS.*        -Alpina-Fzg'e mit franz.
+                ZTRSCHL.?00     -Aktualisierung ZTRSCHL.000
+
+NAEL E0234.E  f      15.05.92   EE-73   Knöchel
+                E32GTK.*        -neue Steigung Einspritzkennlinie M60 (C0 für D1)
+
+NAEL E0423.E  g      07.08.92   EK-540  Knöchel
+                E32GTK.*        -Verlängerung Weginspektionsintervall US/CDN M60
+                                 Adr.1F Wert A1 für 96 hex
+                E32GT?.*        -LA 804 (CH) mit allen Sprachen
+                E32GTS.*        -LA 822 (Golf) mit frz.
+                ZTRSCHL.?00     -Aktual. ZTRSCHL.000
+
+NAEL E0641.E  h      11.01.93   EK-540  Knöchel
+                E32GTS.001      -Ergänzung der 730iA (GD21) mit DATO in GTS.001
+                E32ST?.004      -SA 302 neu beinhaltet SA 303 Innenrsch. u. NG
+                E32ST?.005       => ST.004 - ST.005
+                E32VERNR.000
+                E32VN.000       -Integration des SA-Anteils 0000000002000000
+                                 für SA220 in STS-Tabellen 002-005
+                E32DWA.002      -Integration des DWAIV-SG mit Ultraschall-
+                E32ST?.006       Innenraumschutz aber ohne Quittier.
+                E32ST?.007
+                E32GTS.000      -GD84 (740iAL) RL Malaysia hinzu; Freig: E0650.E
+                ZTRSCHL.*       -Aktual. ZTRSCHL.000
+
+NAEL E2912.F  i      01.03.93   EK-540  Knöchel
+                E32STK.006      -Korrektur der DWA IV Daten für Innenraumschutz
+                E32STK.007       mit Isolierverglasung (Heckscheibe wird trotz
+                                 USS überwacht)
+                VERNR.000       -Grundzeile auf ..20A0 gesetzt
+                                 (Integr SA303 in 302)
+                VERNR.000       -VN ..1000 für SA352 Isoliervergl. u. GC81/82/83
+                                 => DWA IV
+
+NAEL E2852.F  k      15.05.93   EK-540  Knöchel
+// !! Einsatz nur mit neuer Codiersoftware für SG-Ermittlung z.B. MoBaC V4.7 !!
+                E32ST?.000      -Umstellung auf Datensatz mit
+                E32ST?.001       SG-Ermittlungstabelle:
+                SGERM.000        Reduzier. der ST-Tabellen von 8 auf 2
+                GTK.000-02
+                E32STK.000      -Integration der DWA4 als Ersatzteil für DWA3
+                DWAU.000         mit unveränderter Funktion: VN ...1000
+                E32VN.000
+                GT?.000         -Integration GD41 M60 für Alpina
+
+NAEL E3687.F  l      01.07.93   EK-540  Knöchel
+                E32VN.000       -Integration der DWA4 Serie mit PU93-Maßnahmen
+                VERNR.000        ohne optischer und akustischer Quittierung
+                E32GTK.*         VN ...4000 + ..1000 (DWA4) ergibt VN ...5000
+                E32STK.*
+                SGERM.000
+                DWAU.000
+                E32GTK.*        -Änd. der Temperaturanzeige Tableau von 75-105°C
+                                 auf 75-110°C; Änd. der Werte:
+                                 Adr.0C von 26h auf 1Eh Adr.25 von 1Ah auf 17h
+
+NAEL E3602.F  m      09.07.93   EE-12   Knöchel
+                E32GTK.*        -DWA4 Serie PU93-Maßnahmen jetzt doch mit
+                                 opt. und akust. Quittierung
+
+NAEL E3963.F  n      30.08.93   EE-12   Knöchel
+                ZTRSCHL.*       -Neue Zentralschlüsseltabelle mit PU93-Maßnahmen
+
+NAEL E5325.H  o      15.05.95   EE-12   Knöchel
+// !! Einsatz nur mit neuer Codiersoftware für Neues Codiersystem !!
+// !! MoBaC V7.0 / ESP V7.0 / MoDiC V14.0 !!
+                CVT SGET ZCSUT  -Codiertabellen neu erstellt für das
+                ZST AEDOC        neue Codiersystem
+                LSM DWA3 DWA4   -Codierbeschreibungsdateien neu erstellt für
+                EDC3P KMB_E32    das neue Codiersystem
+                ZCSUT KMB_E32   -Softwarenummer 0Ah hinzu
+
+NAEL E5686.H  p      01.09.95   EE-12   Knöchel
+                ZST             -Korrektur im VN-Schlüssel zur Rückbildung
+                                 des Zentralen Codierschlüssels
+
+NAEL E6747.K  q      11.09.97   EE-92   Knöchel
+                                -Neue Konvertierung wegen
+                                 Individualisierungskennzeichnung
+
+NAEL E3679.M  r      25.01.99   EE-92   Knöchel
+                SGVT, ZCSUT,    -Neue Konvertierung wegen neuer Datei SGVT,
+                CONF.BAP         neue Konvertiervorschrift CONF.BAP, ZCSUT
+                                 E32_CONF.alt für Codiersoftware 1.x.y
+                                 E32_CONF.neu für Codiersoftware 2.x.y
+                                 
+                                EE-82 Obrman
+NAEL E6E96.N  s      25.01.01   Datenstand für CD 25 Neue Datenstruktur 3XX erstmals in die HO
+                                ******************************************************

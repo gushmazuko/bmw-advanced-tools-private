@@ -1,0 +1,566 @@
+//**********************************************************************
+//*
+//*   Deutsches Basiswörterbuch für INPA-Scriptdateien
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//*
+//*   Letzte Änderung : 16.02.2004 rd
+//*
+//**********************************************************************
+//*
+//*   Sprachvariante
+//*
+//**********************************************************************
+@sprache@                                  @deutsch@
+//**********************************************************************
+//*
+//*   Compiler defines
+//*
+//**********************************************************************
+@define deutsch@                           @@
+@define english@                           @// define english @
+@ifdef nur deutsch@                        @@
+@endif nur deutsch@                        @@
+@ifdef nicht nur deutsch@                  @/* ausgeklammert@
+@endif nicht nur deutsch@                  @*/@
+@ifdef nur englisch@                       @/* ausgeklammert@
+@endif nur englisch@                       @*/@
+@ifdef nicht nur englisch@                 @@
+@endif nicht nur englisch@                 @@
+@ifdef nur metrisch@                       @/* ausgeklammert@
+@endif nur metrisch@                       @*/@
+@ifdef nicht nur metrisch@                 @@
+@endif nicht nur metrisch@                 @@
+//**********************************************************************
+//*
+//*   Umrechnungsvariable
+//*
+//**********************************************************************
+@6-300 oder 4-186@                         @6-300@
+@1.0 oder 1.8@                             @1.0@
+@0.0 oder 32.0@                            @0.0@
+@1.0 oder 0.6214@                          @1.0@
+@1.0 oder 0.2642@                          @1.0@
+@250.0 oder 155.0@                         @250.0@
+@20.0 oder 10.0@                           @20.0@
+@-45.0 oder -49.0@                         @-45.0@
+@-10.0 oder 14.0@                          @-10.0@
+@5.0 oder 41.0@                            @5.0@
+@10.0 oder 50.0@                           @10.0@
+@34.0 oder 94.0@                           @34.0@
+@40.0 oder 104.0@                          @40.0@
+@50.0 oder 122.0@                          @50.0@
+@60.0 oder 140.0@                          @60.0@
+@70.0 oder 158.0@                          @70.0@
+@85.0 oder 185.0@                          @85.0@
+@100.0 oder 212.0@                         @100.0@
+@6.0 oder 4.0@                             @6.0@
+@300.0 oder 186.0@                         @300.0@
+@64.0 oder 17.0@                           @64.0@
+@150.0 oder 300.0@                         @150.0@
+@15.0 oder 59.0@                           @15.0@
+@29.0 oder 85.0@                           @29.0@
+@200.0 oder 125.0@                         @200.0@
+@255.0 oder 159.0@                         @255.0@
+@5.0 oder 41.0@                            @5.0@
+@120.0 oder 250.0@                         @120.0@
+@-50.0 oder -58.0@                         @-50.0@
+@100.0 oder 212.0@                         @100.0@
+@-48.0 oder -55.0@                         @-48.0@
+@207.0 oder 405.0@                         @207.0@
+//**********************************************************************
+//*
+//*   Analog-Einheiten
+//*
+//*   !!! Einheiten ändern sich in der US-Version !!!
+//*
+//**********************************************************************
+@[Grad C]@                                 @[Grad C]@
+@[km/h]@                                   @[km/h]@
+@[km]@                                     @[km]@
+@[Liter]@                                  @[Liter]@
+@[1/min]@                                  @[1/min]@
+@[1/s]@                                    @[1/s]@
+@[Stunden]@                                @[Stunden]@
+@[Volt]@                                   @[Volt]@
+@[mV]@                                     @[mV]@
+@[Ampere]@                                 @[Ampere]@
+@[mA]@                                     @[mA]@
+@[s]@                                      @[s]@
+@[ms]@                                     @[ms]@
+@[mm]@                                     @[mm]@
+@[Grad]@                                   @[Grad]@
+@[Inkremente]@                             @[Inkremente]@
+@[m/sec*sec]@                              @[m/sec*sec]@
+@[Grad/sec]@                               @[Grad/sec]@
+@[bar]@                                    @[bar]@
+@[W/m2]@                                   @[W/m2]@
+@°C@                                       @°C@
+//**********************************************************************
+//*
+//*   Digital-Statusmeldungen
+//*
+//**********************************************************************
+@EIN@                                      @EIN@
+@AUS@                                      @AUS@
+@LOW@                                      @LOW@
+@HIGH@                                     @HIGH@
+@JA@                                       @JA@
+@NEIN@                                     @NEIN@
+@ein@                                      @ein@
+@aus@                                      @aus@
+@high@                                     @high@
+@low@                                      @low@
+@ja@                                       @ja@
+@nein@                                     @nein@
+@aktiv@                                    @aktiv@
+@nicht aktiv@                              @nicht aktiv@
+//**********************************************************************
+//*
+//*   Positionen
+//*
+//**********************************************************************
+@links@                                    @links@
+@rechts@                                   @rechts@
+@vorne@                                    @vorne@
+@hinten@                                   @hinten@
+//**********************************************************************
+//*
+//*   Musterdateitexte
+//*
+//**********************************************************************
+@Sourcedatei MUST_Exx.SRC@                 @deutsche Version MUST_Exx.IPS@
+@MUSTER@                                   @Muster@
+@Hauptmenü@                                @Hauptmenü@
+@Info@                                     @Info@
+@Ident@                                    @Ident@
+@Code@                                     @Code@
+@Fehler@                                   @Fehler@
+@Status@                                   @Status@
+@Steuern@                                  @Steuern@
+@Speicher@                                 @Speicher@
+@Auswahl@                                  @Auswahl@
+@Gesamt@                                   @Gesamt@
+@Druck@                                    @Druck@
+@KVP@                                      @KVP@
+@Ende@                                     @Ende@
+@Exit@                                     @Exit@
+@Fehlerspeicher@                           @Fehlerspeicher@
+@Lesen@                                    @Lesen@
+@Fehlerspeicher lesen@                     @Fehlerspeicher lesen@
+@Der Fehlerspeicher wird gelesen!@         @Der Fehlerspeicher wird gelesen!@
+@... bitte warten@                         @... bitte warten@
+@Löschen@                                  @Löschen@
+@Fehlerspeicher löschen@                   @Fehlerspeicher löschen@
+@Der Fehlerspeicher wurde gelöscht!@       @Der Fehlerspeicher wurde gelöscht!@
+@Shadow@                                   @Shadow@
+@Shadowspeicher lesen@                     @Shadowspeicher lesen@
+@Shadowspeicher drucken@                   @Shadowspeicher drucken@
+@Der Shadowspeicher wird gelesen!@         @Der Shadowspeicher wird gelesen!@
+@Quick@                                    @Quick@
+@Fehlerspeicher Quick lesen@               @Fehlerspeicher Quick lesen@
+@Fehleranzahl@                             @Fehleranzahl@
+@Betriebsstundenzähler@                    @Betriebsstundenzähler@
+@aktuell@                                  @aktuell@
+@beim letzten Fehlerspeicher löschen@      @beim letzten Fehlerspeicher löschen@
+@Fehlerspeicher drucken@                   @Fehlerspeicher drucken@
+@Zurück@                                   @Zurück@
+@Status lesen@                             @Status lesen@
+@Analog@                                   @Analog@
+@Digital@                                  @Digital@
+@Status Analog lesen@                      @Status Analog lesen@
+@Status Digital lesen@                     @Status Digital lesen@
+@Speicher lesen@                           @Speicher lesen@
+@RAM@                                      @RAM@
+@RAM lesen@                                @RAM lesen@
+@ROM@                                      @ROM@
+@ROM lesen@                                @ROM lesen@
+@EEPROM@                                   @EEPROM@
+@EEPROM lesen@                             @EEPROM lesen@
+@Flash@                                    @Flash@
+@Flash lesen@                              @Flash lesen@
+@Es ist darauf zu achten,@                 @Es ist darauf zu achten,@
+@daß die angegebene Adresse + Anzahl@      @daß die angegebene Adresse + Anzahl@
+@der zu lesenden Bytes die Obergrenze@     @der zu lesenden Bytes die Obergrenze@
+@nicht überschreitet.@                     @nicht überschreitet.@
+@Adresse@                                  @Adresse@
+@Anzahl der Bytes@                         @Anzahl der Bytes@
+@Startadresse@                             @Startadresse@
+@Anzahl@                                   @Anzahl@
+@Daten@                                    @Daten@
+@Versionsnummer@                           @Versionsnummer@
+@Variante@                                 @Variante@
+@Generationsnummer@                        @Generationsnummer@
+@Prüfplannummer@                           @Prüfplannummer@
+@BB-Nummer@                                @BB-Nummer@
+@BMW Teilenummer@                          @BMW Teilenummer@
+@Hardwarenummer@                           @Hardwarenummer@
+@Softwarenummer@                           @Softwarenummer@
+@Lieferant@                                @Lieferant@
+@Codier-Index@                             @Codier-Index@
+@Diagnose-Index@                           @Diagnose-Index@
+@Bus-Index@                                @Bus-Index@
+@Herstelldatum@                            @Herstelldatum@
+@KW / Jahr@                                @KW / Jahr@
+@Seriennummer@                             @Seriennummer@
+@Information@                              @Information@
+@Identifikation@                           @Identifikation@
+@Codierung@                                @Codierung@
+@Ansteuern@                                @Ansteuern@
+@Bildschirmdruck@                          @Bildschirmdruck@
+@KVP-Editor@                               @KVP-Editor@
+@Nacharbeitsprogramm@                      @Nacharbeitsprogramm@
+@Version@                                  @Version@
+@Verantwortung@                            @Verantwortung@
+@Steuergerätebeschreibungsdatei@           @Steuergerätebeschreibungsdatei@
+@Steuergerät@                              @Steuergerät@
+@Sprache@                                  @Sprache@
+@Kommentar@                                @Kommentar@
+@Variantenkontrolle@                       @Variantenkontrolle@
+@Gesuchtes Steuergerät@                    @Gesuchtes Steuergerät@
+@nicht gefunden.@                          @nicht gefunden.@
+@Gefundenes Steuergerät@                   @Gefundenes Steuergerät@
+@Das Programm wird abgebrochen!@           @Das Programm wird abgebrochen!@
+@Fehlfunktion ist möglich!@                @Fehlfunktion ist möglich!@
+@Versionskontrolle@                        @Versionskontrolle@
+@Programm noch in der Entwicklungsphase.@  @Programm noch in der Entwicklungsphase.@
+@Nicht zusammenpassende Versionen.@        @Nicht zusammenpassende Versionen.@
+@Sprachvariantenkontrolle@                 @Sprachvariantenkontrolle@
+@Nicht zusammenpassende Sprachvariante.@   @Nicht zusammenpassende Sprachvariante.@
+@FG-Nr.@                                   @FG-Nr.@
+@ohne ELDI-Auftrag@                        @ohne ELDI-Auftrag@
+@Unerwarteter Fehler@                      @Unerwarteter Fehler@
+@IS lesen@                                 @IS lesen@
+@IS löschen@                               @IS löschen@
+@IS drucken@                               @IS drucken@
+@FS lesen@                                 @FS lesen@
+@FS löschen@                               @FS löschen@
+@Infospeicher lesen@                       @Infospeicher lesen@
+@Der Infospeicher wird gelesen!@           @Der Infospeicher wird gelesen!@
+@Infospeicher löschen@                     @Infospeicher löschen@
+@Der Infospeicher wurde gelöscht!@         @Der Infospeicher wurde gelöscht!@
+@Infospeicher drucken@                     @Infospeicher drucken@
+@FS drucken@                               @FS drucken@
+@FS speichern@                             @FS speichern@
+@IS speichern@                             @IS speichern@
+@HS speichern@                             @HS speichern@
+@Fehlerspeicher speichern@                 @Fehlerspeicher speichern@
+@Infospeicher speichern@                   @Infospeicher speichern@
+@Historienspeicher speichern@              @Historienspeicher speichern@
+@HS lesen@                                 @HS lesen@
+@HS löschen@                               @HS löschen@
+@HS drucken@                               @HS drucken@
+@Historienspeicher lesen@                  @Historienspeicher lesen@
+@Der Historienspeicher wird gelesen!@      @Der Historienspeicher wird gelesen!@
+@Historienspeicher löschen@                @Historienspeicher löschen@
+@Der Historienspeicher wurde gelöscht!@    @Der Historienspeicher wurde gelöscht!@
+@Historienspeicher drucken@                @Historienspeicher drucken@
+@Geben Sie den zu speichernden Kommentar ein@    @Geben Sie den zu speichernden Kommentar ein@
+@Kommentar@                                @Kommentar@
+@K O M M E N T A R@                        @K O M M E N T A R@
+@I N F O S P E I C H E R   L E S E N@             @I N F O S P E I C H E R   L E S E N@
+@H I S T O R I E N S P E I C H E R   L E S E N@   @H I S T O R I E N S P E I C H E R   L E S E N@
+@F E H L E R S P E I C H E R   L E S E N@         @F E H L E R S P E I C H E R   L E S E N@
+@>>>>>>>>>> Kein Fehler gefunden <<<<<<<<<<<@     @>>>>>>>>>> Kein Fehler gefunden <<<<<<<<<<<@
+@Kilometerstand                          @        @Kilometerstand                          @
+@Datum:     @                              @Datum:     @
+@ECU:       @                              @ECU:       @
+@JobStatus: @                              @JobStatus: @
+@Variante:  @                              @Variante:  @
+@ERGEBNIS:  @                              @ERGEBNIS:  @
+@Fehler im Fehlerspeicher !@               @Fehler im Fehlerspeicher !@
+@Fehlerhäufigkeit: @                       @Fehlerhäufigkeit: @
+@Logistikzähler  : @                       @Logistikzähler  : @
+@Fehlercode: @                             @Fehlercode: @
+@LAR@                                      @LAR@
+@FLASH@                                    @FLASH@
+@UIFM@                                     @UIFM@
+@ROMI@                                     @ROMI@
+@RAMIS@                                    @RAMIS@
+@RAMIL@                                    @RAMIL@
+@NVRAM@                                    @NVRAM@
+@ROMX@                                     @ROMX@
+@RAMXX@                                    @RAMXX@
+@LAR lesen@                                @LAR lesen@
+@FLASH lesen@                              @FLASH lesen@
+@UIFM lesen@                               @UIFM lesen@
+@ROMI lesen@                               @ROMI lesen@
+@RAMIS lesen@                              @RAMIS lesen@
+@RAMIL lesen@                              @RAMIL lesen@
+@NVRAM lesen@                              @NVRAM lesen@
+@ROMX lesen@                               @ROMX lesen@
+@RAMXX lesen@                              @RAMXX lesen@
+@Package@                                  @Package@
+@Gruppendatei@                             @Gruppendatei@
+@Bezeichnung@                              @Bezeichnung@
+@Identifizierbare SGBD'en@                 @Identifizierbare SGBD'en@
+@Varianten-Index@                          @Varianten-Index@
+@Softwarenummer   Funktionssoftware@       @Softwarenummer   Funktionssoftware@
+@Softwarenummer   Betriebssystem@          @Softwarenummer   Betriebssystem@
+@Softwarenummer   Nachrichtenkatalog@      @Softwarenummer   Nachrichtenkatalog@
+@Softwarenummer  (Reserve) Zur Zeit nicht benutzt@   @Softwarenummer  (Reserve) Zur Zeit nicht benutzt@
+@Anwender-Information@                     @Anwender-Information@
+@Kein Anwenderinfofeld vorhanden@          @Kein Anwenderinfofeld vorhanden@
+@Fahrgestell Nr.@                          @Fahrgestell Nr.@
+@Zusammenbau Nr.@                          @Zusammenbau Nr.@
+@Programmier-Datum@                        @Programmier-Datum@
+@Datensatz Nr.@                            @Datensatz Nr.@
+@Behörden Nr.@                             @Behörden Nr.@
+@Händler Nr.@                              @Händler Nr.@
+@Tester Nr.@                               @Tester Nr.@
+@km-Stand@                                 @km-Stand@
+@Programm-Stand@                           @Programm-Stand@
+@Adresse AIF@                              @Adresse AIF@
+@Anzahl freie AIF@                         @Anzahl freie AIF@
+@Anzahl Daten AIF@                         @Anzahl Daten AIF@
+
+//**********************************************************************
+//*
+//*   Startprogrammtexte
+//*
+//**********************************************************************
+@Scriptauswahl@                            @Scriptauswahl@
+@Auswahlmenü@                              @Auswahlmenü@
+@Systembetreuer@                           @Systembetreuer@
+@Getriebe_@                                @Getriebe@
+@Getriebe@                                 @Getriebe@
+@Motor_@                                   @Motor@
+@Sonder@                                   @Sonder@
+@Sonderprüfungen@                          @Sonderprüfungen@
+@Batterie@                                 @Batterie@
+@Zündung@                                  @Zündung@
+@E-Lüfter@                                 @E-Lüfter@
+@E-Lüfter ansteuern@                       @E-Lüfter ansteuern@
+@E-Lüfter Ansteuerung für 10 s@            @E-Lüfter Ansteuerung für 10 s@
+@Restzeit@                                 @Restzeit@
+@Auftrag@                                  @Auftrag@
+@Update@                                   @Update@
+@Auftrag eingeben@                         @Auftrag eingeben@
+@Update SGBD, INPA@                        @Update SGBD, INPA@
+
+//**********************************************************************
+//*
+//*   Most - Standard - Include
+//*
+//**********************************************************************
+@Einzeltest@                               @Einzeltest@
+@Alle@                                     @Alle@
+@-3dB Absenkung im MOST-Ring@              @-3dB Absenkung im MOST-Ring@
+@ACHTUNG: Infospeicher werden zuvor gelöscht!@   @ACHTUNG: Infospeicher werden zuvor gelöscht!@
+@Absenkung von diesem zum nächsten Steuergerät@  @Absenkung von diesem zum nächsten Steuergerät@
+@Absenkung aller Lichtwellenleiter im Ring@      @Absenkung aller Lichtwellenleiter im Ring@
+@Status -3 dB Test@                        @Status -3 dB Test@
+@Lichtleistung abgesenkt@                  @Lichtleistung abgesenkt@
+@Timeout-Abbruch@                          @Timeout-Abbruch@
+@IO@                                       @IO@
+@NIO@                                      @NIO@
+@SG´s nicht gefunden@                      @SG´s nicht gefunden@
+@Ansteuerung@                              @Ansteuerung@
+@Most@                                     @Most@
+@Modus@                                    @Modus@
+@Mostversion@                              @Mostversion@
+@Version des MOST Transceivers@            @Version des MOST Transceivers@
+@Version der Oasis NetServices@            @Version der Oasis NetServices@
+@Revision der Oasis NetServices@           @Revision der Oasis NetServices@
+@Status der Lichtleistungsabsenkung@       @Status der Lichtleistungsabsenkung@
+@SG darf wecken@                           @SG darf wecken@
+
+//**********************************************************************
+//*
+//*   Texte allgemein alphabetisch sortiert
+//*
+//**********************************************************************
+@Abschaltung@                              @Abschaltung@
+@Absperrventil@                            @Absperrventil@
+@Akkustischer Alarm@                       @Akkustischer Alarm@
+@analog@                                   @analog@
+@Analogausgänge@                           @Analogausgänge@
+@Analoge Ein-, Ausgänge@                   @Analoge Ein-, Ausgänge@
+@Analogeingänge@                           @Analogeingänge@
+@Anlasser@                                 @Anlasser@
+@Anlaufstrom@                              @Anlaufstrom@
+@Anlaufunterdrückung@                      @Anlaufunterdrückung@
+@AUC Heizung@                              @AUC Heizung@
+@AUC Sensor@                               @AUC Sensor@
+@AUC@                                      @AUC@
+@Ausführung@                               @Ausführung@
+@Ausgang@                                  @Ausgang@
+@Ausgangspegel@                            @Ausgangspegel@
+@Ausgangssignal@                           @Ausgangssignal@
+@Ausgänge lesen@                           @Ausgänge lesen@
+@Auslaßventil@                             @Auslaßventil@
+@Ausstattung@                              @Ausstattung@
+@Außentemperatur@                          @Außentemperatur@
+@Außentemperaturfühler@                    @Außentemperaturfühler@
+@Bedienteileinstellungen@                  @Bedienteileinstellungen@
+@Beifahrer@                                @Beifahrer@
+@Beifahrertür@                             @Beifahrertür@
+@Belüftungsklappe@                         @Belüftungsklappe@
+@Belüftungsklappenschalter@                @Belüftungsklappenschalter@
+@Belüftungstemperaturfühler@               @Belüftungstemperaturfühler@
+@Bremslichtschalter@                       @Bremslichtschalter@
+@Bremsschalter@                            @Bremsschalter@
+@Cabriolet@                                @Cabriolet@
+@Codierbytes@                              @Codierbytes@
+@Crash-Mode@                               @Crash-Mode@
+@Crash-Sensor@                             @Crash-Sensor@
+@default@                                  @default@
+@Defrost@                                  @Defrost@
+@Diagnose@                                 @Diagnose@
+@Diebstahlwarnanlage@                      @Diebstahlwarnanlage@
+@digital@                                  @digital@
+@Digitalausgänge@                          @Digitalausgänge@
+@Digitale Ein-, Ausgänge@                  @Digitale Ein-, Ausgänge@
+@Digitaleingänge@                          @Digitaleingänge@
+@DME-AC@                                   @DME-AC@
+@DME-KO@                                   @DME-KO@
+@Drossel@                                  @Drossel@
+@Drosselklappenwinkel@                     @Drosselklappenwinkel@
+@Eichschalter@                             @Eichschalter@
+@Eingang@                                  @Eingang@
+@Eingangspegel@                            @Eingangspegel@
+@Eingangssignal@                           @Eingangssignal@
+@Eingänge lesen@                           @Eingänge lesen@
+@Einklemmschutz@                           @Einklemmschutz@
+@Einlaßventil@                             @Einlaßventil@
+@Empfindlichkeit@                          @Empfindlichkeit@
+@Entfrostungsklappe@                       @Entfrostungsklappe@
+@Entriegeln@                               @Entriegeln@
+@Fahrer@                                   @Fahrer@
+@Fahrertür@                                @Fahrertür@
+@Fahrzeuggeschwindigkeit@                  @Fahrzeuggeschwindigkeit@
+@Fahrzeugtyp@                              @Fahrzeugtyp@
+@Fensterheber@                             @Fensterheber@
+@Fernbedienung@                            @Fernbedienung@
+@Fondraumklappe@                           @Fondraumklappe@
+@Fondraumschalter@                         @Fondraumschalter@
+@Frischluftklappe@                         @Frischluftklappe@
+@Frontscheibenheizung@                     @Frontscheibenheizung@
+@Funktion@                                 @Funktion@
+@Fußraumklappe@                            @Fußraumklappe@
+@Fußraumtemperaturfühler@                  @Fußraumtemperaturfühler@
+@Gebläse@                                  @Gebläse@
+@Gebläsepotentiometer@                     @Gebläsepotentiometer@
+@Gebläserelais@                            @Gebläserelais@
+@Gebläsesteuerspannung@                    @Gebläsesteuerspannung@
+@Gesamtweg@                                @Gesamtweg@
+@Geschwindigkeit@                          @Geschwindigkeit@
+@Getriebevariante@                         @Getriebevariante@
+@Handbremsschalter@                        @Handbremsschalter@
+@Handschuhfach@                            @Handschuhfach@
+@Heckklappe@                               @Heckklappe@
+@Heckscheibe@                              @Heckscheibe@
+@Heckscheibenheizung@                      @Heckscheibenheizung@
+@Hex@                                      @Hex@
+@Hinterachse@                              @Hinterachse@
+@Impulsgeber@                              @Impulsgeber@
+@Infrarot@                                 @Infrarot@
+@Innenfühlergebläse@                       @Innenfühlergebläse@
+@Innenlicht@                               @Innenlicht@
+@Innenraumschutz@                          @Innenraumschutz@
+@Innenraumtemperaturfühler@                @Innenraumtemperaturfühler@
+@k-Zahl@                                   @k-Zahl@
+@Kindersicherung@                          @Kindersicherung@
+@Klappenpositionen@                        @Klappenpositionen@
+@Klemme@                                   @Klemme@
+@Klima@                                    @Klima@
+@Klimakompressor@                          @Klimakompressor@
+@Knopf@                                    @Knopf@
+@Komfortschließen@                         @Komfortschließen@
+@Komfortöffnen@                            @Komfortöffnen@
+@Kontakt@                                  @Kontakt@
+@korrigierter Sollwert@                    @korrigierter Sollwert@
+@Kupplungsschalter@                        @Kupplungsschalter@
+@Kühlwassertemperatur@                     @Kühlwassertemperatur@
+@LED@                                      @LED@
+@Lenkung@                                  @Lenkung@
+@Lenkwinkel@                               @Lenkwinkel@
+@Ländervariante@                           @Ländervariante@
+@Latentwärme@                              @Latentwärme@
+@Latentwärmespeicher@                      @Latentwärmespeicher@
+@Latentwärmespeicherfühler@                @Latentwärmespeicherfühler@
+@Luftverteilung@                           @Luftverteilung@
+@Masse@                                    @Masse@
+@Maximalwert@                              @Maximalwert@
+@Minimalwert@                              @Minimalwert@
+@mit@                                      @mit@
+@Motor@                                    @Motor@
+@Motordrehzahl@                            @Motordrehzahl@
+@Motorhaube@                               @Motorhaube@
+@Motorvariante@                            @Motorvariante@
+@Neigungsgeber@                            @Neigungsgeber@
+@oder@                                     @oder@
+@ohne@                                     @ohne@
+@Optischer Alarm@                          @Optischer Alarm@
+@Passivtaster@                             @Passivtaster@
+@Pedalwegsensor@                           @Pedalwegsensor@
+@Phototransistor@                          @Phototransistor@
+@Position@                                 @Position@
+@Potentiometer Luftverteilung@             @Potentiometer Luftverteilung@
+@Pumpe@                                    @Pumpe@
+@Pumpenmotor@                              @Pumpenmotor@
+@Quittierung@                              @Quittierung@
+@Radgeschwindigkeiten@                     @Radgeschwindigkeiten@
+@Reglergrößen@                             @Reglergrößen@
+@Relais@                                   @Relais@
+@Schalter@                                 @Schalter@
+@Scheibenabsenkung@                        @Scheibenabsenkung@
+@Scheibenüberwachung@                      @Scheibenüberwachung@
+@Schichtungsklappe@                        @Schichtungsklappe@
+@Schichtungspotentiometer@                 @Schichtungspotentiometer@
+@Schrittmotoren@                           @Schrittmotoren@
+@Sensor@                                   @Sensor@
+@Signal@                                   @Signal@
+@Soft On@                                  @Soft On@
+@Sollwertsteller@                          @Sollwertsteller@
+@Spannung@                                 @Spannung@
+@Spannungsversorgung@                      @Spannungsversorgung@
+@Sperrventil@                              @Sperrventil@
+@Spritzdüsenheizung@                       @Spritzdüsenheizung@
+@Standheizung@                             @Standheizung@
+@Standlüftung@                             @Standlüftung@
+@Strom@                                    @Strom@
+@Stufe@                                    @Stufe@
+@Taste@                                    @Taste@
+@Temperatur@                               @Temperatur@
+@Temperaturfühler@                         @Temperaturfühler@
+@Tippfunktion@                             @Tippfunktion@
+@Tür@                                      @Tür@
+@Türgriffkontakt@                          @Türgriffkontakt@
+@Türkontakt@                               @Türkontakt@
+@Türschloßheizung@                         @Türschloßheizung@
+@Umluft@                                   @Umluft@
+@Umluftklappe@                             @Umluftklappe@
+@Umschaltventil@                           @Umschaltventil@
+@unbekannt@                                @unbekannt@
+@und@                                      @und@
+@Ventilrelais@                             @Ventilrelais@
+@Verbraucherabschaltung@                   @Verbraucherabschaltung@
+@Verdampferfühler@                         @Verdampferfühler@
+@Verriegeln@                               @Verriegeln@
+@Versorgung@                               @Versorgung@
+@Verzögerung@                              @Verzögerung@
+@Warnblinken@                              @Warnblinken@
+@Warnblinker@                              @Warnblinker@
+@Wasserventil@                             @Wasserventil@
+@Weckleitung@                              @Weckleitung@
+@Wärmetauscher@                            @Wärmetauscher@
+@Wärmetauscherfühler@                      @Wärmetauscherfühler@
+@Wärmetauschersolltemperatur@              @Wärmetauschersolltemperatur@
+@Zeit@                                     @Zeit@
+@Zentralantrieb@                           @Zentralantrieb@
+@Zentralsichern@                           @Zentralsichern@
+@Zentralverriegelung@                      @Zentralverriegelung@
+@Zusatzlüfter@                             @Zusatzlüfter@
+@Zusatzwasserpumpe@                        @Zusatzwasserpumpe@
+@Zylinder@                                 @Zylinder@
+
+//**********************************************************************
+//*
+//*   neue Texte noch nicht einsortiert !
+//*
+//**********************************************************************
+
+// eof

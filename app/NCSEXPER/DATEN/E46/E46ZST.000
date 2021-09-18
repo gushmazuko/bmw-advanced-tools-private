@@ -1,0 +1,947 @@
+;Tabelle: E46ZST.000                Index: co vom: 18.02.2002  NAEL: E3424.R
+I co
+U 20020218093000
+V E46ZST.000
+;
+; Fahrzeugbeschreibung Laender 8021/101   vom 29.03.00
+; Fahrzeugbeschreibung E46/4FL 8046/011   vom 11.12.00
+; Fahrzeugbeschreibung E46/4   8416/007   vom 28.10.98
+; Fahrzeugbeschreibung E46/2   8417/004   vom 02.09.97
+; Fahrzeugbeschreibung E46/C   8418/003   vom 09.04.98
+; Fahrzeugbeschreibung E46/3   8419/004   vom 17.11.99
+; Fahrzeugbeschreibung E46/5   8420/038   vom 25.01.01
+; Fahrzeugbeschreibung E46/16  8424/010   vom 09.06.00
+; Fahrzeugbeschreibung Laender 8421/130   vom 09.08.99
+; Entwicklungsumfang M3        8564/004   vom 02.07.99
+; In der ZST muessen zwingend Auftragsssteuerworte, welche die
+; Steuergeraete definieren vergeben werden.
+;
+;******************************************************************************
+; ZUSAMMENFASSUNG ALLER SA- und VN-CODIERBITS UND AUFTRAGSSCHLUESSELWORTE
+;*******************************************************************************
+;                     4--------------- ---------- 
+;                     ---------------- --8-------        Mi.  28.01.04
+;******************** Vergebene SA-Bits **************************************
+;                     ---------------- -1--11---1
+;                     ---------------- --2--22--2
+;                     ---------------- -44---4---
+;                     ---------------- -8---88---        Mi.  28.01.04
+;******************** In Verbindung mit Maerz01 receycelbar **********************
+;H ONSL N0596         4000000000000000 OHNE_NSL      getarnte Ausfuehrung E46/2 Prototypen ohne NSL
+;                                                    kann entfallen
+;H 225  N0301         0000000000000000 0008640621 ENTF_S_FAHRWERK // 4 Zyl. Comp. mit SA225 wurde nie verbaut.
+;H BFD  N0301         0000000000000000 0008640622 BRAKEFORCE  Alle Fzg. mit Brakeforcedisplay. wurde vor 09/01 nicht benutzt.
+;H PU01 N0301         0000000000000000 0010000000 PU01  wurde in SE nie verbaut.
+;*********************************************************************************
+;0897        00000020 0000000000000000 0000000000 DAUERTON
+;0399                 0000000000000001 0000000000 VERDECK_EL_AUT
+;1243                 0000000000000002 0000000000 OHNE_BF_AIRBAG
+;0861                 0000000000000004 0000000000 MILANSTEUERUNG  SG:EK924.C02
+;0205                 0000000000000008 0000000000 AUTOMATIK
+;0362                 0000000000000010 0000000000 AUSSTELLFENSTER
+;0502                 0000000000000020 0000000000 SWA      //wird um Regensensor reduziert ab 3/98
+;0896                 0000000000000040 0000000000 TAGFAHRLICHT
+;0261                 0000000000000080 0000000000 FOND_AIRBAG
+;0834                 0000000000000100 0000040620 ENTF_FRANKREICH
+;0265                 0000000000000200 0000000000 RDKS
+;0210                 0000000000000400 0000000000 DSC3
+;0259                 0000000000000800 0000000000 ENTF_SEITENAIRB
+;0550                 0000000000001000 0000000000 BC_BASIS
+;0508                 0000000000002000 0000000000 PDC
+;0302                 0000000000004000 0000000000 DWA FERNBED
+;0877                 0000000000008000 0000000000 ENTF_UEBERKREUZ
+;0832                 0000000000010000 0000000000 BATT_KOFFERRAUM
+;0845                 0000000000020000 0000000000 AK_GUWA
+;0521                 0000000000040000 0000000000 REGENSENSOR //Regensensor ab 3/98
+;0528                 0000000000080000 0000000000 AUC
+;0522                 0000000000100000 0000000000 XENON NEBELSCHEINW
+;0305                 0000000000200000 0000000000 FERNBED
+;0876                 0000000000200000 0000000000 FERNBED
+;1240                 0000000000400000 0000000000 OHNE_FA_AIRBAG
+;0459                 0000000000800000 0000000000 SITZMEMORY
+;0403                 0000000001000000 0000000000 GLAS_SHD
+;0662 V0301           0000000002000000 0000000000 RADIO_CD43
+;0662 N0301           0000000002000000 0008040660 RADIO_CD43_ALT
+;0661 N0301           0000000002000000 0008040620 RADIO_NG 
+;0663 N0301           0000000002000000 0008040620 1 RADIO_NG        //BMW Professional CD54
+;0411                 0000000004000000 0000000000 FH_HINTEN
+;0825                 0000000008000000 0000000000 OZEANIEN       //Ozeanien Radio
+;0606                 0000000010000000 0000000000 LOW_NAVIGATION // Low Navigation
+;0606                 0100000010000000 0000000000 MIR            // MIR 
+;0262                 0000000020000000 0000000000 KOPF_AIRBAG    //Kopfairbag fuer Compact
+;0608                 0000000040000000 0000000000 NAVIGATION     // High Navigation
+;0602 V0901           0000000080000000 0000000000 BORDMONITOR
+;0602 N0901           0000000080000000 0008040620 BORDMONITOR RADIO_NG 
+;0609 V0901           00000000C0000000 0000000000 NAVIGATION BORDMONITOR
+;0609 N0901           00000000C0000000 0008040620 NAVIGATION RADIO_NG
+;0645                 0000000100000000 RADIO_US
+;E NOT1               0000000200000000 NOTARZT   //SA 112 + SA 185 EWS auf AUTOMATIK codieren
+;0380                 0000000400000000 HARDTOP   //Hardtop- Vorbereitung
+;0982                 0000000400000000 HARDTOP   //Hardtop in Wagenfarbe
+;0926                 0000000800000000 ERSATZRAD
+;0715                 0000001000000000 SPORTPAKET
+;0581                 0000002000000000 TAXI
+;0530                 0000004000000000 KLIMAREGELUNG
+;0984                 0000008000000000 SIA_INTERVALL
+;0203                 0000010000000000 ALLRAD
+;0249                 0000020000000000 GESCHW_REG
+;0540                 0000020000000000 GESCHW_REG
+;SHZG                 0000040000000000 STANDHEIZUNG
+;0534                 0000080000000000 KLIMAAUTOMATIK
+;0857                 0000080000000000 KLIMAAUTOMATIK
+;0313                 0000100000000000 SPIEGELPAKET
+;0520                 0000200000000000 NEBELSCHEINW
+;0185                 0000400000000000 OFFENE_AUSFUEHR
+;0823                 0000800000000000 TROPEN
+;0847                 0001000000000000 SICH_FZG        //Vorbereitung f. Sicherheitsfahrzeug
+;0899                 0002000000000000 ALARM_OPT_AL
+;0875                 0004000000000000 INFRAROT
+;0627                 0008000000000000 NOKIA    //Telefonvorbereitung fuer Handy Nokia
+;0793                 0010000000000000 SEQ_M_GETRIEBE
+;0988                 0020000000000000 SIA_INTERVALL2
+;0257                 0040000000000000 ENTF_S_AIRB_HI 
+;0374                 0080000000000000 RDW   
+;0606                 0100000010000000 MIR LOW_NAVIGATION
+;0630                 0200000000000000 SIEMENS_GSM
+;0716                 0400000000000000 SPORTPAKET_II
+;H 204  N0600         0800000000000000 KURZE_HA_UES // M54B30 ECE Allrad Automatik mit SA204
+;0206                 1000000000000000 SEQ_GETRIEBE 
+;H BLSN N1198         2000000000000000 BLS_KORR  //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98 - 
+;0235                 8000000000000000 ANH_KUPPLUNG      //Anhaengerkupplung, Kopf abnehmbar
+;HECK N0997  00000000 0000000000000000 0000800000 FACELIFT  //Nachruestung Heckleuchten Facelift rueckwirkend
+;0213                 0000000000000000 0008640610 HDC       //Hill Discent Control fuer E46/16
+;0662 N0301  00000000 0000000002000000 0008040660 RADIO_CD43_ALT  //BMW Business CD43, entfallen ab 04/01
+;0638        00000000 0000000000000000 0400000000 TEL_PROF        //Nachruestung AUTOTELEFON PROFESSIONAL
+;0612        00000000 0000000000000000 0100000000 BMW_ASSIST      //BMW Assist
+;08ST        00000000 0000000000000000 0800000000 SIA_EXTRA_KURZ  //Codierung Wartungsintervall auf 6.000 km
+;Schl        GM-Schl. SA-Schluessel     VN-Schl.  FG ASW Beschreibung
+;---------------------------------------------------------------------------------------------
+;
+B ZUSATZ      //Neue Bereichskennung fuer ZEKO!!
+;
+;Historie Grundversionsnummer (GVN)
+H GVN  N0597 00000000 0000000000000000 0000000000 0
+;H GVN  N0198 00000000 0000000000000000 0000000003 1
+;H GVN  N0798 00000000 0000000000000000 000000004B 1 //LSZ und PDC in Grundversionsnummer
+H GVN  N0998 00000000 0000000000200000 0000000020 1 ASC_CI_03                       //PU'98-Massnahmen
+H GVN  N0399 00000000 0000000000200000 0000000220 1 IHKA_CI_02 LSZ_CI_27            //MAERZ'99-Massnahmen
+H GVN  N0799 00000000 0000000000200000 0000400220 1 PDC_CI_02 KMBI_CI_03            //Neuer Airbagsatellitt
+H GVN  N0999 00000000 0000000000200000 0000400620 1 MRS3_CI_31 LSZ_CI_28            //PU'99-Massnahmen
+H GVN  N0600 00000000 0000000000200000 0000640620 1 KMBI_CI_04 PDC_CI_03 IHKA_CI_03 //PU'00-Massnahmen
+H GVN  N0301 00000000 0000000000200000 0008640620 1 GM5_CI_02 LSZ_CI_29 IHKA_CI_14 //Maerz'01-Massnahmen
+;
+;Aktuelle Grundversionsnummer (GVN)
+;G            00000000 0000000000200000 00004896FB 1
+G            00000000 0000000000200000 0008640620 1
+H E46  N0596 00000000 0000000000000000 0000000000 1 E46 //Baureihe E46
+;
+;Ehemalige zeitbedingte E-Worte (fuer ZEKO ein-/ausgeblendet)
+;H BLSN N1198 00000000 2000000000000000 0000000000 1 BLS_KORR  //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98 - 03.99 
+H BLSN N1198 00000000 2000000000000000 0000000000 1  //BLS wird immer auf nicht aktiv codiert, ab PU01 auch rueckwirkend.
+;                                                             //-alle 4 Zyl. mit Geschw.regler
+;                                                             //-alle 6 Zyl.
+H BLSN N0399 00000000 0000000000000000 0000000000 1  //-"-ausblenden fuer ZEKO
+H 662  N0198 00000000 0000000102000000 0000000000 1          //Radiosteuerung fuer Mexico
+H 662  N0598 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H SHZG N0597 00000000 0000040000000000 0000000000 1 STANDHEIZUNG //Nachruestung Standhzg. fuer Dieselfzg. bis PU99
+H SHZG N0999 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H IHK1 N0998 00000000 0000000000000000 0000000800 1 GEREGELT_KOMPR //Alle 4 Zyl. mit IHKA oder IHKR, ausser M47D20 mit 85kw und 100kw.
+H IHK1 N1001 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H NOT1 N0598 00000000 0000000200000000 0000000000 1 NOTARZT  //SA 112 + SA 185 EWS auf AUTOMATIK codieren
+H NOT1 N0598 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H L807 N1298 00000700 0000000000000000 0000000000 1 JAPAN    //(W01,W02,W06) LA Japan bei (AM51,BM51,AR51,AV51,EV51,AW51,EN51,BN51,BS51)+SA920+SA845+SA853
+H L807 N1001 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H SENS N0499 00000000 0000000000000000 0000400000 1 //FSW SATELITT_NEU wird nicht mehr benoetigt,da ausser Mexico und US alle MRS2-Fzg mit neuem Airbagsatellit 6902054.2
+;                                                   nur noch Crashparameter e46_c erhalten.
+H SENS N0799 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H FABG N0999 00000000 0000000000000000 0000200000 1 FAHRER_2_STUFIG //Alle Fzg. mit zweistufigem Fahrerairbag, Umstellung generell zu 06/00, PJ 8016/049
+H IHKR N0300 00000000 0000004000000000 0000000000 1 KLIMAREGELUNG  //IHKR SE ab 09/00 bei 6 Zyl. Modellen und ab 09/01 fuer 4Zyl. ausser Compact und M43B19
+H IHKR N1001 00000000 0000000000000000 0000000000 1         //-ausblenden fuer ZEKO
+H FABG N0600 00000000 0000000000000000 0000000000 1         //-ausblenden fuer ZEKO
+H 534  N0499 00000000 0000080000080000 0000000000 1 KLIMAAUTOMATIK AUC //SA 0534 fuer Touring oder PU99
+H 534  N0999 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H 857  N0499 00000000 0000080000080000 0000000000 1 KLIMAAUTOMATIK AUC //SA 0857 fuer Touring oder PU99
+H 857  N0999 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H 520  N0599 00000000 0000200000000000 0000000000 1 NEBELSCHEINW //ab PU99 alle 6 Zyl. ausser US oder SA 0520
+H 520  N0999 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H 261  N0699 00000000 0000000000000080 0000000000 1 FOND_AIRBAG  //Alle Fzg. ab 06/99 mit SA 261 ausser US oder Kanada
+H 261  N0600 00000000 0000000000000000 0000000000 1    //-ausblenden fuer ZEKO
+H SABG V0999 00000000 0000000000000000 0004400000 1 SPEZ_CRASHPARAM // E46 mit geaenderten Crashparameter fuer MRS2-Stg.
+H SABG N0999 00000000 0000000000000000 0000000000 1    //-ausblenden fuer ZEKO
+H DROS N0900 00000000 0000000000000000 1002000000 1 DROSSEL // Nachruestung Drossel in der HO fuer MK60-Stg.
+H DROS N0999 00000000 0000000000000000 0000000000 1    //-ausblenden fuer ZEKO
+H MK60 N1099 00000000 0000000000000000 0002000000 1 MK60       // alle Fzg mit ASC oder DSC MK60
+H MK60 N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H LEN1 N0301 00000000 0000000000000400 000A640628 1 LENK_I_50 //(LIM,COUP,TOUR,CABR)+(M54B30,M57D30,M56B30)+SA210 ab 04/01
+H LEN1 N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H SBK1 N0301 00000000 0000000000000000 0008640621 1 ENTFALL_SBK // (W01) 4 Zyl. Compact ohne SBK (LL+BENZINER+!SA832)
+H SBK1 N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H S204 N0600 00000000 0800000000000000 0000000000 1 KURZE_HA_UES // (W06) M54B30 ECE Allrad Automatik mit SA204
+H S204 N1001 00000000 0800000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H MYDY N0998 00000000 0000000000000000 0200000000 1 MAYDAY           //Mayday-Modul US ab 06/2000 und rückwirkend
+H MYDY N0998 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H HECK N0997 00000000 0000000000000000 0000800000 1 HKL_FL           //Nachruestung Heckleuchten Facelift rueckwirkend
+H HECK N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H S609 N0301 00000000 0000000000000000 0008641620 1 ENTFALL_TV //(W01) ab 06/01 erhaelt der Compact bei SA 609 kein TV
+H S609 N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO;
+H RANG N0301 00000000 0000000002000000 0008040620 1 RADIO_NG //Alle NG-Radio's
+H RANG N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO;
+H ZHZN N0500 00000000 0000000000000000 0008640624 1 EL_ZUHEIZER     //NG-Motore siehe B E138.N
+H ZHZN N1001 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO;
+H LEDH N0997 00000000 0000000000000000 0001000000 1 LED_HECK  //Nachruestung LED-Heckleuchten E46/2 u. E46/C Facelift
+H LEDH N1001 00000000 0000000000000000 0000000000 1  //-ausblenden fuer ZEKO;
+H AUSH N0997 00000000 0000000000000000 0010000000 1 AUS_HYDR  //Austausch neues Hydraulikagregat
+H AUSH N1001 00000000 0000000000000000 0000000000 1  //-ausblenden fuer ZEKO;
+H WHKL V0901 00000000 0000000000000000 0040000000 1 WHKL      //Nachrüstung Weisse Heckleuchten fuer E46/5 vor PU01
+H TEL3 V0901 00000000 0000000000000000 0020000000 1 TEL_PROF_US   //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge, Zwangskopplung mit S641A
+;
+;Zeitlich gesteuerte Massnahmen (fuer ZEKO ausgeblendet)
+H FERN N0998 00000000 0000000000200000 0000000020 1 PU98     //PU98
+H FERN N0998 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H MA99 N0399 00000000 0000000000000000 0000000200 1 MAERZ99  //Maerz'99-Bit
+H MA99 N0399 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H PU99 N0999 00000000 0000000000000000 0000000400 1 PU99     //PU '99-Bit
+H PU99 N0999 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H PU00 N0600 00000000 0000000000000000 0000040000 1 PU00     //PU 2000-Bit
+H PU00 N0600 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+H MA01 N0301 00000000 0000000000000000 0008000000 1 MAERZ01  //Maerz'01-Bit
+H MA01 N0301 00000000 0000000000000000 0000000000 1          //-ausblenden fuer ZEKO
+;
+;Steuergeraete, zeitgesteuert eingesetzt, aber rueckwirkend gueltig
+H LSZ  N0597 00000000 0000000000000000 0000000001 1 //nicht auswaehlen LSZ mit CD 26            LSZ_CI_26
+H LSZ  N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H ASC  N0597 00000000 0000000000000000 0000000002 1 //nicht auswaehlen ASC/DSC mit CD 03        ASC_CI_03
+H ASC  N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H MRS3 N0598 00000000 0000000000000000 0000000004 1 //nicht auswaehlen MRS3 mit CD 08 ab PU98   MRS3_CI_08
+H MRS3 N1198 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H LSZ1 N0597 00000000 0000000000000000 0000000008 1 //nicht auswaehlen LSZ mit CD 27            LSZ_CI_27
+H LSZ1 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H KMB  N0597 00000000 0000000000000000 0000000010 1 //nicht auswaehlen Kmb mit CD 03 ab PU98    KMBI_CI_03
+H KMB  N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H PDC  N0597 00000000 0000000000000000 0000000040 1 //nicht auswaehlen PDC mit CD 02            PDC_CI_02
+H PDC  N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H IHK2 N0597 00000000 0000000000000000 0000000080 1 //nicht auswaehlen IHKA mit CD 02 ab PU98   IHKA_CI_02
+H IHK2 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H DSC5 N0597 00000000 0000000000000000 0000000100 1 //nicht auswaehlen DSC mit CD 05 ab PU98    DSC_CI_05
+H DSC5 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H LSZ2 N0597 00000000 0000000000000000 0000001000 1 //nicht auswaehlen LSZ mit CD 28            LSZ_CI_28
+H LSZ2 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H DSC6 N0597 00000000 0000000000000000 0000002000 1 //nicht auswaehlen DSC mit CD 06 ab MAERZ99 DSC_CI_06
+H DSC6 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H GT2  N0597 00000000 0000000000000000 0000004000 1 //nicht auswaehlen GT mit CD 02                              GT_CI_02
+H GT2  N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H MRS4 N1298 00000000 0000000000000000 0000008000 1 //nicht auswaehlen MRS3 mit CD 30 fuer Vorserie und SE E46/2 US und Touring   MRS3_CI_30
+H MRS4 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H GM52 N0597 00000000 0000000000000000 0000010000 1 //nicht auswaehlen GM5 mit CD 02 Einsatz ab 3/99             GM5_CI_02
+H GM52 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H KMB4 N0597 00000000 0000000000000000 0000020000 1 //nicht auswaehlen Kmb mit CD 04 ab PU99    KMBI_CI_04
+H KMB4 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H MRS5 N0198 00000000 0000000000000000 0000080000 1 //MRS3 mit CD 31 SE E46/2 US, Touring, PU99                  MRS3_CI_31
+H MRS5 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+H PDC3 N0597 00000000 0000000000000000 0000100000 1 //nicht auswaehlen PDC mit CD 03            PDC_CI_03
+H PDC3 N0600 00000000 0000000000000000 0000000000 1   //-ausblenden fuer ZEKO
+;
+;Aktuelle E-Worte
+;*******************************************************************************
+B SALA        //Neue Bereichskennung fuer ZEKO!!
+;******************************************************************************
+; SONDERAUSSTATTUNGEN, LAENDERAUSFUEHRUNGEN, ihre Aenderungen und Historie
+; Aenderungssteuerwoerter ersetzen zwingend die zu aendernde Primanummer
+; Historische Steuerwoerter, welche aus Primanummeraenderungen hervorgegangen
+; sind, werden in chronologisch aufsteigender Reihenfolge bei der betreffenden
+; Primanummer aufgefuehrt.
+; Tabstops:  ^14                                51^ ^53    ^60(Bemerkung ohne SW)
+;*******************************************************************************
+0100         00000000 0000000000000000 0000000000 0                 //Nutzlasterhoehung
+0103         00000000 0000000000000000 0000000000 0                 //SA Ganzjahresreifen fuer Behoerde
+0112         00000000 0000000000000000 0000000000 0                 //Kontraststreifen leuchtrot RAL 3024
+0113         00000000 0000000000000000 0000000000 0                 //Kontraststreifen minzgruen hell
+0121         00000000 0000000000000000 0000000000 0                 //VB fuer Unterbringung Anhaltekelle
+0122         00000000 0000000000000000 0000000000 0                 //VB fuer Unterbringung Schlagstoecke
+0123         00000000 0000000000000000 0000000000 0                 //Zusatz-Innenspiegel
+0124         00000000 0000000000000000 0000000000 0                 //Behoerdendachhhimmel
+0130         00000000 0000000000000000 0000000000 0                 //Waffenhalterung in Mittelarmlehne hinten
+0145         00000000 0000000000000000 0000000000 0                 //Alarmschalter mit Feuerwehrschaltung
+0146         00000000 0000000000000000 0000000000 0                 //zusaetzliche Energieversorgung
+0155         00000000 0000000000000000 0000000000 0                 //VB Montage TOP-4 fuer Handapparat
+0167         00000000 0000000000000000 0000000000 0                 //Abgasnorm EU4
+0168         00000000 0000000000000004 0000000000 1 MILANSTEUERUNG  //Abgasnorm EU2
+0169         00000000 0000000000000000 0000000000 0                 //Abgasnorm EU3
+0178         00000000 0000000000000000 0000000000 0                 //VB fuer Handfunkgeraete
+0180         00000000 0000000000000000 0000000000 0                 //VB bzw. Montage Dachantenne
+0185         00000000 0000400000000000 0000000000 1 OFFENE_AUSFUEHR //Einsatzfahrzeug offen
+0186         00000000 0000000000000000 0000000000 0                 //Einsatzfahrzeug getarnt
+0199         00000000 0000000000000004 0000000000 1 MILANSTEUERUNG  //Vorb. fuer bleihaltrigen Kraftstoff
+H 0199 V0600 00000000 0000000000000000 0000000000 0                 //Katalysator-Entfall
+0200         00000000 0000000000000000 0000000000 0                 //Partikelfilter
+0201         00000000 0000000000000000 0000000000 0                 //Rapsmethylester (RME)-Ausfuehrung
+0203         00000000 0000010000000000 0000000000 1 ALLRAD          //4-Traction System
+;Allrad wird ab 09/01 ueber Typschluessel gesteuert.
+0204         00000000 0000000000000000 0000000000 0                 //Kuerzere Hinterachsuebersetzung
+0205         00000000 0000000000000008 0000000000 1 AUTOMATIK       //Automatic Getriebe
+0206         00000000 1000000000000000 0000000000 1 SEQ_GETRIEBE    //Sequentielles Getriebe
+0210         00000000 0000000000000400 0000000000 1 DSC3            //Dynamische Stab. Control III (DSCIII)
+0225         00000000 0000000000000000 0000000000 0                 //Entfall sportliche Fahrwerksabstimmung
+0226         00000000 0000000000000000 0000000000 0                 //Sportliche Fahrwerksabstimmung
+0235         00000000 8000000000000000 0000000000 1 ANH_KUPPLUNG    //Anhaengerkupplung, Kopf abnehmbar
+0240         00000000 0000000000000000 0000000000 0                 //Lederlenkrad mit Airbag
+1240         00000000 0000000000400000 0000000000 1 OHNE_FA_AIRBAG  //Deaktivierung Fahrerairbag
+1243         00000000 0000000000000002 0000000000 1 OHNE_BF_AIRBAG  //Deaktivierung Beifahrerairbag
+0249         00000000 0000020000000000 0000000000 1 GESCHW_REG      //Multifunktion, ZWAKO entweder 240,255,709
+0251         00000000 0080000000000000 0000000000 1 RDW             //Reifenpannenanzeige RPA ab 09/01
+0255         00000000 0000000000000000 0000000000 0                 //Sport-Lederlenkrad III mit Airbag
+0256         00000000 0000020000000000 0000000000 1 GESCHW_REG      //Sport-/MF-Lenkrad/Geschw.regelung
+0257         00000000 0040000000000000 0000000000 1 ENTF_S_AIRB_HI  //Entfall Seitenairbag hinten fuer US-Fahrzeuge
+0259         00000000 0000000000000800 0000000000 1 ENTF_SEITENAIRB //Entfall Seitenairbag Fa./Beifahrer
+0261         00000000 0000000000000080 0000000000 1 FOND_AIRBAG     //Seitenairbag fuer Fondpassagiere
+; Der SA 261 ist bei US-Fahrzeugen ab 06/00 die SA 257 zuzusteuern.
+H 0261 V0600 00000000 0000000000000080 0000000000 0  
+; SA 261 wird ab 0699 bis 06/00 ueber E-Wort gesteuert, wegen US-Fzg.
+H 0261 V0699 00000000 0000000000000080 0000000000 1 FOND_AIRBAG     //Seitenairbag fuer Fondpassagiere
+0262         00000000 0000000020000000 0000000000 1 KOPF_AIRBAG     //Kopfairbag fuer Compact
+0265         00000000 0000000000000200 0000000000 1 RDKS            //Reifen Druck Control (RDC)
+0273         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Sternspeiche 43
+0274         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Doppelspeiche 53
+0279         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Sternspeiche 45
+0286         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Ellipsoidstyling 46
+0288         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Kreuzspeiche 42
+0290         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Sternspeiche 44
+0293         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/V-Speiche 54
+0295         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Sternspeiche 96
+0296         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Classic
+0298         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Doppelspeiche 98 mit Sicherheitsbereifung
+; SA 298 Zwangskombination mit SA 265 RDKS oder SA 251 RDW
+0299         00000000 0000000000000000 0000000000 0                 //entfallen ab 06/00
+H 0299 V0600 00000000 0000000000000000 0000000000 0                 //BMW LM-Raeder mit Mischbereifung
+0302         00000000 0000000000004000 0000000000 1 DWA FERNBED     //Alarmanlage mit Fernbedienung
+0305         00000000 0000000000200000 0000000000 1 FERNBED         //Fernbedienung fuer Zentralveriegelung
+0313         00000000 0000100000000000 0000000000 1 SPIEGELPAKET    //Aussenspiegelpaket
+H 0313 V0999 00000000 0000000000000000 0000000000 0                 //Aussenspiegelpaket
+0315         00000000 0000000000000000 0000000000 0                 //Heckscheibenwischer/beh.Waschduesen
+0320         00000000 0000000000000000 0000000000 0                 //Modellschriftzug Entfall
+0321         00000000 0000000000000000 0000000000 0                 //Tuergriffe in Wagenfarbe
+0325         00000000 0000000000000000 0000000000 0                 //M-Heckspoiler
+0326         00000000 0000000000000000 0000000000 0                 //Entfall Heckspoiler
+0337         00000000 0000000000000000 0000000000 0                 //M Sportpaket
+;0337         00000000 0000000000000000 0000000000 S                 //entfallen ab 07/01, ersetzt durch 0338
+;H 0337 V0701 00000000 0000000000000000 0000000000 0                 //M Sportpaket
+0338         00000000 0000000000000000 0000000000 0                 //M Sportpaket II
+0340         00000000 0000000000000000 0000000000 0                 //Stossleiste schwarz
+0345         00000000 0000000000000000 0000000000 0                 //Chrom-Line Interieur (Coupe,Cabrio)
+0346         00000000 0000000000000000 0000000000 0                 //Chrom-Line Exterieur
+0347         00000000 0000000000000000 0000000000 0                 //Titan-Line Exterieur
+0351         00000000 0000000000000000 0000000000 0                 //LM Gussrad 17" Sternsp.89
+0354         00000000 0000000000000000 0000000000 0                 //Gruenkeil Frontscheibe
+0358         00000000 0000000000000000 0000000000 0                 //Klimakomfort-Frontscheibe
+0362         00000000 0000000000000010 0000000000 1 AUSSTELLFENSTER //Ausstellfenster hinten elektrisch
+0374         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Radialspeiche 73
+0375         00000000 0000000000000000 0000000000 0                 //BMW LM Rad/Doppelspeiche 79
+0377         00000000 0000000000000000 0000000000 S                 //M Sportpaket
+0380         00000000 0000000400000000 0000000000 1 HARDTOP         //Hardtop- Vorbereitung
+0386         00000000 0000000000000000 0000000000 0                 //Dachreling
+0387         00000000 0000000000000000 0000000000 0                 //Windschott
+0388         00000000 0000000000000000 0000000000 0                 //Verdeck schwarz
+0391         00000000 0000000000000000 0000000000 0                 //Verdeck dunkelblau
+0392         00000000 0000000000000000 0000000000 0                 //Verdeck dunkelgruen
+0399         00000000 0000000000000001 0000000000 1 VERDECK_EL_AUT  //Vollautomatische Verdeckbetaetigung
+0403         00000000 0000000001000000 0000000000 1 GLAS_SHD        //Glas-Schiebe-Hebedach elektr.
+0406         00000000 0000000000000000 0000000000 0                 //Rolldach
+0411         00000000 0000000004000000 0000000000 1 FH_HINTEN       //Fensterheber,elektrisch vorn/hinten
+0415         00000000 0000000000000000 0000000000 0                 //Sonnenschutzrollo fuer Heckscheibe
+0423         00000000 0000000000000000 0000000000 0                 //Fussmatten in Velours
+0426         00000000 0000000000000000 0000000000 0                 //Aluminium Oberflaeche
+0428         00000000 0000000000000000 0000000000 0                 //Warndreieck und Verbandskasten
+0431         00000000 0000000000000000 0000000000 0                 //Innenspiegel, automatisch abblendend
+0433         00000000 0000000000000000 0000000000 0                 //Dekorleisten graphit
+0434         00000000 0000000000000000 0000000000 0                 //Sieblack Lackierung
+H 0434 V0901 00000000 0000000000000000 0000000000 0                 //Interieurleisten hochglaenzend
+0435         00000000 0000000000000000 0000000000 0                 //Edelholzausfuehrung,Birke hochglaenzend
+H 0435 V0901 00000000 0000000000000000 0000000000 0                 //Edelholzausfuehrung,Ahorn 97 hochglaenzend
+0438         00000000 0000000000000000 0000000000 0                 //Edelholzausfuehrung,Myrte hochglaenzend
+0439         00000000 0000000000000000 0000000000 0                 //Decorleisten Titan II
+H 0439 V0901 00000000 0000000000000000 0000000000 0                 //Decorleisten mattchrom
+0441         00000000 0000000000000000 0000000000 0                 //Raucherpaket
+0458         00000000 0000000000000000 0000000000 0                 //Sitzverstellung elektr. Fahrer/Beif
+0459         00000000 0000000000800000 0000000000 1 SITZMEMORY      //Sitzverstellung elektr. Fahrer.Memory/Beif
+0464         00000000 0000000000000000 0000000000 0                 //Skisack
+0465         00000000 0000000000000000 0000000000 0                 //Durchladesystem
+0467         00000000 0000000000000000 0000000000 0                 //Taxi-Fondsitze in Stoff
+0469         00000000 0000000000000000 0000000000 0                 //Intgrierte Kindersitze im Fond
+0470         00000000 0000000000000000 0000000000 0                 //ISO fix fuer Ruecksitze
+0473         00000000 0000000000000000 0000000000 0                 //Armauflage vorn
+0474         00000000 0000000000000000 0000000000 0                 //Entfall Armauflage vorn
+0481         00000000 0000000000000000 0000000000 0                 //Sportsitze fuer Fahrer/Beifahrer
+0488         00000000 0000000000000000 0000000000 0                 //Lordosenstuetze Fahrer/Beifahrer
+0490         00000000 0000000000000000 0000000000 0                 //Sitzbreitenverstellung fuer M3
+0493         00000000 0000000000000000 0000000000 0                 //Ablagenpaket
+0494         00000000 0000000000000000 0000000000 0                 //Sitzheizung fuer Fahrer+Beifahrer
+0495         00000000 0000000000000000 0000000000 0                 //3 Pkt.-Gurt+Kopfstuetze hinten mitte
+0498         00000000 0000000000000000 0000000000 0                 //Kopfstuetzen im Fond
+0502         00000000 0000000000000020 0000000000 1 SWA             //Scheinwerfer-Waschanlage
+0508         00000000 0000000000002000 0000000000 1 PDC             //Park Distance Control (PDC)
+0510         00000000 0000000000000000 0000000000 0                 //Leuchtweitenregulierung Abblendlicht
+0520         00000000 0000200000000000 0000000000 1 NEBELSCHEINW    //Nebelscheinwerfer
+H 0520 V0999 00000000 0000000000000000 0000000000 0                 //Nebelscheinwerfer
+0521         00000000 0000000000040000 0000000000 1 REGENSENSOR     //Regensensor
+0522         00000000 0000000000100000 0000000000 1 XENON           //Xenon-Licht
+0524         00000000 0000000000000000 0000000000 0                 //Lichtautomatik / Daemmerungsschalter f. Fahrlicht ab 9/01
+0528         00000000 0000000000080000 0000000000 1 AUC             //Automatische-Umluft-Control
+0530         00000000 0000004000000000 0000000000 1 KLIMAREGELUNG   //Klimaregelung
+; Integration der SA528 in die SA 534 und Entfall der SA 528 zu 6/99 Touring, PU 99
+0534         00000000 0000080000080000 0000000000 1 KLIMAAUTOMATIK AUC //Klimaautomatik incl. AUC
+H 0534 V0999 00000000 0000080000000000 0000000000 1 KLIMAAUTOMATIK  //Klimaautomatik
+0540         00000000 0000000000000000 0000000000 S
+H 0540 V0600 00000000 0000020000000000 0000000000 1 GESCHW_REG      //Geschwindigkeitsregelung/MF-Lenkrad entfallen
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO        //Kilometertacho
+0550         00000000 0000000000001000 0000000000 1 BC_BASIS        //Bordcomputer
+0577         00000000 0000000000000000 0000000000 0                 //Mietwagenvorbereitung
+0581         00000000 0000002000000000 0000000000 1 TAXI            //Taxipaket
+0601         00000000 0000000080000000 0018640620 1 BORDMONITOR RADIO_NG //Bordmonitor mit TV
+0602         00000000 0000000080000000 0000000000 1 BORDMONITOR     //Bordmonitor mit TV
+H 0606 V0900 00000000 0000000010000000 0000000000 1 LOW_NAVIGATION  //Radio-Navigation
+0606         00000000 0100000010000000 0000000000 1 MIR LOW_NAVIGATION  //MIR
+0609         00000000 00000000C0000000 0000000000 1 NAVIGATION      //Navigation + TV incl. Bordmonitor
+0612         00000000 0000000000000000 0100000000 1 BMW_ASSIST      //BMW Assist
+0620         00000000 0000000000000000 0000000000 0                 //Sprachsteuerung (Telefon)
+0627         00000000 0000000000000000 0000000000 S                 //entfallen ab 07/00
+H 0627 V0700 00000000 0008000000000000 0000000000 1 NOKIA           //Telefonvorbereitung fuer Handy Nokia entfallen
+0628         00000000 0000000000000000 0000000000 S                 //entfallen ab 07/00
+H 0628 V0700 00000000 0000000000000000 0000000000 0                 //Kommunikationspaket
+0629         00000000 0000000000000000 0000000000 0                 //entfallen ab 04/01, wird durch 630 ersetzt
+H 0629 V0501 00000000 0000000000000000 0000000000 0                 //Autotelefon D_Netz mit Kartenleser
+0630         00000000 0200000000000000 0000000000 1 SIEMENS_GSM     //Telefonvorbereitung fuer Handy Siemens
+0632         00000000 0000000000000000 0000000000 0                 //Telefonvorbereitung fuer Handy Motorola
+0638         00000000 0000000000000000 0400000000 1 TEL_PROF        //Nachruestung AUTOTELEFON PROFESSIONAL
+0640         00000000 0000000000000000 0000000000 0                 //Vorbereitung fuer Autotelefoneinbau
+0641         00000000 0000000000000000 0000000000 0                 //AMPS Komplettvorb.
+0645         00000000 0000000100000000 0000000000 1 RADIO_US        //BMW US Radio
+0650         00000000 0000000000000000 0000000000 0                 //CD Laufwerk-Steuerung
+0651         00000000 0000000000000000 0000000000 0                 //MD Laufwerk-Steuerung
+H 0651 V0301 00000000 0000000000000000 0000000000 0                 //Radio BMW C22
+0660         00000000 0000000000000000 0000000000 0                 //BMW Reverse C32
+H 0661 V0301 00000000 0000000000000000 0000000000 0                 //BMW Business C33
+0661         00000000 0000000002000000 0008040620 1 RADIO_NG        //BMW Business C53New Generation
+H 0662 V0301 00000000 0000000002000000 0000000000 1 RADIO_CD43      //BMW Business CD43
+0662         00000000 0000000002000000 0008040660 1 RADIO_CD43_ALT  //BMW Business CD43, entfallen ab 10/01
+H 0663 V0301 00000000 0000000000000000 0000000000 0                 //BMW Professional 
+0663         00000000 0000000002000000 0008040620 1 RADIO_NG        //BMW Professional CD54
+0672         00000000 0000000000000000 0000000000 0                 //CD Wechsler BMW 6 CD Changer
+0674         00000000 0000000000000000 0000000000 0                 //HiFi System Harman/Kardon
+0676         00000000 0000000000000000 0000000000 0                 //HIFI Lautsprechersystem
+0679         00000000 0000000000000000 0000000000 0                 //HIFI Subwoofersystem
+0682         00000000 0000000000000000 0000000000 0                 //Fondsitzbank in Stoff
+0692         00000000 0000000000000000 0000000000 0                 //Vorb. f. BMW 6 CD Changer I-Bus
+0704         00000000 0000000000000000 0000000000 0                 //Sportfahrwerk M
+0709         00000000 0000000000000000 0000000000 0                 //M Lederlenkrad
+0710         00000000 0000000000000000 0000000000 0                 //M Lederlenkrad
+H 0710 V0600 00000000 0000020000000000 0000000000 1 GESCHW_REG      //M Lederlenkrad mit Multifunktionstas.
+0715         00000000 0000001000000000 0000000000 1 SPORTPAKET      //Aerodynamikpaket M
+0716         00000000 0400000000000000 0000000000 1 SPORTPAKET_II   //Aerodynamikpaket M II
+0753         00000000 0000000000000000 0000000000 0                 //Youngline
+0754         00000000 0000000000000000 0000000000 0                 //M-Heckspoiler
+0760         00000000 0000000000000000 0000000000 0                 //Hochglanz Shadow Line
+0761         00000000 0000000000000000 0000000000 0                 //Individual Sonnenschutzverglasung
+0771         00000000 0000000000000000 0000000000 0                 //M Titan Line Interieur
+0772         00000000 0000000000000000 0000000000 0                 //M Aluminiumblenden anthrazit
+0774         00000000 0000000000000000 0000000000 0                 //Edelholz Eukalyptus
+0775         00000000 0000000000000000 0000000000 0                 //Individual Dachhimmel anthrazit
+0778         00000000 0000000000000000 0000000000 0                 //Individual Blende Einstiegshilfe
+0785         00000000 0000000000000000 0000000000 0                 //Weisse Blinkleuchten, rundum
+0788         00000000 0000000000000000 0000000000 0                 //LM-Gussraeder, Doppelspeiche, Styling 68M
+0789         00000000 0000000000000000 0000000000 0                 //BMW LM-Raeder mit Mischbereifung
+H 0789 V0600 00000000 0000000000000000 0000000000 0                 //LM-Gussraeder, V-Speiche, Styling 72M
+0792         00000000 0000000000000000 0000000000 0                 //LM-Schmiederad 19""
+0793         00000000 0010000000000000 0000000000 1 SEQ_M_GETRIEBE  //Sequentielles M-Getriebe
+0800         00000000 0000000000000000 0000000000 0                 //Abgasanlage komplett Laender
+0801         00000100 0000000000000000 0000000000 0                 //Auftragssteuerung ZD
+0802         00000200 0000000000000000 0000000000 1 KOREA           //Korea-Ausfuehrung
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Korea LL
+; Zwangszusteuerung 875 Infrarotfernbedienung fuer Korea
+H 0802 V0600 00000200 0000000000000000 0000000000 0                 //Korea-Ausfuehrung
+0807         00000700 0000000000000000 0000000000 1 JAPAN           //Japan-Ausfuehrung
+; Zwangszusteuerung 205 Automatikgetriebe ausser 318i
+; Zwangszusteuerung 548 KM/h Tacho fuer RL
+; Zwangszusteuerung 823 Heissland-Ausfuehrung
+; Zwangszusteuerung 845 Akustische Gurtwarnung
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer LL
+; Zwangszusteuerung 875 Infrarotfernbedienung
+0810         00001000 0000000000000000 0000000000 1 AUSTRALIEN      //Australien-Ausfuehrung
+; Zwangszusteuerung 548 KM/h Tacho fuer Australien
+; Zwangszusteuerung 823 Heissland-Ausfuehrung
+; Zwangszusteuerung 825 Ozeanien-Radio
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz
+; Zwangszusteuerung 926 Reserverad wie Laufrad
+0811         00001100 0000000000000000 0000000000 S                 //Belgien-Ausfuehrung
+H 0811 V0998 00001100 0000000000000000 0000000000 0                 //Belgien-Ausfuehrung
+; Zwangszusteuerung 877 Entfall Ueberkreuzbedienung fuer Belgien
+0812         00001200 0000000000000000 0000000000 1 ENGLAND         //England-Ausfuehrung
+; Zwangszusteuerung 877 Entfall Ueberkreuzbedienung fuer England
+0815         00000000 0000000000000000 0000000000 0                 //Schlechtwegepaket
+0818         00000000 0000000000000000 0000000000 0                 //Batteriehauptschalter
+0820         00002000 0000000000000000 0000000000 0                 //Brasilien-Ausfuehrung
+; Zwangszusteuerung 645 BMW US Radio fuer Brasilien
+; Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Brasilien
+0821         00002100 0000000000000000 0000000000 0                 //Aegypten-Ausfuehrung
+; Zwangszusteuerung 823 Heissland-Ausfuehrung
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch
+0822         00002200 0000000000000000 0000000000 1 GOLF            //Golf-Ausfuehrung
+; Zwangszusteuerung 534 Klimaautomatik
+; Zwangszusteuerung 823 Heissland-Ausfuehrung
+; Zwangszusteuerung 845 Akustische Gurtwarnung
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer LL
+0823         00000000 0000800000000000 0000000000 1 TROPEN          //Heissland-Ausfuehrung
+0824         00002400 0000000000000000 0000000000 1 ZA              //Suedafrika-Ausfuehrung
+; Zwangszusteuerung 548 KM/h Tacho fuer Suedafrika
+; Zwangszusteuerung 877 Entfall Ueberkreuzbedienung fuer Suedafrika
+0825         00000000 0000000008000000 0000000000 1 OZEANIEN        //Ozeanien-Radio
+0832         00000000 0000000000010000 0000000000 1 BATT_KOFFERRAUM //Batterie im Kofferraum
+0833         00003300 0000000000000000 0000000000 0                 //Singapur-Ausfuehrung
+; Zwangszusteuerung 875 Infrarotfernbedienung fuer Singapur bis 01/99
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz ab 01/99
+; Zwangszusteuerung 857 Vorb. f. nachtr. Einbau Klimaautomatik fuer Singapur
+0834         00000000 0000000000000100 0000040620 1 ENTF_FRANKREICH //Entfallumfaenge 330d Frankreich
+0838         00003800 0000000000000000 0000000000 1 KANADA          //Kanada-Ausfuehrung
+; Zwangszusteuerung 548 KM/h Tacho fuer Kanada ab MA99
+; Zwangszusteuerung 896 Tagfahrlicht fuer Kanada
+0842         00000000 0000000000000000 0000000000 0                 //Kaltland-Ausfuehrung
+0843         00000000 0000000000000000 0000000000 0                 //Motorauslegung
+0845         00000000 0000000000020000 0000000000 1 AK_GUWA         //Akustische Gurtwarnung
+0846         00004600 0000000000000000 0000000000 0                 //Taiwan-Ausfuehrung
+; Zwangszusteuerung 845 Akustische Gurtwarnung fuer Taiwan ab PU98
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz
+; Zwangszusteuerung 992 Steuerung Kennzeichenbefestigung ab 02/00 fuer AN31/AN51/AN55/AN91
+0847         00000000 0001000000000000 0000000000 1 SICH_FZG        //Vorbereitung f. Sicherheitsfahrzeug
+0850         00000000 0000000000000000 0000000000 0                 //Zusaetzl. Tankfuellung Export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH         //Amaturenbeschriftung deutsch
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH        //Amaturenbeschriftung englisch
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH    //Armaturenbeschriftung franzoesisch
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH     //Armaturenbeschriftung italienisch
+0856         00000006 0000000000000000 0000000000 1 SPANISCH        //Armaturenbeschriftung spanisch
+0857         00000000 0000080000080000 0000000000 1 KLIMAAUTOMATIK AUC //Vorb. Einbau Klimaautomatik incl. AUC
+H 0857 V0999 00000000 0000080000000000 0000000000 1 KLIMAAUTOMATIK  //Vorb. Einbau Klimaautomatik
+0858         00000000 0000000000000000 0000000000 0                 //Motorauslegung fuer minderwertigen Kraftstoff
+0861         00000000 0000000000000004 0000000000 1 MILANSTEUERUNG  //Aenderung Codierdatensatz (EOBD)
+0862         00000000 0000000000000000 0000000000 0                 //COC-Datenblatt (EU-3)
+0863         00000000 0000000000000000 0000000000 0                 //Europa/Haendlerverzeichnis
+0864         00000000 0000000000000000 0000000000 0                 //Uebersee/Haendlerverzeichnis
+0875         00000000 0004000000000000 0000000000 1 INFRAROT FERNBED //Infrarotfernbedienung
+0876         00000000 0000000000200000 0000000000 1 FERNBED         //Funkfrequenz 315 MHz
+0877         00000000 0000000000008000 0000000000 1 ENTF_UEBERKREUZ //Entfall ueberkreuzbedienung
+0879         00000000 0000000000000000 0000000000 0                 //Deutsch/Betriebsanl./Serviceheft
+0880         00000000 0000000000000000 0000000000 0                 //Englisch/Betriebsanl./Serviceheft
+0881         00000000 0000000000000000 0000000000 0                 //Franzoesisch/Betriebsanl./Serviceheft
+0883         00000000 0000000000000000 0000000000 0                 //Spanisch/Betriebsanl./Serviceheft
+0884         00000000 0000000000000000 0000000000 0                 //Italienisch/Betriebsanl./Serviceheft
+0885         00000000 0000000000000000 0000000000 0                 //Schwedisch/Betriebsanl./Serviceheft
+0886         00000000 0000000000000000 0000000000 0                 //Hollaendisch/Betriebsanl./Serviceheft
+0887         00000000 0000000000000000 0000000000 0                 //Arabisch/Betriebsanl./Serviceheft
+0888         00000000 0000000000000000 0000000000 0                 //Daenisch/Betriebsanl./Serviceheft
+0889         00000000 0000000000000000 0000000000 0                 //Portugiesich/Betriebsanl./Serviceheft
+0896         00000000 0000000000000040 0000000000 1 TAGFAHRLICHT    //Tagfahrlichtschaltung
+0897         00000020 0000000000000000 0000000000 1 DAUERTON        //Dauerton fuer DWA
+0899         00000000 0002000000000000 0000000000 1 ALARM_OPT_AL    //Optische Signalgebung fuer DWA
+08ST         00000000 0000000000000000 0800000000 1 SIA_EXTRA_KURZ  //Codierung Wartungsintervall auf 6.000 km
+0901         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle allgemein
+0902         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle Pressewagen
+0903         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle Stand/Fotowagen
+0904         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle Typpruefwagen
+0905         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle Vorfuehrwagen
+0906         00000000 0000000000000000 0000000000 0                 //Sonderkontrolle Fotofahrz. b. Neuanl.
+0910         00000000 0000000000000000 0000000000 0                 //Entwicklungsfzg. o. Uebergabeinsp.
+0911         00000000 0000000000000000 0000000000 0                 //Entwicklungsfzg. m. Uebergabeinsp.
+0912         00000000 0000000000000000 0000000000 0                 //OE-Paket (Israel)
+0915         00000000 0000000000000000 0000000000 0                 //Entfall Aussenhautkonservierung
+0916         00000000 0000000000000000 0000000000 0                 //Entwicklungsfzg. ohne Konservierung
+0920         00000040 0000000000000000 0000000000 1 ALPINA          //Alpina
+0925         00000000 0000000000000000 0000000000 0                 //Versandschutzpaket
+0926         00000000 0000000800000000 0000000000 1 ERSATZRAD       //Reserverad wie Laufrad
+H 0926 V0998 00000000 0000000000000000 0000000000 0                 //Reserverad wie Laufrad
+0927         00000000 0000000000000000 0000000000 0                 //Entfaellt ab 09/01 lt. Statusbericht 02/2001
+H 0927 V0901 00000000 0000000000000000 0000000000 0                 //All Season Bereifung fuer Japan
+0928         00000000 0000000000000000 0000000000 0                 //Reifensteuerung
+0930         00000000 0000000000000000 0000000000 0                 //BERUECKSICHTIGUNG PREISABHAENGK.
+0931         00000000 0000000000000000 0000000000 0                 //Winterreifen fuer Autovermieter
+0932         00000000 0000000000000000 0000000000 0                 //Winterreifen zusaetzlich
+0933         00000000 0000000000000000 0000000000 0                 //Radkappen fuer Winterraeder
+0934         00000000 0000000000000000 0000000000 0                 //Winterreifen auf LM-Raeder
+0936         00000000 0000000000000000 0000000000 0                 //BMW Handy bei Auslieferung anfordern
+0937         00000000 0000000000000000 0000000000 0                 //Navi CD Room bei Auslieferung anfordern
+0938         00000000 0000000000000000 0000000000 0                 //ZS Individualserie
+0939         00000000 0000000000000000 0000000000 0                 //Beruecksichtigung Preisabhangigkeit
+0940         00000000 0000000000000000 0000000000 0                 //Sonderwunsch-Ausstattung
+0941         00000000 0000000000000000 0000000000 0                 //Sonderwunschabwicklung
+0942         00000000 0000000000000000 0000000000 0                 //Storno Sonderwunsch
+0944         00000000 0000000000000000 0000000000 0                 //Nachtraegl. Umbau durch ZS
+0945         00000000 0000000000000000 0000000000 0                 //Beruecksichtigung Preisabhangigkeit
+0946         00000000 0000000000000000 0000000000 0                 //Beruecksichtigung Preisabhangigkeit
+0948         00000000 0000000000000000 0000000000 0                 //Kernmodellpaket V-1-KA
+0949         00000000 0000000000000000 0000000000 0                 //LA Sport-Paket f. AV51
+0950         00000000 0000000000000000 0000000000 0                 //Lateinamerika-Paket
+0951         00000000 0000000000000000 0000000000 0                 //Korea-Paket
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Korea LL
+; Zwangszusteuerung 875 Infrarotfernbedienung fuer Korea
+0952         00000000 0000000000000000 0000000000 0                 //China-Paket
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer China LL
+0953         00000000 0000000000000000 0000000000 0                 //Taiwan-Paket
+; Zwangszusteuerung 845 Akustische Gurtwarnung fuer Taiwan ab PU98
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz
+; Zwangszusteuerung 992 Steuerung Kennzeichenbefestigung ab 02/00 fuer AN31/AN51/AN55/AN91
+0954         00000000 0000000000000000 0000000000 0                 //Businesspaket II fuer Grosskunden
+; Zwangszusteuerung 548 KM/h Tacho fuer Hongkong RL
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Hongkong
+0955         00000000 0000000000000000 0000000000 0                 //Business-Line Paket
+0956         00000000 0000000000000000 0000000000 0                 //Middle East-Paket
+0957         00000000 0000000000000000 0000000000 0                 //Hk-Paket
+0960         00000000 0000000000000000 0000000000 0                 //Lenkwinkelbegrenzung
+0972         00000000 0000000000000000 0000000000 0                 //Comfort Paket
+0973         00000000 0000000000000000 0000000000 0                 //Malaysia Paket
+; Zwangszusteuerung 548 KM/h Tacho fuer Malaysia RL
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+0977         00000000 0000000000000000 0000000000 0                 //Exclusiv Paket
+0979         00000000 0000000000000000 0000000000 0                 //Businesspaket fuer Grosskunden
+0981         00000000 0000000000000000 0000000000 0                 //Comfort plus Paket
+0982         00000000 0000000400000000 0000000000 1 HARDTOP         //Hardtop in Wagenfarbe
+0983         00000000 0000000000000000 0000000000 0                 //Modelljahrescode Export
+0984         00000000 0000008000000000 0000000000 1 SIA_INTERVALL   //Codierung Wartungsintervall auf 15.000 km
+0986         00000000 0000000000000000 0000000000 0                 //Terminpruefung
+0987         00000000 0000000000000000 0000000000 0                 //Existenzpruefung
+0988         00000000 0020000000000000 0000000000 1 SIA_INTERVALL2  //Codierung Wartungsintervall auf 11.000 km
+0991         00000000 0000000000000000 0000000000 0                 //Steuerung Vorserie
+0992         00000000 0000000000000000 0000000000 0                 //Steuerung Kennzeichenbefestigung
+0993         00000000 0000000000000000 0000000000 0                 //Modelljahrescode
+0994         00000000 0000000000000000 0000000000 0                 //Besondere Steuerung
+0995         00000000 0000000000000000 0000000000 0                 //Aenderungssperre
+0997         00000000 0000000000000000 0000000000 0                 //Haendlerpraesentation Export
+0998         00000000 0000000000000000 0000000000 0                 //Anlaufsteuerung interne Bedarfe
+0999         00000000 0000000000000000 0000000000 0                 //Auftragssteuerung HEA
+B TYP         //Neue Bereichskennung fuer ZEKO!!
+;******************************************************************************
+; TYPSCHLueSSEL, ihre Aenderungen und Historie
+; Aenderungssteuerwoerter ersetzen zwingend die zu aendernde Typschluesselnummer
+; Historische Steuerwoerter, welche aus Typschluesselnummeraenderungen hervorgegangen
+; sind, werden in chronologisch aufsteigender Reihenfolge bei der betreffenden
+; Typschluesselnummer aufgefuehrt.
+;*******************************************************************************
+; Compact
+AT11         6C110000 0000000000000000 0000000000 1 COMP N40B16        LL     //Compact 316ti     LL 03/02 - 12/07 f. Griechenland und Portugal
+AT31         6C210000 0000204000001000 0000000000 1 COMP M54B25        LL     //Compact 325ti     LL 04/01 - 12/07
+H AT31 V0596 6C210000 0000000000000000 0000000000 1 COMP M54B25        LL     
+AT32         6C220000 0000204000001000 0000000000 1 COMP M54B25        RL     //Compact 325ti     RL 04/01 - 12/07
+H AT32 V0596 6C220000 0000000000000000 0000000000 1 COMP M54B25        RL     
+AT51         6C310000 0000000000000000 0000000000 1 COMP N42B18        LL     //Compact 316ti     LL 04/01 - 12/07
+AT52         6C320000 0000000000000000 0000000000 1 COMP N42B18        RL     //Compact 316ti     RL 04/01 - 12/07
+AT71         6C410000 0000000000000000 0000000000 1 COMP M47D20 KW_105 LL     //Compact 320td TUE LL 09/01 - 12/07
+AT72         6C420000 0000000000000000 0000000000 1 COMP M47D20 KW_105 RL     //Compact 320td TUE RL 09/01 - 12/07
+AU33         6C830000 0000004000000000 0000000000 1 COMP M56B25        LL US  //Compact 325ti     LL 09/02 -
+H AU33 V0596 6C830000 0000000000000000 0000000000 1 COMP M56B25        LL US    
+AU51         6C710000 0000000000000000 0000000000 1 COMP N42B20        LL     //Compact 318ti     LL 09/01
+AU52         6C720000 0000000000000000 0000000000 1 COMP N42B20        RL     //Compact 318ti     RL 09/01
+; Limousine
+AL11         65110000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  LL     //Limousine 316i    LL 12/98 - 08/01
+AL12         65120000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  RL     //Limousine 316i    RL 03/99 - 08/01
+AL18         65180000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  LL VIETNAM //Limousine 316i    LL 01/00 - 08/01 Vietnam
+AL31         65310000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  LL     //Limousine 318i    LL 12/97 - 02/02
+AL32         65320000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  RL     //Limousine 318i    RL 04/98 - 02/02
+AL34         65340000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  RL MALAYSIA //Limousine 318i    RL 05/99 - 08/01 Malaysia
+; Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+AL35         65350000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  RL THAILAND //Limousine 318i    RL 02/00 - 08/01 Thailand
+; Zwangszusteuerung 548 KM/h Tacho fuer Thailand
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Thailand
+AL36         65360000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  LL AEGYPTEN //Limousine 318i    LL 09/98 - 08/01 Aegypten
+; Zwangszusteuerung 823 Heissland-Ausfuehrung
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch
+AL37         65370000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  RL INDONESIEN //Limousine 318i    RL 09/98 - 08/01 Indonesien
+; Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+AL39         65390000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  LL PHILIPPINEN //Limousine 318i    LL 09/98 - 08/01 Philippinen
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+AL51         65510000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  LL     //Limousine 316i    LL 12/98 - 08/01 nur Griechenland, Portugal
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Griechenland
+AL55         65550000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  LL PHILIPPINEN //Limousine 316i    LL 10/99 - 08/01 Philippinen
+AL58         65580000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  LL     //Limousine 318i    LL 03/01 - 08/01 Russland
+AL71         67710000 0000000000000000 0000000000 1 LIM  M47D20 KW_100 LL     //Limousine 320d    LL 03/98 - 08/01
+AL72         67720000 0000000000000000 0000000000 1 LIM  M47D20 KW_100 RL     //Limousine 320d    RL 09/99 - 08/01
+AL91         67810000 0000204004201000 0000000000 1 LIM  M57D30        LL     //Limousine 330d    LL 09/99 - 08/01 
+H AL91 V0900 67810000 0000200004201000 0000000000 1 LIM  M57D30        LL     //Limousine 330d    LL 09/99 - 08/01 
+H AL91 V0999 67810000 0000000004201000 0000000000 1 LIM  M57D30        LL     //Limousine 330d    LL  
+H AL91 V0596 67810000 0000000000000000 0000000000 1 LIM  M57D30        LL
+AL92         67820000 0000204004201000 0000000000 1 LIM  M57D30        RL     //Limousine 330d    RL 02/00 - 08/01 
+H AL92 V0900 67820000 0000200004201000 0000000000 1 LIM  M57D30        RL     //Limousine 330d    RL 02/00 - 08/01 
+H AL92 V0596 67820000 0000000000000000 0000000000 1 LIM  M57D30        RL
+AM11         66110000 0000204000001000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL     
+H AM11 V0900 66110000 0000200000001000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL     
+H AM11 V0999 66110000 0000000000001000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL     
+H AM11 V0596 66110000 0000000000000000 0000000000 1 LIM  M52B20        LL
+AM12         66120000 0000200000201000 0000000000 1 LIM  M52B20        RL     //Limousine 320i    RL 12/98 - 08/01
+H AM12 V0999 66120000 0000000000201000 0000000000 1 LIM  M52B20        RL     //Limousine 320i    RL  
+H AM12 V0596 66120000 0000000000000000 0000000000 1 LIM  M52B20
+AM31         66310000 0000200000001000 0000000000 1 LIM  M52B25        LL     //Limousine 323i    LL 03/98 - 08/01
+H AM31 V0999 66310000 0000000000001000 0000000000 1 LIM  M52B25        LL     //Limousine 323i    LL
+H AM31 V0596 66310000 0000000000000000 0000000000 1 LIM  M52B25        LL
+AM32         66320000 0000200000201000 0000000000 1 LIM  M52B25        RL     //Limousine 323i    RL 09/98 - 08/01
+H AM32 V0999 66320000 0000000000201000 0000000000 1 LIM  M52B25        RL     //Limousine 323i    RL
+H AM32 V0596 66320000 0000000000000000 0000000000 1 LIM  M52B25        RL
+AM33         66330000 0000000004200000 0000000000 1 LIM  M52B25        LL US  //Limousine 323i    US 07/98 - 08/01
+H AM33 V0596 66330000 0000000000000000 0000000000 1 LIM  M52B25        LL US
+ES35         66350000 0000204000201000 0018640620 1 LIM  M52B25        RL THAILAND //Limousine 323i    RL 09/01 - 02/05 Thailand
+AM35         66350000 0000200000201000 0000000000 1 LIM  M52B25        RL THAILAND //Limousine 323i    RL 09/00 - 08/01 Thailand
+H AM35 V0596 66350000 0000000000000000 0000000000 1 LIM  M52B25        RL THAILAND
+; Zwangszusteuerung 548 KM/h Tacho fuer Thailand
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Thailand
+AM36         66360000 0000200000201000 0000000000 1 LIM  M52B25        LL VIETNAM //Limousine 323i    LL 09/98 - 11/00 Vietnam
+H AM36 V0999 66360000 0000000000201000 0000000000 1 LIM  M52B25        LL VIETNAM //Limousine 323i    LL Vietnam
+H AM36 V0596 66360000 0000000000000000 0000000000 1 LIM  M52B25        LL VIETNAM
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Vietnam
+AM37         66370000 0000200000201000 0000000000 1 LIM  M52B25        RL INDONESIEN //Limousine 323i    RL 11/99 - 11/00 Indonesien
+H AM37 V0999 66370000 0000000000201000 0000000000 1 LIM  M52B25        RL INDONESIEN //Limousine 323i    RL Indonesien
+H AM37 V0596 66370000 0000000000000000 0000000000 1 LIM  M52B25        RL INDONESIEN
+; Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+AM38         66380000 0000200000001000 0000000000 1 LIM  M52B25        LL MEXICO //Limousine 323i LL 07/98 - 11/00 Mexico
+H AM38 V0999 66380000 0000000000001000 0000000000 1 LIM  M52B25        LL MEXICO //Limousine 323i LL Mexico
+H AM38 V0596 66380000 0000000000000000 0000000000 1 LIM  M52B25        LL MEXICO
+; Zwangszusteuerung 645 BMW US Radio fuer Mexico
+; Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+AM39         66390000 0000200000001000 0000000000 1 LIM  M52B25        LL PHILIPPINEN //Limousine 323i    LL 07/98 - 11/00 Philippinen
+H AM39 V0999 66390000 0000000000001000 0000000000 1 LIM  M52B25        LL PHILIPPINEN //Limousine 323i    LL Philippinen
+H AM39 V0596 66390000 0000000000000000 0000000000 1 LIM  M52B25        LL PHILIPPINEN
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+AM51         66510000 0000200004201000 0000000000 1 LIM  M52B28        LL     //Limousine 328i    LL 12/97 - 05/00
+H AM51 V0999 66510000 0000000004201000 0000000000 1 LIM  M52B28        LL     //Limousine 328i    LL
+H AM51 V0596 66510000 0000000000000000 0000000000 1 LIM  M52B28        LL
+AM52         66520000 0000200004201000 0000000000 1 LIM  M52B28        RL     //Limousine 328i    RL 04/98 - 05/00
+H AM52 V0999 66520000 0000000004201000 0000000000 1 LIM  M52B28        RL     //Limousine 328i    RL
+H AM52 V0596 66520000 0000000000000000 0000000000 1 LIM  M52B28        RL
+AM53         66530000 0000000004201000 0000000000 1 LIM  M52B28        LL US  //Limousine 328i    US 06/98 - 05/00
+H AM53 V0596 66530000 0000000000000000 0000000000 1 LIM  M52B28        LL US  //Limousine 328i
+AM54         66540000 0000200004201000 0000000000 1 LIM  M52B28        RL MALAYSIA //Limousine 328i    RL 04/99 - 08/00 Malaysia
+H AM54 V0999 66540000 0000000004201000 0000000000 1 LIM  M52B28        RL MALAYSIA //Limousine 328i    RL Malaysia
+H AM54 V0596 66540000 0000000000000000 0000000000 1 LIM  M52B28        RL MALAYSIA
+; Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+AM57         66570000 0000200004001000 0000000000 1 LIM  M52B28        LL MEXICO //Limousine 328i LL 05/98 - 08/00 Mexico
+H AM57 V0999 66570000 0000000004001000 0000000000 1 LIM  M52B28        LL MEXICO //Limousine 328i LL Mexico
+H AM57 V0596 66570000 0000000000000000 0000000000 1 LIM  M52B28        LL MEXICO
+; Zwangszusteuerung 645 BMW US Radio fuer Mexico
+; Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+AN11         66710000 0000204000201000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL 08/99 - 08/01 ZAF
+H AN11 V0900 66710000 0000200000201000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL 08/99 - 08/01 ZAF
+H AN11 V0999 66710000 0000000000201000 0000000000 1 LIM  M52B20        LL     //Limousine 320i    LL ZAF
+H AN11 V0596 66710000 0000000000000000 0000000000 1 LIM  M52B20        LL
+AN12         66720000 0000204000201000 0000000000 1 LIM  M52B20        RL     //Limousine 320i    RL 04/99 - 08/01 ZAF
+H AN12 V0900 66720000 0000200000201000 0000000000 1 LIM  M52B20        RL     //Limousine 320i    RL 04/99 - 08/01 ZAF
+H AN12 V0999 66720000 0000000000201000 0000000000 1 LIM  M52B20        RL     //Limousine 320i    RL ZAF
+H AN12 V0596 66720000 0000000000000000 0000000000 1 LIM  M52B20        RL
+AN15         66610000 0000204000201000 0000000000 1 LIM  M54B22        LL     //Limousine 320i    RL 10/00 - 08/01 ZAF
+H AN15 V0596 66610000 0000000000000000 0000000000 1 LIM  M54B22        LL
+AN16         66620000 0000204000201000 0000000000 1 LIM  M54B22        RL     //Limousine 320i    RL 10/00 - 08/01 ZAF
+H AN16 V0596 66620000 0000000000000000 0000000000 1 LIM  M54B22        RL
+AN31         66A10000 0000200000201000 0000000000 1 LIM  M52B25        LL     //Limousine 323i    LL 03/99 - 08/00 ZAF
+H AN31 V0999 66A10000 0000000000201000 0000000000 1 LIM  M52B25        LL     //Limousine 323i    LL ZAF
+H AN31 V0596 66A10000 0000000000000000 0000000000 1 LIM  M52B25        LL
+; Zwangszusteuerung 548 KM/h AN32
+AN32         66A20000 0000200000201000 0000000000 1 LIM  M52B25        RL     //Limousine 323i    RL 04/99 - 08/00 ZAF
+H AN32 V0999 66A20000 0000000000201000 0000000000 1 LIM  M52B25        RL     //Limousine 323i    RL ZAF
+H AN32 V0596 66A20000 0000000000000000 0000000000 1 LIM  M52B25        RL
+AN33         66A30000 0000000004200000 0000000000 1 LIM  M52B25        LL US  //Limousine 323i    US 01/00 - 08/00 ZAF
+H AN33 V0596 66A30000 0000000000000000 0000000000 1 LIM  M52B25        LL US
+AN35         66B10000 0000204000201000 0000000000 1 LIM  M54B25        LL     //Limousine 325i    LL 10/00 - 08/01 ZAF
+H AN35 V0596 66B10000 0000000000000000 0000000000 1 LIM  M54B25        LL
+AN36         66B20000 0000204000201000 0000000000 1 LIM  M54B25        RL     //Limousine 325i    RL 10/00 - 08/01 ZAF
+H AN36 V0596 66B20000 0000000000000000 0000000000 1 LIM  M54B25        RL
+AN37         66B30000 0000004004200000 0000000000 1 LIM  M54B25        LL US  //Limousine 325i    US 10/00 - 08/01 ZAF
+H AN37 V0596 66B30000 0000000000000000 0000000000 1 LIM  M54B25        LL
+AN51         66C10000 0000200004201000 0000000000 1 LIM  M52B28        LL     //Limousine 328i    LL 10/98 - 05/00 ZAF
+H AN51 V0999 66C10000 0000000004201000 0000000000 1 LIM  M52B28        LL     //Limousine 328i    LL ZAF
+H AN51 V0596 66C10000 0000000000000000 0000000000 1 LIM  M52B28        LL
+; Zwangszusteuerung 548 KM/h AN52
+AN52         66C20000 0000200004201000 0000000000 1 LIM  M52B28        RL     //Limousine 328i    RL 10/98 - 05/00 ZAF
+H AN52 V0999 66C20000 0000000004201000 0000000000 1 LIM  M52B28        RL     //Limousine 328i    RL ZAF
+H AN52 V0596 66C20000 0000000000000000 0000000000 1 LIM  M52B28        RL
+AN55         66D10000 0000204004201000 0000000000 1 LIM  M54B30        LL     //Limousine 330i    LL 07/00 - 08/01 ZAF
+H AN55 V0596 66D10000 0000000000000000 0000000000 1 LIM  M54B30        LL
+AN56         66D20000 0000204004201000 0000000000 1 LIM  M54B30        RL     //Limousine 330i    RL 07/00 - 08/01 ZAF
+H AN56 V0596 66D20000 0000000000000000 0000000000 1 LIM  M54B30        RL
+AN72         65720000 0000000000200000 0000000000 1 LIM  M43B19 KW_77  RL     //Limousine 316i    RL 03/99 - 08/00 ZAF
+H AN72 V0596 65720000 0000000000000000 0000000000 1 LIM  M43B19 KW_77  RL
+AN91         65910000 0000000000200000 0000000000 1 LIM  M43B19 KW_87  LL     //Limousine 318i    LL 03/99 - 08/01 ZAF
+H AN91 V0596 65910000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  LL
+AN92         65920000 0000000000000000 0000000000 1 LIM  M43B19 KW_87  RL     //Limousine 318i    RL 10/98 - 08/01 ZAF
+; Zwangszusteuerung 548 KM/h AN92
+AS51         67E10000 0000000000000000 0000000000 1 LIM  M47D20 KW_85  LL     //Limousine 318d    LL 12/00 - 08/01
+AS71         67B10000 0000004000000000 0000000000 1 LIM  M47D20 KW_105 LL     //Limousine 320d TU LL 09/01 - 11/04
+H AS71 V0596 67B10000 0000000000000000 0000000000 1 LIM  M47D20 KW_105 LL
+AS72         67B20000 0000004000000000 0000000000 1 LIM  M47D20 KW_105 RL     //Limousine 320d TU RL 09/01 - 02/05
+H AS72 V0596 67B20000 0000000000000000 0000000000 1 LIM  M47D20 KW_105 RL
+AV11         66210000 0000204000201000 0000000000 1 LIM  M54B22        LL     //Limousine 320i    LL 09/00 - 08/01
+H AV11 V0596 66210000 0000000000000000 0000000000 1 LIM  M54B22        LL
+AV12         66220000 0000204000201000 0000000000 1 LIM  M54B22        RL     //Limousine 320i    RL 09/00 - 08/01
+H AV12 V0596 66220000 0000000000000000 0000000000 1 LIM  M54B22        RL
+AV13         66230000 0000004004200000 0000000000 1 LIM  M54B22        LL US  //Limousine 320i    LL 09/00 - 08/01
+H AV13 V0596 66230000 0000000000000000 0000000000 1 LIM  M54B22        LL US
+AV18         66280000 0000204000201000 0000000000 1 LIM  M54B22        LL     //Limousine 320i    LL 03/01 - 08/01 Russland
+H AV18 V0596 66280000 0000000000000000 0000000000 1 LIM  M54B22        LL
+AV31         65410000 0000204000201000 0000000000 1 LIM  M54B25        LL     //Limousine 325i    LL 09/00 - 08/01
+H AV31 V0596 65410000 0000000000000000 0000000000 1 LIM  M54B25        LL
+AV32         65420000 0000204000201000 0000000000 1 LIM  M54B25        RL     //Limousine 325i    RL 09/00 - 08/01
+H AV32 V0596 65420000 0000000000000000 0000000000 1 LIM  M54B25        RL
+AV33         65430000 0000004004200000 0000000000 1 LIM  M54B25        LL US  //Limousine 325i    US 09/00 - 08/01
+H AV33 V0596 65430000 0000000000000000 0000000000 1 LIM  M54B25        LL US
+AV35         65450000 0000200000201000 0000000000 1 LIM  M54B25        RL MALAYSIA //Limousine 325i    RL 09/00 - 08/01 Malaysia
+H AV35 V0596 65450000 0000000000000000 0000000000 1 LIM  M54B25        RL MALAYSIA
+; Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+AV36         65460000 0000204000201000 0000000000 1 LIM  M54B25        RL INDONESIEN //Limousine 325i    RL 09/00 - 08/01 Indonesien
+H AV36 V0596 65460000 0000000000000000 0000000000 1 LIM  M54B25        RL INDONESIEN
+; Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+AV37         65470000 0000204000201000 0000000000 1 LIM  M54B25        LL PHILIPPINEN //Limousine 325i    LL 09/00 - 08/01 Philippinen
+H AV37 V0596 65470000 0000000000000000 0000000000 1 LIM  M54B25        LL PHILIPPINEN
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+AV38         65480000 0000204000001000 0000000000 1 LIM  M54B25        LL VIETNAM //Limousine 325i    LL 09/00 - 08/01 Vietnam
+H AV38 V0596 65480000 0000000000000000 0000000000 1 LIM  M54B25        LL VIETNAM
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Vietnam
+AV39         65490000 0000204000001000 0000000000 1 LIM  M54B25        LL MEXICO //Limousine 325i LL 09/00 - 08/01 Mexico
+H AV39 V0596 65490000 0000000000000000 0000000000 1 LIM  M54B25        LL MEXICO
+; Zwangszusteuerung 645 BMW US Radio fuer Mexico
+; Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+AV51         65610000 0000204004201000 0000000000 1 LIM  M54B30        LL     //Limousine 330i    LL 06/00 - 08/01
+H AV51 V0596 65610000 0000000000000000 0000000000 1 LIM  M54B30        LL
+AV52         65620000 0000204004201000 0000000000 1 LIM  M54B30        RL     //Limousine 330i    RL 06/00 - 08/01
+H AV52 V0596 65620000 0000000000000000 0000000000 1 LIM  M54B30        RL
+AV53         65630000 0000204004201000 0000000000 1 LIM  M54B30        LL US  //Limousine 330i    US 06/00 - 08/01
+H AV53 V0596 65630000 0000000000000000 0000000000 1 LIM  M54B30        LL US
+AV59         65690000 0000204004201000 0000000000 1 LIM  M54B30        LL MEXICO //Limousine 330i LL 06/00 - 08/01 Mexico
+H AV59 V0596 65690000 0000000000000000 0000000000 1 LIM  M54B30        LL MEXICO
+; Zwangszusteuerung 645 BMW US Radio fuer Mexico
+; Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+; Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+AV72         67220000 0000000000000000 0000000000 1 LIM  M47D20 KW_100 RL     //Limousine 320d    RL 04/00 - 08/01 ZAF
+; Touring
+AP31         68310000 0000000000000000 0000000000 1 TOUR M43B19 KW_87  LL     //Touring 318i      LL 06/99 - 08/01
+AP32         68320000 0000000000000000 0000000000 1 TOUR M43B19 KW_87  RL     //Touring 318i      RL 09/99 - 08/01
+AP51         67D10000 0000000000000000 0000000000 1 TOUR M47D20 KW_85  LL     //Touring 318d      LL 12/00 - 08/01
+AP71         67A10000 0000004000000000 0000000000 1 TOUR M47D20 KW_105 LL     //Touring 320d TU   LL 09/01 - 05/06
+H AP71 V0596 67A10000 0000000000000000 0000000000 1 TOUR M47D20 KW_105 LL
+AP72         67A20000 0000004000000000 0000000000 1 TOUR M47D20 KW_105 RL     //Touring 320d TU   LL 09/01 - 05/06
+H AP72 V0596 67A20000 0000000000000000 0000000000 1 TOUR M47D20 KW_105 RL
+AP91         68910000 0000204004201000 0000000000 1 TOUR M57D30        LL     //Touring 330d      LL 01/00 - 08/01
+H AP91 V0900 68910000 0000200004201000 0000000000 1 TOUR M57D30        LL     //Touring 330d      LL 01/00 - 08/01
+H AP91 V0596 68910000 0000000000000000 0000000000 1 TOUR M57D30        LL
+AP92         68920000 0000204004201000 0000000000 1 TOUR M57D30        RL     //Touring 330d      RL 03/00 - 08/01
+H AP92 V0900 68920000 0000200004201000 0000000000 1 TOUR M57D30        RL     //Touring 330d      RL 03/00 - 08/01
+H AP92 V0596 68920000 0000000000000000 0000000000 1 TOUR M57D30        RL
+AR11         69110000 0000204000201000 0000000000 1 TOUR M52B20        LL     //Touring 320i      LL 09/99 - 08/01
+H AR11 V0900 69110000 0000200000201000 0000000000 1 TOUR M52B20        LL     //Touring 320i      LL 09/99 - 08/01
+H AR11 V0999 69110000 0000000000201000 0000000000 1 TOUR M52B20        LL     //Touring 320i      LL
+H AR11 V0596 69110000 0000000000000000 0000000000 1 TOUR M52B20        LL
+AR33         69330000 0000000004200000 0000000000 1 TOUR M52B25        LL US  //Touring 323i      US 01/00 - 08/00
+H AR33 V0596 69330000 0000000000000000 0000000000 1 TOUR M52B25        LL US
+AR51         69510000 0000200004201000 0000000000 1 TOUR M52B28        LL     //Touring 328i      LL 06/99 - 05/00
+H AR51 V0999 69510000 0000000004201000 0000000000 1 TOUR M52B28        LL     //Touring 328i      LL
+H AR51 V0596 69510000 0000000000000000 0000000000 1 TOUR M52B28        LL
+AR52         69520000 0000200004201000 0000000000 1 TOUR M52B28        RL     //Touring 328i      RL 09/99 - 05/00
+H AR52 V0999 69520000 0000000004201000 0000000000 1 TOUR M52B28        RL     //Touring 328i      RL
+H AR52 V0596 69520000 0000000000000000 0000000000 1 TOUR M52B28        RL
+AW11         69210000 0000204000201000 0000000000 1 TOUR M54B22        LL     //Touring 320i      LL 09/00 - 08/01
+H AW11 V0596 69210000 0000000000000000 0000000000 1 TOUR M54B22        LL
+AW12         69220000 0000204000201000 0000000000 1 TOUR M54B22        RL     //Touring 320i      RL 09/00 - 08/01
+H AW12 V0596 69220000 0000000000000000 0000000000 1 TOUR M54B22        RL
+AW31         69710000 0000204000201000 0000000000 1 TOUR M54B25        LL     //Touring 325i      LL 09/00 - 08/01
+H AW31 V0596 69710000 0000000000000000 0000000000 1 TOUR M54B25        LL
+AW32         69720000 0000204000201000 0000000000 1 TOUR M54B25        RL     //Touring 325i      RL 09/00 - 08/01
+H AW32 V0596 69720000 0000000000000000 0000000000 1 TOUR M54B25        RL
+AW33         69730000 0000004004200000 0000000000 1 TOUR M54B25        LL US  //Touring 325i      US 09/00 - 08/01
+H AW33 V0596 69730000 0000000000000000 0000000000 1 TOUR M54B25        LL US
+AW51         69810000 0000204004201000 0000000000 1 TOUR M54B30        LL     //Touring 330i      LL 06/00 - 08/01
+H AW51 V0596 69810000 0000000000000000 0000000000 1 TOUR M54B30        LL
+AW52         69820000 0000204004201000 0000000000 1 TOUR M54B30        RL     //Touring 330i      RL 06/00 - 08/01
+H AW52 V0596 69820000 0000000000000000 0000000000 1 TOUR M54B30        RL
+AX71         67C10000 0000000000000000 0000000000 1 TOUR M47D20 KW_100 LL     //Touring 320d      LL 09/99 - 08/01
+AX72         67C20000 0000000000000000 0000000000 1 TOUR M47D20 KW_100 RL     //Touring 320d      RL 12/99 - 08/01
+; Coupe
+BL31         60310000 0000000000000000 0000000000 1 COUP M43B19 KW_87  LL     //Coupe 318ci       LL 12/99 - 08/01
+BL32         60320000 0000000000000000 0000000000 1 COUP M43B19 KW_87  RL     //Coupe 318ci       RL 12/99 - 08/01
+BL51         60510000 0000000000000000 0000000000 1 COUP M43B19 KW_77  LL     //Coupe 316ci       LL 12/99 - 12/01 nur Griechenland, Portugal
+; Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Griechenland
+BL91         61910000 00002A0000A81400 0000000000 1 COUP S54B32        LL     //Coupe M3          LL 07/00 - 11/05
+H BL91 V0596 61910000 0000000000000000 0000000000 1 COUP S54B32        LL
+BL92         61920000 00002A0000A81400 0000000000 1 COUP S54B32        RL     //Coupe M3          RL 11/00 - 02/06
+H BL92 V0596 61920000 0000000000000000 0000000000 1 COUP S54B32        RL
+A BL93 N0901 61930000 0000224000201400 0000000000 1 COUP S54B32        LL US  //Coupe M3          US 09/00 - 11/05
+A BL93 V0901 61930000 00002A0000281400 0000000000 1 COUP S54B32        LL US  //Coupe M3          US 09/00 - 11/05
+H BL93 V0596 61930000 0000000000000000 0000000000 1 COUP S54B32        LL US
+BM11         61110000 0000200000201000 0000000000 1 COUP M52B20        LL     //Coupe 320ci       LL 06/99 - 02/02
+H BM11 V0999 61110000 0000000000201000 0000000000 1 COUP M52B20        LL     //Coupe 320ci       LL
+H BM11 V0596 61110000 0000000000000000 0000000000 1 COUP M52B20        LL
+BM31         61310000 0000200000201000 0000000000 1 COUP M52B25        LL     //Coupe 323ci       LL 12/98 - 08/00
+H BM31 V0999 61310000 0000000000A01000 0000000000 1 COUP M52B25        LL     //Coupe 323ci       LL
+H BM31 V0596 61310000 0000000000000000 0000000000 1 COUP M52B25        LL
+BM32         61320000 0000200000201000 0000000000 1 COUP M52B25        RL     //Coupe 323ci       RL 03/99 - 08/00
+H BM32 V0999 61320000 0000000000A01000 0000000000 1 COUP M52B25        RL     //Coupe 323ci       RL
+H BM32 V0596 61320000 0000000000000000 0000000000 1 COUP M52B25        RL
+BM33         61330000 0000000000201000 0000000000 1 COUP M52B25        LL US  //Coupe 323ci       US 06/99 - 08/00
+H BM33 V0999 61330000 0000000000A01000 0000000000 1 COUP M52B25        LL US  //Coupe 323ci       US
+H BM33 V0596 61330000 0000000000000000 0000000000 1 COUP M52B25        LL US
+BM51         61510000 0000200000201000 0000000000 1 COUP M52B28        LL     //Coupe 328ci       LL 12/98 - 05/00
+H BM51 V0999 61510000 0000000000A01000 0000000000 1 COUP M52B28        LL     //Coupe 328ci       LL
+H BM51 V0596 61510000 0000000000000000 0000000000 1 COUP M52B28        LL
+BM52         61520000 0000200000201000 0000000000 1 COUP M52B28        RL     //Coupe 328ci       RL 03/99 - 05/00
+H BM52 V0999 61520000 0000000000A01000 0000000000 1 COUP M52B28        RL     //Coupe 328ci       RL
+H BM52 V0596 61520000 0000000000000000 0000000000 1 COUP M52B28        RL
+BM53         61530000 0000000000201000 0000000000 1 COUP M52B28        LL US  //Coupe 328ci       US 06/99 - 05/00
+H BM53 V0999 61530000 0000000000A01000 0000000000 1 COUP M52B28        LL US  //Coupe 328ci       US
+H BM53 V0596 61530000 0000000000000000 0000000000 1 COUP M52B28        LL US
+BN11         61210000 0000204000201000 0000000000 1 COUP M54B22        LL     //Coupe 320ci       LL 09/00 - 11/04
+H BN11 V0596 61210000 0000000000000000 0000000000 1 COUP M54B22        LL
+BN12         61220000 0000204000201000 0000000000 1 COUP M54B22        RL     //Coupe 320ci       RL 09/00 - 11/04
+H BN12 V0596 61220000 0000000000000000 0000000000 1 COUP M54B22        RL
+BN31         61410000 0000204000201000 0000000000 1 COUP M54B25        LL     //Coupe 325ci       LL 09/00 - 11/05
+H BN31 V0596 61410000 0000000000000000 0000000000 1 COUP M54B25        LL
+BN32         61420000 0000204000201000 0000000000 1 COUP M54B25        RL     //Coupe 325ci       RL 09/00 - 02/06
+H BN32 V0596 61420000 0000000000000000 0000000000 1 COUP M54B25        RL
+BN33         61430000 0000004000201000 0000000000 1 COUP M54B25        LL US  //Coupe 325ci       US 09/00 - 03/06
+H BN33 V0596 61430000 0000000000000000 0000000000 1 COUP M54B25        LL US
+BN51         61610000 0000204000201000 0000000000 1 COUP M54B30        LL     //Coupe 330ci       LL 06/00 - 11/05
+H BN51 V0596 61610000 0000000000000000 0000000000 1 COUP M54B30        LL
+BN52         61620000 0000204000201000 0000000000 1 COUP M54B30        RL     //Coupe 330ci       RL 06/00 - 02/06
+H BN52 V0596 61620000 0000000000000000 0000000000 1 COUP M54B30        RL
+BN53         61630000 0000204000201000 0000000000 1 COUP M54B30        LL US  //Coupe 330ci       US 06/00 - 03/06
+H BN53 V0596 61630000 0000000000000000 0000000000 1 COUP M54B30        LL US
+; Cabrio
+BR31         64310000 0000200004201000 0000000000 1 CABR M52B25        LL     //Cabrio 323ci      LL 12/99 - 08/00
+H BR31 V0596 64310000 0000000000000000 0000000000 1 CABR M52B25        LL
+BR32         64320000 0000200004201000 0000000000 1 CABR M52B25        RL     //Cabrio 323ci      RL 03/00 - 08/00
+H BR32 V0596 64320000 0000000000000000 0000000000 1 CABR M52B25        RL
+BR33         64330000 0000000004201000 0000000000 1 CABR M52B25        LL US  //Cabrio 323ci      US 12/99 - 08/00
+H BR33 V0596 64330000 0000000000000000 0000000000 1 CABR M52B25        LL US
+BR91         64910000 00002A0004A81401 0000000000 1 CABR S54B32        LL     //Cabrio M3         LL 01/01 - 11/06
+H BR91 V0596 64910000 0000000000000000 0000000000 1 CABR S54B32        LL
+BR92         64920000 00002A0004A81401 0000000000 1 CABR S54B32        RL     //Cabrio M3         RL 04/01 - 11/06
+H BR92 V0596 64920000 0000000000000000 0000000000 1 CABR S54B32        RL
+A BR93 N0901 64930000 0000224004A81401 0000000000 1 CABR S54B32        LL US  //Cabrio M3         US 01/01 - 11/06
+A BR93 V0901 64930000 00002A0004A81401 0000000000 1 CABR S54B32        LL US  //Cabrio M3         US 01/01 - 11/06
+H BR93 V0596 64930000 0000000000000000 0000000000 1 CABR S54B32        LL US
+BS11         64210000 0000204004201000 0000000000 1 CABR M54B22        LL     //Cabrio 320ci      LL 09/00 - 11/06
+H BS11 V0596 64210000 0000000000000000 0000000000 1 CABR M54B22        LL
+BS12         64220000 0000204004201000 0000000000 1 CABR M54B22        RL     //Cabrio 320ci      RL 09/00 - 11/06
+H BS12 V0596 64220000 0000000000000000 0000000000 1 CABR M54B22        RL
+BS31         64410000 0000204004201000 0000000000 1 CABR M54B25        LL     //Cabrio 325ci      LL 09/00 - 11/06
+H BS31 V0596 64410000 0000000000000000 0000000000 1 CABR M54B25        LL
+BS32         64420000 0000204004201000 0000000000 1 CABR M54B25        RL     //Cabrio 325ci      RL 09/00 - 11/06
+H BS32 V0596 64420000 0000000000000000 0000000000 1 CABR M54B25        RL
+BS33         64430000 0000004004201000 0000000000 1 CABR M54B25        LL US  //Cabrio 325ci      US 09/00 - 11/06
+H BS33 V0596 64430000 0000000000000000 0000000000 1 CABR M54B25        LL US
+BS51         64610000 0000204004201001 0000000000 1 CABR M54B30        LL     //Cabrio 330ci      LL 06/00 - 11/06
+H BS51 V0596 64610000 0000000000000000 0000000000 1 CABR M54B30        LL
+BS52         64620000 0000204004201001 0000000000 1 CABR M54B30        RL     //Cabrio 330ci      RL 06/00 - 11/06
+H BS52 V0596 64620000 0000000000000000 0000000000 1 CABR M54B30        RL
+BS53         64630000 0000204004201001 0000000000 1 CABR M54B30        LL US  //Cabrio 330ci      US 06/00 - 11/06
+H BS53 V0596 64630000 0000000000000000 0000000000 1 CABR M54B30        LL US
+C 75

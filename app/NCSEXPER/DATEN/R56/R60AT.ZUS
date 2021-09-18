@@ -1,0 +1,175 @@
+// Auftragsdatei: R56AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 922 169.5
+DATUM 07.07.2015
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-42   06.07.04  Wolf
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-42
+//   TD-433
+//   TI-430
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                   Datum    Name
+//
+//
+//
+DATEINAME                             R60AT.ZUS
+//
+Z #1114                                           //I-Stufe R056-14-11-xxx 
+Z #0715                                           //I-Stufe R056-15-07-xxx 
+A #0704                                           //March PU 03/04 
+A #0505                                           //   -Stand, I-Stufe R056-06-09-310 
+A #1005                                           //   -Stand Werk Oxford, I-Stufe R056-06-09-330 
+A #0206                                           //PVL-Stand Werk Oxford, I-Stufe R056-06-09-400 
+A #0906                                           //I-Stufe R056-06-09-410 
+A #0307                                           //I-Stufe R056-06-09-410 
+A #0607                                           //I-Stufe R056-07-06-xxx 
+A #0907                                           //I-Stufe R056-07-08-xxx 
+A #1207                                           //I-Stufe R056-07-12-xxx 
+A #0308                                           //I-Stufe R056-08-03-xxx 
+A #0608                                           //I-Stufe R056-08-06-xxx 
+A #0908                                           //I-Stufe R056-08-09-xxx 
+A #1208                                           //I-Stufe R056-08-12-xxx 
+A #0309                                           //I-Stufe R056-09-03-xxx 
+A #0909                                           //I-Stufe R056-09-09-xxx 
+A #1209                                           //I-Stufe R056-09-12-xxx 
+A #0310                                           //I-Stufe R056-10-03-xxx 
+A #0810                                           //I-Stufe R056-10-08-xxx 
+A #1110                                           //I-Stufe R056-10-11-xxx 
+A #0311                                           //I-Stufe R056-11-03-xxx 
+A #0711                                           //I-Stufe R056-11-07-xxx, SE R58 
+A #1111                                           //I-Stufe R056-11-11-xxx, SE R59 
+A #0312                                           //I-Stufe R056-12-03-xxx 
+A #0712                                           //I-Stufe R056-12-07-xxx, 2. LCI R56/R57 
+A #1112                                           //I-Stufe R056-12-11-xxx 
+A #0313                                           //I-Stufe R056-13-03-xxx 
+A #0713                                           //I-Stufe R056-13-07-xxx 
+A #1113                                           //I-Stufe R056-13-11-xxx 
+A #0314                                           //I-Stufe R056-14-03-xxx 
+A #0714                                           //I-Stufe R056-14-07-xxx, R6x LZI1 
+A #1114                                           //I-Stufe R056-14-11-xxx 
+A #0715                                           //I-Stufe R056-15-07-xxx 
+E EWS4                                            //EWS4                                                    //EWS4 
+E B070                                            //Battery 70Ah 
+E B055                                            //Battery 55Ah 
+E B046                                            //Battery 46Ah 
+E A070                                            //AGM-Battery 70 Ah 
+E A060                                            //AGM-Battery 60 Ah 
+E A040                                            //AGM-Battery 40 Ah 
+E EFZG                                            //Testing vehicles (CLASS_PWR)    //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll 
+E EMOA                                            //ENTMOSTADAPTER                                        //Entfall Most Adapter (08-09-450) 
+E SITX                                            //Radio 1.2 MSA 2L in vehicles without option code 1CC, MSA.            Bauabweichung MWB42.1    only for KMM 
+H OGSK                                            //OHNE_GURTSCHL                                         //without Belt Lock Contact for all R56 PT1/   /PVL I220 including R056-06-09-400 
+H EWS4                                            //EWS4                                                    //EWS4 
+H ESPS                                            //ENTFALL_SPS                                           //no Seat Position Sensor, only    /PVL US-including R056-06-09-400 
+H EOC3                                            //ENTFALL_OC3                                           //no OC3-Mat, only    /PVL US-including R056-06-09-400 
+H MSBR                                            //MIT_SBR_MATTE                                         //SBR-Mat installed, only    /PVL ECE-including R056-06-09-400 
+H B070                                            //Battery 70Ah 
+H B055                                            //Battery 55Ah 
+H B046                                            //Battery 46Ah 
+H A070                                            //AGM-Battery 70 Ah 
+H A060                                            //AGM-Battery 60 Ah 
+H A040                                            //AGM-Battery 40 Ah 
+H DSC1                                            //DSC_ABS ENTW                                          //DSC with ABS for R55 
+H DSC2                                            //DSC_ABS_ASC ENTW                                      //DSC with ABS and ACS for R55 
+H DSC3                                            //DSC_ABS_OHNE_RP ENTW                                  //DSC with ABS and without RPA for R55 
+H DSC4                                            //DSC_ABSASC_O_RP ENTW                                  //DSC with ABS/ACS and without RPA for R55 
+H DSC5                                            //OCBS                                                  //CBS deaktiviert 
+H DSC6                                            //OHBA                                                  //HBA deaktiviert 
+H DSC7                                            //KOHA                                                  //HA deaktiviert 
+H DSC8                                            //VCH                                                   //Vch deaktiviert 
+H MTDS                                            //MIT_TUER_DRU_S                                        //for all (R56,R57) ECE-Vehicles (only R056-0609-430) 
+H EFZG                                            //Testing vehicles (CLASS_PWR)    //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll 
+H EGKH                                            //OHNE_GURT_FOND                                        //Abruestung Gurtkontakte Fond 
+H MOTA                                            //Motor ohne HTP5 fuer I-Stufen R056-12-03-4xx 
+H MELV                                            //NAS cars : CAS3 with ELV -> E-word // CAS3 without ELV -> no E-Word 
+H OEKS                                            //without clamping protection                                           --> E-Wort zu 10-08-410 loeschen 
+H SDON                                            //E-Word for Spec Don Vehicles (07-08-500) 
+H EMOA                                            //ENTMOSTADAPTER                                        //Entfall Most Adapter (08-09-450) 
+H SOFP                                            //ST_OF_PROD                                            //Launchproduction 
+H TRSW                                            //Tarnscheinwerfer 
+H COCP                                            //COCKPIT_ALT                                           //altes Cockpit   ASW entfaellt mit 09-09-500             n             --> E-Wort zu 10-08-500 loeschen 
+H KEKS                                            //R60, without clamping protection for back window regulator            --> E-Wort zu 10-08-500 loeschen nach Rueckfrage bei Igor Rochal 
+H 2LED                                            //Ambiente Innenbeleuchtung 2 Farben, E-Wort, falls 4-Farben nicht gleich in der VS verfuegbar, Abgestimmt mit Hr. Willmann am 30.10.09   --> E-Wort zu 10-08-500 loeschen 
+H 3LED                                            //Ambiente Innenbeleuchtung 3 Farben, E-Wort zum Vorgezogenen Einsatz im R60                                                              --> E-Wort nach 10-11-500 loeschen 
+H VGEU                                            //Ersatz Japan-VGSG durch VGSG aus europaeischer Fertigung im Ersatzteilfall. Nur fuer R60-Fahrzeuge von 08/2010 bis 03/2011 
+H VGJP                                            //Verteilergetriebe aus Japanischer Fertigung, fuer ca. 12 Fahrzeuge in R056-11-03-410, nur R60 
+H TINT                                            //Telematikintegration fuer verschiedene Entwicklunngs- und Test-Plattformen, keine Steuerung im Werk, nur als H-Wort 
+H CARS                                            //Steuerung Codierung von speziellen Codierumfaenge im Kombi und CHAMP2 fuer die CAR-Sharing-Fahrzeugflotte 1. Generation 
+H SITX                                            //Radio 1.2 MSA 2L in vehicles without option code 1CC, MSA.            Bauabweichung MWB42.1    only for KMM 
+H URAK                                            //Umluftrueckschaltung aktiv, fuer Fahrzeuge vor 11/2012                wg. Vorgezogenem Einsatz der SW in die 12-07-505 
+H URDA                                            //Umluftrueckschaltung deaktiv, fuer Fahrzeuge ab 11/2012               NA190582 
+H MICO                                            //neuer Einbauort Mikrophon, Einsatz abhängig von Verfügbarkeit der neue Verkleidungsteile, irgendwann zwischen 11/2012 und 03/2013 
+H NRSV                                            //Option zum Aktivierung der SVS-low 
+K OI11                                            //Deaktivierung Fahrer Seatbeltreminder 
+K OI12                                            //Deaktivierung Beifahrer Seatbeltreminder 
+K IPOD                                            //Nachruestung iPod (gesteuert wie CD-Wechsler SA672 in den Headunits) 
+K KFDM                                            //Flexible diagnostic module not coding relevant 
+K OMSA                                            //Deaktivierung MSA                                                     NA 000000234 
+K JCWS                                            //John Cooper Works Sportsitz 
+K K141                                            //R56 Coopers S JCW Tuning Kit 141 
+K SPBR                                            //Nachruestung 17 Zoll JCW Sportbremse, NA 000000391 und 190337 
+K KLED                                            //Umruestung AHM - Anhaenger mit LED-Leuchten, R55: NA xxx, R60:        NA 190238 
+K OKOM                                            //Deaktivierung Komfortoeffnung_Fernbedienung 
+K MKOM                                            //Aktivierung Komfortoeffnung_Fernbedienung 
+K DSC7                                            //HA deaktiviert 
+K K644                                            //ULF260 Nachruestung Bluetooth 
+K FLCN                                            //Fahrlichtsteuerung, Schwellwertsatz normal 
+K FLCS                                            //Fahrlichtsteuerung, Schwellwertsatz sehr empfindlich 
+K FLCE                                            //Nachruestung Schwellwertsatz empfindlich                              NA190476 
+K KKAT                                            //Umruestung KAT PCAV 607 
+K KMCA                                            //ICIDOM Text "mission control" is displayed and "MCA" is displayed in tone menue, NA8961 
+K AP55                                            //Nachruestung JCW-Aerodynamicpaket R55, neue Schwellwerte fuer PDC 
+K HETR                                            //Nachruestung Heckgepaecktraeger, NA173501 
+K AELC                                            //Nachruestung JCW Aerikit fuer R56/R57 LCI-Fahrzeuge, NA 190184 und 190186 
+K VGEU                                            //Ersatz Japan-VGSG durch VGSG aus europaeischer Fertigung im Ersatzteilfall. Nur fuer R60-Fahrzeuge von 08/2010 bis 03/2011 
+K ANZV                                            //digitale Geschwindigkeitsanzeige im Kombi 
+K KNET                                            //Nachruestung Multi-Party Call                                         NA190336 
+K KRA2                                            //Umruestung Radio2+ auf Radio 1.2, Entfall der Diagnoseadresse 0x62    NA190418 
+K KWLS                                            //Deaktivierung Welcome-Light-Szenario                                  NA 
+K SFIX                                            //feststehender Spoiler fuer R58/59                                     NA 190371 
+K X25W                                            //Nachrüstung 25W-Xenonscheinwerfer                                     NA 190572 
+K URAK                                            //Umluftrueckschaltung aktiv, fuer Fahrzeuge vor 11/2012                NA190581 
+K URDA                                            //Umluftrueckschaltung deaktiv, fuer Fahrzeuge ab 11/2012               NA190582 
+K OKOS                                            //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877          NA 190628 
+K OI01                                            //Deaktivierung Fahrerairbag,                                   keine offizielle Nachruestung! 
+K OI02                                            //Deaktivierung Beifahrerairbag,                                keine offizielle Nachruestung! Nachruestung ueber SA 5DA 
+K OI03                                            //Deaktivierung Sidebag Fahrer,                                 keine offizielle Nachruestung! 
+K OI04                                            //Deaktivierung Sidebag Beifahrer,                              keine offizielle Nachruestung! 
+K OI05                                            //Deaktivierung AHPS FAhrer,                                    keine offizielle Nachruestung! 
+K OI06                                            //Deaktivierung AHPS Beifahrer,                                 keine offizielle Nachruestung! 
+K OKLA                                            //Deaktivierung Komfortlichtabschaltung,                        nicht im NA-Umfang ISTA/P enthalten 
+K NSWA                                            //Nebelscheinwerfer aus beim Fernlicht,                         nicht im NA-Umfang ISTA/P enthalten 
+K BIRE                                            //Nachruestung fuer BISTABILES_RELAIS,                          nicht im NA-Umfang ISTA/P enthalten 
+K DCDC                                            //Nachruestung fuer DCDC_CONVERTER,                             nicht im NA-Umfang ISTA/P enthalten 
+K EXTN                                            //                                                              nicht im NA-Umfang ISTA/P enthalten 
+K OEOE                                            //Nachruestung Entriegeln Heckklappe (wieder nicht_aktiv)       nicht im NA-Umfang ISTA/P enthalten 
+K IBOC                                            //Nachruestung IBOC 
+K SDAR                                            //Nachruestung SDARS-Satelliten-Empfaenger 
+K ID4P                                            //4 ID-Geben fuer Passiv Access 
+K NAVP                                            //Mision Control fuer Radio1-Fahrzeuge 
+K USHD                                            //FH_DISASHD_KR                                           //Aktivierung Schiebehubdach mit Klemme R (PA603/161 ?) 
+K CARS                                            //Steuerung Codierung von speziellen Codierumfaenge im Kombi und CHAMP2 fuer die CAR-Sharing-Fahrzeugflotte 1. Generation 
+K DMBA                                            //Nachruestung DMB-Audio-Funktion fuer Fahrzeuge mit SA 654     //NA 190464 (Storno) 
+K KCBS                                            //Korrektur CBS Bremsbelagverschleisanzeige                     //NA190772 
+K AFFO                                            //Nachrüstung AF-Following                                      //NA190718 
+K FSSW                                            //Nachrüstung Fahrschul-SW                                      //NA190788 
+K KGHB                                            //Nachrüstung Kurbelgehäusebelüftung N16                        //NA190961 
+K N14S                                            //Massnahme N14 gegen Superklopfer Suedafrika                   //NA190959 
+K ESTA                                            //Massnahme gegen Motorausgeher Ostasien N16                    //NA191157 

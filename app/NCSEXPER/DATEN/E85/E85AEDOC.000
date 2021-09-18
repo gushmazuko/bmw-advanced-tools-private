@@ -1,0 +1,1135 @@
+// Änderungsdokumentation: E85
+//         - 350 -
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   6 918 364.5
+// NAEL-Nr.:       N 5R55.R
+// Zeichn.-Index:  ar
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E85AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3611.P  a      19.03.01   EE-82   Igor Rochal
+                                Musterdaten für "EDIABAS für E85-Entwickler"
+                                Datenstrukturen für E85 erstellt
+                                Erstfreigabe Codierdaten E85
+                                Fuer Produktion frei.
+****************************************************************************************************
+NAEL EE243.P  b      28.05.01   EE-82   Igor Rochal
+                        RLS     hinzu (inaktiv)
+                        GT      wird als nicht "telematik-fähig" codiert,SA612 ist
+                                fuer E85 nicht freigeschaltet.
+                        KMB     C_KMB46 durch Kombi85 ersetzt.
+                                RDC aktiviert(Serie),Kennlinie geaendert.
+                                MOTOR_OELSTAND_PREDRIVE,DBC_PREDRIVE auf aktiv gesetzt
+                                AKUSTIK_TANK_RESERVE,AKUSTIK_KUEHLMITTELTEMP auf nicht_aktiv gesetzt
+                        LSZ     C30 ueberarbeitet
+                                C31 hinzu
+                        EPS     C02 hinzu
+****************************************************************************************************
+NAEL EE471.P  c      02.07.01   EE-82   Igor Rochal
+                                von SWT 3 auf SWT 1 umgestellt
+                        LSZ     PWM_WERT2_FL_BIXENON wert_02 hinzu.
+                        GT      Fuer MIR CI.04 aktiviert.
+                     03.08.01   EE-82   Christine Obrman
+                        GM5     FUNKTION_CABRIO von nicht_aktiv auf aktiv
+                                FH_FAHRERTUER_TIPP_ZU für KOREA auf nicht_aktiv
+                                FH_TUEREN_HINTEN_TIPP_AUF von aktiv auf nicht_aktiv
+                                FH_ZTR_SCHALTER_TIPP_AUF von aktiv auf nicht_aktiv
+                                KOMFOEFFNEN_SPERRE_KEY_IN von nicht_aktiv auf aktiv
+****************************************************************************************************
+NAEL EE941.P  d      20.08.01   EE-82   Igor Rochal
+                                volgenden SG-Namen geaendert
+                        KMB     => AKMB
+                        LSZ     => ALSZ
+                        EWS     => AEWS
+                        -----------------------------------------------------------------------------
+                        AKMB    C02 hinzu
+                        RLS     aktiviert ab PTO
+                        IHK     aktiviert ab PTO
+                        SIM     integriert ohne Freischaltung
+                        SBSL    integriert ohne Freischaltung
+                        SBSR    integriert ohne Freischaltung
+                        ALSZ    ueberarbeitet
+                                VARIANTE_LSZ, LAENDERVARIANTE_LSZ, LENKSEITE_LSZ hinzu
+                                ABS_MIN_STELLUNG_2 von wert_03 auf wert_04
+                        LSC.C31 CC_RUECKLICHT_3_LINKS von nicht_aktiv auf aktiv
+                                CC_RUECKLICHT_2_RECHTS von nicht_aktiv auf aktiv
+                                POTI_DIMMER_INVERS von aktiv auf nicht_aktiv
+                        -----------------------------------------------------------------------------
+                        AT   ** Projektnachtrag 8485/025 vom 23.08.2001
+                                Neues Zeitkriterium 0102 ab PTO
+                                Typ-Schluesselnummer BU11 und BU12 entfallen.
+                                Neue Typ-Schluesselnummer BT11 und BT12
+                                SA345 hinzu zu PTO
+                                SA962 hinzu zu PTO
+                                SA224 hinzu zu PTO
+                                SA431 hinzu und SA563 enfaellt zu PTO
+                                SA459 hinzu SA458 entfaellt zu PTO
+                                neues ASW S_SCHALTER
+                                SA496 hinzu SA442 entfaellt zu PTO
+                                SA550 Serie fuer B22 ECE, B25 ECE, B30 ECE und US ab PTO
+                                SA648 ersaetzt SA660
+                                SA662 ersaetzt SA661
+                                ASW N40B20 entfaellt
+                             ** Fahrzeugbeschreibung 8485/020 vom 12.04.2001
+                                SA338/SA473/SA481/SA650/SA679/SA842/SA875/SA982  entfallen zu PTO
+                             ** BFT (Ausdruck vom 30.08.01)
+                                SA986 und SA987 hinzu
+                        CVT  ** Fahrzeugbeschreibung 8485/020 vom 12.04.2001
+                                SA606 und SA609 beinhalten BC-Funktion
+                                BC_BASIS == BC_BASIS,MIR,NAVIGATION
+****************************************************************************************************
+NAEL E1E86.P  e      20.09.01   EE-82   Igor Rochal
+                        CVM     cvm_iv.c01 hinzu
+                        LSZ.C30/C31   SPG_NACHREGELUNG_LANGSAM fuer allen Typen auf nicht_aktiv gesetzt.
+                        LSZ.C30 HALB/VOLLSCHRITT fuer alle E85 auf halbschritt gesetzt
+                        LSZ.C31 PROGRAMMPARAMETER_LCM geaendert.
+                        LSZ.C32 integriert
+                        AKMB    BC_QUITT_ATEMP_WARN_LSS mit BC aktiv, ohne nicht_aktiv
+                                KMB.C02 ueberarbeitet (ZI.C)
+                        EPS     Werte ab PTO geaendert.
+                        SIM     ueberarbeitet
+                        SBSL    ueberarbeitet
+                        SBSR    ueberarbeitet
+                        MK60    integriert
+                        LWS     Werte geaendert.
+                        ------------------------------------------------------------------------------
+                        AT      Zeitkriterium 0101 nicht mehr aktiv.(nicht mehr PUSY relevant)
+                                neues Zeitkriterium 0202 ab Vorserie 1
+                                neues ASW VERDECK_EL_AUT
+                                SA380 und neues ASW HARDTOP hinzu / Projektnachtrag 8485/030
+                                SA399 VERDECK_EL_AUT codierrelevant ab PTO (0102)
+                                SA 875 bleibt aktiv / Projektnachtrag 8485/028
+                                SA389/SA394/SA711/SA644/SA638/SA639/SA646 hinzu / Projektnachtrag 8485/030
+                                SA630 entfaelt zu PTO / Projektnachtrag 8485/030
+                                fuer SA606/609 ASW RADIO_NG und BC_BASIS hinzu
+                                ASW LOW_NAVIGATION ersetzt ASW MIR (CVT und SGET entsprechend geaendert)
+                                SA 459 und 630 fuer PTO aktiviert und werden danach entfallen.
+                                SA 908 hinzu
+                                SA 990/991/995/997/998/999 hinzu
+********************************************************************************************************
+NAEL EEB26.P  f      17.12.01   EE-82   Igor Rochal
+                        AT      Zeitkriterium #0102: GM5_CI_03 hinzu
+                                Zeitkriterium #0202: GM5_CI_03 und GM5_CI_04 hinzu
+                        GM5.C03 integriert (nur PTO)
+                        GM5.C04 integriert (ab Vorserie)
+*********************************************************************************************************
+NAEL E3004.R  g      07.01.02   EE-82   Igor Rochal
+                        AT      neues ASW FAHRDYNAMIK hinzu
+                                Zeitkriterium 0202 ist ab Vorserie aktiviert
+                                SA 901/902/903/904/905/906/907/910/911 hinzu, nicht codierrelevant
+                        GM5.C03 u. C04 VERDECK_VORNE_E85 aktiv nur ohne CVM
+                        LSZ.C30       Werte geaendert
+                        LSZ.C31       Werte geaendert
+                        EPS_E85.C03   integriert
+*********************************************************************************************************
+NAEL E3380.R  h      11.02.02   EE-82   Christine Obrman
+                        CVT     PWM_WERT2_SL3_ZUSATZFKT from "wert_01" to "wert_02" (LSZ.C32 c E3368.R)
+                        CVT     SL_VO_ANSTEUERUNG all "aktiv" (LSZ.C32 c E3368.R)
+                        AT      SA305 standard equipment for BT11,12 PN 8485/040
+                    IHK_E85.C01 new integrated as supplement of IHKA_E85.C01
+                                CABD adapted: C_S_AUFTRAG for all coding blocks. Please load the new A_ihk85.ipo from reference!
+                                SIM/SBSL/SBSR .C02 integrated
+                    KMB_E85.C03 integrated. AKUSTIK_KUEHLMITTELTEMP now "aktiv" for CI03.
+*********************************************************************************************************
+NAEL E3901.R  j      26.03.02   EE-82   Oliver Betz
+                        CVT     MAUT_NUR_BEI_KL15EIN now aktiv
+                                EKS_REVERSIERZEIT_ZUS now 1000ms
+                                FH_INIT_TRANSPORTMODE now nicht_aktiv
+                                FH_TUEREN_HINTEN_TIPP_AUF now nicht_aktiv
+                                FH_TUEREN_HINTEN_TIPP_ZU now aktiv
+                                FUNK_INNENRAUMSCHUTZ now aktiv for DWA+!US, nicht_aktiv for !(DWA+!US)
+                                OHNE_FH_FA_HINTEN_0 now aktiv
+                                OHNE_FH_BF_VORNE_0 now aktiv
+                                OHNE_FH_BF_HINTEN_0 now aktiv
+                                OHNE_SRA_0 now nicht_aktiv
+                                CKM settings updated
+                        SGET    ULF pseudo (SOP 12/02) integrated, RA_NG.C02 (6 923 296.5) official added
+
+                     02.05.02   EE-82   Christine Obrman
+                        CVT     bug-fixing of SCHLUESSEL_SCHALTER, now is coded with "abgesteckt"
+
+*********************************************************************************************************
+NAEL EEB82.R  k      22.04.02   EE-82   Oliver Betz
+                        SGET    new ecu STVR, STVL and SIM_E85.C03 added
+                        AT      new time criterion #0502 (pre series 2, 5/2002) added for coding of STVR and STVL
+                        AT      E BFDY cancelled. Has never been relevant for production.
+                                It remains as "H BFDY" for "brake force display" developer test modus
+                        CVT     brakeforce display feature (LSZ, KMB) for US types integrated
+                        CVT     coding of CID in DSP integrated
+                        -------------------- released for HO, 05/02/2002--------------------------------------
+                        CVT/IHKA: KOMPRESSOR_TRANSPORT_SICH set from aktiv to nicht_aktiv for US types.
+                        CVT     new CBD LSZ.C32 integrated.
+                        CVT:
+                                Changed funktions in detail as follows:
+                                                                             NEW               OLD
+                                LSZ     PWM_ANSTEUERUNG_AL                   wert_03           wert_01               !522 for CI 31 and 32
+                                        PWM_ANSTEUERUNG_BL                   wert_04           wert_01               US: wert_04, else wert_01
+                                        PWM_ANSTEUERUNG_FERNLICHT            wert_02           wert_01               all E85
+                                        PIN29_30_BL_NSL                      nicht_aktiv       aktiv                 all E85 (exists only in CI 32)
+                                        RECHTS_LINKS                         aktiv             nicht_aktiv           RL,JAPAN
+                                        BEGRENZUNGSLICHT_IN_PARK             aktiv             nicht_aktiv           all E85 (for CI 32 relevant)
+                                        PWM_WERT2_BLK_ZUSATZFKT              wert_03           wert_01               US
+                                        STANDLICHT_ALS_BREMSLICHT            nicht_aktiv       aktiv                 all (CI32, CI31)
+                                        PIN29_30_BFD                         aktiv             nicht_aktiv           US (für CI 32 rel.)
+
+                                SIM     STROMVERT_B1_BYTE_3/0                sv_sk_ein_sleep   sv_sk_aus_sleep       CI02: sv_sk_ein_sleep, CI03:sv_sk_aus_sleep
+                                        STROMVERT_B2_BYTE_3/0                sv_sk_ein_sleep   sv_sk_aus_sleep       CI02: sv_sk_ein_sleep, CI03:sv_sk_aus_sleep
+                                        STROMVERT_B3_BYTE_3/0                sv_sk_ein_sleep   sv_sk_aus_sleep       CI02: sv_sk_ein_sleep, CI03:sv_sk_aus_sleep
+                                        STROMVERT_B4_BYTE_3/0                sv_sk_ein_sleep   sv_sk_aus_sleep       CI02: sv_sk_ein_sleep, CI03:sv_sk_aus_sleep
+                                KMB     FZG_VERZOEGERUNG                     aktiv             nicht_aktiv           US,(BRAKEFORCE(H-Wort))
+                                        GRENZWERT_GRUND_SCHWELLE             aktiv             nicht_aktiv           US,(BRAKEFORCE(H-Wort))
+                                        GRENZWERT_VERZ_SCHWELLE_1            aktiv             nicht_aktiv           US,(BRAKEFORCE(H-Wort))
+                                        GRENZWERT_VERZ_SCHWELLE_2            aktiv             nicht_aktiv           US,(BRAKEFORCE(H-Wort))
+                                IHKA    KOMPRESSOR_TRANSPORT_SICH            nicht_aktiv       aktiv                 all E85 (changed for US)
+*********************************************************************************************************
+NAEL EEF00.R  l      13.05.02   EE-82   Oliver Betz
+                        AT      Nachrüstmerkmal WHKL als Kundendienstzeile integriert.
+                       CVT      CVM.C01 / new FSWs added:
+                                BYTE_3_LI                                    wert_01
+                                BYTE_4_LI                                    wert_01
+                       SGET     STVL, STVR only with US types and #0502
+                       AT       Abrüstung Airbag eingefügt:
+                                K OI01 Deaktivierung Fahrerairbag, K OI02 Deaktivierung Beifahrerairbag,
+                                K OI03 Deaktivierung Sidebag vorn links, K OI04 Deaktivierung Sidebag vorn rechts,
+                                K OI07 Deaktivierung Knieschutz vorn links, K OI08 Deaktivierung Knieschutz vorn rechts
+                       CVT      Abschnitt 'Kundenwunsch- und laenderabhaengige Daten' eingefuegt
+                                -> Deaktivierung der Airbags auf Wunsch des Kunden nun möglich
+*********************************************************************************************************
+NAEL EEG34.R  m      23.05.02   EE-82   Oliver Betz
+                       AT       Zeitkriterium 06/02 zugefügt (=Anlauf - Serie)  & aktiviert
+                       SGET     -SIM_CI_04 integriert
+                       CVT      -TCU_IBUS.C01 integriert
+                                -Integration der neuen FSWs der GM5.C04
+                       SGVT     SIM_CI_04 integriert
+                       SGFam    TCU neu aufgenommen
+                       SIM C04  SIM_E85.c04 integriert
+                       SBSR     SBE Wegcodiert bei Vorserie 1 und Vorserie 2A
+*********************************************************************************************************
+                      10.06.02  EE-82 Christine Obrman
+                       SGET     STVx also for ECE versions according to BE661.R until KW 40/92
+                       CVT      bugfixing of STROMVERTEILER_B2_BYTE_1: 0xFF for PS 2B, 0x76 for AP
+*********************************************************************************************************
+NAEL EEH91.R n       28.06.02   EE-82   Oliver Betz
+                       AT       new SA 230 added (Gurtwarnung (SBR, Seat Belt Reminder) and activated
+                                CAS news: #0102 eliminated, #0902 added.
+                       SGET     time criterion changed for STVL/R from V_SERIE2 to V_SERIE2+((!US+!STV_US),US)
+                       CVT      new version MK60.C10 integrated
+                       CVT      SM_E46.C01 integrated
+                       SGET     SGBD EPS exchanged: (old) EPS_85 -> (new) EPS_85_2
+                       AT       K WHKL für die Nachrüstung der weissen Heckleuchte integriert.
+                       KMB      Please install the most recent CABD A_KMB85 from REFERENZ!
+*********************************************************************************************************
+NAEL EEM65.R o        12.07.02  EE-82   Oliver Betz /Christine Obrman
+                       AT       SAs added/modified (330, 337, 703, 706, 725, 730, 734, 735, 893, 894, 912, 914,
+                                948, 949, 950,951, 952, 953, 955, 956, 957, 972, 973, 975, 976, 977, 981)
+                       CVT      PSW's for instrument cluster coding changed for following FSW:
+                                K_ZAHL_TACHO            4925_imp/km -> 4961_imp/km
+                                K_ZAHL_TACHO_KOMPL      4974_imp/km -> 4961_imp/km
+                                K_ZAHL_WEG              4925_imp/km -> 4912_imp/km
+                                K_ZAHL_WEG_KOMPL        4925_imp/km -> 4912_imp/km
+                       SIM
+                       SBSR     new parameter values for anlaufserie
+*********************************************************************************************************
+NAEL EEP66.R p        30.07.02  EE-82   Christine Obrman / Oliver Betz
+                       GM4.C04
+                       CVT      new FSW/PSW (GM5.C04 in "feste_Daten_E85"):
+                                MEMORYANFAHRGENAUIGKEIT  standard
+                                FSW/PSW renamed (old without _GM):
+                                MEMORY_SP_ABKLAPPEN_GM     nicht_aktiv
+                                BEIKLAPP_B_KOMFORTSCHL_GM  nicht_aktiv
+                                V_VAR_SPERRE_BEIKLAPP_GM   klemme_r
+                                SPIEGELHEIZUNG_VERBAUT_GM  nicht_aktiv
+                       SIM.C04
+                       CVT      conditions changed for HWL_DIAG_LIMITS_OBEN and HWL_DIAG_LIMITS_UNTEN:
+                                wert_01                   =!((US,S_SCHALTER)+SIM_CI_04)
+                                wert_02                   =(US,S_SCHALTER)+SIM_CI_04
+                       TCU_IBUS.C01
+                       ULF.C01
+                       CVT      Data update
+*********************************************************************************************************
+NAEL EER34.R q        05.08.02  EE-82  Andreas Lindner
+                       DSP.C01  neue Daten betrifft Teile Nr. 6930046
+                       ULF.C01  HD_TX2RX_HOLD hinzugefügt und einkommentiert
+                       LSZ.[C30/C31/C32] neu
+                                LEUCHTWEITENREG_DYNAM alle nicht_aktiv
+*********************************************************************************************************
+                       ********************Datenstand für die HO-CD V 3.0********************************
+*********************************************************************************************************
+NAEL EES48.R r        08.08.02  EE-82  Oliver Betz
+                       AT       new E-Wort integrated:
+                                E ECRA: ECE variant coding of US press vehicles
+                                time criterion SERIE modified: SERIE A_SERIE V_SERIE2 V_SERIE PTO GM5_CI_03 GM5_CI_04 SBSL_CI_02 SBSR_CI_02
+                       -------------------------------------------------------
+                       CVT      GRUPPE  SelektiveZV_Einstiegshilfe and
+                                GRUPPE  Radio modified (ECE_RADIO added):
+                                  LAENDERVARIANTE_RADIO       TP_FUNKTION                 RDS-AF_SWITCHING            //*Auftrag*
+                                    ece                         tp                          rds_on/af_auto            =(!RADIO_US+!JAPAN+!OZEANIEN),ECE_RADIO
+                                    us                          nicht_aktiv                 rds_on/af_man             =RADIO_US+!ECE_RADIO
+                                    japan                       nicht_aktiv                 rds_off                   =JAPAN+!ECE_RADIO
+                                    oceanien                    nicht_aktiv                 rds_on/af_man             =OZEANIEN+!ECE_RADIO
+                                  PTY_TABELLE                 //*Auftrag*
+                                    ece                       =(!RADIO_US+!JAPAN+!OZEANIEN),ECE_RADIO
+                                    us                        =RADIO_US+!ECE_RADIO
+                                    ece                       =JAPAN+!ECE_RADIO
+                                    ece                       =OZEANIEN+!ECE_RADIO
+*********************************************************************************************************
+NAEL EES96.R s        30.08.02  EE-82  Oliver Betz
+                       AT       time criterion #0902 modified: SBSL_CI_02 SBSR_CI_02 added, SERIE deleted.
+                       -------------------------------------------------------
+                       CVT      PDC.C03 updated (o -> p), values changed:
+                                FSW                             old(o)  new(p)
+                                ----------------------------------------------
+                                SKALIERUNG_ECKE_HINTEN          0.65    0.80
+                                SKALIERUNG_MITTE_HINTEN         0.65    0.80
+                       -------------------------------------------------------
+                       CVT      the following FSWs have been moved to block "E85 Kundenwunsch-, typ- und laenderabhaengige Daten",
+                                conditions changed!
+                                -------------------------- SBSL ---------------------------------------------------------------------
+                                FRONT_VO_LI_STUFE1, FRONT_VO_LI_STUFE2, FRONT_VO_LI_STUFE1_Z,
+                                FRONT_VO_LI_STUFE2_Z, GURTSTRAMMER_VO_LI_Z, THORAX_VO_LI,
+                                THORAX_VO_LI_Z, KNIESCHUTZ_LI, ALGOPARAM_SBSL_EAM, ALGOPARAM_SBSL_EAM_F,
+                                ALGOPARAM_SBSL_EAM_F_1
+                                -------------------------- SBSR ---------------------------------------------------------------------
+                                FRONT_VO_RE_STUFE1, FRONT_VO_RE_STUFE2, FRONT_VO_RE_STUFE1_Z,
+                                FRONT_VO_RE_STUFE2_Z, GURTSTRAMMER_VO_RE_Z, THORAX_VO_RE,
+                                THORAX_VO_RE_Z, KNIESCHUTZ_RE, KNIESCHUTZ_RE_Z,
+                                ALGOPARAM_SBSR_EAM, ALGOPARAM_SBSR_EAM_F, ALGOPARAM_SBSR_EAM_F_1
+                       -------------------------------------------------------
+                       CVT      new CBD versions integrated:
+                                LSZ.C30 (x -> y), LSZ.C31 (o -> p), LSZ.C32 (g -> h),
+                                LEUCHTWEITENREG_DYNAM conditions changed!
+                                old:
+                                LEUCHTWEITENREG_DYNAM   nicht_aktiv
+                                new:
+                                LEUCHTWEITENREG_DYNAM       //*Auftrag*
+                                  nicht_aktiv               =!XENON
+                                  aktiv                     =XENON
+                       SGET
+                       SGFAM
+                       CONF.BAP
+                       CVT      new ECU family GAE integrated!
+                                the family GAE is valid for DSP coding part # 6 930 046.
+                                This part number has wrong datas in GAE and GAL tables in after delivery status.
+                                A new part number will indicate correct GAE and GAL tables coming the next weeks.
+                                Spartanburg: Please activate the new family in the JAT until the # 6 930 046 expires!
+                                             (The new part number can be coded for the transition time as well with GAE).
+                                The service coding (CIP) is not affected because only new part numbers are valid for service (spare part)
+                                CIP: please ignore the new family!
+*********************************************************************************************************
+NAEL EEU54.R t        16.09.02  EE-82  Obrman
+                       CVT      new versions of:
+                       SIM_E85.C04 STROMVERTEILER_B2_BYTE_1
+                                   STROMVERTEILER_B2_BYTE_2
+                                   STROMVERT_B2_BYTE_3/6
+                                   STROMVERT_B2_BYTE_3/7
+                                   STROMVERTEILER_B3_BYTE_1
+                                   STROMVERTEILER_B3_BYTE_2
+                                   STROMVERT_B3_BYTE_3/6
+                                   STROMVERT_B3_BYTE_3/7
+                       SBSL_E85.C02
+                                   GURTSTRAMMER_VO_LI_Z
+                                   ALGOPARAM_SBSL_EAM
+                                   ALGOPARAM_SBSL_EAM_F
+                                   ALGOPARAM_SBSL_EAM_F_1
+                       SBSR_E85.C02
+                                   GURTSTRAMMER_VO_RE_Z
+                                   ALGOPARAM_SBSR_EAM
+                                   ALGOPARAM_SBSR_EAM_F
+                                   ALGOPARAM_SBSR_EAM_F_1
+                                   correlated with EEV69.R
+                       LWS5.C01    optimized parameters. Correlated with E FJ51.R
+                       SGET        SOP of TCU US (SA 639) shifted from #1202 to #1003: project supplement 8021 / 263
+                                   SOP of TCU ECE (SA 638) remains so far with #1202 (Not "preconfirmed" by plant 10)
+                       TCU:        New conditions.
+                       +AT:        new service control words:
+                                   K TELD: deactivation Telematic for TCU_IBUS US. Only possible under condition SA 639.
+                                   K TEL3: after sales option for US TCU_IBUS for ECE vehicles. Only possible under condition SA S641A
+                                   K TEPR: after sales option EJECT-BOX EVEREST, mobile phone for TCU_IBUS US. Only possible under condition with S639A
+
+*******************************************************************************************************************
+NAEL EEW53.R u        xx.09.02  EE-82  Obrman / Betz
+                       CVT         GM5.C04 g: two new FSWs added:
+                                   DELAY_MOTOR_ZV_ER           BEIKLAPPEN_GM               //*Auftrag*
+                                     wert_02                     nicht_aktiv               =E85
+                              ----------------------------------------------------------------------------
+                       MK60.C13: new coding index / CBD supporting RPA
+                       CVT, SGET, SGVT updated
+                              ----------------------------------------------------------------------------
+                       ULF.C02     E3616.R new CBD integrated:
+                       CVT         !HIFI_SYSTEM+!TOP_HIFI (SA644 only) -> wert_09
+                                   HIFI_SYSTEM (SA644 + SA676)         -> wert_10
+                                   TOP_HIFI (SA644 + SA677)            -> wert_11
+                                   for the following PSWs:
+                                        HD_LOOP_MARGIN, HD_AC_MARGIN_WO_AEC, HD_HYBRID_MARGIN_W_LEC, HD_LSW_MAX
+                                        HD_LLES_MIN, HD_LLES_MAX, HD_DO_NOTCH, P_LPF_CLIP, HD_CC_SUPPRESSION
+                                        EC_LMSSTEPSIZE, EC_AUXLMSSTEPSIZE, F_250, F_500, F_750, F_1000, F_1250
+                                        F_1500, F_1750, F_2000, F_2250, F_2500, F_2750, F_3000, F_3250, F_3500, F_3750
+                       SGET+SGVT   updated
+                              ----------------------------------------------------------------------------
+                       AT          new control word E IRSD
+                       GM5.C04     -> deactivation of short range radar (IRS) for ECE types according to EES31.R
+                       CVT         FUNK_INNENRAUMSCHUTZ deactivated also for E IRSD
+                              ----------------------------------------------------------------------------
+                       CVM_IV.C02  E EV99.R new CBD integrated
+                       CVT              New FSWs                       value
+                                        ------------------------------------------------------------------
+                                        BAUREIHE_CVM                   e85
+                                        FALTDACH_SPEED_LIMIT_EN        nicht_aktiv
+                                        TO_ENTR_FALTDACH               wert_02
+                                        TO_VERDECK_ZUFAHREN            wert_02
+                                        TO_VERDECK_AUFFAHREN           wert_02
+                                        ZEIT_BEDIENTASTER              wert_01
+                                        FZG_SPEED_FALTDACH             wert_01
+                       SGET+SGVT   updated
+                              ----------------------------------------------------------------------------
+                       SBSL_E85.C02 EEX89.R
+                       SBSR_E85.C02 EEX89.R
+                       CVT         new conditions for option 230 (seat belt reminder):
+                                        GURTSCHLOSS_LI  aktiv           =SBR,(LL+AK_GUWA)
+                                                        abgesteckt      =!(SBR,(LL+AK_GUWA))
+                                        GURTSCHLOSS_RE  aktiv           =US,SBR,(RL+AK_GUWA)
+                                                        abgesteckt      =!(US,SBR,(RL+AK_GUWA))
+                              ----------------------------------------------------------------------------
+                       KMB_E85.C04 E EY66.R: new values and conditions for
+                       CVT         AKUST_WARNUNG_OELVERBR, AKUST_WARNUNG_OELVERL now aktiv
+                                   TANK_FILTER_FALLEND, TANK_FILTER_STEIGEND, SEAT_BELT_MONITOR, AUSSENTEMP_ABKUEHLZEIT:
+                                   TANK_KENNLINIE new values
+*******************************************************************************************************************
+NAEL EEY73.R v         10.09.2002  EE-82 Obrman
+                       IHK_E85.C01 bugfix coding in two additional Bytes 0F8B, 0F9F
+                                   FUSSRAUMKLAPPE_SCHLIES_1, -2, -3, -4, KENNLINIE_AUTO_GEBLAESE always not active
+                                   AUTO_UMLUFT always ece
+*******************************************************************************************************************
+NAEL EE029.R w         15.11.2002  EE-82 Obrman
+                       SGET        Entfernen der Zeitsteuerung für TCU (=638,K TEL3). Die SAs setzen ein, wenn sie reif sind...
+                              ----------------------------------------------------------------------------
+                       CVT         TCU_IBUS.C02 integrated, but disabled in SGET (...+!E85):
+                       SGET             new FSW/PSW: WHEEL_BASE/e85
+                       SGVT                          DRIVE_WHEELS/rear_wheel
+                                   Conditions changed for US_CALL_SERVICE_CENTER and CUSTOMER_CALLS_OVER_GMIN
+                              ----------------------------------------------------------------------------
+                       CVT         GT.C04 new FSW: ANZEIGE_ANKUNFTSZEIT/nicht_aktiv
+*******************************************************************************************************************
+                       SGET        TCU: temporarly disabled TCU for option 639. (+!E85)
+                                   (PS 8485_089_d.pdf from 21.11.02)
+*******************************************************************************************************************
+NAEL EE665.R x         XX.XX.2002  EE-82 ...Only together with coding data E46 EE782.R and E53 EE756.R
+                       CVT         GM5.C04h:
+                                   DELAY_MOTOR_ZV_ER now wert_01
+                                   TV2.C02: MULTIFUNCTION_2 LA 810 identical to Britain. TV Screen active with brake or "P".
+                                   ULF:
+                                   SPRACHERKENNUNG_EIN_AUS new PSW automatisch/nicht_aktiv
+                                   RA_NG and MIR:
+                                   US coding of RDS-AF_SWITCHING => rds_on/af_man
+                                                LAENDERVARIANTE_RADIO => us
+                                                TP_FUNKTION => nicht_aktiv
+                                   RA_NG:
+                                                PTY_TABELLE => us
+
+*******************************************************************************************************************
+NAEL E3033.S y         14.01.03    EE-82 Diek
+                       CVT         LSZ.C34 functions updated: PIN29_30_BFD HALB/VOLLSCHRITT SCHRITTE_0_OD_ALC_AKTIV_0
+                                   SCHRITTE_2_OD_ALC_AKTIV_2 ABS_MIN_2_OD_ALC_AKTIV_3 HYSTERESE_OD_AL_XENON_IO
+                                   T_STROM_OD_ALC_PARA_02
+                                   Internal BREAKFORCE functions accodring to Hr. Herrling deleted:
+                                   BLST1_BLST3 BFD_SW1_STUFE2 BFD_MINDEST_GESCHW BFD_STUFE_2_VERZOEG BFD_STUFE_2_MAX_EIN
+                                   BFD_BLINK_EINZEIT BFD_BLINK_AUSZEIT BFD3_ASC_TIMER BFD_ABS_STUFE2 BFD_ABS_STUFE3
+                                   BFD_STUFE2_TIMER BFD_STUFE3_TIMER BFD_SW2_STUFE3
+                        AT         GM5.C04 MAUT_NUR_BEI_KL15EIN MAUT_NUR_BEI_KL15EIN FH_BEIFAHRERTUER_TIPP_ZU
+                        CVT        Anti-trappping function for MY 04 realised.
+                                   Together with the new time criterion #1003
+                        AT         LSZ: function HALB/VOLLSCHRITT for option 522 and new time criterion #0303
+                        CVT        coding to "vollschritt"
+                       SGET+SGVT   new CBD ihk_e85.c02 integrated. transportmode now with 100% fan.
+                       CVT
+                       SGET        TCU: coding is generated for option 639 with time criterion #1003
+*******************************************************************************************************************
+NAEL E3323.S z         30.01.03    EE-62 Obrman
+                       SGFAM       Renamed: A_GT    => A_GT3
+                                            A_EPS_2 => A_EPS
+***********************************Bis hierhin HO CD 7.0  **********************************************************
+********************************************************************************************************************
+NAEL E3400.S aa        03.02.03    EE-62 Diek
+                       CVT         LSZ functions changed: PWM_ANSTEUERUNG_BLK_HI,DRL_DIMMUNG,PWM_WERT2_BLK_ZUSATZFKT
+                                   PWM_ANSTEUERUNG_BLK_HI,KL_50_FUNK_AKT,LOAD_DUMP,DRL_DIMMUNG,PWM_WERT2_BLK_ZUSATZFKT
+                                   MDD for US (VS 10/03): activated with #10/03
+********************************************************************************************************************
+NAEL E3566.S ab        xx.03.03    EE-62  Diek
+                       CVT         GT.C05, LSZ.C35 (E3451.R), DSP_E85.C01(EZF86.S) integrated.
+                       SGET,SGVT   For GT.C05 und LSZ.C35 has been changed entries.
+                       CVT         CKM content "AUT_SITZVERSTELLUNG" (SM_E46.C01) added. (INDIVID section)
+                       CVT,SGET,
+                       SGFAM,
+                       CONF.BAP    Pseudo ECU "GAE" (DSP 2nd EEPROM part) has been deleted. Please adapt CASCADE!
+********************************************************************************************************************
+NAEL EEB89.S ac        17.03.03    EE-62  Diek
+                       CVT         DSP_E85.C01(EEB87.S), ULF.C02(EEA08.S), ULF.C03(EEA13.S) integrated.
+                       SGET,SGVT   For ULF.C03 has been changed entries.
+***********************************Bis hierhin HO CD 7.2  **********************************************************
+********************************************************************************************************************
+NAEL EEC47.S ad        28.03.03    EE-62  Diek
+                                   New CBD's integrated:
+                       CVT,SGET    SBSL_E60.C04(EED86.S) mandatory with 10/03 pkg (Z #1003)!
+                                   SBSR_E60.C04(EED86.S) mandatory with 10/03 pkg (Z #1003)!
+                                   SIM_E85.C05(EED84.S)  mandatory with 10/03 pkg (Z #1003)!
+                                   Kmb_e85.c05(EED93.S)
+                                   Cvm_iv.C03(N3004.S) (not active yet)
+                                   Changed CBD's:
+                                   Kmb_e85.c04(EED93.S)
+                                   GT.C05(E3680.S)
+                                   LSZ.C35(EEB67.S)
+                                   Deleted CAS words:
+                       AT/CAS      Z #0202
+                                   Z #0502
+                                   Z #0602
+                                   E ECRA (stays as historical supplementary word H STVX)
+                                   Deletion of CAS word prepared:
+                                   E STVX (has been added to Z #0303 and following time criterions)
+                                   therefore please do not add to 10/03 pkg!
+********************************************************************************************************************
+NAEL EEJ95.S ae        13.05.03    EE-62  Diek
+                                   (Achtung CIP: )
+                                   Migration to the keyword table 07! Series specific directory now mandatory:
+                                   ...daten\E85
+                       CVT         change of SIM_E85.C05 (EEJ94.S ZI b) integrated.
+                       AT          New time criterion #0404 integrated for coding "up front sensor" in SIM_E85.C05 (EEJ94.S ZI b).
+                                   New types integrated (N52B25 and N52B30): BU31, BU33, BU51, BU53
+********************************************************************************************************************
+NAEL EEN81.S af        27.05.03    EE-62  Diek
+                       AT          SA 1CA (Selektion CO2 relevanter Fahrzeuge) and SA 8SH (Leistungsreduzierung Motor (CKD Thailand))
+                                   integrated.
+                                   SA`s 932, 933, 934, 936, 937 integrated.
+                                   SA 901 lt. PA485/115 in "Sonderkontrolle Filmfahrzeug" renamed.
+                                   SA 787 und SA 7M0 lt. PR804/01 integrated.
+                       AT/CAS      Deleted CAS words:
+                                   Z #0902
+                       CVT         change of SBSR_E85.C02 (EER31.S) and SBSL_E85.C02 (EER31.S) integrated.
+                                   change of Kmb_e85.c04 (EER46.S) and Kmb_e85.c05 (EER46.S) integrated.
+********************************************************************************************************************
+NAEL EES13.S ag        17.06.03    EE-62  Diek
+                       CVT         SEAT_BELT_WARNDAUER (kmb_e85.c05) in die INDIVIDUALISIERUNG eingefügt.
+                                   change of Cvm_iv.c01 (EES12.S) integrated.
+                                   change of LSZ.C31 (EES29.S), LSZ.C32 (EES29.S), LSZ.C34 (EES29.S), LSZ.C35 (EES29.S) integrated.
+                                   change of Gm5.C04 (EET24.S) integrated.
+                                   CBD SBSR_E60.C04 (EET38.S) and SBSL_E60.C04 (EET37.S) integrated.
+                                   change of SIM_E85.C05 (EET85.S) integrated.
+                       CVT,SGET    new CBD Ihk_E85.c03 (EES28.S) integrated.
+                       SGVT
+                       AT          new SA's (7NA BMW Service Inclusive, 7NB BMW Service+Repair Inclusive) integrated.
+********************************************************************************************************************
+NAEL EEU85.S ah        18.06.03    EE-62  Diek
+                       CVT         change of Gm5.C04 (EEU86.S) integrated.
+********************************************************************************************************************
+NAEL EEX99.S ai        25.07.03    EE-62  Diek
+                       AT          new SA's (2M0 Individual Leichtmetallraeder V-Speiche 152 mit Mischbereifung
+                                             4M0 Individual Edelholz Pappel natur
+                                             4M1 Individual Edelholz Mahagoni Maritim
+                                             778 Einstiegsleisten "BMW Individual"
+                                             8SM Fahrgestellnummer, v. aussen sichtbar) integrated.
+                       CVT         change of Gm5.C04 (EEW46.S) integrated.
+                                   new CBD Gm5.C05 (EEY89.S) integrated.       !!! Datenblatt !!!
+                                   change of Tcu_ibus.c02 (EEY34.S) integrated.
+                                   change of sim_e85.c05 (EE254.S) integrated.
+                                   change of SBSL_E60.C04 (EE260.S) und SBSR_E60.C04 (EE260.S) intergrated.
+********************************************************************************************************************
+NAEL EE592.S aj        14.08.03    EE-62  Diek
+                       CVT         change of tcu_ibus.c02 (EE279.S) integrated
+                                   FH_FAHRERTUER_TIPP_ZU in INDIVID integrated
+                                   change of Gm5.C04 (EE505.S) integrated
+                                   change of Gm5.C05 (EE505.S) integrated
+                                   change of Kmb_E85.c05 (EE591.S) integrated
+                       AT          SA 940 Sonderwunsch-Ausstattung integrated
+********************************************************************************************************************
+NAEL EE629.S al        29.08.03    EE-62  Diek
+                       CVT         change of Kmb_E85.c05 (EE681.S) integrated
+                                   change of LSZ.C34(EE779.S) and LSZ.C35(EE779.S) integrated
+                                   DSP_GAE.C01[EE772.S] new integrated
+********************************************************************************************************************
+NAEL EE891.S am       13.10.03     EE-62  Diek
+                      CVT          change of Sim_E85.c05 (EE890.S) integrated.
+                                   change of tcu_ibus.c02 (EE910.S) integrated.
+                                   change of GM5.C04 (EE824.S,E4E77.S) and GM5.C05 (EE824.S,E4E77.S) integrated.
+                                   change of Kmb_E85.c05 (E0E70.S) integrated.
+                                   change of LSZ.C31 (E0E22.S), LSZ.C32 (E0E22.S), LSZ.C34 (E0E22.S)
+                                             and LSZ.C35 (E0E22.S) integrated.
+                                   change of SBSL_E85.C02 (E5E02.S) and SBSR_E85.C02 (E5E02.S) integrated.
+                                   change of SBSL_E60.C04 (E5E01.S) and SBSR_E60.C04 (E5E01.S) integrated.
+                      CVT,SGET
+                          SGVT     new CBD STVL_E85.C08 (EE890.S) and STVR_E85.C08 (EE890.S) integrated.
+                                   new CBD CVM_IV.C04 (NEU84.S) integrated.
+                      AT           new SA 5AB ENTFALL_BFD integrated.
+                                   new SA 920 integrated.
+                                   new SA 633 integrated.
+                                   new SA 868 integrated.
+********************************************************************************************************************
+NAEL E6E95.S an       23.10.03     EE-62  Diek
+                      CVT          change of LSZ.C31 (E6E61.S), LSZ.C32 (E6E61.S), LSZ.C34 (E6E61.S) and
+                                   LSZ.C35 (E6E61.S) integrated.
+                                   change of SBSL_E60.C04 (E7E71.S) and SBSR_E60.C04 (E7E71.S) integrated.
+                                   FSW SPORTSCHALTER changed. aktiv with (SA224 and !SA920 ALPINA)
+                                   ALPINA according to KMB_E85.C05 included.
+                                   First VIN and build: LP78159, build #49670
+***********************************Bis hierhin HO CD 10.0 **zusammen gelegt mit CD 10.1 von 28.11.003 **************
+********************************************************************************************************************
+NAEL E7E81.S ao       20.11.03     EE-62  Diek
+                      CVT          change of GM5.C05 (E7E80.S) integrated.
+                                   change of MK60.C13 (EFK91.S) integrated.
+                                   change of SBSL_E60.C04 (E4P26.S) and SBSR_E60.C04 (E4P26.S) integrated.
+                                   change of SBSL_E85.C02 (E4P29.S) and SBSR_E85.C02 (E4P29.S) integrated.
+                      CVT,SGET,
+                      SGVT         new CBD DSP_E85.C02 (E8E29.S) integrated.
+                                   new CBD TCU_IBUS.C03 (E5E61.S) integrated.
+                      AT           new SA's (SA630, SA760, SA769, SA849, SA944) integrated.
+                      SGET,SGVT    SBSL_E60.C04 (E4P26.S), SBSR_E60.C04 and Sim_E85.c05 (EE890.S)
+                                   is only from 1003 permissibly.
+********************************************************************************************************************
+NAEL E4R33.S ap       28.11.03     EE-62  Diek
+                      AT           new SA 319 hinzugefügt
+                                   new time criterion #1005 integrated
+                      CVT          change of SBSL_E60.C04 (E4R03.S) and SBSR_E60.C04 (E4R03.S) integrated.
+                                   change of MK60.C13 (EFU82.S) integrated.
+                                   change of CVM_IV.C04 (E4R42.S) integrated.
+                                   change of KMB_e85.c05 (E4R67.S) integrated.
+                      CVT,SGET,
+                      SGVT         new CBD KMB_e85.c06 (E4R67.S) integrated.
+***********************************Bis hierhin HO CD 10.0 **********************************************************
+********************************************************************************************************************
+NAEL E5R55.S aq       11.12.03     EE-62  Diek
+                      SGET         New CABD A_TCUDS2 for TCU CI 03
+                      CVT          change of DSP_E85.C02 (E5R57.S) integrated.
+                                   change of Kmb_E85.C06 (E5R53.S) integrated.
+********************************************************************************************************************
+NAEL N5R55.S ar       13.01.04     EE-42  Diek
+                      CVT          INDIVID DWA_Schaerfen - Steuerung korrigiert
+********************************************************************************************************************
+NAEL E3384.T as       10.02.04     EE-42  Diek
+                                   Projektnachtrag PA678/035 bearbeitet
+                                   Projektnachtrag PA678/036 bearbeitet
+                                   Projektnachtrag PA678/037 bearbeitet
+                                   Projektnachtrag PA678/041 bearbeitet
+                      AT           SA 612 BMW Assist integrated
+                                   new type BU52 integrated
+                      CVT          change of Ihk_E85.C03 (E3383.T) integrated.
+                                   change of Kmb_E85.C02 (E3515.T) integrated.
+                                   change of Kmb_E85.C03 (E3515.T) integrated.
+                                   change of Kmb_E85.C04 (E3515.T) integrated.
+                                   change of Kmb_E85.C05 (E3515.T) integrated.
+                                   change of Kmb_E85.C06 (E3515.T) integrated.
+                                   change of GM5.C05 (E3561.T) integrated.
+                                   change of MK60.C13 (E1360.T) integrated.
+***********************************Bis hierhin HO CD 11.0 **********************************************************
+********************************************************************************************************************
+NAEL EEC40.T at       13.04.04     EE-42  Diek
+                      AT           new SA 7SA Open Air Paket integrated
+                                   AT.M00 and AT.000/K00 to Band (13.02.04)
+                                   new SA 8AD ALPINA Z4 integrated
+                                   new SA 437 integrated
+                                   new SA 8AE Griechisch Betriebsanl./Serviceheft integrated
+                                   new types (BZ11, BZ12, BZ31, BZ32) integrated
+                      SGET,SGVT    new CBD SBSL_E60.C05 (EEC85.T) and SBSR_E60.C05 (EEC85.T) integrated.
+                                   new CBD ULF.C04 (EEA92.T) integrated.
+                                   new CBD TCU_IBUS.C04 (EEM45.T) integrated.
+                                   new CBD ACSM.C01 (EEM81.T) integrated. (auskommentiert)
+                                   new CBD Ekpm60_2.C03 (NFS81.S) integrated.
+                      CVT          PDC.C03 (EEA96.T) no changes for E85.
+                                   KMB_E85.C05 [EEF42.T] und KMB_E85.C06 [EEF42.T] integrated.
+                                   LSZ.C31,C32,C34,C35 [EEG45.T] integrated.
+                                   GM5.C04 and GM5.C05 [EES14.T] integrated.
+                                   GM5.C05 [EEU28.T] integrated.
+                                   TCU_IBUS.C04 [EEU30.T] integrated
+                                   CVM_IV.C04 [e] [E EK57.T] geänderte Hex. Werte, 12.03.2004
+***********************************Bis hierhin HO CD 11.2 **********************************************************
+********************************************************************************************************************
+NAEL EEW87.T au       14.05.04     EE-42  Diek
+                      AT           SA 840 Hochgeschwindigkeitsabstimmung hinzu
+                      CVT          KMB_E85.C06 [EEW85.T] integrated
+                                   //////////////////////////////////////////
+                                   EE-42 Miehling Stefan (Vertretung) 28.04.2004
+                                   SBSL_E60.C04 [EEZ87.T] integrated
+                                   SBSL_E60.C05 [EEZ87.T] integrated
+                                   SBSR_E60.C05 [EEZ87.T] integrated
+                      CVT          Changed CBD ACSM.C01 (FSW) in CVT integrated 05.05.2004
+                                   Changed CBD ACSM.C02 (FSW) in CVT integrated 06.05.2004
+                                   CBD Kmb_e85.c06 [EEW85.T] Kommentar "Ende Aenderungsdokumentation" hinzu 12.05.2004
+                                   CBD ACSM.C02 [EE487.T] E85-ECE FR_HE_PARAM und E85-ECE EAM Time Delay (Parameter Werte korregiert) 12.05.2004
+***********************************Bis hierhin HO CD 12.0 **********************************************************
+********************************************************************************************************************
+NAEL EE954.T av       16.06.04     EE-42  Diek
+                      AT           new SA 7NC,7NE und 7PA BMW Service Inclusive integrated
+                                   new SA 7ND,7NF und 7PB BMW Service+Repair Inclusive integrated
+                                   neue Motortypen BT91, BT92, BT93 hinzu
+                                   SA 633 umbenannt, CVT angepasst
+                      CVT          SBSL_E60.C04 and SBSR_E60.C04 [EE940.T] integrated
+                                   IHK_E85.C03 [EE952.T] integrated
+                                   changed CBD Ekpm60_2.C03 [SFS81.S] integrated.
+***********************************Bis hierhin HO CD 12.2 **********************************************************
+********************************************************************************************************************
+NAEL EGH23.T aw       23.07.04     EE-42  Diek
+                      AT           new SA 4ML Individual Intereurleisten Pianolack schwarz integrated
+                                   new SA 4MM Individual Intereurleisten lederbezogen integrated
+                                   new SA 9AA Oberflächenschutz integrated
+                                   new SA 6UD Sprachversion Russisch integrated
+                      CVT          TCU_IBUS.C04 [EGR80.T] integrated.
+                                   KMB_E85.C05 and KMB_E85.C06 [EGH21.T] integrated.
+                                   GM5.C04 and GM5.C05 [EGJ24.T] integrated.
+***********************************Bis hierhin HO CD 13.0 **********************************************************
+********************************************************************************************************************
+NAEL EGW07.T ax       13.08.04     EE-42  Diek
+                      AT           new SA 6UE Diebstahlschutz NavigatiosDVD integrated.
+                                   new time criterion #0405 integrated.
+                      CVT          changed CBD GM5.C05 [EGW08.T] integrated.
+                                   changed CBD PDC.C03 [EGS00.T] integrated.
+***********************************Bis hierhin HO CD 13.1 **********************************************************
+********************************************************************************************************************
+NAEL ENA12.T ay       13.10.04     EE-42  Diek
+                      AT           new SA 8SY Berichtigung Gebrauchte Automobile integrated.
+                                   new SA's
+                                          7NG BMW Basic Service Inclusive (3 Jahre)
+                                          7NH BMW Basic Service Inclusive (5 Jahre)
+                                          7NK BMW Service Inclusive
+                                          7NL BMW Service+Repair Inclusive integrated.
+                                          7M2 BMW Individual Komposition 1 ab 04/05
+                                          7M3 BMW Individual maritime Ausstattung ab 04/05
+                                          7M4 BMW Individual Komposition 2 ab 04/05
+                                          7NM BMW Service Inclusive (3 Jahre/60.000 km)
+                                          7NN BMW Service+Repair Inclusive (3 Jahre/60.000 km)
+                                          4MY Interleisten Leder-Carbon
+                                          4UC Pedalerie stell line
+                                          8SX Providerzuordnung für Telematik und Oniline-Dienste
+                                   new LA 833 Singapur-Ausführung integrated.
+                                   new E-Word L633 (TEL_O_CRADLE ) integrated.
+
+                      SGET,SGVT    new CBD TCU_IBUS.C05 [EG039.T] integrated.
+                                   new CBD ACSM.C05 [EG921.T] integrated.
+                                   new CBD GT.C06 [EG898.T] integrated.
+                                   new CBD MV946.C0D [EAS54.T] integrated.
+                      CVT
+                                   changed CBD ULF.C04 [EG940.T] integrated
+                                   changed CBD ACSM.C04 [EG963.T] integrated
+                                   changed CBD RA_NG.C02 [ENA38.T] integrated
+                                   new Familie 4BMOT integriert
+
+                                   EE-42 Miehling Stefan
+                      CVT
+                                   changed CBD CVM_IV.C04 [ENA83T] integrated, keine Änderung für E85 nur R52 war betroffen
+                                   changed CBD SBSL_E60  [ENC18.T] integrated, keine Änderung für E85
+                                   changed CBD SBSR_E60  [ENC18.T] integrated, keine Änderung für E85
+
+********************************************************************************************************************
+NAEL END72.T az       22.10.04     EE-42  Diek
+                      AT           SA's 7M2, 7M3 and 7M4 gem. PR804/013 umbenannt
+                                   new Familie 6BMOT integrated
+                      CVT          changed CBD IHK_E85.C03 [ENC29.T] integrated
+                                   changed CBD DSP_E85.C01 [END90.T] integrated
+                                   new CBD MSV70.C01 [BAS29.T] integrated.
+                                   new CBD MSV70.C02 [BAS29.T] integrated.
+                                   new CBD MSV70.C03 [N2333.T] integrated.
+                                   new CBD MSV70.C04 [N2333.T] integrated.
+                                   new CBD MK60.C20 [E FS35.T] integrated.
+                                   changed CBD TCU_IBUS.C04 [ENG24.T] integrated.
+                                   changed CBD TCU_IBUS.C05 [ENG24.T] integrated.
+***********************************Bis hierhin HO CD 15.0 **********************************************************
+********************************************************************************************************************
+NAEL ENM88.T ba       10.11.04     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BA
+                      AT           new Time criterium #1006 integrated.
+                                   new SAs 7NP, 7NR and 7NS integrated.
+                      SGET         SIM, SBSL, SBSR, STVL, STVR ab OKTOBER05 gesperrt. Ersetzt durch ACSM.
+                      CVT          new CBD KMB_E85.C07 [ENM85.T] integrated.
+                                   new CBD ACSM.C06 [ENJ23.T] integrated.
+                                   changed CBD EKPM60_2.C03 [EL220.T] integrated.
+                                   changed CBD MK60.C13 [EFU56.T] integrated.
+********************************************************************************************************************
+NAEL ENR22.T bb       09.12.04     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BB
+                      AT           new PA 7R3 OE-Paket Ukraine integrated.
+                                   new SA 4M7 Individual Edelholzausführung Mahagoni integrated
+                      CVT          changed CBD DSP_E85.C01 [ENR19.T] integrated.
+                                   changed CBD DSP_GAE.C01 [ENT59.T] integrated.
+                                   changed CBD KMB_E85.C06 [ENV59.T] integrated.
+                                   changed CBD KMB_E85.C07 [ENV59.T] integrated.
+                                   changed CBD GM5.C04 [ENV56.T] integrated.
+                                   changed CBD GM5.C05 [ENV56.T] integrated.
+                                   changed CBD ACSM.C05 [ENW72.T] integrated.
+                      SGET         EPS_E85 ausgeschlossen für S54B32-Motoren.
+                                   EKPM60_2 für S54B32 freigeschaltet
+********************************************************************************************************************
+NAEL EN214.T bc       28.01.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BC
+                     AT            new SA 8SW, 9AB integrated.
+                                   new SA 7CA, 7CB, 7CC, 7CD und 7CE integrated.
+                                   new E-Wort EWS4 integrated (nicht codierrelevant)
+                     CVT           changed CBD ULF.C04 [EN225.T] integrated.
+                                   changed CBD SBSL_E60.C04 [E3488.U], SBSR_E60.C04 [E3488.U],
+                                   SBSL_E60.C05 [E3488.U] and SBSR_E60.C05 [E3488.U] integrated.
+                                   changed CBD SIM_E85.C05 [E3513.U] integrated.
+                                   deleted from INDIVID the Function SEAT_BELT_WARNDAUER
+********************************************************************************************************************
+NAEL NN214.T bd       31.01.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BD
+                     AT            new SA 5GA, 2AD, 2C8, 2RT, 2VB, 4A4, 4ME, 754 integrated.
+***********************************Bis hierhin HO CD 16.0 **********************************************************
+********************************************************************************************************************
+NAEL EEA98.U be       24.03.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BE
+                     AT            new SA 602, 7NT, 7NU, 7NV, 7NX, 7NY, 7NZ, 7N1, 7N2, 7N3, 7N4, 7N5, 7N6,
+                                          7N7, 7N8, 7N9, 4AD, 4BM, 7DA, 7DB, 7DC, 7CF, 653, 4NA, 6AA integrated.
+                                   new time criterion #0106 integrated. ACSM is in use from #0106
+                     SGET          new CBD ACSM.C07 [E3645.U] integrated.
+                                   new CBD GT.C07 [EEA96.U] integrated.
+                                   new CBD LSZ.C36 [EED56.U] integrated.
+                                   new CBD ULF.C05 [EEG59.U, a] integrated.
+                     CVT           changed CBD ACSM.C07 [E3956.U, b] integrated.
+                                   changed CBD ACSM.C07 [EEL91.U, c] integrated.
+                                   changed CBD EKPM60_2.C03 [E4738.U] integrated.
+                                   changed CBD GM5.C05 [EEA88.U, o] integrated.
+                                   changed CBD MK60.C20 [E6236.U, b] integrated.
+                                   changed CBD TCU_IBUS.C03 [EED57.U, b] integrated.
+                                   changed CBD RA_NG.C01 [NEB86.U, g] integrated.
+                                   changed CBD KMB_E85.C07 [EEG58.U, c] integrated.
+***********************************Bis hierhin HO CD 17.0 **********************************************************
+********************************************************************************************************************
+NAEL EEW77.U bf       15.04.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BF
+                      AT           new SA 7DD, 7DE, 7DF and 7NW integrated
+                      CVT          changed LWS5.C01 [EFZ82.T, h] integrated.
+                                   changed SBSL_E60.C05 [EES54.U] and SBSR_E60.C05 [EES54.U] integrated.
+                                   (the change is for E60 only)
+                                   changed CBD KMB_E85.C07 [EEW74.U] integrated.
+                      SGET         new CBD KMB_E85.C08 [EEW74.U] integrated.
+                                   new CABD A_ALSZ2 (V1.00) for LSZ.
+                                   changed CABD A_KMB85 (V1.03) for KMB.
+********************************************************************************************************************
+********************************************************************************************************************
+NAEL EEZ22.U bg       21.04.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BG
+                      AT           new SA 5DS, 7R2 integrated
+                      CVT          changed CBD KMB_E85.C05 [EEZ17.U] integrated.
+                                   changed CBD KMB_E85.C06 [EEZ17.U] integrated.
+                                   changed CBD KMB_E85.C07 [EEZ17.U] integrated.
+                                   changed CBD KMB_E85.C08 [EEZ17.U] integrated.
+********************************************************************************************************************
+********************************************************************************************************************
+NAEL EE179.U bh       04.05.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BH
+                      SGET         new CBD ACSM.C08 [EE360.U] integrated.
+                      CVT          changed CBD SBSL_E60.C04 [EE365.U] and SBSR_E60.C04 [EE365.U] integrated.
+***********************************Bis hierhin HO CD 17.1 **********************************************************
+********************************************************************************************************************
+NAEL EE808.U bi       24.06.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BI
+                      AT           new SA 8S2, 664 integrated.
+                      CVT          changed CBD PDC.C03 [EE638.U] integrated.
+                                   changed CBD LSZ.C36 [EE758.U] integrated.
+                                   changed CBD KMB_E85.C06/C07/C08 [EE841.U] integrated.
+                                   changed CBD GM5.C05 [EGC50.U] integrated.
+                                   changed CBD SBSL/R_E60.C05 [EGG93.U] integrated.
+                                   changed CBD LSZ.C31/34/35/36 [EGH64.U] integrated.
+********************************************************************************************************************
+NAEL EGJ20.U bj       07.07.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BJ
+                      AT           new SA 1CB, 2R3, 5DA integrated.
+                                   new ASW for SA 5DA and 6UD
+                      CVT          changed CBD MK60.C20 [EFH26.U] integrated.
+                                   changed CBD ACSM.C08 [EGH50.U] integrated.
+                                   changed CBD KMB_E85.C06/07/08 [EGK48.U] integrated.
+********************************************************************************************************************
+NAEL EGM48.U bk       27.07.05     EE-42  Diek/Miehling
+                                ECCO ItemNr:  013350      Rev.Nr.:  BK
+                      AT           new SA 388 integrated
+                      CVT          changed CBD KMB_E85.C08[NGK48.U] integrated
+********************************************************************************************************************
+NAEL EGU93.U bl       04.08.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BL
+                      AT           new SA714 integrated.
+                                   SA842 ist ab 0106 wieder codierrelevant
+                      CVT          changed CBD ACSM.C08 [EGT39.U] integrated.
+***********************************Bis hierhin HO CD 19.0 **********************************************************
+********************************************************************************************************************
+NAEL EGW33.U bm       24.08.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BM
+                      AT           new SA 2M6 integrated.
+                      CVT          changed CBD EKPM60_2.C03 [ELH23.T] integrated.
+                                   changed CBD KMB_E85.C08 [EGY03.U] integrated.
+                                   changed CBD TCU_IBUS.C05 [EGZ37.U] integrated.
+********************************************************************************************************************
+NAEL EG364.U bn       16.09.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BN
+                      AT           new ASW BORDMONITOR and RADIO_NG for SA602
+                      CVT          changed CBD RA_NG.C01 [EGW82.U] integrated.
+                                   changed CBD EKPM60_2.C03 [ELE63.U] integrated.
+                                   changed CBD ACSM.C08 [EG203.U] integrated.
+                                   changed CBD LSZ.C34 [EG352.U] integrated.
+                                   changed CBD LSZ.C35 [EG352.U] integrated.
+                                   changed CBD LSZ.C36 [EG352.U] integrated.
+                                   changed CBD MK60.C20 [EFS38.U] integrated.
+********************************************************************************************************************
+NAEL EG494.U bo       28.09.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BO
+                      CVT          changed CBD ACSM.C08 [EG448.U] integrated.
+                                   changed CBD GM5.C04 [EG431.U] and GM5.C05 [EG431.U] integrated.
+                                   changed CBD KMB_E85.C08 [EG624.U] integrated.
+                      SGET         new CBD ULF.C06 [EG450.U] integrated.
+********************************************************************************************************************
+NAEL EG900.U bp       19.10.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BP
+                      CVT          changed CBD KMB_E85.C08 [ENA41.U] integrated.
+                                   changed CBD LSZ.C36 [ENA44.U] integrated.
+********************************************************************************************************************
+NAEL ENB95.U bq       07.11.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BQ
+                      AT           new time criterion #0406 integrated (without ASW).
+                                   deleted ASW BC_BASIS for BU11, BU12, BU33
+                      CVT          changed CBD ACSM.C08 [END90.U] integrated.
+                                   changed CBD KMB_E85.C08 [ENE78.U] integrated.
+                                   changed CBD GM5.C05 [ENF24.U] integrated.
+***********************************Bis hierhin ProgMan 20.0 ********************************************************
+********************************************************************************************************************
+NAEL ENG05.U br       06.12.05     EE-42  Diek
+                                ECCO ItemNr:  013350      Rev.Nr.:  BR
+                      AT           new SA 7DH, 4AA, 420, 7RP, 8S6 integrated.
+                      SGET         new CBD TV2.C03 [ENG32.U] integrated.
+                      CVT          changed CBD KMB_E85.C08 [ENL32.U] integrated.
+                                   changed CBD MSV70.C03 [EA344.U] and MSV70.C04 [NA121.U] integrated.
+                                   changed CBD MSV70.C03 [EA474.U] and MSV70.C04 [EA474.U] integrated.
+                                   changed CBD ACSM.C08 [ENP57.U] integrated.
+***********************************Bis hierhin ProgMan 20.1 ********************************************************
+********************************************************************************************************************
+NAEL ENR73.U bs       03.02.06     EG-75  Diek/ Spila (Sp)
+                                ECCO ItemNr:  013350      Rev.Nr.:  BS
+                      CVT           changed CBD TCU_IBUS.C02 [ENU93.U] integrated.
+                                    changed CBD TCU_IBUS.C03 [ENU93.U] integrated.
+                                    changed CBD TCU_IBUS.C04 [ENU93.U] integrated.
+                                    changed CBD TCU_IBUS.C05 [ENU93.U] integrated.
+                                    CBD EKPM60_2.C03 [EL772.U] integrated. No change for E85.
+                                    CBD KMB_E85.C08 [ENS65.U] integrated. No change for E85.
+                                    CBD ACSM.C08 [E3324.V] integrated. No change for E85. (Sp)
+                                    CBD EPS_E85.C03 [E1181.V] integrated. (Sp)
+                                    CBD RA_NG.C01 [E3486.V] integrated. (Sp)
+                      SGET          new CBD TCU_IBUS.C06 [E3154.V] integrated. (Sp)
+                                    new CBD TCU_IBUS.C07 [E3154.V] integrated. (Sp)
+                                    new SGBD (VM5IBUS) for all TV1 CBDen (Sp)
+                      AT            BU31, BU32, BZ11, BZ12 x-->OL: no change in netto-data (Sp)
+                                    DU51, DU52, DU53 x-->OL: change in netto-data (MK60:UEBERSTEUERN_MUE_0_2,UEBERSTEUERN_MUE_1_2,HSA) (Sp)
+***********************************Bis hierhin ProgMan 21.0 ********************************************************
+********************************************************************************************************************
+NAEL NNR73.U bt        09.02.06     EG-75  Spila (Sp) /Diek(Di)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     08.02.06 Sp             HO             E85CVT                    -IHK (ZWP_VERBAUT all MSport aktiv; WV_VERBAUT all MSport aktiv for CI01-02)
+     09.02.06 Sp             HO             E85CVT                    -MK60 (UNTERSTEUERSCHWELLE_2 wert_00 for all MSport)
+********************************************************************************************************************
+NAEL E3734.V bw        23.02.06     EG-75  Spila (Sp) /Diek(Di)
+// Sprung des AEI auf bw, da Probleme bei der EPS Freigabe vs. Codierdaten-Freigabe
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     14.02.06 Sp             HO             E85CVT                    -AKUSTIK_LIMIT_WARN is also aktiv for BORDMONITOR
+              Sp                     TV1    TV2.C03      [E3485.V, b] -no change for E85
+     21.02.06 Sp             HO      EPS    EPS_E85.C03  [E1612.V, d] -integrated
+              Sp                     CVM    CVM_IV.C04   [E3625.V, h] -no change for E85
+              Sp                     DSP    DSP_E85.C02  [E3940.V, c] -integrated
+              Sp                            E85AT                     -new SA 7ME
+              Sp             HO      GM5    GM5.C05      [EEB79.V, t] -integrated
+     22.02.06 Sp                     AKMB   KMB_E85.C05  [E3690.V, n] -no change for E85 (only UNBELEGT 33:0)
+              Sp                     AKMB   KMB_E85.C06  [E3690.V, m] -no change for E85 (only UNBELEGT 33:0)
+              Sp                     AKMB   KMB_E85.C07  [E3690.V, h] -no change for E85 (only UNBELEGT 33:0)
+              Sp                     AKMB   KMB_E85.C08  [E3690.V, l] -no change for E85 (only UNBELEGT 33:0)
+********************************************************************************************************************
+NAEL EEC32.V bx        02.03.06     EG-75  Spila (Sp) /Diek(Di)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     23.02.06 Sp                            E85AT                     -new SA 2R8
+     28.02.06 Sp             HO      AKMB   KMB_E85.C08  [EED13.V, m] -integrated
+********************************************************************************************************************
+NAEL EEF04.V by        16.03.06     EG-75  Spila (Sp) /Diek(Di)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     06.03.06 Sp                            E85AT                     -new K-Words: HELF, HWFL
+              Sp             HO      MK60   MK60.C20     [E6261.V, e] -integrated
+     07.03.06 Sp             HO      ALSZ   LSZ.C36      [EEF92.V, f] -integrated
+     16.03.06 Sp                            E85AT                     -from 04/06 SA602 with SA550
+***********************************Bis hierhin ProgMan 21.2 ********************************************************
+********************************************************************************************************************
+NAEL EEE25.V bz        27.04.06     EG-75  Spila (Sp) /Diek(Di)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     20.03.06 Sp                            E85AT                     -new SA 7DK
+     27.03.06 Sp                     PDC    PDC.C03      [EEM03.V,aa] -no change for E85
+     10.04.06 Sp                            E85AT                     -new SA 4B4
+     12.04.06 Sp                            E85SGET                   -new SGBD "TELIBUS3" for TCU_IBUS.C07
+              Sp                     GM5    GM5.C05      [EET18.V, u] -no change for E85
+     13.04.06 Sp 06-10-VS2   HO      RAD    RA_NG.C01    [EET34.V, k] -TV_System added
+//-----------------------------------Vorab-Codierdatenpaket [xa]------------------------------------------------------
+     20.04.06 Sp                     CVM    CVM_IV.C04   [EKN73.V, j] -no change for E85
+              Sp 06-10-VS2   HO      ALSZ   LSZ.C36      [EEU70.V, g] -integrated
+     21.04.06 Sp 06-10-VS2           CVM    CVM_IV.C07   [EKR36.V, a] -new CI integrated
+//-----------------------------------Vorab-Codierdatenpaket [xb]------------------------------------------------------
+********************************************************************************************************************
+***********************************Bis hierhin ProgMan 22.0 ********************************************************
+********************************************************************************************************************
+NAEL EE468.V ca        24.05.06     EG-75  Spila (Sp) /Diek(Di)
+     27.04.06 Sp                            E85AT                     -new SA 8LS
+     03.05.06 Sp 06-10-SE    HO      MK60   MK60.C20     [E6347.V, f] -integrated (Ausschalten Pre-USC fuer E85HP/E86HP)
+              Sp 06-10-SE            AKMB   KMB_E85.C08  [EEX66.V, n] -integrated (WASCHWASSER: aktiv fuer E85HP ab 10/2006)
+              Sp 06-10-SE            TCU    TCU_IBUS.C07 [EEW10.V, b] -integrated (Anpassung DSP_ACOUSTIC_PROFILE(_07))
+//-----------------------------------Vorab-Codierdatenpaket [xc]------------------------------------------------------
+     09.05.06 Sp 06-10-SE    HO      GT     GT.C07       [EEZ45.V, b] -integrated (DEFAULT_SMSC_ADDRESS und BACKUP_SMSC_ADDRESS)
+     11.05.06 Sp                            E85AT                     -new SA 7DL, 7DM, 7DN, 7DP
+     12.05.06 Sp 06-10-SE    HO      ULF    ULF.C06      [EE106.V, b] -integrated
+     17.05.06 Sp                     EKP    EKPM60_2.C03 [EKF59.V, p] -no change for E85
+//-----------------------------------Vorab-Codierdatenpaket [xd]------------------------------------------------------
+********************************************************************************************************************
+NAEL EE501.V cb        01.08.06     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+     12.06.06 OS                     AKMB   KMB_E85.C08  [EE945.V, o] -no change for E85
+     27.06.06 OS 07-04-VS1           ALSZ   LSZ.C37      [EGC38.V, a] -new CI integrated
+     03.07.06 OS 06-10-SE2   HO      AKMB   KMB_E85.C08  [EGE87.V, p] -new PSW for MIN_BELEUCHTUNG_DISPL
+     04.07.06 OS 06-10-SE2           ABG    ACSM.C22     [EGE48.V, b] -new CI integrated
+     05.07.06 OS                            E85AT                     -new SA 7MC, 7MB
+//-----------------------------------Vorab-Codierdatenpaket [xe]------------------------------------------------------
+     18.07.06 OS 06-10-SE2   HO      AKMB   KMB_E85.C08  [NGE87.V, q] -integrated
+     18.07.06 OS 06-10-SE2   HO      DSP    DSP_E85.C01  [EGJ35.V, i] -integrated
+     18.07.06 OS 06-10-SE2   HO      GM5    GM5.C05      [EGK26.V, v] -integrated
+//-----------------------------------Vorab-Codierdatenpaket [xf]------------------------------------------------------
+     21.07.06 OS 06-09-SE2           PDC    PDC.C03      [EGM62.V,ab] -no change for E85
+     01.08.06 OS                            E85AT                     -new SA 8AF
+********************************************************************************************************************
+***********************************Bis hierhin ProgMan 23.0 ********************************************************
+********************************************************************************************************************
+NAEL EG897.V cc        05.10.06     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+     17.08.06 OS                            E85AT                     -new time criteria 0407
+     23.08.06 OS                            E85AT                     -new time criteria 1206
+     23.08.06 OS 06-12-QM    HO      ULF    ULF.C06      [EGW68.V, c] -integrated
+     01.09.06 OS                            E85AT                     -new K-Word KMEK
+     04.09.06 Di 07-04-VS2   HO      GT     GT.C08       [EGU12.V, a] -new CI integrated
+//-----------------------------------Vorab-Codierdatenpaket [xg]------------------------------------------------------
+     20.09.06 OS                     ABG    ACSM.C22     [EGZ46.V, c] -no change for E85
+     21.09.06 OS                            E85AT                     -K-Word KMEK deleted
+     21.09.06 OS 07-04-VS2   HO      GT     GT.C08       [EGU12.V, a] -new CKM function MEKKA_INDIKATOR integrated
+     25.09.06 OS                            E85AT                     -new SA 7DR, 7DS, 7DT, 7DU, 7DV, 7DW, 7DX, 7DY, 7DZ
+     25.09.06 OS                            E85AT                     -new SA 7D1, 7D2, 7D3, 7D4, 7D5, 7D6, 7CG, 7CH, 7CK
+     25.09.06 OS                            E85AT                     -new SA 7D7, 7D8
+//-----------------------------------Vorab-Codierdatenpaket [xh]------------------------------------------------------
+     04.10.06 OS 07-04-VS2   HO      TCU    TCU_IBUS.C07 [EG901.V, c] -new and changed parameters
+********************************************************************************************************************
+NAEL NG897.V cd        10.10.06     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+     09.10.06 OS 07-04-VS2   HO      TCU    TCU_IBUS.C07 [ENA47.V, d] -changed parameter
+********************************************************************************************************************
+NAEL SG897.V ce        09.11.06     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+     08.11.06 OS                            E85AT                     -new E-Word MEKS
+     08.11.06 OS 07-04-VS2           GM5    GM5.C05      [ENL78.V, x] -new implementation criteria for EKS, E-Word MEKS
+********************************************************************************************************************
+***********************************Bis hierhin ProgMan 24.0 ********************************************************
+********************************************************************************************************************
+NAEL ENL40.V cf        30.11.06     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+     18.10.06 OS 07-04-SE    HO      GT     GT.C08       [ENA51.V, b] -new number for DEF_DESTINATION_ADDRESS
+     19.10.06 OS 07-04-SE            GM5    GM5.C05      [ENE63.V, w] -new time criteria für SW 4.3
+     23.10.06 OS 07-04-SE            EKP    EKPM60_2.C03 [ELE54.V, q] -no change for E85
+     26.10.06 OS 07-04-SE    HO      TCU    TCU_IBUS.C07 [ENG57.V, e] -rechanged parameter
+     26.10.06 OS 07-04-SE            ULF    ULF.C06      [ENH23.V, d] -no change for E85
+     30.10.06 OS 07-04-SE    HO      EKP    EKPM60_2.C03 [EL229.V, r] -parameters changed
+     30.10.06 OS 07-04-SE    HO      ABG    ACSM.C22     [ENJ34.V, d] -parameters changed
+//-----------------------------------Vorab-Codierdatenpaket [xi]------------------------------------------------------
+     10.11.06 OS 07-04-SE            TV1    TV2.C03      [ENM95.V, c] -no change for E85
+     10.11.06 OS 07-04-SE            AKMB   KMB_E85.C07  [ENM77.V, i] -comments changed
+//-----------------------------------Vorab-Codierdatenpaket [xj]------------------------------------------------------
+     20.11.06 OS 07-04-SE    HO      GT     GT.C08       [ENR72.V, c] -Blanks added to DEF_DESTINATION_ADDRESS
+//-----------------------------------Vorab-Codierdatenpaket [xk]------------------------------------------------------
+     24.11.06 OS                            E85AT                     -new SA 931
+********************************************************************************************************************
+NAEL E3352.W cg        02.02.07     EG-75  Olivella-Stern(OS)/Diek(Di)/Spila(Sp)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     01.12.06 OS                            E85AT                     -new SA 7SP
+     12.12.06 OS                            E85AT                     -new K-word NSWA
+     12.12.06 OS 07-10-VS1   HO      ALSZ   LSZ.C36      [ENR74.V, h] -FL_UND_NSW_NICHT_GLEICHZ changed to fit Pennsylvania laws
+     12.12.06 OS 07-10-VS1   HO      ALSZ   LSZ.C37      [ENR73.V, b] -FL_UND_NSW_NICHT_GLEICHZ changed to fit Pennsylvania laws
+     14.12.06 OS 07-10-VS1           CVM    CVM_IV.C04   [E3L00.V, k] -comment changed
+     14.12.06 OS 07-10-VS1           CVM    CVM_IV.C07   [E3L02.V, k] -comment changed
+//-----------------------------------Vorab-Codierdatenpaket [xl]------------------------------------------------------
+     31.01.07 OS 07-04-SE2           ALSZ   LSZ.C37      [E3934.W, c] -new FSW SL_AUS_BEI_FA_TUER_AUF
+********************************************************************************************************************
+********************************************** ProgMan 25.0 ********************************************************
+********************************************************************************************************************
+NAEL EEN14.W ch        27.03.07     EG-75  Olivella-Stern(OS)/Spila(Sp)
+     08.02.07 OS                     ABG    ACSM.C22     [E3160.W, f] -no change for E85
+     09.02.07 OS 07-06-QM    HO      ULF    ULF.C06      [EEB68.W, e] -Parameteraenderung
+     16.02.07 OS                     GM5    GM5.C05      [EEE91.W, y] -no change for E85
+//-----------------------------------Vorab-Codierdatenpaket [xm]------------------------------------------------------
+     14.03.07 OS                     EKP    EKPM60_2.C03 [EKD40.W, s] -no change for E85
+********************************************************************************************************************
+NAEL NEN14.W ci        04.05.07     EG-75  Olivella-Stern(OS)/Spila(Sp)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     04.05.07 OS                            E85AT                     -new SA 2PA, 8LF, 909
+********************************************************************************************************************
+********************************************** ProgMan 26.0 ********************************************************
+********************************************************************************************************************
+NAEL EGB12.W cj        31.05.07     EG-75  Olivella-Stern(OS)/Spila(Sp)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     10.04.07 OS                            E85AT                     -new SA 2PA
+     24.04.07 OS                            E85AT                     -new time criteria 1007
+     24.04.07 OS 07-10-SE            TCU    TCU_IBUS.C07 [EE119.W, f] -Phonebook download mechanism changed
+     27.04.07 OS 07-10-SE            TCU    TCU_IBUS.C07 [EE119.W, f] -Phonebook download mechanism changed again
+     27.04.07 OS                            E85AT                     -new SA 8LF, 909
+     03.05.07 OS                     ABG    ACSM.C22     [EE740.W, g] -no change for E85
+//-----------------------------------Vorab-Codierdatenpaket [xn]------------------------------------------------------
+********************************************************************************************************************
+//NAEL VORAB.X xo        09.07.07     EG-75   Olivella-Stern(OS)/Spila(Sp)           //VORABDATEN
+NAEL EGT45.W ck        16.07.07     EG-75  Olivella-Stern(OS)/Spila(Sp)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     20.06.07 OS                            E85AT                     -new SA 9AW, 9WR
+     20.06.07 OS                     ABG    ACSM.C22     [EGH80.W, h] -no change for E85
+     21.06.07 OS                     AKMB   KMB_E85.C08  [EGF64.W, r] -no change for E85
+     04.07.07 OS                            E85AT                     -new time criteria 0408
+     05.07.07 OS 07-10-SE2           TCU    TCU_IBUS.C07 [EGT10.W, g] -Phonebook download mechanism correction
+//-----------------------------------Vorab-Codierdatenpaket [xo]------------------------------------------------------
+********************************************************************************************************************
+********************************************** ProgMan 27.0 ********************************************************
+********************************************************************************************************************
+//NAEL VORAB.X xp        09.08.07     EG-75   Olivella-Stern(OS)/Spila(Sp)           //VORABDATEN
+NAEL EG545.W cl        14.08.07     EG-75  Olivella-Stern(OS)/Spila(Sp)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     09.08.07 OS 07-10-SE4   HO      TCU    TCU_IBUS.C07 [EG546.W, h] -DSP_ACOUSTIC_PROFILE aenderung
+//-----------------------------------Vorab-Codierdatenpaket [xp]------------------------------------------------------
+********************************************************************************************************************
+********************************************** ProgMan 27.1 ********************************************************
+********************************************************************************************************************
+//NAEL VORAB.X xq        xx.xx.07     EG-75   Olivella-Stern(OS)/Spila(Sp)           //VORABDATEN
+NAEL E3084.X cm        17.01.08     EG-75  Wagener(WA)/Spila(Sp)/Olivella-Stern(OS)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     16.10.07 OS                     ABG    ACSM.C22     [EG819.W, j] -no change for E85
+     05.11.07 WA                            E85AT                     -neue SA Pakete hinzu (SA7T1,7T2,7T3,7T4,7T5)
+     12.11.07 WA                            E85AT                     -neue SA Pakete hinzu (SA7U9 Entfall BMW Basic Service Inclusive)
+     15.11.07 WA                            E85AT                     -neue SA Pakete hinzu (SA891 Russisch/Betriebsanl.& SA8AR Rumänisch/Betriebsanl.)
+********************************************************************************************************************
+********************************************** ProgMan 29.0 ********************************************************
+********************************************************************************************************************
+NAEL N3084.X cn        31.01.08     EG-75  Wagener(WA)/Spila(Sp)/Olivella-Stern(OS)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     31.01.08 WA            HO      TCU     TCU_IBUS.C07 [E3626.X, j] -Phonebook download mechanism correction
+     31.01.08 WA            HO              E85AT                     -new time criteria 1008
+********************************************************************************************************************
+********************************************** ProgMan 29.0 ********************************************************
+********************************************************************************************************************
+NAEL EGU56.X co        09.09.08     EI-73  Wagener(WA)/Spila(Sp)/Olivella-Stern(OS)
+//   Datum   |SB|I-Stufe EWE|HO-rel.|SGFAM| Datei-Name  | NAEL, AEI  |Kommentar
+     01.09.08 WA            HO      TCU     TCU_IBUS.C07 [EGU23.X, l] -Nachrüstung TCU Audiokorrektur mit K-Wort TAK6 hinzu
+********************************************************************************************************************
+********************************************** ProgMan 32.0 ********************************************************
+********************************************************************************************************************

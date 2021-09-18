@@ -1,0 +1,99 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E36.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 15.03.95 rd V0.01 Erstellung
+//* 28.03.95 rd V1.00 Freigabe
+//* 25.04.95 rd V1.01 DME 5.2 für M44 dazu
+//* 06.06.95 rd V1.02 DWA 4 neu dazu
+//* 09.02.96 rd V1.03 Text BMS 43 geändert
+//* 29.04.96 rd V1.04 SMG neu dazu
+//* 12.06.96 rd V1.05 ABSMK20 neu
+//* 04.04.97 rd V1.06 Überrollsensor hinzu
+//* 10.10.97 rd V1.07 ASCDSC46 neu hinzu
+//* 12.01.98 rd V1.08 MS42, BMS46 neu hinzu
+//* 16.04.98 rd V1.09 ABSASC5 neu hinzu
+//* 06.08.98 rd V1.10 LWS5 neu hinzu
+//* 15.09.99 rd V1.11 MS 43.0 neu dazu
+//* 28.10.99 rd V1.12 SBE neu dazu
+//* 24.11.99 rd V1.13 SBE neu dazu ( jetzt nicht nur Kommentar )
+//* 01.03.00 rd V1.14 DSC MK60 hinzu
+//* 10.05.00 rd V1.15 SS54 M3 neu dazu
+//**********************************************************************
+[ROOT]
+DESCRIPTION=Select E36 V1.15
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   DDE21,DDE 2.1  for M51,
+ENTRY=,,
+ENTRY=   DME17,DME 1.7  for M42 / M43,
+ENTRY=   BMS43,BMS 43   for M43,
+ENTRY=   BMS46,BMS 46   for M43,
+ENTRY=,,
+ENTRY=DME338K2,DME 3.3  for S50 M3,
+ENTRY=   MSS50,MS  S50  for S50 M3,
+ENTRY= MSS54M3,MS  S54  for S54 M3,
+ENTRY=,,
+ENTRY=  DME331,DME 3.31 for M50 2.5 l,
+ENTRY=  DME524,DME 5.2  for M44,
+ENTRY=   MS401,MS 40.1  for M50 2.0 l,
+ENTRY=   MS410,MS 41.0  for M52,
+ENTRY=   MS411,MS 41.1  for M52 US with OBDII,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=     VNC,VNC      for S50 M3,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx,
+ENTRY=,,
+ENTRY=   gs41x,GS4.1x,
+ENTRY=  gs7x_k,GS7.x Data field,
+ENTRY=,,
+ENTRY=   jatco,Jatco for M50 Japan / South Africa,
+ENTRY=,,
+ENTRY=     smg,Sequential M-Gearbox,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc4,ABS/ASC Mk4 ,
+ENTRY=absasc4g,ABS/ASC Mk4G,
+ENTRY=absasc4g,ABS Mk20 (DS2),
+ENTRY= absasc4,ABS/ASC Mk4G1 (K1),
+ENTRY=ascdsc46,ASC Mk20 / DSC E46,
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY= dscmk60,DSC MK60,
+ENTRY=    lws5,Steering angle sensor,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=     sbe,Seat occupation detection,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=    bc_v,On board computer BC5,
+ENTRY=  uhr_bc,On board computer / Clock UHR/BC E36/7,
+ENTRY=    dwa4,Anti-theft alarm system DWA4,
+ENTRY=     cvm,Convertible soft top module CVM,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=klima_5B,Automatic air conditioning IHKA,
+ENTRY=    ihkr,Air conditioning IHKR,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=   toens,Thermal Oil Level Sensor TOENS,
+ENTRY=    ueb2,Roll over sensor,
+ENTRY=    zke4,Central body electronics ZKE4,
+ENTRY=    zv36,Central locking module ZV36,
+

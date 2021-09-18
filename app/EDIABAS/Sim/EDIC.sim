@@ -1,0 +1,37 @@
+;****************************************************
+;******** Simulationsfile fuer das EDIC    **********
+;****************************************************
+
+;--- Hinweis fuer UBATTCURRENT / IGNITIONCURRENT ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung ist aus
+;    1 -> UBatt / Zuendung ist ein
+;
+;--- Hinweis fuer UBATTHISTORY / IGNITIONHISTORY ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung war mindestens 1 mal aus
+;    1 -> UBatt / Zuendung war nicht aus
+;---------------------------------------------------- 
+
+[VERSION]
+Version = 02,02
+
+[POWERSUPPLY]
+;UBatt = 0
+UBatt = 12500
+UBATTCURRENT = 1
+UBATTHISTORY = 1
+
+[IGNITION]
+;Ignition = 0
+Ignition = 12000
+IGNITIONCURRENT = 1
+IGNITIONHISTORY = 1
+
+[REQUEST]
+init_ifr              = E0,00,XX,XX,XX,XX,XX,XX
+start_pruefung        = E1,00,XX,XX,XX,XX
+
+[RESPONSE]
+init_ifr              = 00
+start_pruefung        = 00

@@ -1,0 +1,54 @@
+Results;SA_Code;Description
+BR;E60_;
+LACK;0A08;Silbergrau Metallic 
+SA_1;205;Automatic transmission
+SA_2;300;Emergency spare wheel
+SA_3;302;Alarm system
+SA_4;319;Integrated universal remote control
+SA_5;339;Shadow Line
+SA_6;354;Windscreen with green shade band
+SA_7;403;Glass roof, electrical
+SA_8;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_9;431;Interior rear-view mirror with automatic anti-dazzle function
+C_TYP;NB33;E60 Saloon N62B44 LHD US
+SA_10;438;Fine-wood trim
+SA_11;441;Smoker's package
+SA_12;442;Cupholder
+SA_13;459;Seat adjustment, electrical with memory
+SA_14;473;Armrest front
+SA_15;481;Sport seats for driver and front passenger
+SA_16;488;Lumbar support for driver and front passenger
+SA_17;508;Park distance control
+SA_18;522;Xenon Light
+SA_19;524;Adaptive headlight
+SA_20;534;Automatic air conditioning
+SA_21;540;Cruise control
+SA_22;563;Lights package
+SA_23;591;Light alloy wheels Star-spoke style 124 with runflat tyres and mixed tyres
+SA_24;605;Telematics preparation
+SA_25;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_26;645;Radio control US
+SA_27;672;CD changer for 6 CDs
+SA_28;677;HiFi system Professional
+SA_29;693;Preparation for satellite tuner
+SA_30;697;Area code 1 for DVD
+SA_31;785;White direction indicator lights
+SA_32;818;Battery master switch
+SA_33;823;Hot-climate version
+SA_34;845;Acoustic seat-belt warning
+SA_35;850;Additional tank filling, export
+SA_36;853;Language version English
+SA_37;876;Radio frequency 315 MHz
+SA_38;925;Shipping protection package
+SA_39;992;Control of number-plate attachment
+SA_40;9AA;External skin protection
+C_DATE;0305;03.2005
+SA_ANZ;40;
+POLSTER;LCAD;
+VERSION;02;
+E_WORT_1;B110;Battery 110 Ah, DO
+E_WORT_ANZ;1;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;0;
+STANDARD_FA;E60_#0305*NB33%0A08&LCAD$205$300$302$319$339$354$403$430$431$438$441$442$459$473$481$488$508$522$524$534$540$563$591$605$639$645$672$677$693$697$785$818$823$845$850$853$876$925$992$9AA-B110;

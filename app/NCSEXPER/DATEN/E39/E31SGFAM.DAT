@@ -1,0 +1,11 @@
+; Baureihen-SGFAM-/ZCS-Datei E31, 24.01.97, CO
+; >>> T E S T D A T E I >>>
+
+; SG    CABD     SGBD    ZCS FA KOMMENTAR
+S ABG   A_ZAE2   C_ZAE2  0   0
+; ABGB, ABGZ, ZAE2, MRSZ, MRS2  --> ID lesen testen
+S ASC5  A_ASC5   C_ASC5  0   0
+; ASC5, DSC
+S EWS   A_EWS    C_EWS   1   0
+S EML   A_EML3S  C_EML3S 0   0
+S EDC   A_EDC3   C_EDC3  0   0

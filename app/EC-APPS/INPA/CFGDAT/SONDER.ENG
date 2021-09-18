@@ -1,0 +1,32 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei SONDER.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 15.03.95 rd V0.01 Erstellung
+//* 24.07.95 rd V1.02 Erweitert Entlüftung ABS/ASC
+//* 29.04.96 rd V1.03 SMG Adaption neu dazu
+//* 29.10.96 rd V1.04 Lenkwinkelabgleich neu dazu
+//* 18.11.98 rd V1.05 RDC Antennenprüfung
+//* 19.03.99 rd V1.06 RDC-Pegelaufzeichnung neu dazu
+//* 29.05.00 rd V1.07 S_SMG nach S_SMG2, S_SMG_NA nach S_SMG2A
+//* 17.01.01 rd V1.10 S_SMG2 entfernt
+//* 07.11.01 rd V1.11 S_GS30NA neu dazu
+//* 16.02.04 rd V2.00 Umstellung auf 32-Bit INPA
+//*                   Ausgelaufene Scripten entfernt
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Special tests V2.00
+
+ENTRY=s_smg2na,SMG Adaption for sequential M-Gearbox,
+ENTRY=s_gs30na,SSG Adaption for sequential Gearbox,
+
+ENTRY=s_smg_na,Select Individual SMG Adaption,
+
+

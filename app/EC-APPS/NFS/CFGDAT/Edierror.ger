@@ -1,0 +1,168 @@
+;;************************************************************************
+;; EDIABAS-Fehlernummer/Fehlertext Zuordung
+;; maximale Textlaenge: 80 Zeichen !!!!
+;;
+
+[EDIABASFEHLER]
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Fehler im Interface-Handler
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+10=IFH-0000: Interner Fehler
+11=IFH-0001: Fehler auf Schnittstelle im Host
+12=IFH-0002: Interface ist nicht angeschlossen oder meldet sich nicht
+13=IFH-0003: Datenuebertragung HOST/Interface gestoert
+14=IFH-0004: Fehlerhafter oder unbekannter Auftrag ans Interface
+15=IFH-0005: interner Interfacefehler
+16=IFH-0006: Interface akzeptiert nicht das Kommando
+17=IFH-0007: keine/zu niedrige Versorgungsspannung am D-Bus
+18=IFH-0008: Fehlerhafte Verbindung Interface/SG 
+19=IFH-0009: SG nicht angeschlossen oder meldet sich nicht
+20=IFH-0010: Datenuebertragung Interface/Steuergeraet gestoert
+21=IFH-0011: unbekanntes Interface
+22=IFH-0012: Ueberlauf des Kommunikationspuffers
+23=IFH-0013: Kommando fuer Interface nicht vorgesehen
+24=IFH-0014: unbekanntes SG-Diagnosekonzept
+25=IFH-0015: Spannungsversorgung wurde unterbrochen
+26=IFH-0016: Zuendung wurde ausgeschaltet 
+27=IFH-0017: Interface war im Deadlock-Zustand
+28=IFH-0018: Initialisierungsfehler des Interface-Handlers
+29=IFH-0019: Unzulaessiger Device-Zugriff
+30=IFH-0020: Falscher oder fehlender Treiber
+31=IFH-0021: Unzulaessige Port-Nummer
+32=IFH-0022: Unbekannter Treiber-Fehlerstatus
+33=IFH-0023: Unbekannter Interface-Status
+34=IFH-0024: Fehler beim Loeschen des DP-RAM's
+35=IFH-0025: Interface-Applikation nicht gefunden
+36=IFH-0026: Simulationsfile existiert nicht oder Syntaxfehler
+37=IFH-0027: Interfacehandler ist nicht installiert
+38=IFH-0028: Falsche Interfacehandler-Version installiert
+39=IFH-0029: Zugriff auf Interfacehandler verweigert
+40=IFH-0030: Kommunikation zwischen EDIABAS und Interfacehandler gestört
+41=IFH-0031: Eingangspuffer voll
+42=IFH-0032: Zündung ist aus
+44=IFH-0034: Konfigurationsdateien für EDIC API nicht gefunden
+45=IFH-0035: Fehler in Konfigurationsdatei für EDIC API
+46=IFH-0036: Fehler beim Laden der EDIC Firmware
+47=IFH-0037: Niedrige Versorgungsspannung
+48=IFH-0038: Interfacekommando  nicht implementiert
+49=IFH-0039: EDIC user interface nicht gefunden
+50=IFH-0040: Illegale EDIC User interface version
+51=IFH-0041: Fehlerhafte Funktionsparameterübergabe an das EDIC API
+52=IFH-0042: Fehler bei der Installation der EDICcard
+53=IFH-0043: Fehler im EDIC-Kommunikationstrace
+54=IFH-0044: Fehler beim Flashen der EDIC-Firmware
+55=IFH-0045: Fehler bei Initialisierung des EDIC-PC3 
+56=IFH-0046: EDIC API Zugriffsfehler
+57=IFH-0047: Fehler bei Laden oder Zugriff auf Plug-in-DLL 
+58=IFH-0048: Fehler bei Zugriff auf funktion in einer Plug-in-DLL 
+59=IFH-0049: Ein C&SS EDIC wurde nicht gefunden
+200=IFH-0050: Eintrag in dynamischer Konfiguration nicht gefunden
+201=IFH-0051: Fehler beim dynamischen Nachladen von Protokollen
+202=IFH-0052: Ausgewähltes Konzept nicht verfügbar
+203=IFH-0053: Unzulässige Konzeptnummer
+204=IFH-0054: EDIC API Funktion wurde mit illegalen Parameter aufgerufen
+205=IFH-0055: Fehler beim dynamischen Nachladen von Protokolltabellen
+206=IFH-0056: Unzulässige Kanalnummer 
+207=IFH-0057: Fehler beim Lesen eines digitalen Eingangs eines EDICs
+208=IFH-0058: Fehler beim Setzen eines digitalen Ausgangs eines EDICs
+209=IFH-0059: Fehler beim Lesen eines analogen Eingangs eines EDICs
+
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Fehler im BIP, BEST-Interpreter
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+60=BIP-0000: Interner Programmfehler
+61=BIP-0001: Zu langer Job-Parameter oder String-Register-Zugriff
+62=BIP-0002: Interface-Handler oder Fkt. fehlt
+63=BIP-0003: Lesefehler der Beschreibungsdatei
+64=BIP-0004: Fehlerhafte Beschreibungsdatei
+65=BIP-0005: Ueberlauf des BEST-Stacks
+66=BIP-0006: Fehler beim Bearbeiten der BEST-Datendatei
+67=BIP-0007: Division mit 0
+68=BIP-0008: Unterbrechung der Beschreibungsdatei
+69=BIP-0009: Fehlerhafte BEST-Version der Beschreibungsdatei
+70=BIP-0010: Fehler beim Zugriff auf Konstanten
+71=BIP-0011: Ueber- oder Unterlauf einer math. Funktion
+72=BIP-0012: Plug-In-Komponente wurde nicht gefunden
+73=BIP-0013: Fehlerhafter Aufruf der Plug-In-Komponente
+74=BIP-0014: Falsche Version der Plug-In-Komponente
+75=BIP-0015: Stackfehler in der Plug-In-Komponente
+76=BIP-0016: Plug-In-Funkction nicht gefunden
+
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Fehler im SYS, Ablaufsteuerung
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+90=SYS-0000: Interner Fehler
+91=SYS-0001: Funktionsfehler (Unbekannte Funktion)
+92=SYS-0002: SG-Variantenbeschreibungsdatei nicht gefunden
+93=SYS-0003: Lesefehler von SG-Variantenbeschreibungsdatei 
+94=SYS-0004: Fehlerhaftes Format SG-Variantenbeschreibungsdatei
+95=SYS-0005: SG-Beschreibungsdatei nicht gefunden
+96=SYS-0006: Lesefehler von Gruppenbeschreibungsdatei
+97=SYS-0007: Fehlerhaftes Format Gruppenbeschreibungsdatei
+98=SYS-0008: Job nicht gefunden 
+99=SYS-0009: Job 'INITIALISIERUNG' nicht gefunden
+100=SYS-0010: Job 'INITIALISIERUNG' fehlerhaft
+101=SYS-0011: Job 'IDENTIFICATION' in Gruppendatei nicht gefunden
+102=SYS-0012: Job 'IDENTIFICATION' in Gruppendatei fehlerhaft
+103=SYS-0013: Unerwartetes Ergebnis (Ergebnisfehler)
+104=SYS-0014: Fehlerhaftes Ergebnisformat 
+105=SYS-0015: Fehlerhafte Komm. zwischen Laufzeitsystem und API
+106=SYS-0016: Unzulaessiges Konfigurationselement
+107=Reserviert für zukünftige EDIABAS Versionen
+108=SYS-0018: Fehler beim 'ENDE-Job'
+109=SYS-0019: Timer-Fehler 
+110	SYS-0020: Steuergeräte-Basisbeschreibungsdatei nicht gefunden
+111	SYS-0021: Fehler beim Lesen der Steuergeräte-Basisbeschreibungsdatei
+112	SYS-0022: Unzulässiges Format der Steuergeräte-Basisbeschreibungsdatei
+113	SYS-0023: Passwortfehler
+114	SYS-0024: Unzulässiges passwort
+
+
+;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Fehler im API, Applikations-Programmier-Interface
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+120=API-0000: Interner Fehler
+121=API-0001: Auftragsabbruch durch Applikation
+122=API-0002: Fehler bei Speicheranforderung, zuwenig Speicher
+123=API-0003: Anzahl Ergebnissaetze zu gross
+124=API-0004: Anzahl Ergebnisse zu gross
+125=API-0005: Fehlerhaftes Ergebnisformat
+126=API-0006: Zugriff auf Laufzeitsystem nicht moeglich
+127=API-0007: Fehlerhafte Konfigurationsdatei
+128=API-0008: Fehlerhafte Komm. zw. API und Laufzeitsystem
+129=API-0009: EDIABAS nicht gefunden
+130=API-0010: Fehlerhafte/falsche EDIABAS-Version
+131=API-0011: Fehlerhafte ECU-Environment Variable
+132=API-0012: Signal-Server nicht gefunden
+133=API-0013: API-Initialisierungsfehler
+134=API-0014: Ergebnis nicht vorhanden
+135=API-0015: Kommunikation zwischen API.DLL und EDIABAS ist gestört
+
+;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Netzwerk fehler
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+150=NET-0000: Interner fehler
+151=NET-0001: Unbekannter fehler
+152=NET-0002: Unzulässige Version 
+153=NET-0003: Initialisierungsfehler
+154=NET-0004: Unzulässiger Aufruf
+155=NET-0005: Nicht unterstützt
+156=NET-0006: Netzwerkzugriff verweigert
+157=NET-0007: Systemfehler
+158=NET-0008: Netzwerkfehler
+159=NET-0009: Timeout
+160=NET-0010: Pufferüberlauf
+161=NET-0011: Bereits verbunden
+162=NET-0012: Keine Verbindung
+163=NET-0013: Verbindung gestört
+164=NET-0014: Verbindung abgebrochen
+165=NET-0015: Kommunikationspartner/Netzwerkadresse nicht gefunden
+166=NET-0016: Kommunikationspartner nicht erreichbar
+167=NET-0017: Protokoll nicht verfügbar
+168=NET-0018: Unbekanntes Protokoll
+169=NET-0019: Unbekannter Service
+170=NET-0020: Unbekannter Kommunikationspartner
+171=NET-0021: Kommunikationspartner nicht erreichbar
+172=NET-0022: Sicherheitsproblem

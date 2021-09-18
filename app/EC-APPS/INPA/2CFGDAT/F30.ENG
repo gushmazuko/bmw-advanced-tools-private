@@ -1,0 +1,63 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei F30.GER
+//*
+//**********************************************************************
+//*   
+//**********************************************************************
+//* History:
+
+
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl F2X
+ENTRY= EXX, Functional jobs
+
+[ROOT_MOTOR]
+DESCRIPTION= Engine
+ENTRY= AUTMOT1, Automatic Motor Selection,
+ENTRY=,,
+ENTRY= MEVD1724, MEVD1724 for N20,
+ENTRY= MEVD172, MEVD172 for N55
+ENTRY= N47tuds, DDE 7.x for N47TÜ,
+ENTRY=,,
+ENTRY=,,
+ENTRY= AUTEKP, Electric Fuel Pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION= Transmission
+ENTRY= AUTEGS1, EGS Gearbox,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION= Body
+ENTRY= BDC, Body Domain Controller BDC
+ENTRY=,,
+ENTRY= fem_20, Front Electronic Module FEM,
+ENTRY= rem_20, Rear Elektric module REM,
+ENTRY=,,
+ENTRY= ihka20, Embedded Heating And Air Automatic,
+
+[ROOT_Navigation]
+DESCRIPTION= Navigation
+ENTRY= cic, Head Unit CIC
+ENTRY,
+ENTRY=,,
+
+[ROOT_FAHRWERK]
+DESCRIPTION= Chassis
+ENTRY= DSC01, DSC
+ENTRY= icm_25, Integrated Managment Chassy,
+ENTRY=,,
+ENTRY= AFS_90, Active Steering AFS,
+ENTRY= ACC2, Adaptive Cruise Control,
+ENTRY=,,
+ENTRY= AUTDSC1, Dynamic Stability Control DSC,
+ENTRY= LDM_90, Dynamic Management/Longitudinal LDM,
+ENTRY=,,
+ENTRY= EDC_K, EDC Electronic Damper Control,
+ENTRY= EPS_25, EPS Electric Power Steering,
+ENTRY=,,
+ENTRY= AUTRDC, Tire Pressure Control RDC,

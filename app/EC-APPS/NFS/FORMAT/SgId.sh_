@@ -1,0 +1,53 @@
+; ------------------------------------------------------------
+; Autor: Po
+; Datum: 08.09.2000
+; Version 2.0  : Feld für SG-Adresse von SG-Familie 
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; zeile: 
+;$K SG-Familie        Sg-Addr  SG-IDX             Id1              Id2  
+;123
+;   |----- 18 byte---|
+;                     12
+;                       12
+;                         123456
+;                               |------------------ 272 byte ----( 2 mal 136) -----------|
+; asymetrisch
+R "AS_KEY"
+M "$%C %18S%2S%2S%6S%<=136A%<=136A"
+F "$%C %18S%2S%2S%6S%<=136A%<=136A"
+N "VSL,SGFAM,SGADDR,SGIDX,SGKID,SGK1,SGK2"
+;
+; symetrisch
+R "SY_KEY"
+M "$%C %18S%2S%2S%6S%<=16A%<=16A"
+F "$%C %18S%2S%2S%6S%<=16A%<=16A"
+N "VSL,SGFAM,SGADDR,SGIDX,SGKID,SGK1,SGK2"
+;
+; simple
+R "SM_KEY"
+M "$%C %18S%2S%2S%6S%<=8A%<=8A"
+F "$%C %18S%2S%2S%6S%<=8A%<=8A"
+N "VSL,SGFAM,SGADDR,SGIDX,SGKID,SGK1,SGK2"
+;
+; Headerzeile Level
+R "LEVEL"
+M "$L"
+F "$L %S"
+N "LEVEL"
+;
+; Headerzeile Version
+R "VERSION"
+M "$V"
+F "$V %S"
+N "VERSION"
+;
+; Headerzeile DES-Generation
+R "DES"
+M "$G"
+F "$G %S"
+N "DES"
+;
+; ENDE

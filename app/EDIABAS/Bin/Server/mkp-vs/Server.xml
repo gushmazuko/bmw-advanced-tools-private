@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE Server SYSTEM "Server.dtd">
+
+<!--
+      file: Server.xml
+      purpose: configuration file of Server Windows command line application;
+      project: CarServer-MKP / Concurrent flash programming of ECUs;
+      customer: BMW AG / VS-40;
+      author: Markus A. Stulle, IFS Informationstechnik GmbH;
+
+      history: 05/08/18 - file created (SE);
+
+
+  -->
+
+<Server IpSvcAddress="127.0.0.1" TcpSvcPort="5033"
+         IpClntAddress="127.0.0.1"   TcpClntPort="5034"
+         IpAdminAddress="127.0.0.1"  TcpAdminPort="5035"
+
+         LogFile=".\Server.log"
+         LogLevel="LOG_WARN"
+
+         CsBaseDir=".."
+         CsExecutable="Server.exe"
+
+         CsVoltageFile="progress.txt"
+         CsVoltageMaxAge="300"
+
+         CsAuthorization="Q1NQOmlmczQy"
+         CsPreStarted="false">
+
+    <AccessControl>
+
+        <!-- The list of native client addresses
+             accepted by the Server process: -->
+
+        <ClientsAccepted>
+            <Host IpAddress="127.0.0.1"/>
+        </ClientsAccepted>
+
+    </AccessControl>
+
+    <Gateways EcuDescriptionFile="cip_gw"
+              EcuDescriptionMinVer="1.00"
+              JobSetGwDisabled="MOST_CAN_GATEWAY_DISABLE"
+              JobSetGwEnabled="MOST_CAN_GATEWAY_ENABLE"
+              IgnoreJobStatus="false"/>
+
+    <!-- The farm of CarServers to be controlled by
+         the Server instance;
+
+         - an association between CarServer and remote diagnostic
+           interface will be established dynamically when a client
+           application calls 'vsPreConcurrent';
+
+         - it will be released again, when a concurrent programming
+           section has been terminated by calling 'vsPostConcurrent'.  -->
+
+
+
+    <CarServer IpAddress="127.0.0.1" TcpSvcPort="5036"
+               InstanceDir="\mkp-1" ConfigFile="cipb_svc-1.ini"/>
+
+    <CarServer IpAddress="127.0.0.1" TcpSvcPort="5038"
+               InstanceDir="\mkp-2" ConfigFile="cipb_svc-2.ini"/>
+
+    <CarServer IpAddress="127.0.0.1" TcpSvcPort="5040"
+               InstanceDir="\mkp-3" ConfigFile="cipb_svc-3.ini"/>
+
+    <CarServer IpAddress="127.0.0.1" TcpSvcPort="5042"
+               InstanceDir="\mkp-4" ConfigFile="cipb_svc-4.ini"/>
+
+
+     <!-- The class of diagnostic device controlling the interface channels:
+
+         - the behaviour of the device itself can be manipulated
+           by calling EDIABAS jobs defined in an ECU description file; -->
+
+    <DiagnosticDevice Moniker="M-OPPS"
+                      IniFile="C:\EDIABAS\BIN\Remote.ini"
+                      InterfaceHandler="REMOTE"
+                      DefaultChannel="DIAGBUS">
+
+        <!-- The list of interface channels controlled by this
+             class of diagnostic devices:
+
+             - channels with matching attributes 'CsConcurrency'
+               can be driven by the same CarServer instance;
+
+             - if a client requests an interface channel that cannot
+               be driven by an existing CarServer instance, Server will
+               either create a new process or reallocate an idle instance;
+
+             - channel arbitration might fail, if an insufficient number
+               of CarServer entities has been defined;
+
+             - given the following description, examples for wellformed
+               interface identifiers are 'Channel1' and 'Channel2'.          -->
+
+        <ChannelIdentifiers DevicePrefix=""
+                            VehicleSuffix="">
+
+            <Channel Interface="DIAGBUS"
+                     CsConcurrency="1"
+                     RemoteId="Channel1" TesterId="0xF1"/>
+
+            <Channel Interface="MOST_CTRL"
+                     CsConcurrency="2"
+                     RemoteId="Channel2" TesterId="0xFA"/>
+
+            <Channel Interface="MOST_ASYNC"
+                     CsConcurrency="2"
+                     RemoteId="Channel2" TesterId="250"/>
+
+        </ChannelIdentifiers>
+
+        <ApiControl EcuDescriptionFile="opps"
+                    EcuDescriptionMinVer="0.004">
+
+            <!-- Diagnostic device state queries:
+
+                 - employ query 'q1' to qualify device capabilities;
+                   if result 'THREADS' equals to '2', device is assumed
+                   to be an M-OPPS;                                          -->
+
+            <Query Moniker="q1"
+                   Purpose="DeviceCapabilities">
+                <EcuJob Name="STATUS_THREADS" Interface="DIAGBUS">
+                    <JobResult Name="THREADS" Value="1" Semantics="SingleChannel"/>
+                    <JobResult Name="THREADS" Value="2" Semantics="MultiChannel"/>
+                </EcuJob>
+            </Query>
+
+        </ApiControl>
+
+    </DiagnosticDevice>
+
+</Server>

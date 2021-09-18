@@ -1,0 +1,25 @@
+; ------------------------------------------------------------
+; DIS-/MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer BootSektorUpdate-Datei
+; Autor: Po
+; Datum: 04.12.2002
+; 04.12.2002  Po    Ersterstellung
+; 19.12.2002  Fd    Modulo 36 Prüfung
+; 19.12.2002  Fd    PPP -> ZZZPPP
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; ZB-Vorschriftszeile: 
+;BSU,SG-Familie-Ist      ,ZZZPPP,HWNR   ,SG-Familie-Soll     ,ZZZPPP,HWNR   ,NAAB-Datei               ,Werksdatenpaket  
+;BSU,ABCDE_1             ,002gg6,4711323,ABCDE_2             ,003gg7,4866543,gg6.baf                 ,j
+;123,12345678901234567890,123456,1234567,12345678901234567890,123456,1234567,123456789012345678901234,1
+R "BSU_LINE"
+M "BSU,%S,%S,%7L,%S,%S,%7L,%S,%S"
+P "MOD36"
+F "BSU,%S,%S,%7L,%S,%S,%7L,%S,%S"
+N "SGBEZ_IST,ZZZPPP_IST,HWNR_IST,SGBEZ_SOLL,ZZZPPP_SOLL,HWNR_SOLL,NAAB,WDP_JA_NEIN"
+;
+;
+;
+; ENDE 

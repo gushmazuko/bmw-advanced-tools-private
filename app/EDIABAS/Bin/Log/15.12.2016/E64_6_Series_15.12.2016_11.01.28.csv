@@ -1,0 +1,67 @@
+Results;SA_Code;Description
+BR;E64_;
+LACK;0A52;
+SA_1;1CA;Selection of COP relevant vehicles
+SA_2;229;Dynamic drive
+SA_3;248;Steering-wheel heating
+SA_4;255;Sports leather steering wheel
+SA_5;2SF;Light alloy wheels Star-spoke style 249, forged, with mixed tyres
+SA_6;2TB;Sports automatic transmission
+SA_7;2VB;Tyre Pressure Monitor
+SA_8;302;Alarm system
+SA_9;319;Integrated universal remote control
+C_TYP;EB53;E64 Conv N62B48 T1 LHD US
+SA_10;322;Comfort access system
+SA_11;354;Windscreen with green shade band
+SA_12;388;Softtop black
+SA_13;423;Floor mats in velour
+SA_14;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_15;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_16;436;Fine-wood trim
+SA_17;441;Smoker's package
+SA_18;442;Cupholder
+SA_19;459;Seat adjustment, electrical with memory
+SA_20;464;Skibag
+SA_21;481;Sport seats for driver and front passenger
+SA_22;494;Seat heating for driver and front passenger
+SA_23;502;Headlight washer system
+SA_24;508;Park distance control
+SA_25;522;Xenon Light
+SA_26;524;Adaptive headlight
+SA_27;534;Automatic air conditioning
+SA_28;544;Cruise control with braking function
+SA_29;563;Lights package
+SA_30;5AC;High-beam assistant
+SA_31;609;Navigation system Professional
+SA_32;620;Voice control
+SA_33;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_34;645;Radio control US
+SA_35;653;High Definition Radio
+SA_36;655;Satellite tuner
+SA_37;672;CD changer for 6 CDs
+SA_38;677;HiFi system Professional
+SA_39;697;Area code 1 for DVD
+SA_40;6AA;BMW TeleServices
+SA_41;6AB;Control BMW TeleServices
+SA_42;6FL;USB audio interface
+SA_43;6UH;Traffic Information
+SA_44;760;BMW Individual high-gloss Shadow Line
+SA_45;823;Hot-climate version
+SA_46;845;Acoustic seat-belt warning
+SA_47;850;Additional tank filling, export
+SA_48;853;Language version English
+SA_49;876;Radio frequency 315 MHz
+SA_50;8S4;Decoding variable light distribution
+SA_51;925;Shipping protection package
+SA_52;992;Control of number-plate attachment
+C_DATE;0308;03.2008
+SA_ANZ;52;
+POLSTER;LCGE;
+VERSION;02;
+E_WORT_1;B110;Battery 110 Ah, DO
+E_WORT_2;NMUW;New MUW sensors E63/E64
+E_WORT_ANZ;2;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;0;
+STANDARD_FA;E64_#0308*EB53%0A52&LCGE$1CA$229$248$255$2SF$2TB$2VB$302$319$322$354$388$423$430$431$436$441$442$459$464$481$494$502$508$522$524$534$544$563$5AC$609$620$639$645$653$655$672$677$697$6AA$6AB$6FL$6UH$760$823$845$850$853$876$8S4$925$992-B110-NMUW;

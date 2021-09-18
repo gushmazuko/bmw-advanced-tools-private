@@ -1,0 +1,77 @@
+.forbeg
+for_kopf,80,13
+.varbeg
+df_titel,26,2,30,ELDI/3 - Fehlerprotokoll
+df_sw_vers,10,4,5,Vx.yz
+df_jat,16,5,14,E3_alle.jat
+df_jatVers,32,5,5,Vx.yz
+df_setup,16,6,24,setup.dat
+df_pruefst,16,8,25,123456789012345
+df_rechner_nr,16,9,10,1234567890
+df_betreuer,16,10,24,Hr. Binder; DT-Q-202 
+df_datum,53,8,10,tt-mm-jjjj
+df_zeit,53,9,8,hh:mm:ss
+df_fzg_typ,20,12,4,tttt
+df_fg_nr,20,13,7,aannnnn
+.varend
+.drmbeg
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ BMW AG                  ELDI/3 - Fehlerprotokoll              Softing GmbH ³
+ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³ ELDI/3 V1.0x                             ³ Prfer     :                    ³
+³ Jobtabelle : xxxxxxxx.JAT   Vz.yz        ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³ Setup-Info : TestInfo  Vx.x              ³ Nacharbeit :                    ³
+ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³ Prfstelle : FINISH                      ³ Datum: tt-mm-jjjj               ³
+³ Rechner-Nr.: R 000                       ³ Zeit : hh:mm:ss                 ³
+³ Betreuer   : Hr. Binder, DT-Q-202        ³                                 ³
+ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³ Fahrzeugtyp    : tttt                                                      ³
+³ Fahrgestell-Nr.: aannnnn                                                   ³
+.drmend
+.forend
+.forbeg
+for_zeile,80,1
+.varbeg
+df_zeile,3,1,74,---
+.varend
+.drmbeg
+³                                                                            ³
+.drmend
+.forend
+.forbeg
+for_sg_zeile,80,1
+.varbeg
+df_SGVariante,3,1,10,SGVar
+df_logUnit,58,1,8,LogU
+df_ZeilenSG,69,1,8,ZSG
+.varend
+.drmbeg
+³ SGVariante                                             Log.Unit / ZeilenSG ³
+.drmend
+.forend
+.forbeg
+for_tlinie,80,1
+.varbeg
+.varend
+.drmbeg
+ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+.drmend
+.forend
+.forbeg
+for_elinie,80,1
+.varbeg
+.varend
+.drmbeg
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+.drmend
+.forend
+.forbeg
+for_leer_zeile,80,1
+.varbeg
+df_leer_zeile,1,1,80,---
+.varend
+.drmbeg
+                                                                                
+.drmend
+.forend

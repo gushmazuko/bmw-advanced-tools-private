@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" Codepage="1252" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+    <String Id="Language">1033</String>
+    <!-- Supported language and codepage codes can be found here: http://www.tramontana.co.hu/wix/lesson2.php#2.4 -->
+    <String Id="ApplicationName">BMW Advanced Tools</String>
+    <String Id="ManufacturerName">Gushmazuko</String>
+    <String Id="ProductDescription">BMW ECUs Programming, Coding and Diagnostic Tools / BMW Programs for Programming, Coding and Diagnostics of BMW ECUs</String>
+    <String Id="InpaDescription"></String>
+    <String Id="BluetoothActivationToolDescription"></String>
+    <String Id="BMWCodingToolDescription"></String>
+    <String Id="FindECUDescription"></String>
+    <String Id="NcsDummyDescription"></String>
+    <String Id="NcsExpertDescription"></String>
+    <String Id="Tool32Description"></String>
+    <String Id="WinKFPDescription"></String>
+    <String Id="Comments">Installs BMW Advanced Tools</String>
+
+    <String Id="LicenseRtf" Overridable="yes">Eula-en.rtf</String>
+
+    <String Id="AppNotSupported">This application is is not supported on your current OS. Minimal OS supported is Windows XP SP2</String>
+    <String Id="DotNetFrameworkNeeded">.NET Framework 3.5 is required. Please install the .NET Framework then run this installer again.</String>
+    <String Id="NewerVersionInstalled">A newer version of !(loc.ApplicationName) is already installed.</String>
+    <String Id="CloseRunningApp">!(loc.ApplicationName) is running. You need to close it first!</String>
+
+    <String Id="FeatureCompleteDescription">The complete package.</String>
+    <String Id="FeatureMainProgramDescription">The main version including all dependencies.</String>
+    <String Id="FeatureMainProgramTitle">Main program</String>
+
+    <!--<String Id="LicenseAgreementDlgLicenseAcceptedCheckBox">Agree</String>-->
+
+    <String Id="UpgradeWelcomeDlgTitle">!(loc.ApplicationName) Setup</String>
+    <String Id="UpgradeWelcomeDlgHeaderTitle">A previous version of !(loc.ApplicationName) is detected</String>
+    <String Id="UpgradeWelcomeDlgMessage">The setup will perform an upgrade of !(loc.ApplicationName). Click Next to proceed with the upgrade or Cancel to exit the setup.</String>
+
+    <String Id="CreateDesktopShortcutCheckboxText">Create a shortcut on Desktop</String>
+</WixLocalization>

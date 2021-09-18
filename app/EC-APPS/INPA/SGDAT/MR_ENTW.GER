@@ -1,0 +1,39 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei ENTW.GER
+//*
+//**********************************************************************
+//*   Martin Braun UX-EE-1
+//**********************************************************************
+//*   History:
+//* 27.10.2003 mb V1.00 Erstellung
+//* 12.01.2004 mb V1.01 Alle Inpaskripte für SG's eingefügt
+//* 16.02.2004 rd V1.02 Umstellung auf 32-Bit INPA
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Motorrad Entwicklung V1.02
+ENTRY=MRENTWW3,Identifikation & Fehlerspeicher lesen,
+ENTRY=MRFSLOW3,Alle Fehlerspeicher löschen,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=MRBMSKW3,BMW Motorsteuerung - K,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=MRIABSW3,ABS-Steuergerät ABS-3,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=MRDWAW3,Diebstahlwarnanlage,
+ENTRY=MREWSW3,Elektronische Wegfahrsperre EWS,
+ENTRY=MRKI25W3,Instrumentenkombi K25 & K40,
+ENTRY=MRKI24W3,Instrumentenkombi K24,
+ENTRY=MRRADIW3,Radio,
+ENTRY=MRRBTW3,Radiobedienteil,
+ENTRY=MRZFELW3,Zentrale Fahrgestellelektronik Low,
+ENTRY=MRZFEHW3,Zentrale Fahrgestellelektronik High,
+            

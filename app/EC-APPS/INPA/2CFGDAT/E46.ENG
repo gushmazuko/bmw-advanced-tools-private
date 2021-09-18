@@ -1,0 +1,109 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E46.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 11.06.1997 rd V0.01 Erstellung
+//* 20.09.2001 rd V1.16 CDC dazu
+//* 22.11.2001 rd V1.17 bmbt_mir dazu
+//* 17.05.2002 rd V1.18 EKP hinzu
+//* 15.07.2002 rd V1.19 neues DDE5 Script
+//* 24.09.2002 rd V1.20 ALC neu dazu
+//* 24.09.2002 rd V1.21 DDE5 M57 TÜ dazu
+//* 28.02.2003 rd V1.22 NAV_JAP hinzu
+//* 13.08.2003 rd V1.25 Motorvarianten hinzu
+//* 29.09.2003 tm V1.26 Deflation Warning System hinzu
+//* 02.02.2004 rd V1.27 Sitzmemory Beifahrer
+//* 16.02.2004 rd V1.28 Umstellung auf 32-Bit INPA
+//* 18.03.2004 rd V1.29 KLIMA_5B ersetzt IHKA46
+//* 23.06.2004 rd V1.30 Motorvariante geändert
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E46 V1.30
+                               
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+;ENTRY=   DDE22,DDE 2.2  for M51,
+;ENTRY=   DDE30,DDE 3.0  for M47,
+ENTRY=   DDE40,DDE 4.0  for M57,
+ENTRY=  D50M47,DDE 5.0  for M47 new,
+ENTRY=  D50M57,DDE 5.0  for M57 new,
+ENTRY=,,
+ENTRY=   BMS46,BMS 46   for M43,
+ENTRY=,,
+ENTRY=  ME9_4N,ME  9.2  for N42 / N45,
+ENTRY=ME9NG4TU,ME  9.2 / MEV9 for N46,
+ENTRY=,,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=   MS450,MS 45.0  for M56,
+ENTRY=,,
+ENTRY= MSS54M3,MS  S54  for S54 M3,
+ENTRY=,,
+ENTRY= EKP_DS2,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx / GS 20,
+ENTRY=,,
+ENTRY=    gs30,Sequential Gearbox SSG,
+ENTRY=,,
+ENTRY=    smg2,Sequential M-Gearbox,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY=ascdsc46,ASC/DSC,
+ENTRY= dscmk60,DSC MK60,
+ENTRY= absasc5,DSC 5.7,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tire pressure control,
+ENTRY=     dws,Deflation Warning Syste
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  cvm_II,Convertible soft top module CVM II,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=klima_5b,Air conditioning IHKA,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     lsz,Light switch center LSZ,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=   shd46,Sunroof module SHD,
+ENTRY=    sm46,Seat memory driver,
+ENTRY=  b_sm46,Seat memory passenger,
+ENTRY=   spmft,Mirror memory driver,
+ENTRY=   spmbt,Mirror memory passenger,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    ueb2,Roll over sensor,
+ENTRY= xenon_l,Xenon Lights left,
+ENTRY= xenon_r,Xenon Lights right,
+ENTRY=    zke5,Central body electronics ZKE5,
+ENTRY=zuheizer,Additional heater diesel,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bmbt46tn,On bord monitor Topnavigation,
+ENTRY=bmbt46rn,On bord monitor Radionavigation,
+ENTRY=bmbt_mir,Control panel MIR,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=videomod,Video module,
+

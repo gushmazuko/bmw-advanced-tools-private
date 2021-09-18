@@ -1,0 +1,128 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E60.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 21.08.2002 rd V0.01 Erstellung
+//* 24.09.2002 rd V0.02 ALC neu dazu
+//* 24.10.2002 rd V0.14 TEL_60 wird TEL_E65
+//* 28.11.2002 GR V0.15 CCCA60 hinzugefügt
+//* 03.02.2003 gr V0.16 SD_KWP wird ersetzt SHD_MDS
+//* 26.03.2003 rd V0.18 MSS 65 neu
+//* 03.04.2003 tm V0.19 DWA_63 dazu
+//* 02.07.2003 rd V1.00 Text Satelliten und Türelektronik geändert
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E60 V1.00
+ENTRY=     EXX,Functional jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   MS450,MS 45.0 for M54,
+ENTRY=,,
+ENTRY= ME9_N62,ME 9    for N62,
+ENTRY=,,
+ENTRY=  MS_S65,MS S65  for S85,
+ENTRY=,,
+ENTRY=  D50M57,DDE 5.0 for M57,
+ENTRY=,,
+ENTRY= D51M67M,DDE 5.1 for M67 Master,
+ENTRY= D51M67S,DDE 5.1 for M67 Slave,
+ENTRY=,,
+ENTRY=  VVT_14,Variable Valve Train Bank 1-4,
+ENTRY=  VVT_58,Variable Valve Train Bank 5-8,
+ENTRY=,,
+ENTRY=  EKP_60,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=    GS19,Gearbox Control Module GS19,
+ENTRY=    GS30,Sequential Gearbox SSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= ACC_E65,Adaptive Cruise Control,
+ENTRY=  ARS_60,Aktive Roll Stability,
+ENTRY=  AFS_60,Active Front Steering,
+ENTRY=  DSC_60,Dynamic Stability Control,
+ENTRY= EHC_E65,1-axle Air Suspension,
+ENTRY= RDC_E65,Tire pressure control E65,
+;ENTRY=  RDC_60,Tire pressure control,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY= AHM_E65,Trailer Module,
+ENTRY=  CVM_64,Convertible soft top module CVM E64,
+ENTRY=     CAS,Car Access System,
+ENTRY=,,
+ENTRY= DWA_E65,Alarm System,
+ENTRY= SINE_65,DWA Sirens and Tilt Sensor,
+ENTRY=  DWA_63,Alarm System E63/E64,
+ENTRY=,,
+ENTRY= HKL_E65,Tailgate Lift,
+ENTRY=  KOMB60,Instrument Cluster,
+ENTRY=  KBM_60,Basic Body Module,
+ENTRY=  IHKA60,Air-Conditioning Control,
+ENTRY=   LM_60,Light Switch Module,
+ENTRY=  ALC_60,Adaptive Light Control,
+ENTRY=,,
+ENTRY= PDC_E65,Park Distance Control,
+ENTRY= PGS_E65,Passive Go System,
+ENTRY= RLS_E65,Rain and Light Sensor,
+ENTRY=  SZM_60,Middle console center switch,
+ENTRY=  SHD_MDS,Sunroof Module,
+ENTRY=,,
+ENTRY=SHZH_E65,Additional heater diesel / Park heating,
+ENTRY=  EC_E65,Ergo Commander,
+ENTRY= ZGM_E65,Central Gateway Module,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Seat Modules
+ENTRY= FAS_E65,Seat Module, Driver,
+ENTRY= BFS_E65,Seat Module, Passenger,
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Safety Modules
+ENTRY=     SIM,Safety Information Module,
+ENTRY=     SFZ,Satellite Vehicle Centre,
+ENTRY=     SZL,Satellite Steering Column,
+ENTRY=    STVL,Door electronic + Satellite Front Left,
+ENTRY=    STVR,Door electronic + Satellite Front Right,
+ENTRY=    SBSL,Satellite B Pillar Left,
+ENTRY=    SBSR,Satellite B Pillar Right,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  ANT_60,Aerial Tuner,
+ENTRY= CDC_E65,Audio CD Changer,
+ENTRY=  MASK60,Audio System Controller MASK,
+ENTRY=  ASK_60,Audio System Controller CCC,
+ENTRY=,,
+ENTRY=  CCC_60,Car Communication Computer CCC,
+ENTRY=  CCCA60,Car Communication Computer (Application),
+ENTRY=  SAT_60,Digital Satellite Radio USA,
+;ENTRY=  DAB_60,Digitale Radio ECE,
+ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=  HUD_60,Head Up Display,
+ENTRY= KHI_E65,Headphone Interface,
+ENTRY=,,
+ENTRY=  CCCG60,MOST/CAN-Gateway CCC,
+ENTRY=  MCGW60,MOST/CAN-Gateway MASK,
+ENTRY= MMC_E65,Multimedia Changer,
+ENTRY=  NAV_60,Navigation System CCC ECE/US,
+ENTRY=  JNAV60,Navigation System Japan,
+;ENTRY= SVS_60,Voice Processing System,
+ENTRY=,,
+ENTRY= TEL_E65,Telephone ECE / US,
+ENTRY=  AMP_60,Top hi-fi Amplifier,
+;ENTRY= ULF_60,Universal Loading and Freespeach Unit,
+ENTRY= VID_E65,Video Module,
+ENTRY=  CID_60,Central Information Display,
+ENTRY=  CIDF65,Central Information Display Rear,
+

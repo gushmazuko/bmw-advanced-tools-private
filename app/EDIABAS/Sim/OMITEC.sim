@@ -1,0 +1,58 @@
+;****************************************************
+;******** Simulationsfile fuer den OMIC05  **********
+;****************************************************
+
+;--- Hinweis fuer UBATTCURRENT / IGNITIONCURRENT ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung ist aus
+;    1 -> UBatt / Zuendung ist ein
+;
+;--- Hinweis fuer UBATTHISTORY / IGNITIONHISTORY ----
+;   -1 -> undefiniert
+;    0 -> UBatt / Zuendung war mindestens 1 mal aus
+;    1 -> UBatt / Zuendung war nicht aus
+;---------------------------------------------------- 
+
+[VERSION]
+Version = 01,00
+
+[POWERSUPPLY]
+;UBatt = 0
+UBatt = 12500
+UBATTCURRENT = 1
+UBATTHISTORY = 1
+
+[IGNITION]
+;Ignition = 0
+Ignition = 12000
+IGNITIONCURRENT = 1
+IGNITIONHISTORY = 1
+
+[REQUEST]
+getfirmwareversion    = FA,04,00,01
+getautomaticmode      = FA,04,00,11
+setautomaticmode00    = FA,06,00,12,00,00
+setautomaticmode01    = FA,06,00,12,00,01
+setautomaticmode10    = FA,06,00,12,01,00
+setautomaticmode11    = FA,06,00,12,01,01
+setautomaticmode      = FA,06,00,12,XX,XX
+sendcanmessage        = FA,07,00,21,XX,XX,00
+sendcanmessage        = FA,08,00,21,XX,XX,01,XX
+sendcanmessage        = FA,09,00,21,XX,XX,02,XX,XX
+sendcanmessage        = FA,0A,00,21,XX,XX,03,XX,XX,XX
+sendcanmessage        = FA,0B,00,21,XX,XX,04,XX,XX,XX,XX
+sendcanmessage        = FA,0C,00,21,XX,XX,05,XX,XX,XX,XX,XX
+sendcanmessage        = FA,0D,00,21,XX,XX,06,XX,XX,XX,XX,XX,XX
+sendcanmessage        = FA,0E,00,21,XX,XX,07,XX,XX,XX,XX,XX,XX,XX
+sendcanmessage        = FA,0F,00,21,XX,XX,08,XX,XX,XX,XX,XX,XX,XX,XX
+
+[RESPONSE]
+getfirmwareversion    = 01,09,00,03,00,00,03,09,00
+getautomaticmode      = 01,06,00,01,01,FF
+setautomaticmode00    = 01,03,00
+setautomaticmode01    = 01,03,00
+setautomaticmode10    = 01,03,00
+setautomaticmode11    = 01,03,00
+setautomaticmode      = 03,03,00
+sendcanmessage        = 01,03,00
+

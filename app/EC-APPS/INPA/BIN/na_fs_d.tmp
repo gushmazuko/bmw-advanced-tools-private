@@ -1,0 +1,151 @@
+           M E M O R Y    D E L E T E
+           --------------------------------------------
+
+Datum       :  09.03.2017 09:49:15
+Baureihe    :  E53
+
+-------------------------------------------------------------
+Control unit :  Dynamic stability control 4 wheel system
+ECU        :  D_ABSKWP
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Transfer gear box Control unit
+ECU        :  D_VGSG
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Gear box ecu GS19
+ECU        :  D_EGS
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Dynamic stability control
+ECU        :  D_0056
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Motor
+ECU        :  D_0012
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Steering angle sensor
+ECU        :  D_0057
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Air suspension
+ECU        :  D_00AC
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Tyre pressure control
+ECU        :  D_0070
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Light check modul
+ECU        :  D_00D0
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Active Light Control E46
+ECU        :  D_0066
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Headlight vertical aim control
+ECU        :  D_009A
+JobStatus   :  SYS-0012: IDENTIFICATION ERROR
+-------------------------------------------------------------
+Control unit :  Rain- light sensor
+ECU        :  D_00E8
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Multidrive Sunroof
+ECU        :  D_0008
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Electronic vehicle immobilization III
+ECU        :  D_0044
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Central information system
+ECU        :  D_00C0
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Central body electronics 1 or 3 Basic modul
+ECU        :  D_ZKE_GM
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Middle console center switch
+ECU        :  D_SZM
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Airbag Control unit
+ECU        :  D_00A4
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Instrument cluster
+ECU        :  D_0080
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Speech input system
+ECU        :  D_00B0
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Air conditioning panel
+ECU        :  D_005B
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Additional heater
+ECU        :  D_ZUHEIZ
+JobStatus   :  IFH-0006: COMMAND NOT ACCEPTED
+-------------------------------------------------------------
+Control unit :  All radio type except MOST-vehicles
+ECU        :  D_0068
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Digital Sound Processor
+ECU        :  D_006A
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Basis-Interface Telefon 2
+ECU        :  D_0048
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Telefon or Universel loading- and handsfree set
+ECU        :  D_00C8
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Bordmonitor
+ECU        :  D_00F0
+JobStatus   :  SYS-0012: IDENTIFICATION ERROR
+-------------------------------------------------------------
+Control unit :  Videomodul
+ECU        :  D_00ED
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Videomodul, graphic-part
+ECU        :  D_003B
+JobStatus   :  SYS-0012: IDENTIFICATION ERROR
+-------------------------------------------------------------
+Control unit :  Japan Bit
+ECU        :  D_0048
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  navigation computer
+ECU        :  D_007F
+JobStatus   :  SYS-0012: IDENTIFICATION ERROR
+-------------------------------------------------------------
+Control unit :  Navigationssystem Japan
+ECU        :  D_00BB
+JobStatus   :  IFH-0009: NO RESPONSE FROM CONTROLUNIT
+-------------------------------------------------------------
+Control unit :  Activ seat Passenger
+ECU        :  D_SITZ_B
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Activ seat Driver
+ECU        :  D_SITZ_F
+JobStatus   :  OKAY
+-------------------------------------------------------------
+Control unit :  Seat modul
+ECU        :  D_0072
+JobStatus   :  OKAY
+
+#################################################################
+This content will stored temporary temporär in ..\inpa\sgdat\na_fs_d.tmp
+#################################################################
+=================================================================

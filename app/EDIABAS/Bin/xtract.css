@@ -1,0 +1,228 @@
+/* xtract.css - Copyright BMW AG, created by Softing AG */
+
+HEADER
+{
+	display:block;
+	font-family:"Arial",Arial, sans-serif;
+	text-align:left;
+	font-size:medium;
+	font-weight:bold;
+	font-style:italic;
+	color:black;
+	background-color:#99ccff;
+	border: 2px solid black;
+}
+
+
+ECU:before
+{
+	font-size:large;
+	content:"ECU-Name: ";
+}
+
+
+ECU
+{
+	font-size:large;
+	display:block;
+}
+
+ORIGIN:before
+{
+	content:"Origin:   ";
+}
+
+ORIGIN
+{
+	display:block;
+}
+
+REVISION:before
+{
+	content:"Revision ";
+}
+
+REVISION
+{
+	display:block;
+}
+
+AUTHOR:before
+{
+	content:"Author:   ";
+}
+
+AUTHOR
+{
+	display:block;
+}
+
+LANGUAGE:before
+{
+	content:"Language: ";
+}
+
+LANGUAGE
+{
+	display:block;
+}
+
+USES:before
+{
+	content:"Uses:     ";
+}
+
+USES
+{
+	display:block;
+}
+
+ECUCOMMENT:before
+{
+	content:"Comment:  ";
+}
+
+ECUCOMMENT
+{
+	display:block;
+	font-size: x-small;
+}
+
+
+JOB
+{
+	display:block;
+	font-family:"Arial",Arial;
+	text-align:left;
+	font-size:x-small;
+	color:black;
+	padding:0.2em;
+	background-color:#3399ff;
+	border: 2px solid black;
+}
+
+JOBNAME:before
+{
+	font-size:small;
+	content:"Job:      ";
+}
+
+JOBNAME
+{
+	display:block;
+	padding:0.2em;
+	font-size:small;
+	font-weight:bold;
+	border: 1px solid black;
+}
+
+JOBCOMMENT:before
+{
+	font-size:x-small;
+  background-color:#99ccff;
+	content:"Comment:  ";
+}
+
+JOBCOMMENT
+{
+	display:block;
+	padding:0.2em;
+	color:black;
+  background-color:#99ccff;
+	border: 1px solid black;
+}
+
+ARG:before
+{
+
+
+}
+
+ARG
+{
+	display:block;
+	color: black;
+	background-color: #bfbfbf;
+	padding:0.2em;
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+ARGNAME:before
+{
+	content:"Argument: ";
+}
+
+ARGNAME
+{
+	display:table-cell;
+	width:15em;
+}
+
+ARGTYPE:before
+{
+	content:"Type:   ";
+}
+
+
+ARGTYPE
+{
+	display:table-cell;
+	width:12em;
+
+}
+
+ARGCOMMENT
+{
+	display:table-cell;
+	width:30em;
+}
+
+
+RESULT:before
+{
+
+}
+
+RESULT
+{
+	display:block;
+	color:black;
+	background-color:#EFEFEF;
+	padding:0.2em;
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+
+RESULTNAME:before
+{
+	content:"Result: ";
+}
+
+RESULTNAME
+{
+	display:table-cell;
+	width:15em;
+}
+
+RESULTTYPE:before
+{
+	content:"Type:   ";
+}
+
+RESULTTYPE
+{
+	display:table-cell;
+	width:12em;
+}
+
+RESULTCOMMENT
+{
+	display:table-cell;
+	width:30em;
+}
+
+
+
+

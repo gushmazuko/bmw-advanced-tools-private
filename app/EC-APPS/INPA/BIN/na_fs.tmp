@@ -1,0 +1,41 @@
+           E R R O R   M E M O R Y
+           ---------------------------------------
+
+Date:      25.03.2017 14:33:57
+ECU:       ME9N62
+JobStatus: OKAY
+Variant:   ME9N62
+-------------------------------------------------------------
+
+RESULT:    1 error in error memory !
+-------------------------------------------------------------
+
+2820  CDKDISA - Fehler DISA
+
+Error counter:    2
+Logistic counter: 40
+
+1. Umweltsatz
+   Mileage                                 378376     km
+   Motortemperatur (tmot)                      99.00  Grad C
+   Motordrehzahl (nmot)                       720.00  /min
+   Ansauglufttemperatur (tans)                 68.25  Grad C
+   normierter Fahrpedalwinkel (wped)            0.00  %
+
+2. Umweltsatz
+   Mileage                                 378368     km
+   Motortemperatur (tmot)                      98.25  Grad C
+   Motordrehzahl (nmot)                      1120.00  /min
+   Ansauglufttemperatur (tans)                 73.50  Grad C
+   normierter Fahrpedalwinkel (wped)            0.00  %
+
+   Signal oder Wert unterhalb Schwelle
+   Testbedingungen erfüllt
+   Fehler momentan vorhanden und bereits gespeichert
+   Fehler würde kein Aufleuchten einer Warnlampe verursachen
+   Diagnose aktiv 
+   Zyklus-Flag gesetzt
+
+Error code: 28 20 62 05 00 00 02 28 B8 C1 C4 12 9B 00 B8 C0
+            C3 1C A2 00 FF FF FF FF FF FF
+=============================================================

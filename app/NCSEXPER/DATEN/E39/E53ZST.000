@@ -1,0 +1,450 @@
+;Tabelle: E53ZST.000                 Index: p   vom:  08.01.01     NAEL: E6E96.N.
+I p
+U 20000922083200
+V E53ZST.000
+;
+;Stand:  Fahrzeugbeschreibung E53               Ausgabe 0 v. 28.05.99
+;Stand:  Fahrzeugbeschreibung E53 Länder        Ausgabe - v. 28.05.99
+;Stand:  Statusbericht 99/07 v. 29.06.99
+;
+;Schl        GM-Schl. SA-Schlüssel     VN-Schl.  FG ASW Beschreibung
+;---------------------------------------------------------------------------------------------
+B ZUSATZ      //Bereichskennung für ZEKO!!
+;
+;Historie Grundversionsnummer (GVN)
+H GVN  N1097 00000000 0000000000000000 8000000000 1 FUNKTIONSBAU
+H GVN  N0398 00000000 0000000000000000 C000000000 1 FUNKTIONSBAU
+H GVN  N1098 00000000 0000000000000000 E000000000 1 FUNKTIONSBAU //PTO
+H GVN  N0599 00000000 0000000000000000 F000000000 1 FUNKTIONSBAU //2.Vorserie
+H GVN  N0799 00000000 0000000000000000 0000000000 1     //Anlaufserie
+H GVN  N1000 00000000 0000000000000000 0000000002 1     //PU2000-Maßnahmen
+;H GVN  N0401 00000000 0000000000000000 0000000006 1     //MAERZ2001-Maßnahmen
+;
+;Aktuelle Grundversionsnummer (GVN)
+G            00000000 0000000000000000 0000000000 1
+H E53  N0897 00000000 0000000000000000 0000000000 1 E53 //Baureihe E53
+;
+;Ehemalige zeitbedingte E-Worte (für ZEKO ein-/ausgeblendet)
+;
+;Steuergeräte, die durch SA oder Typ bestimmt sind (für ZEKO ausgeblendet)
+H IKE  N1097 00000000 0000000000000000 0000000001 1 IKE //KMBI_E38 statt KMB_E39
+H IKE  N1097 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;H MA01 N1000 00000000 0000000000000000 0000000004 1 MAERZ01 //Maerz2001 Einsatz 04/01
+;H MA01 N1000 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;H MY01 N0400 00000000 0000000000000000 0000000002 1 PU00 //PU2000 Einsatz 10/00
+;H MY01 N0400 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H BMR  N1000 00000000 0000000008000000 0000000002 1 BM_RADIO  //NG-BM-Radio
+H BMR  N1000 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;
+;Zeitlich gesteuerte Maßnahmen (für ZEKO ausgeblendet)
+H 459  N1099 00000000 0000000000000001 0000000000 1 SITZMEMORY SPIEGELMEMORY //Alle X5 3.0i US
+H 459  N0900 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;
+;Steuergeräte, zeitgesteuert eingesetzt, aber rückwirkend gültig
+H MYDY N0998 00000000 0000000000000000 0000000008 1 MAYDAY           //Mayday-Modul US ab 09/2000 und rückwirkend
+;
+;Nachrüstung
+H NAVI N1097 00000000 0000008000000000 0000000000 1 NAVIGATION STANDLUEFTUNG //Nachrüstung Navigation ohne Videomodul
+;
+;Aktuelle E-Worte
+E PS2  N0599 00000000 0000000000000000 F000000000 1     //vehicles of pre-series 2
+E BLSN N0799 00000000 2000000000000000 0000000000 1 BLS_KORR //Correction Brake-light-switch for all vehicles see E 0E01.M //Korrektur Bremslichtschalter Siemens
+E MY01 N0400 00000000 0000000000000000 0000000002 1 PU00 //PU2000 Einsatz 10/00
+;E MA01 N1000 00000000 0000000000000000 0000000004 1 MAERZ01 //Maerz2001 Einsatz 04/01
+E NGR  N1000 00000000 0000000000000008 0000000002 1 RADIO_NG_MID //for all NG-radios with MID
+;E CD53 N0800 00000000 0000000000000000 0000000008 1 CD53_SEP // Übergangslösung: New generation radio ab 09/00
+E CD43 N0900 00000000 0000000008000000 0000000000 1 RADIO_CD43 //Car radio BMW Business CD      //BMW Business CD RDS
+;
+;Zukünftige E-Worte   //2 Einsatzzeitpunkte: Oktober (PU) u. April (MA)
+;
+B SALA        //Bereichskennung für ZEKO!!
+;********************************* Vergebene VN-Bits *************************
+; vgBG                                 8000000000 //vorgezogene Baugruppe
+; 1.BG                                 4000000000 BG_1 //1. Baugruppe
+; PTO                                  2000000000 FUNKTIONSBAU //PTO
+; 2.Vorserie                           1000000000 VS_1 //2.Vorserie
+; IKE                                  0000000001 IKE //KMBI_E38 statt KMB_E39
+; MY01                                 0000000002 PU00 //PU2000 Einsatz 10/00
+; MA01                                 0000000004 MAERZ01 //Maerz2001 Einsatz 04/01
+; MYDY                                 0000000008 MAYDAY //Mayday-Modul US ab 09/2000 und rückwirkend
+;********************************* Vergebene VN-Bits *************************
+;******************** Vergebene SA-Bits **************************************
+;0459,0456            0000000000000001 SITZMEMORY SPIEGELMEMORY
+;0522                 0000000000000002 XENON LWR_AUT
+;0534                 0000000000000004 KLIMAAUTOMATIK
+;0670                 0000000000000008 RADIO_C34 //C34 Professional
+;NGR                  0000000000000008 0000000002 RADIO_NG_MID //
+;0261                 0000000000000010 FOND_AIRBAG //Seitenairbag hinten
+;1240                 0000000000000020 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag
+;1243                 0000000000000040 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag
+;1260                 0000000000000080 ENTF_SEITENAIRB //Deaktivierung Seiten-/Kopfairbag
+;0216                 0000000000000100 SERVOTRONIC
+;0220                 0000000000000200 NIVEAUREG //1-Achs-Niveauregulierung
+;0265                 0000000000000400 RDKS
+;0302                 0000000000000800 DWA
+;0403                 0000000000001000 GLAS_SHD //Schiebehebedach (Glas) elektr.
+;0430                 0000000000002000 SPIEGELPAKET //Klappfunktion außer US
+;0502                 0000000000004000 SWA  //Scheinwerfer-Waschanlage
+;0508                 0000000000008000 PDC  //Park-Distance-Control
+;0521                 0000000000010000 REGENSENSOR
+;0536                 0000000000020000 STANDHEIZUNG STANDLUEFTUNG //Standheizung incl. Standlüftung+Fernbed.
+;0555                 0000000000040000 BC_HIGH STANDLUEFTUNG //High-BC incl. Standlüftung
+;0609                 0000000000080000 NAVIGATION BORDMONITOR STANDLUEFTUNG
+;0625,629,632,641     0000000000100000 TELEFON //Codierung MID
+;0677                 0000000000200000 TOP_HIFI //Codierung MID/DSP
+;0602                 0000000000400000 BORDMONITOR
+;0845                 0000000000800000 AK_GUWA
+;0877                 0000000001000000 ENTF_UEBERKREUZ
+;0896                 0000000002000000 TAGFAHRLICHT
+;0823                 0000000004000000 TROPEN //Heißland (Tropen), Ergänzungs-LA für Golf und Heißländer
+;0662                 0000000008000000 RADIO_CD43 //BMW Business CD RDS
+;0602/609             0000000008000000 0000000002 BM_RADIO //New Generation Radio ab PU00 (C53,MD53,CD53,BM53,BM54)
+;0825                 0000000010000000 OZEANIEN //Steuerung Radio Ozeanien
+;0624                 0000000020000000 SIEMENS //Siemens-Handy
+;0627                 0000000040000000 NOKIA //Nokia-Handy
+;0645                 0000000080000000 RADIO_US //Car radio control US             //Radio-Steuerung US
+;0533                 0000000100000000 FOND_GEBLAESE //Air conditioning in rr compartment  //Fond-Klimatisierung
+;0984                 0000000200000000 SIA_INTERVALL //Coding maintenance interval           //Codierung Wartungsintervall
+;0221                 0000000400000000 LFEDER_2_ACHS //2-axle-LVL/CTL/SYS                    //2-Achs-Niveauregulierung
+;0988                 0000000800000000 SIA_KURZ //Coding extrem short maintenance interval           //Codierung extrakurzes Wartungsintervall
+;0926                 0000001000000000 ERSATZRAD //Full-size spare wheel
+;0257                 0000002000000000 OH_THORAX_HI //Deactivate Sidebag Fond
+;0630                 0000004000000000 SIEMENS_GSM //Car telephone w map rd. frt
+;H NAVI               0000008000000000 NAVIGATION STANDLUEFTUNG //Navigation incl. Bordmonitor ohne TV für Nachrüstun
+;BLSN                 2000000000000000 BLS_KORR //Correction Brake-light-switch   //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98 - 
+;******************** Vergebene SA-Bits **************************************
+;
+;******* Vergebene GM-Bits Länderausführungen*********************************
+;            xxx3xxxx 0000000000000000 0000000000 1 US  //US signed in Type code                //im Typschlüssel gekennzeichnet
+;0802        00000200 0000000000000000 0000000000 0     //Korea version                         //Korea-Ausführung
+;0807        00000700 0000000000000000 0000000000 1 JAPAN //Japan version                       //Japan - Ausführung
+;0810        00001000 0000000000000000 0000000000 1 AUSTRALIEN //Australia version              //Australien - Ausführung
+;0812        00001200 0000000000000000 0000000000 1 ENGLAND //England version                   //England - Ausführung
+;0821        00002100 0000000000000000 0000000000 0     //Egypt version                         //Ägypten - Ausführung
+;0822        00002200 0000000000000000 0000000000 1 GOLF //Golf version                         //Golf - Ausführung
+;0824        00002400 0000000000000000 0000000000 1 ZA  //South Africa version                  //Südafrika - Ausführung
+;0833        00003300 0000000000000000 0000000000 0     //Singapore version                     //Singapur - Ausführung
+;0838        00003800 0000000000000000 0000000000 1 KANADA //Canada version                     //Kanada - Ausführung
+;0846        00004600 0000000000000000 0000000000 0     //Taiwan version                        //Taiwan - Ausführung
+;******* Vergebene GM-Bits Sonstige*******************************************
+;0548        00000010 KM_TACHO
+;0205        00000080 AUTOMATIK
+;******* Vergebene GM-Bits ***************************************************
+;
+0103         00000000 0000000000000000 0000000000 S     //Units protective plate                //Ganzjahresreifen
+0104         00000000 0000000000000000 0000000000 S     //Middle East version                   //Nahost-Version
+0107         00000000 0000000000000000 0000000000 S     //Provisions tachograph                 //Vorb. Fahrtenschreiber
+0119         00000000 0000000000000000 0000000000 S     //Electrical, auxiliary module          //Elektrik Zusatzmodul
+0120         00000000 0000000000000000 0000000000 S     //Base equipment                        //Basisausstattung
+0146         00000000 0000000000000000 0000000000 S     //Auxiliary energy supply               //zusätzliche Energieversorgung
+0168         00000000 0000000000000000 0000000000 S     //Emission reduction EC-stage II        //Abgasnorm EU2
+0180         00000000 0000000000000000 0000000000 S     //Prep or assembly roof antenna         //VB bzw. Montage Dachantenne
+0181         00000000 0000000000000000 0000000000 S     //Prep and/or assembly RR antenna2+4m band      //Montage Heckantenne 2+4m Band
+0193         00000000 0000000000000000 0000000000 S     //Deletion heated windshield/ side window       //Entfall beheiz. Front-Seitenscheibe
+0196         00000000 0000000000000000 0000000000 S     //Fuel tank leakage-preventing          //Krafstofftank auslaufhemmend
+0197         00000000 0000000000000000 0000000000 S     //Acoustic + optical alarm system       //Akustische und optische Alarmanlage
+0199         00000000 0000000000000000 0000000000 0     //Cat.converter deletion                //Katalysator-Entfall
+0203         00000000 0000000000000000 0000000000 S     //4-traction system                     //4-Traction System
+0204         00000000 0000000000000000 0000000000 S     //Reduced rear axle ratio               //Kürzere Hinterachsübersetzung
+0205         00000080 0000000000000000 0000000000 1 AUTOMATIK //Automatic transmission          //Automatik-Getriebe
+0207         00000000 0000000000000000 0000000000 S     //6 spd manual transmission             //6-Gang Schaltgetriebe
+0210         00000000 0000000000000000 0000000000 S     //Dynamic stability control (DSCIII)    //Dynamische Stab.-Kontrolle (DSCIII)
+0216         00000000 0000000000000100 0000000000 1 SERVOTRONIC //Servotronic                   //Servotronic
+0220         00000000 0000000000000200 0000000000 1 NIVEAUREG //Level control system            //Niveauregulierung
+0221         00000000 0000000400000000 0000000001 1 LFEDER_2_ACHS //2-axle-air springing        //2-Achs-Luftfederung (nur in Verb. mit High-Kombi)
+0226         00000000 0000000000000000 0000000000 0     //Sport suspension settings             //Sportliche Fahrwerksabstimmung
+0227         00000000 0000000000000200 0000000000 S NIVEAUREG //SP/suspension w level control system    //Sportl.Fahrw. m.Niveauregulierung
+0228         00000000 0000000000000000 0000000000 S     //Comfort suspension                    //Komfortfahrwerk
+0229         00000000 0000000000000000 0000000000 S     //Active rollstabilization              //Aktive-Rollstabilisierung (AWS)
+0230         00000000 0000000000000000 0000000000 S     //Sports suspension w LWR placement     //Sportfahrwerk mit Tieferlegung
+0235         00000000 0000000000000000 0000000000 0     //Towing hitch, head replaceable        //Anhängerkupplung, Kopf abnehmbar
+H 1240 V0599 00000000 0000000000000020 0000000000 1 OHNE_FA_AIRBAG //Deactivate driver air bag  //Deaktivierung Fahrerairbag
+H 1243 V0599 00000000 0000000000000040 0000000000 1 OHNE_BF_AIRBAG //Deact. passenger air bag   //Deaktivierung Beifahrerairbag
+0245         00000000 0000000000000000 0000000000 0     //Steering column adjustment elec       //Lenksäulenverstellung elektrisch
+0248         00000000 0000000000000000 0000000000 0     //Steering wheel rim heated             //Lenkradheizung
+0249         00000000 0000000000000000 0000000000 0     //Multifunction f steering wheel        //Multifunktion für Lenkrad
+0255         00000000 0000000000000000 0000000000 0     //Sports steering wheel                 //Sport-Lederlenkrad II mit Airbag
+0256         00000000 0000000000000000 0000000000 0     //Sport-/MF-steering wheel/cruise control       //Sportleder-/MF-Lenkr./Geschw.Regel.
+0257         00000000 0000002000000000 0000000000 1 OH_THORAX_HI //Deact. side airbag fond      //Deaktivierung Seitenairbag für Fondpassagiere
+H 1260 V0599 00000000 0000000000000080 0000000000 1 ENTF_SEITENAIRB //Deact. side airbag driver/frt passenger   //Deaktivierung Seiten-/Kopfairbag
+0261         00000000 0000000000000010 0000000000 1 FOND_AIRBAG //Side airbag f rr compartment passengers       //Seitenairbag für Fondpassagiere
+0265         00000000 0000000000000400 0000000000 1 RDKS //Control(RDC - tire pressure control) //Reifendruckkontrollsystem
+0301         00000000 0000000000000000 0000000000 0     //All terrain wheels                    //All-Terrain Bereifung
+0302         00000000 0000000000000800 0000000000 1 DWA //Anti-theft alarm system w RC          //Alarmanlage mit Fernbedienung
+0309         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel star-spoke 57        //BMW LM Rad/Sternspeiche 57 7,5J*17 235/65R17
+0310         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel star-spoke 58        //BMW LM Rad/Sternspeiche 58 8,5J*18 255/55R18
+0311         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel chrome rim           //BMW LM Rad Chromfelge 8,5J*18 255/55R18
+0312         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel V-styling 63         //BMW LM Rad/V-Styling 63 v:9J*19 255/50R19 h:10J*19 285/45R19
+0320         00000000 0000000000000000 0000000000 0     //w/o model description                 //Modellschriftzug Entfall
+0321         00000000 0000000000000000 0000000000 0     //Door handles in vehicle color         //Türgriffe in Wagenfarbe
+0324         00000000 0000000000000000 0000000000 S     //Front spoiler + rr spoiler            //Front- und Heckspoiler
+0325         00000000 0000000000000000 0000000000 S     //Rear wing                             //M Heckflügel
+0328         00000000 0000000000000000 0000000000 0     //Side skirt                            //Trittbrettschweller
+0330         00000000 0000000000000000 0000000000 0     //Sports package                        //Sportpaket
+0337         00000000 0000000000000000 0000000000 S     //M Sports package                      //M Technik Sportpaket
+0341         00000000 0000000000000000 0000000000 S     //Bumpers complete in car colour        //Stoßfänger komplett in Wagenfarbe
+0342         00000000 0000000000000000 0000000000 0     //Titan. line interior                  //Titan-Line Interieur
+0345         00000000 0000000000000000 0000000000 0     //Chrome-line interior                  //Chrome-Line Interieur
+0346         00000000 0000000000000000 0000000000 0     //Chrome-line exterior                  //Chrome-Line Exterieur
+0347         00000000 0000000000000000 0000000000 0     //Titan. line exterior                  //Titan-Line Exterieur
+0352         00000000 0000000000000000 0000000000 0     //Double-glazed windows                 //Doppelverglasung
+0354         00000000 0000000000000000 0000000000 0     //Anti-glare strip windshield           //Grünkeil-Frontscheibe
+0355         00000000 0000000000000000 0000000000 S     //Clear windshield w anti-glare strip   //Klare Frontscheibe mit Grünkeil
+0357         00000000 0000000000000000 0000000000 0     //Anti-burglar Glazing                  //Schutzverglasung
+0358         00000000 0000000000000000 0000000000 0     //Air cond. comfort - windshield        //Klimakomfort-Frontscheibe
+0376         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel                      //BMW LM Rad Sternspeiche 74 8,5J*18 255/55R18
+0377         00000000 0000000000000000 0000000000 0     //BMW LT/ALY wheel                      //BMW LM Rad Normallack 8,5J*18 255/55R18
+0386         00000000 0000000000000000 0000000000 0     //Roof railing                          //Dachreling
+0401         00000000 0000000000000000 0000000000 S SHD //Sliding sunroof elec                  //Schiebe-Hebedach, elektrisch
+0403         00000000 0000000000001000 0000000000 1 GLAS_SHD //Glas sliding sunroof elec        //Glasdach elektr.
+0412         00000000 0000000000000000 0000000000 0     //Pull-out load aid                     //Ladeboden ausziehbar
+0413         00000000 0000000000000000 0000000000 0     //Luggage net                           //Gepäckraumtrennetz
+0417         00000000 0000000000000000 0000000000 0     //Sun blind rr door wdo                 //Sonnenschutzrollo hintere Türsch.
+0423         00000000 0000000000000000 0000000000 0     //Floor mats in high-pile velours       //Fußmatten in Hochflor-Velours
+0428         00000000 0000000000000000 0000000000 0     //Warning triangle & first aid kit      //Warndreieck und Verbandskasten
+0430         00000000 0000000000002000 0000000000 1 SPIEGELPAKET //Inside/rr vw mirror,aut.dipping      //Innen-/Außenspiegel, aut. abblendend
+0431         00000000 0000000000000000 0000000000 0     //Inside rr view mirror,automatic dipping       //Innenspiegel automatisch abblendend
+0433         00000000 0000000000000000 0000000000 0     //Interior strips red                   //Interieurleisten rot
+0437         00000000 0000000000000000 0000000000 0     //Real wood version 'Spirit of Nature'  //Holzausführung "Spirit of nature"
+0438         00000000 0000000000000000 0000000000 0     //Real wood version nut-tree            //Edelholzausführung hochglänzend Nußbaum
+0441         00000000 0000000000000000 0000000000 0     //Smoker package                        //Raucherpaket
+0456         00000000 0000000000000001 0000000000 1 SITZMEMORY SPIEGELMEMORY //Comf.seats elec incl. adj.       //Komfortsitz elektr. incl. Memoryfkt
+0459         00000000 0000000000000001 0000000000 1 SITZMEMORY SPIEGELMEMORY //St/adj elec driver memory/pass   //Sitzverst. elektr. Fahrer Memory/Beif.
+0461         00000000 0000000000000000 0000000000 0     //Seat back adj in rr compartment, elec //Sitzlehnenverstellung im Fond, elektr.
+0464         00000000 0000000000000000 0000000000 0     //Ski bag                               //Skisack
+0469         00000000 0000000000000000 0000000000 0     //Integr.child seats in rr comp.        //Kindersitze im Fond, integriert
+0472         00000000 0000000000000000 0000000000 S     //Center armrest frt  driver/pass       //Mittelarmlehne vorn Fahrer/Beif.
+0473         00000000 0000000000000000 0000000000 0     //Arm support frt                       //Armauflage vorn
+0481         00000000 0000000000000000 0000000000 0     //Sport seats f driver/frt passenger    //Sportsitze für Fahrer/Beifahrer
+0488         00000000 0000000000000000 0000000000 0     //Lumbar support driver+frt passenger   //Lordosenstütze Fahrer/Beifahrer
+0494         00000000 0000000000000000 0000000000 0     //Seat heating f driver+frt passenger   //Sitzheizung für Fahrer/Beifahrer
+0496         00000000 0000000000000000 0000000000 0     //Seat heating f rear seats             //Sitzheizung für Fondsitze
+0500         00000000 0000000000000000 0000000000 S SWA INTENSIVR //Headlight wash/unit+intensive cleaning      //Scheinw.Waschanl./Intensivreinigung
+0502         00000000 0000000000004000 0000000000 1 SWA //Headlights washer system              //Scheinwerfer-Waschanlage
+0508         00000000 0000000000008000 0000000000 1 PDC //Park Distance Control (PDC)           //Park-Distance-Control (PDC)
+0521         00000000 0000000000010000 0000000000 1 REGENSENSOR //Rain sensor                   //Regensensor
+0522         00000000 0000000000000002 0000000000 1 XENON LWR_AUT //Xenon light                 //Xenon-Licht
+0524         00000000 0000000000000000 0000000000 S     //Driving lights control                //Fahrlicht-Control
+0533         00000000 0000000100000000 0000000000 1 FOND_GEBLAESE //Air conditioning in rr compartment  //Fond-Klimatisierung
+0534         00000000 0000000000000004 0000000000 1 KLIMAAUTOMATIK //Automatic air conditioning //Klimaautomatik
+0536         00000000 0000000000020000 0000000000 1 STANDHEIZUNG STANDLUEFTUNG //park heating   //Standheizung
+0538         00000000 0000000020000000 0000000000 S LATENTWAERME //Latent-heat storer           //Latentwärmespeicher
+0539         00000000 0000000000000000 0000000000 S     //Remote control f park htg             //Fernbedienung f. Standheizung
+0540         00000000 0000000000000000 0000000000 0     //Cruise control                        //Geschw.reg. + Multifunktionslenkrad
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO //Kilometer-speedo                 //Kilometertacho
+0555         00000000 0000000000040000 0000000001 1 BC_HIGH STANDLUEFTUNG //On-board computer   //Bordcomputer
+0575         00000000 0000000000000000 0000000000 S     //Socket in trunk incl 2.batt           //Steckdose im Gepäckr.incl.2.Batt.
+0577         00000000 0000000000000000 0000000000 0     //Preparation f hired car               //Mietwagenvorbereitung
+A 0602 V0201 00000000 0000000000400000 0000000001 1 BORDMONITOR //Onboard monitor w TV          //Bordmonitor mit TV
+A 0602 N0201 00000000 0000000008400000 0000000003 1 BM_RADIO BORDMONITOR //Onboard monitor w TV //Bordmonitor mit TV + BM53/54
+0603         00000000 0000000000000000 0000000000 0     //rr compartment TV-set                 //Fond Bildschirm
+0604         00000000 0000000000000000 0000000000 S     //Personal travel assistent prep.       //PTA-Vorbereitung
+0605         00000000 0000000000000000 0000000000 S     //BTX/Telephone                         //BTX/Telefon
+0606         00000000 0000000000000000 0000000000 S     //Radio navigation system               //Radio-Navigationssystem
+0607         00000000 0000000000000000 0000000000 S     //Personal computer (PC)                //Personal-Computer (PC)
+0608         00000000 0000000000000000 0000000000 S     //Navigation system incl onboard monitor //Navigationssystem incl. Bordmonitor
+A 0609 V0201 00000000 0000000000080000 0000000001 1 NAVIGATION BORDMONITOR STANDLUEFTUNG        //Navigation
+A 0609 N0201 00000000 0000000008080000 0000000003 1 BM_RADIO NAVIGATION BORDMONITOR STANDLUEFTUNG //Navigation + BM53/54
+0612         00000000 0000000000000000 0000000000 0     //BMW-Assist                            //BMW-Assist
+0620         00000000 0000000000000000 0000000000 0     //Voice input                           //Sprachsteuerung
+0622         00000000 0000000000000000 0000000000 S     //Sec.earphone in rr compartment f BMW tel      //Zweithörer im Fond für BMW Tel.
+H 0624 V1099 00000000 0000000020000000 0000000000 1 TELEFON SIEMENS //Cpl prep. BMW cellphone (Siemens) //Komplettvorb. BMW Handy (Siemens)
+0624         00000000 0000000020000000 0000000000 S     //Cpl prep. BMW cellphone (Siemens)     //Komplettvorb. BMW Handy (Siemens)
+0625         00000000 0000000000100000 0000000000 1 TELEFON //Cpl prep. BMW cellphone (Motorola)        //Komplettvorb. BMW Handy (Motorola)
+0626         00000000 0000000000000000 0000000000 S     //Communication package cellphone       //Kommunikationspaket Handy-Telefon
+0627         00000000 0000000040000000 0000000000 1 TELEFON NOKIA //S 10/00 //Cpl prep. BMW cellphone (Nokia)     //Komplettvorb. BMW Handy (Nokia)
+0628         00000000 0000000000000000 0000000000 S     //Communication package                 //Kommunik.-Paket (555, 540, 629)
+0629         00000000 0000000000100000 0000000000 1 TELEFON //S 10/00 //Car telephone w map rd. frt       //Autotelefon mit Kartenleser vorn
+0630         00000000 0000004000000000 0000000000 1 TELEFON SIEMENS_GSM //Car telephone w map rd. frt       //Autotelefon mit Kartenleser vorn
+H 0632 V0301 00000000 0000000000100000 0000000000 1 TELEFON         //Car telephone w map rd. frt       //Autotelefon mit Kartenleser vorn
+0632         00000000 0000000000000000 0000000000 0     //Car telephone w map rd. frt       //Autotelefon mit Kartenleser vorn
+;A 0632 N0301 00000000 0000000000000000 0000000000 1 TELEFON V_SERIE //Car telephone w map rd. frt       //Autotelefon mit Kartenleser vorn
+0635         00000000 0000000000000000 0000000000 S     //Telephone preparation BMW D-net       //Telefonvorbereitung BMW D-Netz
+0636         00000000 0000000000000000 0000000000 S     //Telephone preparation cellphone D-net //Telefonvorbereitung Handy D-Netz
+0640         00000000 0000000000000000 0000000000 0     //Preparation for car phone             //Autotelefonvorbereitung
+0641         00000000 0000000000100000 0000000000 1 TELEFON //Telephone preparation AMPS net    //Autotelefonvorbereitung AMPS-Netz
+0645         00000000 0000000080000000 0000000000 1 RADIO_US //Car radio control US             //Radio-Steuerung US
+0650         00000000 0000000000000000 0000000000 0     //CD drive for car radio                //CD Laufwerk
+0651         00000000 0000000000000000 0000000000 0     //MD drive for car radio                //MD Laufwerk
+0661         00000000 0000000000000000 0000000000 0     //New generation radio                  //New Generation Radio
+0662         00000000 0000000000000000 0000000000 0     //Car radio BMW Business CD             //BMW Business CD RDS
+H 0662 V0900 00000000 0000000008000000 0000000000 1 RADIO_CD43 //Car radio BMW Business CD      //BMW Business CD RDS
+;0662 N1000 00000000 0000000008000000 0000000000 S RADIO_CD43 //Car radio BMW Business CD      //BMW Business CD RDS
+0663         00000000 0000000000000000 0000000000 0     //Car radio BMW Professional CD         //CD53 BMW Professional CD
+0665         00000000 0000000000000000 0000000000 0     //S 10/00 //Car radio BMW Business                //C33 BMW Business RDS
+0670         00000000 0000000000000008 0000000000 1 RADIO_C34 //S 10/00 //Car radio BMW Professional RDS  //C34 BMW Professional RDS
+0672         00000000 0000000000000000 0000000000 0     //CD changer BMW 6 CDs                  //CD Wechsler BMW 6 CD-Changer
+0676         00000000 0000000000000000 0000000000 0     //HiFi active speaker system            //HIFI-Aktiv-Lautsprechersystem
+0677         00000000 0000000000200000 0000000000 1 TOP_HIFI //HiFi system professional DSP     //HIFI-System Professional DSP
+0686         00000000 0000000000000000 0000000000 S     //Antenna diversity                     //Antennendiversity
+0689         00000000 0000000000000000 0000000000 S     //Prep f in car video                   //Vorbereitung für In-Car Video
+0690         00000000 0000000000000000 0000000000 0     //Cassette holder                       //Cassettenhalterung
+0691         00000000 0000000000000000 0000000000 0     //Compact disc support                  //Compact-Disc-Halterung
+0692         00000000 0000000000000000 0000000000 0     //BMW 6 CD-changer I-bus preparation    //Vorbereitung für BMW 6 CD-Changer
+0695         00000000 0000000000000000 0000000000 S     //MD changer                            //MD-Wechsler
+0697         00000000 0000000000000000 0000000000 S     //Automatic telephone antenna           //Automatik-Telefon-Antenne
+0704         00000000 0000000000000000 0000000000 S     //M sport suspension                    //M Sportfahrwerk
+0708         00000000 0000000000000000 0000000000 S     //M-sport leather steering wheel II     //M Sport-Lederlenkrad II
+0710         00000000 0000000000000000 0000000000 0     //M-sport leather steering wheel        //M Lederlenkrad + Geschw.reg.
+0715         00000000 0000000000000000 0000000000 S     //M aerodynamic package                 //M Aerodynamikpaket
+0761         00000000 0000000000000000 0000000000 0     //Individual sun protection glazing     //Sonnenschutzverglasung (SSV)
+0773         00000000 0000000000000000 0000000000 S     //"Individual" real wood extended       //Vogelaugenahorn grau/Erw. Holzausst. Eibe
+0775         00000000 0000000000000000 0000000000 0     //Individual roof lining anthracite     //Individual Dachhimmel anthrazit
+0785         00000000 0000000000000000 0000000000 0     //Individual turn signal lights white   //Weiße Blinkleuchten
+0800         00000000 0000000000000000 0000000000 S     //Exhaust system cpl countries          //Katalysator Anlage Länder
+0801         00000100 0000000000000000 0000000000 0     //Order control ZD/ZO                   //Auftragssteuerung ZD
+0802         00000200 0000000000000000 0000000000 0     //Korea version                         //Korea-Ausführung
+0805         00000500 0000000000000000 0000000000 S     //Carbon canister                       //Aktivkohlefilter
+0807         00000700 0000000000000000 0000000000 1 JAPAN //Japan version                       //Japan - Ausführung
+0810         00001000 0000000000000000 0000000000 1 AUSTRALIEN //Australia version              //Australien - Ausführung
+0812         00001200 0000000000000000 0000000000 1 ENGLAND //England version                   //England - Ausführung
+0815         00000000 0000000000000000 0000000000 S     //Heavy-duty package                    //Schlechtwegepaket
+0817         00000000 0000000000000000 0000000000 S     //Engine lay-out RON 91                 //Motorauslegung ROZ 91
+0818         00000000 0000000000000000 0000000000 0     //Battery main switch                   //Batteriehauptschalter
+0821         00002100 0000000000000000 0000000000 0     //Egypt version                         //Ägypten - Ausführung
+0822         00002200 0000000000000000 0000000000 1 GOLF //Golf version                         //Golf - Ausführung
+0823         00000000 0000000004000000 0000000000 1 TROPEN //Hot country version                //Heißland-Ausführung, Ergänzungs-LA für Golf und Heißländer
+0824         00002400 0000000000000000 0000000000 1 ZA  //South Africa version                  //Südafrika - Ausführung
+0825         00000000 0000000010000000 0000000000 1 OZEANIEN //Oceania - radio                  //Steuerung Radio Ozeanien
+0826         00000000 0000000000000000 0000000000 S EDC_EXPORT //Suspension esport settings     //Fahrwerk Exportabstimmung
+0831         00000000 0000000000000000 0000000000 S     //Deletion radio                        //Entfall Radio
+0833         00003300 0000000000000000 0000000000 0     //Singapore version                     //Singapur - Ausführung
+0835         00000000 0000000000000000 0000000000 S     //US tourist version                    //US-Touristen-Ausführung
+0837         00000000 0000000000000000 0000000000 S     //Deletion HiFi-speaker system          //Entfall HIFI-Lautsprechersystem
+0838         00003800 0000000000000000 0000000000 1 KANADA //Canada version                     //Kanada - Ausführung
+0840         00000000 0000000000000000 0000000000 0     //High-speed tuning                     //Hochgeschwindigkeitsabstimmung
+0842         00000000 0000000000000000 0000000000 0     //Cold country                          //Kaltland-Ausführung
+0843         00000000 0000000000000000 0000000000 0     //SA engine lay-out                     //Motorauslegung
+0845         00000000 0000000000800000 0000000000 1 AK_GUWA //Acoustic belt wrng                //Akustische Gurtwarnung
+0846         00004600 0000000000000000 0000000000 0     //Taiwan version                        //Taiwan - Ausführung
+0848         00000000 0000000000000000 0000000000 S     //Enlarged wiring harness               //erweiterter Kabelbaum
+0850         00000000 0000000000000000 0000000000 0     //Add. tank filling export              //Zusätzlich Tankfüllung Export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH //Instrument lettering german       //Armaturenbeschriftung deutsch
+0852         00000002 0000000000000000 0000000000 S JAPANISCH //Instrument lettering japanese   //Armaturenbeschriftung japanisch
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH //Instrument lettering english     //Armaturenbeschriftung englisch
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH //Instrument lettering french  //Armaturenbeschriftung französisch
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH //Instrument lettering italian  //Armaturenbeschriftung italienisch
+0856         00000006 0000000000000000 0000000000 1 SPANISCH //Instrument lettering spanish     //Armaturenbeschriftung spanisch
+0857         00000000 0000000000000000 0000000000 S     //Provisions f air conditioning         //Vorbereitung für Klimaanlage
+0858         00000000 0000000000000000 0000000000 S     //Engine low-compression                //Motorauslegung f.mind.Kraftstoff
+0861         00000000 0000000000000000 0000000000 0     //change coding data set                //Änderung Codierdatensatz
+0863         00000000 0000000000000000 0000000000 0     //Dealer list Europe                    //Händlerverzeichnis Europa
+0864         00000000 0000000000000000 0000000000 0     //Dealer list Overseas                  //Händlerverzeichnis Übersee
+0865         00000000 0000000000000000 0000000000 S     //Oddments table/footrests in rr compartmt      //Ablagetische/Fußstützen im Fond
+0868         00000000 0000000000000000 0000000000 S     //Radio provisions f ZF/ZI              //Radiovorbereitung ZF/ZI
+0869         00000000 0000000000000000 0000000000 S     //Radio provisions f ZG/ZZ              //Radiovorbereitung ZG/ZZ
+0875         00000000 0000000000000000 0000000000 0     //Infrared remote control               //Infrarotfernbedienung
+0876         00000000 0000000000000000 0000000000 0     //Radio frequency 315 MHz               //Funkfrequenz 315 MHz
+0877         00000000 0000000001000000 0000000000 1 ENTF_UEBERKREUZ //Deletion cross-over control       //Entfall Überkreuzbedienung DWA
+0879         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet german    //deutsch/Betriebsanl./Serviceheft
+0880         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet english   //englsch/Betriebsanl./Serviceheft
+0881         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet french    //französisch/Betriebsanl./Serviceheft
+0883         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet spanish   //spanisch/Betriebsanl./Serviceheft
+0884         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet italian   //italienisch/Betriebsanl./Serviceheft
+0885         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet swedish   //schwedisch/Betriebsanl./Serviceheft
+0886         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet hollaendisch      //holländisch/Betriebsanl./Serviceheft
+0887         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet arabic    //arabisch/Betriebsanl./Serviceheft
+0888         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet danish    //dänisch/Betriebsanl./Serviceheft
+0889         00000000 0000000000000000 0000000000 0     //Owner manual/servie booklet portguese //portugiesisch/Betriebsanl./Serviceheft
+0890         00000000 0000000000000000 0000000000 S     //Owner manual/servie booklet japan     //japanisch/Betriebsanl./Serviceheft
+0896         00000000 0000000002000000 0000000000 1 TAGFAHRLICHT //Daytime driving light circuit        //Tagfahrlichtschaltung
+0900         00000000 0000000000000000 0000000000 0     //Appr. veh.immobilizat. acc. to AZT/TUEV       //anerk. Wegfahrsicherung lt. AZT/TÜV
+0901         00000000 0000000000000000 0000000000 0     //Special control general               //Sonderkontrolle allgemein
+0902         00000000 0000000000000000 0000000000 0     //Special control press car             //Sonderkontrolle Pressewagen
+0903         00000000 0000000000000000 0000000000 0     //Special control standstill-/photo car //Sonderkontrolle Stand/Fotowagen
+0904         00000000 0000000000000000 0000000000 0     //Special control ext.type approval car //Sonderkontrolle Typprüfwagen
+0905         00000000 0000000000000000 0000000000 0     //Special control demo vehicle          //Sonderkontrolle Vorführwagen
+0906         00000000 0000000000000000 0000000000 0     //Special control photo veh.for new assign      //Sonderkontrolle Fotofahrz.b.Neuanl.
+0910         00000000 0000000000000000 0000000000 0     //Development vehicle w/o delivery inspect      //Entwicklungsfzg ohne Übergabeinsp
+0911         00000000 0000000000000000 0000000000 0     //Development veh. w.delivery inspection        //Entwicklungsfzg mit Übergabeinsp
+0915         00000000 0000000000000000 0000000000 0     //Deletion outer skin rustproofing      //Entfall Außenhautkonservierung
+0916         00000000 0000000000000000 0000000000 0     //Development veh. w/o rustproofing     //Entwicklungsfzg. ohne Konservierung
+0917         00000000 0000000000000000 0000000000 0     //Overseas preservation                 //Überseekonservierung
+0919         00000000 0000000000000000 0000000000 S     //Al-doors                              //ALU-Türen
+0920         00000040 0000000000000000 0000000000 S ALPINA //Alpina w/o vehicle title           //Alpina, ohne Brief
+0922         00000000 0000000000000000 0000000000 S     //Alpina engine oil cooler              //Alpina, Motorölkühler
+0923         00000000 0000000000000000 0000000000 0     //Deletion Titan-Line                   //Entfall Titan-Line
+0925         00000000 0000000000000000 0000000000 0     //Shipping guard package                //Versandschutzpaket
+0926         00000000 0000001000000000 0000000000 1 ERSATZRAD //Full-size spare wheel           //Ersatzrad wie Laufrad vorn
+0927         00000000 0000000000000000 0000000000 S     //Tourist handling                      //Touristen-Abwicklung
+0928         00000000 0000000000000000 0000000000 0     //Tire control                          //Reifensteuerung
+0929         00000000 0000000000000000 0000000000 S     //Wind deflector added                  //Windschutz beigelegt
+0930         00000000 0000000000000000 0000000000 0     //Price-dependence 314,494,520          //Preisabhängigkeit bei 314,494,520
+0932         00000000 0000000000000000 0000000000 0     //Winter tire additional                //Winterreifen zusätzlich
+0933         00000000 0000000000000000 0000000000 0     //Whell caps f winter wheels            //Radkappen für Winterräder
+0934         00000000 0000000000000000 0000000000 0     //Winter tire on LT/ALY wheels          //Winterreifen auf LM-Rädern
+0937         00000000 0000000000000000 0000000000 0     //Navi CD ROM                           //Navi CD ROM bei Auslieferung anfordern
+0938         00000000 0000000000000000 0000000000 0     //Winter package WA                     //Winterpaket WA
+0940         00000000 0000000000000000 0000000000 0     //Special request trim                  //Sonderwunsch Ausstattung
+0941         00000000 0000000000000000 0000000000 0     //Special request handling              //Sonderwunschabwicklung
+0942         00000000 0000000000000000 0000000000 0     //Cancelled special request             //Storno Sonderwunsch
+0943         00000000 0000000000000000 0000000000 S     //Special request motorsports plant     //Sonderwunsch Motorsport-Werk
+0944         00000000 0000000000000000 0000000000 0     //Subsequent conversion thru "ZS"       //Nachträglicher Umbau durch ZS
+0945         00000000 0000000000000000 0000000000 0     //Consideration price dependancy        //Berücksichtigung Preisabhängigk.
+0946         00000000 0000000000000000 0000000000 0     //Price dependancy natur 416            //Preisabhängigkeit 416 bei Naturl.
+0948         00000000 0000000000000000 0000000000 0     //Core model package V-1-KA             //Kernmodellpaket  V-1-KA
+0949         00000000 0000000000000000 0000000000 0     //Premium package                       //Premium-Paket
+0950         00000000 0000000000000000 0000000000 0     //Latin America package                 //Lateinamerika-Paket
+0951         00000000 0000000000000000 0000000000 S     //Korea package                         //Korea-Paket
+0952         00000000 0000000000000000 0000000000 0     //China package                         //China-Paket
+0953         00000000 0000000000000000 0000000000 0     //Taiwan package                        //Taiwan-Paket
+0955         00000000 0000000000000000 0000000000 0     //Business line package                 //Business Line Paket
+0956         00000000 0000000000000000 0000000000 0     //GCC package                           //Middle-East-Paket
+0957         00000000 0000000000000000 0000000000 0     //Hongkong package                      //Hongkong-Paket
+0960         00000000 0000000000000000 0000000000 S     //Steering angle limitation             //Lenkwinkelbegrenzung 17 Zoll
+0964         00000000 0000000000000000 0000000000 S     //Pseudo-incorporation f LA/SA          //Pseudo Zusteuerung SA-Paket
+0965         00000000 0000000000000000 0000000000 S     //Adapted suspension spring frt + 25 kg //SW-angepaßte Tragfeder vorn 25 kg
+0966         00000000 0000000000000000 0000000000 S     //Adapted suspension spring frt + 50 kg //SW-angepaßte Tragfeder vorn 50 kg
+0967         00000000 0000000000000000 0000000000 S     //Adapted suspension spring rr + 25 kg  //SW-angepaßte Tragfeder hinten 25 kg
+0968         00000000 0000000000000000 0000000000 S     //Adapted suspension spring rr + 50 kg  //SW-angepaßte Tragfeder hinten 50 kg
+0969         00000000 0000000000000000 0000000000 S     //Adapted suspension spring rr + 75 kg  //SW-angepaßte Tragfeder hinten 75 kg
+0973         00000000 0000000000000000 0000000000 S     //Malaysia package                      //Malaysia Paket
+0983         00000000 0000000000000000 0000000000 0     //Model year code f. exportation        //Modelljahrescode f. Export (in FgstNr.)
+0984         00000000 0000000200000000 0000000000 1 SIA_INTERVALL //Coding maintenance interval //Codierung Wartungsintervall
+0985         00000000 0000000000000000 0000000000 S     //US radio supplement. set              //US-Radioergänzungssatz
+0986         00000000 0000000000000000 0000000000 0     //timimg check                          //Terminpruefung
+0987         00000000 0000000000000000 0000000000 0     //existence check                       //Existenzprüfung
+0988         00000000 0000000800000000 0000000000 1 SIA_KURZ      //Coding extrem short maintenance interval           //Codierung extrakurzes Wartungsintervall
+0989         00000000 0000000000000000 0000000000 S     //Distinguishing model revision         //Abgrenzung Modellüberarbeitung
+0990         00000000 0000000000000000 0000000000 0     //Coordination launch series            //Steuerung Anlaufserie
+0991         00000000 0000000000000000 0000000000 0     //Coordination pre-series               //Steuerung Vorserie
+0992         00000000 0000000000000000 0000000000 0     //Coordination licence attachment       //Kennzeichenbefestigung wie US
+0993         00000000 0000000000000000 0000000000 0     //Model year code                       //Modelljahrescode (in FgstNr.)
+0997         00000000 0000000000000000 0000000000 0     //Dealer presentation export            //Händlerpräsentation Export
+0998         00000000 0000000000000000 0000000000 0     //Launch control internal demands       //Anlaufsteuerung interne Bedarfe
+0999         00000000 0000000000000000 0000000000 0     //Order coordination dealer original equ.       //Auftragssteuerung HEA
+;
+B TYP         //Bereichskennung für ZEKO!!
+FA51         80510000 0000000000000000 0000000000 1 M54B30 LL    //X5 3.0i LHD
+H FA52 V0898 80520000 0000000000000000 0000000000 1 M54B30 RL    //X5 3.0i RHD (01/01)
+FA52         80520000 0000000000040000 0000000001 1 M54B30 RL    //X5 3.0i RHD
+H FA53 V1097 80530000 0000000000000000 0000000000 1 M54B30 LL US //X5 3.0i US
+H FA53 V0799 80530000 0000000000100805 0000000000 1 M54B30 LL US //X5 3.0i US
+H FA53 V1099 80530000 0000000084900801 0000000000 1 M54B30 LL US //X5 3.0i US
+H FA53 V1299 80530000 0000000084900800 0000000000 1 M54B30 LL US //X5 3.0i US
+H FA53 V0800 80530000 0000002084900800 0000000000 1 M54B30 LL US //X5 3.0i US
+FA53         80530000 0000002084900801 0000000000 1 M54B30 LL US //X5 3.0i US
+FA71         80710000 0000000000000000 0000000000 1 M57D30 LL    //X5 3.0d LHD
+H FA72 V0898 80720000 0000000000000000 0000000000 1 M57D30 RL    //X5 3.0d RHD
+FA72         80720000 0000000000040000 0000000001 1 M57D30 RL    //X5 3.0d RHD
+H FB31 V1097 81310000 0000000000000000 0000000000 1 M62B44 LL    //X5 4.4i LHD (01/00)
+H FB31 V0898 81310080 0000000000000200 0000000001 1 M62B44 LL    //X5 4.4i LHD
+FB31         81310080 0000000000040204 0000000001 1 M62B44 LL    //X5 4.4i LHD
+H FB32 V1097 81320000 0000000000000000 0000000000 1 M62B44 RL    //X5 4.4i RHD (07/00)
+H FB32 V0898 81320080 0000000000000200 0000000001 1 M62B44 RL    //X5 4.4i RHD
+FB32         81320080 0000000000040204 0000000001 1 M62B44 RL    //X5 4.4i RHD
+H FB33 V1097 81330000 0000000000000000 0000000000 1 M62B44 LL US //X5 4.4i US
+H FB33 V0898 81330080 0000000000101A05 0000000001 1 M62B44 LL US //X5 4.4i US
+H FB33 V0799 81330080 0000000100141A05 0000000001 1 M62B44 LL US //X5 4.4i US
+H FB33 V1299 81330080 0000000184900A05 0000000001 1 M62B44 LL US //X5 4.4i US
+FB33         81330080 0000002184900A05 0000000001 1 M62B44 LL US //X5 4.4i US
+;FB51        8151                                   N62B44 LL    //X5 4.4  LHD
+;FB52        8152                                   N62B44 RL    //X5 4.4  RHD
+;FB53        8153                                   N62B44 LL US //X5 4.4  US
+H FB91 V1000 81910000 0000000000000000 0000000000 1 M62B46 LL    //X5ALPINA 4.6 LHD
+FB91         81910000 0000000000054B17 0000000001 1 M62B46 LL    //X5ALPINA 4.6 LHD
+H FB92 V1000 81920000 0000000000000000 0000000000 1 M62B46 RL    //X5ALPINA 4.6 RHD
+FB92         81920000 0000000000054A17 0000000001 1 M62B46 RL    //X5ALPINA 4.6 RHD
+H FB93 V1000 81930000 0000000000000000 0000000000 1 M62B46 LL US //X5ALPINA 4.6 US
+FB93         81930000 0000002180844B17 0000000001 1 M62B46 LL US //X5ALPINA 4.6 US
+C A3

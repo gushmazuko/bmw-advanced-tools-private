@@ -1,0 +1,45 @@
+; ------------------------------------------------------------
+; DIS-/MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift KFCONFa2.sho fuer KFCONFaa.DA2
+; Autor: Stei/Le/Po
+; Datum: 12.04.2001 [Po] Übernahme der Grobstrukur von KFCONFaa.sho
+;                        und Apassung an NLD Format der KFCONFaa.DA2
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Versionszeile: $ VERSIONKFCONF: kfconfaa.dat
+R "VER"
+M "$ VERSIONKFCONF"
+F "$ VERSIONKFCONF: +%S *"
+N "KFNAME"
+;
+; Hardwarenummerndateinamenzeile: HW  HWNR.DAT  -
+R "HW"
+M "HW "
+F "HW +%S +%S *"
+N "HWNAME,HWDIR"
+;
+; SG-Zeilen:
+;   SG-Familiennummer
+;   |  SG-Diagnoseadresse
+;   |  |  Prioritaet
+;   |  |  |  SG-Bezeichner
+;   |  |  |  |                      CABD-Name
+;   |  |  |  |                      |              C-SGBD-Name
+;   |  |  |  |                      |              |              Programmiermodus
+;   |  |  |  |                      |              |              |        Historiendateiname
+;   |  |  |  |                      |              |              |        |            Zusammenbauvorschriftsnamen
+;   |  |  |  |                      |              |              |        |            |            Datensatzkennung
+;   |  |  |  |                      |              |              |        |            |            |   Datensatzdirdatei
+;   |  |  |  |                      |              |              |        |            |            |   |               Hardwarehistoriendateiname
+;   |  |  |  |                      |              |              |        |            |            |   |               |
+;ME 02 12 01 M3_1                   00M3_1.IPO     00M3_1.PRG     RB16K2   M3_1.HIS     M3_1.DAT     K   M3_1D.DIR       M3_1.HWH
+;ME 07 12 01 MD524                  10MD524.IPO    10MD524.PRG    RBFLD2   MD524.HIS    MD524.DAT    B   MD524D.DIR      MD524.HWH
+;ME 09 12 01 MD5217                 10MD5217.IPO   10MD5217.PRG   RBFLD2   MD5217.HIS   MD5217.DAT   F   MD5217D.DIR     MD5217.HWH
+R "ME"
+M "ME "
+F "ME +%2S +%2S +%2S +%S +%S +%S +%S +%S +%S +%C +%S +%S *"
+N "SGNR,SGADDR,SGPRIO,SGBEZ,CABD,CSGBD,PRGMODE,HISNAME,ZUSBNAME,DATKENN,DATDIR,HWHNAME"
+;
+; ENDE

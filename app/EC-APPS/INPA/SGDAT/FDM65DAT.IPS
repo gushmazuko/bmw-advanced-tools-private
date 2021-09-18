@@ -1,0 +1,558 @@
+//**********************************************************************
+//*
+//* Kategorien 1-6 automatisiert aus FDM auslesen mit Auslesestation in DGF
+//* INPA-Skript wurde in Absprache mit Hr. Smolenski und Hr. Dreher aus DGF erstellt
+//*
+//**********************************************************************
+//* History         : 
+//* 23.06.05 dm V0.10 Auf Erstellung Job nach Vorlage FDM_310.ips
+//**********************************************************************
+
+#include "..\sgdat\inpa.h"
+#include "..\sgdat\bmw_std.h"
+
+// Titel, Version, Verantwortung, Steuergerät
+string titel  ="Automatisiertes auslesen der CAN-Busaufzeichnungen aus dem FDM";    // Titel Nacharbeitsprogramm
+string version="0.10";                                                              // Version Nacharbeitsprogramm
+string origin ="BMW VS-42 Dieter Martini";                       
+string sgbd   ;
+//string gruppe = "D_FDM_VS";                                            // Steuergerät
+
+//////////////////////             
+
+string speicher_lesen_parameter="LAR;FLASH;UIFM;-ROMI;-ROMX;-RAMIS;-RAMIL;-RAMXX;-NVRAM";
+
+string Erstellungsdatum = "Erstellungsdatum der FDM65DAT.ipo: 08.02.2006";
+
+bool rc;
+int f_Anz;
+string f_status;
+int f_hex;
+string f_text;
+long merker;
+string dummy;
+string filename;
+string filename1;
+string filename2;
+string FahrgestellNr;
+int sgbdsource;
+int Reihenfolge;         // Ausgabereihenfolge nach Kategorien oder nach Zeit
+int Anzahl_K1;
+int Anzahl_K2;
+int Anzahl_K3;
+int Anzahl_K4;
+int Anzahl_K5;
+int Anzahl_K6;
+int Anzahl_K7;
+int Anzahl_K8;
+int Anzahl_K9;
+int Anzahl_K10;
+int Anzahl_K11;
+int Anzahl_K12;
+int Anzahl_K13;
+int Anzahl_K14;
+int Anzahl_K15;
+int Anzahl_K16;
+
+int Ring_K1;           // Letzter Eintrag der entsprechenden Kategorie im Ring
+int Ring_K2;
+int Ring_K3;
+int Ring_K4;
+int Ring_K5;
+int Ring_K6;
+
+string Daten_K1;
+string Daten_K2;
+string Daten_K3;
+string Daten_K4;
+string Daten_K5;
+string Daten_K6;
+string Daten_K15;
+string Daten_dummy;
+
+//string Relativzeit_K1;
+//string Relativzeit_K2;
+//string Relativzeit_K3;
+//string Relativzeit_K4;
+//string Relativzeit_K5;
+//string Relativzeit_K6;
+
+int i;
+int j;
+                           
+int K1;
+int K2;
+int K3;
+int K4;
+int K5;
+int K6;
+int K15;
+
+int i_K1;
+int i_K2;
+int i_K3;
+int i_K4;
+int i_K5;
+int i_K6;
+int i_K15;
+
+int InputState;     // Eingabe Nummer der KAN-Aufzeichnung
+
+string Par;
+
+//int Zeile;
+real Prozent;
+int Anzahl_gesamt;
+real Anzahl_aktuell;
+real rAnzahl_gesamt;
+// allgemeine globale Variable
+string text_var;
+real   zahlen_var;
+int    ganz_zahl;
+bool   logik_var;
+string job_state;    // JOB_STATUS Variable
+int    input_state;  // Eingabestatus
+int    input_ok=0;   // Eingabe  mit OK beendet
+real Sekunden;
+real Minuten;
+real Stunden;
+real Tage;
+real Monate;
+real Jahre;
+
+real Zeit_K1;
+real Zeit_K2;
+real Zeit_K3;
+real Zeit_K4;
+real Zeit_K5;
+real Zeit_K6;
+real Zeit_K15;
+real Zeit_dummy;
+real Zeit_dummyx;
+
+real Datum_K1;
+real Datum_K2;
+real Datum_K3;
+real Datum_K4;
+real Datum_K5;
+real Datum_K6;
+real Datum_K15;
+real Datum_dummy;
+real Datum_dummyx;
+
+string dummyb;         // 
+string dummyc;         // 
+
+
+int Ring_Anfang;       // Variablen für CAN-Aufzeichnung auslesen - erst Int
+real rRing_Anfang;      // dann wandeln in real weil kein unsigned int verfügbar ist
+int Groesse;
+real rGroesse;
+int Trigger_Pos;
+real rTrigger_Pos;
+string Trigger_Event;
+
+
+
+
+//extern ScriptInit();
+
+//#include "bmw_std.src"
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  INPAapiInit();
+//  chrinit();
+//  setmenu(m_main);
+  setscreen(read_data,FALSE);          // FALSE = einmaliger Durchlauf
+//  ScriptInit();
+}
+
+inpaexit()
+{
+  INPAapiEnd();
+}
+
+
+
+SCREEN read_data()
+   {
+    sgbd = "fdm300_e65";
+
+    
+    ftextout("Diagnosedaten auslesen",1,0,1,0);
+    
+    INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN_INFO","","");
+    INPAapiCheckJobStatus("OKAY"); 
+    INPAapiResultInt(Anzahl_K1,"BLOCK_ANZ_K_1" ,1);
+    INPAapiResultInt(Anzahl_K2,"BLOCK_ANZ_K_2" ,1);
+    INPAapiResultInt(Anzahl_K3,"BLOCK_ANZ_K_3" ,1);
+    INPAapiResultInt(Anzahl_K4,"BLOCK_ANZ_K_4" ,1);
+    INPAapiResultInt(Anzahl_K5,"BLOCK_ANZ_K_5" ,1);
+    INPAapiResultInt(Anzahl_K6,"BLOCK_ANZ_K_6" ,1);
+//    INPAapiResultInt(Anzahl_K7,"BLOCK_ANZ_K_7" ,1);               // Nur bis inkl. Kategorie 6 auslesen weil Kat. 7=Busaufzeichnung 
+//    INPAapiResultInt(Anzahl_K8,"BLOCK_ANZ_K_8" ,1);
+//    INPAapiResultInt(Anzahl_K9,"BLOCK_ANZ_K_9" ,1);
+//    INPAapiResultInt(Anzahl_K10,"BLOCK_ANZ_K_10" ,1);
+//    INPAapiResultInt(Anzahl_K11,"BLOCK_ANZ_K_10" ,1);
+//    INPAapiResultInt(Anzahl_K12,"BLOCK_ANZ_K_12" ,1);
+//    INPAapiResultInt(Anzahl_K13,"BLOCK_ANZ_K_13" ,1);
+//    INPAapiResultInt(Anzahl_K14,"BLOCK_ANZ_K_14" ,1);
+    INPAapiResultInt(Anzahl_K15,"BLOCK_ANZ_K_15" ,1);               // und Kategorie 15
+//    INPAapiResultInt(Anzahl_K16,"BLOCK_ANZ_K_16" ,1);
+    
+    Anzahl_gesamt = Anzahl_K1 + Anzahl_K2 + Anzahl_K3 + Anzahl_K4 +
+                    Anzahl_K5 + Anzahl_K6 + Anzahl_K15; // + Anzahl_K7 + Anzahl_K8 +
+                   // Anzahl_K9 + Anzahl_K10 + Anzahl_K11 + Anzahl_K12 +
+                   // Anzahl_K13 + Anzahl_K14 + Anzahl_K15 + Anzahl_K16;
+    
+    inttoreal(Anzahl_gesamt,rAnzahl_gesamt);
+
+    if (rAnzahl_gesamt == 0)                                      // Vermeidung Division by 0, falls nichts Eingetragen ist
+        rAnzahl_gesamt = 1;
+
+    Anzahl_aktuell = 0;
+//    ftextout("Bitte warten",6,10,0,0);
+//    ftextout("Bearbeitungsfortschritt:",8,10,0,0);
+    
+    
+
+    INPAapiJob(sgbd,"LESEN_RINGDATEN_INFO","","");      // Letzten Eintrag im Ring finden
+    INPAapiCheckJobStatus("OKAY");                      // Für Kat 1,3,4,5,6 Ringspeicher auslesen
+    INPAapiResultInt(Ring_K1,"RING_ANZ_K_1" ,1);        // wird für Datenausgabe benötigt
+    //INPAapiResultInt(Ring_K2,"RING_ANZ_K_2" ,1);                  // Kat 2 darf nicht als Ring codiert werden
+    INPAapiResultInt(Ring_K3,"RING_ANZ_K_3" ,1);
+    INPAapiResultInt(Ring_K4,"RING_ANZ_K_4" ,1);
+    INPAapiResultInt(Ring_K5,"RING_ANZ_K_5" ,1);
+    INPAapiResultInt(Ring_K6,"RING_ANZ_K_6" ,1);
+//    INPAapiResultInt(Anzahl_K14,"BLOCK_ANZ_K_14" ,1);               // Kat 14 darf nicht als Ring codiert werden
+//    INPAapiResultInt(Anzahl_K15,"BLOCK_ANZ_K_15" ,1);               // Kat 15 darf nicht als Ring codiert werden
+//    INPAapiResultInt(Anzahl_K16,"BLOCK_ANZ_K_16" ,1);               // Kat 16 darf nicht als Ring codiert werden
+
+
+
+
+
+
+    INPAapiJob(sgbd,"C_FG_LESEN","","");                            // Lesen Fahrgestellnummer
+    INPAapiCheckJobStatus("OKAY");
+    INPAapiResultText(FahrgestellNr,"FG_NR" ,1,"");
+    
+    
+       if (FahrgestellNr == "ÿÿÿÿÿÿÿ")                              // Falls keine Fahrgestellnummer eingetragen ist
+          {
+          filename = "C:/Fahrzeug.Dat/FFFFFFF.txt";                // Datei für Analyse_Daten Kategoie 1-6
+          fileopen(filename,"w");
+          filewrite("Diagnosedaten Kategorien 1-6 und 15");  
+          dummy = "Im FDM ist keine Fahrgestellnummer eingetragen. Dieses Diagnosefile heißt: C:/Fahrzeug.Dat/FFFFFFF.txt"; //Fahrgestellnummer in erste Zeile schreiben
+          filewrite(dummy);                                        
+//          filewrite(""); 
+//          fileclose();
+          }
+          
+       else
+          {
+          filename = "C:/Fahrzeug.Dat/" + FahrgestellNr + ".txt";              //Dateiname z.B. AB12345.txt
+          fileopen(filename,"w");
+          filewrite("Diagnosedaten Kategorien 1-6 und 15");  
+//          filewrite(""); 
+          dummy = "Fahrgestellnummer: "+ FahrgestellNr + "   Dieses Diagnosefile heißt: C:/Fahrzeug.Dat/"+ FahrgestellNr +".txt";   //Fahrgestellnummer in erste Zeile schreiben
+          filewrite(dummy);                                        
+//          fileclose();
+          }
+    
+    filewrite(Erstellungsdatum);
+
+
+    //****************************************************************************************************
+    //****************************************************************************************************
+    //****************************************************************************************************
+    //****************************************************************************************************
+
+    Reihenfolge = 1;
+    if (Reihenfolge == 1)                         //Daten werden in Kategoriereihenfolge ausgegeben
+       {
+       
+     //****************************************************************************************************
+     //****************************************************************************************************
+       
+       
+//       fileopen(filename,"a");
+       filewrite(""); 
+       filewrite(""); 
+       filewrite("");
+       filewrite("Diagnosedaten Kategorie 1 (Wake-UPs)");                           // Lesen Kategorie 1  
+       filewrite(""); 
+
+       //         01 00001 09:36:01 27.04.04 005147057 002731 UBatt=12,07V 0002ms 0x026e CAS  Trigger: Kl R/15 Ein, FB, ZV-Taste, Motor
+       filewrite("K1 Block  Uhrzeit   Datum   RelZeit  km-St.  UBatt_in_V  Reg.t  WUP-ID Sender-Steuergerät und Bedeutung  (Wake-UPs)");
+     
+       i = Ring_K1 + 1;                                                 // Ältestes Datum aus Ring lesen
+       while (i <= Anzahl_K1)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "1" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");                       
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         
+         if (Ring_K1 != 0 && i == Anzahl_K1)   // 
+            {
+            i = 0;            
+            }
+
+         if (i == Ring_K1)
+            {
+            i = Anzahl_K1 + 1;                 // Schleife wird beendet
+            }
+
+         i = i + 1;
+         }
+     
+       //****************************************************************************************************
+       //****************************************************************************************************
+     
+       filewrite(""); 
+       filewrite("");                                                   // Lesen Kategorie 2
+       filewrite("");                                                  
+       filewrite("Legende für Kat 2:   -   FC gelöscht  (Eintrag hinter FCode)");
+       filewrite("                     !   Löscheintrag (Eintrag hinter FCode)");  
+       filewrite("                    P/S  Primärfehler/Shadowfehler");
+       filewrite("");
+       
+       filewrite("Diagnosedaten Kategorie 2 (Fehler Codes)");
+       filewrite(""); 
+
+       //         02 00001 09:36:01 27.04.04 005147057 002731 0x2d 0x5461  unbekann   unbekannter Fehlerort
+       filewrite("K2 Block  Uhrzeit   Datum   RelZeit  km-St. SG-ID FCode    Stg    P/S Fehler-Klartext");
+     
+       i = 1;
+       while (i <= Anzahl_K2)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "2" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         i = i + 1;
+         }
+     
+ 
+     
+       //****************************************************************************************************
+       //****************************************************************************************************
+
+
+       filewrite("");                                                   // Lesen Kategorie 3
+       filewrite("");                                                  
+       
+       filewrite("Diagnosedaten Kategorie 3 (Digital In/Out und Analog In)");
+       filewrite(""); 
+
+       //         03 00001 09:36:01 27.04.04 005147057 002731 
+       filewrite("K3 Block  Uhrzeit   Datum   RelZeit  km-St. ");
+     
+       i = Ring_K3 + 1;
+       while (i <= Anzahl_K3)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "3" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         
+         if (Ring_K3 != 0 && i == Anzahl_K3)
+            {
+            i = 0;            
+            }
+
+         if (i == Ring_K3)
+            {
+            i = Anzahl_K3 + 1;            
+            }
+
+
+         i = i + 1;
+         }
+
+
+     
+       //****************************************************************************************************
+       //****************************************************************************************************
+     
+       filewrite(""); 
+       filewrite("");                                                   // Lesen Kategorie 4
+       filewrite("");                                                  
+       
+       filewrite("Diagnosedaten Kategorie 4 (Events)");
+       filewrite(""); 
+
+       //         04 00001 09:36:01 27.04.04 005147057 002731 
+       filewrite("K4 Block  Uhrzeit   Datum   RelZeit  km-St.   Event");
+     
+       i = Ring_K4 + 1;
+       while (i <= Anzahl_K4)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "4" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         
+         if (Ring_K4 != 0 && i == Anzahl_K4)
+            {
+            i = 0;            
+            }
+
+         if (i == Ring_K4)
+            {
+            i = Anzahl_K4 + 1;            
+            }
+
+         i = i + 1;
+         }
+     
+     
+     
+       //****************************************************************************************************
+       //****************************************************************************************************
+     
+       filewrite("");                                                   // Lesen Kategorie 5
+       filewrite(""); 
+       filewrite("");                                                  
+       
+       filewrite("Diagnosedaten Kategorie 5 (Zeitgesteuerte Telegramme)");
+       filewrite(""); 
+
+       //         
+       filewrite("K5 Block  Uhrzeit   Datum   RelZeit  FDM-rel.Zeit Tel-ID   Telegramm ; Tel.Name ; Sender");
+     
+       i = Ring_K5 + 1;
+       while (i <= Anzahl_K5)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "5" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         
+         if (Ring_K5 != 0 && i == Anzahl_K5)
+            {
+            i = 0;            
+            }
+
+         if (i == Ring_K5)
+            {
+            i = Anzahl_K5 + 1;            
+            }
+
+         i = i + 1;
+         }
+     
+     
+     
+       //****************************************************************************************************
+       //****************************************************************************************************
+     
+       filewrite("");                                                   // Lesen Kategorie 6
+       filewrite("");                                                  
+       filewrite(""); 
+       
+       filewrite("Diagnosedaten Kategorie 6 (Anzahlgesteuerte Telegramme)");
+       filewrite(""); 
+
+       filewrite("K6 Block  Uhrzeit   Datum   RelZeit  FDM-rel.Zeit Tel-ID   Telegramm ; Tel.Name ; Sender");
+                  
+       i = Ring_K6 + 1;
+       while (i <= Anzahl_K6)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "6" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         
+         if (Ring_K6 != 0 && i == Anzahl_K6)
+            {
+            i = 0;            
+            }
+
+         if (i == Ring_K6)
+            {
+            i = Anzahl_K6 + 1;            
+            }
+
+         i = i + 1;
+         }
+
+
+
+
+       //****************************************************************************************************
+       //****************************************************************************************************
+     
+       filewrite("");                                                   // Lesen Kategorie 15
+       filewrite("");                                                  
+       filewrite(""); 
+       
+       filewrite("Diagnosedaten Kategorie 15 (CAN-Corder Aufzeichnungen)");
+       filewrite(""); 
+
+       filewrite("K15 Block Uhrzeit  Datum    RelZeit  FDM-rel.Zeit Trigger");
+                  
+       i = 1;
+       while (i <= Anzahl_K15)
+         {
+         Anzahl_aktuell = Anzahl_aktuell + 1;
+         Prozent = Anzahl_aktuell * 100 / rAnzahl_gesamt;
+         analogout(Prozent,10,10,0,100,0,100,"2.0");
+         inttostring(i,Par);
+         Par = "15" + ";" + Par;
+         INPAapiJob(sgbd,"LESEN_DIAGNOSEDATEN",Par,"");
+         INPAapiCheckJobStatus("OKAY"); 
+         INPAapiResultText(dummy,"DIAGNOSE_KLARTEXT",1,"");
+         filewrite(dummy);
+         i = i + 1;
+         }
+
+
+     
+       fileclose();
+//       viewopen(filename,"");  
+
+
+      
+       }    // ENDE Reihenfolge == 1
+
+
+   exit();
+
+
+   }    // ENDE SCREEN read_data

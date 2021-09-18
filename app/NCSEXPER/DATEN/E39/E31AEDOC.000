@@ -1,0 +1,478 @@
+// énderungsdokumentation: E31
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 354 124.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-12
+//   ET-420
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geÑnderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen bzw. Kurzbeschreibung)
+//                 41 (Name)
+
+DATEINAME                       E31AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+NAEL E5052.B  a      18.12.89   EE-70   Herbst
+                E31VN.000       -Tabellen neu erstellt
+                                 Freigabestand E31Schl.TXT
+
+NAEL E4866.C  b      15.02.90   EE-70   Herbst
+                E31VN.000       -E-Kreis Beschlu· v. 9.1.90:
+                                 geÑnderte CC-UmfÑnge
+                                -Hard- und SoftwareÑnderungen: EKM, LKM und GMII
+
+NAEL E4963.C  c      28.03.90   EE-70   Herbst
+                                -AHK freigegeben
+                                -SA Tabelle mit LKM vervollstÑndigt.
+                                -SA-Tabelle legt zukÅnftigt fest, welche SG
+                                 kodiert werden
+                                -EKM HW auf 01 geÑndert (SW bleibt 25)
+                E31ST.000       -EKM Tankabgleich korrigiert nach Schreiben:
+                                -EE-50 Obermeier 21.3.90 Kodierdaten fÅr Adressen
+                                 D1, D2, D3, D4, D5 geÑndert fÅr Liter- und
+                                 Prozentwerte.
+                E31EKM.000      -Kodierdaten fÅr Adressen C6, C7 von EF auf E4
+                                 geÑndert
+                E31GMII.000     -HW Stand 00 entfernt, SW StÑnde 32 und 33 entfernt.
+                E31LKM.000      -HW StÑnde CD und CE sowie SW StÑnde 34 und
+                                 35 entfernt. SW Stand 9A hinzugefÅgt.
+                E31EDC.000      -HW StÑnde 01 und 02 entfernt. HW Stand 04 hinzugefÅgt.
+                                -Kodierung Adresse E6 von 68 in 6B geÑndert
+
+NAEL E5018.c  d      08.05.90   EE-70   Herbst
+                E31EKM.000      -HW-StÑnde 02 u. 03 hinzugefÅgt. WiderstandÑnderung
+                                 Tachoausgang.
+                E31GMII.000     -SW-Stand 36 und 37 hinzugefÅgt.
+                                 DWA öberwachung/Ansteuerung.
+                E31LKM.000      -SW-StÑnde 37 u. 9B sowie HW-Stand D0 hinzugefÅgt.
+                                -Korrekturen fÅr LÑnderbestimmungen.
+                Autoexec.bat    -erweitert fÅr Werk 2.2, Werk 2.4 und Pilotwerk.
+                                -LÑnderausfÅhrungen Australien und Kanada hinzugefÅgt.
+
+NAEL E5077.c  e      28.08.90   EE-73   Obrman
+                E31ST.000       -DWA III implementiert.
+                E31GT.*         -Mautschaltung Skandinavien wie ECE.
+                E31EKM.*        -Tankkenlinie korrigiert gemÑ· Tab. Kraftstoff-
+                                 messer 1 392 994.2  f   E5112.C
+                                -SW StÑnde auf 25,26 erweitert.
+                                -Zeitinspektionsintervall auf 716 Tage erhîht.
+                                -SIA Automatikgetriebe auf 1825 Tage und
+                                 100.000 km gesetzt.
+                E31VERNR.*       (Versionsnummer auf 0000000001 erhîht)
+                E31GMII.000     -SW StÑnde auf 38 erweitert.
+                E31LKM.000      -SW StÑnde auf 38 9C erweitert.
+
+NAEL E5188.C  f      05.10.90   EE-73   Obrman
+                E31EKM.000      -Neues EKM 8 354 169 mit neuer Tankkennlinie implemeniert
+                E31LKM.000      -LA Neuseeland berÅck sichtigt
+                E31GT.000       -Typerweiterung auf SÅdafrika EG18, EG28
+                E31EKM.*        -wiederherstellen der SIA=1Jahr fÅr die HO mit
+                                 den VN= xxxxxxxxx0
+
+NAEL E5257.C  g      23.10.90   EE-73   Obrman
+                E31GT.000       -LA DÑnemark 809 berÅcksichtigt
+                                -LA Neuseeland: km-Tacho korrigiert
+                E31GMII.000     -SW-Stand 39 hinzu
+
+NAEL E5344.C  h      10.12.90   EE-73   Obrman
+                ZTRSCHL.*       -LA Neuseeland: km-Tacho wird Åber 100%-SA 548
+                                 zugesteuert
+                                -LA Australien erhÑlt km-Tacho Biteintrag im ZCS
+                                 (Serienumfang)
+                E31EKM.*        -SW 84 korrigierte TKL gemÑ· E5312.C:
+                                 VN 00000000*2 (ESP,SIA 2J)
+                                 VN 00000000*4 (ESP,SIA 1J)
+                                 VN 00000000*A (Bnd,SIA 2J)
+                                -SW 25 korrigiertes Einspritzsignal u. TKL:
+                                 VN 00000000*0 (ESP,SIA 1J)
+                                 VN 00000000*1 (ESP,SIA 2J)
+
+NAEL E4988.D  j      17.04.91   EE-73   Obrman
+                E31LSM          -implementiert. Steuerung Åber
+                E31VERNR.*       VN ********4* (kein SA-Bit)
+                E31ST.*         -Vereinbarung mit VK-21, Hr.Herrmann, da· der
+                                 LSM-Stand vor ZCS-Integr. nicht berÅcks. wird.
+                                 Auf Kundenwunsch kann die 4* allerdings
+                                 "nachgerÅstet" werden.  04.10.94
+                ZTRSCHL.*       -ZA-Korrektur in FZG-Beschreibung: km-Tacho
+                E31EKM.*        -Angabe fÅr EKM-Austauschpunktcodierung
+                                 Band/ESP eingearbeitet
+                                -SW 88 neu mit TN 8 354 443 E (NÑel-Nr.
+                                 E 4958.D EE-50) frei fÅr Versionen
+                                 VN *******1** (TKL neu)
+                E31GMII.000     -SW-Stand nicht codierrelevant auf 3.9
+                                 (39H) fortgeschrieben
+                E31<SG>U.000    -Einbindung neuer Tab. fÅr eine automatische
+                                 Versionsnummernberechnung
+                E31GT.*         -BerÅcksichtigung der M60-Codierung fÅr die
+                                 Typschl. EF11, EF21
+                                -TKL und Motorkennzahl fÅr Typschl. EF21 geÑnd.
+                                -SI-AusfÅhrung ECE korr.
+                E31ST,ZTRSCHL.* -DWAIII-Dauerton SA 897
+                E31LSM.000      -SW 16 ergÑnzt
+
+NAEL E5055.D  k      11.06.91   EE-73   Obrman
+                ZTRSCHL.*,      -SA akustische Gurtwarn. (SA 845): EKM-Codier-
+                E31GT.*          umfang hinzu
+
+NAEL E5149.D  l      18.07.91   EE-73   Obrman
+                E31ST.004/5     -Implementierung des EDCIII+-SteuergerÑtes
+                E31EDC.001
+                E31GT.001       -Realisierung 3. Bremsleuchte fÅr LA Golf
+                                -Integration der AlpinacodierumfÑnge fÅr
+                                -EG11,EG21 Sprachen,CH/ô
+
+NAEL E5304.D  m      28.10.91   EE-73   Haller
+                E31GT.*         -Alpina Tacho Endauschlag Adr. DE von D8 auf D9
+                E31DWAU.000     -énderung
+                Layouttab.      -Einbau Codierindex
+                Umrechnungstab.
+                E31ST.006/7     -Integration EDCIII+ fÅr Versteifungskreuz mit
+                E31EDC.002       und ohne AHK (SA237)
+                E31VERNR.*      -EKM SW 88 und EDC III+ Versionsnummernanteil
+                                 in GrundschlÅssel integriert. Neuer Grund-
+                                 schlÅssel: 000000019A
+
+NAEL E0233.E  n      24.04.92   EE-73   Knîchel
+                ZTRSCHL.*       -Implementierung der SA 522 Gasentladungslampe
+                E31EKM.*        -HWNR 05-09 und SWNR 94 in EKM-Tabellen integriert
+                                -Codierindex 00 in Umrechnungstabellen hinzugefÅgt
+                E31GT.*         -Integration sÑmtlicher freizugebender LA's M60
+                                -Alpina-Fzg mit SA 853 wird wie LA Japan codiert
+                                 (au·er LA CH/ô + SA 853)
+                E31VERNR        -Versteifungskreuz SE KW15
+                                 => G-Zeile in E31VERNR.000 wird 000000219A
+                ZTRSCHL.*       -850csi hinzu EG91/92
+                                -Aktualisierung ZTRSCHL.000
+                E31GTK.*        -         !!!!!!!!! Achtung !!!!!!!!!
+                E31STK.*                  Optimierte Darstellung der
+                                          !!!!!!! Codierdaten !!!!!!!
+
+NAEL E0423.E  o      07.08.92   EE-73   Knîchel
+                E31GTK.*        -Neue Steigung Einspritz kennlinie M60 (A0 fÅr AE)
+                  +ZTRSCHL.*    -Integration 840Ci EF51/52, EF61/62
+                                 Freigabe mit E 0423.E + EF12/22
+                E31EKM*         -Tachoendwert M60 (Adr.7E) 280/B4h statt 300/C8h km/h
+                                -Neue K-Zahl fÅr alle E31 4534 statt 4615 Imp/km
+                                 (wie bisher M60)
+                                -Integration 840Ci EF51/52, EF61/62
+                                 Freigabe mit E 0423.E + EF12/22
+
+NAEL E0699.E  p      11.12.92   EK-540  Knîchel
+                E31GT?.*        -EG91 (850CSi) auch als Alpina-Fzg (ohne Schweiz)
+                E31ST?.006/7    -neues SA-bit 1000000 fÅr SHD in akt. ST-Tabellen
+                                 eingefÅgt
+                E31GTK.*        -EinfÅgen der Automatik und Meilen-Codierung bei 840Ci
+                E31VERNR.*      -Neue Grundversionsnummer 000000319A (dritte Bremsl.
+                                 fÅr Golfst.) => E31GT?.001
+
+NAEL E0641.E  q      12.12.92   EK-540  Obrman
+                E31GT?.002      -Integration 303 in 302/301
+                E31VN.000
+                E31VERNR.*
+
+NAEL E2650.F  r      27.01.93   EK-540  Obrman
+                E31ST?.008/9    -Integration neuer EDCIII+ -Daten fÅr M60-Typen
+
+NAEL E2852.F  s      15.04.93   EK-540  Obrman
+                E3131STK.000    -Neuorganisation der Daten mit SG-Ermittlungsdatei
+                E31SGERM.000    
+                E31DWA.002      -VN 10030 DWAIV als Ersatz
+                E31GT?.*        -GM 0193... EG93 US/CDN und EG91 CH/ô hinzu
+                                -GM ????06. Umstellung LA 806 Nzee auf
+                                -SA 806 3.Bremsleuchte (SA ....8)
+                                -EF53,EF63 US/CDN hinzu
+                                -DWAIV Serie ab PU '93 SA ..4??? (Fernbed Serie - US FFB)
+                                -Wegfahrsicherung Åber DWA Serie bei LA 801 ohne 302
+                E31EKM.*        -Integration Drehzahlgrenze öberdrehzeit
+                                 7200 U/min EKM Adr 74 Wert neu: 78h
+                E31ASC5.*       -Integration ASC5 ab PU 93 Serie+codierrelevant
+                                 beim M60
+                E31SGERM.*      -Korrektur LSM: Serie wird nicht codiert,
+                                 Ersatzplatz wird codiert.
+
+NAEL E3687.F  t      28.06.93   EK-540  Obrman
+                E31ASC.000      -Neue ASC-Codierwerte
+                                -ASC Codierindex 00 nur fÅr Werk 2.4 zugelassen.
+                E31GT?.*        -énderung Tempanz. IK Tableau von 75¯C-105¯C auf
+                                 75¯C-110¯C erweitert. Alle Typen au·er Alpina
+                E31SGERM        -Airbag: Ausschlu· ZA-Typen
+                                -LSM-Codierung fÅr MoBaC nur fÅr Werk 2.4 ausgeschlossen.
+                E31ABG.*        -neue Auslîsedaten und VN-Steuerung,
+                                -Sitzbelegungserkennung VN-gesteuert.
+                E31EKM.*        -EKM-Datenkorrektur: Adr. 98-9F: (Au·entemp ADC-Werte X1-8)
+                                 Kennl. alt: 1Eh,32h,51h,6Dh,8Dh,ACh,C8h,DEh
+                                 Kennl. neu: 1Fh,33h,53h,6Fh,90h,B0h,CDh,E4h
+                                 Adr. 76 Wert alt: 5Eh (SIA Inspektionsgrenze)
+                                             neu:  Rest:5Eh 24064 km
+                                                 US/CDN:75h 29952 km
+NAEL E3963.F  u      30.08.93   EE-12   Knîchel
+                ZTRSCHL.*       -PU93 ZentralschlÅsseltab.
+                E31EKM.*        -Neue Codierdaten fÅr Tacho-Endwinkel: Adr. DEh
+                E31GTK.*         Wert          alt neu
+                                 300 km/h ECE:  D0 CD hex
+                                 300 km/h JPN:  D0 CD hex                             280 km/h ECE:  D0 CC hex
+                                 280 km/h JPN:  D0 C9 hex
+                                 rÅckwirkend gÅltig!
+                                -énderungen und Up-Date der EKM-Codierung:
+                                 Adr. 74 Wert alt: 78h
+                                              neu: M60:78h (7200 U/min)
+                                               S70,M70:6Fh (6700 U/min)
+                                 Adr. 7D Wert alt: 20h:1,0
+                                              neu: 10h (Bewertungsfaktor KÅhltemp 0,5)
+                                 Adr. 81 Wert alt: B9h 121¯
+                                              neu: BDh (KÅhlmittelÅbertemp. 125¯C)
+
+NAEL E4267.F  v      28.09.93   EE-12   Obrman
+                E31GTK.002      -Entfall der ZAE-US Gurtschlo·-Codierung.
+                                 Keine Dokumentation im VN-SchlÅssel!
+                E31GTS.002      -ErgÑnzung EG91 mit LA 807 (Japan)
+
+NAEL E4521.F  w      11.10.93   EE-12   Obrman
+                E31ABG.*        -Neue Airbagtabellen wg neuer MoBaC-SW 5.4:
+                                 Umstellung von "Codierdaten schreiben" auf
+                                 "Speicher schreiben" Einsatz nur ab MoBaC-SW 5.4
+
+NAEL E4629.F  x      01.11.93   EE-12   Obrman
+                GT?.002         -Einarbeitung M73: EG31/2/3/8, EG41/2/3/8 (mit Schrittschaltung)
+                                 EKM ab SW 9.6 TNr.: 8 362 362.9
+                GMII/U.000      -Freischalten SW-Nr. 40
+                                -Freigabestand fÅr MoDiC 9.01
+
+NAEL E4923.F  y      29.11.93   EE-12   Obrman
+                GT?.002         -ZS direkt: DWA-Bedienung fÅr LA 801, Inland Åber
+                ZTRSCHL.*        Fernbedienung u n d Schlo· (=öberkreuzbedienung)
+
+NAEL E5002.G  z      10.02.94   EE-12   Obrman
+                SGERM.*         -Airbag ab SBE fÅr US Gurtschlo·kontakt hinzu
+                STK.001
+                GTK.002         -Integration EDCIIIplus-Daten fÅr M73: EG41/2/3
+                SGERM.*
+                E31STK.*        -Integration Gurtwarnung fÅr "Japan-EKM"
+                E31GTK.*         Aktivierung der GUWA als SE fÅr Japan und Austr.
+                                 Åber separate ZTRSCHL.*!
+                                 (Nach énderungseinsatz öbernahme in Serien-ZST.)
+
+NAEL E5339.G  aa     15.06.94   EE-12   Obrman
+                E31GTK.*        -DSC/ASC5 Daten fÅr M73
+                                -Integration EML fÅr M73
+                                -EKM DatenÑnderungen:
+                                 * KÅhlmitteltemperatur ADC-Werte, -Temperatur,
+                                   - Anzeigewinkel neu M70/M60 und M73
+                                 * Steigung Einspritzkennl. M73
+                                 * KÅhlmittelÅbertemperaturgrenze
+                                 * Umstellung LA "Holland"  Nr. 897 auf "DWA DATO
+                                   incl. opt. Quit. schÑrf./entschÑrfen
+
+NAEL E5581.G  ab     02.09.94   EE-12   Obrman
+                ZTRSCHL.*       -Integration M62-Typen EF71/72/81/82/83
+                GTK/S.002        (EDC-Daten von M60!)
+                E31VERNR.*
+                E31VERNR.*      -HochzÑhlen G-Version auf A71BA (mit SBE)
+                E31EWS/U.*      -Integration EWS-Steuerger.
+                E31VN.000        *Layout-Datei fÅr EWS-Bit
+                GTK.002          *Differenzierung AUT/MAN
+                SGERM.000        *EWS fÅr VN-Bit hinzu
+                VERNR            *VN-Bit fÅr EWS-Ma·nahme
+                                   !nur ab MoBaC 6.1, ESP 6.0,
+                                   !Koffer 6.0!!!!!!!!!!!!!!!!
+                                   Die ZTRSCHL.* braucht nicht eingespielt werden. Die
+                                   E31VERNR.* schon.
+
+NAEL E5214.G  ac     15.09.94   EE-12   Obrman
+                GTK.002         -Neue Daten fÅr EWS
+                EWS.000
+                VERNR.*         -Taktung fÅr ASC5 /-DSC
+                VN.000           *VN-Bit fÅr Taktungsma·nahme:"E TAKT N0993"
+                SGERM.*           frÅhestens ab 15.12.94, ASC-HW 04h vorausgesetzt!
+                E31GTK.002        M73 Taktung ab Anlauf. M73 Taktung erst ab 12/94!
+                SGERM.000
+                SGERM.000
+                GTK.002
+                STK.001
+
+NAEL E7933.G  ad     14.11.94   EE-12   Obrman
+                GTK.002         -M62 mit 300km-Tacho
+                 *U.000         -Korrektur Kennungen M-Zeilen
+                ZST.*/VERNR     -MÑrz 1995 -Ma·nahme E 0395 N1294 / T 0400000
+                 VN.000          öberkreuz DWA Serie.
+                GT?.003          SA's 877, 875 Entfall -"-
+                ST?.002
+                ZTRSCHL.*       -Dateien entfallen (03/95-Ma·nahme), da nichtmehr
+                                 baureihenÅbergreifend darstellbar und damit setzt
+                E31ZST.*         Vercodung Åber E31ZST.* zwingend ein.
+                GTK.002/3       -Steigung Einspritzkennlin.M62 wie M60. M73 angepa·t.
+                                -öberdrehzahlgrenze M62 neu (von 7200 => 6400)
+                                -EWS Abschaltdrehzahl fÅr M73 von 0Fh auf 12h geÑnd.
+                                -Korrektur CSI EWS II
+
+NAEL E5937.G  ae    14.02.95   EE-12   Obrman
+                               -NachtrÑglich ab 01/95 Entfall TÅrschlo·heizung.
+                                Fahrzeuge ab 01/95 bis Einsatz Codierdaten E31
+                                E 5937.G erhalten Fehlereintrag im GMII!
+               GTK.003/4       -EDCIV 2 Beschl-Sensoren neuer Datensatz 67dez 43h
+               SGERM.000        "EDCB" fÅr M62 grundsÑtzlich und M73 ab
+                                2 B-Sensoren (PU95) Ref.: E 1830.G
+               ZST.*           -E-Wort ZST hinzu: <E PU95 N0995> Åber
+                                SA PU 95 steuern. Nach erfolgtem Einsatz mit *!
+                               -Aktiviert werden folgende PU-Ma·nahmen:
+               GTK.004          * RL mit ¯C-Anzeige
+                                * Intervallgrenze 15.000km
+                                * EDCIV Ref.: E 1830.G
+               ZST.*            * 3. Bremsleuchte Serie Ref.: E 4278.G
+               STK.003            bzw. Entfall 3.BL mit SA 803
+
+                               ***********Datenstand fÅr MODIC 13.0************
+NAEL E5270.H  af     17.03.95  EE-12   Obrman
+               GTK.*           -Anhebung der KÅhlmitteltemperatur beim M60 von
+                                85¯C auf 95¯C. Zusammen mit E 6323.H
+                                KÅhlmitteltemp.-grenze,-ADC-Werte, -Werte M60
+                                wie M62, M73
+
+                               -PU-95-Ma·nahmen US-Typen gem. Projnachtrag 8029/18:
+                                CSI EG93   nichtmehr
+                                M73 EG43   09/95
+                                M60 EF63   09/95
+                                M62 EF83   01/96 in VN-Kombinatorik beachten
+
+               GTK.003/4       -Integration Codierindex 02 fÅr M62.
+               ASC5.000
+                    18.04.95   EE-12 Knîchel
+               GTK.003/4       -ASC5 M62 Kurvenlogik 00h (Software-Fehler)
+                    24.04.95   EE-12 Obrman
+               GTK.004         -DWA Notstromsirene US:
+                                ab PU95-Zeit ak.Quit.SchÑrf statt 100ms
+                                kÅnftig 80ms. Au·erdem Dauerton.
+                               -EDCIV 2 Beschl-Sensoren neuer Datensatz
+                                67dez,43h fÅr M62 grundsÑtzlich und
+                                M73 ab 2 B-Sensoren (PU95) Ref.: E 1366.H
+
+NAEL E5409.H  ag    08.05.95   EE-12 Obrman
+                               -Daten neu erstellt fÅr Neues Codiersystem
+                                UngÅltig fÅr M62 EF7?, EF8?
+                    28.05.95   -M60 ECE SIA-Intervall wie US: 30.000 km
+                               ***********Datenstand fÅr MODIC 14.0************
+                    30.08.95   -gÅltig fÅr M62 EF7?, EF8?
+                EKM.C00/01/02  -énderung in der Steptronic-Codierung fÅr M62 US
+                                (GeÑndert fÅr alle M62- und M73-AusfÅhrungen -
+                                 GetriebesteuergerÑt differenziert)
+
+NAEL 5768.H   ah     25.09.95  EE-12 Obrman
+                E31ZST.*       -E PU95 N0995 entfÑllt, da in G-Zeile integriert.
+
+                E31SGET.000    -Vorserie M62 mit ASC CI 06 (CI 02 ungÅltig,
+                E31ZSTUT.000    da SW-Fehler)
+
+                E31ZST.*       -E EWS2 N0196 hinzu fÅr Fahrzeuge mit EWS CI 02
+                EWS.C02         (ab Jan. 1995 geplant)
+                E31CVT.000      EWS CI 02 wird zunÑchst codiert wie CI 01 (Motronik-
+                E31ZCSUT.000    schnittstelle .2 mit Festcode = EWS_3_SCHNITTSTELLE
+                E31SGET.000     nicht_aktiv) und gilt als Ersatzteil
+
+                               nur bis hierher:
+                               Datenstand fÅr MoDiC 15.0: Verarbeitung neuer
+                               VN-Bits 0001000000 EWS CI 02 SE ab Jan. 1996
+                               MoDiC 15.0 hat mit SE ZAEII ab MÑrz 96 timeout!
+                               (dann gibt es ein neues VN-Bit!)
+
+                E31ZST.*       -E ZAE2 N0396: ZAE2 Serie ab 03/96 geplant
+                ZAE2.C03        Ersatz fÅr ZAE/BAE.
+                E31CVT.000
+                E31ZCSUT.000
+                E31SGET.000
+NAEL 6043.H   ai     06.12.95  EE-12 Obrman
+                ZAE2.C03       -ZAE II Parameterdatensatz von 06 auf 08
+                E31CVT.000      geÑndert
+                     12.01.95  -Freischalten ZAEII fÅr MoDiC 16.0
+                               ***Datenstand fÅr MoDiC 16.0
+                               -Keine énderung der MOST-AbhÑngigkeiten in der
+                                E31ZST.M00!
+
+NAEL 5919.H   aj     11.03.96  EE-12 Obrman
+                               -Neuer ZAEII-Stand mit Codierindex 05 ab PU96. Ersatz fÅr
+                                ZAEII CI 03 sowie ZAEI/BAE.
+                                Neues Steuerwort hierfÅr: <E ZA22 N0996> ab PU96-Ma·nahme.
+                               -DWA-Signalisierungen fÅr SA 804 wie ECE ab PU96
+                                Neue A-Worte <A 0804 V0996> fÅr AuftrÑge vor PU96
+                                         und <A 0804 N0996> fÅr AuftrÑge ab PU96 (MJ 97)
+                     13.03.96  -FÅr DGF-Auftragssteuerung nach Einsatz der MÑrzma·nahme
+                                sind die Steuerworte E ZAE  N0993 und E ZAE2 N0393
+                                entfallen. G-Zeile um E ZAE2 N0393 ergÑnzt.
+                     25.03.96  -Zusammen mit I 8421.J von Hr. Gibas, ZS-E-6.
+                                ErgÑnzung eines H-Wortes (Pseudo-Auftragsmerkmal)
+                                H LILE N0396 mit ASW LINKSLENKER zur Codierung eines
+                                ECE RL-ZCS mit England-UmfÑngen aber als Linkslenker
+                                fÅr MID-Tastatur und GM2 (FH-Tastenblock BF-Seite) (CVT: LL/RL)
+                     28.03.96  -Airbag Serie ab PU96: Integration der Airbag F + BF - Bits
+                                des C2-SchlÅssels im E ZA22-Wort.
+NAEL 6301.J   ak     29.05.96  -Australien ab PU96 neue Fensterheber und SHD-Funktionen
+                                identisch zu US.
+                                PU96-Bit in E ZA22 N0996 integriert - PUSY mu· nicht geÑndert werden.
+                                Evtl. kann Teileknappheit ZAE II CI 05 dazu fÅhren, da·
+                                diese ZAEII-Version nicht zwingend zu PU96 kommt. Dann mu·
+                                das ZAEII-Merkmal von PU96 getrennt werden. In diesem Fall
+                                bitte Info an EE-12!
+                                MoDiC Datenstand fÅr V 9
+********************************************************
+                      24.08.96 -Entfall folgender ZST-Worte:
+                E31ZST.*        A 0804 V/N0996: 0804 nichtmehr codierrelevant
+                                E EWS2 N0196, E ZA22 N0996: Integration in die
+                                G-Zeile fÅr MOST bzw. H GVN-Zeilen fÅr ZEKO
+NAEL M0001.J  al      24.01.97 -BaureihenumschlÅsselung
+                                von: DWA ohne KBBH auf: ohne DWA ohne KBBH.
+                                Fzge, welche ab Werk falsch vercodet waren
+                                (DWA-Bit ohne KBBH aber DWA 3) mÅssen die DWA
+                                Åber MoDiC/DIS nachrÅsten: DWA-Bit+KBBH-Bit.
+                                MoDiC Datenstand fÅr V 9.1
+********************************************************
+NAEL M0002.J  am      03.03.97 -ErgÑnzung fÅr NCSII:
+                                fÅr Stufe II NCS bitte umkopieren der Dateien:
+                                AUTOEXEC.NCS nach AUTOEXEC.BAT
+                                E31SGET.NCS  nach E31SGET.000
+                                fÅr Wiederherstellung der VMG-Codierung bitte kopieren:
+                                AUTOEXEC.ALT nach AUTOEXEC.BAT
+                                E31SGET.ALT nach E31SGET.000
+                                Dateien E31_CONF.BAP, E31SGFAM.DAT, BR_REF.dat hinzu
+                E31CVT.000      FÅr Japan mit SA 0853 (ab PU97 ZWAKO) gilt die
+                                Åberarbeitete E31CVT.000 (Keine Auftragssteuerung notwendig
+                                aktuelle CVT Åberkopieren).
+                      06.06.97
+                E31ZST.000 v    Korrektur fÅr HO: Zeile fÅr UmschlÅsselungsergebnis
+                                EKM2 SIA2J VN 000000000A hinzugefÅgt.
+                                MoDiC Datenstand fÅr V 11
+********************************************************
+NAEL E6747.K  am      29.09.97 -HO AirbagabrÅstungen hinzu Åber Pseudo-SA:
+                                1243 Deaktivierung Beifahrerairbag
+                                (Fahrerairbag Åber Wegrechenen des ABG-Fahrer-Bits
+                                im SA-SchlÅssel der SA 240.)
+                      23.10.97 -Deaktivierung Fahrerairbag Åber Pseudo-SA:
+                                1240 Deaktivierung Fahrerairbag
+
+                                MoDiC Datenstand fÅr V 12/V13
+********************************************************
+NAEL E7064.L  an      22.06.98 -Umstellung von Airbag-FSW's wie alle Baureihen
+                                MoDiC Datenstand fÅr V 14
+********************************************************  
+NAEL E3679.M  ao      22.01.99 -Umstellung auf EXPERTENTOOL und NCS-Serve Version 2.x.x (SE 03/99)
+                                E31_CONF.BAP muﬂ k¸nftig im Verzeichnis CABI\DATEN
+                                stehen.
+                                Bitte auﬂerdem folgende Datenanpassungen vornehmen:
+                                ExyZCSUT.NEW auf ExyZCSUT.000 kopieren.
+                                Exy_CONF.NEW auf Exy_CONF.BAP kopieren.

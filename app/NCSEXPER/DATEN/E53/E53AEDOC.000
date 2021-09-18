@@ -1,0 +1,1055 @@
+// Änderungsdokumentation: E53
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   9 113 834.5
+//
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E53AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6501.L  a      11.09.98   EE-92   Knöchel
+     EvgBG.1    AEDOC, SGFAM,   -Daten neu erstellt für vorgezogene Baugruppe
+                ZST, CVT, SGET,
+                ZCSUT, CONF
+     EvgBG.2    DSC5_7.C10,     -DSC 5.7 neu hinzu
+                CVT,SGET,CONF,
+                ZCSUT,SGFAM
+     EvgBG.3    CVT             -Kopfairbag deaktiv, da nicht verbaut
+                                 Codierung LCM auf Tarnleuchtenumfang
+     EBG11.1    SGET,CVT        -DSP integriert
+                SGET,CVT        -IHKR/IHKA integriert
+                SGET,CVT        -RDC integriert
+                SGET,CVT        -LWS5 integriert
+                SGET,CVT,ZCSUT, -MRS3 integriert
+                ZST
+                SGET,ZCSUT,CVT  -Kombi CI 06 und KMBI CI 12 neu hinzu
+                SGET,ZCSUT      -DSC 5.7 mit Codierindex 11 statt 10
+     EBG11.2  a      07.05.98   EE-92   Knöchel
+                CVT             -Änderung LCM-Funktionen (mit Hr.Moser EE-21)
+                CVT,SGET        -Neue CBD IHKA_E39.C03
+                LWS5.C01        -Neue CBD LWS5.C01
+     EBG11.3  a      18.05.98   EE-92   Knöchel
+                CVT             -Änderung LCM-Funktionen (mit Hr.Moser EE-21)
+     EBG11.4  a      06.07.98   EE-92   Knöchel
+                CVT             -Einarbeitung neue CBD IHKA.C03
+                CVT             -Wasserpumpe aktiv bei M52 (IHKR.C10)
+                CVT             -SIA-Literwerte und Töns-Kennlinien neu (E39/2)
+                CVT             -Änderung GM-Funktionen (CBD GM3_E53.C04)
+                SM_E46.C01,CVT, -Sitzmemory E46 neu hinzu (Car & Key Memory)
+                SGET,ZCSUT,
+                SGFAM,CONF
+                CVT             -Car & Key Memory integriert
+                CVT             -CAN_GANGANZEIGE nicht aktiv bei Handschalter
+     E6501.L  a      11.09.98   EE-92   Knöchel
+                CVT,ZST,SGET    -Daten für PTO überarbeitet bzgl. MRS3, DSC,
+                                 DSP, GM3, IHKA/IHKR, KMB, LCM
+                CVT,SGET,ZCSUT, -Steuergeräte neu hinzu:
+                SGFAM,CONF,ZST,  Radio CD43, Zuheizer, aut. LWR, BIT
+                RA_CD43.C01,
+                ZHZ.C01,LWR.C03,
+                BIT.C01
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3619.M  b      14.12.98   EE-92   Knöchel
+                IHKA_E53.C03,   -new CBD for IHKA (now separated from E39)       -neue CBD für IHKA (jetzt getrennt von E39)
+                SGET,CVT         with new fct. blower automatic normal range      mit neuer Fkt. Gebläseautomatik Normalbereich
+                CVT,SGET        -ZHZ is also built in with park heating,         -Zuheizer auch bei Standheizung verbaut,
+                                 coding data changed for IHKA and IHKR            Codierung in IHKA und IHKR geändert
+                CVT             -Revising of data in CBD LCM.C18                 -Einarbeitung Änderung der CBD LCM.C18
+                MRS3.C08        -sharp parameters for MRS 170/08/T04             -scharfer Parametersatz 170/08/T04
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3831.M  c      01.03.99   EE-92   Knöchel
+                CVT,ZST         -SA645 controls radio version US (PS8021/017)    -SA645 steuert Radio-Version US (PN8021/017)
+                GT.C02,         -Integr. graphics part codingindex 02 (GT.C02)   -Integr. Graphikteil Codierindex 02 (GT.C02)
+                SGET,SGVT,CVT
+                CVT, EHC.C06    -New CBD EHC.C06: coding data changed,           -Neue CBD EHC.C06: geänderter Datensatz,
+                                 offset values changed                            andere Offsetwerte
+                CVT,KMB_E39.C06 -Following CBDs changed                          -Geänderte CBDen
+                                 KMB_E39.C06/KMBI_E38.C12: tank curve 92 liter    KMB_E39.C06/KMBI_E38.C12: Tankkennlinie 92-Liter
+                                 DSP.C01: curves adapted                          DSP.C01: Kennlinien angepaßt
+                                 LCM.C18: data adapted KUEHLWASSER_BEDAEMPFUNG    LCM.C18: Daten angepaßt KUEHLWASSER_BEDAEMPFUNG
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE146.M  d      16.04.99   EE-92   Knöchel
+                LWS5.C01        -new LWS5-coding data                            -neue LWS5-Codierdaten
+                KMBI_E38.C12    -Japan without time servicing (PS 8009/179)      -Japan ohne Zeitinspektion (PN 8009/179)
+                KMB_E39.C06      SIA_LITER_GRENZE new for M62, M54, M57           SIA_LITER_GRENZE neu für M62, M54, M57
+                CVT, ZST         Integr. SA984 Coding maintenance interval        Integr. SA984 Codierung Wartungsintervall
+                CVT,SGET        -Revising of data for aircondition               -Überarbeitung der Daten für Klima-SG
+                                 IHKA_E53.C03 and IHKR_E53.C10                    IHKA_E53.C03 und IHKR_E53.C10
+                CVT             -TOENS-curve M62B44 added and changing of        -TOENS-Kennlinie M62B44 hinzu und Änderung der
+                                 Programmparameter in LCM.C18                     Programmparameter im LCM.C18
+                CVT             -Revising of data for GM3                        -Überarbeitung der Daten für GM3
+                CVT             -Deactivating of Sideairbags fond for            -Deaktivierung der Seitenairbags hinten für
+                                 US/CDN-cars with SA261 (Side airbag fond)        US/CDN-Fzg. mit SA261 (Seitenairbag hinten)
+                                 headairbags fond are not active for all cars!    Kopfairbags hinten für alle Fzg. nicht_aktiv!
+                ZST,CVT         -SA533 Fond aircondition coding rel. added       -SA533 Fond-Klimatisierung codierrel. hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE688.M  e      28.06.99   EE-62   Haller
+     M9901.M  e      02.06.99   EE-62   Knöchel
+                ZST             -2-axle-LVL/CTL/SYS (SA221) always with          -2-Achs-Niveaureg. (SA221) immer mit High-Kombi
+                                 high instrument cluster (PS 8455/040)            (PN 8455/040)
+                SGET, CVT       -new airbag-ECU integrated: MRS3.C10             -neues Airbag-SG integriert: MRS3.C10
+                ZST             -Drop-out LA820 Latin America (PS 8021/040)      -Entfall LA 820 Brasilien (PN 8021/040)
+                ZST             -SA249 multifunction f steering wheel added      -SA 249 Multifunktion für Lenkrad hinzu
+                                 (PS 8016/037)                                    (PN 8016/037)
+                CVT,LCM.C18     -new program parameter (Lightning brake light)   -neue Programmparameter (Flackern Bremslicht)
+                                 SCHALTER2_BL nicht_aktiv,                        SCHALTER2_BL nicht_aktiv,
+                                 U_POTI_STELLUNG_2 now wert_03 at cars without    U_POTI_STELLUNG_2 auf wert_03 bei Fzg.en ohne
+                                 LWR or with aut. LWR                             LWR oder mit aut. LWR
+                ZST             -FA53 and FB33 as A-words: the serial equipment  -FA53 und FB33 als A-Worte: Es ändert sich lt.
+                                 is changed (look at vehicle descr. of 28.05.99)  Fzg.Beschr. vom 28.05.99 die Serienausstattung
+                                 FA53: w/o SA534, with SA645,SA823,SA845          FA53: ohne SA534, mit SA645,SA823,SA845
+                                 FB33: w/o SA555,SA403, with SA645,SA823,SA845    FB33: ohne SA555,SA403, mit SA645,SA823,SA845
+                ZST             -SA 944 new added                                -SA 944 neu hinzu
+     EE688.M  e      28.06.99   EE-62   Haller
+                IHKA_E53,CVT    -deletion of the folling FSW:                    -Entfall folgender FSW:
+                                 ENTFROSTUNGSANTEIL, FUSSRAUMKURVEN,              ENTFROSTUNGSANTEIL, FUSSRAUMKURVEN,
+                                 GEBLAESEAUTOMATIK, GEBLAESEAUTOMATIK2            GEBLAESEAUTOMATIK, GEBLAESEAUTOMATIK2
+                DSP             -new parameter for sound processor               -neue DSP-parameter
+                CVT,ZST         -new option code 0988 for extrem short           -neue SA 0988 für extrem verkürzte
+                                 SIA-LITER_GRENZE, for M57D30 only                SIA-LITER_GRENZE, nur für M57D30
+                MRS3.C10        -new crash parameters 174/08/T14                 -neuer Crashparametersatz 174/08/T14
+                GM3_E53         -new parameter for power steering                -neue Parameter für Servotronik
+////////////////////////////////////////////////////////////////////////////////
+NAEL E0E17.M  f      28.07.99   EE-62   Knöchel
+                CVT             -Adaption Acknowledge locking/unlocking          -Anpassung Quittierungsfunktionen bei Fzg. mit
+                                 w/o alarm-system (coding and Car&Key Memory)     und ohne DWA (Codierung und Car&Key Memory)
+                                 PS 8008/099                                      PN 8008/099
+                ZST             -SA840 High-speed-tuning added                   -SA840 Hochgeschwindigkeitsabstimmung frei-
+                                 (PS 8455/055)                                    geschalten (PN 8455/055)
+                ZST,CVT         -SA851 Instrument lettering german added         -SA851 Sprachversion Deutsch neu hinzu
+                                 (PS 8003/093)                                    (PN 8003/093)
+                ZST,CVT,RDC     -SA926(full-size-spare-wheel) has to be coded    -SA926(Ersatzrad) jetzt codierrelevant
+                                 ANZAHL_RAEDER_VERBAUT                            ANZAHL_RAEDER_VERBAUT
+                LCM.C18         -Program-parameters LCM changed                  -Programmparameter LCM geändert
+                PDC,CVT         -Parameters f.Sensibility changed (PDC)          -Schwellwerte PDC geändert
+                                 scaling -factors changed to 0.65                 Skalierungsfaktoren in 0.65 geändert
+////////////////////////////////////////////////////////////////////////////////
+NAEL E1E31.M  g      13.08.99   EE-62   Knöchel
+     M9902.M  g      03.08.99   EE-62   Knöchel
+                CVT,ZST         -E-word BLSN (check Brake-light-switch)          -E-Wort BLSN (Bremslichtschalter prüfen)
+                                 integrated                                       neu hinzu
+     E1E31.M  g      13.08.99   EE-62   Knöchel
+                SGVT,SGET       -New PDC-ECU, temporary until a new holder for   -Neues PDC-SG, vorübergehend bis Einsatz neuer
+                PDC.C00          the sensor is supported, isn't coded             Halter für Sensor, wird nicht codiert
+                CVT             -Panic-mode also for Australia (LA810)           -Panic-Modus auch für Australien (LA810)
+                LWR.C03,CVT     -New data-set for LWR                            -Neuer Datensatz für LWR
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3E12.M  h      01.10.99   EE-62   Haller
+                MRS3.C10        -New Crash paramter for Airbag-system           -Neue Crashparameter für Airbag
+                                 sent to factory at 20.09.99                     vorab ans Band am 20.09.99
+                TV2.C02         -new PSW for FSW "WIDESCREEN_MODI"              -geänderte PSW für FSW "WIDESCREEN_MODI"
+                E53CVT.000
+                LCM.C18         -CBD revised                                    -CBD überarbeitet
+                                -dimmed flash-light as park-light for US only    gedimmter Blinker als Parklicht nur für US
+                KMBI_E38.C12    -Integration of new FSW "TNK_DECKEL_WARNUNG"    -neues FSW "TNK_DECKEL_WARNUNG" integriert
+                KMB_E39.C06
+                E53CVT.000
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6E10.M  i      22.11.99   EE-62   Lanny
+     M9903.M  i      12.10.99   EE-62   Lanny
+                ZST             -deletion of A-words FA53 and FB33               -Entfall A-Worte FA53 u. FB33
+                                -FA53: w/o SA459                                 -FA53: ohne SA459
+                TV2.C02         -values changed                                  -neue Werte
+     M9904.M  i      28.10.99   EE-62   Lanny
+                CVT,LCM.C18     -SCHALTER2_BL aktiv for all E53                  -SCHALTER2_BL aktiv für alle E53
+     E6E10.M  i      22.11.99   EE-62   Lanny
+                CVT             -MITTENFREQUENZ_BAND1 integrated                 -MITTENFREQUENZ_BAND1 integriert
+                                 for Car&Key Memory                               in Car&Key Memory
+                                -GRUPPE Fondseitenairbag condition changed       -GRUPPE Fondseitenairbag neu bedingt
+                ZST             -SA257 OH_THORAX_HI new added                    -SA257 OH_THORAX_HI neu hinzu
+                                -SA641 TELEFON new added                         -SA641 TELEFON neu hinzu
+                                -SA's255/861 new added                           -SA's255/861 neu hinzu
+                                -new A-words FA53 and FB33 have to be used       -Neue A-Zeilen f. FA53 u. FB33 aktiv ab 12/99
+                                 from 12/99 on
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3003.N  j      24.01.00   EE-62   Lanny
+     M0001.N  j      12.01.00   EE-62   Lanny
+                LCM.C18         -TOENS-curve M62B44 new values                   -neue Werte f. M62B44-TOENS-Kennlinie
+     E3003.N  j      24.01.00   EE-62   Lanny
+                GM3_E53.C04     -new values for power steering                   -neue Werte für SERVO_KENNL_STROM
+                CVT,RA_NG.C01   -new added: RDS-AF_SWITCHING,KEY_MEMORY_RADIO    -neu hinzu: RDS-AF_SWITCHING, KEY_MEMORY_RADIO
+                CVT             -GAL_DEFAULT new PSWs                            -GAL_DEFAULT neue PSWs
+                                -LAUTSTAERKE_HINTEN new PSWs                     -LAUTSTAERKE_HINTEN neue PSWs
+                                -WIDESCREEN_MODI new PSWs                        -WIDESCREEN_MODI neues PSW
+                                -SUBWOOFER_KOPPLUNG, MITTENFREQUENZ_BAND1,       -SUBWOOFER_KOPPLUNG, MITTENFREQUENZ_BAND1,
+                                 FUNK_INNENRAUMSCHUTZ,NEIGUNGSGEBER               FUNK_INNENRAUMSCHUTZ,NEIGUNGSGEBER
+                                 deleted f. CKM                                   entfallen f. CKM
+                SGET            -RA_NG.C01 added (new ECU)                       -RA_NG.C01 hinzu (neues SG)
+                SGVT,SGET       -GT.C03 added                                    -GT.C03 hinzu
+                ZST             -SA's650/651/663 new added                       -SA's650/651/663 neu hinzu
+                                -deletion of SA624                               -Entfall SA624 (PU99)
+                                -new A-words FA53, FB31, FB32 and FB33           -Neue A-Zeilen f. FA53, FB31, FB32 u. FB33
+                                 have to be used from 10/00 on                    aktiv ab 10/00
+                                -new A-word SA662                                -A-Zeile f. SA662
+                                -new A-word SA661 RADIO_NG                       -A-Zeile f. SA661 RADIO_NG neu hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3316.N  k      25.02.00   EE-62   Lanny
+                ZST             -E-word MY01 integrated                          -E-Wort MY01 hinzu
+                                -SA's 785/983 added                              -SA's 785/983 hinzu
+                                -SA630 TELEFON SIEMENS_GSM added                 -SA630 TELEFON SIEMENS_GSM hinzu
+                                -SA632 TELEFON V_SERIE added                     -SA632 TELEFON V_SERIE hinzu
+                CVT             -INDIVID SHD_Tipp_zu/auf condition changed       -INDIVID SHD_Tipp_zu/auf neu bedingt
+                CVT,SGET,SGVT,  -new added: NACHLAUF_ZEIT_H,NACHLAUF_ZEIT_MIN,   -neu hinzu: NACHLAUF_ZEIT_H,NACHLAUF_ZEIT_MIN,
+                TEL.C02          FAHRZEUG_MMI,GAL_ANZAHL_STUFEN,GAL_KMH_STUFUNG,  FAHRZEUG_MMI,GAL_ANZAHL_STUFEN,GAL_KMH_STUFUNG,
+                                 GAL_KMH_HYSTERESE                                GAL_KMH_HYSTERESE
+                CVT,LCM.C18     -GRUPPE Niveauregelung condition changed         -GRUPPE Niveauregelung neu bedingt
+                                -GRUPPE US_PU_00 added                           -GRUPPE US_PU_00 neu hinzu
+                                -LED_RUECKLICHT_OPTION added                     -LED_RUECKLICHT_OPTION neu hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3564.N  l      29.03.00   EE-62   Lanny
+                ZST             -E-word MA01 integrated                          -E-Wort MA01 hinzu
+                                -SA's 321/775/950 added                          -SA's 321/775/950 hinzu
+                                -A-words SA602/609 deleted                       -A-Zeilen f. SA's 602/609 entfernt
+                CVT             -GRUPPE WidescreenModus condition changed        -GRUPPE WidescreenModus neu bedingt
+                                -GRUPPE DWA condition changed                    -GRUPPE DWA neu bedingt (LA807 entfallen)
+                SGET,SGVT       -KMB_E39.C07, GT.C04 added                       -KMB_E39.C07, GT.C04 hinzu
+                SGET            -RA_NG.C01 condition changed                     -RA_NG.C01 neu bedingt
+                                -a_gt3, c_gt3, a_kmb2 integrated                 -a_gt3, c_gt3, a_kmb2 integriert
+                CVT,KMB_E39.C07,-KL_50_CAN, TACHO_AUF_DAEMPFUNG,                 -KL_50_CAN, TACHO_AUF_DAEMPFUNG,
+                KMBI_E38.C12     DZM_AUF_AB_DAEMPFUNG,TACHO_AB_DAEMPFUNG,         DZM_AUF_AB_DAEMPFUNG,TACHO_AB_DAEMPFUNG,
+                                 ACC_V_SET_MIN, ACC_V_SET_MAX integrated          ACC_V_SET_MIN, ACC_V_SET_MAX integriert
+                LCM.C18,CVT     -MOTOR_KENNFELD new PSW m54b30_e53               -MOTOR_KENNFELD neues PSW m54b30_e53
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE354.N  m      19.04.00   EE-62   Hahn
+                ZST             -Package SAs 955/956/948 permitted               -Paket SA 955/956/948 zugelassen
+                                -SA 986 added                                    -SA 986 hinzu (nicht codierrelevant)
+                                -new A-words SA632                               -A-Zeile f. SA632 hinzu (SG wird ab 03/01 codiert)
+                CVT             -GROUP RDS-AF_SWITCHING, conditions changed      -GRUPPE RDS-AF_SWITCHING neu bedingt
+                                -RA_NG, GROUP PTY-Tabelle_RA_NG added            -RA_NG, GRUPPE PTY-Tabelle_RA_NG hinzugefügt
+                                -RA_NG, GROUP REG-RA_NG added                    -RA_NG, GRUPPE REG-RA_NG hinzugefügt
+                                -E53 specific parameter record in EHC_KENNFELD   -spezieller Parametersatz für E53 in EHC_KENNFELD ab PU2000
+                CBD             -new CBD MRS3.C10 with new algorithm parameters  -neue CBD MRS3.C10 mit neuen Algorithmusparametern verwendet
+                                 parameter blocknumber = 174/08/T22               Parametersatznummer = 174/08/T22
+     EE354.N  m       28.06.00  EE-62   Lanny
+                ZST             -deletion of A-word SA661                        -Entfall A-Wort SA661
+                                -deletion of A-words FA53, FB31, FB32 and FB33   -Entfall A-Worte FA53, FB31, FB32 and FB33
+                                -deletion of E-word MA01                         -Entfall E-Wort MA01
+                                -E-word NGR added (for NG-radio with MID)        -E-Wort NGR hinzu (für Radios mit MID ab 10/00)
+                                -new A-word SA 602/609 - BM_RADIO (NG_radio)     -A-Zeile f. 602/609 hinzu - BM_RADIO (NG-Radio)
+                CVT,LCM.C18     -RL_INNEN_BLINKT added                           -RL_INNEN_BLINKT neu hinzu
+                CVT,EWS.C81     -ABSCHALTDREHZAHL_ANLASSER 6_zylinder_diesel_m57 -ABSCHALTDREHZAHL_ANLASSER 6_zylinder_diesel_m57 hinzu
+                                 added
+                SGET            -RA_NG.C01 conditions changed                    -RA_NG.C01 neu bedingt
+                CVT,SGET,EHC_2,
+                CONF.BAP,SGFAM,
+                ZST,ZCSUT       -EHC_2.C20 integrated but still inactive (SA221) -EHC_2.C20 integriert, noch nicht aktiv (SA221)
+/////////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N  n       22.09.00  EE-62   Reisenauer
+                ZST             -Package SAs 949/952/957 permitted               -Paket SA 949/952/957 von S auf 0 setzen
+                                -Package SA 953 added                            -Paket SA 953 hinzu
+                                -E-word CD43 (for car radio CD-43) integrated    -E-wort CD43 (für Radio CD43 )hinzu
+                                -SA 459 for FA53 only seat for passenger         -über SA 459 erhält FA53 nur elektr. Beifahrersitz
+                                -SA 987 added                                    -SA 987 hinzu (nicht codierrelevant)
+                CVT,LCM.C18     -Integration of new FSW: CHECK_FILL_CAP          -Neues FSW: CHECK_FILL_CAP integriert
+                CVT,RA_NG.C01   -new ASW RADIO_US for LAENDERVARIANTE_RADIO us,   LAENDERVARIANTE_RADIO us, TP_FUNKTION, PTY_TABELLE us,
+                                 TP_FUNKTION, PTY_TABELLE us,                     RDS-AF_SWITCHING rds_on/af_man
+                                 RDS-AF_SWITCHING rds_on/af_man extended with     um das ASW RADIO_US (SA645) erweitert.
+                                 ASW RADIO_US (SA645)
+                CVT,RA_NG.C01   -PTY_TABELLE, Canada coded on us                 -PTY_TABELLE, Kanada wird auf us codiert, war ece
+                CVT,KMB_E39.C07,-FSW ASC3_AUSWERTUNG, DSC_DEF_GONG, BRAKE_FORCE, -FSW ASC3_AUSWERTUNG, DSC_DEF_GONG, BRAKE_FORCE, BFD_AX_REF_SCHWELLE, BFD_HYSTERESE neu hinzu
+                KMBI_E38.C12     BFD_AX_REF_SCHWELLE, BFD_HYSTERESE added
+                SGET            -new CABD-file: A_RA_NG for switch on NG-radio   -neue CABD: A_RA_NG wegen Einschalten der NG-Radios vor dem Codieren
+                                 before coding
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0E22.N  o       27.09.00  EE-62   Reisenauer
+                LCM.C18         -new parameterset for FSW MOTOR_KENNFELD         -neue Kennlinien-daten für FSW MOTOR_KENNFELD psw m57d_e53
+                                 for PSW m57d_e53
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N  p       25.01.01  EE-82   Hahn
+     M0E22.N  p       29.09.00  EE-62   Reisenauer
+                SGET            -EHC_2.C21 added (new ECU)                       -EHC_2.C21 hinzu (neues SG)
+                                -new SGBD-file EHC_2N2                           -neue SGBD EHC_2N2
+                                EE-62   Ralf Hahn (24.11.00)
+                ZST             -SA632 is not longer coding relevant             -SA 632 nicht mehr codierrelevant ASW V_Serie faellt weg
+                SGET            -TEL.C02 only at SA630 (without SA632 V_Serie)   -TEL.C02 nur meh
+                r bei SA630 (ohne SA632 V_Serie)
+                CVT             -at FSW HANDY_TYP is PSW v_serie deleted         -bei FSW HANDY_TYP wurde PSW v_serie entfernt (s.o.)
+                                EE-62   Ralf Hahn (12.12.00)
+                CVT,ZST         -new Motor generation M62B46 is added            -neue Motorgeneration M62B46 für Alpina hinzugefügt
+                                EE-82   Ralf Hahn (08.01.01)
+                CVT,SGET        -MRS4 integrated                                 -MRS4 integriert
+                SGVT,SGET       -EHC_2.c22 integrated                            -EHC_2.c22 integriert
+                ZST             -SA433 Interieur Strips red, integrated          -SA433 Interieurleisten rot, integriert
+                                -SA923 gets Deletion Titan line                  -SA923 wird zum Entfall Titan-Line
+                                -Sa937 Navi CD-ROM                               -SA937 Navi CD-ROM bei Auslieferung anfordern
+                CVT,SGET,SGVT   -DSC5_7.C14 and DSC5_7.C15 integrated            -DSC5_7.C14 und DSC5_7.C15 integriert
+                AUSBL
+                                EE-82   Ralf Hahn (17.01.01)
+                CVT,SGET,ZST....-Telefoninterface US integrated (Mayday-Modul),  -Telefoninterface US (Mayday-Modul) integriert,
+                ZCSUT            only add-on kit in USA from 09/2000              nur Nachrüstumfang in US ab 09/2000
+                                EE-82   Ralf Hahn (24.01.01)
+                ZST             -H-word NAVI(retrofit kit Navigation) integrated -H-Wort NAVI (für Nachrüstung Navigation )hinzu
+                                EE-82   Ralf Hahn (25.01.01)
+                CVT             -new Parameterkeywords in CBD LCM.C18            -neue Parameterschlüsselworte in der CBD LCM.C18
+                ZST             -SA612 BMW Assist intgratet                      -SA612 BMW Assist integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3728.P  q       05.04.01  EE-82   Ralf Hahn (15.02.01)
+                                -LCM.C19 added (new CBD)                         -LCM.C19 eingebunden (neue CBD)
+                                -E-Word PU01 integrated                          -E-Wort PU01 hinzu
+                                EE-82   Christine Obrman (23.02.01)
+                SGFAM.DAT       - bugfix for 3xx datas:SGBD: EHC_2N2             -SGBD hatte zusätzlichen Buchstaben EHC_2N2C in den 3xx-Daten
+                EHC_2.C22       - new parameters                                 -Neue Parameter, direkt an W10
+                                EE-82   Ralf Hahn (14.03.01)
+                CVT             -new Parameterkeyword in CBD KMBI_E38.C12        -neues Parameterschlüsselwort in der CBD KMBI_E38.C12
+                                m62b46_e53_hp for Alpina Vehicles                m62b46_e53_hp für Alpina Fahrzeuge
+                KMBI_E38.C12    -new Parameters for M57D30 engines               -neue Parameter für M57D30 Motoren
+                KMB_E39.C7      at Keyword SIA_LITER_GRENZE                      beim Schlüsselwort SIA_LITER_GRENZE
+                                EE-82   Ralf Hahn (19.03.01)
+                CVT,ZCSUT,SGET  -RLS.C02 integrated, starting at PU01 with SA521 -RLS.C02 integriert, ab PU01 bei SA 521
+                SGFAM,CONF.BAP,ZST
+                SGET,CVT        -new CBD SM_E53 integrated                       -neue CBD SM_E53 integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3922.P  r       05.07.01  EE-82   Ralf Hahn (23.04.01)
+                ZST             -SA261(Fondairbag) is no longer series for FB93, -SA261(Fondairbag) entfällt aus Serienumfang FB93
+                                new A-Line FB93 with or without SA261            neue A-Zeile FB93 mit oder ohne SA261
+                                -SA601 TV-Function added                         -SA601 TV-Funktion eingefügt
+                                EE-82   Ralf Hahn (14.05.01)
+                ZST,CVT         -SA235 Towing hitch is now coding relevant, in   -SA235 Anhängerkupplung ist jetzt codierrelevant, in der
+                                CBD DSC5_7.C15: Trailer-lurch-logic              CBD DSC5_7.C15: Anhaengerschlingerlogik
+                                new Funktionkeywords ASL_DSC_5_7, ANH_KUPPLUNG   neue Funktionschlüsselworte ASL_DSC_5_7, ANH_KUPPLUNG
+                                EE-82   Ralf Hahn (15.05.01)
+                ZST,CVT         -EINKLEMMSCH_REVERSIEREN changed for Korea       -EINKLEMMSCH_REVERSIEREN für Korea auf lang gesetzt
+                                Korea is now coding relevant                     Korea ist Codierrelevant
+                                EE-82   Ralf Hahn (19.06.01)
+                ZST,CVT         -BMW-ASSIST is coding relevant starting at PU01  -BMW-ASSIST ist ab PU01 codierrelevant
+                                -new parameters for PDC, sensors 4.th generation -neue Parameter für PDC, Sensoren 4. Generation
+                                -new parameters for E53 HP Vehicles              -neue Parameter für E53 HP Fahrzeuge bei
+                                SIA_LITER_GRENZE and K_ZAHL_**                   SIA_LITER_GRENZE und K_Zahlen
+                CVT             -new car and key memory topics                   -neue Car and Key Memory Funktionen
+                                EINSTIEGSHILFE_HOEHE and EINSTIEGSHILFE_LAENGE   EINSTIEGSHILFE_HOEHE und EINSTIEGSHILFE_LAENGE
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE933.P  s       20.08.01  EE-82   Ralf Hahn (13.08.01)
+                ZST             -LA914 Premium-Package integrated,                -LA914 Premium-Paket eingefügt,
+                                LA949 changed to LA-Sports-Package                LA949 geändert in LA-Sport-Paket
+                ZST             -E-Word MA02 integrated                          -E-Wort MA02 hinzu
+                CVT             -BFD_OPTION is postponed to 4/02                 -BFD_OPTION verschoben nach 04/02
+NAEL NE933.P  t       02.09.01  EE-82   Ralf Hahn (29.08.01)
+                                -updated CBD LCM.C19 integrated                  -geänderte CBD LCM.C19 integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E2E13.P  u       21.09.01  EE-82   Ralf Hahn (05.09.01)
+                CVT             -FLC_SCHWELLWERT_SATZ added to Individualisation -FLC_SCHWELLWERT_SATZ in Individualisierung aufgenommen
+                                EE-82   Ralf Hahn (10.09.01)
+                SGVT,SGET       -EHC_2.C23 integrated                            -EHC_2.C23 integriert
+                ZST             -E-Word MA02 changed to MY03,                    -E-Wort MA02 geändert in MY03
+                                BFD_OPTION is postponed to 10/02                 -BFD_OPTION verschoben nach 10/02
+                                -E-Word SERV integrated, has to be used for the  -E-Wort SERV hinzu, muß bei neuem Servotronic-Getriebe
+                                new Servotronic-Gear                             angezogen werden
+                Gm3_e53.c04 [f] -new characteristics for Servotrocic-Gear        -neue Kennlinien für Servotronic-Getriebe
+                LCM.C19 [g],CVT -updated CBD LCM.C19 integrated                  -geänderte CBD LCM.C19 integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E4E68.P  v       15.10.01  EE-82   Ralf Hahn (15.10.01)
+                ZST,SGET        -E-Word MA02 integrated                          -E-Wort MA02 hinzu
+                                SA601 TV-Function added, SA609 without TV        SA601 TV-Funktion hinzu, SA609 ohne TV
+                                new A-line for SA602, starting with MA02         neue A-Zeile für SA602, beginnend mit MA02
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E5E41.P  w       05.11.01  EE-82   Ralf Hahn (05.11.01)
+                ZST             -E-Word ARSW integrated, new ASW AEND_RADIO_SW   -E-Wort ARSW hinzu, neues ASW AEND_RADIO_SW
+                RA_NG.C01, CVT  -TP_MINIMAL_VOLUME changed to wert_05            -TP_MINIMAL_VOLUME auf wert_05 geändert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E6E67.P  x       06.11.01  EE-82   Ralf Hahn (06.11.01) (DIS-CD V28.1)
+                CVT             -bugfix (retrofit kit Navigation) BORDMONITOR    -Fehler in CVT behoben für Nachrüstung NAVI BORDMONITOR
+                                changed to NAVIGATION,BORDMONITOR                ersetzt durch BORDMONITOR,NAVIGATION
+                CVT,gm3_e53.c04 -FH_ABSCHALTKRITERIUM all US-coded from PU02     -FH_ABSCHALTKRITERIUM alle US-codiert ab PU02
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E9E53.P  y       29.11.01  EE-82   Ralf Hahn (27.11.01)
+                ZST             -SA638 car phone professional, SA639 preparation  -SA638 Autotelefon Professional, SA639 Vorbereitung
+                                car phone US, SA644 preparation car phone         Autotelefon US, SA644 Vorbereitung Autotelefon
+                                bluetooth and SA646 prepar. car phone Japan added Bluetooth und SA646 Vorbereitung Autotelefon Japan integriert
+                                EE-82   Ralf Hahn (29.11.01)
+                IHKA_E53.C03[b] -deaktivation of the key-memory-funktion         -Deaktivierung der Key-Memory-Funktion
+                CVT             for US-Types starting with PU01 (default)        für US-Fahrzeuge ab PU01 (default)
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEB47.P  z       14.01.02  EE-82   Ralf Hahn (06.12.01)
+                CVT,Gm3_E53.c04 -EINKLEMMSCH_REVERSIEREN all lang coded from PU02-EINKLEMMSCH_REVERSIEREN alle auf lang codiert ab PU02
+                                EE-82   Ralf Hahn (14.12.01)
+                SGET, SGVT, CVT new CBD RA_NG.C02 integrated                     -neue CBD RA_NG.C02 integriert
+                ZST             -E-Word ARSW deleted                             -E-Wort ARSW gelöscht
+                                EE-82   Ralf Hahn (09.01.02)
+                CVT             -CBD Kmbi_E38.c12 und Kmb_E39.c07 integrated     -CBD'en Kmbi_E38.c12 und Kmb_E39.c07 integriert
+                                Safety belt warning EURO-NCAP                    (Gurtwarnung EURO NCAP)
+                ZST             -SA230 (EU-specific additional items) added      -SA230 (EU-Spezifische Zusatzumfänge) hinzugefügt
+                LCM.C19 DSP.C01 -new parameters                                  -neue Parameter
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3161.R aa       18.01.02  EE-82   Ralf Hahn (18.01.02) (DIS-CD V29.0)
+                ZST             -Fondheadairbag series for US-Types from PU02    -Fondkopfairbag serie für US-Typen ab PU02
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3805.R ab       28.03.02  EE-82   Ralf Hahn (07.03.02) (DIS-CD V30.0)
+                ZST, CVT        -Fondheadairbag series for US-Types from 9/02    -Fondkopfairbag Serie für US-Typen ab 9/02
+                                 new E-Word HABG for US-Types from 9/02           neues E-Wort HABG für US-Typen ab 9/02
+                                 will be deleted with PU02                        entfällt zu PU02
+                MRS4_16[E3751.R]-PU02 and PU03 measures integrated               -PU02 und PU03 Maßnahmen integriert
+                Kmbi_E38,CVT    -new funktions for the New-Generation motors     -neue Funktionen für NG-Motoren integriert
+                Kmb_E39[E3565.R] integrated
+                LCM[E3808.R]    -new ECU LCM.C20 integrated                      -neues Steuergerät LCM.C20 integriert
+                ULF[E3849.R]    -new ECU ULF.C01 integrated                      -neues Steuergerät ULF.C01 integriert
+                CVT,ZST,ZCSUT,SGET,AUSBL,CONF,SGFAM
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEA11.R ac       09.04.02  EE-82   Ralf Hahn            (DIS-CD V31.0)
+                LCM[E3808.R]    -Blocks filled with UNBELEGT up to Byte 1E       -Blöcke jeweils bis Byte 1E mit UNBELEGT aufgefüllt
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEC24.R ad       24.04.02  EE-82   Ralf Hahn
+                ULF[EEC19.R]    -changed CBD for ECU ULF.C01 integrated          -geänderte CBD für Steuergerät ULF.C01 integriert
+                LCM.C20         -changes in CBD LCM.C20, integrated in E53CVT    -CBD LCM.C20 überarbeitet, in E53CVT eingearbeitet
+                IHKA_E53.C03    -changes in CBD IHKA_E53.C03, coding             -CBD IHKA_E53.C03, Codierung "OEFFUNGSWINKEL" hinzu,
+                                 "OEFFUNGSWINKEL"  added, integrated in E53CVT    in E53CVT eingearbeitet
+                                 changes in coding for "KOMPRESSOR_GEREGELT"      Codierung für "KOMPRESSOR_GEREGELT" geändert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EED78.R ae       25.05.02  EE-82   Ralf Hahn
+                CVT            -changes in coding for "LWR_VORZEICHEN" and       -Codierung für "LWR_VORZEICHEN" und
+                               "KOMPRESSOR_GEREGELT"                             "KOMPRESSOR_GEREGELT" geändert
+                LCM[EEG16.R]   -changes in CBD LCM.C20, integrated in E53CVT     -CBD LCM.C20 überarbeitet, in E53CVT eingearbeitet
+                ZST            -new A-line for SA522, starting with PU02         -neue A-Zeile für SA522, beginnend mit PU02
+             TCU_IBUS[EEC23.R] -new ECU for Preparation for car phone US (SA639) -neues Steuergerät für Autotelefonvorbereitung US (SA639)
+                ZST,SGET        integrated                                        integriert
+                Mds_Shd1       -new ECU for Panorama Glas sliding sunroof elec   -neues Steuergerät für Panoramaglasdach, elektrisch
+                ZST,SGET        (SA402) integrated                                (SA402) integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEG84.R af       29.05.02  EE-82   Ralf Hahn
+                EHC_2[EFL71.P] -coding changed for SA226 Sport suspension        -Codierung für SA226 Sportliche Fahrwerksabstimmung
+                                settings starting at PU02                         geändert Beginnend mit PU02
+                ZST            -SA226 Sport suspension settings is now           -SA226 Sportliche Fahrwerksabstimmung ist ab sofort
+                                coding relevant                                   Codierrelevant
+                Mds_Shd1       -changes in CBD Mds_Shd1, integrated in E53CVT    -CBD Mds_Shd1 überarbeitet, in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEH94.R ag       06.06.02  EE-82   Ralf Hahn
+               DSC5_7[EFB28.R] -ASL_DSC_5_7-Bit inverted, activ with SA235, US   -ASL_DSC_5_7-Bit invertiert, aktiv mit SA235, US
+               SGET,SGVT,ZST   -ECU LCM.C20 steered by E-word LCM4               -Einsatz von LCM.C20 wird von E-Wort LCM4 gesteuert
+               SM_E53[EEH92.R] -CBD realeased for Production [6 929 572.5]       -CBD für Produktion freigegeben [6 929 572.5]
+               LCM[E3096.R]    -changes in CBD LCM.C20, integrated in E53CVT     -Änderungen der CBD LCM.C20 in E53CVT eingearbeitet
+               GM3_E53[EEJ07.R]-changes in CBD GM3_E53.C04, integrated in E53CVT -Änderungen der CBD GM3_E53.C04 in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEJ41.R ah       18.06.02  EE-82   Ralf Hahn
+               LCM[EEJ66.R]    -CBD LCM.C20[EEJ66.R], integrated in E53CVT       -CBD LCM.C20[EEJ66.R] in E53CVT eingearbeitet
+             TCU_IBUS[EEJ70.R] -advanced for Preparation car phone profes.(SA638)-erweitert um Autotelefonvorbereitung Professional (SA638)
+               GM3[Testvers.]  -GM3.C10 integrated in E53CVT, E53SGET,E53SGVT    -GM3.C10 in E53CVT, E53SGET,E53SGVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEL51.R ai       01.07.02  EE-82   Ralf Hahn            (DIS-CD V31.0)
+               LCM[EEL53.R]    -CBD LCM.C20[EEL53.R], integrated in E53CVT       -CBD LCM.C20[EEL53.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEP58.R aj       08.07.02  EE-82   Ralf Hahn (in TAIS Zeichnungsindex ak)
+               ATC4_5          -CBD ATC4_5.C01 integrated in E53CVT              -CBD ATC4_5.C01 in E53CVT eingearbeitet
+               EHC_2[EFD39.R]  -CBD EHC_2.C23[EFD39.R], integrated in E53CVT     -CBD EHC_2.C23[EFD39.R] in E53CVT eingearbeitet
+               ULF             -CBD ULF.C01 integrated in E53CVT                 -CBD ULF.C01 in E53CVT eingearbeitet
+               LCM[EEP57.R]    -CBD LCM.C20[EEP57.R], integrated in E53CVT       -CBD LCM.C20[EEP57.R] in E53CVT eingearbeitet
+             TCU_IBUS[EEP07.R] -CBD TCU_IBUS.C01[EEP07.R], integrated in E53CVT  -CBD TCU_IBUS.C01[EEP07.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EES24.R ak       30.07.02  EE-82   Ralf Hahn (in TAIS Zeichnungsindex al)
+               ULF[EES23.R]    -CBD ULF.C01[EES23.R] integrated in E53CVT        -CBD ULF.C01[EES23.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EES06.R am       06.08.02  EE-82   Ralf Hahn
+               PDC[EES19.R]    -CBD PDC.C03[EES19.R] integrated in E53CVT        -CBD PDC.C03[EES19.R] in E53CVT eingearbeitet
+               ULF[EES94.R]    -CBD ULF.C01[EES94.R] integrated in E53CVT        -CBD ULF.C01[EES94.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEU89.R an       06.09.02  EE-82   Ralf Hahn            (DIS-CD V32.0)
+             TCU_IBUS[EEU14.R] -CBD TCU_IBUS.C01[EEU14.R], integrated in E53CVT  -CBD TCU_IBUS.C01[EEU14.R] in E53CVT eingearbeitet
+               ULF[NES94.R]    -CBD ULF.C01[NES94.R] integrated in E53CVT        -CBD ULF.C01[NES94.R] in E53CVT eingearbeitet
+               ULF[E3616.R]    -CBD ULF.C02[EES94.R] integrated in E53CVT        -CBD ULF.C02[E3616.R] in E53CVT eingearbeitet
+               GM3[EEC51.R]    -CBD GM3.C10[EEC51.R] integrated in E53CVT        -CBD GM3.C10[EEC51.R] in E53CVT eingearbeitet
+               ZST             -E-Word MA03 integrated                           -E-Wort MA03 hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEZ93.R ao       10.10.02  EE-82   Ralf Hahn
+               MDS_SHD1        -CBD MDS_SHD1.C03[EEZ95.R] integrated in E53CVT   -CBD MDS_SHD1.C03[EEZ95.R] in E53CVT eingearbeitet
+               GM3_E53[EE142.R]-CBD GM3_E53.C04[EE142.R] integrated in E53CVT    -CBD GM3_E53.C04[EE142.R] in E53CVT eingearbeitet
+               GM3[EE141.R]    -CBD GM3.C10[EE141.R] integrated in E53CVT        -CBD GM3.C10[E141.R] in E53CVT eingearbeitet
+               SGET            -SGBD changed for GM3.C10, is now ZKE3_GM6        -Andere SGBD fuer GM3.C10, jetzt ZKE3_GM6
+               CVT             -Keyword DWAH_PIN_C17 conditions changed          -Schluesselwort DWAH_PIN_C17 neu bedingt
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE226.R ap       15.11.02  EE-82   Ralf Hahn
+               ZST             -SA471 integrated in ZST (not codingrelevant)     -SA471 in ZST eingebaut (nicht Codierrelevant)
+             TCU_IBUS[EE027.R] -CBD TCU_IBUS.C02[EE027.R] integrated in E53CVT   -CBD TCU_IBUS.C02[EE027.R] in E53CVT eingearbeitet
+             MDS_SHD1[EE381.R] -CBD MDS_SHD1.C04[EE381.R] integrated in E53CVT   -CBD MDS_SHD1.C04[EE381.R] in E53CVT eingearbeitet
+               GT[EE380.R]     -CBD GT.C04[EE380.R] integrated in E53CVT         -CBD GT.C04[EE380.R] in E53CVT eingearbeitet
+              DSP[BE515.R]     -CBD DSP.C01[BE515.R] integrated in E53CVT        -CBD DSP.C01[BE515.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE756.R aq       16.12.02  EE-82   Ralf Hahn
+             LCM[EE754.R]      -CBD LCM.C20[EE754.R], integrated in E53CVT       -CBD LCM.C20[EE754.R] in E53CVT eingearbeitet
+             EHC_2[EFT11.R]    -CBD EHC_2.C23[EFT11.R], integrated in E53CVT     -CBD EHC_2.C23[EFT11.R] in E53CVT eingearbeitet
+             ULF[EEW97.R]      -CBD ULF.C02[EEW97.R] integrated in E53CVT        -CBD ULF.C02[EEW97.R] in E53CVT eingearbeitet
+             ULF[EE784.R]      -CBD ULF.C01[EE784.R] integrated in E53CVT        -CBD ULF.C01[EE784.R] in E53CVT eingearbeitet
+             KMBI_E38[EE815.R] -CBD KMBI_E38.C12[EE815.R] integrated in E53CVT   -CBD KMBI_E38.C12[EE815.R] in E53CVT eingearbeitet
+             KMB_E39[EE816.R]  -CBD KMBI_E39.C07[EE816.R] integrated in E53CVT   -CBD KMBI_E39.C07[EE816.R] in E53CVT eingearbeitet
+             ZST               -E-Word's MA02 and MY03 deleted, now in GVN       -E-Worte MA02 und MY03 geloescht, in GVN-Zeile uebernommen
+             LCM[EE976.R]      -CBD LCM.C20[EE976.R], integrated in E53CVT       -CBD LCM.C20[EE976.R] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0E63.R ar       19.12.02  EE-82   Ralf Hahn
+             ULF[E0E65.R]      -revised CBD ULF.C01[E0E65.R] integrated          -ueberarbeitete CBD ULF.C01[E0E65.R] eingearbeitet
+             ULF[E0E66.R]      -revised CBD ULF.C02[E0E66.R] integrated          -ueberarbeitete CBD ULF.C02[E0E66.R] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3118.S as       15.01.03  EE-82   Ralf Hahn
+             VGSG83            -CBD VGSG83.C02[MAL80.R] integrated in E53CVT     -CBD VGSG83.C02[MAL80.R] in E53CVT eingearbeitet
+             ZST               -E-Words NGR and BLSN deleted, now in GVN         -E-Worte NGR und BLSN geloescht, in GVN-Zeile uebernommen
+             LCM[E3112.S]      -CBD LCM.C18[E3112.S] integrated in E53CVT        -CBD LCM.C18[E3112.S] in E53CVT eingearbeitet
+             MDS_SHD1[E3176.S] -CBD MDS_SHD1.C04[E3176.S] integrated in E53CVT   -CBD MDS_SHD1.C04[E3176.S] in E53CVT eingearbeitet
+             DXC8_E53[E1126.S] -CBD DXC8_E53.C01[E1126.S] integrated in E53CVT   -CBD DXC8_E53.C01[E1126.S] in E53CVT eingearbeitet
+             ZST               -E-Words MA04 and DXC8 integrated                 -E-Worte MA04 und DXC8 hinzu
+                               -standart SAs for new Models added to type keys   -Serien SAs fuer neue Modelle in Typschluessel integriert
+             MRS4_16[EE611.R]  -CBD MRS4_16.C32[EE611.R] integrated in E53CVT    -CBD MRS4_16.C32[EE611.R] in E53CVT eingearbeitet
+             GM3[E3461.S]      -CBD GM3.C10[E3461.S] integrated in E53CVT        -CBD GM3.C10[E3461.S] in E53CVT eingearbeitet
+             LCM[E3487.S]      -CBD LCM.C20[E3487.S] integrated in E53CVT        -CBD LCM.C20[E3487.S] in E53CVT eingearbeitet
+             TCU_IBUS[E3160.S] -CBD TCU_IBUS.C02[E3160.S] integrated in E53CVT   -CBD TCU_IBUS.C02[E3160.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3593.S at       12.02.03  EE-62   Ralf Hahn
+             CVT               -MMOT_MAX,IACHS conditions verified               -MMOT_MAX,IACHS Bedingungen berichtigt
+             LCM[E3594.S]      -CBD LCM.C20[E3594.S] integrated in E53CVT        -CBD LCM.C20[E3594.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3667.S au       14.02.03  EE-62   Ralf Hahn
+             ZST               -SA0964 NAVI DVD order at delivery, integrated    -SA0964 NAVI DVD bei Auslieferung anfordern, integriert
+             LCM[E3665.S]      -CBD LCM.C20[E3665.S] programm-parameters changed -CBD LCM.C20[E3665.S] Programmparameter wegen Flackern
+                                due to flickering of rear lights                  der Ruecklichter geaendert
+             GT[E3683.S]       -CBD GT.C04[E3683.S] integrated in E53CVT         -CBD GT.C04[E3683.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3826.S av       28.02.03  EE-62   Bernhard Haller
+             mds_shd[E3744.S]  -CBD MDS_SHD.C05 integrated                       -CBD MDS_SHD.C05 neu hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEA11.S aw       28.03.03  EE-62   Bernhard Haller
+             DXC8_E53.C01      - CBD modified                                    -CBD überarbeitet
+             MDS_SHD.C05       - CBD modified                                    -CBD überarbeitet
+                                EE-62   Ralf Hahn
+             MRS4_16[EEB23.S]  -revised CBD MRS4_16.C32[EEB23.S] integrated      -ueberarbeitete CBD MRS4_16.C32[EEB23.S] eingearbeitet
+             KMBI_E38[EEA62.S] -revised CBD KMBI_E38.C12[EEA62.S] integrated     -ueberarbeitete CBD KMBI_E38.C12[EEA62.S] eingearbeitet
+             KMB_E39[EEA60.S]  -revised CBD KMBI_E39.C07[EEA60.S] integrated     -ueberarbeitete CBD KMBI_E39.C07[EEA60.S] eingearbeitet
+             LCM[EEA17.S]      -revised CBD LCM.C20[EEA17.S] integrated          -ueberarbeitete CBD LCM.C20[EEA17.S] eingearbeitet
+             GM3[EEA52.S]      -revised CBD GM3.C10[EEA52.S] integrated          -ueberarbeitete CBD GM3.C10[EEA52.S] eingearbeitet
+             VGSG83            -CBD VGSG83.C03 integrated in E53CVT              -CBD VGSG83.C03 in E53CVT eingearbeitet
+             ULF[EEA13.S]      -CBD ULF.C03[EEA13.S] integrated in E53CVT        -CBD ULF.C03[EEA13.S] in E53CVT eingearbeitet
+             GT[E3680.S]       -CBD GT.C05[E3680.S] integrated in E53CVT         -CBD GT.C05[E3680.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEC89.S ax       31.03.03  EE-62   Ralf Hahn
+             DSP2[EEB15.S]     -CBD DSP2.C02[EEB15.S] integrated in E53CVT       -CBD DSP2.C02[EEB15.S] in E53CVT eingearbeitet
+             LCM[EED09.S]      -CBD LCM.C21[EED09.S] integrated in E53CVT        -CBD LCM.C21[EED09.S] in E53CVT eingearbeitet
+             KMBI_E38[EED47.S] -revised CBD KMBI_E38.C12[EED47.S] integrated     -ueberarbeitete CBD KMBI_E38.C12[EED47.S] eingearbeitet
+             KMB_E39[EED44.S]  -revised CBD KMBI_E39.C07[EED44.S] integrated     -ueberarbeitete CBD KMBI_E39.C07[EED44.S] eingearbeitet
+             EK9282[MAL52.R]   -CBD EK9282.C10,11[MAL52.R] integrated in E53CVT  -CBD EK9282.C10,11[MAL52.R] in E53CVT eingearbeitet
+             LCM[EEF50.S]      -revised CBD LCM.C19[EEF50.S] integrated          -ueberarbeitete CBD LCM.C19[EEF50.S] eingearbeitet
+             LCM[EEF51.S]      -revised CBD LCM.C20[EEF51.S] integrated          -ueberarbeitete CBD LCM.C20[EEF51.S] eingearbeitet
+             ZST               -H-word OELP(special TOENS-Data) integrated       -H-Wort OELP (spezieller TOENS-Datensatz) hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEG45.S ay       03.04.03  EE-62   Ralf Hahn
+             mds_shd[EEC85.S]  -CBD MDS_SHD.C06[EEC85.S] integrated              -CBD MDS_SHD.C06[EEC85.S] neu hinzu
+             LCM.C20,C21       -TVERZ_GURTWARNUNG reduced to 20 sec.             -TVERZ_GURTWARNUNG auf 20 sec. reduziert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EER02.S az       22.05.03  EE-62   Ralf Hahn
+             VGSG83[E2381.S]   -CBD VGSG83.C04[E2381.S] integrated in E53CVT     -CBD VGSG83.C04[E2381.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEU70.S ba       18.06.03  EE-62   Ralf Hahn
+             MDS_SHD[EER18.S]  -revised CBD MDS_SHD.C06[EER18.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[EER18.S] eingearbeitet
+             ZST               -E-Word SPVT integrated for park heating with     -E-Wort SPVT hinzu fuer Standheizung mit
+                                stop valve in M57D30                              Sperrventil im M57D30
+             IHKA,IHKR[EEU15.S]-revised CBD's IHKA_E53.C03 and                   -ueberarbeitete CBD'en IHKA_E53.C03 und
+                                IHKR_E53.C10[EEU15.S] integrated                  IHKR_E53.C10[EEU15.S] eingearbeitet
+             ALC_DS2[EET88.S]  -CBD ALC_DS2[EET88.S] integrated                  -CBD ALC_DS2[EET88.S] in E53CVT eingearbeitet
+             SMCDS_RE[EEL82.S] -CBD SMCDS_RE[EEL82.S] integrated                 -CBD SMCDS_RE[EEL82.S] in E53CVT eingearbeitet
+             SMCDS_LI[EEL82.S] -CBD SMCDS_LI[EEL82.S] integrated                 -CBD SMCDS_LI[EEL82.S] in E53CVT eingearbeitet
+             DXC8_E53[EFD07.S] -revised CBD DXC8_E53.C01[EFD07.S] integrated     -ueberarbeitete CBD DXC8_E53.C01[EFD07.S] eingearbeitet
+             LCM[EEU68.S]      -revised CBD LCM.C21[EEU68.S] integrated          -ueberarbeitete CBD LCM.C21[EEU68.S] eingearbeitet
+             ZST               -E-Word MY05 for PU04 integrated                  -E-Wort MY05 fuer PU04 hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEV91.S bb       27.06.03  EE-62   Ralf Hahn
+             EK9282[EAC58.S]   -revised CBD EK9282.C10,C11[EAC58.S] integrated   -ueberarbeitete CBD EK9282.C10,C11[EAC58.S] eingearbeitet
+             SGET, ALC_KWP     -CBD ALC_DS2[EET88.S] replaced by ALC_KWP[EER44.S]-CBD ALC_DS2[EET88.S] ersetzt durch ALC_KWP[EER44.S]
+             DSP2[EEV34.S]     -revised CBD DSP2.C02[EEV34.S] integrated         -ueberarbeitete CBD DSP2.C02[EEV34.S] eingearbeitet
+             PDC.C03[EEU73.S]  -CBD PDC.C03[EEU73.S] updated                     -CBD PDC.C03[EEU73.S] Stand aktualisiert
+             ZST               -H-Word HECK for re-fitting Facelift Backlights   -E-Wort HECK hinzu fuer Nachruestung Heckleuchten Facelift
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEX02.S bc       30.06.03  EE-62   Ralf Hahn
+             LCM[EEU68.S]      -CBD LCM.C21[EEU68.S]                             -CBD LCM.C21[EEU68.S]
+                                TOENS_SCHWELLEN, SPG_NACHREGELUNG_4 adapted       TOENS_SCHWELLEN, SPG_NACHREGELUNG_4 angepasst
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEZ19.S bd       09.07.03  EE-62   Ralf Hahn            (DIS-CD V35.0)
+             MDS_SHD[EEX41.S]  -revised CBD MDS_SHD.C06[EEX41.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[EEX41.S] eingearbeitet
+             TCU_IBUS[EEY34.S] -revised CBD TCU_IBUS.C02[EEY34.S] integrated     -ueberarbeitete CBD TCU_IBUS.C02[EEY34.S] eingearbeitet
+             GM3[EEZ28.S]      -revised CBD GM3.C10[EEZ28.S] integrated          -ueberarbeitete CBD GM3.C10[EEZ28.S] eingearbeitet
+             ZST               -SA431 is coding relevant starting at PU03        -SA431 ab PU03 Codierrelevant
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE019.S be       14.07.03  EE-62   Ralf Hahn
+             LCM[EE036.S]      -revised CBD LCM.C21[EE036.S] integrated          -ueberarbeitete CBD LCM.C21[EE036.S] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE255.S bf       24.07.03  EE-62   Ralf Hahn
+             ZST               -E-Word S200 added, retrofitting security vehicle -E-wort S200 integriert fuer Umbau Sicherheitsfahrzeuge
+             CVT               -Keyword RUECKLICHT_INNEN_FEHLT conditions changed-Schluesselwort RUECKLICHT_INNEN_FEHLT neu bedingt
+             KMBI_E38[EE251.S] -revised CBD KMBI_E38.C12[EE251.S] integrated     -ueberarbeitete CBD KMBI_E38.C12[EE251.S] eingearbeitet
+             KMB_E39[EE250.S]  -revised CBD KMBI_E39.C07[EE250.S] integrated     -ueberarbeitete CBD KMBI_E39.C07[EE250.S] eingearbeitet
+             MRS4_16[EEN75.S]  -revised CBD MRS4_16.C32[EEN75.S] integrated      -ueberarbeitete CBD MRS4_16.C32[EEN75.S] eingearbeitet
+             PDC.C03[EE127.S]  -CBD PDC.C03[EE127.S] updated                     -CBD PDC.C03[EE127.S] Stand aktualisiert
+             MDS_SHD[EE240.S]  -revised CBD MDS_SHD.C06[EE240.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[EE240.S] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE519.S bg       03.09.03  EE-62   Ralf Hahn
+             CVT               -Keyword OPT_ENTRY_HELP conditions changed        -Schluesselwort OPT_ENTRY_HELP neu bedingt
+             TCU_IBUS[EE279.S] -revised CBD TCU_IBUS.C02[EE279.S] integrated     -ueberarbeitete CBD TCU_IBUS.C02[EE279.S] eingearbeitet
+             GM3[EE780.S]      -revised CBD GM3.C10[EE780.S] integrated          -ueberarbeitete CBD GM3.C10[EE780.S] eingearbeitet
+             PDC[EE711.S]      -CBD PDC.C03[EE711.S] integrated in E53CVT        -CBD PDC.C03[EE711.S] in E53CVT eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0E13.S bh       06.10.03  EE-62   Ralf Hahn            (DIS-CD V36.0)
+             TCU_IBUS[EE910.S] -revised CBD TCU_IBUS.C02[EE910.S] integrated     -ueberarbeitete CBD TCU_IBUS.C02[EE910.S] eingearbeitet
+             MRS4_16[E0E23.S]  -revised CBD MRS4_16.C32[E0E23.S] integrated      -ueberarbeitete CBD MRS4_16.C32[E0E23.S] eingearbeitet
+             GM3[E1E14.S]      -revised CBD GM3.C10[E1E14.S] integrated          -ueberarbeitete CBD GM3.C10[E1E14.S] eingearbeitet
+             KMBI_E38[E1E23.S] -revised CBD KMBI_E38.C12[E1E23.S] integrated     -ueberarbeitete CBD KMBI_E38.C12[E1E23.S] eingearbeitet
+             KMB_E39[E1E20.S]  -revised CBD KMBI_E39.C07[E1E20.S] integrated     -ueberarbeitete CBD KMBI_E39.C07[E1E20.S] eingearbeitet
+             LWS5[EFN99.S]     -CBD LWS5.C01[EFN99.S] updated                    -CBD LWS5.C01[EFN99.S] Stand aktualisiert
+             LCM[E2E50.S]      -revised CBD LCM.C21[E2E50.S] integrated          -ueberarbeitete CBD LCM.C21[E2E50.S] eingearbeitet
+             LCM[E2E84.S]      -CBD LCM.C22[E2E84.S] integrated in E53CVT        -CBD LCM.C22[E2E84.S] in E53CVT eingearbeitet
+             MDS_SHD[E3E72.S]  -revised CBD MDS_SHD.C06[E3E72.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[E3E72.S] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E4E59.S bj       28.10.03  EE-62   Ralf Hahn
+             ALC_KWP[E6E84.S]  -revised CBD ALC_KWP.C06[E6E84.S] integrated      -ueberarbeitete CBD ALC_KWP.C06[E6E84.S] eingearbeitet
+             LCM[E6E13.S]      -revised CBD LCM.C22[E6E13.S] integrated          -ueberarbeitete CBD LCM.C22[E6E13.S] eingearbeitet
+             ZST               -SA5AB added, deletion of brake force display     -SA5AB hinzu, Zweistufige Bremsleuchten Entfall
+             GM3[E4E58.S]      -CBD GM3.C10[E4E58.S] updated                     -CBD GM3.C10[E4E58.S] Stand aktualisiert
+             SMCDS_RE[E5E26.S] -revised CBD SMCDS_RE[E5E26.S] integrated         -ueberarbeitete CBD SMCDS_RE[E5E26.S] eingearbeitet
+             SMCDS_LI[E5E26.S] -revised CBD SMCDS_LI[E5E26.S] integrated         -ueberarbeitete CBD SMCDS_LI[E5E26.S] eingearbeitet
+             TCU_IBUS[E5E61.S] -CBD TCU_IBUS.C03[E5E61.S] added                  -CBD TCU_IBUS.C03[E5E61.S] neu hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E6E42.S bk       12.11.03  EE-62   Ralf Hahn
+             GM3[E3P37.S]      -revised CBD GM3.C10[E3P37.S] integrated          -ueberarbeitete CBD GM3.C10[E3P37.S] eingearbeitet
+             LWS5[EFT89.S]     -CBD LWS5.C01[EFT89.S] updated                    -CBD LWS5.C01[EFT89.S] Stand aktualisiert
+             MDS_SHD[E9E36.S]  -revised CBD MDS_SHD.C06[E9E36.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[E9E36.S] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E4R49.S bl       10.12.03  EE-62   Ralf Hahn
+             CVT               -Keyword LEUCHTWEITENREGELUNG conditions changed  -Schluesselwort LEUCHTWEITENREGELUNG neu bedingt
+             PDC[E4R21.S]      -CBD PDC.C03[E4R21.S] integrated in E53CVT        -CBD PDC.C03[E4R21.S] in E53CVT eingearbeitet
+             VGSG83[EAM85.S]   -CBD VGSG83.C04[E2381.S] integrated in E53CVT     -ueberarbeitete CBD VGSG83.C04[EAM85.S] eingearbeitet
+             EK9282[EAN76.S]   -revised CBD EK9282.C10,C11[EAN76.S] integrated   -ueberarbeitete CBD EK9282.C10,C11[EAN76.S] eingearbeitet
+             DXC8_E53[E1126.S] -revised CBD DXC8_E53.C01[E1126.S] integrated     -ueberarbeitete CBD DXC8_E53.C01[E1126.S] eingearbeitet
+             SGET              -new CABD(A_TCUDS2) for TCU_IBUS.C03              -neue CABD(A_TCUDS2) fuer TCU_IBUS.C03
+             MDS_SHD[E5R19.S]  -revised CBD MDS_SHD.C06[E5R19.S] integrated      -ueberarbeitete CBD MDS_SHD.C06[E5R19.S] eingearbeitet
+             MDS_SHD[E5P95.S]  -CBD MDS_SHD.C07[E5P95.S] added                   -CBD MDS_SHD.C07[E5P95.S] neu hinzu
+             LCM[EEF51.S]      -CBD LCM.C20[E2E50.S] corrected                   -CBD LCM.C21[EEF51.S] korrigiert
+             MDS_SHD[E6P56.S]  -revised CBD MDS_SHD.C07[E6P56.S] integrated      -ueberarbeitete CBD MDS_SHD.C07[E6P56.S] eingearbeitet
+             GM3[E6R37.S]      -CBD GM3.C10[E6R37.S] updated                     -CBD GM3.C10[E6R37.S] Stand aktualisiert
+             ZST               -new E-Word NRPA (deaktivates RPA)                -neues E-Wort NRPA (um RPA inaktiv zu schalten)
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3043.T bm       09.01.04  EE-42   Bernhard Haller
+             MDS_SHD[E3019.T]  -revised CBD MDS_SHD.C07[E3019.T] integrated      -ueberarbeitete CBD MDS_SHD.C07[E3019.T] eingearbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3128.T bn       14.01.04  EE-42   Bernhard Haller
+             DXC8_E53[E    .T] -CBD DXC8_E53.C03[E    .T] added, for tests only  -CBD DXC8_E53.C03[E    .T] neu hinzu, nur zur Erprobung
+             KMB_E39[E3151.T]  -revised CBD KMB_E39.C07[E3151.T] integrated      -ueberarbeitete CBD KMB_E39.C07[E3151.T] integriert
+             KMBI_E38[E3151.T] -revised CBD KMBI_E38.C12[E3151.T] integrated     -ueberarbeitete CBD KMBI_E38.C12[E3151.T] integriert
+             E53ZST.000        -Option Code 8ST, SIA 6000km, added               -SA 8ST hinzu, SIA-Intervall 6000km
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3129.T bo       06.02.04  EE-42   Bernhard Haller
+             ALC_KWP[E6P05.S]  -CBD ALC_KWP.C07[E6P05.S] added                   -CBD ALC_KWP.C07[E6P05.S] neu hinzu
+             MDS_SHD[E3647.T]  -revised CBD MDS_SHD.C06[E3647.T] integrated      -überarbeitete CBD MDS_SHD.C07[E3647.T] eingearbeitet
+             VGSG83[E2265.T]   -revised CBD VGSG83.C04[E2265.T] integrated       -überarbeitete CBD VGSG83.C04[E2265.T] eingearbeitet
+             LCM[E3874.T]      -revised CBD LCM.C22[E3874.T] integrated          -überarbeitete CBD LCM.C22[E3874.T] eingearbeitet
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEC41.T bp       27.02.04  EE-42   Bernhard Haller
+             ULF[EEA92.T]      -CBD ULF.C04[EEA92.T] added                      -CBD ULF.C04[EEA92.T] neu hinzu
+             GM3[E3873.T]      -revised CBD GM3.C10[E3873.T] added              -überarbeitete CBD GM3.C10[E3873.T] eingearbeitet
+             GM3[EEF13.T]      -CBD GM3.C10[EEF13.T] coding FSW "SPIEGELEINKLAPPEN" changed     -CBD GM3.C10[EEF123.T] Korrektur Codierung "SPIEGELEINKLAPPEN"
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEC42.T bq       12.03.04  EE-42   Bernhard Haller
+             DXC8_E53.C03[E1637.T]      -coding "XDT" to "nicht_aktiv" for all  -Codierung "XDT" auf "nicht_aktiv" für alle ab 10/04
+                                         from 10/04
+             EHC_2.C23[E1585.T]         -coding data changed for all            -Codierwerte geändert für alle Fahrzeuge, auch rückwirkend
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL NEC42.T br       24.03.04  EE-42   Bernhard Haller
+             E53CVT.000         -Coding for DXC8.C03,2-axle-air springing       -Codierung für DXC8, 2-Achs-Luftfederung, korrigiert
+                                 corrected                                       (REJECT_STD_SUS, REJECT_SUS)
+             DXC8_E53[E1772.T]  -DXC8_E53.C03[E1772.T] coding data for          -DXC8_E53.C03[E1772.T], Codierdaten für RPA korrigiert
+                                 Flat Tire Control corrected
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL SEC42.T bs       05.04.04  EE-42   Bernhard Haller
+             E53CVT.000         -RPA-Coding for DXC8_E53.C03 corrected          -Codierung für DXC8_E53.C03 korrigiert
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEM47.T bt       08.04.04  EE-42   Bernhard Haller
+             LCM.C21[EER70T]    -revised LCM.C21[EER70T] added                  -überarbeitete CBD LCM.C21[EER70T] integriert
+             LCM.C22[EER69T]    -revised LCM.C22[EER69T] added                  -überarbeitete CBD LCM.C21[EER69T] integriert
+             LCM.C23[EER71T]    -new CBD LCM.C23[EER71T] added                  -neue CBD LCM.C23[EER71T] hinzu
+             ALC_KWP.C07[EEP70T]-revised ALC_KWP.c07[EEP70T] added              -überarbeitete CBD ALC_KWP.C07[EEP70T] integriert
+             TCU_IBUS.C04[EEM45T]-new CBD TCU_IBUS.C04[EEM45T] added            -TCU_IBUS.C04[EEM45T] neu hinzu
+             E53ZST.000         -new add-on für service integrated, H 633L      -neuer Nachrüstumfang für HO integriert, H 633L
+             SMCDS_LI.C04[EES11T]-revised SMCDS_LI.C04[EES11T] added            -überarbeitete CBD SMCDS_LI.C04[EES11T] integriert
+             SMCDS_RE.C04[EES11T]-revised SMCDS_RE.C04[EES11T] added            -überarbeitete CBD SMCDS_RE.C04[EES11T] integriert
+             Kmbi_e38.C12[EEP42T]-revised KMBI_E38.C12[EEP42T] added            -überarbeitete CBD KMBI_E38.C12[EEP42T] integriert
+             Kmb_e39.C07[EEP42T] -revised KMB_E39.C07[EEP42T] added             -überarbeitete CBD KMB_E39.C07[EEP42T] integriert
+////////     15.04.04  EE-42   Klaus Leonard
+             E53CVT             -Coding changed for Security car SA 0106
+                                 -Rear head airbag deactivated
+                                 -Rear el. window lifter deactivated
+                                 -DXC CODIERWERT_DXC_8 value changed to SE, only after conversion in Mexico
+                                  changed to Security value
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEZ41.T bu       07.05.04  EE-42   Bernhard Haller
+             MDS_SHD.C06[EE053T] -revised CBD MDS_SHD.C06[EE053T] added         -überarbeitete CBD MDS_SHD-C06[EE053T] integriert
+                                 -development-revisions of MDS_SHD deleted      -Entwicklungsstände MDS_SHD bis CI 05 gelöscht
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE355.T bv       04.06.04  EE-42   Bernhard Haller / Miehling Stefan
+             LCM.C23[EE622T]     -revised LCM.C23[EE622T] added                 -überarbeitete CBD LCM.C23[EE622T] integriert
+             E53CVT              -Coding conditions (I_GONG_GURT_NCAP and       -Codierbedingung (I_GONG_GURT_NCAP
+                                  I_GONG_GURT_ERWUS changed                      I_GONG_GURT_ERWUS geändert
+                                 -new FSW (I_GONG_GURT_ERW) add                 -neues FSW (I_GONG_GURT_ERW) hinzu
+             E53ZST              -new option 02LC 07MB 07NC 07ND                -neue SA 02LC 07MB 07NC 07ND
+                                  07NE 07NF 0723 08SU added                      07NE 07NF 0723 08SU hinzu
+                                 -E-Word OI12 (OHNE_BF_SBR) activeated           -E-Wort OI12 (OHNE_BF_SBR) aktiviert
+                                  (deactivations co-driver SEATBELTREMINDER      (Deaktivierung BEIFAHRER SEATBELTREMINDER
+                                  on optional equipment)                         auf Kundenwunsch)
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGC25.T bw       08.06.04  EE-42   Bernhard Haller / Miehling Stefan
+             MRS4_16.C32[EGC22T] -revised CBD MRS4_16.C32[EGC22T] added
+             E53CVT              -Coding conditions (SBE1_STATUS_VERZ_1 and     -Codierbedingung (SBE1_STATUS_VERZ_1 und
+                                  SBE1_STATUS_VERZ_2 changed to MAERZ03          SBE1_STATUS_VERZ_2 geändert auf MAERZ03
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGE49.T bx       16.07.04  EE-42   Bernhard Haller / Miehling Stefan
+             E53ZST             -new option 07MC added                          -neue SA 07MC hinzu
+                                -G-Line changed to built 0404                   -G-Zeile auf Stand 0404 geändert
+                                 E-Line "E MA04" deletet                         E-Zeile "E MA04" gelöscht
+             E53CVT.000         -Bool for FSW "BF_UEBERWACHUNG" changed         -Bedingung zu "BF_UEBERWACHUNG" geändert
+                                -bool for "FUNKTION_RPA" und "AUSSTATTUNG_RPA   -Bool für "FUNKTION_RPA" und "AUSSTATTUNG_RPA" um ASW "SICH_FZG_UM" ergänzt
+                                 changed                                         um ASW "SICH_FZG_UM" ergänzt
+             MDS_SHD[EGJ87T]    -CBD MDS_SHD.C06[EGJ87.T] revised,              -CBD MDS_SHD.C06[EGJ87.T] überarbeite, Werte geändert
+                                 bool for "SHD_CLOUD_ALLOWED" changed           -Bool für "SHD_CLOUD_ALLOWED" geändert
+             MDS_SHD[EGK36T]    -CBD MDS_SHD.C07[EGK36.T] revised,              -CBD MDS_SHD.C06[EGK36.T] überarbeite, Werte geändert
+                                 bool for "SOS_BLOCK_01" changed                -Bool für "SOS_BLOCK_01" geändert
+             TCU_IBUS[EGF97T]   -TCU_IBUS.C04[EGF97.T] coding value for         -TCU_IBUS.C04[EGF97.T] Codierwert für FSW "NR_MT_CALLS_WITHOUT_ID"
+                                 FSW "NR_MT_CALLS_WITHOUT_ID" for US changed     für US-Fahrzeuge geändert
+             TCU_IBUS[EGL39T]   -TCU_IBUS.C04[EGL39.T] bool for                 -TCU_IBUS.C04[EGL39.T]Bedingung für FSW "DELAY_PWR_DOWN_INIT_DUR" geändert
+                                 "DELAY_PWR_DOWN_INIT_DUR" changed
+             general            -ECU-family-name "MOT" changed to "8BMOT"       -SG-Familienname "MOT" geändert on "8BMOT"
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGP56.T by       30.07.04  EE-42   Bernhard Haller
+        qq     TCU_IBUS[EGR80T]   -TCU_IBUS.C04[EGR80.T] changed                  -TCU_IBUS.C04[EGR80.T] geändert
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGU12.T bz       11.08.04  EE-42  Stefan Miehling
+             DXC8_E53           -CBD.DXC8_E53.C04[N FW04] added                 -CBD.DXC8_E53.C04[N FW04] integriert
+             ZST                -new option SA06UD Instrument lettering Russian -neue SA06UD Sprachversion Russisch hinzu
+                                 at 10/05 added                                  ab 10/05
+             E53CVT             -new FSW RPA_WARNSCHWELLWERTE_1                 -neue FSW RPA_WARNSCHWELLWERTE_1
+                                 RPA_Warnschwellwerte_2, RPA_WARNSCHWELLWERTE_3  RPA_Warnschwellwerte_2, RPA_WARNSCHWELLWERTE_3
+                                 and RPA_WARNSCHWELLWERTE_4 added                and RPA_WARNSCHWELLWERTE_4 hinzugefügt
+             E53SGET            -DXC8_E53 C04 added                             -DXC8_E53 C04 hinzu
+             E53SGVT            -DXC8_CI_04 added                               -DXC8_CI_04 hinzu
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EG424.T ca       30.09.04  EE-42  Stefan Miehling
+             ZST                -new option SA07MD Edition Lifestyle added      -neue SA07MD Edition Lifestyle hinzu
+                                -new Option 07NG added                          -neue SA07NG hinzu
+                                 BMW Basic Service Inclusive (3year/60.000km)    BMW Basic Service Inclusive (3Jahre/60.000km)
+                                -new Option 07NH added                          -neue SA07NH hinzu
+                                 BMW Basic Service Inclusive (5year/100.000km)   BMW Basic Service Inclusive (5Jahre/100.000km)
+                                -new Option 07NK added                          -neue SA07NK hinzu
+                                 BMW Service Inclusive (5year/60.000km)          BMW Service Inclusive (5Jahre/60.000km)
+                                -new Option 07NL added                          -neue SA07NL hinzu
+                                 BMW Service + Repair Inclusive (5year/60.000km) BMW Service + Repair Inclusive (5Jahre/60.000km)
+                                -new Option 07PC added                          -neue SA07PC hinzu
+                                 BMW Basic Service Inclusive (6year/60.000km)    BMW Basic Service Inclusive (6Jahre/60.000km)
+             E53CVT TCU_IBUS    -new CBD TCU_IBUS.C05 [EG039T] added            -CBD TCU_IBUS.C05[EG039T] hinzu
+                                -new FSW INTERNAL_VOICE_REC added               -neues FSW INTERNAL_VOICE_REC hinzu
+                                -new FSW VOICE_REC_LANGUAGE added               -neues FSW VOICE_REC_LANGUAGE hinzu
+                                -new FSW NON_TELEMATIC_ECALL_NR added           -neues FSW NON_TELEMATIC_ECALL_NR hinzu
+             LCM.C21[EG420T]    -revised LCM.C21[EG420T] added                  -überarbeitete CBD LCM.C21[EG420T] integriert
+             LCM.C22[EG421T]    -revised LCM.C22[EG421T] added                  -überarbeitete CBD LCM.C22[EG421T] integriert
+             LCM.C23[EG422T]    -revised LCM.C23[EG422T] added                  -überarbeitete CBD LCM.C23[EG422T] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EG866.T cb       12.10.04  EE-42  Stefan Miehling
+             ZST                -new option 07NM added                          -neue SA07NM hinzu
+                                 BMW Service Inclusive (3year/60Tkm)             BMW Service Inclusive (3Jahre/60Tkm)
+                                -new option 07NN added                          -neue SA07NM hinzu
+                                 BMW Service + Repair Inclusive (3year/60Tkm)    BMW Service + Repair Inclusive (3Jahre/60Tkm)
+                                -new option 08SY added                          -neue SA08SY hinzu
+                                 correction second automobile                    Berichtigung Gebrauchte Automobile
+                                -new option 08SX added                          -neue SA8SX hinzu
+             CVT,SGET,SGVT      -CBD ULF.C04[EG940T] integriert                 -CBD ULF.C04[EG940T] überarbeitet
+             MDS_SHD[EG995T]    -CBD MDS_SHD.C06[EG995T] revised,               -CBD MDS_SHD.C06[EG995T] überarbeitet
+             MDS_SHD[ENA56T]    -CBD MDS_SHD.C06[ENA56T] revised,               -CBD MDS_SHD.C06[ENA56T] überarbeitet
+             MDS_SHD[EG991T]    -CBD MDS_SHD.C07[EG991T] revised,               -CBD MDS_SHD.C07[EG991T] überarbeitet
+                                -new CBD GT.C06 [EG898.T] integrated            -neue CBD GT.C06 [EG898.T] integriert
+                                -new FSW DEFAULT_SMSC_ADDRESS, HOTLINE_ADDRESS  -neue FSW DEFAULT_SMSC_ADDRESS, HOTLINE_ADDRESS
+                                 BACKUP_SMSC_ADDRESS, DEF_DESTINATION_ADDRESS    BACKUP_SMSC_ADDRESS, DEF_DESTINATION_ADDRESS
+                                 BACKUP_DESTINATION_ADDRES added                 BACKUP_DESTINATION_ADDRES hinzu
+             RA_NG[ENA38T]      -CBD RA_NG.C02[ENA38T] revised                  -CBD RA_NG.C02[ENA38T] überarbeitet
+             VGSG83[EAP80T]     -CBD VGSG83.C04[EAP80T] revised                 -CBD VGSG83.C04[EAP80T] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL ENG55.T cc       25.10.04  EE-42  Stefan Miehling
+             TCU_IBUS[ENG24T]   -TCU_IBUS.C04[ENG24T] SVT Parameter adapt       -TCU_IBUS.C04[ENG24T] SVT Parameter angepasst
+             TCU_IBUS[ENG24T]   -TCU_IBUS.C05[ENG24T] SVT Parameter adapt       -TCU_IBUS.C05[ENG24T] SVT Parameter angepasst
+             EK9282[EAU50T]     -new CBD EK9282.C12[EAU50T] integrated          -neue CBD EK9282.C12[EAU50T] integriert
+             E53CVT             -new FSW KATENTFALLCODIERUNG added              -neues FSW KATENTFALLCODIERUNG hinzugefügt
+             E53SGET            -EK9282.C12 added                               -EK9282.C12 hinzu
+             E53SGVT            -EK9282.C12 added                               -EK9282.C12 hinzu
+///////////////////////////////////////////////////////////////////////////////////
+NAEL ENK24.T cd       09.11.04  EE-42  Stefan Miehling
+             ZST                -new option 07NP added                          -neue SA07NP hinzu
+                                 BMW Basic Service Inclusive (3year/100Tkm)      BMW Basic Service Inclusive (3Jahre/100Tkm)
+                                -new option 07NR added                          -neue SA07NR hinzu
+                                 BMW Service Inclusive (3year/100Tkm)            BMW Service Inclusive (3Jahre/100Tkm)
+                                -new option 07NS added                          -neue SA07NS hinzu
+                                 BMW Service + Repair Inclusive (3year/100Tkm)   BMW Service + Repair Inclusive (3year/100Tkm)
+             MDS_SHD[ENM06T]    -CBD MDS_SHD.C07[ENM06T] revised,               -CBD MDS_SHD.C07[ENM06T] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL ENN57.T ce       29.11.04  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CF
+             E53ZST             -new option 02VB added                          -neue SA02VB hinzu
+                                -new option SA07R3 Ukrainepacket added          -neue SA07R3 Ukrainepaket hinzu
+                                -separate ASW for SA199 und SA861               -getrennte ASW für SA199 und SA861 verwendet
+             E53CVT             -new FSW AKTIV_GM3_PATCH, FSW RDC_NEU,          -neues FSW AKTIV_GM3_PATCH, FSW RDC_NEU,
+                                 RDC_NEU_BLINKZEIT added                         RDC_NEU_BLINKZEIT hinzu
+                                -Bool SA199 and SA861 revised                   -Bool SA199 und SA861 überarbeitet
+             LCM.C24[ENG33T]    -new CBD LCM.C24 [ENG33T] intgrated             -neue CBD LCM.C24 [ENG33T] integriert
+             KMBI_E38[ENS22T]   -CBD KMBI_E38.C12[ENS22T] revised               -CBD KMBI_E38.C12[ENS22T] überarbeitet
+             LCM.C24[ENS57T]    -CBD LCM.C24 [ENS57T] revised                   -CBD LCM.C24 [ENS57T] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL ENW49.T cf       12.01.05  EE-42  Stefan Miehling HO-CD41
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CG
+             ULF.C04[ENV61T]    -changed CBD ULF.C04 [ENV61T] integrated        -überarbeitete CBD ULF.C04 [ENV61T] integriert
+             KMBI_E38[ENW85T]   -CBD KMBI_E38.C12[ENW85T] revised               -CBD KMBI_E38.C12[ENW85T] überarbeitet
+             EK9282[NAM64S]     -CBD EK9282.C12[NAM64S] revised                 -CBD EK9282.C12[NAM64S] überarbeitet
+             LCM.C24[ENZ85T]    -CBD LCM.C24[ENZ85T] revised                    -CBD LCM.C24[ENZ85T] überarbeitet, Bool EU_UMFANG hinzu
+             VGSG83[EAW61T]     -CBD VGSG83.C05[EAW61T] revised                 -CBD VGSG83.C05[EAW61T] überarbeitet
+             E53ZST             -new option 09AB,07CA,07CB,07CC,07CD,07CE added -neue SA09AB,SA07CA,SA07CB,SA07CC,SA07CD,SA07CE hinzu
+             CVT                -new FSW OEL_FS_LOGIK added                     -neues FSW OEL_FS_LOGIK hinzu
+                                -FSW CS PSW added bool revised                  -FSW CS PSW hinzu bool überarbeitet
+                                -FSW K-LAM1,K-LAM2,K-LAM3 revised               -FSW K-LAM1,K-LAM2,K-LAM3 überarbeitet
+             SGET,SGVT          -new VGSG83.C05[EAW61T] integrated              -neues SG VGSG83.C05[EAW61T] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3099.U cg       23.02.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CH
+             E53ZST             -new option 07NT, 07NU, 07NV, 07NX, 07NY, 07NZ, -neue SA07NT,SA07NU,SA07NV,SA07NX,SA07NY,SA07NZ 
+                                07N1, 07N2, 07N3, 07N4, 07N5  07N6, 07N7, 07N8   SA07N1, SA07N2, SA07N3 SA07N4 SA07N5  SA07N6 SA7N7 SA7N8 
+                                and 07N9 added                                   und SA7N9 hinzu
+             KMBI_E38[NNW85T]   -CBD KMBI_E38.C12[NNW85T] revised               -CBD KMBI_E38.C12[NNW85T] überarbeitet
+             SGET SGVT          -added SMCDS_LI.C06 [a] integrated              -neue CBD SMCDS_LI.C06 [a] integriert
+                                -added SMCDS_RE.C06 [a] integrated              -neue CBD SMCDS_RE.C06 [a] integriert
+                                -new CBD GT.C07 [a] integrated                  -neue CBD GT.C07 [a] integriert
+                                -Not availbale for E53 at this time             -noch nicht verfügbar für E53 zur Zeit (SMCDS,GT.C07)
+             SMCDS_LI[E4737U]   -new CBD SMCDS_LI.C06 [a] integrated            -neue CBD SMCDS_LI.C06 [a] integrated 
+             SMCDS_RE[E4737U]   -new CBD SMCDS_RE.C06 [a] integrated            -neue CBD SMCDS_RE.C06 [a] integriert
+                                -new FSW SENSOR_PWM_NEG, SENSOR_VALEO, KL_SENSOR_PWM_NULL_RE, PWM_VER_EINHEIT, STROM_RAMPE_KL, STROM_NORMAL_KL, 
+                                STROM_HALT_KL, WINKEL_ZUM_PWM, SW_DATEN_BL_1, SW_DATEN_BL_2, SW_DATEN_BL_3, SW_DATEN_BL_4, KL_SENSOR_PWM_NULL_LI
+             GT.C07[EEA96U]     -new CBD GT.C07 [a] integrated                  -neue CBD GT.C07 [a] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEG60.U ch        29.03.05  EE-42  Stefan Miehling/Diek
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CI
+             E53ZST             -new option 07CF, 07DA, 07DB added              -neue SA7CF,SA7DA,SA7DB hinzu
+             SGET SGVT          -new CBD ULF.C05[EEG59U] integrated             -neue CBD ULF.C05[EEG59U] integriert
+                                -SMCDS_LI.C06, SMCDS_RE.C06, GT.C07 available   -SMCDS_LI.C06  SMCDS_RE.C06 GT.C07 ab jetzt verfügbar
+             ULF.C05 [a]        -new CBD ULF.C05[EEG59U] integrated             -neue CBD ULF.C05[EEG59U] integriert
+                                -new FSW SYNCML_EIN_AUS, ATC_EIN_AUS
+             TCU_IBUS.C03[b]    -CBD TCU_IBUS.C03[EED57U] integrated            -TCU_IBUS.C03[EED57U] integriert
+                                 new FSW CALL_WAITING
+             RA_NG.C01[f]       -CBD RA_NG[EEB86U] revised                      -CBD RA_NG[EEB86U] überarbeitet
+                                -new FSW DSP_CDC_DIGITALLTG
+             ALC_KWP.C07(d)     -CBD ALC_KWP.C07[EEH81U] integrated             -CBD ALC_KWP.C07[EEH81U] integriert
+                                -new FSW ALC_DISABLE_AUSGL_NICK_GW
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEU82.U ci        08.04.05  EE-42  Stefan Miehling Freigabe HO-CD 42.0
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CJ
+             E53ZST             -new option 07DD, 07DE, 07DF 07NW               -neue SA7DD, SA7DE, SA7DF und SA7NW  
+                                 06AA 08AC added                                 SA6AA SA8AC hinzu
+             SGET SGVT          -new CBD SMCDS_LI.C07[EKM05U] integrated        -neue CBD SMCDS_LI.C07[EKM05U] integriert
+                                -new CBD SMCDS_RE.C07[EKM05U] integrated        -neue CBD SMCDS_RE.C07[EKM05U] integriert
+             E53CVT             -Individ function MDS_SHD revised               -Individ Funktionen MDS_SHD überarbeitet
+             MDS_SHD.C07[p]     -CBD MDS_SHD.C07[EER89.U] revised               -CBD MDS_SHD.C07[EER89U] überarbeitet
+             SMCDS_LI.C06[b]    -CBD SMCDS_LI.C06[EKM04U] revised               -CBD SMCDS_LI.C06[EKM04U] überarbeitet 
+             SMCDS_RE.C06[b]    -CBD SMCDS_RE.C06[EKM04U] revised               -CBD SMCDS_RE.C06[EKM04U] überarbeitet
+             SMCDS_LI.C07[a]    -new CBD SMCDS_LI.C07[EKM05U] integrated        -neue CBD SMCDS_LI.C07[EKM05U] integrated 
+             SMCDS_RE.C07[a]    -new CBD SMCDS_RE.C07[EKM05U] integrated        -neue CBD SMCDS_RE.C07[EKM05U] integriert
+             LWS5.C01[h]        -CBD LWS5.C01[EFZ82T] revised                   -CBD LWS5.C01[EFZ82T] überarbeitet
+             DXC8_E53.C04[b]    -CBD DXC8_E53.C04[E1913U] revised               -CBD DXC8_E53.C04[E1913U] überarbeitet
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CK
+             E53AEDOC.000       -Syntaxfehlerbehebung bei der EEU82.U zum 19.04.2005
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEY21.U cj        20.05.05  EE-42  Stefan Miehling / Diek
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CL
+             E53ZST             -new option 05DS, 0616 added                    -neue SA5DS, SA616 hinzu
+             KMBI_E38.C12[s]    -CBD KMBI_E38.C12[EEV90U] revised               -CBD KMBI_E38.C12[EEV90U] überarbeitet, (neue FSW TEL18H_SCHWELLE1, TEL18H_SCHWELLE2)
+             SMCDS_LI.C06[c]    -CBD SMCDS_LI.C06[EKX07U] revised               -CBD SMCDS_LI.C06[EKX07U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_RE.C06[c]    -CBD SMCDS_RE.C06[EKX07U] revised               -CBD SMCDS_RE.C06[EKX07U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_LI.C07[b]    -CBD SMCDS_LI.C07[EKX08U] revised               -CBD SMCDS_LI.C07[EKX08U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_RE.C07[b]    -CBD SMCDS_RE.C07[EKX08U] revised               -CBD SMCDS_RE.C07[EKX08U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_LI.C06[d]    -CBD SMCDS_LI.C06[EK045U] revised               -CBD SMCDS_LI.C06[EK045U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_RE.C06[d]    -CBD SMCDS_RE.C06[EK045U] revised               -CBD SMCDS_RE.C06[EK045U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_LI.C07[c]    -CBD SMCDS_LI.C07[EK016U] revised               -CBD SMCDS_LI.C07[EK016U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             SMCDS_RE.C07[c]    -CBD SMCDS_RE.C07[EK016U] revised               -CBD SMCDS_RE.C07[EK016U] überarbeitet, (neue FSW GESCHW_NOT_PROGR)
+             KMBI_E38.C12[t]    -CBD KMBI_E38.C12[EE239U] revised               -CBD KMBI_E38.C12[EE239U] überarbeitet, (RDC_neu: nicht_aktiv)
+             DXC8_E53.C04[c]    -CBD DXC8_E53.C04[EFC83U] revised               -CBD DXC8_E53.C04[EFC83U] überarbeitet, (Bool geaendert AUSSTATTUNG_RPA)
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EE862.U ck        14.06.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CM
+             E53ZST             -status report 05/05 revised                    -Statusreport 05/05 überarbeitet
+                                -new option 0664, 08S2 and 0200 added           -neue SA664, SA8S2 und SA200 hinzugefügt
+             SGET SGVT          -new CBD MRS4_16.C33[EE803U] integrated         -neue CBD MRS4_16.C33[EE803U]] integriert
+             MRS4_16.C33[a]     -new CBD MRS4_16.C33[EE803U] integriert         -neue CBD MRS4_16.C33[EE803U] integriert
+             MRS4_16.C33[b]     -CBD MRS4_16.C33[EGB64U] revised                -CBD MRS4_16.C33[EGB64U] überarbeitet
+             MRS4_16.C33[c]     -CBD MRS4_16.C33[EGE37U] revised                -CBD MRS4_16.C33[EGE37U] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGF60.U cl        05.07.05  EE-42  Stefan Miehling Freigabe HO-CD 43.0
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CN
+             E53ZST             -status report 06/05 revised                    -Statusreport 06/05 überarbeitet
+                                -new option 08S5 added                          -neue SA8S5 hinzugefügt
+             KMBI_E38.C12[u]    -CBD KMBI_E38.C12[EGJ37U] revised               -CBD KMBI_E38.C12[EGJ37U] überarbeitet
+             MDS_SHD.C07[r]     -CBD MDS_SHD.C07[EGK23U] revised                -CBD MDS_SHD.C07[EGK23U] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGM45.U cm        25.08.05  EE-42  Stefan Miehling / Diek
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CO
+             E53ZST             -new ASW SPORTSITZ for option 481 added           -neues ASW SPORTSITZ für SA481 hinzugefügt
+             SGET               -new device OC3 added                             -neues Steuergerät OC3-Matte hinzugefuegt
+             OC3.C01[a]         -new CBD OC3.C01[EGS81U] integrated, not for E53  -neue CBD OC3.C01[EGS81U] integriert, nicht freigeschaltet
+             OC3.C01[b]         -CBD OC3.C01[EGV12U] revised, not for E53         -CBD OC3.C01[EGV12U] überarbeitet, nicht freigeschaltet
+             TCU_IBUS.C05[c]    -CBD TCU_IBUS.C05[EGZ37.U] revised.               -CBD TCU_IBUS.C05[EGZ37.U] überarbeitet.
+             MDS_SHD.C07[t]     -CBD MDS_SHD.C07[EGX93.U] revised.                -CBD MDS_SHD.C07[EGX93.U] überarbeitet.
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGZ90.U cn        01.09.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CP
+             E53SGET            -IKE from #0905 for all US-Vehicle                 -IKE ab #0905 für alle US-Fahrzeuge
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EG493.U co        21.09.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CQ
+             E53ZST             -new option 07DG added                            -neue SA7DG hinzugefügt
+             CVT,SGET,SGVT      -CBD ULF.C06[EG450U] integrated                   -neue CBD ULF.C06[EG450U] integriert
+             CBD RA_NG.C01[h]   -CBD RA_NG.C01[EGW82U] revised                    -CBD RA_NG.C01[EGW82U] überarbeitet
+             CBD ULF.C06[a]     -CBD ULF.C06[EG450U] integrated                   -neue CBD ULF.C06[EG450U] integriert
+             CBD MDS_SHD.C07[u] -CBD MDS_SHD.C07[EG532U] revised                  -CBD MDS_SHD.C07[EG532U] überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+//*********************************************************************************
+//
+//  Aus TAIS-Systemtechnischengruenden (AI > 90) wird fuer ZB Codierdaten eine neue Sachnummer verwendet 9 113 834.5
+//                                                                                            Ersatz fuer 8 377 063.5
+//  A new part number for the coding datas: new: 9 113 834.5
+//                                          old: 8 377 063.5
+//
+//*********************************************************************************
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EG574.U a         10.10.05  EE-42  Stefan Miehling Freigabe HO-CD 44.0
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CR
+             E53ZST             -GVN line set to Maerz05                          -GVN Zeile auf MAERZ05 gesetzt
+                                -IKE for all FA13 Type added                      -IKE für alle FA13 Fzg-Typen zugesteuert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EG954.U b         04.11.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CS
+             E53ZCSUT           -recoding VN-Key MAERZ05 and SEPTEMBER05          -Umschlüsselung VN-Schlüssel MAERZ05 und SEPTEMBER05
+///////////////////////////////////////////////////////////////////////////////////
+NAEL ENJ72.U c         01.12.05  EE-42  Stefan Miehling
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CT
+             E53ZST             -GVN set on SEPTEMBER05                           -GVN-Zeile auf SEPTEMBER05 gesetzt
+                                 (Actual Basic-version code, GVN)
+                                -new option 07DH, 07RP and 08S6 added             -neue SA7DH, SA7RP und SA8S6 hinzugefügt
+             DXC8_E53.C04(d)    -CBD DXC8_E53.C04(EFZ64U) integrated              -CBD DXC8_E53.C04(EFZ64U) überarbeitet
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E3117.V d         30.01.06  EE-42  Konstantin Diek
+             ECCO               -ECCO ItemNr: 016571 Rev.Nr.: CU
+             CVT                - changed CBD TCU_IBUS.C02 [ENU93.U] integrated.
+                                - changed CBD TCU_IBUS.C03 [ENU93.U] integrated.
+                                - changed CBD TCU_IBUS.C04 [ENU93.U] integrated.
+                                - changed CBD TCU_IBUS.C05 [ENU93.U] integrated.
+                                - changed CBD RA_NG.C01 [E3486.V] integrated.
+                                - changed CBD SMCDS_LI/RE.C07 [EL944.U] integrated.
+             SGET               - new CBD TCU_IBUS.C06 and TCU_IBUS.C07 [E3154.V] integrated.
+                                - new CBD TV2.C03 [E3485.V] integrated.
+////////////////////////////////////   CIP 21.0   /////////////////////////////////
+NAEL E3735.V   e   21.02.06   EG-75   Diek (Di)
+//ECCO ItemNr:  016571      Rev.Nr.: CV
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+     03.02.06 DI                       LSMC   SMCDS_LI.C07 [E4422.V,  g]   - CBD revised
+     03.02.06 DI                       RSMC   SMCDS_RE.C07 [E4422.V,  g]   - CBD revised
+     08.02.06 DI                       SHD    MDS_SHD.C07  [E3532.V,  v]   - CBD revised
+
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EEB84.V   f   04.05.06   EG-75   Diek (Di)
+//ECCO ItemNr:  016571      Rev.Nr.: CW
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+     15.03.06 DI                       LSMC   SMCDS_LI.C07 [EKC38.V,  h]   - CBD revised
+     15.03.06 DI                       RSMC   SMCDS_RE.C07 [EKC38.V,  h]   - CBD revised
+     20.03.06 DI              HO       ZST                                 - new SA 7DK integrated.
+     28.03.06 DI              HO       PDC    PDC.C03      [EEM03.V, aa]   - CBD revised
+     30.03.06 DI                       SHD    MDS_SHD.C07  [EEE97.V,  w]   - CBD revised
+     18.04.06                 HO       SGET                                - new SGBD TELIBUS3 for TCU CI 07 integrated.
+     18.04.06 DI              HO       RAD    RA_NG.C01    [EET34.V,  j]   - CBD revised
+     24.04.06 DI                       SHD    MDS_SHD.C06  [EEV60.V,  o]   - CBD revised
+     24.04.06 DI                       SHD    MDS_SHD.C07  [EEV30.V,  x]   - CBD revised
+     25.04.06 DI                       TCU    TCU_IBUS.C07 [EEW10.V,  b]   - CBD revised
+     28.04.06 DI                       8BMOT  EK9282.C12   [SAF51.U,  f]   - CBD revised
+     28.04.06 DI              HO       ZST                                 - new time criterion #1006 integrated.
+                                                                           - new ASW CHINA integrated.
+                                                                           - new SA 7DL, 7DM, 7DN, 7DP integrated
+     03.05.06 DI                       VGSG   VGSG83.C05   [EAE60.V,  b]   - CBD revised
+
+////////////////////////////////////   CIP 22.0   /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+NAEL EGR39.V   g   01.08.06   EG-75   Diek (Di)
+//ECCO ItemNr:  016571      Rev.Nr.: CX
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+
+     08.05.06 DI                       GT     GT.C07       [EEZ45.V,  b]   - CBD revised
+     16.05.06 DI                       GT     ULF.C06      [EE106.V,  b]   - CBD revised, no change for E53.
+     24.05.06 DI              Statusbericht 05/2006 überprüft.
+     11.07.06 DI                       SM     SM_E53.C01   [EGE17.V,  b]   - CBD revised, no change for E53.
+     11.07.06 DI                       LSMC   SMCDS_LI.C07 [EK471.V,  i]   - CBD revised
+     12.07.06 DI                       RSMC   SMCDS_RE.C07 [EK471.V,  i]   - CBD revised
+     27.07.06 DI              HO       PDC    PDC.C03      [EGM62.V, ab]   - CBD revised, no change for E53.
+
+////////////////////////////////////   CIP 23.0   /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 016571cy cy   31.10.06   EE-42   Konstantin Diek Freigabe HO-CD 24.0
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     22.08.06 DI                       SHD    MDS_SHD.C07  [EGH01.V,  y]   - CBD revised
+     23.08.06 DI                       ULF    ULF.C06      [EGW68.V,  c]   - CBD revised, no change for E53.
+     15.09.06 Di                       GT     GT.C08       [EGU12.V,  a]   - new CI integrated. New CKM Function
+     04.10.06 DI                       TCU    TCU_IBUS.C07 [EG901.V,  c]   - CBD revised
+     17.10.06 DI                       TCU    TCU_IBUS.C07 [ENA47.V,  d]   - CBD revised
+     17.10.06 Di                       GT     GT.C08       [ENA51.V,  b]   - CBD revised
+     25.10.06 DI                       TCU    TCU_IBUS.C07 [ENG57.V,  e]   - CBD revised
+     30.10.06 DI                       ULF    ULF.C06      [ENH23.V,  d]   - CBD revised, no change for E53.
+////////////////////////////////////   CIP 24.0   /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 016571cz cz   05.02.07   EG-75   Konstantin Diek (Di)/Olivella-Stern (OS) Freigabe HO-CD 25.0
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  |  NAEL , AEI  | Kommentar
+     20.11.06 Di              HO       GT     GT.C08       [ENR72.V,  c]   - CBD revised
+     20.11.06 DI              HO       SHD    MDS_SHD.C07  [ENG73.V,  z]   - CBD revised
+     20.11.06 DI                       LSMC   SMCDS_LI.C07 [ELS01.V,  k]   - CBD revised
+     20.11.06 DI                       RSMC   SMCDS_RE.C07 [ELS01.V,  k]   - CBD revised
+     20.11.06 DI              HO       TV     TV2.C03      [E3485.V,  c]   - CBD revised
+     31.01.07 OS              HO       GM3    GM3.C10      [E3935.W,  p]   - QUIT_AKUST_DAUER_20_MS set activ
+     02.02.07 OS                       LCM    LCM.C24      [E3978.W,  d]   - no change for E53
+///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////   CIP 25.0   /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 016571da da   13.07.07   EG-75   Olivella-Stern (OS) Freigabe HO-CD 27.0
+//   Datum   |SB|I-Stufe EWE |HO-rel. |SGFAM|Datei-Name  | NAEL , AEI | Kommentar
+     09.02.07 OS                      ULF    ULF.C06      [EEB68.W, e] - no change for E53
+     07.05.07 OS                      RSMC   SMCDS_RE.C07 [EKR07.W, l] - no change for E53
+     07.05.07 OS                      LSMC   SMCDS_LI.C07 [EKR07.W, l] - no change for E53
+     15.05.07 OS                      TCU    TCU_IBUS.C07 [EE119.W, f] - no change for E53
+     21.06.07 OS                                                       - LCM CI 20-24 Bitmaske für GETRIEBE_UEBERTEMP korregiert
+     22.06.07 OS                      RSMC   SMCDS_RE.C07 [EK287.W, m] - no change for E53
+     22.06.07 OS                      LSMC   SMCDS_LI.C07 [EK287.W, m] - no change for E53
+     12.07.07 OS              HO      CVT                              - function STANDRUECKSCHALTUNG and WISCHERPOTI changed for security vehicles
+///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////   CIP 27.0   /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+
+

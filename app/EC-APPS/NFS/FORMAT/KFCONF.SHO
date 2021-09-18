@@ -1,0 +1,37 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer KFCONF.DME bzw. KFCONF.AGS
+; Autor: Stei
+; Datum: 06.04.93
+;        08.12.93 Stei Aenderung fuer KF 2.0: keine ' und , mehr
+;        07.12.94 Stei KF 5.0: PRGMODE aufgenommen
+;        15.01.96 Le   KF 8.0: Hardwarehistorie aufgenommen
+;        24.02.97 Le   KFP10.0: SGBEZ %XB -> %2S
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Hardwarenummerndateinamenzeile: HW  HWNR.DME -
+R "HW"
+M "HW "
+F "HW +%S +%S *"
+N "HWNAME,HWDIR"
+;
+; SG-Zeilen: 
+;   SG-Familiennummer
+;   |    SG-Bezeichner
+;   |    |       Programmiermodus
+;   |    |       |        Historiendateiname+Dir-Datei
+;   |    |       |        |              Zusammenbauvorschriftsnamen+Dir-Datei
+;   |    |       |        |              |              Datensatzkennung+Datensatzdirdatei
+;   |    |       |        |              |              |               Nachprogrammiervorschriftname+Dir-Datei
+;   |    |       |        |              |              |               |           Hardwarehistoriendateiname+Dir-Datei
+;   |    |       |        |              |              |               |           |
+;SG 02   M3_1    RB16K2   M3_1.HIS   -   M3_1.DAT   -   K  M3_1D.DIR    NPV.DAT -   -          -
+;SG 07   MD524   RBFLD2   MD524.HIS  -   MD524.DAT  -   B  MD524D.DIR   NPV.DAT -   MD524.HWH  -
+R "SG"
+M "SG "
+F "SG +%2S +%S +%S +%S +%S +%S +%S +%C +%S +%S +%S +%S +%S *"
+N "SGNR,SGBEZ,PRGMODE,HISNAME,HISDIR,ZUSBNAME,ZUSBDIR,DATKENN,DATDIR,NCHNAME,NCHDIR,HWHNAME,HWHDIR"
+;
+; ENDE

@@ -1,0 +1,96 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E53.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 13.10.1997 rd V0.01 Erstellung
+//* 15.09.1999 rd V1.00 MS 43.0 neu dazu
+//* 03.03.2000 rd V1.01 NAVMK2 durch NAVI ausgetauscht
+//* 14.04.2000 rd V1.02 Luftfederung ehc_2 nach ehc_2n
+//* 23.06.2000 rd V1.03 BM_WIDE hinzu
+//* 13.06.2001 rd V1.04 Regen- Lichtsensor dazu
+//* 20.09.2001 rd V1.05 CDC dazu
+//* 24.09.2002 rd V1.06 ALC neu dazu
+//* 11.02.2003 rd V1.07 DXC8 dazu
+//* 28.02.2003 rd V1.08 Facelift integriert
+//* 18.09.2003 rd V1.09 VGSG neu dazu
+//* 16.02.2004 rd V1.10 Umstellung auf 32-Bit INPA
+//* 26.08.2004 GA V1.11 E53.IPO dazu IDENT, FS-lesen, löschen quasi funktional
+//* 26.08.2004 GA V1.12 DDE6M57 dazu
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E53 V1.12
+ENTRY=     E53,IDENT / read-clear error/info memory E53,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   DDE40,DDE 4.0  for M57,
+ENTRY=  D50M57,DDE 5.0  for M57 new,
+ENTRY=  DDE6M57,DDE 6.0 for M57 TÜ,
+ENTRY=,,
+ENTRY=    ME72,ME  7.2  for M62 MJ 99,
+ENTRY= ME9_N62,ME  9.2  for N62,
+ENTRY=,,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx,
+ENTRY=    GS19,Gearbox Control Module GS19,
+ENTRY=  vgsg83,DXC Gearbox VGSG,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,DSC57,
+ENTRY=    dxc8,DXC8,
+ENTRY=     ehc,1-axle Air Suspension EHC
+ENTRY=  ehc_2n,2-axle Air Suspension EHC
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tyre pressure control,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+;ENTRY= fern_ss,Remote controls,
+ENTRY=klima_5B,Air conditioning,
+ENTRY=   kombi,Instrument cluster KOMBI / IKE,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=    sm53,Seat memory,
+ENTRY= shd_mds,Sunroof module,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke3,Central body electronics ZKE3,
+ENTRY=zuheizer,Additional heater diesel / Park heating,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bmbt46tn,On bord monitor Topnavigation,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY=    iris,Integrated Radio Information system IRIS,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=videomod,Video module,
+ENTRY=     zis,Multi functional display MID (ZIS),
+

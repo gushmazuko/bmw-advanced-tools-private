@@ -1,0 +1,1122 @@
+$FCI_HEAD;FCI;Version;3;11;0
+$FCI_COMMENT; Version 1.0/PM-Hist, 09.05.2007, EI-71/Ploner
+$FCI_PREC;910000;Interpretierter Fehler: SG antwortet nicht:;1000,coapiCodeChangedIndividPsw,3;;1000,coapiCodeSgByIndividFswPswList,8;1->1;2020,coapiCodeSgByFswPswList,5;1->2;2020,coapiRunCabd,6;;2020,CDHapiResultText,1;1->4,2->3
+$FCI_PREC;910001;Interpretierter Fehler: mehr als ein wahrer Auftragsausdruck vorhanden.;1000,coapiCodeSgByAswList,3;;1000,coapiGetFswPswFromAsw,2;;4506,GetCvtFile,10
+$FCI_PREC;910002;Interpretierter Fehler: Parameterschlüsselwort ungültig:;1000,coapiCodeSgByAswList,4;;1043,coapiCodeSgByFswPswList,5;1->1;1043,coapiRunCabd,6;;1043,CDHGetNettoDataFromCbd,1;1->2;4440,GetCbdFile,9;1->3
+$FCI_PREC;910003;Interpretierter Fehler: Fehler oder in SG-Beschreibungsdatei:;1000,coapiCodeSgByAswList,4;;2000,coapiCodeSgByFswPswList,5;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910004;Interpretierter Fehler: SG antwortet nicht:;1000,coapiCodeSgByAswList,4;;2020,coapiCodeSgByFswPswList,5;1->1;2020,coapiRunCabd,6;;2020,CDHapiResultText,1;1->2,2->1
+$FCI_PREC;910005;Interpretierter Fehler: SG antwortet nicht: ERROR_ECU_INCORRECT_LIN_LEN;1000,coapiCodeSgByAswList,4;;2020,coapiCodeSgByFswPswList,5;1->1;2020,coapiRunCabd,6;;2020,Ident,543
+$FCI_PREC;910006;Interpretierter Fehler: Falscher SG-Codierindex:;1000,coapiCodeSgByAswList,4;;2041,coapiCodeSgByFswPswList,5;1->1;2041,coapiRunCabd,6;;2041,CDHCheckIdent,3;1->2,2->3
+$FCI_PREC;910007;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,AeIndex,275;1->2
+$FCI_PREC;910008;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,Cod,364;1->2
+$FCI_PREC;910009;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,Cod,365;1->2
+$FCI_PREC;910010;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,Cod,502;1->2
+$FCI_PREC;910011;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,Fgnr,215;1->2
+$FCI_PREC;910012;Interpretierter Fehler: Fehler beim Codierdaten schreiben:;1000,coapiCodeSgByAswList,4;;2061,coapiCodeSgByFswPswList,5;1->1;2061,coapiRunCabd,6;;2061,SgReset,449;1->2
+$FCI_PREC;910013;Interpretierter Fehler: mehr als ein wahrer Auftragsausdruck vorhanden.;1000,coapiGetIndividFswPsw,2;;1000,coapiGetIndividFswPswFromCvt,3;;4506,GetCvtFile,10
+$FCI_PREC;910014;Interpretierter Fehler: Parameterschlüsselwort ungültig:;1000,coapiGetIndividFswPsw,7;;1043,coapiGetIndividFswPswFromCbd,2;1->1;4440,GetCbdFile,9;1->2
+$FCI_PREC;910015;Interpretierter Fehler: Fehler in EDIABAS:;1000,coapiGetIndividFswPswFromSg,4;1->1;2000,coapiReadNettoDataFromSg,9;1->2;2000,coapiRunCabd,6;1->3;2000,CDHapiResultText,1;1->5,2->4
+$FCI_PREC;910016;Interpretierter Fehler: SG antwortet nicht:;1000,coapiGetIndividFswPswFromSg,4;1->1;2020,coapiReadNettoDataFromSg,9;1->2;2020,coapiRunCabd,6;1->3;2020,CDHapiResultText,1;1->5,2->4
+$FCI_PREC;910017;Interpretierter Fehler: Falscher SG-Codierindex:;1000,coapiGetIndividFswPswFromSg,4;1->1;2041,coapiReadNettoDataFromSg,9;1->2;2041,coapiRunCabd,6;1->3;2041,CDHCheckIdent,3;1->5,2->4
+$FCI_PREC;910018;Interpretierter Fehler: Codierablaufbeschreibungsdatei nicht gefunden oder fehlerhaft:;1000,coapiKfGetEwsFgCheckCoded,1;;1000,coapiRunCabd,2;;1065,CDHIntSetScriptFile,2;1->1
+$FCI_PREC;910019;Interpretierter Fehler: gesuchte Nummer 0 in Datei nicht gefunden:;1000,coapiKfReadHwNrTabD2,1;;4001,datPrintSgMember,2;;4102,datGetSgMember,2;1->1,2->2
+$FCI_PREC;910020;Interpretierter Fehler: gesuchte Nummer in Datei nicht gefunden:;1000,coapiKfReadHwNrTabD2,1;;4001,datPrintSgMember,2;;4102,datGetSgMember,6;1->1,2->2
+$FCI_PREC;910021;Interpretierter Fehler: Codierablaufbeschreibungsdatei nicht gefunden oder fehlerhaft:;1000,coapiRunCabd,2;;1065,CDHIntSetScriptFile,2;1->1
+$FCI_PREC;910022;Interpretierter Fehler: String Syntax Error in zu konvertierender Datei:;1040,checkAndKonvertFile,1;;1040,ascii2Konv,1;;4206,AsciiToBin,1;1->1;4211,AsciiLineToBin,2
+$FCI_PREC;910023;Interpretierter Fehler: Parameterschlüsselwort ungültig:;1043,coapiReadCodierIndexFromSg,5;1->1;1043,coapiRunCabd,6;;1043,CDHGetNettoDataFromCbd,1;1->2;4440,GetCbdFile,8;1->3
+$FCI_PREC;910024;Interpretierter Fehler: Datei nicht gefunden:;1043,coapiReadFgNr,12;1->1;1043,coapiRunCabd,6;;1043,CDHGetNettoDataFromCbd,1;1->2;4432,GetCbdFile,1;1->3
+$FCI_PREC;910025;Interpretierter Fehler: Parameterschlüsselwort ungültig:;1043,coapiReadFgNr,12;1->1;1043,coapiRunCabd,6;;1043,CDHGetNettoDataFromCbd,1;1->2;4440,GetCbdFile,8;1->3
+$FCI_PREC;910026;Interpretierter Fehler: Das Steuergeraet ist nicht in der SG-Ermittlung enthalten:;1000,coapiReadCodierIndexFromSg,3;;1000,coapiSetSgName,1;;1100,CDHSetSgName,2;1->1
+$FCI_PREC;910027;Interpretierter Fehler: Programmierstatus fehlerhaft:;1060,coapiKfGetProgOrderBsuD2,2;;2080,coapiRunCabd,6;1->1;?,cabiexit;;2080,FlashStatusLesen;1->2
+$FCI_PREC;910028;Interpretierter Fehler: gesuchte Nummer in Datei nicht gefunden:;1062,coapiKfGetHwNrFromSgD2,6;;1000,coapiKfReadHwNrTabD2,1;;4001,datPrintSgMember,2;;4102,datGetSgMember,6;1->1,2->2
+$FCI_PREC;910029;Interpretierter Fehler: Fehler oder in SG-Beschreibungsdatei:;1080,coapiCodeSgByZcs,5;;1000,coapiCodeSgByAswList,4;;2000,coapiCodeSgByFswPswList,5;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910030;Interpretierter Fehler: Codierung fehlerhaft (allgemein):;1080,coapiCodeSgByZcs,5;;1000,coapiCodeSgByAswList,4;;2060,coapiCodeSgByFswPswList,5;1->1;2060,coapiRunCabd,6;;2060,Cod,95;1->2
+$FCI_PREC;910031;Interpretierter Fehler: Decode-Character ungültig:;1085,coapiSetFgNr,2;1->1;1000,coapiCalcM36CheckSum,2;1->2;4465,CalcMod36CheckSum,1;;4465,DecodeCharToBin,1
+$FCI_PREC;910032;Interpretierter Fehler: Decode-Character ungültig:;1085,coapiSetFgNr,5;;1000,coapiCalcM36CheckSum,2;1->1;4465,CalcMod36CheckSum,1;;4465,DecodeCharToBin,1
+$FCI_PREC;910033;Interpretierter Fehler: Timeout:;2000,coapiKfGetAifFromSgD2,2;;2000,coapiRunCabd,6;1->1;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910034;Interpretierter Fehler: Fehler in EDIABAS:;2000,coapiKfGetEws3SSAbgleich,6;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910035;Interpretierter Fehler: Fehler in EDIABAS:;2000,coapiKfProgSgD2,19;;2000,coapiRunCabd,6;1->1;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910036;Interpretierter Fehler: Fehler in EDIABAS:;2000,coapiReadAuftrag,4;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->2,2->1
+$FCI_PREC;910037;Interpretierter Fehler: Fehler in EDIABAS:;2000,coapiReadCodierIndexFromSg,5;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910038;Interpretierter Fehler: Fehler in SG-Beschreibungsdatei:;2000,coapiReadFgNr,12;1->1;2000,coapiRunCabd,6;;2000,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910039;Interpretierter Fehler: SG antwortet nicht: HW-Referenz lesen:;2020,coapiKfCheckReferenzD2,7;;2020,coapiRunCabd,6;;2020,CDHapiResultText,1;1->2,2->1
+$FCI_PREC;910040;Interpretierter Fehler: SG antwortet nicht: ZIF lesen:;2020,coapiKfCheckReferenzD2,8;;2020,coapiRunCabd,6;;2020,ZifLesen,1184;1->1
+$FCI_PREC;910041;Interpretierter Fehler: SG antwortet nicht:;2020,coapiKfGetHwNrFromSgD2,3;;2020,coapiRunCabd,6;1->1;2020,CDHapiResultText,1;1->3,2->2
+$FCI_PREC;910042;Interpretierter Fehler: gesuchte Nummer in Datei nicht gefunden:;3000,coapiKfCheckHwNrTempFileD2,3;;4102,datGetZbNrFromTmpFile,3;1->1,2->2
+$FCI_PREC;995009;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;?;;?;;?;;?;;?;;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995015;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;?;;?;;?;;?;;?;;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995021;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;?;;?;;?;;?;;?;;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995200;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000;;1000;;1000;;1000;;1000;;1000,coapiSetApplicationName
+$FCI_PREC;995206;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000;;1000;;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995212;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000;;1000;;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;991004;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2000,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991009;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2020,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991014;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2021,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991019;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2022,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;995008;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;?;;?;;?;;?;;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995014;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;?;;?;;?;;?;;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995020;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;?;;?;;?;;?;;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995051;Interpretierter Fehler: Get Version Number: kein Dateiname angegeben.;?;;?;;?;;?;;1040,getVersionNumberAa,1
+$FCI_PREC;995056;Interpretierter Fehler: Get Version Number: Punkt in Dateiname %s fehlt.;?;;?;;?;;?;;1040,getVersionNumberAa,2;1->1
+$FCI_PREC;995087;Interpretierter Fehler: Fehler beim Setzen der EDIABAS-Konfiguration für die SGClib.;?;;?;;?;;?;;2000,coapiEdiabasApiI
+$FCI_PREC;995103;Interpretierter Fehler: Read IniFile2: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiReadIniFile2;1->1
+$FCI_PREC;995158;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000;;1000;;1000,coapiTraceSystemData,1;1->1
+$FCI_PREC;995163;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000;;1000;;1000,coapiTraceSystemData,2;1->1
+$FCI_PREC;995168;Interpretierter Fehler: Trace SystemData: GetSystemData %s fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiTraceSystemData,4;1->1
+$FCI_PREC;995174;Interpretierter Fehler: Trace ASW: kein Pfad zum ASW-Trace File %s.;1000;;1000;;1000;;1000;;1000,coapiTraceAsw;1->1
+$FCI_PREC;995199;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000;;1000;;1000;;1000;;1000,coapiSetApplicationName
+$FCI_PREC;995205;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000;;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995211;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000;;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;995217;Interpretierter Fehler: Read SGET: ungültige Baureihe %s.;1000;;1000;;1000;;1000;;1000,coapiReadSget,1;1->1
+$FCI_PREC;995222;Interpretierter Fehler: Read SGET: CDHReadSget fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiReadSget,3
+$FCI_PREC;995290;Interpretierter Fehler: Set SgName: CDHsetSgName %s fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiSetSgName;1->1
+$FCI_PREC;995367;Interpretierter Fehler: Get SgFam Data: ungültige Baureihe %s.;1000;;1000;;1000;;1000;;1000,coapiGetSgFamData,1;1->1
+$FCI_PREC;995372;Interpretierter Fehler: Get SgFam Data: kein Eintrag gefunden für %s.;1000;;1000;;1000;;1000;;1000,coapiGetSgFamData,3;1->1
+$FCI_PREC;995490;Interpretierter Fehler: Run CABD: kein Job-Name oder CABD-Name angegeben.;1000;;1000;;1000;;1000;;1000,coapiRunCabd,1
+$FCI_PREC;995495;Interpretierter Fehler: Run CABD: CDHIntSetScriptFile %s fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiRunCabd,2;1->1
+$FCI_PREC;995500;Interpretierter Fehler: Run CABD: kein Pfad zu %s.;1000;;1000;;1000;;1000;;1000,coapiRunCabd,3;1->1
+$FCI_PREC;995505;Interpretierter Fehler: Run CABD: %s, CDHRunSetScriptFile fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiRunCabd,5;1->1
+$FCI_PREC;995516;Interpretierter Fehler: Get NettoData: Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,1
+$FCI_PREC;995521;Interpretierter Fehler: Get NettoData: CDHBinBufCreate fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,2
+$FCI_PREC;995526;Interpretierter Fehler: Get NettoData: CDHGetApiJobData fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,3
+$FCI_PREC;995531;Interpretierter Fehler: Get NettoData: CDHBinBufRead fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,4
+$FCI_PREC;995536;Interpretierter Fehler: Get NettoData: Wortbreite/Modus sind ungültig.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,5
+$FCI_PREC;995541;Interpretierter Fehler: Get NettoData: Byteordnung LSB/MSB undefiniert.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,6
+$FCI_PREC;995546;Interpretierter Fehler: Get NettoData: Adressierung Frei/Block undefiniert.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,7
+$FCI_PREC;995551;Interpretierter Fehler: Get NettoData: Datentyp Data/Mask undefiniert.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,8
+$FCI_PREC;995556;Interpretierter Fehler: Get NettoData: CDHBinBufDelete fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetNettoData,9
+$FCI_PREC;995561;Interpretierter Fehler: Get All SgetData: sgeGetAllSgetData fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetAllSgetData
+$FCI_PREC;995568;Interpretierter Fehler: Set Real CodierDatum: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiSetRealCodierDatum;1->1
+$FCI_PREC;995973;Interpretierter Fehler: coapiGetCabdPar: CDHGetCabdPar %s fehlgeschlagen.;1000;;1000;;1000;;1000;;1000,coapiGetCabdPar;1->1
+$FCI_PREC;991003;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2000,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991008;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2020,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991013;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2021,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991018;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000;;1000,coapiRunCabd;1->1;2022,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991026;Interpretierter Fehler: CABD-Ausführung: kann Interpreter-Logdatei %s nicht öffnen.;1000;;1000;;1000;;1000,coapiRunCabd;;1021;1->1
+$FCI_PREC;991030;Interpretierter Fehler: CABD-Ausführung: Interpreter-Fehler: %s.;1000;;1000;;1000;;1000,coapiRunCabd;;1060;1->1
+$FCI_PREC;991034;Interpretierter Fehler: CABD-Ausführung: CABD %s nicht gefunden.;1000;;1000;;1000;;1000,coapiRunCabd;;1065;1->1
+$FCI_PREC;995007;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;?;;?;;?;;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995013;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;?;;?;;?;;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995019;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;?;;?;;?;;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995035;Interpretierter Fehler: Fehler bei Konvertierung der Datei: %s.;?;;?;;?;;1040,checkAndKonvertFile;1->1;1040,ascii2Konv
+$FCI_PREC;995039;Interpretierter Fehler: Kann Datei %s nicht löschen.;?;;?;;?;;1040,DeleteAllTempKonvFiles;1->1
+$FCI_PREC;995043;Interpretierter Fehler: Read SWT: Fehler beim Einlesen der Variablenlisten-/Selectlisten-Datei: %s.;?;;?;;?;;1040,coapiReadSwtFiles;1->1
+$FCI_PREC;995050;Interpretierter Fehler: Get Version Number: kein Dateiname angegeben.;?;;?;;?;;1040,getVersionNumberAa,1
+$FCI_PREC;995055;Interpretierter Fehler: Get Version Number: Punkt in Dateiname %s fehlt.;?;;?;;?;;1040,getVersionNumberAa,2;1->1
+$FCI_PREC;995086;Interpretierter Fehler: Fehler beim Setzen der EDIABAS-Konfiguration für die SGClib.;?;;?;;?;;2000,coapiEdiabasApiI
+$FCI_PREC;995102;Interpretierter Fehler: Read IniFile2: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadIniFile2;1->1
+$FCI_PREC;995126;Interpretierter Fehler: Get Br From ZCS: SetBaureihe %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetBrFromZcs;1->1
+$FCI_PREC;995157;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000;;1000,coapiTraceSystemData,1;1->1
+$FCI_PREC;995162;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000;;1000,coapiTraceSystemData,2;1->1
+$FCI_PREC;995167;Interpretierter Fehler: Trace SystemData: GetSystemData %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiTraceSystemData,4;1->1
+$FCI_PREC;995173;Interpretierter Fehler: Trace ASW: kein Pfad zum ASW-Trace File %s.;1000;;1000;;1000;;1000,coapiTraceAsw;1->1
+$FCI_PREC;995186;Interpretierter Fehler: Trace FswPsw: kein Pfad zum FswPsw-Trace File %s.;1000;;1000;;1000;;1000,coapiTraceFswPsw;1->1
+$FCI_PREC;995198;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000;;1000;;1000;;1000,coapiSetApplicationName
+$FCI_PREC;995204;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995210;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000;;1000;;1000;;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;995216;Interpretierter Fehler: Read SGET: ungültige Baureihe %s.;1000;;1000;;1000;;1000,coapiReadSget,1;1->1
+$FCI_PREC;995221;Interpretierter Fehler: Read SGET: CDHReadSget fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadSget,3
+$FCI_PREC;995255;Interpretierter Fehler: Trace NettoData: GetNettoData fehlgeschlagen.;1000;;1000;;1000;;1000,coapiTraceNettoData,1
+$FCI_PREC;995259;Interpretierter Fehler: Trace NettoData: Keine Netto-Daten.;1000;;1000;;1000;;1000,coapiTraceNettoData,2
+$FCI_PREC;995263;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000;;1000,coapiTraceNettoData,3;1->1
+$FCI_PREC;995267;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000;;1000,coapiTraceNettoData,4;1->1
+$FCI_PREC;995271;Interpretierter Fehler: Trace NettoData: falsche Länge bei Maskenangabe.;1000;;1000;;1000;;1000,coapiTraceNettoData,7
+$FCI_PREC;995275;Interpretierter Fehler: Trace NettoData: Wortbreite ungleich 1,2,4.;1000;;1000;;1000;;1000,coapiTraceNettoData,8
+$FCI_PREC;995289;Interpretierter Fehler: Set SgName: CDHsetSgName %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiSetSgName;1->1
+$FCI_PREC;995303;Interpretierter Fehler: Test Trace: Typ nicht im Definitionsbereichs.;1000;;1000;;1000;;1000,coapiTestTrace
+$FCI_PREC;995366;Interpretierter Fehler: Get SgFam Data: ungültige Baureihe %s.;1000;;1000;;1000;;1000,coapiGetSgFamData,1;1->1
+$FCI_PREC;995371;Interpretierter Fehler: Get SgFam Data: kein Eintrag gefunden für %s.;1000;;1000;;1000;;1000,coapiGetSgFamData,3;1->1
+$FCI_PREC;995418;Interpretierter Fehler: Read CodierIndex From SG: kein SG-Name angegeben.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,1
+$FCI_PREC;995422;Interpretierter Fehler: Read CodierIndex From SG: ungültige Baureihe %s.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,2;1->1
+$FCI_PREC;995426;Interpretierter Fehler: Read CodierIndex From SG: %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,3;1->1
+$FCI_PREC;995430;Interpretierter Fehler: Read CodierIndex From SG: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,4;1->1
+$FCI_PREC;995434;Interpretierter Fehler: Read CodierIndex From SG: SetSgName %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,5;1->1
+$FCI_PREC;995438;Interpretierter Fehler: Read CodierIndex From SG: kein CABD-Parameter ist gesetzt.;1000;;1000;;1000;;1000,coapiReadCodierIndexFromSg,6;1->1
+$FCI_PREC;995451;Interpretierter Fehler: Trace Individ FswPsw: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000;;1000,coapiTraceIndividFswPsw
+$FCI_PREC;995489;Interpretierter Fehler: Run CABD: kein Job-Name oder CABD-Name angegeben.;1000;;1000;;1000;;1000,coapiRunCabd,1
+$FCI_PREC;995494;Interpretierter Fehler: Run CABD: CDHIntSetScriptFile %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiRunCabd,2;1->1
+$FCI_PREC;995499;Interpretierter Fehler: Run CABD: kein Pfad zu %s.;1000;;1000;;1000;;1000,coapiRunCabd,3;1->1
+$FCI_PREC;995504;Interpretierter Fehler: Run CABD: %s, CDHRunSetScriptFile fehlgeschlagen.;1000;;1000;;1000;;1000,coapiRunCabd,5;1->1
+$FCI_PREC;995515;Interpretierter Fehler: Get NettoData: Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000;;1000;;1000;;1000,coapiGetNettoData,1
+$FCI_PREC;995520;Interpretierter Fehler: Get NettoData: CDHBinBufCreate fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetNettoData,2
+$FCI_PREC;995525;Interpretierter Fehler: Get NettoData: CDHGetApiJobData fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetNettoData,3
+$FCI_PREC;995530;Interpretierter Fehler: Get NettoData: CDHBinBufRead fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetNettoData,4
+$FCI_PREC;995535;Interpretierter Fehler: Get NettoData: Wortbreite/Modus sind ungültig.;1000;;1000;;1000;;1000,coapiGetNettoData,5
+$FCI_PREC;995540;Interpretierter Fehler: Get NettoData: Byteordnung LSB/MSB undefiniert.;1000;;1000;;1000;;1000,coapiGetNettoData,6
+$FCI_PREC;995545;Interpretierter Fehler: Get NettoData: Adressierung Frei/Block undefiniert.;1000;;1000;;1000;;1000,coapiGetNettoData,7
+$FCI_PREC;995550;Interpretierter Fehler: Get NettoData: Datentyp Data/Mask undefiniert.;1000;;1000;;1000;;1000,coapiGetNettoData,8
+$FCI_PREC;995555;Interpretierter Fehler: Get NettoData: CDHBinBufDelete fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetNettoData,9
+$FCI_PREC;995560;Interpretierter Fehler: Get All SgetData: sgeGetAllSgetData fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetAllSgetData
+$FCI_PREC;995567;Interpretierter Fehler: Set Real CodierDatum: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000;;1000,coapiSetRealCodierDatum;1->1
+$FCI_PREC;995572;Interpretierter Fehler: Scan CBD In All SGETs: keine CBD angegeben.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,1
+$FCI_PREC;995576;Interpretierter Fehler: Scan CBD In All SGETs: Baureihe %s hat falsche Länge.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,2;1->1
+$FCI_PREC;995580;Interpretierter Fehler: Scan CBD In All SGETs: bestimmen der Baureihen aus COAPI.INI fehlgeschlagen.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,3
+$FCI_PREC;995584;Interpretierter Fehler: Scan CBD In All SGETs: Punkt im CBD-Namen %s fehlt.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,4;1->1
+$FCI_PREC;995588;Interpretierter Fehler: Scan CBD In All SGETs: ReadSget %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,5;1->1
+$FCI_PREC;995592;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetAllSgetData fehlgeschlagen.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,6;1->1
+$FCI_PREC;995596;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetBr fehlgeschlagen.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,7;1->1
+$FCI_PREC;995600;Interpretierter Fehler: Scan CBD In All SGETs: CBD %s nicht gefunden.;1000;;1000;;1000;;1000,coapiScanCbdInAllSgets,8;1->1
+$FCI_PREC;995639;Interpretierter Fehler: Read SWT Files: kein SWT-Index angegeben.;1000;;1000;;1000;;1000,coapiReadSwtFiles,1
+$FCI_PREC;995643;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000;;1000;;1000,coapiReadSwtFiles,5;1->1
+$FCI_PREC;995647;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000;;1000;;1000,coapiReadSwtFiles,7;1->1
+$FCI_PREC;995651;Interpretierter Fehler: Read SWT Files: SetRealCodierDatum fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadSwtFiles,12
+$FCI_PREC;995655;Interpretierter Fehler: Read SWT Files: ReadIniFile2 fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadSwtFiles,9
+$FCI_PREC;995659;Interpretierter Fehler: Read SWT Files: TraceSystemData fehlgeschlagen.;1000;;1000;;1000;;1000,coapiReadSwtFiles,10
+$FCI_PREC;995962;Interpretierter Fehler: Kf Read Kf Conf Tab D2: datGetSgZeileD2 fehlgeschlagen.;1000;;1000;;1000;;1000,coapiKfReadKfConfTabD2,2
+$FCI_PREC;995972;Interpretierter Fehler: coapiGetCabdPar: CDHGetCabdPar %s fehlgeschlagen.;1000;;1000;;1000;;1000,coapiGetCabdPar;1->1
+$FCI_PREC;991002;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000,coapiRunCabd;1->1;2000,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991007;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000,coapiRunCabd;1->1;2020,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991012;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000,coapiRunCabd;1->1;2021,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991017;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000;;1000,coapiRunCabd;1->1;2022,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991025;Interpretierter Fehler: CABD-Ausführung: kann Interpreter-Logdatei %s nicht öffnen.;1000;;1000;;1000,coapiRunCabd;;1021;1->1
+$FCI_PREC;991029;Interpretierter Fehler: CABD-Ausführung: Interpreter-Fehler: %s.;1000;;1000;;1000,coapiRunCabd;;1060;1->1
+$FCI_PREC;991033;Interpretierter Fehler: CABD-Ausführung: CABD %s nicht gefunden.;1000;;1000;;1000,coapiRunCabd;;1065;1->1
+$FCI_PREC;995006;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;?;;?;;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995012;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;?;;?;;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995018;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;?;;?;;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995034;Interpretierter Fehler: Fehler bei Konvertierung der Datei: %s.;?;;?;;1040,checkAndKonvertFile;1->1;1040,ascii2Konv
+$FCI_PREC;995038;Interpretierter Fehler: Kann Datei %s nicht löschen.;?;;?;;1040,DeleteAllTempKonvFiles;1->1
+$FCI_PREC;995042;Interpretierter Fehler: Read SWT: Fehler beim Einlesen der Variablenlisten-/Selectlisten-Datei: %s.;?;;?;;1040,coapiReadSwtFiles;1->1
+$FCI_PREC;995049;Interpretierter Fehler: Get Version Number: kein Dateiname angegeben.;?;;?;;1040,getVersionNumberAa,1
+$FCI_PREC;995054;Interpretierter Fehler: Get Version Number: Punkt in Dateiname %s fehlt.;?;;?;;1040,getVersionNumberAa,2;1->1
+$FCI_PREC;995062;Interpretierter Fehler: Check DeletePermissions: Kann KCONF-Datei nicht finden: %s.;?;;?;;1040,CheckDeletePermission;1->1
+$FCI_PREC;995085;Interpretierter Fehler: Fehler beim Setzen der EDIABAS-Konfiguration für die SGClib.;?;;?;;2000,coapiEdiabasApiI
+$FCI_PREC;995101;Interpretierter Fehler: Read IniFile2: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000,coapiReadIniFile2;1->1
+$FCI_PREC;995111;Interpretierter Fehler: FswPsw From ASW: ungültige Baureihe %s.;1000;;1000;;1000,coapiGetFswPswFromAsw,1;1->1
+$FCI_PREC;995114;Interpretierter Fehler: FswPsw From ASW: Fehler in Get FswPsw From CVT.;1000;;1000;;1000,coapiGetFswPswFromAsw,2
+$FCI_PREC;995125;Interpretierter Fehler: Get Br From ZCS: SetBaureihe %s fehlgeschlagen.;1000;;1000;;1000,coapiGetBrFromZcs;1->1
+$FCI_PREC;995156;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000,coapiTraceSystemData,1;1->1
+$FCI_PREC;995161;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000;;1000,coapiTraceSystemData,2;1->1
+$FCI_PREC;995166;Interpretierter Fehler: Trace SystemData: GetSystemData %s fehlgeschlagen.;1000;;1000;;1000,coapiTraceSystemData,4;1->1
+$FCI_PREC;995172;Interpretierter Fehler: Trace ASW: kein Pfad zum ASW-Trace File %s.;1000;;1000;;1000,coapiTraceAsw;1->1
+$FCI_PREC;995185;Interpretierter Fehler: Trace FswPsw: kein Pfad zum FswPsw-Trace File %s.;1000;;1000;;1000,coapiTraceFswPsw;1->1
+$FCI_PREC;995191;Interpretierter Fehler: Calc M36 CheckSum: keine Eingabe.;1000;;1000;;1000,coapiCalcM36CheckSum,1
+$FCI_PREC;995194;Interpretierter Fehler: Calc M36 CheckSum: Fehler bei Auswertung von %s.;1000;;1000;;1000,coapiCalcM36CheckSum,2;1->1
+$FCI_PREC;995197;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000;;1000;;1000,coapiSetApplicationName
+$FCI_PREC;995203;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000;;1000;;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995209;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000;;1000;;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;995215;Interpretierter Fehler: Read SGET: ungültige Baureihe %s.;1000;;1000;;1000,coapiReadSget,1;1->1
+$FCI_PREC;995220;Interpretierter Fehler: Read SGET: CDHReadSget fehlgeschlagen.;1000;;1000;;1000,coapiReadSget,3
+$FCI_PREC;995254;Interpretierter Fehler: Trace NettoData: GetNettoData fehlgeschlagen.;1000;;1000;;1000,coapiTraceNettoData,1
+$FCI_PREC;995258;Interpretierter Fehler: Trace NettoData: Keine Netto-Daten.;1000;;1000;;1000,coapiTraceNettoData,2
+$FCI_PREC;995262;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000,coapiTraceNettoData,3;1->1
+$FCI_PREC;995266;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000,coapiTraceNettoData,4;1->1
+$FCI_PREC;995270;Interpretierter Fehler: Trace NettoData: falsche Länge bei Maskenangabe.;1000;;1000;;1000,coapiTraceNettoData,7
+$FCI_PREC;995274;Interpretierter Fehler: Trace NettoData: Wortbreite ungleich 1,2,4.;1000;;1000;;1000,coapiTraceNettoData,8
+$FCI_PREC;995288;Interpretierter Fehler: Set SgName: CDHsetSgName %s fehlgeschlagen.;1000;;1000;;1000,coapiSetSgName;1->1
+$FCI_PREC;995293;Interpretierter Fehler: Set Trace: Typ nicht im Definitionsbereichs.;1000;;1000;;1000,coapiSetTrace
+$FCI_PREC;995296;Interpretierter Fehler: Get Trace: Typ nicht im Definitionsbereichs.;1000;;1000;;1000,coapiGetTrace,1
+$FCI_PREC;995299;Interpretierter Fehler: Get Trace: kein Pfad zum Trace File %s.;1000;;1000;;1000,coapiGetTrace,2;1->1
+$FCI_PREC;995302;Interpretierter Fehler: Test Trace: Typ nicht im Definitionsbereichs.;1000;;1000;;1000,coapiTestTrace
+$FCI_PREC;995320;Interpretierter Fehler: Read NettoData From SG: keine CBD angegeben.;1000;;1000;;1000,coapiReadNettoDataFromSg,1
+$FCI_PREC;995323;Interpretierter Fehler: Read NettoData From SG: Punkt im CBD-Namen %s fehlt.;1000;;1000;;1000,coapiReadNettoDataFromSg,3;1->1
+$FCI_PREC;995326;Interpretierter Fehler: Read NettoData From SG: Scan CBD %s In All SGETs fehlgeschlagen.;1000;;1000;;1000,coapiReadNettoDataFromSg,4;1->1
+$FCI_PREC;995329;Interpretierter Fehler: Read NettoData From SG: kein CABD-Namen gefunden: %s.;1000;;1000;;1000,coapiReadNettoDataFromSg,6;1->1
+$FCI_PREC;995332;Interpretierter Fehler: Read NettoData From SG: GetNettoMaskFromCbd fehlgeschlagen.;1000;;1000;;1000,coapiReadNettoDataFromSg,8
+$FCI_PREC;995335;Interpretierter Fehler: Read NettoData From SG: SetSgName %s fehlgeschlagen.;1000;;1000;;1000,coapiReadNettoDataFromSg,5
+$FCI_PREC;995347;Interpretierter Fehler: Get FswPsw From NettoData: keine CBD angegeben.;1000;;1000;;1000,coapiGetFswPswFromNettoData,1
+$FCI_PREC;995350;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000;;1000;;1000,coapiGetFswPswFromNettoData,2;1->1
+$FCI_PREC;995353;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000;;1000;;1000,coapiGetFswPswFromNettoData,3;1->1
+$FCI_PREC;995356;Interpretierter Fehler: Get FswPsw From NettoData: Fehler beim Einlesen der Nettocodierdaten: %s.;1000;;1000;;1000,coapiGetFswPswFromNettoData,4;1->1
+$FCI_PREC;995359;Interpretierter Fehler: Get FswPsw From NettoData: CDHGetFswPswFromNettoData fehlgeschlagen.;1000;;1000;;1000,coapiGetFswPswFromNettoData,5
+$FCI_PREC;995365;Interpretierter Fehler: Get SgFam Data: ungültige Baureihe %s.;1000;;1000;;1000,coapiGetSgFamData,1;1->1
+$FCI_PREC;995370;Interpretierter Fehler: Get SgFam Data: kein Eintrag gefunden für %s.;1000;;1000;;1000,coapiGetSgFamData,3;1->1
+$FCI_PREC;995380;Interpretierter Fehler: Code SG By FswPswList: kein SG-Name angegeben.;1000;;1000;;1000,coapiCodeSgByFswPswList,1
+$FCI_PREC;995383;Interpretierter Fehler: Code SG By FswPswList: keine Baureihe gefunden.;1000;;1000;;1000,coapiCodeSgByFswPswList,2
+$FCI_PREC;995386;Interpretierter Fehler: Code SG By FswPswList: TestSgInSget(%s) fehlgeschlagen.;1000;;1000;;1000,coapiCodeSgByFswPswList,3;1->1
+$FCI_PREC;995389;Interpretierter Fehler: Code SG By FswPswList: SetSgName %s fehlgeschlagen.;1000;;1000;;1000,coapiCodeSgByFswPswList,4;1->1
+$FCI_PREC;995414;Interpretierter Fehler: Get Vm SgName: keine Baureihe gefunden.;1000;;1000;;1000,coapiGetVmSgName;1->1
+$FCI_PREC;995417;Interpretierter Fehler: Read CodierIndex From SG: kein SG-Name angegeben.;1000;;1000;;1000,coapiReadCodierIndexFromSg,1
+$FCI_PREC;995421;Interpretierter Fehler: Read CodierIndex From SG: ungültige Baureihe %s.;1000;;1000;;1000,coapiReadCodierIndexFromSg,2;1->1
+$FCI_PREC;995425;Interpretierter Fehler: Read CodierIndex From SG: %s fehlgeschlagen.;1000;;1000;;1000,coapiReadCodierIndexFromSg,3;1->1
+$FCI_PREC;995429;Interpretierter Fehler: Read CodierIndex From SG: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000;;1000;;1000,coapiReadCodierIndexFromSg,4;1->1
+$FCI_PREC;995433;Interpretierter Fehler: Read CodierIndex From SG: SetSgName %s fehlgeschlagen.;1000;;1000;;1000,coapiReadCodierIndexFromSg,5;1->1
+$FCI_PREC;995437;Interpretierter Fehler: Read CodierIndex From SG: kein CABD-Parameter ist gesetzt.;1000;;1000;;1000,coapiReadCodierIndexFromSg,6;1->1
+$FCI_PREC;995441;Interpretierter Fehler: Validate Sw Str: kein Schlüsselwort angegeben.;1000;;1000;;1000,coapiValidateSwStr,1
+$FCI_PREC;995444;Interpretierter Fehler: Validate Sw Str: ungültiger Schlüsselwort-Typ.;1000;;1000;;1000,coapiValidateSwStr,2
+$FCI_PREC;995447;Interpretierter Fehler: Validate Sw Bin: ungültiger Schlüsselwort-Typ.;1000;;1000;;1000,coapiValidateSwBin
+$FCI_PREC;995450;Interpretierter Fehler: Trace Individ FswPsw: kein Pfad zur Trace-Datei %s.;1000;;1000;;1000,coapiTraceIndividFswPsw
+$FCI_PREC;995476;Interpretierter Fehler: Trace Ablauf: kein Pfad zur Ablauf-Trace-Datei %s.;1000;;1000;;1000,coapiTraceAblauf;1->1
+$FCI_PREC;995480;Interpretierter Fehler: Get SgetData: kein SG-Name angegeben.;1000;;1000;;1000,coapiGetSgetData,1
+$FCI_PREC;995483;Interpretierter Fehler: Get SgetData: sgeGetSgetData fehlgeschlagen.;1000;;1000;;1000,coapiGetSgetData,2
+$FCI_PREC;995488;Interpretierter Fehler: Run CABD: kein Job-Name oder CABD-Name angegeben.;1000;;1000;;1000,coapiRunCabd,1
+$FCI_PREC;995493;Interpretierter Fehler: Run CABD: CDHIntSetScriptFile %s fehlgeschlagen.;1000;;1000;;1000,coapiRunCabd,2;1->1
+$FCI_PREC;995498;Interpretierter Fehler: Run CABD: kein Pfad zu %s.;1000;;1000;;1000,coapiRunCabd,3;1->1
+$FCI_PREC;995503;Interpretierter Fehler: Run CABD: %s, CDHRunSetScriptFile fehlgeschlagen.;1000;;1000;;1000,coapiRunCabd,5;1->1
+$FCI_PREC;995514;Interpretierter Fehler: Get NettoData: Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000;;1000;;1000,coapiGetNettoData,1
+$FCI_PREC;995519;Interpretierter Fehler: Get NettoData: CDHBinBufCreate fehlgeschlagen.;1000;;1000;;1000,coapiGetNettoData,2
+$FCI_PREC;995524;Interpretierter Fehler: Get NettoData: CDHGetApiJobData fehlgeschlagen.;1000;;1000;;1000,coapiGetNettoData,3
+$FCI_PREC;995529;Interpretierter Fehler: Get NettoData: CDHBinBufRead fehlgeschlagen.;1000;;1000;;1000,coapiGetNettoData,4
+$FCI_PREC;995534;Interpretierter Fehler: Get NettoData: Wortbreite/Modus sind ungültig.;1000;;1000;;1000,coapiGetNettoData,5
+$FCI_PREC;995539;Interpretierter Fehler: Get NettoData: Byteordnung LSB/MSB undefiniert.;1000;;1000;;1000,coapiGetNettoData,6
+$FCI_PREC;995544;Interpretierter Fehler: Get NettoData: Adressierung Frei/Block undefiniert.;1000;;1000;;1000,coapiGetNettoData,7
+$FCI_PREC;995549;Interpretierter Fehler: Get NettoData: Datentyp Data/Mask undefiniert.;1000;;1000;;1000,coapiGetNettoData,8
+$FCI_PREC;995554;Interpretierter Fehler: Get NettoData: CDHBinBufDelete fehlgeschlagen.;1000;;1000;;1000,coapiGetNettoData,9
+$FCI_PREC;995559;Interpretierter Fehler: Get All SgetData: sgeGetAllSgetData fehlgeschlagen.;1000;;1000;;1000,coapiGetAllSgetData
+$FCI_PREC;995566;Interpretierter Fehler: Set Real CodierDatum: SetSystemData(%s) fehlgeschlagen.;1000;;1000;;1000,coapiSetRealCodierDatum;1->1
+$FCI_PREC;995571;Interpretierter Fehler: Scan CBD In All SGETs: keine CBD angegeben.;1000;;1000;;1000,coapiScanCbdInAllSgets,1
+$FCI_PREC;995575;Interpretierter Fehler: Scan CBD In All SGETs: Baureihe %s hat falsche Länge.;1000;;1000;;1000,coapiScanCbdInAllSgets,2;1->1
+$FCI_PREC;995579;Interpretierter Fehler: Scan CBD In All SGETs: bestimmen der Baureihen aus COAPI.INI fehlgeschlagen.;1000;;1000;;1000,coapiScanCbdInAllSgets,3
+$FCI_PREC;995583;Interpretierter Fehler: Scan CBD In All SGETs: Punkt im CBD-Namen %s fehlt.;1000;;1000;;1000,coapiScanCbdInAllSgets,4;1->1
+$FCI_PREC;995587;Interpretierter Fehler: Scan CBD In All SGETs: ReadSget %s fehlgeschlagen.;1000;;1000;;1000,coapiScanCbdInAllSgets,5;1->1
+$FCI_PREC;995591;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetAllSgetData fehlgeschlagen.;1000;;1000;;1000,coapiScanCbdInAllSgets,6;1->1
+$FCI_PREC;995595;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetBr fehlgeschlagen.;1000;;1000;;1000,coapiScanCbdInAllSgets,7;1->1
+$FCI_PREC;995599;Interpretierter Fehler: Scan CBD In All SGETs: CBD %s nicht gefunden.;1000;;1000;;1000,coapiScanCbdInAllSgets,8;1->1
+$FCI_PREC;995610;Interpretierter Fehler: Scan All SG: keine Baureihe gefunden.;1000;;1000;;1000,coapiScanAllSg,2
+$FCI_PREC;995613;Interpretierter Fehler: Scan All SG: SG-Ermittlung, ReadSget, fehlgeschlagen.;1000;;1000;;1000,coapiScanAllSg,3
+$FCI_PREC;995616;Interpretierter Fehler: Scan All SG: %s: kann SG-Name/Index nicht setzen.;1000;;1000;;1000,coapiScanAllSg,4;1->1
+$FCI_PREC;995619;Interpretierter Fehler: Scan All SG: SG-Bestimmung, GetSgetSg, fehlgeschlagen.;1000;;1000;;1000,coapiScanAllSg,5
+$FCI_PREC;995622;Interpretierter Fehler: Scan All SG: kann nicht gefundene SG nicht protokollieren.;1000;;1000;;1000,coapiScanAllSg,6
+$FCI_PREC;995627;Interpretierter Fehler: Get ASW From Auftrag: Fehler beim Anlegen des ASW-Liste-Traces.;1000;;1000;;1000,coapiGetAswFromAuftrag
+$FCI_PREC;995638;Interpretierter Fehler: Read SWT Files: kein SWT-Index angegeben.;1000;;1000;;1000,coapiReadSwtFiles,1
+$FCI_PREC;995642;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000;;1000,coapiReadSwtFiles,5;1->1
+$FCI_PREC;995646;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000;;1000,coapiReadSwtFiles,7;1->1
+$FCI_PREC;995650;Interpretierter Fehler: Read SWT Files: SetRealCodierDatum fehlgeschlagen.;1000;;1000;;1000,coapiReadSwtFiles,12
+$FCI_PREC;995654;Interpretierter Fehler: Read SWT Files: ReadIniFile2 fehlgeschlagen.;1000;;1000;;1000,coapiReadSwtFiles,9
+$FCI_PREC;995658;Interpretierter Fehler: Read SWT Files: TraceSystemData fehlgeschlagen.;1000;;1000;;1000,coapiReadSwtFiles,10
+$FCI_PREC;995776;Interpretierter Fehler: Get Individ FswPsw From Cvt: ungültige Baureihe %s.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,1;1->1
+$FCI_PREC;995779;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetFswPswFromCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,3
+$FCI_PREC;995782;Interpretierter Fehler: Get Individ FswPsw From Cvt: #4 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,4
+$FCI_PREC;995785;Interpretierter Fehler: Get Individ FswPsw From Cvt: #5 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,5
+$FCI_PREC;995788;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetParaSwFromArray fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,6
+$FCI_PREC;995791;Interpretierter Fehler: Get Individ FswPsw From Cvt: #7 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,7
+$FCI_PREC;995794;Interpretierter Fehler: Get Individ FswPsw From Cvt: PutPswToIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,8
+$FCI_PREC;995797;Interpretierter Fehler: Get Individ FswPsw From Cvt: #9 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,9
+$FCI_PREC;995800;Interpretierter Fehler: Get Individ FswPsw From Cvt: #10 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,10
+$FCI_PREC;995803;Interpretierter Fehler: Get Individ FswPsw From Cvt: #11 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,11
+$FCI_PREC;995806;Interpretierter Fehler: Get Individ FswPsw From Cvt: CopyToIndividTrace fehlgeschlagen.;1000;;1000;;1000,coapiGetIndividFswPswFromCvt,12
+$FCI_PREC;995837;Interpretierter Fehler: Reset Individ FswPsw Changes: PutPswToIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswChanges,2
+$FCI_PREC;995840;Interpretierter Fehler: Reset Individ FswPsw Changes: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswChanges,3
+$FCI_PREC;995843;Interpretierter Fehler: Reset Individ FswPsw Changes: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswChanges,4
+$FCI_PREC;995846;Interpretierter Fehler: Reset Individ FswPsw Changes: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswChanges,5
+$FCI_PREC;995897;Interpretierter Fehler: Reset Individ FswPsw Actual: PutPswToIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswActual,2
+$FCI_PREC;995900;Interpretierter Fehler: Reset Individ FswPsw Actual: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswActual,3
+$FCI_PREC;995903;Interpretierter Fehler: Reset Individ FswPsw Actual: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswActual,4
+$FCI_PREC;995906;Interpretierter Fehler: Reset Individ FswPsw Actual: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000;;1000,coapiResetIndividFswPswActual,5
+$FCI_PREC;995929;Interpretierter Fehler: Kf Read HwNrTab D2: Fehler.;1000;;1000;;1000,coapiKfReadHwNrTabD2
+$FCI_PREC;995961;Interpretierter Fehler: Kf Read Kf Conf Tab D2: datGetSgZeileD2 fehlgeschlagen.;1000;;1000;;1000,coapiKfReadKfConfTabD2,2
+$FCI_PREC;995971;Interpretierter Fehler: coapiGetCabdPar: CDHGetCabdPar %s fehlgeschlagen.;1000;;1000;;1000,coapiGetCabdPar;1->1
+$FCI_PREC;991001;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000,coapiRunCabd;1->1;2000,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991006;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000,coapiRunCabd;1->1;2020,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991011;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000,coapiRunCabd;1->1;2021,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991016;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000;;1000,coapiRunCabd;1->1;2022,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991022;Interpretierter Fehler: CABD-Ausführung: set JobName %s.;1000;;1000;;1063;;1063,coapiRunCabd;1->1;1002;;1002
+$FCI_PREC;991024;Interpretierter Fehler: CABD-Ausführung: kann Interpreter-Logdatei %s nicht öffnen.;1000;;1000,coapiRunCabd;;1021;1->1
+$FCI_PREC;991028;Interpretierter Fehler: CABD-Ausführung: Interpreter-Fehler: %s.;1000;;1000,coapiRunCabd;;1060;1->1
+$FCI_PREC;991032;Interpretierter Fehler: CABD-Ausführung: CABD %s nicht gefunden.;1000;;1000,coapiRunCabd;;1065;1->1
+$FCI_PREC;995005;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;?;;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995011;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;?;;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995017;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;?;;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995033;Interpretierter Fehler: Fehler bei Konvertierung der Datei: %s.;?;;1040,checkAndKonvertFile;1->1;1040,ascii2Konv
+$FCI_PREC;995037;Interpretierter Fehler: Kann Datei %s nicht löschen.;?;;1040,DeleteAllTempKonvFiles;1->1
+$FCI_PREC;995041;Interpretierter Fehler: Read SWT: Fehler beim Einlesen der Variablenlisten-/Selectlisten-Datei: %s.;?;;1040,coapiReadSwtFiles;1->1
+$FCI_PREC;995046;Interpretierter Fehler: Make Bin: Kann Datensatz nicht konvertieren: %s.;?;;1040,MakeBinFromDsFile;1->1
+$FCI_PREC;995048;Interpretierter Fehler: Get Version Number: kein Dateiname angegeben.;?;;1040,getVersionNumberAa,1
+$FCI_PREC;995053;Interpretierter Fehler: Get Version Number: Punkt in Dateiname %s fehlt.;?;;1040,getVersionNumberAa,2;1->1
+$FCI_PREC;995061;Interpretierter Fehler: Check DeletePermissions: Kann KCONF-Datei nicht finden: %s.;?;;1040,CheckDeletePermission;1->1
+$FCI_PREC;995064;Interpretierter Fehler: Empty Common File: Kann KCONF-Datei nicht finden: %s.;?;;1040,EmptyCommonFile;1->1
+$FCI_PREC;995066;Interpretierter Fehler: GetSgMember: ZBNummer nicht in den geladenen <SgFam>.DAT, oder eine <SgFam>.DAT ist fehlerhaft.;?;;3000,coapiKfGetSgMember,8
+$FCI_PREC;995068;Interpretierter Fehler: ReadZbNrTab: übergebene ZB-Nummer im konkreten WDP nicht gefunden.;?;;3000,coapiKfReadZbNrTabD2,2
+$FCI_PREC;995084;Interpretierter Fehler: Fehler beim Setzen der EDIABAS-Konfiguration für die SGClib.;?;;2000,coapiEdiabasApiI
+$FCI_PREC;995092;Interpretierter Fehler: Get EcuAddr From SgMember: Lesen des Address-Anteils nicht erfolgreich: %s.;?;;2000,coapiKfGetEcuAddrFromsgMember,3;1->1
+$FCI_PREC;995094;Interpretierter Fehler: Get EcuAddr From SgMember: %s.;?;;2000,coapiKfGetEcuAddrFromsgMember;1->1
+$FCI_PREC;995100;Interpretierter Fehler: Read IniFile2: SetSystemData(%s) fehlgeschlagen.;1000;;1000,coapiReadIniFile2;1->1
+$FCI_PREC;995108;Interpretierter Fehler: Fehler in Get ASW From ZST;1000;;1000,coapiGetAswFromZcs
+$FCI_PREC;995110;Interpretierter Fehler: FswPsw From ASW: ungültige Baureihe %s.;1000;;1000,coapiGetFswPswFromAsw,1;1->1
+$FCI_PREC;995113;Interpretierter Fehler: FswPsw From ASW: Fehler in Get FswPsw From CVT.;1000;;1000,coapiGetFswPswFromAsw,2
+$FCI_PREC;995124;Interpretierter Fehler: Get Br From ZCS: SetBaureihe %s fehlgeschlagen.;1000;;1000,coapiGetBrFromZcs;1->1
+$FCI_PREC;995149;Interpretierter Fehler: Read ZcsSg From Br: ungültige Baureihe %s.;1000;;1000,coapiReadZcsSgFromBr;1->1
+$FCI_PREC;995151;Interpretierter Fehler: Read All SG From Br: ungültige Baureihe %s.;1000;;1000,coapiReadAllSgFromBr;1->1
+$FCI_PREC;995155;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000,coapiTraceSystemData,1;1->1
+$FCI_PREC;995160;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000;;1000,coapiTraceSystemData,2;1->1
+$FCI_PREC;995165;Interpretierter Fehler: Trace SystemData: GetSystemData %s fehlgeschlagen.;1000;;1000,coapiTraceSystemData,4;1->1
+$FCI_PREC;995171;Interpretierter Fehler: Trace ASW: kein Pfad zum ASW-Trace File %s.;1000;;1000,coapiTraceAsw;1->1
+$FCI_PREC;995176;Interpretierter Fehler: Set FswPsw Ascii: kein FSW angegeben.;1000;;1000,coapiSetFswPswAscii,1
+$FCI_PREC;995178;Interpretierter Fehler: Set FswPsw Ascii: kein PSW angegeben.;1000;;1000,coapiSetFswPswAscii,2
+$FCI_PREC;995180;Interpretierter Fehler: Set FswPsw Ascii: Put FswPsw (%s) To Array fehlgeschlagen.;1000;;1000,coapiSetFswPswAscii,7;1->1
+$FCI_PREC;995182;Interpretierter Fehler: Set FswPsw Binary: Put FswPsw (%s) To Array fehlgeschlagen.;1000;;1000,coapiSetFswPswBinary;1->1
+$FCI_PREC;995184;Interpretierter Fehler: Trace FswPsw: kein Pfad zum FswPsw-Trace File %s.;1000;;1000,coapiTraceFswPsw;1->1
+$FCI_PREC;995188;Interpretierter Fehler: Trace FswMultiplePsw: kein Pfad zum FswPsw-Trace File %s.;1000;;1000,coapiTraceFswMultiplePsw;1->1
+$FCI_PREC;995190;Interpretierter Fehler: Calc M36 CheckSum: keine Eingabe.;1000;;1000,coapiCalcM36CheckSum,1
+$FCI_PREC;995193;Interpretierter Fehler: Calc M36 CheckSum: Fehler bei Auswertung von %s.;1000;;1000,coapiCalcM36CheckSum,2;1->1
+$FCI_PREC;995196;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000;;1000,coapiSetApplicationName
+$FCI_PREC;995202;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000;;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995208;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000;;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;995214;Interpretierter Fehler: Read SGET: ungültige Baureihe %s.;1000;;1000,coapiReadSget,1;1->1
+$FCI_PREC;995219;Interpretierter Fehler: Read SGET: CDHReadSget fehlgeschlagen.;1000;;1000,coapiReadSget,3
+$FCI_PREC;995227;Interpretierter Fehler: Read ZCS: kein SG-Name angegeben.;1000;;1000,coapiReadZcs,1
+$FCI_PREC;995229;Interpretierter Fehler: Read ZCS: ungültige Baureihe %s.;1000;;1000,coapiReadZcs,2;1->1
+$FCI_PREC;995231;Interpretierter Fehler: Read ZCS: Fehler bei Bestimmung der CABD zu %s.;1000;;1000,coapiReadZcs,3;1->1
+$FCI_PREC;995233;Interpretierter Fehler: Read ZCS: SetSgName oder GetCabdPar(GM_KEY) fehlgeschlagen: %s.;1000;;1000,coapiReadZcs,5;1->1
+$FCI_PREC;995235;Interpretierter Fehler: Read ZCS: GetCabdPar %s fehlgeschlagen.;1000;;1000,coapiReadZcs,6;1->1
+$FCI_PREC;995237;Interpretierter Fehler: Read ZCS: GetCabdPar %s fehlgeschlagen.;1000;;1000,coapiReadZcs,7;1->1
+$FCI_PREC;995253;Interpretierter Fehler: Trace NettoData: GetNettoData fehlgeschlagen.;1000;;1000,coapiTraceNettoData,1
+$FCI_PREC;995257;Interpretierter Fehler: Trace NettoData: Keine Netto-Daten.;1000;;1000,coapiTraceNettoData,2
+$FCI_PREC;995261;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000,coapiTraceNettoData,3;1->1
+$FCI_PREC;995265;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000;;1000,coapiTraceNettoData,4;1->1
+$FCI_PREC;995269;Interpretierter Fehler: Trace NettoData: falsche Länge bei Maskenangabe.;1000;;1000,coapiTraceNettoData,7
+$FCI_PREC;995273;Interpretierter Fehler: Trace NettoData: Wortbreite ungleich 1,2,4.;1000;;1000,coapiTraceNettoData,8
+$FCI_PREC;995277;Interpretierter Fehler: Filter SG: ungültige Baureihe %s.;1000;;1000,coapiFilterSg,1;1->1
+$FCI_PREC;995279;Interpretierter Fehler: Filter SG: kein Pfad zu %s.;1000;;1000,coapiFilterSg,2;1->1
+$FCI_PREC;995281;Interpretierter Fehler: Filter SG: Punkt im CBD-Namen %s fehlt.;1000;;1000,coapiFilterSg,4;1->1
+$FCI_PREC;995283;Interpretierter Fehler: Filter SG: Scan CBD %s In All SGETs fehlgeschlagen.;1000;;1000,coapiFilterSg,5;1->1
+$FCI_PREC;995285;Interpretierter Fehler: Filter SG: kein SG-Name zu % angegeben.;1000;;1000,coapiFilterSg,6;1->1
+$FCI_PREC;995287;Interpretierter Fehler: Set SgName: CDHsetSgName %s fehlgeschlagen.;1000;;1000,coapiSetSgName;1->1
+$FCI_PREC;995292;Interpretierter Fehler: Set Trace: Typ nicht im Definitionsbereichs.;1000;;1000,coapiSetTrace
+$FCI_PREC;995295;Interpretierter Fehler: Get Trace: Typ nicht im Definitionsbereichs.;1000;;1000,coapiGetTrace,1
+$FCI_PREC;995298;Interpretierter Fehler: Get Trace: kein Pfad zum Trace File %s.;1000;;1000,coapiGetTrace,2;1->1
+$FCI_PREC;995301;Interpretierter Fehler: Test Trace: Typ nicht im Definitionsbereichs.;1000;;1000,coapiTestTrace
+$FCI_PREC;995319;Interpretierter Fehler: Read NettoData From SG: keine CBD angegeben.;1000;;1000,coapiReadNettoDataFromSg,1
+$FCI_PREC;995322;Interpretierter Fehler: Read NettoData From SG: Punkt im CBD-Namen %s fehlt.;1000;;1000,coapiReadNettoDataFromSg,3;1->1
+$FCI_PREC;995325;Interpretierter Fehler: Read NettoData From SG: Scan CBD %s In All SGETs fehlgeschlagen.;1000;;1000,coapiReadNettoDataFromSg,4;1->1
+$FCI_PREC;995328;Interpretierter Fehler: Read NettoData From SG: kein CABD-Namen gefunden: %s.;1000;;1000,coapiReadNettoDataFromSg,6;1->1
+$FCI_PREC;995331;Interpretierter Fehler: Read NettoData From SG: GetNettoMaskFromCbd fehlgeschlagen.;1000;;1000,coapiReadNettoDataFromSg,8
+$FCI_PREC;995334;Interpretierter Fehler: Read NettoData From SG: SetSgName %s fehlgeschlagen.;1000;;1000,coapiReadNettoDataFromSg,5
+$FCI_PREC;995346;Interpretierter Fehler: Get FswPsw From NettoData: keine CBD angegeben.;1000;;1000,coapiGetFswPswFromNettoData,1
+$FCI_PREC;995349;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000;;1000,coapiGetFswPswFromNettoData,2;1->1
+$FCI_PREC;995352;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000;;1000,coapiGetFswPswFromNettoData,3;1->1
+$FCI_PREC;995355;Interpretierter Fehler: Get FswPsw From NettoData: Fehler beim Einlesen der Nettocodierdaten: %s.;1000;;1000,coapiGetFswPswFromNettoData,4;1->1
+$FCI_PREC;995358;Interpretierter Fehler: Get FswPsw From NettoData: CDHGetFswPswFromNettoData fehlgeschlagen.;1000;;1000,coapiGetFswPswFromNettoData,5
+$FCI_PREC;995364;Interpretierter Fehler: Get SgFam Data: ungültige Baureihe %s.;1000;;1000,coapiGetSgFamData,1;1->1
+$FCI_PREC;995369;Interpretierter Fehler: Get SgFam Data: kein Eintrag gefunden für %s.;1000;;1000,coapiGetSgFamData,3;1->1
+$FCI_PREC;995379;Interpretierter Fehler: Code SG By FswPswList: kein SG-Name angegeben.;1000;;1000,coapiCodeSgByFswPswList,1
+$FCI_PREC;995382;Interpretierter Fehler: Code SG By FswPswList: keine Baureihe gefunden.;1000;;1000,coapiCodeSgByFswPswList,2
+$FCI_PREC;995385;Interpretierter Fehler: Code SG By FswPswList: TestSgInSget(%s) fehlgeschlagen.;1000;;1000,coapiCodeSgByFswPswList,3;1->1
+$FCI_PREC;995388;Interpretierter Fehler: Code SG By FswPswList: SetSgName %s fehlgeschlagen.;1000;;1000,coapiCodeSgByFswPswList,4;1->1
+$FCI_PREC;995391;Interpretierter Fehler: Code SG By AswList: kein SG-Name angegeben.;1000;;1000,coapiCodeSgByAswList,1
+$FCI_PREC;995393;Interpretierter Fehler: Code SG By AswList: ungültige Baureihe %s.;1000;;1000,coapiCodeSgByAswList,2
+$FCI_PREC;995395;Interpretierter Fehler: Code SG By AswList: GetFswPswFromAsw fehlgeschlagen.;1000;;1000,coapiCodeSgByAswList,3
+$FCI_PREC;995397;Interpretierter Fehler: Code SG By AswList: CodeSgByFswPswList fehlgeschlagen.;1000;;1000,coapiCodeSgByAswList,4
+$FCI_PREC;995413;Interpretierter Fehler: Get Vm SgName: keine Baureihe gefunden.;1000;;1000,coapiGetVmSgName;1->1
+$FCI_PREC;995416;Interpretierter Fehler: Read CodierIndex From SG: kein SG-Name angegeben.;1000;;1000,coapiReadCodierIndexFromSg,1
+$FCI_PREC;995420;Interpretierter Fehler: Read CodierIndex From SG: ungültige Baureihe %s.;1000;;1000,coapiReadCodierIndexFromSg,2;1->1
+$FCI_PREC;995424;Interpretierter Fehler: Read CodierIndex From SG: %s fehlgeschlagen.;1000;;1000,coapiReadCodierIndexFromSg,3;1->1
+$FCI_PREC;995428;Interpretierter Fehler: Read CodierIndex From SG: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000;;1000,coapiReadCodierIndexFromSg,4;1->1
+$FCI_PREC;995432;Interpretierter Fehler: Read CodierIndex From SG: SetSgName %s fehlgeschlagen.;1000;;1000,coapiReadCodierIndexFromSg,5;1->1
+$FCI_PREC;995436;Interpretierter Fehler: Read CodierIndex From SG: kein CABD-Parameter ist gesetzt.;1000;;1000,coapiReadCodierIndexFromSg,6;1->1
+$FCI_PREC;995440;Interpretierter Fehler: Validate Sw Str: kein Schlüsselwort angegeben.;1000;;1000,coapiValidateSwStr,1
+$FCI_PREC;995443;Interpretierter Fehler: Validate Sw Str: ungültiger Schlüsselwort-Typ.;1000;;1000,coapiValidateSwStr,2
+$FCI_PREC;995446;Interpretierter Fehler: Validate Sw Bin: ungültiger Schlüsselwort-Typ.;1000;;1000,coapiValidateSwBin
+$FCI_PREC;995449;Interpretierter Fehler: Trace Individ FswPsw: kein Pfad zur Trace-Datei %s.;1000;;1000,coapiTraceIndividFswPsw
+$FCI_PREC;995453;Interpretierter Fehler: Read CodierIndex From SG Vm: kein SG-Name angegeben.;1000;;1000,coapiReadCodierIndexFromSgVm,1
+$FCI_PREC;995455;Interpretierter Fehler: Read CodierIndex From SG Vm: ungültige Baureihe %s.;1000;;1000,coapiReadCodierIndexFromSgVm,2;1->1
+$FCI_PREC;995457;Interpretierter Fehler: Read CodierIndex From SG Vm: %s fehlgeschlagen.;1000;;1000,coapiReadCodierIndexFromSgVm,3;1->1
+$FCI_PREC;995459;Interpretierter Fehler: Read CodierIndex From SG Vm: kein Pfad zu %s.;1000;;1000,coapiReadCodierIndexFromSgVm,4;1->1
+$FCI_PREC;995461;Interpretierter Fehler: Read CodierIndex From SG Vm: kein CABD-Parameter ist gesetzt.;1000;;1000,coapiReadCodierIndexFromSgVm,6;1->1
+$FCI_PREC;995471;Interpretierter Fehler: Set Baureihe: ungültige Baureihe %s.;1000;;1000,coapiSetBaureihe,1;1->1
+$FCI_PREC;995473;Interpretierter Fehler: Set Baureihe: CDHsetBaureihe %s fehlgeschlagen.;1000;;1000,coapiSetBaureihe,2;1->1
+$FCI_PREC;995475;Interpretierter Fehler: Trace Ablauf: kein Pfad zur Ablauf-Trace-Datei %s.;1000;;1000,coapiTraceAblauf;1->1
+$FCI_PREC;995479;Interpretierter Fehler: Get SgetData: kein SG-Name angegeben.;1000;;1000,coapiGetSgetData,1
+$FCI_PREC;995482;Interpretierter Fehler: Get SgetData: sgeGetSgetData fehlgeschlagen.;1000;;1000,coapiGetSgetData,2
+$FCI_PREC;995487;Interpretierter Fehler: Run CABD: kein Job-Name oder CABD-Name angegeben.;1000;;1000,coapiRunCabd,1
+$FCI_PREC;995492;Interpretierter Fehler: Run CABD: CDHIntSetScriptFile %s fehlgeschlagen.;1000;;1000,coapiRunCabd,2;1->1
+$FCI_PREC;995497;Interpretierter Fehler: Run CABD: kein Pfad zu %s.;1000;;1000,coapiRunCabd,3;1->1
+$FCI_PREC;995502;Interpretierter Fehler: Run CABD: %s, CDHRunSetScriptFile fehlgeschlagen.;1000;;1000,coapiRunCabd,5;1->1
+$FCI_PREC;995513;Interpretierter Fehler: Get NettoData: Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000;;1000,coapiGetNettoData,1
+$FCI_PREC;995518;Interpretierter Fehler: Get NettoData: CDHBinBufCreate fehlgeschlagen.;1000;;1000,coapiGetNettoData,2
+$FCI_PREC;995523;Interpretierter Fehler: Get NettoData: CDHGetApiJobData fehlgeschlagen.;1000;;1000,coapiGetNettoData,3
+$FCI_PREC;995528;Interpretierter Fehler: Get NettoData: CDHBinBufRead fehlgeschlagen.;1000;;1000,coapiGetNettoData,4
+$FCI_PREC;995533;Interpretierter Fehler: Get NettoData: Wortbreite/Modus sind ungültig.;1000;;1000,coapiGetNettoData,5
+$FCI_PREC;995538;Interpretierter Fehler: Get NettoData: Byteordnung LSB/MSB undefiniert.;1000;;1000,coapiGetNettoData,6
+$FCI_PREC;995543;Interpretierter Fehler: Get NettoData: Adressierung Frei/Block undefiniert.;1000;;1000,coapiGetNettoData,7
+$FCI_PREC;995548;Interpretierter Fehler: Get NettoData: Datentyp Data/Mask undefiniert.;1000;;1000,coapiGetNettoData,8
+$FCI_PREC;995553;Interpretierter Fehler: Get NettoData: CDHBinBufDelete fehlgeschlagen.;1000;;1000,coapiGetNettoData,9
+$FCI_PREC;995558;Interpretierter Fehler: Get All SgetData: sgeGetAllSgetData fehlgeschlagen.;1000;;1000,coapiGetAllSgetData
+$FCI_PREC;995565;Interpretierter Fehler: Set Real CodierDatum: SetSystemData(%s) fehlgeschlagen.;1000;;1000,coapiSetRealCodierDatum;1->1
+$FCI_PREC;995570;Interpretierter Fehler: Scan CBD In All SGETs: keine CBD angegeben.;1000;;1000,coapiScanCbdInAllSgets,1
+$FCI_PREC;995574;Interpretierter Fehler: Scan CBD In All SGETs: Baureihe %s hat falsche Länge.;1000;;1000,coapiScanCbdInAllSgets,2;1->1
+$FCI_PREC;995578;Interpretierter Fehler: Scan CBD In All SGETs: bestimmen der Baureihen aus COAPI.INI fehlgeschlagen.;1000;;1000,coapiScanCbdInAllSgets,3
+$FCI_PREC;995582;Interpretierter Fehler: Scan CBD In All SGETs: Punkt im CBD-Namen %s fehlt.;1000;;1000,coapiScanCbdInAllSgets,4;1->1
+$FCI_PREC;995586;Interpretierter Fehler: Scan CBD In All SGETs: ReadSget %s fehlgeschlagen.;1000;;1000,coapiScanCbdInAllSgets,5;1->1
+$FCI_PREC;995590;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetAllSgetData fehlgeschlagen.;1000;;1000,coapiScanCbdInAllSgets,6;1->1
+$FCI_PREC;995594;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetBr fehlgeschlagen.;1000;;1000,coapiScanCbdInAllSgets,7;1->1
+$FCI_PREC;995598;Interpretierter Fehler: Scan CBD In All SGETs: CBD %s nicht gefunden.;1000;;1000,coapiScanCbdInAllSgets,8;1->1
+$FCI_PREC;995603;Interpretierter Fehler: Get ASW From SGVT: %s: Ermittlung der Codierindices fehlgeschlagen.;1000;;1000,coapiGetAswFromSgvt,2;1->1
+$FCI_PREC;995605;Interpretierter Fehler: Get ASW From SGVT: Ermittlung der spezifischen ASW's fehlgeschlagen.;1000;;1000,coapiGetAswFromSgvt,3
+$FCI_PREC;995607;Interpretierter Fehler: Get ASW From SGVT: Fehler beim Anlegen des ASW-Liste-Traces.;1000;;1000,coapiGetAswFromSgvt,4;1->1
+$FCI_PREC;995609;Interpretierter Fehler: Scan All SG: keine Baureihe gefunden.;1000;;1000,coapiScanAllSg,2
+$FCI_PREC;995612;Interpretierter Fehler: Scan All SG: SG-Ermittlung, ReadSget, fehlgeschlagen.;1000;;1000,coapiScanAllSg,3
+$FCI_PREC;995615;Interpretierter Fehler: Scan All SG: %s: kann SG-Name/Index nicht setzen.;1000;;1000,coapiScanAllSg,4;1->1
+$FCI_PREC;995618;Interpretierter Fehler: Scan All SG: SG-Bestimmung, GetSgetSg, fehlgeschlagen.;1000;;1000,coapiScanAllSg,5
+$FCI_PREC;995621;Interpretierter Fehler: Scan All SG: kann nicht gefundene SG nicht protokollieren.;1000;;1000,coapiScanAllSg,6
+$FCI_PREC;995626;Interpretierter Fehler: Get ASW From Auftrag: Fehler beim Anlegen des ASW-Liste-Traces.;1000;;1000,coapiGetAswFromAuftrag
+$FCI_PREC;995629;Interpretierter Fehler: Scan All SG From Auftrag: GetAswFromAuftrag fehlgeschlagen.;1000;;1000,coapiScanAllSgFromAuftrag,1
+$FCI_PREC;995631;Interpretierter Fehler: Scan All SG From Auftrag: %s: Ermittlung der Codierindices fehlgeschlagen.;1000;;1000,coapiScanAllSgFromAuftrag,2;1->1
+$FCI_PREC;995637;Interpretierter Fehler: Read SWT Files: kein SWT-Index angegeben.;1000;;1000,coapiReadSwtFiles,1
+$FCI_PREC;995641;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000,coapiReadSwtFiles,5;1->1
+$FCI_PREC;995645;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000;;1000,coapiReadSwtFiles,7;1->1
+$FCI_PREC;995649;Interpretierter Fehler: Read SWT Files: SetRealCodierDatum fehlgeschlagen.;1000;;1000,coapiReadSwtFiles,12
+$FCI_PREC;995653;Interpretierter Fehler: Read SWT Files: ReadIniFile2 fehlgeschlagen.;1000;;1000,coapiReadSwtFiles,9
+$FCI_PREC;995657;Interpretierter Fehler: Read SWT Files: TraceSystemData fehlgeschlagen.;1000;;1000,coapiReadSwtFiles,10
+$FCI_PREC;995661;Interpretierter Fehler: Read Auftrag: kein SG-Name angegeben.;1000;;1000,coapiReadAuftrag,1
+$FCI_PREC;995663;Interpretierter Fehler: Read Auftrag: ungültige Baureihe %s.;1000;;1000,coapiReadAuftrag,2;1->1
+$FCI_PREC;995665;Interpretierter Fehler: Read Auftrag: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000;;1000,coapiReadAuftrag,3;1->1
+$FCI_PREC;995667;Interpretierter Fehler: Read Auftrag: RunCABD (%s) fehlgeschlagen.;1000;;1000,coapiReadAuftrag,4;1->1
+$FCI_PREC;995669;Interpretierter Fehler: Read Auftrag: GetCabdPar %s fehlgeschlagen.;1000;;1000,coapiReadAuftrag,5;1->1
+$FCI_PREC;995677;Interpretierter Fehler: Get Individ FswPsw: ungültige Baureihe %s.;1000;;1000,coapiGetIndividFswPsw,1;1->1
+$FCI_PREC;995679;Interpretierter Fehler: Get Individ FswPsw: GetIndividFswPswFromCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,2
+$FCI_PREC;995681;Interpretierter Fehler: Get Individ FswPsw: ReadSget fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,3
+$FCI_PREC;995683;Interpretierter Fehler: Get Individ FswPsw: SG-Bestimmung, GetSgetData %s fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,5;1->1
+$FCI_PREC;995685;Interpretierter Fehler: Get Individ FswPsw: keinen CBD-Namen oder -Extension gefunden.;1000;;1000,coapiGetIndividFswPsw,6
+$FCI_PREC;995687;Interpretierter Fehler: Get Individ FswPsw: %s: GetIndividFswPswFromCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,7;1->1
+$FCI_PREC;995689;Interpretierter Fehler: Get Individ FswPsw: #8 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,8
+$FCI_PREC;995691;Interpretierter Fehler: Get Individ FswPsw: #9 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,9
+$FCI_PREC;995693;Interpretierter Fehler: Get Individ FswPsw: #10 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,10
+$FCI_PREC;995695;Interpretierter Fehler: Get Individ FswPsw: #11 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,11
+$FCI_PREC;995697;Interpretierter Fehler: Get Individ FswPsw: #12 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,12
+$FCI_PREC;995699;Interpretierter Fehler: Get Individ FswPsw: #13 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,13
+$FCI_PREC;995701;Interpretierter Fehler: Get Individ FswPsw: #14 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,14
+$FCI_PREC;995703;Interpretierter Fehler: Get Individ FswPsw: #15 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,15
+$FCI_PREC;995705;Interpretierter Fehler: Get Individ FswPsw: #16 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,16
+$FCI_PREC;995707;Interpretierter Fehler: Get Individ FswPsw: #17 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,17
+$FCI_PREC;995709;Interpretierter Fehler: Get Individ FswPsw: #18 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,18
+$FCI_PREC;995711;Interpretierter Fehler: Get Individ FswPsw: #19 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,19
+$FCI_PREC;995713;Interpretierter Fehler: Get Individ FswPsw: InsertFswIxToIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,20
+$FCI_PREC;995715;Interpretierter Fehler: Get Individ FswPsw: #21 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,21
+$FCI_PREC;995717;Interpretierter Fehler: Get Individ FswPsw: #22 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,22
+$FCI_PREC;995719;Interpretierter Fehler: Get Individ FswPsw: #23 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,23
+$FCI_PREC;995721;Interpretierter Fehler: Get Individ FswPsw: #24 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,24
+$FCI_PREC;995723;Interpretierter Fehler: Get Individ FswPsw: #25 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,25
+$FCI_PREC;995725;Interpretierter Fehler: Get Individ FswPsw: #26 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,26
+$FCI_PREC;995727;Interpretierter Fehler: Get Individ FswPsw: #27 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,27
+$FCI_PREC;995729;Interpretierter Fehler: Get Individ FswPsw: #28 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,28
+$FCI_PREC;995731;Interpretierter Fehler: Get Individ FswPsw: #29 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,29
+$FCI_PREC;995733;Interpretierter Fehler: Get Individ FswPsw: #30 GetPswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,30
+$FCI_PREC;995735;Interpretierter Fehler: Get Individ FswPsw: PutPswToIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,31
+$FCI_PREC;995737;Interpretierter Fehler: Get Individ FswPsw: #32 GetPswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,32
+$FCI_PREC;995739;Interpretierter Fehler: Get Individ FswPsw: #33 GetPswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,33
+$FCI_PREC;995741;Interpretierter Fehler: Get Individ FswPsw: #34 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,34
+$FCI_PREC;995743;Interpretierter Fehler: Get Individ FswPsw: #35 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,35
+$FCI_PREC;995745;Interpretierter Fehler: Get Individ FswPsw: #36 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,36
+$FCI_PREC;995747;Interpretierter Fehler: Get Individ FswPsw: #37 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,37
+$FCI_PREC;995749;Interpretierter Fehler: Get Individ FswPsw: #38 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,38
+$FCI_PREC;995751;Interpretierter Fehler: Get Individ FswPsw: #39 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,39
+$FCI_PREC;995753;Interpretierter Fehler: Get Individ FswPsw: #40 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,40
+$FCI_PREC;995755;Interpretierter Fehler: Get Individ FswPsw: #41 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,41
+$FCI_PREC;995757;Interpretierter Fehler: Get Individ FswPsw: #42 GetPswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,42
+$FCI_PREC;995759;Interpretierter Fehler: Get Individ FswPsw: #43 GetPswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,43
+$FCI_PREC;995761;Interpretierter Fehler: Get Individ FswPsw: DeletePswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,44
+$FCI_PREC;995763;Interpretierter Fehler: Get Individ FswPsw: #45 GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,45
+$FCI_PREC;995765;Interpretierter Fehler: Get Individ FswPsw: #46 GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,46
+$FCI_PREC;995767;Interpretierter Fehler: Get Individ FswPsw: #47 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,47
+$FCI_PREC;995769;Interpretierter Fehler: Get Individ FswPsw: #48 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,48
+$FCI_PREC;995771;Interpretierter Fehler: Get Individ FswPsw: #49 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,49
+$FCI_PREC;995773;Interpretierter Fehler: Get Individ FswPsw: CopyToIndividTrace fehlgeschlagen.;1000;;1000,coapiGetIndividFswPsw,50
+$FCI_PREC;995775;Interpretierter Fehler: Get Individ FswPsw From Cvt: ungültige Baureihe %s.;1000;;1000,coapiGetIndividFswPswFromCvt,1;1->1
+$FCI_PREC;995778;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetFswPswFromCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,3
+$FCI_PREC;995781;Interpretierter Fehler: Get Individ FswPsw From Cvt: #4 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,4
+$FCI_PREC;995784;Interpretierter Fehler: Get Individ FswPsw From Cvt: #5 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,5
+$FCI_PREC;995787;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetParaSwFromArray fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,6
+$FCI_PREC;995790;Interpretierter Fehler: Get Individ FswPsw From Cvt: #7 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,7
+$FCI_PREC;995793;Interpretierter Fehler: Get Individ FswPsw From Cvt: PutPswToIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,8
+$FCI_PREC;995796;Interpretierter Fehler: Get Individ FswPsw From Cvt: #9 GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,9
+$FCI_PREC;995799;Interpretierter Fehler: Get Individ FswPsw From Cvt: #10 GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,10
+$FCI_PREC;995802;Interpretierter Fehler: Get Individ FswPsw From Cvt: #11 GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,11
+$FCI_PREC;995805;Interpretierter Fehler: Get Individ FswPsw From Cvt: CopyToIndividTrace fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromCvt,12
+$FCI_PREC;995808;Interpretierter Fehler: Get Individ FswPsw From Sg: keine Baureihe gefunden.;1000;;1000,coapiGetIndividFswPswFromSg,1
+$FCI_PREC;995810;Interpretierter Fehler: Get Individ FswPsw From Sg: ResetIndividFswPswChanges fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,2
+$FCI_PREC;995812;Interpretierter Fehler: Get Individ FswPsw From Sg: ResetIndividFswPswActual fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,3
+$FCI_PREC;995814;Interpretierter Fehler: Get Individ FswPsw From Sg: ReadNettoDataFromSg fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,4
+$FCI_PREC;995816;Interpretierter Fehler: Get Individ FswPsw From Sg: %s: GetFswPswFromNettoData fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,5;1->1
+$FCI_PREC;995818;Interpretierter Fehler: Get Individ FswPsw From Sg: InsertFswIxToIndividCvGetFswPswFromNettoDatat fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,6
+$FCI_PREC;995820;Interpretierter Fehler: Get Individ FswPsw From Sg: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,7
+$FCI_PREC;995822;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,8
+$FCI_PREC;995824;Interpretierter Fehler: Get Individ FswPsw From Sg: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,9
+$FCI_PREC;995826;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,10
+$FCI_PREC;995828;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswPswBinary fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,11
+$FCI_PREC;995830;Interpretierter Fehler: Get Individ FswPsw From Sg: CopyToIndividTrace fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswFromSg,12
+$FCI_PREC;995832;Interpretierter Fehler: Get Individ FswPsw List: #3 GetRefFromIndividTrace fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswList,3
+$FCI_PREC;995834;Interpretierter Fehler: Get Individ FswPsw List: #4 GetRefFromIndividTrace fehlgeschlagen.;1000;;1000,coapiGetIndividFswPswList,4
+$FCI_PREC;995836;Interpretierter Fehler: Reset Individ FswPsw Changes: PutPswToIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswChanges,2
+$FCI_PREC;995839;Interpretierter Fehler: Reset Individ FswPsw Changes: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswChanges,3
+$FCI_PREC;995842;Interpretierter Fehler: Reset Individ FswPsw Changes: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswChanges,4
+$FCI_PREC;995845;Interpretierter Fehler: Reset Individ FswPsw Changes: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswChanges,5
+$FCI_PREC;995859;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,4
+$FCI_PREC;995861;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCbd fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,5
+$FCI_PREC;995863;Interpretierter Fehler: Individ Sg Changed: GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,6
+$FCI_PREC;995865;Interpretierter Fehler: Individ Sg Changed: GetCbdFromIndividCbd fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,7
+$FCI_PREC;995867;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,8
+$FCI_PREC;995869;Interpretierter Fehler: Individ Sg Changed: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiIndividSgChanged,9
+$FCI_PREC;995873;Interpretierter Fehler: Code Sg By Individ FswPsw List: SG %s nicht individualiserbar.;1000;;1000,coapiCodeSgByIndividFswPswList,2;1->1
+$FCI_PREC;995875;Interpretierter Fehler: Code Sg By Individ FswPsw List: %s: GetFswPswFromCvt fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,3;1->1
+$FCI_PREC;995877;Interpretierter Fehler: Code Sg By Individ FswPsw List: PutFktParaSwToArray fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,4
+$FCI_PREC;995879;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,5
+$FCI_PREC;995881;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,6
+$FCI_PREC;995883;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,7
+$FCI_PREC;995885;Interpretierter Fehler: Code Sg By Individ FswPsw List: CodeSgByFswPswList %s fehlgeschlagen.;1000;;1000,coapiCodeSgByIndividFswPswList,8;1->1
+$FCI_PREC;995890;Interpretierter Fehler: Individ End: DeleteIndividCvt fehlgeschlagen.;1000;;1000,coapiIndividEnd,1
+$FCI_PREC;995892;Interpretierter Fehler: Individ End: DeleteIndividAllCbd fehlgeschlagen.;1000;;1000,coapiIndividEnd,2
+$FCI_PREC;995894;Interpretierter Fehler: Individ End: DeleteIndividTrace fehlgeschlagen.;1000;;1000,coapiIndividEnd,3
+$FCI_PREC;995896;Interpretierter Fehler: Reset Individ FswPsw Actual: PutPswToIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswActual,2
+$FCI_PREC;995899;Interpretierter Fehler: Reset Individ FswPsw Actual: GetPswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswActual,3
+$FCI_PREC;995902;Interpretierter Fehler: Reset Individ FswPsw Actual: GetFswFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswActual,4
+$FCI_PREC;995905;Interpretierter Fehler: Reset Individ FswPsw Actual: GetRefFromIndividCvt fehlgeschlagen.;1000;;1000,coapiResetIndividFswPswActual,5
+$FCI_PREC;995928;Interpretierter Fehler: Kf Read HwNrTab D2: Fehler.;1000;;1000,coapiKfReadHwNrTabD2
+$FCI_PREC;995931;Interpretierter Fehler: Kf Read ZbNrTab D2: datZbNrZeileErmittelnD2 fehlgeschlagen.;1000;;1000,coapiKfReadZbNrTabD2,3
+$FCI_PREC;995933;Interpretierter Fehler: Kf Read ZbNrTab D2: VersionsNr aus KFCONFxx.DAT ist (textuell) kleiner als VNr aus SG .DAT.;1000;;1000,coapiKfReadZbNrTabD2,5
+$FCI_PREC;995935;Interpretierter Fehler: Kf Set Global Pabd Sgbd EcuAddr: %s.;1000;;1000,coapiKfSetGlobalPabdSgbdEcuAddr,4;1->1
+$FCI_PREC;995938;Interpretierter Fehler: Kf Get New SgList D2: Liste bereits vollständig gelesen oder noch nicht mit einem Aufruf des ersten Elements initialisiert.;1000;;1000,coapiKfGetNewSgListD2,1
+$FCI_PREC;995940;Interpretierter Fehler: Kf Get New SgList D2: fehlendes HWH-Element: %s.;1000;;1000,coapiKfGetNewSgListD2,7;1->1
+$FCI_PREC;995942;Interpretierter Fehler: Kf Get New SgList D2: aktuelle HwNr ist grösser als gefundene.;1000;;1000,coapiKfGetNewSgListD2,8
+$FCI_PREC;995944;Interpretierter Fehler: Kf Get New SgList D2: Zusammenbau-Eintrag nicht gefunden.;1000;;1000,coapiKfGetNewSgListD2,9
+$FCI_PREC;995946;Interpretierter Fehler: Kf Get New SgList D2: KfReadHwNrTabD2 fehlgeschlagen.;1000;;1000,coapiKfGetNewSgListD2,10
+$FCI_PREC;995960;Interpretierter Fehler: Kf Read Kf Conf Tab D2: datGetSgZeileD2 fehlgeschlagen.;1000;;1000,coapiKfReadKfConfTabD2,2
+$FCI_PREC;995970;Interpretierter Fehler: coapiGetCabdPar: CDHGetCabdPar %s fehlgeschlagen.;1000;;1000,coapiGetCabdPar;1->1
+$FCI_PREC;995980;Interpretierter Fehler: Init: Fehler in CDHInit.;1000;;1000,coapiInit,1
+$FCI_PREC;995983;Interpretierter Fehler: Init: Fehler in CDHIntInit.;1000;;1000,coapiInit,3
+$FCI_PREC;995985;Interpretierter Fehler: Init: Fehler in Variablenliste.;1000;;1000,coapiInit,7
+$FCI_PREC;995987;Interpretierter Fehler: Init: Fehler in SelectFile Path.;1000;;1000,coapiInit,9
+$FCI_PREC;995989;Interpretierter Fehler: Init: Fehler in ReadIniFile1.;1000;;1000,coapiInit,11
+$FCI_PREC;995991;Interpretierter Fehler: Init: Fehler in SetRealCodierDatum.;1000;;1000,coapiInit,12
+$FCI_PREC;995993;Interpretierter Fehler: Init: Fehler in ReadIniFile2.;1000;;1000,coapiInit,13
+$FCI_PREC;995996;Interpretierter Fehler: KfInit: Fehler in CDHInit.;1000;;1000,coapiKfInit,29
+$FCI_PREC;995998;Interpretierter Fehler: KfInit: Fehler in CDHIntInit.;1000;;1000,coapiKfInit,30
+$FCI_PREC;996001;Interpretierter Fehler: Init: #8 Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiInit,8;1->1
+$FCI_PREC;996003;Interpretierter Fehler: Init: #10 Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiInit,10;1->1
+$FCI_PREC;996005;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,14;1->1
+$FCI_PREC;996007;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,15;1->1
+$FCI_PREC;996009;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,17;1->1
+$FCI_PREC;996011;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,18;1->1
+$FCI_PREC;996013;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,19;1->1
+$FCI_PREC;996015;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,21;1->1
+$FCI_PREC;996017;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,23;1->1
+$FCI_PREC;996019;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,24;1->1
+$FCI_PREC;996021;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,26;1->1
+$FCI_PREC;996023;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,28;1->1
+$FCI_PREC;996025;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;?;;1040,coapiKfInit,33;1->1
+$FCI_PREC;993000;Interpretierter Fehler: ReadZbNrTabD2:%s ZusbName %s, übergebene ZB-Nummer konnte im konkreten WDP nicht gefunden werden.;3000;;3000;;4102;1->1,2->2
+$FCI_PREC;993001;Interpretierter Fehler: GetSgMember: Angegebene ZB-Nummer kann in geladenen WDPs (<SgFam>.DAT) nicht gefunden werden.;3000;;3000
+$FCI_PREC;993002;Interpretierter Fehler: CheckHwNrTempFileD2: ZbNr %s, Fehler bei Zugriff auf temp. Datei %s.;3000;;4102;1->1,2->2
+$FCI_PREC;993003;Interpretierter Fehler: CheckHwNrTempFileD2: Fehler beim Zugriff auf temp. Datei.;3000;;?
+$FCI_PREC;992000;Interpretierter Fehler: KfAuthenticate: %s: %s;2000,coapiKfAuthenticate;1->1;2000;1->2;4001;;4001
+$FCI_PREC;992001;Interpretierter Fehler: KfAuthenticate: %s: %s;2000,coapiKfAuthenticate;1->1;2000;1->2;4000
+$FCI_PREC;992002;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteLesen;1->1;1000;1->2;2000;1->4,2->3;2000
+$FCI_PREC;992003;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteLesen;1->1;1000;1->2;2020;1->4,2->3;2000
+$FCI_PREC;992004;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteLesen;1->1;1000;1->2;2021;1->4,2->3;2000
+$FCI_PREC;992005;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteLesen;1->1;1000;1->2;2022;1->4,2->3;2000
+$FCI_PREC;992006;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteSchreiben;1->1;1000;1->2;2000;1->4,2->3;2000
+$FCI_PREC;992007;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteSchreiben;1->1;1000;1->2;2020;1->4,2->3;2000
+$FCI_PREC;992008;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteSchreiben;1->1;1000;1->2;2021;1->4,2->3;2000
+$FCI_PREC;992009;Interpretierter Fehler: DDeAbgleichwerte: %s: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;2000,coapikfDDeAbgleichwerteSchreiben;1->1;1000;1->2;2022;1->4,2->3;2000
+$FCI_PREC;992010;Interpretierter Fehler: DDe Abgleichwerte: %s: %s;2000,coapikfDDeAbgleichwerteLesen;1->1;1000;1->2
+$FCI_PREC;992011;Interpretierter Fehler: DDe Abgleichwerte: %s: %s;2000,coapikfDDeAbgleichwerteSchreiben;1->1;1000;1->2
+$FCI_PREC;991000;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000,coapiRunCabd;1->1;2000,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991005;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000,coapiRunCabd;1->1;2020,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991010;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000,coapiRunCabd;1->1;2021,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991015;Interpretierter Fehler: Job %s, EdiabasApi Initialisierungsfehler: SGBD %s, %s.;1000,coapiRunCabd;1->1;2022,ProcCDHApiInit;1->3,2->2;2000,coapiEdiabasApiInit
+$FCI_PREC;991020;Interpretierter Fehler: CABD-Ausführung: set JobName %s.;1000;;1063;;1063;;1063,coapiRunCabd;1->1;1002;;1002
+$FCI_PREC;991021;Interpretierter Fehler: CABD-Ausführung: set JobName %s.;1000;;1063;;1063,coapiRunCabd;1->1;1002;;1002
+$FCI_PREC;991023;Interpretierter Fehler: CABD-Ausführung: kann Interpreter-Logdatei %s nicht öffnen.;1000,coapiRunCabd;;1021;1->1
+$FCI_PREC;991027;Interpretierter Fehler: CABD-Ausführung: Interpreter-Fehler: %s.;1000,coapiRunCabd;;1060;1->1
+$FCI_PREC;991031;Interpretierter Fehler: CABD-Ausführung: CABD %s nicht gefunden.;1000,coapiRunCabd;;1065;1->1
+$FCI_PREC;995000;Interpretierter Fehler: Für Programmiertyp oder Programmierreihenfolge wurde der Wert 0 von der PABD zurückgeliefert.;1060,coapiKfGetProgOrderD2,2
+$FCI_PREC;995001;Interpretierter Fehler: %s: Von der PABD wurde 0 für die Zahl der freien AIF zurückgeliefert.;1060,coapiKfProgSgD2,4;1->1
+$FCI_PREC;995002;Interpretierter Fehler: Keine freien AIF.;1060,coapiKfProgSgDevelopWithAif,1
+$FCI_PREC;995003;Interpretierter Fehler: PABD meldet Fehler beim Lesen von AIF-Parametern.;?,coapiKfProgSgDevelopWithAif,2
+$FCI_PREC;995004;Interpretierter Fehler: IntTrigger: neues Script ausgewählt während Bearbeitung von: %s.;1060,CDHIntTrigger,1;1->1
+$FCI_PREC;995010;Interpretierter Fehler: IntTrigger: Fehler bei Scriptbearbeitung: %s.;1060,CDHIntTrigger,2;1->1
+$FCI_PREC;995016;Interpretierter Fehler: IntTrigger: unbekannter Fehler, Script: %s.;1060,CDHIntTrigger,3;1->1
+$FCI_PREC;995022;Interpretierter Fehler: Syntaxfehler in der Hardware-Nummer aus dem Steuergerät/ZIF.;1062,coapiKfGetHwNrFromSgD2,5
+$FCI_PREC;995023;Interpretierter Fehler: HwNr aus SG nicht in HwNr-Liste gefunden: error.log und EDIABAS Api-Trace untersuchen!;1062,coapiKfGetHwNrFromSgD2,6
+$FCI_PREC;995024;Interpretierter Fehler: Unbekannte Zeilenkennung: %s.;1040,coapiCompareNettoData;1->1
+$FCI_PREC;995025;Interpretierter Fehler: Get New SgD2: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfGetNewSgD2;1->1
+$FCI_PREC;995026;Interpretierter Fehler: Get ZusBauUpdateD2: Fehler bei Konvertierung der Datei: %s.;1040,PrepeareSGFam;1->1
+$FCI_PREC;995027;Interpretierter Fehler: Get ZusBauUpdateD2: Fehler bei Konvertierung der Datei: %s.;1040,DoesSuccessorSgFamExist;1->1
+$FCI_PREC;995028;Interpretierter Fehler: Prog SgD2: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfProgSgD2,16;1->1
+$FCI_PREC;995029;Interpretierter Fehler: Print new SgList: Kann Druckdatei nicht öffnen.;1040,coapiKfPrintNewSgList,1
+$FCI_PREC;995030;Interpretierter Fehler: Print ProgramLabel: Kann Druckdatei nicht öffnen.;1040,coapiKfPrintProgramLabel,3
+$FCI_PREC;995031;Interpretierter Fehler: Make All BinFiles: Fehler bei Datei-Verarbeitung.;1040,coapiKfMakeAllBinFiles,2
+$FCI_PREC;995032;Interpretierter Fehler: Fehler bei Konvertierung der Datei: %s.;1040,checkAndKonvertFile;1->1;1040,ascii2Konv
+$FCI_PREC;995036;Interpretierter Fehler: Kann Datei %s nicht löschen.;1040,DeleteAllTempKonvFiles;1->1
+$FCI_PREC;995040;Interpretierter Fehler: Read SWT: Fehler beim Einlesen der Variablenlisten-/Selectlisten-Datei: %s.;1040,coapiReadSwtFiles;1->1
+$FCI_PREC;995044;Interpretierter Fehler: KfKonv2Ascii: Kann Datei nicht konvertieren.;1040,coapiKfKonv2Ascii;1->1
+$FCI_PREC;995045;Interpretierter Fehler: Make Bin: Kann Datensatz nicht konvertieren: %s.;1040,MakeBinFromDsFile;1->1
+$FCI_PREC;995047;Interpretierter Fehler: Get Version Number: kein Dateiname angegeben.;1040,getVersionNumberAa,1
+$FCI_PREC;995052;Interpretierter Fehler: Get Version Number: Punkt in Dateiname %s fehlt.;1040,getVersionNumberAa,2;1->1
+$FCI_PREC;995057;Interpretierter Fehler: Get PS10 Init: Kann konvertierte Datei nicht öffnen.;1040,coapiKfGetPS10Init,3
+$FCI_PREC;995058;Interpretierter Fehler: Read Varianten: Kann konvertierte Datei nicht öffnen.;1040,coapiKfReadVariantenFromDatFile,3
+$FCI_PREC;995059;Interpretierter Fehler: Get Interface: Kann konvertierte Datei nicht öffnen.;1040,coapiKfGetInterface,3;1->1
+$FCI_PREC;995060;Interpretierter Fehler: Check DeletePermissions: Kann KCONF-Datei nicht finden: %s.;1040,CheckDeletePermission;1->1
+$FCI_PREC;995063;Interpretierter Fehler: Empty Common File: Kann KCONF-Datei nicht finden: %s.;1040,EmptyCommonFile;1->1
+$FCI_PREC;995065;Interpretierter Fehler: GetSgMember: ZBNummer nicht in den geladenen <SgFam>.DAT, oder eine <SgFam>.DAT ist fehlerhaft.;3000,coapiKfGetSgMember,8
+$FCI_PREC;995067;Interpretierter Fehler: ReadZbNrTab: übergebene ZB-Nummer im konkreten WDP nicht gefunden.;3000,coapiKfReadZbNrTabD2,2
+$FCI_PREC;995069;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;2000,coapikfDDeAbgleichwerteLesen,1;1->1
+$FCI_PREC;995070;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;2000,coapikfDDeAbgleichwerteLesen,2;1->1
+$FCI_PREC;995071;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;2000,coapikfDDeAbgleichwerteLesen,3;1->1
+$FCI_PREC;995072;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;2000,coapikfDDeAbgleichwerteLesen,4;1->1
+$FCI_PREC;995073;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;?,coapikfDDeAbgleichwerteLesen,7;1->1
+$FCI_PREC;995074;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;2000,coapikfDDeAbgleichwerteLesen,8;1->1
+$FCI_PREC;995075;Interpretierter Fehler: DDeAbgleichwerte Lesen: %s.;?,coapikfDDeAbgleichwerteLesen,8;1->1
+$FCI_PREC;995076;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,1;1->1
+$FCI_PREC;995077;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,2;1->1
+$FCI_PREC;995078;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,3;1->1
+$FCI_PREC;995079;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,5;1->1
+$FCI_PREC;995080;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,6;1->1
+$FCI_PREC;995081;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,7;1->1
+$FCI_PREC;995082;Interpretierter Fehler: DDeAbgleichwerte Schreiben: %s.;2000,coapikfDDeAbgleichwerteSchreiben,8;1->1
+$FCI_PREC;995083;Interpretierter Fehler: Fehler beim Setzen der EDIABAS-Konfiguration für die SGClib.;2000,coapiEdiabasApiI
+$FCI_PREC;995088;Interpretierter Fehler: Stop TesterPresent: IF-Typ abfragen: %s.;2000,coapiKfStopTesterPresent,1;1->1
+$FCI_PREC;995089;Interpretierter Fehler: Stop TesterPresent: kein IF-Typ: %s.;2000,coapiKfStopTesterPresent,2;1->1
+$FCI_PREC;995090;Interpretierter Fehler: Stop TesterPresent: Stop Communication: %s.;2000,coapiKfStopTesterPresent,3;1->1
+$FCI_PREC;995091;Interpretierter Fehler: Get EcuAddr From SgMember: Lesen des Address-Anteils nicht erfolgreich: %s.;2000,coapiKfGetEcuAddrFromsgMember,3;1->1
+$FCI_PREC;995093;Interpretierter Fehler: Get EcuAddr From SgMember: %s.;2000,coapiKfGetEcuAddrFromsgMember;1->1
+$FCI_PREC;995095;Interpretierter Fehler: CDHapiJobData: Fehler beim Zusammensetzen des Dateipfades: %s.;*;;1000,CDHapiJobData,1;1->1
+$FCI_PREC;995096;Interpretierter Fehler: CDHapiJobData: Fehler beim Zusammensetzen des Dateipfades: %s.;*;;1000,CDHapiJobData,1;1->1;?
+$FCI_PREC;995097;Interpretierter Fehler: CDHapiJobData: Kann Datei %s nicht öffnen.;*;;1000,CDHapiJobData,2;1->1
+$FCI_PREC;995098;Interpretierter Fehler: CDHapiJobData: Kann Datei %s nicht öffnen.;*;;1000,CDHapiJobData,2;1->1;?
+$FCI_PREC;995099;Interpretierter Fehler: Read IniFile2: SetSystemData(%s) fehlgeschlagen.;1000,coapiReadIniFile2;1->1
+$FCI_PREC;995104;Interpretierter Fehler: Change ZCS: keine Baureihe gefunden.;1000,coapiChangeZcs,4
+$FCI_PREC;995105;Interpretierter Fehler: Change ZCS: HW-Nr,SW-Nr,VersNr,CodierIndex gleich 0.;1000,coapiChangeZcs,6
+$FCI_PREC;995106;Interpretierter Fehler: Change ZCS: Fehler beim Lesen der ZCS-Umrechnungstabelle.;1000,coapiChangeZcs,7
+$FCI_PREC;995107;Interpretierter Fehler: Fehler in Get ASW From ZST;1000,coapiGetAswFromZcs
+$FCI_PREC;995109;Interpretierter Fehler: FswPsw From ASW: ungültige Baureihe %s.;1000,coapiGetFswPswFromAsw,1;1->1
+$FCI_PREC;995112;Interpretierter Fehler: FswPsw From ASW: Fehler in Get FswPsw From CVT.;1000,coapiGetFswPswFromAsw,2
+$FCI_PREC;995115;Interpretierter Fehler: Code SG By NettoData: keine CBD angegeben.;1000,coapiCodeSgByNettoData,1
+$FCI_PREC;995116;Interpretierter Fehler: Code SG By NettoData: Fehler bei Bestimmung der CABD zu %s.;1000,coapiCodeSgByNettoData,3;1->1
+$FCI_PREC;995117;Interpretierter Fehler: Code SG By NettoData: keine CABD oder SGBD zu %s.;1000,coapiCodeSgByNettoData,4;1->1
+$FCI_PREC;995118;Interpretierter Fehler: Code SG By NettoData: SetSgName %s fehlgeschlagen.;1000,coapiCodeSgByNettoData,5;1->1
+$FCI_PREC;995119;Interpretierter Fehler: Code SG By NettoData Direct: %s: keine CABD oder SGBD.;1000,coapiCodeSgByNettoDataDirect,1;1->1
+$FCI_PREC;995120;Interpretierter Fehler: Read NettoData: kein Dateiname angegeben.;1000,coapiReadNettoData,1
+$FCI_PREC;995121;Interpretierter Fehler: Read NettoData: kein Pfad zu %s.;1000,coapiReadNettoData,2;1->1
+$FCI_PREC;995122;Interpretierter Fehler: Read NettoData: kann %s nicht lesen.;1000,coapiReadNettoData,3;1->1
+$FCI_PREC;995123;Interpretierter Fehler: Get Br From ZCS: SetBaureihe %s fehlgeschlagen.;1000,coapiGetBrFromZcs;1->1
+$FCI_PREC;995127;Interpretierter Fehler: Change FswPsw: kein Pfad zu %s.;1000,coapiChangeFswPsw;1->1
+$FCI_PREC;995128;Interpretierter Fehler: Get NettoData From CBD: keine CBD angegeben.;1000,coapiGetNettoDataFromCbd
+$FCI_PREC;995129;Interpretierter Fehler: Compare FswMultiPsw: mind. ein FswPsw-Dateiname nicht angegeben.;1000,coapiCompareFswMultiPsw,1
+$FCI_PREC;995130;Interpretierter Fehler: Compare FswMultiPsw: kein Pfad zu FswPsw-Datei %s.;1000,coapiCompareFswMultiPsw,2;1->1
+$FCI_PREC;995131;Interpretierter Fehler: Compare FswMultiPsw: kein Pfad zu FswPsw-Datei %s.;1000,coapiCompareFswMultiPsw,3;1->1
+$FCI_PREC;995132;Interpretierter Fehler: Compare FswMultiPsw: kein Pfad zu Dif-Datei %s aus COAPI.INI.;1000,coapiCompareFswMultiPsw,4;1->1
+$FCI_PREC;995133;Interpretierter Fehler: Compare FswMultiPsw: kein Pfad zu Dif-Datei %s.;1000,coapiCompareFswMultiPsw,5;1->1
+$FCI_PREC;995134;Interpretierter Fehler: Compare FswMultiPsw: fehlerhafte Grenzen des FSW-Arrays.;1000,coapiCompareFswMultiPsw,12
+$FCI_PREC;995135;Interpretierter Fehler: Compare FswMultiPsw: fehlerhafte Grenzen des PSW-Arrays.;1000,coapiCompareFswMultiPsw,13
+$FCI_PREC;995136;Interpretierter Fehler: Compare FswMultiPsw: fehlerhafte Grenzen des PSW-Arrays.;1000,coapiCompareFswMultiPsw,15
+$FCI_PREC;995137;Interpretierter Fehler: Compare FswMultiPsw: fehlerhafte Grenzen des PSW-Arrays.;1000,coapiCompareFswMultiPsw,16
+$FCI_PREC;995138;Interpretierter Fehler: Compare FswMultiPsw: PSW-Arrays sind nicht leer.;1000,coapiCompareFswMultiPsw,17
+$FCI_PREC;995139;Interpretierter Fehler: Compare ASW: mind. ein ASW-Dateiname nicht angegeben.;1000,coapiCompareAsw,1
+$FCI_PREC;995140;Interpretierter Fehler: Compare ASW: kein Pfad zu ASW-Datei %s.;1000,coapiCompareAsw,2;1->1
+$FCI_PREC;995141;Interpretierter Fehler: Compare ASW: kein Pfad zu ASW-Datei %s.;1000,coapiCompareAsw,3;1->1
+$FCI_PREC;995142;Interpretierter Fehler: Compare ASW: kein Pfad zu Dif-Datei %s aus COAPI.INI.;1000,coapiCompareAsw,4;1->1
+$FCI_PREC;995143;Interpretierter Fehler: Compare ASW: kein Pfad zu Dif-Datei %s.;1000,coapiCompareAsw,5;1->1
+$FCI_PREC;995144;Interpretierter Fehler: Read SG From Br: ungültige Baureihe %s.;1000,coapiReadSgFromBr,1;1->1
+$FCI_PREC;995145;Interpretierter Fehler: Read SG From Br: ReadSget fehlgeschlagen.;1000,coapiReadSgFromBr,2
+$FCI_PREC;995146;Interpretierter Fehler: Read SG From Br: Fehler in GetAllSgetData.;1000,coapiReadSgFromBr,3
+$FCI_PREC;995147;Interpretierter Fehler: Read SG From Br: inkonsistente Anzahl der SG-Codierindex-Kombinationen.;1000,coapiReadSgFromBr,4
+$FCI_PREC;995148;Interpretierter Fehler: Read ZcsSg From Br: ungültige Baureihe %s.;1000,coapiReadZcsSgFromBr;1->1
+$FCI_PREC;995150;Interpretierter Fehler: Read All SG From Br: ungültige Baureihe %s.;1000,coapiReadAllSgFromBr;1->1
+$FCI_PREC;995152;Interpretierter Fehler: Set System Data: SetVariable (%s) fehlgeschlagen.;*;;1000,coapiSetSystemData;1->1
+$FCI_PREC;995153;Interpretierter Fehler: Get System Data: GetVariable (%s) fehlgeschlagen.;*;;1000,coapiGetSystemData;1->1
+$FCI_PREC;995154;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000,coapiTraceSystemData,1;1->1
+$FCI_PREC;995159;Interpretierter Fehler: Trace SystemData: kein Pfad zu %s.;1000,coapiTraceSystemData,2;1->1
+$FCI_PREC;995164;Interpretierter Fehler: Trace SystemData: GetSystemData %s fehlgeschlagen.;1000,coapiTraceSystemData,4;1->1
+$FCI_PREC;995169;Interpretierter Fehler: Set ASW Ascii: kein ASW angegeben.;1000,coapiSetAswAscii
+$FCI_PREC;995170;Interpretierter Fehler: Trace ASW: kein Pfad zum ASW-Trace File %s.;1000,coapiTraceAsw;1->1
+$FCI_PREC;995175;Interpretierter Fehler: Set FswPsw Ascii: kein FSW angegeben.;1000,coapiSetFswPswAscii,1
+$FCI_PREC;995177;Interpretierter Fehler: Set FswPsw Ascii: kein PSW angegeben.;1000,coapiSetFswPswAscii,2
+$FCI_PREC;995179;Interpretierter Fehler: Set FswPsw Ascii: Put FswPsw (%s) To Array fehlgeschlagen.;1000,coapiSetFswPswAscii,7;1->1
+$FCI_PREC;995181;Interpretierter Fehler: Set FswPsw Binary: Put FswPsw (%s) To Array fehlgeschlagen.;1000,coapiSetFswPswBinary;1->1
+$FCI_PREC;995183;Interpretierter Fehler: Trace FswPsw: kein Pfad zum FswPsw-Trace File %s.;1000,coapiTraceFswPsw;1->1
+$FCI_PREC;995187;Interpretierter Fehler: Trace FswMultiplePsw: kein Pfad zum FswPsw-Trace File %s.;1000,coapiTraceFswMultiplePsw;1->1
+$FCI_PREC;995189;Interpretierter Fehler: Calc M36 CheckSum: keine Eingabe.;1000,coapiCalcM36CheckSum,1
+$FCI_PREC;995192;Interpretierter Fehler: Calc M36 CheckSum: Fehler bei Auswertung von %s.;1000,coapiCalcM36CheckSum,2;1->1
+$FCI_PREC;995195;Interpretierter Fehler: Set ApplicationName: kein App.-Name angegeben.;1000,coapiSetApplicationName
+$FCI_PREC;995201;Interpretierter Fehler: Get AbsPath Info: kein Dateiname angegeben.;1000,coapiGetAbsPathInfo,1
+$FCI_PREC;995207;Interpretierter Fehler: Get AbsPath Info: kein Environmentstring angegeben.;1000,coapiGetAbsPathInfo,2
+$FCI_PREC;995213;Interpretierter Fehler: Read SGET: ungültige Baureihe %s.;1000,coapiReadSget,1;1->1
+$FCI_PREC;995218;Interpretierter Fehler: Read SGET: CDHReadSget fehlgeschlagen.;1000,coapiReadSget,3
+$FCI_PREC;995223;Interpretierter Fehler: Read ASW: kein ASW-Dateiname angegeben.;1000,coapiReadAsw,1
+$FCI_PREC;995224;Interpretierter Fehler: Read ASW: kein Pfad zu ASW-Datei %s.;1000,coapiReadAsw,2;1->1
+$FCI_PREC;995225;Interpretierter Fehler: Read ASW: Fehler beim Lesen der ASW-Datei %s.;1000,coapiReadAsw,3;1->1
+$FCI_PREC;995226;Interpretierter Fehler: Read ZCS: kein SG-Name angegeben.;1000,coapiReadZcs,1
+$FCI_PREC;995228;Interpretierter Fehler: Read ZCS: ungültige Baureihe %s.;1000,coapiReadZcs,2;1->1
+$FCI_PREC;995230;Interpretierter Fehler: Read ZCS: Fehler bei Bestimmung der CABD zu %s.;1000,coapiReadZcs,3;1->1
+$FCI_PREC;995232;Interpretierter Fehler: Read ZCS: SetSgName oder GetCabdPar(GM_KEY) fehlgeschlagen: %s.;1000,coapiReadZcs,5;1->1
+$FCI_PREC;995234;Interpretierter Fehler: Read ZCS: GetCabdPar %s fehlgeschlagen.;1000,coapiReadZcs,6;1->1
+$FCI_PREC;995236;Interpretierter Fehler: Read ZCS: GetCabdPar %s fehlgeschlagen.;1000,coapiReadZcs,7;1->1
+$FCI_PREC;995238;Interpretierter Fehler: Read FgNr: kein SG-Name angegeben.;1000,coapiReadFgNr,1
+$FCI_PREC;995239;Interpretierter Fehler: Read FgNr: ungültige Baureihe %s.;1000,coapiReadFgNr,2;1->1
+$FCI_PREC;995240;Interpretierter Fehler: Read FgNr: ReadZcsFromBr %s fehlgeschlagen.;1000,coapiReadFgNr,3;1->1
+$FCI_PREC;995241;Interpretierter Fehler: Read FgNr: GetZcsFromBr %s fehlgeschlagen.;1000,coapiReadFgNr,4;1->1
+$FCI_PREC;995242;Interpretierter Fehler: Read FgNr: GetFaSgFromBr %s fehlgeschlagen.;1000,coapiReadFgNr,5;1->1
+$FCI_PREC;995243;Interpretierter Fehler: Read FgNr: GetAswFromZcs fehlgeschlagen.;1000,coapiReadFgNr,6
+$FCI_PREC;995244;Interpretierter Fehler: Read FgNr: SetAuftrag fehlgeschlagen.;1000,coapiReadFgNr,7
+$FCI_PREC;995245;Interpretierter Fehler: Read FgNr: GetAswFromAuftrag fehlgeschlagen.;1000,coapiReadFgNr,8
+$FCI_PREC;995246;Interpretierter Fehler: Read FgNr: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000,coapiReadFgNr,10;1->1
+$FCI_PREC;995247;Interpretierter Fehler: Read FgNr: SetSgName %s fehlgeschlagen.;1000,coapiReadFgNr,11;1->1
+$FCI_PREC;995248;Interpretierter Fehler: Read FgNr: GetCabdPar %s fehlgeschlagen.;1000,coapiReadFgNr,13;1->1
+$FCI_PREC;995249;Interpretierter Fehler: Read FswPsw: kein FswPsw-Dateiname angegeben.;1000,coapiReadFswPsw,1
+$FCI_PREC;995250;Interpretierter Fehler: Read FswPsw: kein Pfad zu FswPsw-Datei %s.;1000,coapiReadFswPsw,2;1->1
+$FCI_PREC;995251;Interpretierter Fehler: Read FswPsw: Fehler beim Lesen der FswPsw-Datei %s.;1000,coapiReadFswPsw,3;1->1
+$FCI_PREC;995252;Interpretierter Fehler: Trace NettoData: GetNettoData fehlgeschlagen.;1000,coapiTraceNettoData,1
+$FCI_PREC;995256;Interpretierter Fehler: Trace NettoData: Keine Netto-Daten.;1000,coapiTraceNettoData,2
+$FCI_PREC;995260;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000,coapiTraceNettoData,3;1->1
+$FCI_PREC;995264;Interpretierter Fehler: Trace NettoData: kein Pfad zur Trace-Datei %s.;1000,coapiTraceNettoData,4;1->1
+$FCI_PREC;995268;Interpretierter Fehler: Trace NettoData: falsche Länge bei Maskenangabe.;1000,coapiTraceNettoData,7
+$FCI_PREC;995272;Interpretierter Fehler: Trace NettoData: Wortbreite ungleich 1,2,4.;1000,coapiTraceNettoData,8
+$FCI_PREC;995276;Interpretierter Fehler: Filter SG: ungültige Baureihe %s.;1000,coapiFilterSg,1;1->1
+$FCI_PREC;995278;Interpretierter Fehler: Filter SG: kein Pfad zu %s.;1000,coapiFilterSg,2;1->1
+$FCI_PREC;995280;Interpretierter Fehler: Filter SG: Punkt im CBD-Namen %s fehlt.;1000,coapiFilterSg,4;1->1
+$FCI_PREC;995282;Interpretierter Fehler: Filter SG: Scan CBD %s In All SGETs fehlgeschlagen.;1000,coapiFilterSg,5;1->1
+$FCI_PREC;995284;Interpretierter Fehler: Filter SG: kein SG-Name zu % angegeben.;1000,coapiFilterSg,6;1->1
+$FCI_PREC;995286;Interpretierter Fehler: Set SgName: CDHsetSgName %s fehlgeschlagen.;1000,coapiSetSgName;1->1
+$FCI_PREC;995291;Interpretierter Fehler: Set Trace: Typ nicht im Definitionsbereichs.;1000,coapiSetTrace
+$FCI_PREC;995294;Interpretierter Fehler: Get Trace: Typ nicht im Definitionsbereichs.;1000,coapiGetTrace,1
+$FCI_PREC;995297;Interpretierter Fehler: Get Trace: kein Pfad zum Trace File %s.;1000,coapiGetTrace,2;1->1
+$FCI_PREC;995300;Interpretierter Fehler: Test Trace: Typ nicht im Definitionsbereichs.;1000,coapiTestTrace
+$FCI_PREC;995304;Interpretierter Fehler: Get DiffFile Info: Typ nicht im Definitionsbereichs.;1000,coapiGetDiffFileInfo,1
+$FCI_PREC;995305;Interpretierter Fehler: Get DiffFile Info: Typ ungültig.;1000,coapiGetDiffFileInfo,2
+$FCI_PREC;995306;Interpretierter Fehler: Get DiffFile Info: kein Pfad zu %s.;1000,coapiGetDiffFileInfo,3;1->1
+$FCI_PREC;995307;Interpretierter Fehler: Compare NettoData: mind. ein Dateiname ist nicht angegeben.;1000,coapiCompareNettoData,1
+$FCI_PREC;995308;Interpretierter Fehler: Compare NettoData: kein Pfad zu 1. Netto-Datei %s.;1000,coapiCompareNettoData,2;1->1
+$FCI_PREC;995309;Interpretierter Fehler: Compare NettoData: kein Pfad zu 2. Netto-Datei %s.;1000,coapiCompareNettoData,3;1->1
+$FCI_PREC;995310;Interpretierter Fehler: Compare NettoData: kein Pfad zu Dif-Datei %s aus COAPI.INI.;1000,coapiCompareNettoData,4;1->1
+$FCI_PREC;995311;Interpretierter Fehler: Compare NettoData: kein Pfad zu Dif-Datei %s.;1000,coapiCompareNettoData,5;1->1
+$FCI_PREC;995312;Interpretierter Fehler: Compare NettoData: Wortbreite ungleich 1,2,4: %s.;1000,coapiCompareNettoData,10;1->1
+$FCI_PREC;995313;Interpretierter Fehler: Compare NettoData: falsche Länge bei Maskenangabe: %s.;1000,coapiCompareNettoData,11;1->1
+$FCI_PREC;995314;Interpretierter Fehler: Compare NettoData: Wortbreite ungleich 1,2,4: %s.;1000,coapiCompareNettoData,13;1->1
+$FCI_PREC;995315;Interpretierter Fehler: Compare NettoData: falsche Länge bei Maskenangabe: %s.;1000,coapiCompareNettoData,14;1->1
+$FCI_PREC;995316;Interpretierter Fehler: Compare NettoData: unmögliche Bedingung 1 aufgetreten: %s.;1000,coapiCompareNettoData,15;1->1
+$FCI_PREC;995317;Interpretierter Fehler: Compare NettoData: unmögliche Bedingung 2 aufgetreten: %s.;1000,coapiCompareNettoData,16;1->1
+$FCI_PREC;995318;Interpretierter Fehler: Read NettoData From SG: keine CBD angegeben.;1000,coapiReadNettoDataFromSg,1
+$FCI_PREC;995321;Interpretierter Fehler: Read NettoData From SG: Punkt im CBD-Namen %s fehlt.;1000,coapiReadNettoDataFromSg,3;1->1
+$FCI_PREC;995324;Interpretierter Fehler: Read NettoData From SG: Scan CBD %s In All SGETs fehlgeschlagen.;1000,coapiReadNettoDataFromSg,4;1->1
+$FCI_PREC;995327;Interpretierter Fehler: Read NettoData From SG: kein CABD-Namen gefunden: %s.;1000,coapiReadNettoDataFromSg,6;1->1
+$FCI_PREC;995330;Interpretierter Fehler: Read NettoData From SG: GetNettoMaskFromCbd fehlgeschlagen.;1000,coapiReadNettoDataFromSg,8
+$FCI_PREC;995333;Interpretierter Fehler: Read NettoData From SG: SetSgName %s fehlgeschlagen.;1000,coapiReadNettoDataFromSg,5
+$FCI_PREC;995336;Interpretierter Fehler: Scan All SG From Br: ungültige Baureihe %s.;1000,coapiScanAllSgFromBr,1;1->1
+$FCI_PREC;995337;Interpretierter Fehler: Scan All SG From Br: ReadAllSgFromBr fehlgeschlagen.;1000,coapiScanAllSgFromBr,2
+$FCI_PREC;995338;Interpretierter Fehler: Scan All SG From Br: #3 GetAllSgFromBr fehlgeschlagen.;1000,coapiScanAllSgFromBr,3
+$FCI_PREC;995339;Interpretierter Fehler: Scan All SG From Br: #5 GetAllSgFromBr fehlgeschlagen.;1000,coapiScanAllSgFromBr,5
+$FCI_PREC;995340;Interpretierter Fehler: Scan All SG From Br: #6 GetAllSgFromBr fehlgeschlagen.;1000,coapiScanAllSgFromBr,6
+$FCI_PREC;995341;Interpretierter Fehler: Scan All SG From ZCS: keine Baureihe gefunden.;1000,coapiScanAllSgFromZcs,2
+$FCI_PREC;995342;Interpretierter Fehler: Scan All SG From ZCS: ReadSget fehlgeschlagen.;1000,coapiScanAllSgFromZcs,3
+$FCI_PREC;995343;Interpretierter Fehler: Scan All SG From ZCS: #5 SG-Bestimmung, GetSgetSg fehlgeschlagen.;1000,coapiScanAllSgFromZcs,5
+$FCI_PREC;995344;Interpretierter Fehler: Scan All SG From ZCS: #6 SG-Bestimmung, GetSgetSg fehlgeschlagen.;1000,coapiScanAllSgFromZcs,6
+$FCI_PREC;995345;Interpretierter Fehler: Get FswPsw From NettoData: keine CBD angegeben.;1000,coapiGetFswPswFromNettoData,1
+$FCI_PREC;995348;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000,coapiGetFswPswFromNettoData,2;1->1
+$FCI_PREC;995351;Interpretierter Fehler: Get FswPsw From NettoData: kein Pfad zum Trace File %s.;1000,coapiGetFswPswFromNettoData,3;1->1
+$FCI_PREC;995354;Interpretierter Fehler: Get FswPsw From NettoData: Fehler beim Einlesen der Nettocodierdaten: %s.;1000,coapiGetFswPswFromNettoData,4;1->1
+$FCI_PREC;995357;Interpretierter Fehler: Get FswPsw From NettoData: CDHGetFswPswFromNettoData fehlgeschlagen.;1000,coapiGetFswPswFromNettoData,5
+$FCI_PREC;995360;Interpretierter Fehler: Read SG SGET FswPsw: ungültige Baureihe %s.;1000,coapiReadSgGetFswPsw,3;1->1
+$FCI_PREC;995361;Interpretierter Fehler: Read SG SGET FswPsw: ReadNettoDataFromSg fehlgeschlagen.;1000,coapiReadSgGetFswPsw,4
+$FCI_PREC;995362;Interpretierter Fehler: Read SG SGET FswPsw: CDHGetFswPswFromNettoData fehlgeschlagen.;1000,coapiReadSgGetFswPsw,5
+$FCI_PREC;995363;Interpretierter Fehler: Get SgFam Data: ungültige Baureihe %s.;1000,coapiGetSgFamData,1;1->1
+$FCI_PREC;995368;Interpretierter Fehler: Get SgFam Data: kein Eintrag gefunden für %s.;1000,coapiGetSgFamData,3;1->1
+$FCI_PREC;995373;Interpretierter Fehler: FswPsw Modified By ASW: ungültige Baureihe %s.;1000,coapiFswPswModifiedByAsw,1;1->1
+$FCI_PREC;995374;Interpretierter Fehler: FswPsw Modified By ASW: GetFswPswFromCvt fehlgeschlagen.;1000,coapiFswPswModifiedByAsw,2
+$FCI_PREC;995375;Interpretierter Fehler: Get FswMultiplePsw From CBD: keine CBD angegeben.;1000,coapiGetFswMultiplePswFromCbd,1
+$FCI_PREC;995376;Interpretierter Fehler: Get FswPswList By Sachnummer: kein SG-Name angegeben.;1000,coapiGetFswPswListBySachnummer,1
+$FCI_PREC;995377;Interpretierter Fehler: Get FswPswList By Sachnummer: keine Sachnummer angegeben.;1000,coapiGetFswPswListBySachnummer,2
+$FCI_PREC;995378;Interpretierter Fehler: Code SG By FswPswList: kein SG-Name angegeben.;1000,coapiCodeSgByFswPswList,1
+$FCI_PREC;995381;Interpretierter Fehler: Code SG By FswPswList: keine Baureihe gefunden.;1000,coapiCodeSgByFswPswList,2
+$FCI_PREC;995384;Interpretierter Fehler: Code SG By FswPswList: TestSgInSget(%s) fehlgeschlagen.;1000,coapiCodeSgByFswPswList,3;1->1
+$FCI_PREC;995387;Interpretierter Fehler: Code SG By FswPswList: SetSgName %s fehlgeschlagen.;1000,coapiCodeSgByFswPswList,4;1->1
+$FCI_PREC;995390;Interpretierter Fehler: Code SG By AswList: kein SG-Name angegeben.;1000,coapiCodeSgByAswList,1
+$FCI_PREC;995392;Interpretierter Fehler: Code SG By AswList: ungültige Baureihe %s.;1000,coapiCodeSgByAswList,2
+$FCI_PREC;995394;Interpretierter Fehler: Code SG By AswList: GetFswPswFromAsw fehlgeschlagen.;1000,coapiCodeSgByAswList,3
+$FCI_PREC;995396;Interpretierter Fehler: Code SG By AswList: CodeSgByFswPswList fehlgeschlagen.;1000,coapiCodeSgByAswList,4
+$FCI_PREC;995398;Interpretierter Fehler: Code SG By ZCS: kein SG-Name angegeben.;1000,coapiCodeSgByZcs,1
+$FCI_PREC;995399;Interpretierter Fehler: Code SG By ZCS: keine Baureihe gefunden.;1000,coapiCodeSgByZcs,3
+$FCI_PREC;995400;Interpretierter Fehler: Code SG By ZCS: ReadSget fehlgeschlagen.;1000,coapiCodeSgByZcs,4
+$FCI_PREC;995401;Interpretierter Fehler: Read SG From ZCS: keine Baureihe gefunden.;1000,coapiReadSgFromZcs,2
+$FCI_PREC;995402;Interpretierter Fehler: Read SG From ZCS: ReadSget fehlgeschlagen.;1000,coapiReadSgFromZcs,3
+$FCI_PREC;995403;Interpretierter Fehler: Read SG From ZCS: FilterSgSget fehlgeschlagen.;1000,coapiReadSgFromZcs,4
+$FCI_PREC;995404;Interpretierter Fehler: Read SG From ZCS: FilterSg fehlgeschlagen.;1000,coapiReadSgFromZcs,5
+$FCI_PREC;995405;Interpretierter Fehler: Read SG From ZCS: FilterSgSget fehlgeschlagen.;1000,coapiReadSgFromZcs,6
+$FCI_PREC;995406;Interpretierter Fehler: Read SG From ZCS: inkonsistente Anzahl der SG.;1000,coapiReadSgFromZcs,7
+$FCI_PREC;995407;Interpretierter Fehler: Read FswMultiplePsw: kein FswPsw-Dateiname angegeben.;1000,coapiReadFswMultiplePsw,1
+$FCI_PREC;995408;Interpretierter Fehler: Read FswMultiplePsw: kein Pfad zu FswPsw-Datei %s.;1000,coapiReadFswMultiplePsw,2;1->1
+$FCI_PREC;995409;Interpretierter Fehler: Read FswMultiplePsw: ReadFswPswListFile %s fehlgeschlagen.;1000,coapiReadFswMultiplePsw,3;1->1
+$FCI_PREC;995410;Interpretierter Fehler: coapiFilterFswPsw: ungültigert Filtertyp.;1000,coapiFilterFswPsw,1
+$FCI_PREC;995411;Interpretierter Fehler: coapiFilterFswPsw: kein Pfad zu Filter-Datei %s.;1000,coapiFilterFswPsw,2
+$FCI_PREC;995412;Interpretierter Fehler: Get Vm SgName: keine Baureihe gefunden.;1000,coapiGetVmSgName;1->1
+$FCI_PREC;995415;Interpretierter Fehler: Read CodierIndex From SG: kein SG-Name angegeben.;1000,coapiReadCodierIndexFromSg,1
+$FCI_PREC;995419;Interpretierter Fehler: Read CodierIndex From SG: ungültige Baureihe %s.;1000,coapiReadCodierIndexFromSg,2;1->1
+$FCI_PREC;995423;Interpretierter Fehler: Read CodierIndex From SG: %s fehlgeschlagen.;1000,coapiReadCodierIndexFromSg,3;1->1
+$FCI_PREC;995427;Interpretierter Fehler: Read CodierIndex From SG: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000,coapiReadCodierIndexFromSg,4;1->1
+$FCI_PREC;995431;Interpretierter Fehler: Read CodierIndex From SG: SetSgName %s fehlgeschlagen.;1000,coapiReadCodierIndexFromSg,5;1->1
+$FCI_PREC;995435;Interpretierter Fehler: Read CodierIndex From SG: kein CABD-Parameter ist gesetzt.;1000,coapiReadCodierIndexFromSg,6;1->1
+$FCI_PREC;995439;Interpretierter Fehler: Validate Sw Str: kein Schlüsselwort angegeben.;1000,coapiValidateSwStr,1
+$FCI_PREC;995442;Interpretierter Fehler: Validate Sw Str: ungültiger Schlüsselwort-Typ.;1000,coapiValidateSwStr,2
+$FCI_PREC;995445;Interpretierter Fehler: Validate Sw Bin: ungültiger Schlüsselwort-Typ.;1000,coapiValidateSwBin
+$FCI_PREC;995448;Interpretierter Fehler: Trace Individ FswPsw: kein Pfad zur Trace-Datei %s.;1000,coapiTraceIndividFswPsw
+$FCI_PREC;995452;Interpretierter Fehler: Read CodierIndex From SG Vm: kein SG-Name angegeben.;1000,coapiReadCodierIndexFromSgVm,1
+$FCI_PREC;995454;Interpretierter Fehler: Read CodierIndex From SG Vm: ungültige Baureihe %s.;1000,coapiReadCodierIndexFromSgVm,2;1->1
+$FCI_PREC;995456;Interpretierter Fehler: Read CodierIndex From SG Vm: %s fehlgeschlagen.;1000,coapiReadCodierIndexFromSgVm,3;1->1
+$FCI_PREC;995458;Interpretierter Fehler: Read CodierIndex From SG Vm: kein Pfad zu %s.;1000,coapiReadCodierIndexFromSgVm,4;1->1
+$FCI_PREC;995460;Interpretierter Fehler: Read CodierIndex From SG Vm: kein CABD-Parameter ist gesetzt.;1000,coapiReadCodierIndexFromSgVm,6;1->1
+$FCI_PREC;995462;Interpretierter Fehler: Read CBD From Br: ungültige Baureihe %s.;1000,coapiReadCbdFromBr,1;1->1
+$FCI_PREC;995463;Interpretierter Fehler: Read CBD From Br: ReadSget fehlgeschlagen.;1000,coapiReadCbdFromBr,2
+$FCI_PREC;995464;Interpretierter Fehler: Read CBD From Br: Fehler in Get All SGET Data.;1000,coapiReadCbdFromBr,3
+$FCI_PREC;995465;Interpretierter Fehler: Read CBD From Br: inkonsistente Anzahl der CBD-Codierindex-Kombinationen.;1000,coapiReadCbdFromBr,4
+$FCI_PREC;995466;Interpretierter Fehler: Read SG Pro FSW: GetFswPswAscii fehlgeschlagen.;1000,coapiReadSgProFsw,1
+$FCI_PREC;995467;Interpretierter Fehler: Read SG Pro FSW: GetNettoData fehlgeschlagen, CBD %s.;1000,coapiReadSgProFsw,4;1->1
+$FCI_PREC;995468;Interpretierter Fehler: Set SG Pro FSW: keine CBD angegeben.;1000,coapiSetSgProFsw,1
+$FCI_PREC;995469;Interpretierter Fehler: Set SG Pro FSW: Punkt im CBD-Namen %s fehlt.;1000,coapiSetSgProFsw,2;1->1
+$FCI_PREC;995470;Interpretierter Fehler: Set Baureihe: ungültige Baureihe %s.;1000,coapiSetBaureihe,1;1->1
+$FCI_PREC;995472;Interpretierter Fehler: Set Baureihe: CDHsetBaureihe %s fehlgeschlagen.;1000,coapiSetBaureihe,2;1->1
+$FCI_PREC;995474;Interpretierter Fehler: Trace Ablauf: kein Pfad zur Ablauf-Trace-Datei %s.;1000,coapiTraceAblauf;1->1
+$FCI_PREC;995477;Interpretierter Fehler: Get NaelNr: SetSystemData(%s) fehlgeschlagen.;1000,coapiGetNaelNr;1->1
+$FCI_PREC;995478;Interpretierter Fehler: Get SgetData: kein SG-Name angegeben.;1000,coapiGetSgetData,1
+$FCI_PREC;995481;Interpretierter Fehler: Get SgetData: sgeGetSgetData fehlgeschlagen.;1000,coapiGetSgetData,2
+$FCI_PREC;995484;Interpretierter Fehler: Set SgetData: kein SG-Name angegeben.;1000,coapiSetSgetData,1
+$FCI_PREC;995485;Interpretierter Fehler: Set SgetData: sgeSetSgetData fehlgeschlagen.;1000,coapiSetSgetData,2
+$FCI_PREC;995486;Interpretierter Fehler: Run CABD: kein Job-Name oder CABD-Name angegeben.;1000,coapiRunCabd,1
+$FCI_PREC;995491;Interpretierter Fehler: Run CABD: CDHIntSetScriptFile %s fehlgeschlagen.;1000,coapiRunCabd,2;1->1
+$FCI_PREC;995496;Interpretierter Fehler: Run CABD: kein Pfad zu %s.;1000,coapiRunCabd,3;1->1
+$FCI_PREC;995501;Interpretierter Fehler: Run CABD: %s, CDHRunSetScriptFile fehlgeschlagen.;1000,coapiRunCabd,5;1->1
+$FCI_PREC;995506;Interpretierter Fehler: Set NettoData: ungültiger Modus oder Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000,coapiSetNettoData,1
+$FCI_PREC;995507;Interpretierter Fehler: Set NettoData: unbekannter Modus.;1000,coapiSetNettoData,2
+$FCI_PREC;995508;Interpretierter Fehler: Set NettoData: CDHSetDataOrg fehlgeschlagen.;1000,coapiSetNettoData,3
+$FCI_PREC;995509;Interpretierter Fehler: Set NettoData: CDHBinBufCreate fehlgeschlagen.;1000,coapiSetNettoData,4
+$FCI_PREC;995510;Interpretierter Fehler: Set NettoData: CDHBinBufWrite fehlgeschlagen.;1000,coapiSetNettoData,4
+$FCI_PREC;995511;Interpretierter Fehler: Set NettoData: CDHBinBufDelete fehlgeschlagen.;1000,coapiSetNettoData,6
+$FCI_PREC;995512;Interpretierter Fehler: Get NettoData: Anzahl Datenworte ausserhalb des zulässigen Bereichs.;1000,coapiGetNettoData,1
+$FCI_PREC;995517;Interpretierter Fehler: Get NettoData: CDHBinBufCreate fehlgeschlagen.;1000,coapiGetNettoData,2
+$FCI_PREC;995522;Interpretierter Fehler: Get NettoData: CDHGetApiJobData fehlgeschlagen.;1000,coapiGetNettoData,3
+$FCI_PREC;995527;Interpretierter Fehler: Get NettoData: CDHBinBufRead fehlgeschlagen.;1000,coapiGetNettoData,4
+$FCI_PREC;995532;Interpretierter Fehler: Get NettoData: Wortbreite/Modus sind ungültig.;1000,coapiGetNettoData,5
+$FCI_PREC;995537;Interpretierter Fehler: Get NettoData: Byteordnung LSB/MSB undefiniert.;1000,coapiGetNettoData,6
+$FCI_PREC;995542;Interpretierter Fehler: Get NettoData: Adressierung Frei/Block undefiniert.;1000,coapiGetNettoData,7
+$FCI_PREC;995547;Interpretierter Fehler: Get NettoData: Datentyp Data/Mask undefiniert.;1000,coapiGetNettoData,8
+$FCI_PREC;995552;Interpretierter Fehler: Get NettoData: CDHBinBufDelete fehlgeschlagen.;1000,coapiGetNettoData,9
+$FCI_PREC;995557;Interpretierter Fehler: Get All SgetData: sgeGetAllSgetData fehlgeschlagen.;1000,coapiGetAllSgetData
+$FCI_PREC;995562;Interpretierter Fehler: Get CbdIdent: CDHGetInfo %s fehlgeschlagen.;1000,coapiGetCbdIdent;1->1
+$FCI_PREC;995563;Interpretierter Fehler: Get CbdIdent: CDHGetActIdent %s fehlgeschlagen.;1000,coapiGetActIdent;1->1
+$FCI_PREC;995564;Interpretierter Fehler: Set Real CodierDatum: SetSystemData(%s) fehlgeschlagen.;1000,coapiSetRealCodierDatum;1->1
+$FCI_PREC;995569;Interpretierter Fehler: Scan CBD In All SGETs: keine CBD angegeben.;1000,coapiScanCbdInAllSgets,1
+$FCI_PREC;995573;Interpretierter Fehler: Scan CBD In All SGETs: Baureihe %s hat falsche Länge.;1000,coapiScanCbdInAllSgets,2;1->1
+$FCI_PREC;995577;Interpretierter Fehler: Scan CBD In All SGETs: bestimmen der Baureihen aus COAPI.INI fehlgeschlagen.;1000,coapiScanCbdInAllSgets,3
+$FCI_PREC;995581;Interpretierter Fehler: Scan CBD In All SGETs: Punkt im CBD-Namen %s fehlt.;1000,coapiScanCbdInAllSgets,4;1->1
+$FCI_PREC;995585;Interpretierter Fehler: Scan CBD In All SGETs: ReadSget %s fehlgeschlagen.;1000,coapiScanCbdInAllSgets,5;1->1
+$FCI_PREC;995589;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetAllSgetData fehlgeschlagen.;1000,coapiScanCbdInAllSgets,6;1->1
+$FCI_PREC;995593;Interpretierter Fehler: Scan CBD In All SGETs: %s: GetBr fehlgeschlagen.;1000,coapiScanCbdInAllSgets,7;1->1
+$FCI_PREC;995597;Interpretierter Fehler: Scan CBD In All SGETs: CBD %s nicht gefunden.;1000,coapiScanCbdInAllSgets,8;1->1
+$FCI_PREC;995601;Interpretierter Fehler: Get FSW From CBD: keine Codierdatengruppe angegeben.;1000,coapiGetFswFromCbd
+$FCI_PREC;995602;Interpretierter Fehler: Get ASW From SGVT: %s: Ermittlung der Codierindices fehlgeschlagen.;1000,coapiGetAswFromSgvt,2;1->1
+$FCI_PREC;995604;Interpretierter Fehler: Get ASW From SGVT: Ermittlung der spezifischen ASW's fehlgeschlagen.;1000,coapiGetAswFromSgvt,3
+$FCI_PREC;995606;Interpretierter Fehler: Get ASW From SGVT: Fehler beim Anlegen des ASW-Liste-Traces.;1000,coapiGetAswFromSgvt,4;1->1
+$FCI_PREC;995608;Interpretierter Fehler: Scan All SG: keine Baureihe gefunden.;1000,coapiScanAllSg,2
+$FCI_PREC;995611;Interpretierter Fehler: Scan All SG: SG-Ermittlung, ReadSget, fehlgeschlagen.;1000,coapiScanAllSg,3
+$FCI_PREC;995614;Interpretierter Fehler: Scan All SG: %s: kann SG-Name/Index nicht setzen.;1000,coapiScanAllSg,4;1->1
+$FCI_PREC;995617;Interpretierter Fehler: Scan All SG: SG-Bestimmung, GetSgetSg, fehlgeschlagen.;1000,coapiScanAllSg,5
+$FCI_PREC;995620;Interpretierter Fehler: Scan All SG: kann nicht gefundene SG nicht protokollieren.;1000,coapiScanAllSg,6
+$FCI_PREC;995623;Interpretierter Fehler: Check Id From SGVT: ungültige Baureihe %s.;1000,coapiCheckIdFromSgvt,1;1->1
+$FCI_PREC;995624;Interpretierter Fehler: Check Id From SGVT: %s: kann SG-Name/Index nicht setzen.;1000,coapiCheckIdFromSgvt,2;1->1
+$FCI_PREC;995625;Interpretierter Fehler: Get ASW From Auftrag: Fehler beim Anlegen des ASW-Liste-Traces.;1000,coapiGetAswFromAuftrag
+$FCI_PREC;995628;Interpretierter Fehler: Scan All SG From Auftrag: GetAswFromAuftrag fehlgeschlagen.;1000,coapiScanAllSgFromAuftrag,1
+$FCI_PREC;995630;Interpretierter Fehler: Scan All SG From Auftrag: %s: Ermittlung der Codierindices fehlgeschlagen.;1000,coapiScanAllSgFromAuftrag,2;1->1
+$FCI_PREC;995632;Interpretierter Fehler: Read SG From Auftrag: GetAswFromSgvt fehlgeschlagen.;1001,coapiReadSgFromAuftrag,1
+$FCI_PREC;995633;Interpretierter Fehler: Read SG From Auftrag: keine Baureihe gefunden.;1000,coapiReadSgFromAuftrag,2
+$FCI_PREC;995634;Interpretierter Fehler: Read SG From Auftrag: ReadSget fehlgeschlagen.;1000,coapiReadSgFromAuftrag,3
+$FCI_PREC;995635;Interpretierter Fehler: Get SG From Auftrag: SG-Bestimmung, GetSgetSg, fehlgeschlagen.;1000,coapiGetSgFromAuftrag
+$FCI_PREC;995636;Interpretierter Fehler: Read SWT Files: kein SWT-Index angegeben.;1000,coapiReadSwtFiles,1
+$FCI_PREC;995640;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000,coapiReadSwtFiles,5;1->1
+$FCI_PREC;995644;Interpretierter Fehler: Read SWT Files: kein Pfad zu %s.;1000,coapiReadSwtFiles,7;1->1
+$FCI_PREC;995648;Interpretierter Fehler: Read SWT Files: SetRealCodierDatum fehlgeschlagen.;1000,coapiReadSwtFiles,12
+$FCI_PREC;995652;Interpretierter Fehler: Read SWT Files: ReadIniFile2 fehlgeschlagen.;1000,coapiReadSwtFiles,9
+$FCI_PREC;995656;Interpretierter Fehler: Read SWT Files: TraceSystemData fehlgeschlagen.;1000,coapiReadSwtFiles,10
+$FCI_PREC;995660;Interpretierter Fehler: Read Auftrag: kein SG-Name angegeben.;1000,coapiReadAuftrag,1
+$FCI_PREC;995662;Interpretierter Fehler: Read Auftrag: ungültige Baureihe %s.;1000,coapiReadAuftrag,2;1->1
+$FCI_PREC;995664;Interpretierter Fehler: Read Auftrag: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000,coapiReadAuftrag,3;1->1
+$FCI_PREC;995666;Interpretierter Fehler: Read Auftrag: RunCABD (%s) fehlgeschlagen.;1000,coapiReadAuftrag,4;1->1
+$FCI_PREC;995668;Interpretierter Fehler: Read Auftrag: GetCabdPar %s fehlgeschlagen.;1000,coapiReadAuftrag,5;1->1
+$FCI_PREC;995670;Interpretierter Fehler: Write Auftrag: kein Fahrzeugauftrag angegeben.;1000,coapiWriteAuftrag,1
+$FCI_PREC;995671;Interpretierter Fehler: Write Auftrag: kein SG-Name angegeben.;1000,coapiWriteAuftrag,2
+$FCI_PREC;995672;Interpretierter Fehler: Write Auftrag: ungültige Baureihe %s.;1000,coapiWriteAuftrag,3;1->1
+$FCI_PREC;995673;Interpretierter Fehler: Write Auftrag: CABD-Bestimmung, GetSgFamData %s fehlgeschlagen.;1000,coapiWriteAuftrag,4;1->1
+$FCI_PREC;995674;Interpretierter Fehler: Write Auftrag: SetCabdPar %s fehlgeschlagen.;1000,coapiWriteAuftrag,5;1->1
+$FCI_PREC;995675;Interpretierter Fehler: Change Auftrag Element: Fehler.;1000,coapiChangeAuftragElement
+$FCI_PREC;995676;Interpretierter Fehler: Get Individ FswPsw: ungültige Baureihe %s.;1000,coapiGetIndividFswPsw,1;1->1
+$FCI_PREC;995678;Interpretierter Fehler: Get Individ FswPsw: GetIndividFswPswFromCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,2
+$FCI_PREC;995680;Interpretierter Fehler: Get Individ FswPsw: ReadSget fehlgeschlagen.;1000,coapiGetIndividFswPsw,3
+$FCI_PREC;995682;Interpretierter Fehler: Get Individ FswPsw: SG-Bestimmung, GetSgetData %s fehlgeschlagen.;1000,coapiGetIndividFswPsw,5;1->1
+$FCI_PREC;995684;Interpretierter Fehler: Get Individ FswPsw: keinen CBD-Namen oder -Extension gefunden.;1000,coapiGetIndividFswPsw,6
+$FCI_PREC;995686;Interpretierter Fehler: Get Individ FswPsw: %s: GetIndividFswPswFromCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,7;1->1
+$FCI_PREC;995688;Interpretierter Fehler: Get Individ FswPsw: #8 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,8
+$FCI_PREC;995690;Interpretierter Fehler: Get Individ FswPsw: #9 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,9
+$FCI_PREC;995692;Interpretierter Fehler: Get Individ FswPsw: #10 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,10
+$FCI_PREC;995694;Interpretierter Fehler: Get Individ FswPsw: #11 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,11
+$FCI_PREC;995696;Interpretierter Fehler: Get Individ FswPsw: #12 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,12
+$FCI_PREC;995698;Interpretierter Fehler: Get Individ FswPsw: #13 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,13
+$FCI_PREC;995700;Interpretierter Fehler: Get Individ FswPsw: #14 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,14
+$FCI_PREC;995702;Interpretierter Fehler: Get Individ FswPsw: #15 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,15
+$FCI_PREC;995704;Interpretierter Fehler: Get Individ FswPsw: #16 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,16
+$FCI_PREC;995706;Interpretierter Fehler: Get Individ FswPsw: #17 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,17
+$FCI_PREC;995708;Interpretierter Fehler: Get Individ FswPsw: #18 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,18
+$FCI_PREC;995710;Interpretierter Fehler: Get Individ FswPsw: #19 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,19
+$FCI_PREC;995712;Interpretierter Fehler: Get Individ FswPsw: InsertFswIxToIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,20
+$FCI_PREC;995714;Interpretierter Fehler: Get Individ FswPsw: #21 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,21
+$FCI_PREC;995716;Interpretierter Fehler: Get Individ FswPsw: #22 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,22
+$FCI_PREC;995718;Interpretierter Fehler: Get Individ FswPsw: #23 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,23
+$FCI_PREC;995720;Interpretierter Fehler: Get Individ FswPsw: #24 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,24
+$FCI_PREC;995722;Interpretierter Fehler: Get Individ FswPsw: #25 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,25
+$FCI_PREC;995724;Interpretierter Fehler: Get Individ FswPsw: #26 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,26
+$FCI_PREC;995726;Interpretierter Fehler: Get Individ FswPsw: #27 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,27
+$FCI_PREC;995728;Interpretierter Fehler: Get Individ FswPsw: #28 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,28
+$FCI_PREC;995730;Interpretierter Fehler: Get Individ FswPsw: #29 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,29
+$FCI_PREC;995732;Interpretierter Fehler: Get Individ FswPsw: #30 GetPswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,30
+$FCI_PREC;995734;Interpretierter Fehler: Get Individ FswPsw: PutPswToIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,31
+$FCI_PREC;995736;Interpretierter Fehler: Get Individ FswPsw: #32 GetPswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,32
+$FCI_PREC;995738;Interpretierter Fehler: Get Individ FswPsw: #33 GetPswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,33
+$FCI_PREC;995740;Interpretierter Fehler: Get Individ FswPsw: #34 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,34
+$FCI_PREC;995742;Interpretierter Fehler: Get Individ FswPsw: #35 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,35
+$FCI_PREC;995744;Interpretierter Fehler: Get Individ FswPsw: #36 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,36
+$FCI_PREC;995746;Interpretierter Fehler: Get Individ FswPsw: #37 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,37
+$FCI_PREC;995748;Interpretierter Fehler: Get Individ FswPsw: #38 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,38
+$FCI_PREC;995750;Interpretierter Fehler: Get Individ FswPsw: #39 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,39
+$FCI_PREC;995752;Interpretierter Fehler: Get Individ FswPsw: #40 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,40
+$FCI_PREC;995754;Interpretierter Fehler: Get Individ FswPsw: #41 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,41
+$FCI_PREC;995756;Interpretierter Fehler: Get Individ FswPsw: #42 GetPswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,42
+$FCI_PREC;995758;Interpretierter Fehler: Get Individ FswPsw: #43 GetPswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,43
+$FCI_PREC;995760;Interpretierter Fehler: Get Individ FswPsw: DeletePswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,44
+$FCI_PREC;995762;Interpretierter Fehler: Get Individ FswPsw: #45 GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,45
+$FCI_PREC;995764;Interpretierter Fehler: Get Individ FswPsw: #46 GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPsw,46
+$FCI_PREC;995766;Interpretierter Fehler: Get Individ FswPsw: #47 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,47
+$FCI_PREC;995768;Interpretierter Fehler: Get Individ FswPsw: #48 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,48
+$FCI_PREC;995770;Interpretierter Fehler: Get Individ FswPsw: #49 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPsw,49
+$FCI_PREC;995772;Interpretierter Fehler: Get Individ FswPsw: CopyToIndividTrace fehlgeschlagen.;1000,coapiGetIndividFswPsw,50
+$FCI_PREC;995774;Interpretierter Fehler: Get Individ FswPsw From Cvt: ungültige Baureihe %s.;1000,coapiGetIndividFswPswFromCvt,1;1->1
+$FCI_PREC;995777;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetFswPswFromCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,3
+$FCI_PREC;995780;Interpretierter Fehler: Get Individ FswPsw From Cvt: #4 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,4
+$FCI_PREC;995783;Interpretierter Fehler: Get Individ FswPsw From Cvt: #5 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,5
+$FCI_PREC;995786;Interpretierter Fehler: Get Individ FswPsw From Cvt: GetParaSwFromArray fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,6
+$FCI_PREC;995789;Interpretierter Fehler: Get Individ FswPsw From Cvt: #7 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,7
+$FCI_PREC;995792;Interpretierter Fehler: Get Individ FswPsw From Cvt: PutPswToIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,8
+$FCI_PREC;995795;Interpretierter Fehler: Get Individ FswPsw From Cvt: #9 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,9
+$FCI_PREC;995798;Interpretierter Fehler: Get Individ FswPsw From Cvt: #10 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,10
+$FCI_PREC;995801;Interpretierter Fehler: Get Individ FswPsw From Cvt: #11 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,11
+$FCI_PREC;995804;Interpretierter Fehler: Get Individ FswPsw From Cvt: CopyToIndividTrace fehlgeschlagen.;1000,coapiGetIndividFswPswFromCvt,12
+$FCI_PREC;995807;Interpretierter Fehler: Get Individ FswPsw From Sg: keine Baureihe gefunden.;1000,coapiGetIndividFswPswFromSg,1
+$FCI_PREC;995809;Interpretierter Fehler: Get Individ FswPsw From Sg: ResetIndividFswPswChanges fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,2
+$FCI_PREC;995811;Interpretierter Fehler: Get Individ FswPsw From Sg: ResetIndividFswPswActual fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,3
+$FCI_PREC;995813;Interpretierter Fehler: Get Individ FswPsw From Sg: ReadNettoDataFromSg fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,4
+$FCI_PREC;995815;Interpretierter Fehler: Get Individ FswPsw From Sg: %s: GetFswPswFromNettoData fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,5;1->1
+$FCI_PREC;995817;Interpretierter Fehler: Get Individ FswPsw From Sg: InsertFswIxToIndividCvGetFswPswFromNettoDatat fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,6
+$FCI_PREC;995819;Interpretierter Fehler: Get Individ FswPsw From Sg: GetPswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,7
+$FCI_PREC;995821;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,8
+$FCI_PREC;995823;Interpretierter Fehler: Get Individ FswPsw From Sg: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,9
+$FCI_PREC;995825;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswFromIndividCbd fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,10
+$FCI_PREC;995827;Interpretierter Fehler: Get Individ FswPsw From Sg: GetFswPswBinary fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,11
+$FCI_PREC;995829;Interpretierter Fehler: Get Individ FswPsw From Sg: CopyToIndividTrace fehlgeschlagen.;1000,coapiGetIndividFswPswFromSg,12
+$FCI_PREC;995831;Interpretierter Fehler: Get Individ FswPsw List: #3 GetRefFromIndividTrace fehlgeschlagen.;1000,coapiGetIndividFswPswList,3
+$FCI_PREC;995833;Interpretierter Fehler: Get Individ FswPsw List: #4 GetRefFromIndividTrace fehlgeschlagen.;1000,coapiGetIndividFswPswList,4
+$FCI_PREC;995835;Interpretierter Fehler: Reset Individ FswPsw Changes: PutPswToIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswChanges,2
+$FCI_PREC;995838;Interpretierter Fehler: Reset Individ FswPsw Changes: GetPswFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswChanges,3
+$FCI_PREC;995841;Interpretierter Fehler: Reset Individ FswPsw Changes: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswChanges,4
+$FCI_PREC;995844;Interpretierter Fehler: Reset Individ FswPsw Changes: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswChanges,5
+$FCI_PREC;995847;Interpretierter Fehler: Change Individ Psw: GetKeyID ? fehlgeschlagen.;1000,coapiChangeIndividPsw,3
+$FCI_PREC;995848;Interpretierter Fehler: Change Individ Psw: #4 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,4
+$FCI_PREC;995849;Interpretierter Fehler: Change Individ Psw: #5 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,5
+$FCI_PREC;995850;Interpretierter Fehler: Change Individ Psw: #7 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,7
+$FCI_PREC;995851;Interpretierter Fehler: Change Individ Psw: #7 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,8
+$FCI_PREC;995852;Interpretierter Fehler: Change Individ Psw: PutPswToIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,14
+$FCI_PREC;995853;Interpretierter Fehler: Change Individ Psw: #5 GetPswFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,5
+$FCI_PREC;995854;Interpretierter Fehler: Change Individ Psw: #6 GetFswFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,6
+$FCI_PREC;995855;Interpretierter Fehler: Change Individ Psw: #7 GetRefFromIndividCvt fehlgeschlagen.;1000,coapiChangeIndividPsw,7
+$FCI_PREC;995856;Interpretierter Fehler: Individ Psw Changed: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiIndividPswChanged,2
+$FCI_PREC;995857;Interpretierter Fehler: Individ Psw Changed: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiIndividPswChanged,3
+$FCI_PREC;995858;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCbd fehlgeschlagen.;1000,coapiIndividSgChanged,4
+$FCI_PREC;995860;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCbd fehlgeschlagen.;1000,coapiIndividSgChanged,5
+$FCI_PREC;995862;Interpretierter Fehler: Individ Sg Changed: GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiIndividSgChanged,6
+$FCI_PREC;995864;Interpretierter Fehler: Individ Sg Changed: GetCbdFromIndividCbd fehlgeschlagen.;1000,coapiIndividSgChanged,7
+$FCI_PREC;995866;Interpretierter Fehler: Individ Sg Changed: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiIndividSgChanged,8
+$FCI_PREC;995868;Interpretierter Fehler: Individ Sg Changed: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiIndividSgChanged,9
+$FCI_PREC;995870;Interpretierter Fehler: Code Changed Individ Psw: IndividSgChanged %s fehlgeschlagen.;1000,coapiCodeChangedIndividPsw,1;1->1
+$FCI_PREC;995871;Interpretierter Fehler: Code Changed Individ Psw: CodeSgByIndividFswPswList %s fehlgeschlagen.;1000,coapiCodeChangedIndividPsw,3;1->1
+$FCI_PREC;995872;Interpretierter Fehler: Code Sg By Individ FswPsw List: SG %s nicht individualiserbar.;1000,coapiCodeSgByIndividFswPswList,2;1->1
+$FCI_PREC;995874;Interpretierter Fehler: Code Sg By Individ FswPsw List: %s: GetFswPswFromCvt fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,3;1->1
+$FCI_PREC;995876;Interpretierter Fehler: Code Sg By Individ FswPsw List: PutFktParaSwToArray fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,4
+$FCI_PREC;995878;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetPswFromIndividCvt fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,5
+$FCI_PREC;995880;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,6
+$FCI_PREC;995882;Interpretierter Fehler: Code Sg By Individ FswPsw List: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,7
+$FCI_PREC;995884;Interpretierter Fehler: Code Sg By Individ FswPsw List: CodeSgByFswPswList %s fehlgeschlagen.;1000,coapiCodeSgByIndividFswPswList,8;1->1
+$FCI_PREC;995886;Interpretierter Fehler: Individ Init: InitIndividCvt fehlgeschlagen.;1000,coapiIndividInit,1
+$FCI_PREC;995887;Interpretierter Fehler: Individ Init: InitIndividCbd fehlgeschlagen.;1000,coapiIndividInit,2
+$FCI_PREC;995888;Interpretierter Fehler: Individ Init: InitIndividTrace fehlgeschlagen.;1000,coapiIndividInit,3
+$FCI_PREC;995889;Interpretierter Fehler: Individ End: DeleteIndividCvt fehlgeschlagen.;1000,coapiIndividEnd,1
+$FCI_PREC;995891;Interpretierter Fehler: Individ End: DeleteIndividAllCbd fehlgeschlagen.;1000,coapiIndividEnd,2
+$FCI_PREC;995893;Interpretierter Fehler: Individ End: DeleteIndividTrace fehlgeschlagen.;1000,coapiIndividEnd,3
+$FCI_PREC;995895;Interpretierter Fehler: Reset Individ FswPsw Actual: PutPswToIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswActual,2
+$FCI_PREC;995898;Interpretierter Fehler: Reset Individ FswPsw Actual: GetPswFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswActual,3
+$FCI_PREC;995901;Interpretierter Fehler: Reset Individ FswPsw Actual: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswActual,4
+$FCI_PREC;995904;Interpretierter Fehler: Reset Individ FswPsw Actual: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiResetIndividFswPswActual,5
+$FCI_PREC;995907;Interpretierter Fehler: Set Individ FswPswChanges To Actual: PutPswToIndividCvt fehlgeschlagen.;1000,coapiSetIndividFswPswChangesToActual,2
+$FCI_PREC;995908;Interpretierter Fehler: Set Individ FswPswChanges To Actual: GetPswFromIndividCvt fehlgeschlagen.;1000,coapiSetIndividFswPswChangesToActual,3
+$FCI_PREC;995909;Interpretierter Fehler: Set Individ FswPswChanges To Actual: GetFswFromIndividCvt fehlgeschlagen.;1000,coapiSetIndividFswPswChangesToActual,4
+$FCI_PREC;995910;Interpretierter Fehler: Set Individ FswPswChanges To Actual: GetRefFromIndividCvt fehlgeschlagen.;1000,coapiSetIndividFswPswChangesToActual,5
+$FCI_PREC;995911;Interpretierter Fehler: Set Individ FswPswChanges To Actual: CopyToIndividTrace fehlgeschlagen.;1000,coapiSetIndividFswPswChangesToActual,6
+$FCI_PREC;995912;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: kein SG-Name angegeben.;1000,coapiCodeSgByZcsWithOldIndividSettings,1
+$FCI_PREC;995913;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: keine Baureihe gefunden.;1000,coapiCodeSgByZcsWithOldIndividSettings,2
+$FCI_PREC;995914;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: ungültige Baureihe %s.;1000,coapiCodeSgByZcsWithOldIndividSettings,3;1->1
+$FCI_PREC;995915;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: #6 %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,6;1->1
+$FCI_PREC;995916;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: #7 %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,7;1->1
+$FCI_PREC;995917;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,8;1->1
+$FCI_PREC;995918;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,9;1->1
+$FCI_PREC;995919;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: ReadSget fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,10
+$FCI_PREC;995920;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: GetFswPswFromAsw fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,11
+$FCI_PREC;995921;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,12;1->1
+$FCI_PREC;995922;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,13;1->1
+$FCI_PREC;995923;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s: PSW nicht eindeutig 1.;1000,coapiCodeSgByZcsWithOldIndividSettings,13;1->1
+$FCI_PREC;995924;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s: PSW nicht eindeutig 2.;1000,coapiCodeSgByZcsWithOldIndividSettings,14;1->1
+$FCI_PREC;995925;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: %s: fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,15;1->1
+$FCI_PREC;995926;Interpretierter Fehler: Code Sg By Zcs With Old Individ Settings: CodeSgByFswPswList fehlgeschlagen.;1000,coapiCodeSgByZcsWithOldIndividSettings,16
+$FCI_PREC;995927;Interpretierter Fehler: Kf Read HwNrTab D2: Fehler.;1000,coapiKfReadHwNrTabD2
+$FCI_PREC;995930;Interpretierter Fehler: Kf Read ZbNrTab D2: datZbNrZeileErmittelnD2 fehlgeschlagen.;1000,coapiKfReadZbNrTabD2,3
+$FCI_PREC;995932;Interpretierter Fehler: Kf Read ZbNrTab D2: VersionsNr aus KFCONFxx.DAT ist (textuell) kleiner als VNr aus SG .DAT.;1000,coapiKfReadZbNrTabD2,5
+$FCI_PREC;995934;Interpretierter Fehler: Kf Set Global Pabd Sgbd EcuAddr: %s.;1000,coapiKfSetGlobalPabdSgbdEcuAddr,4;1->1
+$FCI_PREC;995936;Interpretierter Fehler: Kf Get New Sg D2: datGetErsatzListeD2 fehlgeschlagen.;1000,coapiKfGetNewSgD2
+$FCI_PREC;995937;Interpretierter Fehler: Kf Get New SgList D2: Liste bereits vollständig gelesen oder noch nicht mit einem Aufruf des ersten Elements initialisiert.;1000,coapiKfGetNewSgListD2,1
+$FCI_PREC;995939;Interpretierter Fehler: Kf Get New SgList D2: fehlendes HWH-Element: %s.;1000,coapiKfGetNewSgListD2,7;1->1
+$FCI_PREC;995941;Interpretierter Fehler: Kf Get New SgList D2: aktuelle HwNr ist grösser als gefundene.;1000,coapiKfGetNewSgListD2,8
+$FCI_PREC;995943;Interpretierter Fehler: Kf Get New SgList D2: Zusammenbau-Eintrag nicht gefunden.;1000,coapiKfGetNewSgListD2,9
+$FCI_PREC;995945;Interpretierter Fehler: Kf Get New SgList D2: KfReadHwNrTabD2 fehlgeschlagen.;1000,coapiKfGetNewSgListD2,10
+$FCI_PREC;995947;Interpretierter Fehler: Kf Prog Sg D2: Punkt fehlt in Datensatzname.;1000,coapiKfProgSgD2,1
+$FCI_PREC;995948;Interpretierter Fehler: Kf Prog Sg D2: Pfad-Trenner fehlt in Datensatzname.;1000,coapiKfProgSgD2,2
+$FCI_PREC;995949;Interpretierter Fehler: Kf Prog Sg D2: dat[Prog]SatzNameErmitteln fehlgeschlagen.;1000,coapiKfProgSgD2,6
+$FCI_PREC;995950;Interpretierter Fehler: Kf Prog Sg Develop: datDekompOpen/datDekompDS %s fehlgeschlagen.;1000,coapiKfProgSgDevelop,2;1->1
+$FCI_PREC;995951;Interpretierter Fehler: Kf Get ProgData: Lesefehler.;1000,coapiKfGetProgData,2
+$FCI_PREC;995952;Interpretierter Fehler: Kf Make All BinFiles: Punkt fehlt in Datensatzname.;1000,coapiKfMakeAllBinFiles,8
+$FCI_PREC;995953;Interpretierter Fehler: Kf Make All BinFiles: Pfad-Trenner fehlt in Datensatzname.;1000,coapiKfMakeAllBinFiles,9
+$FCI_PREC;995954;Interpretierter Fehler: Kf Make All BinFiles: KfReadZbNrTabD2 fehlgeschlagen.;1000,coapiKfMakeAllBinFiles,10
+$FCI_PREC;995955;Interpretierter Fehler: Kf Make All BinFiles: dat[Prog]SatzNameErmitteln fehlgeschlagen.;1000,coapiKfMakeAllBinFiles,12
+$FCI_PREC;995956;Interpretierter Fehler: Kf Konvert Get Ref: datDekompOpen/datDekompDS %s fehlgeschlagen.;1000,coapiKfKonvertGetRef,2;1->1
+$FCI_PREC;995957;Interpretierter Fehler: Flash Prog Sg: dat[Prog]SatzNameErmitteln fehlgeschlagen.;1000,coapiFlashProgSg,2;1->1
+$FCI_PREC;995958;Interpretierter Fehler: Kf Prog Sg Develop With Aif: dat[Prog]SatzNameErmitteln fehlgeschlagen.;1000,coapiKfProgSgDevelopWithAif,3;1->1
+$FCI_PREC;995959;Interpretierter Fehler: Kf Read Kf Conf Tab D2: datGetSgZeileD2 fehlgeschlagen.;1000,coapiKfReadKfConfTabD2,2
+$FCI_PREC;995963;Interpretierter Fehler: Kf Check Referenz D2: kein %s angegeben.;1000,coapiKfCheckReferenzD2,1;1->1
+$FCI_PREC;995964;Interpretierter Fehler: Kf Check Referenz D2: dat[Prog]SatzNameErmitteln fehlgeschlagen: %s.;1000,coapiKfCheckReferenzD2,3;1->1
+$FCI_PREC;995965;Interpretierter Fehler: KfCheckReferenzFromBRIF: #4 kein %s angegeben.;1000,coapiKfCheckReferenzFromBRIF,2;1->1
+$FCI_PREC;995966;Interpretierter Fehler: KfCheckReferenzFromBRIF: datProgSatzNameErmitteln fehlgeschlagen: %s.;1000,coapiKfCheckReferenzFromBRIF,4;1->1
+$FCI_PREC;995967;Interpretierter Fehler: KfCheckReferenzFromBRIF: #6 kein %s angegeben.;1000,coapiKfCheckReferenzFromBRIF,6;1->1
+$FCI_PREC;995968;Interpretierter Fehler: KfCheckReferenzFromBRIF: MakeBinFromDsFile %s fehlgeschlagen.;1000,coapiKfCheckReferenzFromBRIF,7;1->1
+$FCI_PREC;995969;Interpretierter Fehler: coapiGetCabdPar: CDHGetCabdPar %s fehlgeschlagen.;1000,coapiGetCabdPar;1->1
+$FCI_PREC;995974;Interpretierter Fehler: Trace FswMultiplePsw With Unknown: kein Trace-Dateiname %s angegeben.;1000,coapiTraceFswMultiplePswWithUnknown,1;1->1
+$FCI_PREC;995975;Interpretierter Fehler: Trace FswMultiplePsw With Unknown: kein Pfad zur Trace-Datei %s.;1000,coapiTraceFswMultiplePswWithUnknown,2;1->1
+$FCI_PREC;995976;Interpretierter Fehler: Set CbdName: keine CBD %s angegeben.;1000,coapiSetCbdName;1->1
+$FCI_PREC;995977;Interpretierter Fehler: Set SgbdName: keine SGBD %s angegeben.;1000,coapiSetSgbdName;1->1
+$FCI_PREC;995978;Interpretierter Fehler: Init Multiple Process: %s.;1000,coapiInitMult,1;1->1
+$FCI_PREC;995979;Interpretierter Fehler: Init: Fehler in CDHInit.;1000,coapiInit,1
+$FCI_PREC;995981;Interpretierter Fehler: Init: Fehler in InitIniFile.;*;;1000,coapiInit,2
+$FCI_PREC;995982;Interpretierter Fehler: Init: Fehler in CDHIntInit.;1000,coapiInit,3
+$FCI_PREC;995984;Interpretierter Fehler: Init: Fehler in Variablenliste.;1000,coapiInit,7
+$FCI_PREC;995986;Interpretierter Fehler: Init: Fehler in SelectFile Path.;1000,coapiInit,9
+$FCI_PREC;995988;Interpretierter Fehler: Init: Fehler in ReadIniFile1.;1000,coapiInit,11
+$FCI_PREC;995990;Interpretierter Fehler: Init: Fehler in SetRealCodierDatum.;1000,coapiInit,12
+$FCI_PREC;995992;Interpretierter Fehler: Init: Fehler in ReadIniFile2.;1000,coapiInit,13
+$FCI_PREC;995994;Interpretierter Fehler: Fehler in Init: ;1000,coapiInitMult,2
+$FCI_PREC;995995;Interpretierter Fehler: KfInit: Fehler in CDHInit.;1000,coapiKfInit,29
+$FCI_PREC;995997;Interpretierter Fehler: KfInit: Fehler in CDHIntInit.;1000,coapiKfInit,30
+$FCI_PREC;995999;Interpretierter Fehler: KfInitMulti: %s.;1000,coapiKfInitMultiProcess,1;1->1
+$FCI_PREC;996000;Interpretierter Fehler: Init: #8 Fehler bei Verarbeitung der Datei: %s.;1040,coapiInit,8;1->1
+$FCI_PREC;996002;Interpretierter Fehler: Init: #10 Fehler bei Verarbeitung der Datei: %s.;1040,coapiInit,10;1->1
+$FCI_PREC;996004;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,14;1->1
+$FCI_PREC;996006;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,15;1->1
+$FCI_PREC;996008;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,17;1->1
+$FCI_PREC;996010;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,18;1->1
+$FCI_PREC;996012;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,19;1->1
+$FCI_PREC;996014;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,21;1->1
+$FCI_PREC;996016;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,23;1->1
+$FCI_PREC;996018;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,24;1->1
+$FCI_PREC;996020;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,26;1->1
+$FCI_PREC;996022;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,28;1->1
+$FCI_PREC;996024;Interpretierter Fehler: KfInit: Fehler bei Verarbeitung der Datei: %s.;1040,coapiKfInit,33;1->1

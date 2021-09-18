@@ -1,0 +1,158 @@
+// DOCUMENTATION OF CODING DATASET CHANGES: R50
+//
+// Initial U.P.G:  61.35
+// Ident-Number:   6 910 467.5 c
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Reproduction and copying of this document, utilisation and
+//   disclosure of its contents not permitted without express
+//   consent. Non-compliance brings liability for damages. All
+//   rights in the event of grant of patent or design
+//   registration reserved.
+//
+//
+// Tab positions:   1 (NAEL-Number)
+//                 15 (Index)
+//                 17 (changed/new Tables)
+//                 22 (Date)
+//                 33 (Abbrev.)
+//                 41 (Name)
+//
+//
+DATEINAME                       R50AEDOC.000
+
+//NAEL-Nr.    Index  Date       Dept.   Name
+//              Tables          description
+
+////////////////////////////////////////////////////////////////////////////////
+NAEL EPL21.1  a      08.09.99   EE-62   Wolf
+                AEDOC,SGFAM,    -Initial Datasets created for R50
+                ZST,CVT,SGET,
+                ZCSUT,CONF,
+                SGVT
+
+                     10.11.99   EE-62   Wolf
+                ZST,SGET,CVT    -EMS_R50.C01, SHD_R50.c01 integrated 
+                CONF,SGFAM,     -PDC.C03, EWS3.C81 integrated
+                ZCSUT           -MRS3R50.C02 integrated 
+                                -BC1.C02 integrated 
+                                -KMB.C01 integrated 
+
+     EPL21.1  a      15.12.99   EE-62   Wolf
+                CVT,ZCSUT       -PDC.c03 with new R50 parameters and R53 parameters 
+                                 integrated
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+NAEL EPL22.N  a      19.01.00   EE-62   Wolf
+                CVT, ZST        -updated PDC.c03 integrated, ASW RAINSENSOR changed to
+                                 VISIBILITY_PACK
+
+                     04.02.00   EE-62   Wolf
+                CVT,CONF,SGFAM, -CBD for NAVI (GT.c02) integrated
+                SGET,ZCSUT
+                
+                     28.02.00   EE-62   Wolf
+                ZST             -option codes updated due to Project supplements (PS) 8850/018 and /014
+                
+                     03.02.00   EE-62   Wolf
+                SGET,SGFAM,     - MK60.C08 integrated
+                ZCSUT,CONF,CVT
+                
+                     06.03.00   EE-62   Finster
+                CVT             -SHD_R50.C01 new FSW SHD/ASD integrated, parameters corrected
+                CVT,SGVT,SGET,  -KMB_R50.C02 integrated, parameters corrected
+                ZST
+                
+                     07.03.00   EE-62   Finster
+                CVT             -new EMS_R50.C01 integrated for PL2/2
+                
+                     14.03.00   EE-62   Wolf
+                CVT             -BC1.C02: changes according drawing index b updated
+                
+                     16.03.00   EE-62   Finster
+                CVT             -new TV2.C02 integrated (SA601 TV); GT.C03: parameters corrected, GT.C02 deleted
+                
+                     27.03.00   EE-62   Wolf
+                SGET            -coding of EMS_R50.c01 disabled for PL2/2 (Communication problems)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EFB_1.N  a      04.05.00   EE-62   Wolf
+                SGET,SGFAM,CONF -EMS2K enabled (VIN will not be written by coding-process), new ASW FB1,
+                CVT,ZST,ZCSUT    LWS5 integrated
+                
+                     16.05.00   EE-62   Wolf
+                CVT, ZST, SGET  -BC1.C02 changes (index[c]) integrated, new ASW TAIWAN integrated,
+                                 GT.C04 integrated,updated EMS_R50.c01 integrated,
+
+                     31.05.00   EE-62   Wolf
+                                -new LWS5.C01 integrated
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EFB_2.N  a      07.07.00   EE-62   Wolf
+                 ZST,CVT,SGET,  -MRS4_12.C50 integrated, E-word TRANSIT deleted
+                 SGFAM,CONF     -new E-Word FB2, new ASW (acoustic belt wrng) for mrs4   
+                 ZCSUT,SGVT     -new Ra_ng.c01 integrated, new ASW OCEANIC integrated
+                                -new PDC integrated (ZI f), new shd.c02 integrated
+                 CVT            -CVT_HYBRID_MODE (EMS) and DIPPED_BEAM_NAS (BC1) integrated
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL EE787.N  a      04.09.00   EE-62   Wolf
+                                -release backward compatible until FB2 vehicles only!!
+                 ZST,CVT,SGET   -new MK60.C07 integrated, MK60 not coded in vehicles prior to PTO!
+                 KMB_R50.C02,   -new ASW PTO, new EMS_R50.c02 integrated (Checksum)
+                 KMB_R50.C01    -engl. version of EWS.c81 replaced with german version
+                                -TEILENUMMER[0] deleted from KMB.C01 /C02 and SWTFSW.DAT
+                                
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E2E68.N  b      26.10.00   EE-62   Wolf
+                
+                CVT,EMS_R50.C01 -Individ-Keywords translated to german
+                EMS_R50.C02
+                
+                     13.10.00   EE-62   Wolf
+                CVT,ZST,SGET    -KMB_R50.C03 added, KMB_R50.C02 replaced with german version 
+                SGVT,KMB.C02     ASW DREHZAHL_MESSER added, rest of ASW's translated to german
+                KMB.C03          new ASW PS1 (E-word) added
+                
+                     17.10.00   EE-62   Wolf
+                CVT,ZST,BC1.C02 -new BC1.c02 (index e) integrated, new ASW SWA (SA502)
+                
+                     23.10.00   EE-62   Wolf
+                CVT,SGVT,       -new MRS4_12.C51 integrated
+                MRS4_12.C51
+                
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+NAEL E6E96.N  c      13.11.00   EE-62   Wolf
+                CVT,ZST         -Order of SPRACHE changed (PSW englisch, golf),GM-Key changed (KM_TACHO ??????1? deleted on LL)
+                
+                     17.11.00   EE-62   Wolf
+                CVT             -updated kmb_r50.c03 integrated (bug fix sia data)
+                  
+                     21.11.00   EE-62   Wolf
+                CVT,ZCSUT,ZST   -updated kmb_r50.c03 integrated (fuel sender data now coded)
+                                 SA546 (Revcounter) now mandatory on Cooper and Cooper_S (ZCS recoding
+                                 for older cars via ZCSUT required)
+                                 
+                     27.11.00   EE-62   Wolf
+                CVT             -updated EMS_R50.C02 integrated
+                
+                     06.12.00   EE-62   Wolf
+                CVT             -CVT_SIL (shift interlock) deactivated for all R50 until CVT SOP (AUG01).
+                      
+                     18.12.00   EE-62   Wolf   
+                ZST,CVT,SGVT,   -new ASW's (PS2/ABG_AKTIV), SA530 Standard on RC33 (PS8850/036)->type area ZST changed
+                SGET,R50ausbl    MRS4_12.c53 integrated, updated BC1.c02 [index f] integrated, KMB_R50.C04
+                                 integrated
+                                 
+                     20.12.00   EE-62   Wolf
+                ZCSUT,SGET,CVT, -new ECU Remote Instrument Pack (RIP.C01) integrated, new ECU LWR.C03 integrated,
+                SGFAM,CONF.BAP   new SHD.C03 
+                
+                     15.01.01   EE-82   Wolf
+                CVT            -updated BC1.C02 (index g) integrated,updated MK60.C07 (index c) integrated
+                               updated EMS_r50.c02 (index b) integrated
+                     
+                     23.01.01   EE-82   Wolf                      
+                ZST,SGET       -H GVN lines FB2,PTO,PS1,PS2 deleted for SOP, logical conditions 
+                                for RIP and MK60 modified (ASW's PS2 and PTO deleted)
+                                Updated MRS4_12.C53 (with fire parameters) integrated

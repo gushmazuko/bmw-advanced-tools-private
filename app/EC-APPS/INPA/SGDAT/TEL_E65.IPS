@@ -1,0 +1,4067 @@
+//**********************************************************************
+//*
+//* Nacharbeitssource für INPA
+//*
+//* Sourcedatei TEL_E65.SRC
+//*
+//**********************************************************************
+//* History         : 
+//* 06.04.00 rd V0.01 Ersterstellung Grundumfang
+//*             V0.01 Identifikation Lesen ,
+//*             V0.01 Anwender Infofeld Lesen ,
+//*             V0.01 Fehlerspeicher Lesen, Löschen,
+//*             V0.01 Infospeicher (Shadowspeicher) Lesen, Löschen,
+//*             V0.01 Speicher Lesen
+//* 23.06.00 rd V0.02 Überarbeitung für E65 und E85
+//* 06.10.00 rg V0.03 Status/Steuern
+//* 13.06.01 ag V0.04 Neues Package 0.7 integriert
+//* 06.07.01 sk V0.05 Integration KVP Hoerer abmelden
+//* 16.10.02 tm V0.06 Ergänzung Status und Steuern für TELE60
+//* 17.10.02 tm V0.07 Status und Steuern für TELE60
+//* 18.11.02 IR V1.00 ULF hinzu.
+//* 04.12.02 IR V1.01 TELE60 ueberarbeitet
+//* 07.02.03 IR V1.02 TELE60_2 hinzu
+//* 13.02.03 FW V1.02 Zustaendigkeit geaendert
+//*          FW V1.02 Buttonanzeige geaendert
+//*          FW V1.02 M_ULF ueberarbeitet
+//*          FW V1.02 Bluetooth Status eingefügt
+//* 02.04.03 FW V1.03 Fehlerhafte Jobnamen fuer M_ULF korrigiert
+//* 08.10.03 FW V1.04 ECALL aktivieren entfernt, nicht in Werk zulässig
+//*          FW V1.04 ECALL Button Test eingefuehrt
+//*          FW V1.04 status/steuern screen ueberarbeitet
+//*          FW V1.04 steuern des transportmodus hinzugefuegt
+//* 16.02.2004 rd V1.05 Umstellung auf 32-Bit INPA
+//* 26.04.04 IR V1.06 Fuer M_ULF wurde ein separates Script M_ULF erstellt. Schalter zu M_ULF eingefuegt.
+//* 29.03.04 fw V1.07 mit neuem most-include compiliert
+//* 02.05.05 mm V1.08 DOKU DOM FILE im STEUER MENÜ hinzugefügt
+//**********************************************************************
+
+#pragma winedit
+
+#include "inpa.h"
+#include "bmw_std.h"
+
+// Titel, Version, Verantwortung, Steuergerät
+string titel  ="TEL_E65";            // Titel Nacharbeitsprogramm
+string version="1.08a";               // Version Nacharbeitsprogramm
+string origin ="BMW TI-431 ROCHAL, TI-431 Mroncz"; // Verantwortung Nacharbeitsprogramm
+string sgbd   ="TEL_ECE,TEL_USA,TELE60,TELE60_2,ULF_60";    // Steuergerät
+string gruppe_fg ="D_0012";                                     //Steuergerät wo sich eine 7 Stellige nummer befindet
+string gruppe ="D_TEL";              // Gruppendatei
+
+string speicher_lesen_parameter="LAR;FLASH;UIFM;-ROMI;-ROMX;-RAMIS;-RAMIL;-RAMXX;-NVRAM";
+// Moegliche Speicher-Parameter: "LAR;FLASH;UIFM;ROMI;ROMX;RAMIS;RAMIL;RAMXX;NVRAM";
+// Bei Leerstring erfolgt kein Menüpunkt Speicher Lesen
+
+// allgemeine globale Variable
+string text_var;
+string text_var1;
+real   zahlen_var;
+int    ganz_zahl;
+bool   logik_var;
+string job_state;    // JOB_STATUS Variable
+int    input_state;  // Eingabestatus
+int    input_ok=0;   // Eingabe  mit OK beendet
+
+int    bt_mode;         // Blootooth mode variable
+int    stat_bluetooth;  // Blootooth mode variable
+
+string az;
+string hr;
+string phoneType;
+string icc_id;                        // Textvariable
+string imei;                          // Textvariable
+string fgnr;                                                                      //Textvariable
+
+
+
+
+
+// start of :#include "bmw_std.src"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen BMW_STD.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 05.05.2000 rd V0.01 Ersterstellung
+//* 23.06.2000 rd V0.02 Überarbeitung für E65 und E85
+//* 04.07.2000 rd V0.03 Überarbeitung der Funktionen
+//* 08.11.2000 rd V0.04 AIF Lesen Results überarbeitet
+//* 01.03.2001 rd V0.05 m_status_flag neu hinzu
+//* 02.03.2001 rd V0.06 m_steuern_flag neu hinzu
+//* 18.05.2001 rd V0.07 AIF-Ausgabe verbessert
+//* 25.04.2002 rd V0.08 Erweiterung HS_LESEN
+//* 25.04.2002 rd V1.00 Freigabe
+//* 24.09.2002 rd V1.01 Erweiterung Ident für DS2
+//* 19.11.2002 rd V1.02 FS_MODE erweitert um PCODEs
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//*            rd V2.00 Entfernung EldiAuftragLesen, EldiAuftragEingeben
+//**********************************************************************
+string package="2.00";
+
+//**********************************************************************
+//*
+//* Globale Variablen
+//*
+//**********************************************************************
+
+// Umrechnungsfaktoren deutsch / englisch
+real   m_c    = 1.0;        // Grad Celsius -> Fahrenheit z = x * m_c + a_c
+real   a_c    = 0.0;
+real   m_km   = 1.0;     // km           -> miles      z = x * m_km
+real   m_l    = 1.0;     // Liter        -> Gallon US  z = x * m_l
+
+// für Info
+string sgbd_ecu;
+string sgbd_origin;
+string sgbd_revision;
+string sgbd_package;
+string sgbd_sprache;
+string sgbd_comment;
+string gruppe_ecu;
+string gruppe_origin;
+string gruppe_revision;
+string gruppe_comment;
+
+// für Status-Menü
+bool   m_status_flag=TRUE;
+// True Status-Menü wird angezeigt
+
+// für Steuern-Menü
+bool   m_steuern_flag=TRUE;
+// True Steuern-Menü wird angezeigt
+
+// für FS_LESEN speichern
+bool   fs_lesen_save_as_flag;
+
+// für IS_LESEN speichern
+bool   is_lesen_save_as_flag;
+
+// für HS_LESEN speichern
+bool   hs_lesen_save_as_flag;
+
+// für FS_LESEN 
+bool   fs_lesen_flag;
+// True wenn JOB vorhanden
+
+// für IS_LESEN 
+bool   is_lesen_flag;
+// True wenn JOB vorhanden
+
+// für HS_LESEN 
+bool   hs_lesen_flag;
+// True wenn JOB vorhanden
+
+// Handle für FS_LESEN
+int    f_ort_nr_buffer   = 0;
+int    f_ort_text_buffer = 0;
+
+// für Ident Screen
+bool   ds2_flag=FALSE;
+// False Ident Screen für BMW Fast
+// True  Ident Screen für DS2
+
+// für SPEICHER_LESEN 
+bool   speicher_lesen_flag;
+// True wenn JOB vorhanden
+bool   speicher_lesen_lar_flag;
+bool   speicher_lesen_uifm_flag;
+bool   speicher_lesen_romi_flag;
+bool   speicher_lesen_romx_flag;
+bool   speicher_lesen_nvram_flag;
+bool   speicher_lesen_ramis_flag;
+bool   speicher_lesen_ramxx_flag;
+bool   speicher_lesen_flash_flag;
+bool   speicher_lesen_ramil_flag;
+
+// für Speicher lesen Ausgabe
+string speicher_lesen_text         = "";
+string speicher_lesen_seg_adr_anz  = "";
+string speicher_lesen_adresse      = "0x000000";
+int    speicher_lesen_anzahl       = 64;
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+extern ScriptInit(); // befindet sich im Hauptprogramm
+
+// start of :#include "BATTERIE.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen BATTERIE.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//* 01.04.2004 rd V2.01 Im Fehlerfalle delay eingebaut
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* ShowBatteryIgnition
+//*
+//* Anzeige des Batterie- und Zündungs-Status
+//*
+//**********************************************************************
+ShowBatteryIgnition()
+{
+  bool   fehlerflag;    // Fehler aufgetreten
+  bool   fehlerflag2;   // Fehler aufgetreten
+  bool   zuendung;      // Zündung ein/aus
+  bool   batterie;      // Batterie ein/aus
+  int    wert;          // allgemeine Variable
+
+  ftextout("Batterie :", 0,5,1,0);
+  ftextout("Zündung  :", 0,45,1,0);
+
+  INPAapiJob("UTILITY","STATUS_UBATT","","");
+  INP1apiResultInt(fehlerflag,wert,"STAT_UBATT",1);
+  if ((fehlerflag!=TRUE) || (wert==0))
+  {
+    batterie=FALSE;
+    zuendung=FALSE;
+  }
+  else 
+  {
+    batterie=TRUE;
+    INPAapiJob("UTILITY","STATUS_ZUENDUNG","","");
+    INP1apiResultInt(fehlerflag2,wert,"STAT_ZUENDUNG",1);
+    if ((fehlerflag2!=TRUE) || (wert==0))
+      zuendung=FALSE;
+    else
+      zuendung=TRUE;
+  }
+  digitalout(batterie, 0,20,"","");
+  if (batterie==TRUE)
+    ftextout("ein  ", 0,25,1,0);
+  else
+  {
+    if (fehlerflag==TRUE)
+    {
+      ftextout("aus  ", 0,25,1,0);
+    }
+    else
+    {
+      ftextout("---  ", 0,25,1,0);
+    }
+  }
+  
+  digitalout(zuendung, 0,62,"","");
+  if (zuendung==TRUE)
+    ftextout("ein  ", 0,67,1,0);
+  else
+  {
+    if (fehlerflag2==TRUE)
+    {
+      ftextout("aus  ", 0,67,1,0);
+    }
+    else
+    {
+      ftextout("---  ", 0,67,1,0);
+    }
+  }
+
+  if ((fehlerflag!=TRUE) || (fehlerflag2!=TRUE))
+  {
+    delay(2000);
+  }
+}
+// -- EOF --
+// end of :#include "BATTERIE.SRC"
+// start of :#include "GRP_INFO.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen GRP_INFO.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* GruppenDateiInfo
+//*
+//* Versionsinformationen über Gruppendatei
+//*
+//**********************************************************************
+GruppenDateiInfo( in: string grp, 
+                  inout: string grp_ecu, inout: string grp_origin, 
+                  inout: string grp_revision, inout: string grp_comment)
+{
+  string CurDir;
+  string Temp;
+  string Puffer;
+  int    Size;
+  long   PufferSize;
+  int    ret_int;
+  string BS;
+  string CR;
+  int    pos1;
+  int    pos2;
+  
+  chr( 92, BS ); // '\'
+  chr( 13, CR );
+  
+  Size=256;
+  space(CurDir,Size);
+  GetCurrentDirectory(256, CurDir, ret_int);
+  SetCurrentDirectory("\EDIABAS\BIN", ret_int);
+
+  Size=1024;
+  space(Puffer,Size);
+  inttolong(Size, PufferSize);
+  XTRACT("\ediabas\ecu"+ BS + grp + ".grp", 1, Puffer, PufferSize, ret_int);
+
+  grp_ecu="";
+  instr(pos1, 0, Puffer, "ECU:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 4;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+      midstr(grp_ecu, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_origin="";
+  instr(pos1, 0, Puffer, "ORIGIN:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 7;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+      midstr(grp_origin, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_revision="";
+  instr(pos1, 0, Puffer, "REVISION:");
+  if (pos1 >= 0)
+  {
+    pos1 = pos1 + 9;
+    instr(pos2, pos1, Puffer, CR );
+    if (pos2 > pos1)
+    midstr(grp_revision, Puffer, pos1, pos2 - pos1);
+  }
+
+  grp_comment="";
+  pos1=0;
+  pos2=0;
+  while ((pos1 >= 0) && (pos2 >= 0))
+  {
+    instr(pos1, pos2, Puffer, "ECUCOMMENT:");
+    if (pos1 >= 0)
+    {
+      pos1 = pos1 + 11;
+      instr(pos2, pos1, Puffer, CR );
+      if (pos2 > pos1)
+      {
+        midstr(Temp, Puffer, pos1, pos2 - pos1);
+        grp_comment=grp_comment+Temp+",";
+      }
+    }
+  }
+  SetCurrentDirectory(CurDir, ret_int);
+}
+// -- EOF --
+// end of :#include "GRP_INFO.SRC"
+// start of :#include "SGBDINFO.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen SGBDINFO.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+extern SgbdInfo(in: string sg,
+                inout: string sg_ecu, inout: string sg_origin,
+                inout: string sg_revision, inout: string sg_package,
+                inout: string sg_comment, inout: string sg_sprache);
+
+//**********************************************************************
+//*
+//* SgbdInfo
+//*
+//* Versionsinformationen über SGBD
+//*
+//**********************************************************************
+SgbdInfo( in: string sg,
+          inout: string sg_ecu, inout: string sg_origin,
+          inout: string sg_revision, inout: string sg_package,
+          inout: string sg_comment, inout: string sg_sprache)
+{
+  INPAapiJob(sg,"INFO","","");
+  INPAapiResultText(sg_ecu,"ECU",1,"");
+  INPAapiResultText(sg_revision,"REVISION",1,"");
+  INPAapiResultText(sg_package,"PACKAGE",1,"");
+  INPAapiResultText(sg_origin,"ORIGIN",1,"");
+  INPAapiResultText(sg_comment,"COMMENT",1,"");
+  INPAapiResultText(sg_sprache,"SPRACHE",1,"");
+}
+
+// -- EOF --
+// end of :#include "SGBDINFO.SRC"
+// start of :#include "SGBDINPA.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen SgbdInpa.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* 12.03.2003 iS V1.05 Aufteilung der Funktionen(SgbdInpaCheck,GroupCheck)
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* SgbdInpaCheck
+//*
+//* Überprüfung ob SGBD zu INPA passt
+//*
+//**********************************************************************
+SgbdInpaCheck()
+{
+  string sgbd_version;             // für Versionskontrolle
+  string inpa_version;             // für Versionskontrolle
+  string inpa_sprache="deutsch"; // für Sprachvariante
+  string variante="???";           // für Variantenkontrolle
+  string err_text;                 // Fehlertext
+  bool   fehlerflag;               // Fehlerflag
+  string temp;
+  string temp1;
+  int    i;
+  int    k;
+  int    kk;                       // für neue VersionsnummernKontrolle
+  int    ii;
+  int    a;
+  int    aa;
+  int    i1;
+  int    i2;
+  int    i3;                       // für neue VersionsnummernKontrolle
+  string sgbd_String_Lang;
+  string sgbd_von_inpa_version;
+  string ver_temp;
+  string ver_temp1;
+  string ver_temp2;
+  string ver_temp3="--";
+  real Version_SGBD;
+  real Version_INPA;
+
+  settitle(titel+" Version "+version);
+  a=0;
+  ii=0;
+  i3=0;
+  kk=0;
+  aa=0;
+  i=0;
+  k=0;
+  fehlerflag=FALSE;
+
+  instr(i,k,","+gruppe+",",",");
+  while ((i >= 0) && (fehlerflag == FALSE))
+  {
+    k=i+1;
+    instr(i,k,","+gruppe+",",",");
+    if (i >= 0)
+    {
+      midstr(temp,","+gruppe+",",k,i-k);
+      INPAapiJob(temp,"INITIALISIERUNG","","");
+      INP1apiResultText(fehlerflag,variante,"VARIANTE",0,"");
+      if (fehlerflag == TRUE) gruppe=temp;
+    }
+  }
+
+  if (fehlerflag == FALSE)
+  {
+    INP1apiErrorText(err_text);
+    messagebox("Variantenkontrolle",
+               "Gruppendatei : "+gruppe+". "+CRLF+
+               err_text+". "+CRLF+
+               "Das Programm wird abgebrochen!");
+    exit();
+  }
+
+  i1=0;
+  i2=0;
+  instr(i1,0,","+sgbd+",",","+variante+",");
+  if (i1 < 0)
+  {
+    instr(i2,0,","+sgbd+",",","+variante+"/");
+    if (i2 < 0)
+    {
+      messagebox("Variantenkontrolle",
+                 "Gesuchtes Steuergerät: '"+sgbd+"' nicht gefunden. "+CRLF+
+                 "Gefundenes Steuergerät: '"+variante+"'. "+CRLF+
+                 "Das Programm wird abgebrochen!");
+      exit();
+    }
+
+    ver_temp3 = "--";
+    instr(ii,i2,sgbd+",",",");
+    if (ii >= 0)
+    {
+      midstr(ver_temp3,sgbd+",",i2,ii);
+      instr(i3,0,ver_temp3,"/");
+      if (i3 >= 0)
+      {
+        a = i2+i3+1;
+        aa = ii-i2+i3-1;
+        midstr(ver_temp3,sgbd+",",a,aa);
+      }
+    }
+  }
+
+  sgbd_String_Lang = sgbd;
+  sgbd=variante;
+
+//
+// Info: Informatinon bei aufruf ohne BMW_STD.SRC
+//
+// ####################################################
+// # //für Info                                       #
+// #   string sgbd_ecu;                               #
+// #   string sgbd_origin;                            #
+// #   string sgbd_revision;                          #
+// #   string sgbd_package;                           #
+// #   string sgbd_sprache;                           #
+// #   string sgbd_comment;                           #
+// #   string gruppe_ecu;                             #
+// #   string gruppe_origin;                          #
+// #   string gruppe_revision;                        #
+// #   string gruppe_comment;                         #
+// #                                                  #
+// #   #include "SgbdInfo.src"                        #
+// ####################################################
+//
+//
+  SgbdInfo(sgbd, sgbd_ecu, sgbd_origin, sgbd_revision, sgbd_package, sgbd_comment, sgbd_sprache);
+// Bitte VARIABLEN als Globale variable aktivieren und Include (siehe Block //INFO)   
+//
+//
+
+  //Versionskontrolle Auf 3 stellen vor / hinter dem "." 
+  instr(i3,0,ver_temp3,"V");
+  if(i3>=0) 
+  {
+    instr(i2,0,ver_temp3,",");
+    midstr(ver_temp3,ver_temp3,i3+1,i2-1);
+    stringtoreal(ver_temp3,Version_INPA);
+    realtostring(Version_INPA,"3.3",ver_temp3);
+    midstr(sgbd_von_inpa_version,ver_temp3,0,2);
+  }
+  stringtoreal(version,Version_INPA);
+  realtostring(Version_INPA,"3.3",version);
+  midstr(inpa_version,version,0,2);
+
+  stringtoreal(sgbd_revision,Version_SGBD);
+  realtostring(Version_SGBD,"3.3",sgbd_revision);
+  midstr(sgbd_version,sgbd_revision,0,2);
+
+  temp=inpa_version;
+  temp1=sgbd_version;
+
+  if (ver_temp3 == "--")
+  {
+    // Vergleichen mit Versionsnummer INPA & SGBD
+    if (inpa_version != sgbd_version)
+    {
+      messagebox("Versionskontrolle",
+                 "Nicht zusammenpassende Versionen. "+CRLF+
+                 "Fehlfunktion ist möglich!");
+    }
+    else
+    {
+      if (temp == "0.")
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "SGBD Version: "+sgbd_revision+CRLF+
+                     "INPA Version: "+version);
+        }
+        else
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "INPA Version: "+version);
+        }
+      }
+      else
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "SGBD Version: "+sgbd_revision);
+        }
+      }
+    }
+  }
+  else
+  {
+    // Vergleichen mit Versionsnummer INPA(SGBD Vorwahl) & SGBD
+    if (sgbd_von_inpa_version != sgbd_version)
+    {
+      messagebox("Versionskontrolle",
+                 "Nicht zusammenpassende Versionen. "+CRLF+
+                 "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                 "SGBD Version: "+ ver_temp3 +" (in INPA) "+CRLF+
+                 "SGBD Version: "+ sgbd_revision +CRLF+
+                 "INPA Version: "+ version);
+    }
+    else
+    {
+      if (temp == "0.")
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "SGBD Version: "+sgbd_revision+CRLF+
+                     "INPA Version: "+version);
+        }
+        else
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "INPA Version: "+version);
+        }
+      }
+      else
+      {
+        if (temp1 == "0.")
+        {
+          messagebox("Versionskontrolle",
+                     "Programm noch in der Entwicklungsphase. "+CRLF+
+                     "Fehlfunktion ist möglich!"+CRLF+CRLF+
+                     "SGBD Version: "+sgbd_revision);
+        }
+      }
+    }
+  }
+
+  if (inpa_sprache != sgbd_sprache)
+  {
+    messagebox("Sprachvariantenkontrolle",
+               "Nicht zusammenpassende Sprachvariante. "+CRLF+
+               "Fehlfunktion ist möglich!");
+  }
+} 
+
+// -- EOF --
+// end of :#include "SGBDINPA.SRC"
+// start of :#include "GRPCHECK.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen GrpCheck.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 12.03.2003 iS V1.05 Aufteilung der Funktionen(SgbdInpaCheck,GroupCheck)
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* GroupCheck
+//*
+//* Überprüfung der Gruppen-Info
+//*
+//**********************************************************************
+GroupCheck() 
+{ 
+  string err_text;                 // Fehlertext
+  bool   fehlerflag;               // Fehlerflag
+  string temp;
+  int    sgbd_saetze;              // für Funktionen-Suche in SGBD
+  string job_name;                 // JOBNMAE in SGBD
+  int    i;
+
+  fehlerflag=FALSE;
+  i=0;
+   
+  GruppenDateiInfo(gruppe, gruppe_ecu, gruppe_origin, gruppe_revision, gruppe_comment);
+
+  // Vorbelegung der Flags
+  is_lesen_flag = FALSE;
+  speicher_lesen_flag = FALSE;
+
+  INPAapiJob(sgbd,"_JOBS","","");
+
+  INP1apiResultSets(fehlerflag, sgbd_saetze);
+  if (fehlerflag == FALSE)
+  {
+    INP1apiErrorText(err_text);
+    messagebox("Unerwarteter Fehler", // sollte nie kommen
+                err_text+". "+CRLF+
+               "Das Programm wird abgebrochen!");
+    exit();
+  }
+  i = 1;
+  while ( i <= sgbd_saetze)
+  {
+    INPAapiResultText(job_name,"JOBNAME",i,"");
+    if (job_name == "FS_LESEN" )       fs_lesen_flag=TRUE;
+    if (job_name == "IS_LESEN" )       is_lesen_flag=TRUE;
+    if (job_name == "HS_LESEN" )       hs_lesen_flag=TRUE;
+    if (job_name == "SPEICHER_LESEN" ) speicher_lesen_flag=TRUE;
+
+    if ((fs_lesen_flag == TRUE) &&
+        (is_lesen_flag == TRUE) &&
+        (hs_lesen_flag == TRUE) &&
+        (speicher_lesen_flag) == TRUE) i = sgbd_saetze;
+    i = i + 1;
+  }
+  if (speicher_lesen_parameter == "")  speicher_lesen_flag = FALSE;
+
+  if (speicher_lesen_flag == TRUE)
+  {
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";LAR;");
+    if ( i == -1 ) speicher_lesen_lar_flag = FALSE; else speicher_lesen_lar_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";FLASH;");
+    if ( i == -1 ) speicher_lesen_flash_flag = FALSE; else speicher_lesen_flash_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";UIFM;");
+    if ( i == -1 ) speicher_lesen_uifm_flag = FALSE; else speicher_lesen_uifm_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";ROMI;");
+    if ( i == -1 ) speicher_lesen_romi_flag = FALSE; else speicher_lesen_romi_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMIS;");
+    if ( i == -1 ) speicher_lesen_ramis_flag = FALSE; else speicher_lesen_ramis_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMIL;");
+    if ( i == -1 ) speicher_lesen_ramil_flag = FALSE; else speicher_lesen_ramil_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";NVRAM;");
+    if ( i == -1 ) speicher_lesen_nvram_flag = FALSE; else speicher_lesen_nvram_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";ROMX;");
+    if ( i == -1 ) speicher_lesen_romx_flag = FALSE; else speicher_lesen_romx_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMXX;");
+    if ( i == -1 ) speicher_lesen_ramxx_flag = FALSE; else speicher_lesen_ramxx_flag = TRUE;
+  }
+
+  ds2_flag=FALSE;
+  INP1apiJob(sgbd,"IDENT","","");
+  INP1apiResultText(fehlerflag,temp,"ID_DATUM_KW",1,"");
+  if ((fehlerflag == TRUE) && (temp != "")) ds2_flag=TRUE;
+}
+// -- EOF --
+// end of :#include "GRPCHECK.SRC"
+// start of :#include "FS_LESEN.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen FS_LESEN.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 21.11.2000 rd V0.10 Umweltbedingungen als Zahl oder Text ( 0-n, Hex )
+//* 02.03.2001 rd V0.11 Shadowspeicher umbenannt in Infospeicher
+//* 25.04.2002 rd V1.00 Erweiterung HS_LESEN
+//* 22.10.2002 rd V1.01 Erweiterung FS_LESEN
+//*               V1.01 PCODE und PCODE7 Ausgabe neu
+//*               V1.01 Fehlerbehandlung verbessert
+//* 19.11.2002 iS V1.02 Fehlerbehandlung F_ORT_TEXT, F_UW_ANZ, F_PCODE
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* Globale Variablen
+//*
+//**********************************************************************
+int    _FsMode        = 0x7FF; // alles ein
+string _FsFileMode    = "w";
+string _PreInfoFile   = "";
+string _PostInfoFile  = "";
+string _ApiFsJobName  = "FS_LESEN";
+
+//**********************************************************************
+//*
+//* Deklaration der Funktionen
+//*
+//**********************************************************************
+extern INPAapiFsMode_neu ( in: int FsMode, in: string FsFileMode,
+                           in: string PreInfoFile, in: string PostInfoFile,
+                           in: string ApiFsJobName);
+
+extern INPAapiFsLesen_neu( in: string ecu, in: string FileName);
+
+extern fs_protokoll_ort(in: int nr);
+extern fs_protokoll_PCode(in: int nr);
+extern fs_protokoll_PCode7(in: int nr);
+extern fs_protokoll_hfk(in: int nr);
+extern fs_protokoll_art(in: int nr);
+extern fs_protokoll_art_e(in: int nr);
+extern fs_protokoll_uwb(in: int nr);
+extern fs_protokoll_hex(in: int nr);
+
+//**********************************************************************
+//*
+//* INPAapiFsMode_neu kompatibel mit INPAapiFsMode
+//*
+//**********************************************************************
+INPAapiFsMode_neu(  in: int    FsMode,
+                    in: string FsFileMode,
+                    in: string PreInfoFile,
+                    in: string PostInfoFile,
+                    in: string ApiFsJobName)
+{
+  _FsMode       = FsMode;
+  _FsFileMode   = FsFileMode;
+  _PreInfoFile  = PreInfoFile;
+  _PostInfoFile = PostInfoFile;
+  _ApiFsJobName = ApiFsJobName;
+
+  INPAapiFsMode(_FsMode, _FsFileMode, _PreInfoFile, _PostInfoFile, _ApiFsJobName);
+
+  if (_ApiFsJobName=="") _ApiFsJobName="FS_LESEN";
+}
+
+//**********************************************************************
+//*
+//* INPAapiFsLesen_neu kompatibel mit INPAapiFsLesen
+//*
+//**********************************************************************
+INPAapiFsLesen_neu( in: string ecu, in: string FileName)
+{
+  string _ecu;
+  string _FileName;
+  bool   rc;
+  int    i;
+  int    k;
+  int    x1;
+  string temp1;
+  string temp2;
+  string temp11;
+  string temp12;
+  string temp21;
+  string temp22;
+  int    F_VERSION;
+  string JOB_STATUS;
+  string VARIANTE;
+  int    SETS;
+  int    UW_SETS;
+  string FS_CODE;
+  string F_PCODE;
+  string F_PCODE7;
+  string F1_VERSION;
+  
+  _ecu      = ecu;
+  _FileName = FileName;
+  INPAapiJob(_ecu, _ApiFsJobName,"","");
+  INP1apiResultInt(rc, F_VERSION, "F_VERSION",1 );
+  if ((rc == TRUE) && ( F_VERSION == 2 ))
+  {
+    getdate(temp1);
+    gettime(temp2);
+    INPAapiResultSets(SETS);
+    INPAapiResultText(VARIANTE, "VARIANTE", 0, "");
+    INPAapiResultText(JOB_STATUS, "JOB_STATUS", SETS, "");
+    fileopen ( _FileName, _FsFileMode);
+
+    if (_ApiFsJobName == "IS_LESEN")
+        filewrite( "           I N F O S P E I C H E R   L E S E N");
+    else
+      if (_ApiFsJobName == "HS_LESEN")
+        filewrite( "           H I S T O R I E N S P E I C H E R   L E S E N");
+      else
+        filewrite( "           F E H L E R S P E I C H E R   L E S E N");
+
+    filewrite( "           ---------------------------------------");
+    filewrite( "");
+    filewrite( "Datum:     "+temp1+" "+temp2);
+    filewrite( "ECU:       "+_ecu);
+    filewrite( "JobStatus: "+JOB_STATUS) ;
+    filewrite( "Variante:  "+VARIANTE);
+    filewrite( "-------------------------------------------------------------");
+
+    if ( JOB_STATUS == "OKAY")
+    {
+      filewrite( "");
+      if (SETS == 1)
+        filewrite( "           >>>>>>>>>> Kein Fehler gefunden <<<<<<<<<<<");
+      else
+      {
+        inttostring(SETS-1,temp1);
+        filewrite( "ERGEBNIS:  "+temp1+" Fehler im Fehlerspeicher !");
+        if ((_FsMode & 0x100) == 0)
+        {
+          i=1;
+          while ( i < SETS )
+          {
+            if (_FsMode != 0) 
+              filewrite( "-------------------------------------------------------------");
+            if ((_FsMode & 0x01) != 0) fs_protokoll_ort(i);
+            if ((_FsMode & 0x04) != 0) fs_protokoll_art(i);
+            if ((_FsMode & 0x40) != 0) fs_protokoll_hex(i);
+            i=i+1;
+          }
+        }
+        else
+        {
+          // Detail lesen
+          i=1;
+          StrArrayDelete(f_ort_nr_buffer);
+          StrArrayDelete(f_ort_text_buffer);
+          
+          while ( i < SETS )
+          {
+            INP1apiResultText(rc,temp1, "F_ORT_TEXT", i, "");
+            if (rc == TRUE) temp1="????";
+            
+            StrArrayWrite(f_ort_text_buffer,i,temp1);  
+            INPAapiResultInt(x1, "F_ORT_NR", i);
+            inttohexstring(x1, 4, temp1);
+            StrArrayWrite(f_ort_nr_buffer,i,temp1);
+            i=i+1;
+          }
+
+          i=1;
+          while ( i < SETS )
+          {
+            if (_FsMode != 0) 
+              filewrite( "-------------------------------------------------------------");
+
+            StrArrayRead(f_ort_nr_buffer,i,FS_CODE);  
+            INPAapiJob(_ecu, _ApiFsJobName+"_DETAIL", "0x"+FS_CODE, "");
+            INP1apiResultSets(rc, UW_SETS);
+            if (rc == TRUE)
+            {
+              INPAapiResultText(JOB_STATUS, "JOB_STATUS", UW_SETS, "");
+              if ( JOB_STATUS == "OKAY")
+              {
+                if ((_FsMode & 0x01)  != 0) fs_protokoll_ort(1);
+                if ((_FsMode & 0x200) != 0) fs_protokoll_PCode(1);
+                if ((_FsMode & 0x400) != 0) fs_protokoll_PCode7(1);
+                if ((_FsMode & 0x20)  != 0) fs_protokoll_hfk(1);
+                k=1;
+                while ( k < UW_SETS )
+                {
+                  filewrite( "");
+                  if ( UW_SETS > 2 )
+                  {
+                    inttostring(k,temp1);
+                    filewrite( temp1 + ". Umweltsatz");
+                  }
+                  if ((_FsMode & 0x02) != 0) fs_protokoll_uwb(k);
+                  k=k+1;
+                }
+                if ((_FsMode & 0x04) != 0) fs_protokoll_art(1);
+                if ((_FsMode & 0x04) != 0) fs_protokoll_art_e(1);
+                if ((_FsMode & 0x40) != 0) fs_protokoll_hex(1);
+              }
+              else
+              {
+                if ((_FsMode & 0x01) != 0)
+                {
+                  filewrite( "");
+                  StrArrayRead(f_ort_text_buffer,i,temp2);  
+                  filewrite( FS_CODE+"  "+temp2);
+                }
+                filewrite( _ApiFsJobName+"_DETAIL: JobStatus: "+JOB_STATUS) ;
+              }
+            }
+            else
+            {
+              if ((_FsMode & 0x01) != 0)
+              {
+                filewrite( "");
+                StrArrayRead(f_ort_text_buffer,i,temp2);  
+                filewrite( FS_CODE+"  "+temp2);
+              }
+              INP1apiErrorText(temp1);
+              filewrite( _ApiFsJobName+"_DETAIL: "+temp1);
+            }
+            i=i+1;
+          }
+        }
+      }
+    }
+    filewrite( "=============================================================");
+    fileclose();
+  }
+  else
+    INPAapiFsLesen( _ecu, _FileName);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerort
+//*
+//**********************************************************************
+fs_protokoll_ort(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string temp1;
+  string temp2;
+ 
+  i=nr;
+  filewrite( "");
+  INP1apiResultInt(rc,x1, "F_ORT_NR", i);
+  if (rc == TRUE)
+  {
+    inttohexstring(x1, 4, temp1);
+  }
+  else
+  {
+    temp1="????";
+  }
+
+  INP1apiResultText(rc,temp2, "F_ORT_TEXT", i, "");
+  if (rc == TRUE)
+  {  
+    filewrite( temp1+"  "+temp2);
+  }
+  else
+  { 
+    filewrite( temp1+"  "+"????");
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe PCODE
+//*
+//**********************************************************************
+fs_protokoll_PCode(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string tempPcodeText;
+  string tempPcodeString;
+  string tempPcodeHex;
+
+  i=nr;
+  INP1apiResultText(rc,tempPcodeString, "F_PCODE_STRING", i,"");
+  if (rc == TRUE)
+  {  
+    INP1apiResultText(rc,tempPcodeText, "F_PCODE_TEXT", i, "");
+    if (rc == TRUE)
+    {    
+      INP1apiResultInt(rc,x1, "F_PCODE", i);    
+      if (rc == TRUE)
+      {
+        inttohexstring(x1, 4, tempPcodeHex);
+      }
+      else
+      {
+        tempPcodeHex = "????";
+      }
+    }
+    else
+    {
+      tempPcodeText = "????";
+    }
+
+    if (tempPcodeString == "??")
+    {
+      filewrite( "");
+      filewrite( tempPcodeHex+"  "+tempPcodeText);
+    }
+    else
+    {
+      if (tempPcodeString != "--")
+      {
+        filewrite( "");
+        filewrite( tempPcodeText);
+      }
+    }
+  } 
+}  
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe PCODE7
+//*
+//**********************************************************************
+fs_protokoll_PCode7(in: int nr)
+{
+  int    i;
+  int    x1;
+  bool   rc;
+  string tempPcode7Text;
+  string tempPcode7String;
+  string tempPcode7Hex;
+
+  i=nr;
+  INP1apiResultText(rc,tempPcode7String, "F_PCODE7_STRING", i,"");
+  if (rc == TRUE)
+  {
+    INP1apiResultText(rc,tempPcode7Text, "F_PCODE7_TEXT", i, "");
+    if (rc == TRUE)
+    {
+      INP1apiResultInt(rc,x1, "F_PCODE7", i);    
+      if (rc == TRUE)
+      {
+        inttohexstring(x1, 4, tempPcode7Hex);
+      }
+      else
+      {
+        tempPcode7Hex = "????";
+      }
+    }
+    else
+    {
+      tempPcode7Text = "????";
+    }
+
+    if (tempPcode7String == "??")
+    {
+      filewrite( "");
+      filewrite( tempPcode7Hex+"  "+tempPcode7Text);
+    }
+    else
+    {
+      if (tempPcode7String != "--")
+      {
+        filewrite( "");
+        filewrite( tempPcode7Text);
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerhäfigkeit
+//*
+//**********************************************************************
+fs_protokoll_hfk(in: int nr)
+{
+  int    i;
+  bool   rc;
+  string temp1;
+
+  i=nr;
+  filewrite( "");
+  INP1apiResultText(rc,temp1, "F_HFK", i, "");  
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="-1") filewrite( "Fehlerhäufigkeit: "+ temp1);
+
+  INP1apiResultText(rc,temp1, "F_LZ", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="-1") filewrite( "Logistikzähler  : "+ temp1);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Fehlerarten
+//*
+//**********************************************************************
+fs_protokoll_art(in: int nr)
+{
+  int    i;
+  bool   rc;
+  string temp1;
+
+  i=nr;
+  filewrite( "");
+  INP1apiResultText(rc,temp1, "F_SYMPTOM_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_READY_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_VORHANDEN_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+  INP1apiResultText(rc,temp1, "F_WARNUNG_TEXT", i, "");
+  if (rc == FALSE)  temp1 ="????";
+  if (temp1 !="--") filewrite( "   "+ temp1);
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe erweiterte Fehlerarten
+//*
+//**********************************************************************
+fs_protokoll_art_e(in: int nr)
+{
+  int    i;
+  int    k;
+  int    F_ART_ANZ;
+  bool   rc;
+  string temp1;
+  string temp2;
+
+  i=nr;
+  INP1apiResultInt(rc,F_ART_ANZ, "F_ART_ANZ", i);
+  if (rc == TRUE)
+  {        
+    if ( F_ART_ANZ > 0 )
+    {
+      k=0;
+      while ( k < F_ART_ANZ )
+      {
+        k = k + 1;
+        inttostring(k,temp2);
+        INP1apiResultText(rc,temp1, "F_ART"+temp2+"_TEXT", i, "");
+        if (rc == FALSE)  temp1 ="????";
+        if (temp1 !="--") filewrite( "   "+ temp1);
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Umweltbedingungen
+//*
+//**********************************************************************
+fs_protokoll_uwb(in: int nr)
+{
+  int    i;
+  int    k;
+  int    F_UW_ANZ;
+  bool   rc;
+  string temp1;
+  string temp2;
+  string temp3;
+
+  i=nr;
+  INP1apiResultText(rc,temp1, "F_UW_KM", i, "6L");  
+  if (rc == FALSE) temp1="  ????";
+  if (temp1 != "524280")
+  {
+    temp2 = "Kilometerstand                          ";
+    filewrite( "   " + temp2 + temp1 + "     km");
+  }
+
+  INP1apiResultInt(rc,F_UW_ANZ, "F_UW_ANZ", i);
+  if (rc == TRUE)
+  {
+    if ( F_UW_ANZ > 0 )
+    {
+      k=0;
+      while ( k < F_UW_ANZ )
+      {
+        k = k + 1;
+        inttostring(k,temp2);
+
+        INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+        if (rc == TRUE)
+        {
+          AnsiUpper(temp3,temp3);
+        }
+        else
+        {
+          temp3 = "????";
+        }
+        if ((temp3 == "0-N") || (temp3 == "HEX"))
+        {
+          INP1apiResultText(rc,temp1, "F_UW"+temp2+"_TEXT", i, "-20T");
+          if (rc == FALSE) temp1="????                ";
+          if (temp1 !="--                  ") //"--" + 18 Zeichen            
+
+          {
+            if ((_FsMode & 0x08) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_WERT", i, "28T");
+              if (rc == FALSE) temp3="????                        ";
+              temp1 = temp1 + " " + temp3;
+            }
+            if ((_FsMode & 0x10) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+              if (rc == FALSE) temp3="????";
+              temp1 = temp1 + "  " + temp3;
+            }
+            filewrite( "   "+ temp1);
+          }
+        }
+        else
+        {
+          INP1apiResultText(rc,temp1, "F_UW"+temp2+"_TEXT", i, "-40T");
+          if (rc == FALSE) temp1="????                                    ";
+          if (temp1 !="--                                      ")
+           {
+            if ((_FsMode & 0x08) != 0)
+            {
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_WERT", i, "8.2R");
+              if (rc == FALSE) temp3=" ????   ";
+              temp1 = temp1 + " " + temp3;
+            }
+            if ((_FsMode & 0x10) != 0)
+            {    
+              INP1apiResultText(rc,temp3, "F_UW"+temp2+"_EINH", i, "");
+              if (rc == FALSE) temp3="????";
+              temp1 = temp1 + "  " + temp3;
+            }
+            filewrite( "   "+ temp1);
+           }
+         }
+      }
+    }
+  }
+}
+
+//**********************************************************************
+//*
+//* Fehlerprotokollausgabe Hexcode
+//*
+//**********************************************************************
+fs_protokoll_hex(in: int nr)
+{
+  string nl;
+  int    i;
+  int    x1;
+  int    x2;
+  int    x3;
+  bool   rc;
+  string temp1;
+  string temp2;
+  string temp3;
+  
+  chr(10,nl);
+  i=nr;
+  filewrite( "");
+  INP1apiResultBinary(rc,"F_HEX_CODE", i);
+  if (rc == TRUE)
+  {
+    GetBinaryDataString ( temp1, x1);
+    x2 = 0;
+    x3 = 0;
+    temp2="";
+    while ( x2 < x1 )
+    {
+      midstr(temp3, temp1, x2, 2);
+      temp2 = temp2 + temp3;
+      x2 = x2 + 2;
+      x3 = x3 + 1;
+      if ( x2 < x1 )
+      {
+        if ( x3 < 16 )
+          temp2 = temp2 + " ";
+        else
+        {
+          x3 = 0;
+          temp2 = temp2 + nl + "            ";
+        }
+      }
+    }
+  }
+  else
+  {
+    temp2 = "????";
+  }
+  filewrite( "Fehlercode: "+temp2);
+}
+// -- EOF --
+// end of :#include "FS_LESEN.SRC"
+// start of :#include "INITEXIT.SRC"
+//**********************************************************************
+//*
+//* INPA Library-Funktionen INITEXIT.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 24.09.2002 rd V1.01 Scriptinit verlagert
+//* 12.03.2003 iS V1.01 Anpassung SgbdInpaCheck()GroupCheck();
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  bool   rc;
+
+  INPAapiInit();
+  chrinit();
+
+  // Handle für FS_LESEN
+  StrArrayCreate(rc,f_ort_nr_buffer);
+  if (rc == FALSE)
+  {
+    messagebox("Unerwarteter Fehler", // sollte nie kommen
+               "StrArrayCreate(rc,f_ort_nr_buffer). "+CRLF+
+               "Das Programm wird abgebrochen!");
+    exit();
+  }
+
+  StrArrayCreate(rc,f_ort_text_buffer);
+  if (rc == FALSE)
+  {
+    messagebox("Unerwarteter Fehler", // sollte nie kommen
+               "StrArrayCreate(rc,f_ort_text_buffer). "+CRLF+
+               "Das Programm wird abgebrochen!");
+    exit();
+  }
+
+  SgbdInpaCheck();
+  GroupCheck();
+  setmenu(m_main);
+  setscreen(s_main,TRUE);
+  ExtraScript("SaveAs", fs_lesen_save_as_flag);
+  is_lesen_save_as_flag=fs_lesen_save_as_flag;
+  hs_lesen_save_as_flag=fs_lesen_save_as_flag;
+  ScriptInit();
+}
+
+inpaexit()
+{
+  INPAapiEnd();
+
+  // Handle für FS_LESEN
+  StrArrayDestroy(f_ort_nr_buffer);
+  StrArrayDestroy(f_ort_text_buffer);
+}
+
+// -- EOF --
+// end of :#include "INITEXIT.SRC"
+
+// **************************
+// *** Hauptmenü          ***
+// **************************
+MENU m_main()
+{
+  INIT  {
+    setmenutitle("Hauptmenü");
+
+    if ((fs_lesen_flag == TRUE) ||
+        (is_lesen_flag == TRUE) ||
+        (hs_lesen_flag == TRUE))
+    {
+      setitem( 4 , "Fehler"  , TRUE);
+    }
+
+    if (m_status_flag == TRUE)
+    {
+      setitem( 5 , "Status"  , TRUE);
+    }
+
+    if (m_steuern_flag == TRUE)
+    {
+      setitem( 6 , "Steuern"  , TRUE);
+    }
+
+    if (speicher_lesen_flag == TRUE)
+    {
+      setitem( 7 , "Speicher"  , TRUE);
+    }
+  }
+  ITEM( 1 ,"Info")  {
+    setscreen(s_info,TRUE);
+  }
+  ITEM( 2 ,"Ident")  {
+    if (ds2_flag == TRUE)
+      setscreen(s_ident_ds2,TRUE);
+    else
+      setscreen(s_ident,TRUE);
+  }
+  ITEM( 3 ,"")  {
+    setscreen(s_main,TRUE);
+  }
+  ITEM( 4 ,"")  {
+    if ((fs_lesen_flag == TRUE) ||
+        (is_lesen_flag == TRUE) ||
+        (hs_lesen_flag == TRUE))
+    {
+      setscreen( s_fehler ,TRUE);
+      setmenu(m_fehler);
+    }
+    else
+      setscreen( s_main ,TRUE);
+  }
+  ITEM( 5 ,"")  {
+    if (m_status_flag == TRUE)
+    {
+      setscreen(s_status,TRUE);
+      setmenu(m_status);
+    }
+    else
+      setscreen( s_main ,TRUE);
+  }
+  ITEM( 6 ,"")  {
+    if (m_steuern_flag == TRUE)
+    {
+      setscreen(s_steuern,TRUE);
+      setmenu(m_steuern);
+    }
+    else
+      setscreen( s_main ,TRUE); 
+  }
+  ITEM( 7 ,"")  {
+    if (speicher_lesen_flag == TRUE)
+    {
+      setscreen(s_speicher,TRUE);
+      setmenu(m_speicher);
+    }
+    else
+      setscreen( s_main ,TRUE);
+  }
+  ITEM( 8 ,"Auswahl")  {
+    start();
+    select(TRUE);
+  }
+  ITEM(18 ,"Gesamt")  {
+    start();
+    deselect();
+  }
+  ITEM( 9 ,"Druck")  {
+    printscreen();
+  }
+  ITEM( 10 ,"Ende")  {
+    exit();
+  }
+  ITEM( 11,  "KVP") {
+    setscreen(s_info,TRUE);
+    callwin( "kvp_edit "+titel+";"+version+";"+sgbd+": "+sgbd_ecu+";"+sgbd_revision);
+  }
+  ITEM( 12 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 13 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 14 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 15 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 16 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 17 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 19 ,"")  {
+    setscreen( s_main ,TRUE);
+  }
+  ITEM( 20 ,"Exit")  {
+    exit();
+  }
+}
+
+// **************************
+// *** Fehlermenü         ***
+// **************************
+MENU m_fehler()
+{
+  int    ErrorCode;
+  int    SpeicherUnterDateiNameLaenge=0;
+  int    ReturnedValue;
+  string CurrentDirectory;
+  string SpeichernKommentar1="";
+  string SpeichernKommentar2="";
+  string SpeicherUnterDateiName="";
+  string DateiLesenZeile="";
+  string DateiLesenPuffer="";
+  bool   DateiLesenEOF;
+  string DateiName="";
+  
+  INIT {
+    setmenutitle("Fehlerspeicher");
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 1 , "FS lesen"    , TRUE);
+      setitem( 2 , "FS löschen"  , TRUE);
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 3 , "IS lesen"    , TRUE);
+      setitem( 4 , "IS löschen"  , TRUE);
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 5 , "HS lesen"    , TRUE);
+      setitem( 6 , "HS löschen"  , TRUE);
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+  }
+  ITEM( 1 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+    if (fs_lesen_flag == TRUE)
+    {
+      userboxopen(0,8,35,5,50,"Fehlerspeicher lesen","");
+      userboxftextout(0,"Der Fehlerspeicher wird gelesen! ... bitte warten",1,3,0,0);
+      INPAapiFsMode_neu(0x7FF,"w","","",""); // alles Anzeigen
+      INPAapiFsLesen_neu(sgbd,"na_fs.tmp");
+      userboxclose(0);
+      DateiName="na_fs.tmp";
+      viewopen(DateiName,"Fehlerspeicher lesen");
+      setitem( 9 , "FS drucken"  , TRUE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", TRUE);
+    }
+  }
+  ITEM( 2 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+    if (fs_lesen_flag == TRUE)
+    {
+      INPAapiJob(sgbd,"FS_LOESCHEN","","");
+      INPAapiCheckJobStatus("OKAY");
+      userboxopen(0,8,35,5,50,"Fehlerspeicher löschen","");
+      userboxftextout(0,"Der Fehlerspeicher wurde gelöscht!",1,3,0,0);
+    }
+  }
+  ITEM( 3 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      userboxopen(0,8,35,5,50,"Infospeicher lesen","");
+      userboxftextout(0,"Der Infospeicher wird gelesen! ... bitte warten",1,3,0,0);
+      INPAapiFsMode_neu(0x7FF,"w","","","IS_LESEN"); // alles Anzeigen
+      INPAapiFsLesen_neu(sgbd,"na_fs.tmp");
+      userboxclose(0);
+      DateiName="na_fs.tmp";
+      viewopen(DateiName,"Infospeicher lesen");
+      setitem( 8 , "IS drucken"  , TRUE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", TRUE);
+    }
+  }
+  ITEM( 4 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      INPAapiJob(sgbd,"IS_LOESCHEN","","");
+      INPAapiCheckJobStatus("OKAY");
+      userboxopen(0,8,35,5,50,"Infospeicher löschen","");
+      userboxftextout(0,"Der Infospeicher wurde gelöscht!",1,3,0,0);
+    }
+  }
+  ITEM( 5 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      userboxopen(0,8,35,5,50,"Historienspeicher lesen","");
+      userboxftextout(0,"Der Historienspeicher wird gelesen! ... bitte warten",1,3,0,0);
+      INPAapiFsMode_neu(0x7FF,"w","","","HS_LESEN"); // alles Anzeigen
+      INPAapiFsLesen_neu(sgbd,"na_fs.tmp");
+      userboxclose(0);
+      DateiName="na_fs.tmp";
+      viewopen(DateiName,"Historienspeicher lesen");
+      setitem( 7 , "HS drucken"  , TRUE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", TRUE);
+    }
+  }
+  ITEM( 6 ,"")  {
+    userboxclose(0);
+    viewclose();
+    if (fs_lesen_flag == TRUE)
+    {
+      setitem( 9 , "FS drucken"  , FALSE);
+      if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+    }
+    if (is_lesen_flag == TRUE)
+    {
+      setitem( 8 , "IS drucken"  , FALSE);
+      if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      setitem( 7 , "HS drucken"  , FALSE);
+      if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+    }
+    if (hs_lesen_flag == TRUE)
+    {
+      INPAapiJob(sgbd,"HS_LOESCHEN","","");
+      INPAapiCheckJobStatus("OKAY");
+      userboxopen(0,8,35,5,50,"Historienspeicher löschen","");
+      userboxftextout(0,"Der Historienspeicher wurde gelöscht!",1,3,0,0);
+    }
+  }
+  ITEM( 7 ,"")  {
+    if (hs_lesen_flag == TRUE)
+    {
+      printfile(ErrorCode, DateiName, "", "",TRUE);
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (fs_lesen_flag == TRUE)
+      {
+        setitem( 9 , "FS drucken"  , FALSE);
+        if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+      }
+      if (is_lesen_flag == TRUE)
+      {
+        setitem( 8 , "IS drucken"  , FALSE);
+        if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+      }
+    }
+  }
+  ITEM( 8 ,"")  {
+    if (is_lesen_flag == TRUE)
+    {
+      printfile(ErrorCode, DateiName, "", "",TRUE);
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (fs_lesen_flag == TRUE)
+      {
+        setitem( 9 , "FS drucken"  , FALSE);
+        if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+      }
+      if (hs_lesen_flag == TRUE)
+      {
+        setitem( 7 , "HS drucken"  , FALSE);
+        if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+      }
+    }
+  }
+  ITEM( 9 ,"")  {
+    if (fs_lesen_flag == TRUE)
+    {
+      printfile(ErrorCode, DateiName, "", "",TRUE);
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (is_lesen_flag == TRUE)
+      {
+        setitem( 8 , "IS drucken"  , FALSE);
+        if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+      }
+      if (hs_lesen_flag == TRUE)
+      {
+        setitem( 7 , "HS drucken"  , FALSE);
+        if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+      }
+    }
+  }
+  ITEM(17 ,"")  {
+    if ((hs_lesen_flag == TRUE) && (hs_lesen_save_as_flag == TRUE))
+    {
+      input2text(SpeichernKommentar1,SpeichernKommentar2,
+      "Kommentar",
+      "Geben Sie den zu speichernden Kommentar ein",
+      "","");
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        space(SpeicherUnterDateiName,256);
+        strlen(SpeicherUnterDateiNameLaenge,SpeicherUnterDateiName);
+
+        GetCurrentDirectory(256,CurrentDirectory,ReturnedValue);
+        SaveAsDialogBox("",SpeicherUnterDateiName,SpeicherUnterDateiNameLaenge,SpeicherUnterDateiNameLaenge);
+        SetCurrentDirectory(CurrentDirectory,ReturnedValue);
+        if (SpeicherUnterDateiNameLaenge > 0)
+        {
+          DateiLesenPuffer="";
+          fileopen("na_fs.tmp","r");
+          fileread(DateiLesenZeile, DateiLesenEOF );
+          while (DateiLesenEOF == FALSE)
+          {
+            DateiLesenPuffer=DateiLesenPuffer+DateiLesenZeile;
+            fileread(DateiLesenZeile, DateiLesenEOF );
+            if (DateiLesenEOF == FALSE) DateiLesenPuffer=DateiLesenPuffer+LF;
+          } 
+          fileclose();
+
+          DateiName=SpeicherUnterDateiName;
+          fileopen(DateiName,"w");
+          if (SpeichernKommentar1 + SpeichernKommentar2 != "")
+          {
+            filewrite( "           K O M M E N T A R");
+            filewrite( "           -----------------");
+            filewrite( "");
+            if (SpeichernKommentar1 != "") filewrite(SpeichernKommentar1);
+            if (SpeichernKommentar2 != "") filewrite(SpeichernKommentar2);
+            filewrite( "-------------------------------------------------------------");
+            filewrite("");
+          }
+          filewrite(DateiLesenPuffer);
+          fileclose();
+
+          viewclose();
+          viewopen(DateiName,"Historienspeicher speichern: "+DateiName);
+        }
+      }
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (fs_lesen_flag == TRUE)
+      {
+        setitem( 9 , "FS drucken"  , FALSE);
+        if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+      }
+      if (is_lesen_flag == TRUE)
+      {
+        setitem( 8 , "IS drucken"  , FALSE);
+        if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+      }
+      if (hs_lesen_flag == TRUE)
+      {
+        setitem( 7 , "HS drucken"  , FALSE);
+      }
+    }
+  }
+  ITEM(18 ,"")  {
+    if ((is_lesen_flag == TRUE) && (is_lesen_save_as_flag == TRUE))
+    {
+      input2text(SpeichernKommentar1,SpeichernKommentar2,
+      "Kommentar",
+      "Geben Sie den zu speichernden Kommentar ein",
+      "","");
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        space(SpeicherUnterDateiName,256);
+        strlen(SpeicherUnterDateiNameLaenge,SpeicherUnterDateiName);
+
+        GetCurrentDirectory(256,CurrentDirectory,ReturnedValue);
+        SaveAsDialogBox("",SpeicherUnterDateiName,SpeicherUnterDateiNameLaenge,SpeicherUnterDateiNameLaenge);
+        SetCurrentDirectory(CurrentDirectory,ReturnedValue);
+        if (SpeicherUnterDateiNameLaenge > 0)
+        {
+          DateiLesenPuffer="";
+          fileopen("na_fs.tmp","r");
+          fileread(DateiLesenZeile, DateiLesenEOF );
+          while (DateiLesenEOF == FALSE)
+          {
+            DateiLesenPuffer=DateiLesenPuffer+DateiLesenZeile;
+            fileread(DateiLesenZeile, DateiLesenEOF );
+            if (DateiLesenEOF == FALSE) DateiLesenPuffer=DateiLesenPuffer+LF;
+          } 
+          fileclose();
+
+          DateiName=SpeicherUnterDateiName;
+          fileopen(DateiName,"w");
+          if (SpeichernKommentar1 + SpeichernKommentar2 != "")
+          {
+            filewrite( "           K O M M E N T A R");
+            filewrite( "           -----------------");
+            filewrite( "");
+            if (SpeichernKommentar1 != "") filewrite(SpeichernKommentar1);
+            if (SpeichernKommentar2 != "") filewrite(SpeichernKommentar2);
+            filewrite( "-------------------------------------------------------------");
+            filewrite("");
+          }
+          filewrite(DateiLesenPuffer);
+          fileclose();
+
+          viewclose();
+          viewopen(DateiName,"Infospeicher speichern: "+DateiName);
+        }
+      }
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (fs_lesen_flag == TRUE)
+      {
+        setitem( 9 , "FS drucken"  , FALSE);
+        if (fs_lesen_save_as_flag == TRUE) setitem(19 , "FS speichern", FALSE);
+      }
+      if (is_lesen_flag == TRUE)
+      {
+        setitem( 8 , "IS drucken"  , FALSE);
+      }
+      if (hs_lesen_flag == TRUE)
+      {
+        setitem( 7 , "HS drucken"  , FALSE);
+        if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+      }
+    }
+  }
+  ITEM(19 ,"")  {
+    if ((fs_lesen_flag == TRUE) && (fs_lesen_save_as_flag == TRUE))
+    {
+      input2text(SpeichernKommentar1,SpeichernKommentar2,
+      "Kommentar",
+      "Geben Sie den zu speichernden Kommentar ein",
+      "","");
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        space(SpeicherUnterDateiName,256);
+        strlen(SpeicherUnterDateiNameLaenge,SpeicherUnterDateiName);
+
+        GetCurrentDirectory(256,CurrentDirectory,ReturnedValue);
+        SaveAsDialogBox("",SpeicherUnterDateiName,SpeicherUnterDateiNameLaenge,SpeicherUnterDateiNameLaenge);
+        SetCurrentDirectory(CurrentDirectory,ReturnedValue);
+        if (SpeicherUnterDateiNameLaenge > 0)
+        {
+          DateiLesenPuffer="";
+          fileopen("na_fs.tmp","r");
+          fileread(DateiLesenZeile, DateiLesenEOF );
+          while (DateiLesenEOF == FALSE)
+          {
+            DateiLesenPuffer=DateiLesenPuffer+DateiLesenZeile;
+            fileread(DateiLesenZeile, DateiLesenEOF );
+            if (DateiLesenEOF == FALSE) DateiLesenPuffer=DateiLesenPuffer+LF;
+          } 
+          fileclose();
+
+          DateiName=SpeicherUnterDateiName;
+          fileopen(DateiName,"w");
+          if (SpeichernKommentar1 + SpeichernKommentar2 != "")
+          {
+            filewrite( "           K O M M E N T A R");
+            filewrite( "           -----------------");
+            filewrite( "");
+            if (SpeichernKommentar1 != "") filewrite(SpeichernKommentar1);
+            if (SpeichernKommentar2 != "") filewrite(SpeichernKommentar2);
+            filewrite( "-------------------------------------------------------------");
+            filewrite("");
+          }
+          filewrite(DateiLesenPuffer);
+          fileclose();
+
+          viewclose();
+          viewopen(DateiName,"Fehlerspeicher speichern: "+DateiName);
+        }
+      }
+    }
+    else
+    {
+      userboxclose(0);
+      viewclose();
+      if (fs_lesen_flag == TRUE)
+      {
+        setitem( 9 , "FS drucken"  , FALSE);
+      }
+      if (is_lesen_flag == TRUE)
+      {
+        setitem( 8 , "IS drucken"  , FALSE);
+        if (is_lesen_save_as_flag == TRUE) setitem(18 , "IS speichern", FALSE);
+      }
+      if (hs_lesen_flag == TRUE)
+      {
+        setitem( 7 , "HS drucken"  , FALSE);
+        if (hs_lesen_save_as_flag == TRUE) setitem(17 , "HS speichern", FALSE);
+      }
+    }
+  }
+  ITEM( 10 ,"Zurück")  {
+    userboxclose(0);
+    viewclose();
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 20 ,"Exit")  {
+    userboxclose(0);
+    viewclose();
+    exit();
+  }
+}
+
+// **************************
+// *** Speichermenü       ***
+// **************************
+MENU m_speicher()
+{
+  int    input_ok=0;
+  int    input_state;
+  string text_var;
+  
+  INIT {
+    setmenutitle("Speicher lesen");
+    if (speicher_lesen_lar_flag==TRUE)    setitem( 1 , "LAR"  , TRUE);
+    if (speicher_lesen_flash_flag==TRUE)  setitem( 2 , "FLASH", TRUE);
+    if (speicher_lesen_uifm_flag==TRUE)   setitem( 3 , "UIFM" , TRUE);
+    if (speicher_lesen_romi_flag==TRUE)   setitem( 4 , "ROMI" , TRUE);
+    if (speicher_lesen_ramis_flag==TRUE)  setitem( 5 , "RAMIS", TRUE);
+    if (speicher_lesen_ramil_flag==TRUE)  setitem( 6 , "RAMIL", TRUE);
+    if (speicher_lesen_nvram_flag==TRUE)  setitem( 7 , "NVRAM", TRUE); 
+    if (speicher_lesen_romx_flag==TRUE)   setitem(14 , "ROMX" , TRUE);
+    if (speicher_lesen_ramxx_flag==TRUE)  setitem(15 , "RAMXX", TRUE);
+  }
+  ITEM( 1 ,"")  {
+    if (speicher_lesen_lar_flag==TRUE)
+    {  
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"LAR lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="LAR lesen";
+        speicher_lesen_seg_adr_anz="LAR;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 2 ,"")  {
+    if (speicher_lesen_flash_flag==TRUE)
+    {  
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"FLASH lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);  
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="FLASH lesen";
+        speicher_lesen_seg_adr_anz="FLASH;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 3 ,"")  {
+    if (speicher_lesen_uifm_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"UIFM lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="UIFM lesen";
+        speicher_lesen_seg_adr_anz="UIFM;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 4 ,"")  {
+    if (speicher_lesen_romi_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"ROMI lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="ROMI lesen";
+        speicher_lesen_seg_adr_anz="ROMI;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 5 ,"")  {
+    if (speicher_lesen_ramis_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"RAMIS lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="RAMIS lesen";
+        speicher_lesen_seg_adr_anz="RAMIS;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 6 ,"")  {
+    if (speicher_lesen_ramil_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"RAMIL lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="RAMIL lesen";
+        speicher_lesen_seg_adr_anz="RAMIL;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 7 ,"")  {
+    if (speicher_lesen_nvram_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"NVRAM lesen",
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="NVRAM lesen";
+        speicher_lesen_seg_adr_anz="NVRAM;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 8 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 9 ,"Druck")  {
+    printscreen();
+  }
+  ITEM( 10 ,"Zurück")  {
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 11 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 12 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 13 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 14 ,"")  {
+    if (speicher_lesen_romx_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"ROMX lesen",  
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="ROMX lesen";
+        speicher_lesen_seg_adr_anz="ROMX;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 15 ,"")  {
+    if (speicher_lesen_ramxx_flag==TRUE)
+    {
+      input2hexnum(speicher_lesen_adresse,speicher_lesen_anzahl,"RAMXX lesen",  
+      "Es ist darauf zu achten, "+
+      "daß die angegebene Adresse + Anzahl "+
+      "der zu lesenden Bytes die Obergrenze "+
+      "(FFFFFF) nicht überschreitet.",
+      "Adresse 000000-FFFFFF","Anzahl der Bytes 1-200","000000","FFFFFF",1,200);
+      getinputstate(input_state);
+      if (input_state==input_ok)
+      {
+        speicher_lesen_text="RAMXX lesen";
+        speicher_lesen_seg_adr_anz="RAMXX;"+speicher_lesen_adresse;
+        inttostring(speicher_lesen_anzahl,text_var);
+        speicher_lesen_seg_adr_anz=speicher_lesen_seg_adr_anz+";"+text_var;
+        setscreen(s_speicher_ausgabe,TRUE);
+      }
+    }  
+    else
+      setscreen(s_speicher,TRUE);
+  }
+  ITEM( 16 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 17 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 18 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 19 ,"")  {
+    setscreen( s_speicher,TRUE);
+  }
+  ITEM( 20 ,"Exit")  {
+    exit();
+  }
+}
+
+// **************************
+// *** Hauptscreen        ***
+// **************************
+SCREEN s_main()
+{
+  string text_var;
+  
+  userboxclose(0);
+  ftextout("Hauptmenü",1,0,1,0);
+  ftextout("",3,0,0,0);
+  INPAapiJob(sgbd,"IDENT","","");
+  INPAapiCheckJobStatus("OKAY");
+  LINE("","")
+  {
+    ftextout("BMW Teilenummer",1,0,0,0);
+    ftextout(":",1,19,0,0);
+    INPAapiResultText(text_var,"ID_BMW_NR",1,"");
+    ftextout(text_var,1,20,0,1);
+
+    ftextout("Herstelldatum",1,43,0,0);
+    ftextout(":",1,59,0,0);
+    if (ds2_flag==TRUE)
+    {
+      ftextout("KW / Jahr",1,68,0,0);
+      ftextout("/",1,63,0,1);
+      INPAapiResultText(text_var,"ID_DATUM_KW",1,"");
+      ftextout(text_var,1,60,0,1);
+      INPAapiResultText(text_var,"ID_DATUM_JAHR",1,"");
+      ftextout(text_var,1,65,0,1);
+    }
+    else
+    {
+      INPAapiResultText(text_var,"ID_DATUM",1,"");
+      ftextout(text_var,1,60,0,1);
+    }
+
+    ftextout("< F1 >  Information"              , 4,5,0,1);
+    ftextout("< F2 >  Identifikation"           , 6,5,0,1);
+
+    if ((fs_lesen_flag == TRUE) ||
+        (is_lesen_flag == TRUE) ||
+        (hs_lesen_flag == TRUE))
+        ftextout("< F4 >  Fehlerspeicher"           ,10,5,0,1);
+
+    if (m_status_flag == TRUE)
+        ftextout("< F5 >  Status lesen"             ,12,5,0,1);
+
+    if (m_steuern_flag == TRUE)
+        ftextout("< F6 >  Ansteuern"                ,14,5,0,1);
+
+    if (speicher_lesen_flag == TRUE)
+        ftextout("< F7 >  Speicher lesen"           ,16,5,0,1);
+  
+    ftextout("< F8 >  Auswahl"                  ,18,5,0,1);
+    ftextout("< F9 >  Bildschirmdruck"          ,20,5,0,1);
+    ftextout("< F10>  Ende"                     ,22,5,0,1);
+
+    ftextout("<Shift> + < F1 >  KVP-Editor"     , 4,45,0,1);
+    ftextout("<Shift> + < F8 >  Gesamt"         ,18,45,0,1);
+    ftextout("<Shift> + < F10>  Exit"           ,22,45,0,1);
+    ftextout("ACHTUNG! VERSION OHNE E-CALL-DEAKTIVIERUNG" ,24,5,0,1);
+  }
+}
+
+// **************************
+// *** Infoscreen         ***
+// **************************
+SCREEN s_info ()
+{
+  int i;
+  int slen;
+  int pos;
+  int pos2;
+  int anzahl;
+  string temp;
+  
+  ftextout("Information",1,0,1,0);
+  ftextout("Nacharbeitsprogramm",4,0,0,0);             ftextout(":", 4,33,0,1); ftextout(titel,4,35,0,1);
+  ftextout("Version",5,1,0,0);                         ftextout(":", 5,33,0,1); ftextout(version,5,35,0,1);
+  ftextout("Package",6,1,0,0);                         ftextout(":", 6,33,0,1); ftextout(package,6,35,0,1);
+  ftextout("Verantwortung",7,1,0,0);                   ftextout(":", 7,33,0,1); ftextout(origin,7,35,0,1);
+
+  ftextout("Gruppendatei",10,0,0,0);                   ftextout(":",10,33,0,1); ftextout(gruppe,10,35,0,1);
+  ftextout("Bezeichnung",11,1,0,0);                    ftextout(":",11,33,0,1); ftextout(gruppe_ecu,11,35,0,1);
+  ftextout("Version",12,1,0,0);                        ftextout(":",12,33,0,1); ftextout(gruppe_revision,12,35,0,1);
+  ftextout("Verantwortung",13,1,0,0);                  ftextout(":",13,33,0,1); ftextout(gruppe_origin,13,35,0,1);
+  ftextout("Identifizierbare SGBD'en",14,1,0,0);
+
+  strlen(slen, gruppe_comment);
+  anzahl=44;
+  pos=0;
+  if ( slen <= anzahl )
+  {
+    ftextout(":",14,33,0,1); ftextout(gruppe_comment,14,35,0,1);
+  }
+  else
+  {
+    instr(pos2, anzahl, gruppe_comment, ",");
+    if (pos2 > 0) anzahl=pos2+1;
+    midstr(temp, gruppe_comment, pos, anzahl); ftextout(":",14,33,0,1); ftextout(temp,14,35,0,1);
+    i=14;
+    pos=pos+anzahl;
+    while ( pos < slen )
+    {
+      i=i+1;
+      anzahl=75;
+      instr(pos2, pos + anzahl, gruppe_comment, ",");
+      if (pos2 > 0) anzahl=pos2+1-pos;
+      midstr(temp, gruppe_comment, pos, anzahl); ftextout(temp,i,1,0,1);
+      pos=pos+anzahl;
+      if ( i >= 18 )
+      {
+        if ( pos < slen ) ftextout(temp+" . . .",i,1,0,1);
+        pos=slen;
+      }
+    }
+  }
+
+  ftextout("Steuergerätebeschreibungsdatei",21,0,0,0); ftextout(":",21,33,0,1); ftextout(sgbd,21,35,0,1);
+  ftextout("Steuergerät",22,1,0,0);                    ftextout(":",22,33,0,1); ftextout(sgbd_ecu,22,35,0,1);
+  ftextout("Version",23,1,0,0);                        ftextout(":",23,33,0,1); ftextout(sgbd_revision,23,35,0,1);
+  ftextout("Package",24,1,0,0);                        ftextout(":",24,33,0,1); ftextout(sgbd_package,24,35,0,1);
+  ftextout("Verantwortung",25,1,0,0);                  ftextout(":",25,33,0,1); ftextout(sgbd_origin,25,35,0,1);
+  ftextout("Sprache",26,1,0,0);                        ftextout(":",26,33,0,1); ftextout(sgbd_sprache,26,35,0,1);
+  if (sgbd_comment!="")
+  {
+    ftextout("Kommentar",27,1,0,0);
+    ftextout(":",27,33,0,1);
+    ftextout(sgbd_comment,27,35,0,1);
+  }
+}
+
+// **************************
+// *** Identscreen DS2    ***
+// **************************  
+SCREEN s_ident_ds2()
+{
+  ftextout("Identifikation",1,0,1,0);
+  ftextout("",3,0,0,0);
+  INPAapiJob(sgbd,"IDENT","","");
+  INPAapiCheckJobStatus("OKAY");
+  LINE("","")
+  {
+    ftextout("BMW Teilenummer",1,0,1,0);
+    ftextout(":",1,33,1,0);
+    INPAapiResultText(text_var,"ID_BMW_NR",1,"");
+    ftextout(text_var,1,35,1,1);
+
+    ftextout("Hardwarenummer",4,0,1,0);
+    ftextout(":",4,33,1,0);
+    INPAapiResultText(text_var,"ID_HW_NR",1,"");
+    ftextout(text_var,4,35,1,1);
+
+    ftextout("Softwarenummer",7,0,1,0);
+    ftextout(":",7,33,1,0);
+    INPAapiResultText(text_var,"ID_SW_NR",1,"");
+    ftextout(text_var,7,35,1,1);
+
+    ftextout("Lieferant",10,0,1,0);
+    ftextout(":",10,33,1,0);
+    INPAapiResultText(text_var,"ID_LIEF_TEXT",1,"");
+    ftextout(text_var,10,35,1,1);
+
+    ftextout("Codier-Index",13,0,1,0);
+    ftextout(":",13,33,1,0);
+    INPAapiResultText(text_var,"ID_COD_INDEX",1,"");
+    ftextout(text_var,13,35,1,1);
+
+    ftextout("Diagnose-Index",16,0,1,0);
+    ftextout(":",16,33,1,0);
+    INPAapiResultText(text_var,"ID_DIAG_INDEX",1,"");
+    ftextout(text_var,16,35,1,1);
+
+    ftextout("Bus-Index",19,0,1,0);
+    ftextout(":",19,33,1,0);
+    INPAapiResultText(text_var,"ID_BUS_INDEX",1,"");
+    ftextout(text_var,19,35,1,1);
+
+    ftextout("Herstelldatum",22,0,1,0);
+    ftextout(":",22,33,1,0);
+    ftextout("KW / Jahr",22,55,1,0);
+    ftextout("/",22,41,1,1);
+    INPAapiResultText(text_var,"ID_DATUM_KW",1,"");
+    ftextout(text_var,22,35,1,1);
+    INPAapiResultText(text_var,"ID_DATUM_JAHR",1,"");
+    ftextout(text_var,22,45,1,1);
+  }
+}
+
+// **************************
+// *** Identscreen BMW Fast**
+// **************************  
+SCREEN s_ident()
+{
+  string text_var;
+  int    ganz_zahl;
+  string job_status="???";         // für Job_Statuskontrolle
+  bool   fehlerflag;               // Fehlerflag
+  int    errorcode;                // EDIABAS Fehlernummer
+
+  ftextout("Identifikation",1,0,1,0);
+  ftextout("",3,0,0,1);
+
+  LINE("Identifikation","")
+  {
+    INPAapiJob(sgbd,"IDENT","","");
+    INPAapiCheckJobStatus("OKAY");
+
+    ftextout("BMW Teilenummer",1,0,0,0);
+    ftextout(":",1,43,0,0);
+    INPAapiResultText(text_var,"ID_BMW_NR",1,"");
+    ftextout(text_var,1,45,0,1);
+
+    ftextout("Codier-Index",3,0,0,0);
+    ftextout(":",3,43,0,0);
+    INPAapiResultText(text_var,"ID_COD_INDEX",1,"");
+    ftextout(text_var,3,45,0,1);
+
+    ftextout("Varianten-Index",5,0,0,0);
+    ftextout(":",5,43,0,0);
+    INPAapiResultText(text_var,"ID_VAR_INDEX",1,"");
+    ftextout(text_var,5,45,0,1);
+
+    ftextout("Diagnose-Index",7,0,0,0);
+    ftextout(":",7,43,0,0);
+    INPAapiResultText(text_var,"ID_DIAG_INDEX",1,"");
+    ftextout(text_var,7,45,0,1);
+
+    ftextout("Hardwarenummer",9,0,0,0);
+    ftextout(":",9,43,0,0);
+    INPAapiResultText(text_var,"ID_HW_NR",1,"");
+    ftextout(text_var,9,45,0,1);
+
+    ftextout("Softwarenummer   Funktionssoftware",11,0,0,0);
+    ftextout(":",11,43,0,0);
+    INPAapiResultText(text_var,"ID_SW_NR_FSV",1,"");
+    ftextout(text_var,11,45,0,1);
+
+    ftextout("Softwarenummer   Betriebssystem",13,0,0,0);
+    ftextout(":",13,43,0,0);
+    INPAapiResultText(text_var,"ID_SW_NR_OSV",1,"");
+    ftextout(text_var,13,45,0,1);
+
+    ftextout("Softwarenummer   Nachrichtenkatalog",15,0,0,0);
+    ftextout(":",15,43,0,0);
+    INPAapiResultText(text_var,"ID_SW_NR_MCV",1,"");
+    ftextout(text_var,15,45,0,1);
+
+    ftextout("Softwarenummer  (Reserve) Zur Zeit nicht benutzt",17,0,0,0);
+    ftextout(":",17,43,0,0);
+    INPAapiResultText(text_var,"ID_SW_NR_RES",1,"");
+    ftextout(text_var,17,45,0,1);
+
+    ftextout("Herstelldatum",19,0,0,0);
+    ftextout(":",19,43,0,0);
+    INPAapiResultText(text_var,"ID_DATUM",1,"");
+    ftextout(text_var,19,45,0,1);
+
+    ftextout("Lieferant",21,0,0,0);
+    ftextout(":",21,43,0,0);
+    INPAapiResultText(text_var,"ID_LIEF_TEXT",1,"");
+    ftextout(text_var,21,45,0,1);
+  } 
+// *** AIF, Anwender-Information
+// *** auf 2. Seite von IDENT
+
+  LINE("Anwender-Information","")
+  {
+    INPAapiJob(sgbd,"AIF_LESEN","","");
+    INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+    INP1apiErrorCode(errorcode);
+    ftextout("",10,0,0,0);
+
+    if (((fehlerflag == FALSE) && (errorcode == 98)) || (job_status != "OKAY"))
+    {
+      ftextout("Kein Anwenderinfofeld vorhanden" ,3,0,0,0);
+    }
+    else
+    {
+      INPAapiResultInt(ganz_zahl,"AIF_ANZ_DATEN",1);
+      if (ganz_zahl > 18)                // lange AIF ausgeben
+      {   
+        ftextout("Fahrgestell Nr.",1,0,0,0);
+        ftextout(":",1,43,0,0);
+        INPAapiResultText(text_var,"AIF_FG_NR",1,"");
+        ftextout(text_var,1,45,0,1);
+
+        ftextout("Zusammenbau Nr.",3,0,0,0);
+        ftextout(":",3,43,0,0);
+        INPAapiResultText(text_var,"AIF_ZB_NR",1,"");
+        ftextout(text_var,3,45,0,1);
+
+        ftextout("Programmier-Datum",5,0,0,0);
+        ftextout(":",5,43,0,0);
+        INPAapiResultText(text_var,"AIF_DATUM",1,"");
+        ftextout(text_var,5,45,0,1);
+
+        ftextout("Datensatz Nr.",7,0,0,0);
+        ftextout(":",7,43,0,0);
+        INPAapiResultText(text_var,"AIF_SW_NR",1,"");
+        ftextout(text_var,7,45,0,1);
+        
+        ftextout("Behörden Nr.",9,0,0,0);
+        ftextout(":",9,43,0,0);
+        INPAapiResultText(text_var,"AIF_BEHOERDEN_NR",1,"");
+        ftextout(text_var,9,45,0,1);
+
+        ftextout("Händler Nr.",11,0,0,0);
+        ftextout(":",11,43,0,0);
+        INPAapiResultText(text_var,"AIF_HAENDLER_NR",1,"");
+        ftextout(text_var,11,45,0,1);
+
+        ftextout("Tester Nr.",13,0,0,0);
+        ftextout(":",13,43,0,0);
+        INPAapiResultText(text_var,"AIF_SERIEN_NR",1,"");
+        ftextout(text_var,13,45,0,1);
+
+        ftextout("km-Stand",15,0,0,0);
+        ftextout(":",15,43,0,0);
+        INPAapiResultText(text_var,"AIF_KM",1,"");
+        ftextout(text_var,15,45,0,1);
+
+        ftextout("Programm-Stand",17,0,0,0);
+        ftextout(":",17,43,0,0);
+        INPAapiResultText(text_var,"AIF_PROG_NR",1,"");
+        ftextout(text_var,17,45,0,1);
+
+        ftextout("Adresse AIF",19,0,0,0);
+        ftextout(":",19,43,0,0);
+        INPAapiResultInt(ganz_zahl,"AIF_ADRESSE_LOW",1);
+        inttohexstring(ganz_zahl,4,text_var);
+        ftextout(text_var,19,45,0,1);
+
+        ftextout("Anzahl freie AIF",21,0,0,0);
+        ftextout(":",21,43,0,0);
+        INPAapiResultText(text_var,"AIF_ANZ_FREI",1,"");
+        ftextout(text_var,21,45,0,1);
+
+        ftextout("Anzahl Daten AIF",23,0,0,0);
+        ftextout(":",23,43,0,0);
+        INPAapiResultText(text_var,"AIF_ANZ_DATEN",1,"");
+        ftextout(text_var,23,45,0,1);
+      }
+      else                              //18 Byte -> kurze AIF ausgeben
+      {
+        ftextout("Fahrgestell Nr.",1,0,0,0);
+        ftextout(":",1,43,0,0);
+        INPAapiResultText(text_var,"AIF_FG_NR",1,"");
+        ftextout(text_var,1,45,0,1);
+ 
+        ftextout("Zusammenbau Nr.",3,0,0,0);
+        ftextout(":",3,43,0,0);
+        INPAapiResultText(text_var,"AIF_ZB_NR",1,"");
+        ftextout(text_var,3,45,0,1);
+
+        ftextout("Programmier-Datum",5,0,0,0);
+        ftextout(":",5,43,0,0);
+        INPAapiResultText(text_var,"AIF_DATUM",1,"");
+        ftextout(text_var,5,45,0,1); 
+      
+        ftextout("Adresse AIF",19,0,0,0);
+        ftextout(":",19,43,0,0);
+        INPAapiResultInt(ganz_zahl,"AIF_ADRESSE_LOW",1);
+        inttohexstring(ganz_zahl,4,text_var);
+        ftextout(text_var,19,45,0,1);
+
+        ftextout("Anzahl freie AIF",21,0,0,0);
+        ftextout(":",21,43,0,0);
+        INPAapiResultText(text_var,"AIF_ANZ_FREI",1,"");
+        ftextout(text_var,21,45,0,1);
+
+        ftextout("Anzahl Daten AIF",23,0,0,0);
+        ftextout(":",23,43,0,0);
+        INPAapiResultText(text_var,"AIF_ANZ_DATEN",1,"");
+        ftextout(text_var,23,45,0,1);
+      }
+    }
+  }
+}
+
+// **************************
+// *** Speicherscreen     ***
+// **************************
+SCREEN s_speicher()
+{
+  ftextout("Speicher lesen",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    if (speicher_lesen_lar_flag==TRUE)    ftextout("< F1 >  LAR lesen"               , 4,5,0,1);
+    if (speicher_lesen_flash_flag==TRUE)  ftextout("< F2 >  FLASH lesen"             , 6,5,0,1);
+    if (speicher_lesen_uifm_flag==TRUE)   ftextout("< F3 >  UIFM lesen"              , 8,5,0,1);
+    if (speicher_lesen_romi_flag==TRUE)   ftextout("< F4 >  ROMI lesen"              ,10,5,0,1);
+    if (speicher_lesen_ramis_flag==TRUE)  ftextout("< F5 >  RAMIS lesen"             ,12,5,0,1);
+    if (speicher_lesen_ramil_flag==TRUE)  ftextout("< F6 >  RAMIL lesen"             ,14,5,0,1);
+    if (speicher_lesen_nvram_flag==TRUE)  ftextout("< F7 >  NVRAM lesen"             ,16,5,0,1);
+    if (speicher_lesen_romx_flag==TRUE)   ftextout("<Shift> + < F4 >  ROMX lesen"    ,10,45,0,1);
+    if (speicher_lesen_ramxx_flag==TRUE)  ftextout("<Shift> + < F5 >  RAMXX lesen"   ,12,45,0,1);
+
+    ftextout("< F9 >  Bildschirmdruck"          ,20,5,0,1);
+    ftextout("< F10>  Zurück"                   ,22,5,0,1);
+    ftextout("<Shift> + < F10>  Exit"           ,22,45,0,1);
+  }
+}
+
+// **************************
+// *** Speicherscreen     ***
+// *** Ausgabe            ***
+// **************************
+SCREEN s_speicher_ausgabe()
+{
+  string text_var;
+  string job_state;
+  
+  ftextout(speicher_lesen_text,1,0,1,0);
+  ftextout("",3,0,0,0);
+  INPAapiJob(sgbd,"SPEICHER_LESEN",speicher_lesen_seg_adr_anz,"");
+  INPAapiResultText(job_state,"JOB_STATUS",1,"");
+  LINE("","")
+  {
+    ftextout("Startadresse",1,0,0,0);
+    ftextout(":",1,18,0,1);
+    ftextout(speicher_lesen_adresse,1,20,0,1);
+    ftextout("Anzahl",3,0,0,0);
+    ftextout(":",3,18,0,1);
+    inttostring(speicher_lesen_anzahl,text_var);
+    ftextout(text_var,3,20,0,1);
+    ftextout("Daten",5,0,0,0);
+    ftextout(":",5,18,0,1);
+    if(job_state != "OKAY")
+      ftextout(job_state,5,20,0,1);
+    else
+    {
+      INPAapiResultBinary("DATEN",1);
+      hexdump(speicher_lesen_adresse,speicher_lesen_anzahl,5,20);
+    }
+  }
+}
+
+// **************************
+// *** Fehlerscreen       ***
+// **************************
+SCREEN s_fehler()
+{
+  ftextout("Fehlerspeicher",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    if (fs_lesen_flag == TRUE)
+    {
+      ftextout("< F1 >  Fehlerspeicher lesen"      , 4,5,0,1);
+      ftextout("< F2 >  Fehlerspeicher löschen"    , 6,5,0,1);
+      ftextout("< F9 >  Fehlerspeicher drucken"    ,20,5,0,1);
+      if (fs_lesen_save_as_flag == TRUE)
+        ftextout("<Shift> + < F9 >  Fehlerspeicher speichern"   ,20,45,0,1);
+
+    }
+    
+    if (is_lesen_flag == TRUE)
+    {
+      ftextout("< F3 >  Infospeicher lesen"        , 8,5,0,1);
+      ftextout("< F4 >  Infospeicher löschen"      ,10,5,0,1);
+      ftextout("< F8 >  Infospeicher drucken"      ,18,5,0,1);
+      if (is_lesen_save_as_flag == TRUE)
+        ftextout("<Shift> + < F8 >  Infospeicher speichern"     ,18,45,0,1);
+    }
+
+    if (hs_lesen_flag == TRUE)
+    {
+      ftextout("< F5 >  Historienspeicher lesen"   ,12,5,0,1);
+      ftextout("< F6 >  Historienspeicher löschen" ,14,5,0,1);
+      ftextout("< F7 >  Historienspeicher drucken" ,16,5,0,1);
+      if (hs_lesen_save_as_flag == TRUE)
+        ftextout("<Shift> + < F7 >  Historienspeicher speichern",16,45,0,1);
+    }
+    ftextout("< F10>  Zurück"                    ,22,5,0,1);
+    ftextout("<Shift> + < F10>  Exit"            ,22,45,0,1);
+  }
+}
+// -- EOF --
+// end of :#include "bmw_std.src"
+
+// ****************************************************
+// ***             Initialisierungsfunktion         ***
+// ****************************************************
+ScriptInit()
+{
+  if (sgbd=="TEL_ECE") titel = "Telefon Europa";
+  if (sgbd=="TEL_USA") titel = "Telefon USA";
+  if (sgbd=="TELE60" || sgbd=="TELE60_2") titel = "Telefon Everest";
+  if (sgbd=="ULF_60")   scriptchange("M_ULF");
+  settitle(titel+" Version "+version);
+}
+
+// ****************************************************
+// ***             M e n ü a u f b a u              ***
+// ****************************************************
+// **************************
+// *** Statusmenü         ***
+// **************************
+MENU m_status()
+{
+  INIT {
+    setmenutitle("Status lesen");
+    if(sgbd=="ULF_60"||sgbd=="TEL_ECE"||sgbd=="TEL_USA") { 
+      setitem(3,"",FALSE);
+      setitem(4,"",FALSE);
+      setitem(5,"",FALSE);
+    }
+    if(sgbd=="TEL_ECE"||sgbd=="TEL_USA") { 
+      setitem(2,"",FALSE);
+      setitem(6,"",FALSE);
+    }
+  }
+
+  ITEM( 1 ,"MOST")  {
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+    
+    setscreen( s_status_mostversion ,TRUE);  // include File mo02_inp.src
+  }
+  ITEM( 2 ,"TCU-Type") {
+    setscreen( s_status ,TRUE);
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+    if(sgbd=="TELE60" || sgbd=="TELE60_2") {
+        // Ansteuern
+        INPAapiJob(sgbd,"TCU_TYPE_LESEN","","");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        INPAapiResultText(text_var,"TCU_TYPE_TEXT",1,"");
+        userboxopen(0,8,40,2,35, "TCU-Typ lesen","TCU-Type: "+text_var);
+    }
+    else{
+        userboxopen(0,8,40,2,35, "TCU-Typ lesen","TCU EVEREST nicht vorhanden !");
+    }
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();          
+  } 
+  ITEM( 3 ,"Passkey")  {
+    setscreen( s_status ,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd=="TELE60" || sgbd=="TELE60_2")
+        {    
+        // Ansteuern
+        INPAapiJob(sgbd,"BT_FIX_PASSKEY_LESEN","","");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        INPAapiResultText(text_var,"BT_FIX_PASSKEY",1,"");
+        userboxopen(0,8,40,2,35, "Passkey lesen","Passkey: "+text_var);
+    }
+    else{
+          if (sgbd=="ULF_60")
+          {
+                 INPAapiJob(sgbd,"BT_PASSKEY_LESEN","","");
+          INPAapiCheckJobStatus("OKAY");
+          // Auswertung
+          INPAapiResultText(text_var,"BT_PASSKEY",1,"");
+          userboxopen(0,8,40,2,35, "Passkey lesen","Passkey: "+text_var);
+          }
+          else
+          {
+                 userboxopen(0,8,40,2,35, "Status", "Bluetooth nicht vorhanden !");        
+        }
+    }
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();                 
+  } 
+  ITEM( 4 ,"ESN")  {
+    setscreen( s_status ,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd == "TELE60" || sgbd == "TELE60_2")
+        {
+        // Ansteuern
+        INPAapiJob(sgbd,"US_ESN_MIN_LESEN","","US_ESN");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        INPAapiResultText(text_var,"US_ESN",1,"");
+        userboxopen(0,8,40,2,35, "ESN lesen","ESN: "+text_var);
+    }
+    else{
+        userboxopen(0,8,40,2,35, "TCU-Typ lesen","TCU EVEREST nicht vorhanden !");        
+    }
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();            
+  }
+  ITEM( 5 ,"MIN")  {
+    setscreen( s_status ,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd == "TELE60" || sgbd == "TELE60_2") {
+        // Ansteuern
+        INPAapiJob(sgbd,"US_ESN_MIN_LESEN","","US_MIN");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        INPAapiResultText(text_var,"US_MIN",1,"");
+        userboxopen(0,8,40,2,35, "MIN lesen","MIN: "+text_var);
+    }
+    else{
+        userboxopen(0,8,40,2,35, "TCU-Typ lesen","TCU EVEREST nicht vorhanden !");        
+    }
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();            
+  }
+  ITEM( 6 ,"BT")  {
+    setscreen(s_status,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd == "TELE60" || sgbd=="TELE60_2"){
+        // Ansteuern 
+        INPAapiJob(sgbd,"BT_OPERATIONMODE_LESEN","","bt_mode");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        INPAapiResultInt(bt_mode,"BT_MODE",1);
+        if (bt_mode==1){    
+            userboxopen(0,7,40,1,35, "Status", "Bluetooth ist eingeschaltet");
+        }
+        else userboxopen(0,7,40,1,35, "Status", "Bluetooth ist ausgeschaltet");      
+    }
+    else{   
+                if(sgbd=="ULF_60")
+                {
+            // Ansteuern 
+            INPAapiJob(sgbd,"BT_STATUS","","BT_STATUS");
+            INPAapiCheckJobStatus("OKAY");
+            // Auswertung
+            INPAapiResultInt(stat_bluetooth,"BT_STATUS",1);
+            if (stat_bluetooth==1)
+            {    
+               userboxopen(0,7,40,1,35, "Status", "Bluetooth ist eingeschaltet");
+            }
+            else userboxopen(0,7,40,1,35, "Status", "Bluetooth ist ausgeschaltet");
+                }
+        else
+                        {
+            // Auswertung
+                userboxopen(0,7,40,1,35, "Status", "Bluetooth nicht vorhanden !");
+                        }
+    }   
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();
+  }
+
+  ITEM( 7 ,"DOKU DOM FILE")  {
+    setscreen( s_status ,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd == "TELE60" || sgbd == "TELE60_2") {
+        // Ansteuern
+                viewclose();
+                                userboxclose(0);
+                                        userboxopen(0,8,35,5,50,"DOM File schreiben","");
+                                        userboxftextout(0,"Die Daten werden ausgelesen",1,3,0,0);
+        
+                                //INPAapiJob(sgbd,"PSIM_DISABLE","","");
+                                   //INPAapiCheckJobStatus("OKAY");
+                                   //INPAapiJob(sgbd,"STEUERGERAETE_RESET","","");
+                                   //INPAapiCheckJobStatus("OKAY");
+                                   delay(2000);
+                                   INPAapiJob(sgbd,"ICC_ID_LESEN","","");
+                                   INPAapiResultText(icc_id,"ICC_ID",1,"");
+                                          
+                                   INPAapiJob(sgbd,"IMEI_LESEN","","");
+                                   INPAapiResultText(imei,"IMEI",1,"");
+                                    
+                                   //INPAapiJob(sgbd,"PSIM_ENABLE","","");
+                                   //INPAapiCheckJobStatus("OKAY");
+                                   //INPAapiJob(sgbd,"STEUERGERAETE_RESET","","");
+                                   //INPAapiCheckJobStatus("OKAY");
+                                    
+                                   INPAapiJob(gruppe_fg,"AIF_LESEN","","");
+                                   INPAapiResultText(fgnr,"AIF_FG_NR",1,"");
+      
+                                   phoneType = "ECE";
+                                   chr(34,az);
+                                   chr(9,hr);
+                                        fileopen(fgnr+"T.XML","w");
+                                   filewrite("<?xml version="+az+"1.0"+az+" encoding="+az+"iso-8859-1"+az+"?>");
+                                   filewrite("<vehicleCommunicationUnits xmlns="+az+"http://bmw.com/vehicleCommunicationUnits"+az);
+                                   filewrite("xmlns:xsi="+az+"http://www.w3.org/2001/XMLSchema-instance"+az);
+                                   filewrite("xsi:schemaLocation="+az+"http://bmw.com/vehicleCommunicationUnits vehicleCommunicationUnitsV0202.xsd"+az);
+                                   filewrite("version="+az+"02.02"+az+"refSchema="+az+"vehicleCommunicationUnitsV0202.xsd"+az+">");
+                                   filewrite(""+hr+"<vehicle vinShort="+az+ fgnr + az+">");
+                                   filewrite(""+hr+""+hr+"<communicationUnits>");
+                                   filewrite(""+hr+""+hr+""+hr+"<communicationUnit communicationUnitClass="+az+"M"+az+">");
+                                   filewrite(""+hr+""+hr+""+hr+""+hr+"<deviceId>"+imei+"</deviceId>");
+                                   filewrite(""+hr+""+hr+""+hr+""+hr+"<subscriberId>"+icc_id+"</subscriberId>");
+                                   filewrite(""+hr+""+hr+""+hr+""+hr+"<standard>"+phoneType+"</standard>");          
+                                   filewrite(""+hr+""+hr+""+hr+""+hr+"<assemblyArea>"+""+"</assemblyArea>");
+                                   filewrite(""+hr+""+hr+""+hr+"</communicationUnit>");
+                                   filewrite(""+hr+""+hr+"</communicationUnits>");
+                                   filewrite(""+hr+"</vehicle>");
+                                   filewrite("</vehicleCommunicationUnits>");
+                                   fileclose();
+                                   
+                                   delay(2000);
+  
+
+    }
+    else{
+        userboxopen(0,8,40,2,35, "TCU-Typ lesen","TCU EVEREST nicht vorhanden !");        
+    }
+    delay(2000);
+    userboxclose(0);
+    // sicherheitshalber neu starten
+    start();            
+  }
+
+  ITEM( 9 ,"Druck")  {
+    printscreen();
+  }
+  ITEM( 10 ,"Zurück")  {
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 20 ,"Exit")  {
+    exit();
+  }
+}
+    
+
+// **************************
+// *** Steuernmenü        ***
+// **************************
+
+
+MENU m_steuern()
+{
+  INIT {
+    setmenutitle("Steuern");
+    if(sgbd != "TEL_ECE") {    
+        setitem(2,"",FALSE);
+        setitem(3,"",FALSE);
+        }
+    if(sgbd=="ULF_60" || sgbd=="TEL_ECE"|| sgbd=="TEL_USA") {    
+        setitem(7,"",FALSE);
+        }
+    if(sgbd=="TEL_ECE" || sgbd=="TEL_USA") { 
+      setitem(4,"",FALSE);
+      setitem(5,"",FALSE);
+    }
+    if (sgbd != "TELE60" && sgbd != "TELE60_2")
+    {
+        setitem(8,"",FALSE);
+      setitem(18,"",FALSE);
+    }
+  }
+  ITEM( 1 ,"-3 dB")  {                                // include File mo01_inp.src
+    viewclose();                                     // Achtung: bei allen Funktionstasten im
+    setscreen( s_steuern_3dB_absenkung,TRUE);       // include File mo01_inp.src
+    setmenu( m_steuern_3dB_absenkung);
+  }
+  ITEM( 2 ,"Hörer abmelden")  {
+    INPAapiJob(sgbd,"SBDH_Logoff","","");
+    INPAapiResultText(job_state,"JOB_STATUS",1,"");
+    if(job_state=="OKAY")
+    {
+        infobox("Bedienhoerer","Der Bedienhoerer ist abgemeldet!.");
+        setscreen( s_steuern ,TRUE);
+    }
+  }
+  ITEM( 3 ,"Hörer anmelden")  {
+    INPAapiJob(sgbd,"SBDH_Logon","","");
+    INPAapiResultText(job_state,"JOB_STATUS",1,"");
+    if(job_state=="OKAY")
+    {
+        infobox("Bedienhoerer","Neuer Bedienhoerer ist angemeldet!.");
+        setscreen( s_steuern ,TRUE);
+    }
+  }
+  ITEM( 4 ,"BT - EIN") {             
+    setscreen(s_steuern,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd=="TELE60" || sgbd=="TELE60_2")
+        { 
+        // Ansteuern
+        INPAapiJob(sgbd,"BT_ENABLE","","");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        userboxopen(0,7,40,1,35, "Steuern", "Bluetooth wird eingeschaltet ! ...bitte warten...");   
+        }
+    else{   
+        if(sgbd=="ULF_60"){
+            // Ansteuern 
+            INPAapiJob(sgbd,"BT_EIN","","");
+            INPAapiCheckJobStatus("OKAY");
+            // Auswertung
+            userboxopen(0,7,40,1,35, "Steuern", "Bluetooth wird eingeschaltet ! ...bitte warten..."); 
+            }
+        else{
+            // Auswertung
+            userboxopen(0,7,40,1,35, "Steuern", "Bluetooth nicht vorhanden !");
+            }
+        }
+    delay(2000); 
+    // sicherheitshalber neu starten
+    userboxclose(0);
+    start(); 
+  }
+  
+  ITEM( 5 ,"BT - AUS")  {
+    setscreen(s_steuern,TRUE);
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+
+    if(sgbd=="TELE60" || sgbd=="TELE60_2"){
+        // Ansteuern 
+        INPAapiJob(sgbd,"BT_DISABLE","","");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        userboxopen(0,7,40,1,35, "Steuern", "Bluetooth wird ausgeschaltet ! ...bitte warten...");
+        }
+    else{   
+        if(sgbd=="ULF_60"){
+            // Ansteuern 
+            INPAapiJob(sgbd,"BT_AUS","","");
+            INPAapiCheckJobStatus("OKAY");
+            // Auswertung
+            userboxopen(0,7,40,1,35, "Steuern", "Bluetooth wird ausgeschaltet ! ...bitte warten...");
+            }
+        else{
+            // Auswertung
+            userboxopen(0,7,40,1,35, "Steuern", "Bluetooth nicht vorhanden !");
+            }
+        }     
+    delay(2000);
+    // sicherheitshalber neu starten
+    userboxclose(0);
+    start();
+  }
+  
+  ITEM( 6 ,"E-Call EIN")  {
+    setscreen( s_steuern,TRUE);
+    
+    if(sgbd == "TELE60" || sgbd == "TELE60_2"){
+      INP1apiJob(sgbd,"ECALL_DISABLE","","");
+      setscreen(s_steuern_ecall,1);
+      setmenu(m_steuern_ecall);
+      start();
+    }
+    else
+    {
+        userboxopen(0,7,40,1,35, "Steuern", "E-CALL nicht vorhanden !");
+        delay(2000);    
+    }
+    // sicherheitshalber neu starten
+    userboxclose(0);
+    start(); 
+  }
+ 
+  ITEM( 7 ,"E-Call AUS")  {
+    setscreen( s_steuern,TRUE);
+    
+    if(sgbd == "TELE60" || sgbd == "TELE60_2"){
+        // Ansteuern
+        INPAapiJob(sgbd,"ECALL_DISABLE","","");
+        INPAapiCheckJobStatus("OKAY");
+        // Auswertung
+        userboxopen(0,7,40,1,35, "Steuern", "E-Call wird ausgeschaltet ! ...bitte warten...");
+        }
+     else
+        {
+        userboxopen(0,7,40,1,35, "Steuern", "E-CALL nicht vorhanden !");    
+        }            
+     delay(2000);
+     // sicherheitshalber neu starten
+     userboxclose(0);
+     start();
+  }
+ITEM( 8 ,"Trpmode EIN")  {
+    
+    userboxclose(0);
+    viewclose();
+    start();
+    INPAapiJob(sgbd,"ENERGIESPARMODE","0;1;0","");
+    INPAapiCheckJobStatus("OKAY");
+    userboxopen(0,8,35,5,50,"Transportmodus einschalten","");
+    userboxftextout(0,"Der Transportmodus wird eingeschaltet! ... bitte warten",1,3,0,0);
+    delay(3000);
+    userboxclose(0);
+    start();
+ }
+ITEM( 18 ,"Trpmode AUS")  {
+    
+    userboxclose(0);
+    viewclose();
+    start();
+         INPAapiJob(sgbd,"ENERGIESPARMODE","0;0;0","");
+    INPAapiCheckJobStatus("OKAY");
+    userboxopen(0,8,35,5,50,"Transportmodus ausschalten","");
+    userboxftextout(0,"Der Transportmodus wird ausgeschaltet! ... bitte warten",1,3,0,0);
+    delay(2000);
+    userboxclose(0);
+    INP1apiJob(sgbd,"ECALL_STATUS_LESEN","","");
+         INP1apiResultText(logik_var,job_state,"JOB_STATUS",1,"");
+    INP1apiResultInt(logik_var, ganz_zahl,"ECALL_STATUS",1);
+    if (ganz_zahl==1 && job_state == "OKAY")
+    {
+        INP1apiJob(sgbd,"ECALL_DISABLE","","");
+      setscreen(s_steuern_ecall,1);
+      setmenu(m_steuern_ecall);
+      start();
+    }
+  }   
+  ITEM( 9 ,"Druck")  {
+    viewclose();
+    printscreen();
+  }
+  ITEM( 10 ,"Zurück")  {
+    viewclose();
+    setscreen( s_main ,TRUE);
+    setmenu( m_main );
+  }
+  ITEM( 20 ,"Exit")  {
+    viewclose();
+    exit();
+  }
+}
+
+
+// **************************
+// *** ecall menü         ***
+// **************************
+MENU m_steuern_ecall()
+{
+  INIT {
+    setmenutitle("Steuern E-Call");
+  }
+ 
+
+  ITEM( 3 ,"E-Call ein")  {
+    
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+    // Ansteuern
+    INPAapiJob(sgbd,"ECALL_ENABLE","","");
+    INPAapiCheckJobStatus("OKAY");
+    // Auswertung
+    userboxopen(0,8,30,2,50, "Steuern", "");
+    userboxftextout(0,"E-Call wird eingeschaltet ! ...bitte warten...",1,3,0,0);
+    // sicherheitshalber neu starten
+    delay(2000);
+    userboxclose(0);
+    INPAapiJob(sgbd,"ENERGIESPARMODE","0;1;0","");
+    INPAapiCheckJobStatus("OKAY");
+    userboxopen(0,8,30,2,50,"Steuern","");
+    userboxftextout(0,"Der Transportmodus wird eingeschaltet! ... bitte warten",1,3,0,0);
+    delay(2000);
+    userboxclose(0);
+    setmenu(m_main);
+    setscreen(s_main,1);
+
+    start(); 
+  }
+  ITEM( 6 ,"Forts.")  {
+       
+    userboxclose(0);    // bereits aktive User-Box schliessen
+    viewclose();
+    // Ansteuern
+    setmenu(m_main);
+    setscreen(s_main,1);
+    start(); 
+  }
+
+  ITEM( 9 ,"Druck")  {
+    printscreen();
+  }
+  ITEM( 20 ,"Exit")  {
+    exit();
+  }
+ }
+                                     
+// ****************************************************
+// ***             S c r e e n a u f b a u          ***
+// ****************************************************
+// **************************
+// *** Statusscreen       ***
+// **************************
+SCREEN s_status()
+{
+  ftextout("Status lesen",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  { 
+    if (sgbd=="TELE60"||sgbd=="TELE60_2")
+    {
+        INP1apiJob(sgbd,"ECALL_STATUS_LESEN","","");
+        INP1apiResultText(logik_var,job_state,"JOB_STATUS",1,"");
+           INP1apiResultInt(logik_var, ganz_zahl,"ECALL_STATUS",1);
+         /*  if (ganz_zahl==1 && job_state == "OKAY")
+           {
+              INP1apiJob(sgbd,"ECALL_DISABLE","","");
+              setscreen(s_steuern_ecall,1);
+              setmenu(m_steuern_ecall);
+              start();
+           } */
+      ftextout("< F2 >  TCU- Type lesen"         , 6,5,0,1);
+      ftextout("< F3 >  Passkey lesen"           , 8,5,0,1);
+      ftextout("< F4 >  ESN lesen (nur US Fahrzeuge)"               ,10,5,0,1);
+      ftextout("< F5 >  MIN lesen (nur US Fahrzeuge)"               ,12,5,0,1);
+      ftextout("< F7 >  DOKU DOM FILE (nur SA633)"            ,16,5,0,1);
+         }
+    if (sgbd=="ULF_60" || sgbd=="TELE60"|| sgbd=="TELE60_2"){
+        ftextout("< F6 >  Bluetooth- Status lesen"               ,14,5,0,1);
+    }
+    if (sgbd=="ULF_60"){
+                INPAapiJob(sgbd,"STATUS_IO_LESEN","","CRADLE_KEY_INPUT");
+        INPAapiCheckJobStatus("OKAY");
+           INPAapiResultDigital(logik_var,"CRADLE_KEY_INPUT",1);
+      ftextout("Taste gedrückt: ",16,5,0,1);
+           digitalout(logik_var,16,20,"ja ","nein ");
+         }  
+
+         
+    ftextout("< F9 >  Bildschirmdruck"         ,20,5,0,1);
+    ftextout("< F10>  Ende"                    ,22,5,0,1);
+
+//  ftextout("<Shift> + < F8 >  "         ,18,45,0,1);
+    ftextout("<Shift> + < F10>  Exit"          ,22,45,0,1);
+    delay(180);
+  }
+}
+
+// *******************************
+// *** StatusMostversionScreen ***
+// *******************************
+
+// start of :#include "mo02_inp.src"                // Aufruf des Screens: s_status_mostversion
+//**********************************************************************
+//*
+//* Includedatei  für alle MOST SG ab E65 
+//*
+//* MO02_INP.SRC  für Most-Stati
+//* ausgeführte Jobs: -MOST_VERSION_LESEN
+//*                   -STATUS_MOST_3DB
+//*                   -STATUS_WAKE_UP_STATUS
+//*                   -STATUS_ABILITY_TO_WAKE
+//*                                                               
+//* wird verwendet in: MCGW60.SRC                                                              
+//*                    MC_GW.SRC
+//*                    CCCG60.SRC                                           
+//*                                                               
+//**********************************************************************
+//* History         : 
+//* 25.09.2000 rg V0.01 Ersterstellung Grundumfang
+//* 12.12.2000 mm V0.02 WakeUp Status hinzugefügt
+//*   .  .2000 __ V1.00 Freigabe
+//* 13.09.2002 rg V1.01 nur noch ein Screen, STATUS_MOST_3DB eingefügt,
+//*                   Results angepasst
+//* 16.02.2004 rd V1.02 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+// *******************************
+// *** StatusMostversionScreen ***
+// *******************************
+SCREEN s_status_mostversion()
+{
+  ftextout("Status  Most",1,0,1,0);
+  ftextout("",3,0,0,0);
+
+  LINE("Mostversion","")
+  {
+   INPAapiJob(sgbd,"MOST_VERSION_LESEN","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//TRANSCEIVER_VERSION
+   ftextout("Version des MOST Transceivers",5,0,0,0);
+   ftextout(":", 5,30,0,0);
+   INPAapiResultText(text_var,"TRANSCEIVER_VERSION",1,"");
+   ftextout(text_var, 5,32,0,0);
+
+//NETSERVICES_VERSION
+   ftextout("Version der Oasis NetServices",6,0,0,0);
+   ftextout(":", 6,30,0,0);
+   INPAapiResultText(text_var,"NETSERVICES_VERSION",1,"");
+   ftextout(text_var, 6,32,0,0);
+
+//NETSERVICES_REVISION
+   ftextout("Revision der Oasis NetServices",7,0,0,0);
+   ftextout(":",7,30,0,0);
+   INPAapiResultText(text_var,"NETSERVICES_REVISION",1,"");
+   ftextout(text_var,7,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//Status der Lichtleistungsabsenkung
+   ftextout("Status der Lichtleistungsabsenkung",9,0,0,0);
+   ftextout(":",9,30,0,0);
+   INPAapiResultText(text_var,"STAT_MOST_3DB_TEXT",1,"");
+   ftextout(text_var,9,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_WAKE_UP_STATUS","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//WakeUp Status
+   ftextout("Wake Up Status",11,0,0,0);
+   ftextout(":",11,30,0,0);
+   INPAapiResultText(text_var,"STAT_WAKE_UP_STATUS_TEXT",1,"");
+   ftextout(text_var,11,32,0,0);
+
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+
+//Status Ability to Wake
+   ftextout("SG darf wecken",13,0,0,0);
+   ftextout(":",13,30,0,0);
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE_TEXT",1,"");
+   ftextout(text_var,13,32,0,0);
+
+  }
+}
+
+
+// *************************
+// *** StatusMost WakeUp ***
+// *************************
+SCREEN s_status_wakeup()
+{
+  ftextout("Status Most WakeUp",1,0,1,0);
+  ftextout("",3,0,0,0);
+  
+  LINE("WakeUp","")
+  {
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE",1,"");
+   ftextout("WakeUp Funktion: "+text_var,5,0,1,0);
+
+   INPAapiJob(sgbd,"STATUS_WAKE_UP_STATUS","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_WAKE_UP_STATUS",1,"");
+   ftextout("Status WakeUp: "+text_var,8,0,1,0);
+  }
+}
+// -- EOF --
+// end of :#include "mo02_inp.src"                // Aufruf des Screens: s_status_mostversion
+
+// **************************
+// *** Steuernscreen      ***
+// **************************
+SCREEN s_steuern()
+{
+  ftextout("Ansteuern",1,0,1,0);
+  ftextout("",3,0,0,0);
+  LINE("","")
+  {
+    if (sgbd=="TELE60"||sgbd=="TELE60_2")
+    {
+        INP1apiJob(sgbd,"ECALL_STATUS_LESEN","","");
+        INP1apiResultText(logik_var,job_state,"JOB_STATUS",1,"");
+           INP1apiResultInt(logik_var, ganz_zahl,"ECALL_STATUS",1);
+           if (ganz_zahl==1 && job_state == "OKAY")
+           {
+              INP1apiJob(sgbd,"ECALL_DISABLE","","");
+              setscreen(s_steuern_ecall,1);
+              setmenu(m_steuern_ecall);
+              start();
+                }
+      ftextout("< F6 >  E-Call EIN-schalten"  ,14,5,0,1);
+      ftextout("< F7 >  E-Call AUS-schalten"  ,16,5,0,1);
+      ftextout("< F8 >  Transportmode EIN"              ,18,5,0,1);
+      ftextout("<Shift> + < F8 >  Transportmode AUS"    ,18,45,0,1);    
+    }
+    ftextout("< F1 >  3 dB- Absenkung"      , 4,5,0,1);
+    if(sgbd=="TEL_ECE"){
+         ftextout("< F2 >  Hörer abmelden"    , 6,5,0,1);
+         ftextout("< F3 >  Hörer anmelden"    , 8,5,0,1);
+    }
+
+    if (sgbd=="ULF_60" || sgbd=="TELE60" || sgbd=="TELE60_2"){
+        ftextout("< F4 >  Bluetooth EIN-schalten",10,5,0,1);
+        ftextout("< F5 >  Bluetooth AUS-schalten",12,5,0,1);
+    }
+    
+    ftextout("< F9 >  Bildschirmdruck"      ,20,5,0,1);
+    ftextout("< F10>  Zurück"               ,22,5,0,1);
+    ftextout("<Shift> + < F10>  Exit"       ,22,45,0,1);
+    delay(180);
+  }
+}
+
+// **************************
+// *** ecall screen      ***
+// **************************
+SCREEN s_steuern_ecall()
+{
+  ftextout("E-CALL",1,0,1,0);
+  ftextout("",3,0,0,0);
+  ftextout("E-Call wurde deaktiviert. Nach Aktivierung wird",4,0,0,0);
+  ftextout("automatisch der Transportmodus gesetzt!",5,0,0,0);
+  ftextout("Wollen sie ...",7,0,0,0);
+  LINE("","")
+  {
+    ftextout("< F3 >  E-Call aktivieren und Transportmodus setzen"    ,3,5,0,1);
+    ftextout("< F6 >  E-Call deaktiviert lassen und fortfahren"              ,5,5,0,1);
+    ftextout("< F9 >  Bildschirmdruck"        ,10,5,0,1);
+    //ftextout("< F10>  Zurück"                 ,12,5,0,1);
+    ftextout("<Shift> + < F10>  Exit"         ,12,45,0,1);
+    delay(180);
+  }
+}
+
+// **********************************
+// *** Steuern3dB_AbsenkungScreen ***
+// **********************************
+
+// start of :#include "mo01_inp.src"                // Aufruf des Screens: s_steuern_3dB_absenkung
+//**********************************************************************
+//*
+//* Includedatei  für E-65 INPA 
+//*
+//* MO01_INP.SRC  für alle Mostkompenenten ab E65
+//*                                                               
+//*
+//*    ACHTUNG:  ||||->Versionsnummer bei s_steuern_3dB_absenkung()
+//*                     in erster ftextout() eintragen!!!!!!!!!!!!!!!!!!
+//**********************************************************************
+//* History         : 
+//* 25.09.2000 rg V0.01 Ersterstellung Grundumfang
+//* 17.10.2000 GA V0.02 INPAapiFsMode_neu(0x1FF... -> (0xFF...
+//* 12.12.2000 mm V0.03 WakeUp Screen und Menu hinzugefügt
+//* 16.01.2001 GA V0.04 3dB Absenkung aller Lichtwellenleiter eingefügt
+//* 21.02.2001 GA V0.05 von FS_LESEN/LOESCHEN auf IS_ umgestellt
+//* 05.03.2001 GA V0.06 Umbau s_steuern_3dB_alle: erst an alle -3dB nach-
+//*            GA V0.06  einander absetzen, 5Sek. später IS_LESEN
+//* 13.03.2003 fw V0.07 Erweiterung des Ringtestes auf E6X, E8X, E9X
+//* 17.04.2003 fw V0.08 Ruecksprung ins Steuern-Menue (anstatt Hauptmenue)
+//* 16.02.2004 rd V1.00 Umstellung auf 32-Bit Version
+//* 19.03.2004 fw V1.01 Verbesserung Fehlerbehandlung
+//* 24.03.2004 fw V1.02 Verbesserung Fehlerbehandlung KOMBI
+//* 29.03.2004 fw V1.03 Verbesserung Fehlerbehandlung virtuelle Steuergeräte
+//**********************************************************************
+
+// **********************
+// *** Steuernmenü    ***
+// *** -3db Absenkung ***
+// **********************
+MENU m_steuern_3dB_absenkung()
+{
+  string fehler_file;
+  int    InputState = 2;
+ 
+  INIT {
+    setmenutitle("Steuern");
+  }
+  ITEM( 1 ,"Einzeltest")  {
+    viewclose();
+    setscreen( s_steuern_3dB_einzel,FALSE); //Nur Absenkung zum nächsten Steuergerät
+  }
+  ITEM( 2 ,"Alle")  {
+    viewclose();
+    setscreen( s_steuern_3dB_alle,FALSE); //Alle Lichtwellenl. werden im Ring einzeln abgesenkt.
+  }
+  ITEM( 3 ,"")  {
+     viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 4 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);    
+  }
+  ITEM( 5 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);  
+  }                                    
+  ITEM( 6 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }                                    
+  ITEM( 7 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 8 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 9 ,"Druck")  {
+    printscreen();
+  }
+  ITEM( 10 ,"Zurück")  {
+    viewclose();
+    setscreen( s_steuern ,TRUE);
+    setmenu( m_steuern );
+  }
+  ITEM( 20 ,"Exit")  {
+    viewclose();
+    exit();
+  }
+}
+
+// **************************
+// *** Steuernscreen      ***
+// **************************
+SCREEN s_steuern_3dB_absenkung()
+{
+  ftextout("Ansteuern -3dB Absenkung im MOST-Ring Version 1.03",1,0,1,0);
+  ftextout("",3,0,0,0);
+  ftextout("ACHTUNG: Infospeicher werden zuvor gelöscht!",4,0,0,5);
+  ftextout("< F1 >  Absenkung von diesem zum nächsten Steuergerät"    , 7, 5,0,1);
+  ftextout("< F2 >  Absenkung aller Lichtwellenleiter im Ring"        , 9, 5,0,1);
+//ftextout("< F3 >  "      , 8, 5,0,1);
+//ftextout("< F4 >  "      ,10, 5,0,1);
+//ftextout("< F5 >  "      ,12, 5,0,1);
+//ftextout("< F6 >  "      ,14, 5,0,1);
+//ftextout("< F7 >  "      ,16, 5,0,1);
+//ftextout("< F8 >         ,18, 5,0,1);
+  ftextout("< F9 >  Bildschirmdruck"          ,20, 5,0,1);
+  ftextout("< F10>  Zurück"                   ,22, 5,0,1);
+  ftextout("<Shift> + < F10>  Exit"           ,22,45,0,1);
+}
+
+// **********************************
+// *** Steuern3dB_AbsenkungScreen ***
+// **********************************
+SCREEN s_steuern_3dB_einzel()
+{
+  int    err_code;
+  string text_var2 = "                                                                    ";
+
+    userboxclose(1);                                                     // IS loeschen
+    viewclose();
+    //Temporäre Datei löschen, falls bei Kommunikation was schief lief, somit wird kein alter Infospeicher angezeigt
+    filedelete("mo_1.tmp",err_code);
+
+    INPAapiJob(sgbd,"IS_LOESCHEN","","");
+    INPAapiCheckJobStatus("OKAY");
+    userboxopen(1,13,20,2,45,"Status -3 dB Test","");
+
+    userboxclear(1);
+    INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    userboxftextout(1,text_var,0,0,0,0);
+
+    
+    INPAapiJob(sgbd,"STEUERN_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");  
+    INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    delay(3000);
+    userboxclear(1);
+    userboxftextout(1,text_var,0,0,0,0);
+    delay(5000);
+
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    userboxftextout(1,text_var,0,0,0,0);
+    delay(1000);
+
+
+    viewclose();
+    userboxclear(1);
+    userboxftextout(1,"Der Infospeicher wird gelesen! ... bitte warten",0,0,0,0);
+
+    INPAapiFsMode_neu(0x1FF,"w","","","IS_LESEN"); // alles Anzeigen
+    INPAapiFsLesen_neu(sgbd,"mo_1.tmp");
+
+    userboxclose(1);
+    viewopen("mo_1.tmp","Infospeicher lesen");
+}
+
+// ***************************************
+// *** Steuern3dB_AbsenkungScreen-Alle ***
+// ***************************************
+//Alle Lichtwellenl. werden im Ring einzeln abgesenkt.
+//SGBDen werden über Gruppendateien angesprochen.
+//Infospeicher wird vorher gelöscht!              
+//Status jeder SGBD wird ausgegeben. IS_LESEN einzelner SGBD kann angzeigt werden.
+
+SCREEN s_steuern_3dB_alle()
+{
+
+        string gruppe;
+        string sgbd;
+        string zahl_text;
+        string JOB_STATUS;
+        string VARIANTE;
+        string status_3db_text;
+        string zaehler_text;   // Kein Fehler in den SG´s
+        string zaehler1_text;  // Anzahl gefundener SG's
+        string zaehler2_text;  // Anzahl der nicht gefundenen SG´s
+        string err_txt;
+
+        int    startzeit, stopzeit, laufzeit, minuten, timeout;//in Sekunden
+        int    err_code;
+        int    state;    
+        int    SETS;
+        int    ganz_zahl1;
+        int    zaehler=0;      // Kein Fehler in den SG´s
+        int      zaehler1=0;     // Anzahl gefundener SG's
+        int    zaehler2=0;     // Anzahl der nicht gefundenen SG´s
+        int    zeile=4;        // Startzeile
+        int    anzahl_sg=15;   // Anzahl der Steuergeräte
+
+        bool   fehlerflag;
+        string job_status="???";// für Job_Statuskontrolle
+
+
+        //Temporäre Dateien löschen, falls bei Kommunikation was schief lief, somit wird kein alter Infospeicher angezeigt
+        filedelete("mo_1.tmp",err_code);
+        filedelete("mo_2.tmp",err_code);
+        filedelete("mo_3.tmp",err_code);
+        filedelete("mo_4.tmp",err_code);
+        filedelete("mo_5.tmp",err_code);
+        filedelete("mo_6.tmp",err_code);
+        filedelete("mo_7.tmp",err_code);
+        filedelete("mo_8.tmp",err_code);
+        filedelete("mo_9.tmp",err_code);
+        filedelete("mo_10.tmp",err_code);
+        filedelete("mo_11.tmp",err_code);
+        filedelete("mo_12.tmp",err_code);
+        filedelete("mo_13.tmp",err_code);
+        filedelete("mo_14.tmp",err_code);
+        filedelete("mo_15.tmp",err_code);
+        filedelete("mo_erg.tmp",err_code);
+
+        viewclose();
+
+        fileopen( "mo_erg.tmp", "w");
+        ftextout("Most -3 dB Test",0,0,1,1);  
+        filewrite("Most -3 dB Test");
+        filewrite("------------------------------------------------------------------");
+        filewrite("");
+        fileclose();
+        
+        ganz_zahl = 1;
+        while(ganz_zahl <= anzahl_sg)
+        {  
+   
+           // Reihenfolge muß bei "LINE" wie hier sein. Sonst werden falsche Infospeicher angezeigt
+           if      (ganz_zahl ==  1) gruppe = "D_ASK";     // Audio System Kontroller Kassette, CD, Mini Disc
+           else if (ganz_zahl ==  2) gruppe = "D_KOMBI";   // Intrumentenkombi
+           else if (ganz_zahl ==  3) gruppe = "D_MOSTGW";  // MOST/CAN-Gateway (im MMI)
+           else if (ganz_zahl ==  4) gruppe = "D_CDC";     // Audio CD-Changer
+           else if (ganz_zahl ==  5) gruppe = "D_ANTTU";   // Antennentuner 1, Antennentuner 2
+           else if (ganz_zahl ==  6) gruppe = "D_AMP";     // Top HIFI Verstärker
+           else if (ganz_zahl ==  7) gruppe = "D_SVS";     // Sprachverarbeitungssystem
+           else if (ganz_zahl ==  8) gruppe = "D_NAV";     // Navigation   
+           else if (ganz_zahl ==  9) gruppe = "D_VIDEO";   // Videomodul       
+           else if (ganz_zahl == 10) gruppe = "D_MMC";     // Multimedia Changer
+           else if (ganz_zahl == 11) gruppe = "D_FBI";     // Flexible Bus Interface  (für Japan Telefon und Navj (vom E38))
+           else if (ganz_zahl == 12) gruppe = "D_KHI";     // Kopfhöhrer Interface
+           else if (ganz_zahl == 13) gruppe = "D_TEL";     // Telefon ECE Variante oder US Variante, fehlt, wenn Japantelefon verbaut
+           else if (ganz_zahl == 14) gruppe = "D_HUD";     // Headup Display
+           else if (ganz_zahl == 15) gruppe = "D_RADIO";   // Digital radio
+        
+           sgbd = "";
+           INP1apiJob(gruppe,"INITIALISIERUNG","","");            // Init.=kürzester Job
+           INP1apiResultText(fehlerflag,sgbd,"VARIANTE",0,"");    // SGBD-Namen aus Satz 0 auslesen
+                                                                  // (Nebeninfo: In allen Jobs wird u.a. VARIANTE mitgeliefert)
+           if(sgbd != "" && (gruppe != "D_KOMBI" || (gruppe == "D_KOMBI" && (sgbd == "KOMBI65" || sgbd == "KOMB65_2"))) 
+              && sgbd != "NAVL60" && sgbd != "ASK_60" && sgbd != "ANT_60" && sgbd != "CCC_60" && sgbd != "CCCA60")
+           {
+              INP1apiJob(sgbd,"IS_LOESCHEN","","");               // Nicht rausnehmen! Sonst werden alle SGBD als
+              INP1apiJob(sgbd,"STATUS_MOST_3DB","","");          // 3dB Test ausführen
+              INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+              if (job_status == "OKAY")
+              {
+                INP1apiJob(sgbd,"STEUERN_MOST_3DB","","");          // 3dB Test ausführen
+                INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+              }
+        
+              //Nur wenn Test ausgeführt, soll auch Infospeicher gelesen werden.
+              //Sicherheitshalber da Buskommunikation nicht immer stabil ist (Nov. 2000)
+              //Sonst wäre dies überflüssig!
+              if (job_status != "OKAY")
+              {
+                       //INP1apiErrorText(err_txt);
+                       zaehler = zaehler+1;
+                       ftextout(sgbd+"                         ",zeile,0,0,0);
+                       ftextout("          ",zeile,25,0,0);
+                       ftextout("Test nicht unterstuetzt oder Kommunikationsfehler",zeile,45,0,0);
+                       fileopen( "mo_erg.tmp", "a");
+                       filewrite(sgbd+": Test nicht unterstuetzt oder Kommunikationsfehler");
+                       filewrite("");
+                       fileclose();
+                       delay(2000);
+                       ftextclear("Test nicht unterstuetzt oder Kommunikationsfehler",zeile,45,0,0);
+                       //zaehler2 = zaehler2+1;
+              }
+              else
+              {
+                                //ACHTUNG: Falls es ein englisches INPA gibt, muß engl. Übersetzung wie in der engl. SGBD sein!
+                                //Sonst wird die Schleife nur 1 Mal durchgegangen und IO ausgegeben nur weil der Job noch nicht 
+                                //abgearbeitet ist.
+              status_3db_text="Lichtleistung abgesenkt";               // Most-Status auslesen         
+                      logik_var=FALSE;  
+                      timeout=8;// in Sekunden
+                      laufzeit=0;
+                      ftextout(sgbd+"                         ",zeile,0,0,0);
+                      ftextout("- - -                                 ",zeile,45,0,0); //Anzeige das noch was kommt, IO/NIO oder ??? für des Tests.
+        
+                        gettime(text_var);
+                      zahl_text="";
+                      midstr(zahl_text,text_var,3,2);
+                      stringtoint(zahl_text,minuten);
+                      minuten = minuten*60;
+                      midstr(zahl_text,text_var,6,2);     
+                      stringtoint(zahl_text,startzeit);
+                      startzeit = minuten+startzeit;
+        
+                while((status_3db_text == "Lichtleistung abgesenkt") && (logik_var==FALSE))  // Test endet mit "Volle Lichtleistung" 
+                {
+                                INP1apiJob(sgbd,"STATUS_MOST_3DB","","");
+                         INPAapiResultText(status_3db_text,"STAT_MOST_3DB",1,"");
+                         ftextout(status_3db_text+"          ",zeile,25,0,0);
+                                        
+                         gettime(text_var);
+                         zahl_text="";
+                         midstr(zahl_text,text_var,3,2);    //Minuten auslesen
+                         stringtoint(zahl_text,minuten);
+                         minuten = minuten*60;
+                         midstr(zahl_text,text_var,6,2);    //Sekunden auslesen
+                         stringtoint(zahl_text,stopzeit);
+                         stopzeit = minuten + stopzeit;     //Zeit in Sek.
+                
+                         laufzeit = stopzeit - startzeit;
+                         if ((laufzeit >= timeout) || (timeout <= (-laufzeit))) logik_var=TRUE;
+                
+                              inttostring(timeout-laufzeit,zahl_text);
+                              ftextout(zahl_text+"           ",zeile,75,0,0); 
+                              //Zur weiteren Sicherheit damit kein IO (da IS vorher gelöscht) bei NIO kommt:
+                              //Falls Kommunikation in while nicht klappt und while sofort verlassen wird, erfolt NIO statt IO.
+                              //Test soll angeblich 5 Sekunde dauern.
+                              //Infospeichereintrag erfolgt, wenn Status wieder "Volle Lichtleistung" ausgibt. 
+                }
+        
+                if (logik_var==TRUE)         ftextout("Timeout-Abbruch                             ",zeile,25,0,0);
+                        ftextout("                                ",zeile,75,0,0); //Abgelaufene Zeit wieder löschen
+        
+                   delay(2000); // Für sicheren IS-Eintrag (Vorschlag S.Heckmann)
+        
+                INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+                //Nachträglich eingebaut, da manche SGBDen nicht auf aktuellen Stand sind und somit Fehler produzieren.
+                if (fehlerflag == FALSE)
+                        {
+                                        ftextout("???       ",zeile,45,0,0); 
+                                        fileopen( "mo_erg.tmp", "a");
+                                        filewrite(sgbd+": ???");
+                                filewrite("");
+                                                fileclose();
+                        }
+                else
+                {
+                                zaehler1 = zaehler1 + 1;
+                                INP1apiJob(sgbd,"IS_LESEN","","");                  // Erst lesen, wenn "Volle Lichtleistung"
+                                                                       // nach test ausgelesen wurde.
+                                INPAapiResultSets(SETS);                            // Anzahl der Sätze auslesen
+                                INPAapiResultText(JOB_STATUS,"JOB_STATUS",SETS,""); // JOB_STATUS steht im letzten Satz!
+         
+                         INPAapiFsMode_neu(0x1FF,"w","","","IS_LESEN");      // IS_LESEN konfigurieren, w=alles Anzeigen
+                         inttostring(ganz_zahl1,zahl_text);
+                         INPAapiFsLesen_neu(sgbd,"mo_"+zahl_text+".tmp"); // Infospeicher lesen und abspeichern
+                         if (SETS == 1)                                      // nur ein Satz: Kein Fehler!
+                         {                                                   // ACHTUNG: Wegen TEL_ECE,TEL_US werden die
+                                ftextout("IO                     ",zeile,45,0,0);               // Dateien durchnummeriert
+                                fileopen( "mo_erg.tmp", "a");
+                                filewrite(sgbd+": IO");
+                                filewrite("");
+                                fileclose();
+                                }
+                         else
+                         {
+                                zaehler = zaehler+1;
+                                ftextout("NIO                   ",zeile,45,0,0);
+                                fileopen( "mo_erg.tmp", "a");
+                                filewrite(sgbd+": NIO");
+                                filewrite("");
+                                fileclose();
+                              }
+                         delay(2000);
+                }
+               
+                ganz_zahl1 = ganz_zahl1+1;
+                        }//fehlerflag == FALSE
+                }//sgbd != ""
+        else
+        {  
+                zaehler2 = zaehler2+1;
+                //zeile = zeile - 2;
+        }
+        ganz_zahl = ganz_zahl+1;
+                inttostring(zaehler, zaehler_text);
+                inttostring(zaehler1, zaehler1_text);
+        //inttostring(zaehler2, zaehler2_text);  
+        ftextout(zaehler_text+" Fehler", 28,52,0,0);
+        //ftextout(zaehler2_text+" SG´s nicht gefunden  ", 28,60,0,0);
+        //zeile = zeile+2;
+        }
+        if (zaehler1 == 0)
+        {
+                ftextout("SG´s nicht gefunden", 28,52,0,0);
+                fileopen( "mo_erg.tmp", "a");
+                filewrite("SG´s nicht gefunden");
+                fileclose();
+        }
+        else
+        {
+                fileopen( "mo_erg.tmp", "a");
+                filewrite(zaehler_text+" Fehler");
+                fileclose();
+        }
+
+   fileclose();
+        viewopen("mo_erg.tmp","Most -3 dB Test");
+        
+   LINE("D_ASK"      , "mo_1.tmp"   ) {}
+
+   LINE("D_KOMBI"    , "mo_2.tmp"   ) {}
+   
+   LINE("D_MOSTGW"   , "mo_3.tmp"   ) {}         
+
+   LINE("D_CDC"      , "mo_4.tmp"   ) {}         
+
+   LINE("D_ANTTU"    , "mo_5.tmp"   ) {}         
+
+   LINE("D_AMP"      , "mo_6.tmp"   ) {}          
+
+   LINE("D_SVS"      , "mo_7.tmp"   ) {}         
+
+   LINE("D_NAV"      , "mo_8.tmp"   ) {}          
+
+   LINE("D_VIDEO"    , "mo_9.tmp"   ) {}             
+
+   LINE("D_MMC"      , "mo_10.tmp"   ) {}         
+
+   LINE("D_FBI"      , "mo_11.tmp"  ) {}         
+
+   LINE("D_KHI"      , "mo_12.tmp"  ) {}         
+                                    
+   LINE("D_TEL"      , "mo_13.tmp"  ) {}
+   
+   LINE("D_HUD"      , "mo_14.tmp"  ) {}
+   
+   LINE("D_RADIO"    , "mo_13.tmp"  ) {}
+
+}
+// ACHTUNG: Wegen VID, VIDJ und TEL_ECE, TEL_US werden die Dateien durchnummeriert.
+
+
+// *********************************************
+// *** Screen: Steuern des Most WakeUp Modus ***
+// *********************************************
+SCREEN s_steuern_wakeup_ability()
+{
+  ftextout("Ansteuerung Most WakeUp-Funktion",1,0,1,0);
+  ftextout("",3,0,0,0);
+
+  LINE("Most WakeUp-Modus","")
+  {
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE",1,"");
+   ftextout("WakeUp Funktion: "+text_var,3,0,1,0);
+  }
+}
+
+// ********************************
+// *** Steuernmenü WakeUp Modus ***
+// ********************************
+MENU m_steuern_wakeup_ability()
+{
+  INIT
+  {
+    setmenutitle("Steuern WakeUp-Modus");
+  }
+  ITEM( 1 ,"Modus")  
+  {
+     inputdigital(logik_var,"WakeUp Modus","Modus:","OFF","ON");
+     getinputstate(input_state);
+     if (input_state==0)
+     {
+        if (logik_var==FALSE) // Modus: OFF
+        {
+           INPAapiJob(sgbd,"STEUERN_ABILITY_TO_WAKE","off","");
+           INPAapiCheckJobStatus("OKAY");
+        }
+        else                  // Modus: ON
+        {
+           INPAapiJob(sgbd,"STEUERN_ABILITY_TO_WAKE","on","");
+           INPAapiCheckJobStatus("OKAY");
+        }
+     }
+  }
+  ITEM( 9 ,"Druck")  
+  {
+    printscreen();
+  }
+  ITEM( 10 ,"Zurück")  
+  {
+    viewclose();
+    setscreen( s_steuern ,TRUE);
+    setmenu( m_steuern );
+  }
+  ITEM( 20 ,"Exit")  
+  {
+    viewclose();
+    exit();
+  }
+}
+// -- EOF --
+// end of :#include "mo01_inp.src"                // Aufruf des Screens: s_steuern_3dB_absenkung
+
+// -- EOF --

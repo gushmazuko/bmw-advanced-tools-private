@@ -1,0 +1,165 @@
+;;************************************************************************
+;; EDIABAS-Errornumber/Errortext Assignment
+;; maximum Textlength: 80 Characters !!!!
+;;
+
+[EDIABASFEHLER]
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Errors in Interface-Handler
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+10=IFH-0000: Internal error
+11=IFH-0001: UART error
+12=IFH-0002: No response from interface
+13=IFH-0003: Datatransmission to interface disturbed
+14=IFH-0004: Error in interface command
+15=IFH-0005: Internal interface error
+16=IFH-0006: Command not accepted
+17=IFH-0007: Wrong ubatt
+18=IFH-0008: Controlunit connection error
+19=IFH-0009: No response from controlunit
+20=IFH-0010: Datatransmission to controlunit disturbed
+21=IFH-0011: Unknown interface
+22=IFH-0012: Buffer overflow
+23=IFH-0013: Command not implemented
+24=IFH-0014: Concept not implemented
+25=IFH-0015: Ubatt on/off error
+26=IFH-0016: Ignition on/off error
+27=IFH-0017: Interface deadlockerror
+28=IFH-0018: Initialization error
+29=IFH-0019: Device access error
+30=IFH-0020: Driver error
+31=IFH-0021: Illegal port
+32=IFH-0022: Driver status error
+33=IFH-0023: Interface status error
+34=IFH-0024: DP-Ram cancel failed
+35=IFH-0025: Interface application error
+36=IFH-0026: Simulation error
+37=IFH-0027: IFH not found
+38=IFH-0028: Illegal ifh version
+39=IFH-0029: Access denied
+40=IFH-0030: Task communication error
+41=IFH-0031: Data overflow
+42=IFH-0032: Ignition is off
+44=IFH-0034: Configuration file not found
+45=IFH-0035: Configuration error
+46=IFH-0036: Load error
+47=IFH-0037: Low ubatt
+48=IFH-0038: Interface command not implemented
+49=IFH-0039: Edic user interface not found
+50=IFH-0040: Illegal edic user interface version
+51=IFH-0041: Illegal parameters
+52=IFH-0042: Card installation error
+53=IFH-0043: Communication trace error
+54=IFH-0044: Flash error
+55=IFH-0045: Runboard error
+56=IFH-0046: Edic api access error
+57=IFH-0047: Plugin error
+58=IFH-0048: Plugin function error
+59=IFH-0049: CSS Device detection error
+200=IFH-0050: Entry in dynamic configuration not found
+201=IFH-0051: Internal dynamic protocol error
+202=IFH-0052: Concept not avaliable
+203=IFH-0053: Illegal concept id
+204=IFH-0054: Illegal function parameter
+205=IFH-0055: Cannot load protocol tables
+206=IFH-0056: Illegal channel
+207=IFH-0057: Error read digital inputs
+208=IFH-0058: Error set digital outputs
+209=IFH-0059: Error read analog inputs
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Errors in BIP, BEST-Interpreter
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+60=BIP-0000: Internal error
+61=BIP-0001: Out of range
+62=BIP-0002: IFH function error
+63=BIP-0003: Object file error
+64=BIP-0004: Illegal opcode
+65=BIP-0005: Stack overflow
+66=BIP-0006: Best file error
+67=BIP-0007: Division by zero
+68=BIP-0008: Best break
+69=BIP-0009: Best version error
+70=BIP-0010: Constant data access error
+71=BIP-0011: Real error
+72=BIP-0012: Plug in not found
+73=BIP-0013: Plug in error
+74=BIP-0014: Plug in version error
+75=BIP-0015: Plug in stack error
+76=BIP-0016: Plug in function not found
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Errors in SYS, Flowcontrol
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+90=SYS-0000: Internal error
+91=SYS-0001: Illegal function
+92=SYS-0002: Ecu object file not found
+93=SYS-0003: Ecu object file error
+94=SYS-0004: Illegal format of ecu object file 
+95=SYS-0005: Object file not found
+96=SYS-0006: Group object file error
+97=SYS-0007: Illegal format of group object file
+98=SYS-0008: Job not found
+99=SYS-0009: No initialization job
+100=SYS-0010: Initialization error
+101=SYS-0011: No identification job
+102=SYS-0012: Identification error
+103=SYS-0013: Unexpected result
+104=SYS-0014: Illegal format
+105=SYS-0015: Task communication error
+106=SYS-0016: Illegal configuration
+107=Reserved for future EDIABAS versions
+108=SYS-0018: End job error
+109=SYS-0019: Timer error
+110=SYS-0020: Base object file not found
+111=SYS-0021: Base object file error
+112=SYS-0022: Illegal format of base object file
+113=SYS-0023: Password error
+114=SYS-0024: Illegal password
+
+;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Errors in API, Application-Programming-Interface
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+120=API-0000: Internal error
+121=API-0001: User break
+122=API-0002: Memory allocation error
+123=API-0003: Result sets overflow
+124=API-0004: Results overflow
+125=API-0005: Illegal result format
+126=API-0006: Access denied
+127=API-0007: Incorrect configuration file
+128=API-0008: Task communication error
+129=API-0009: EDIABAS not found
+130=API-0010: Illegal ediabas version
+131=API-0011: Illegal ecu path
+132=API-0012: Signal server not found
+133=API-0013: Initialization error
+134=API-0014: Result not found
+135=API-0015: Host communication error
+
+;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Network errors 
+;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+150=NET-0000: Internal error
+151=NET-0001: Unknown error
+152=NET-0002: Illegal version
+153=NET-0003: Initialization error
+154=NET-0004: Illegal call
+155=NET-0005: No support
+156=NET-0006: Access denied
+157=NET-0007: System error
+158=NET-0008: Network error
+159=NET-0009: Timeout
+160=NET-0010: Buffer overflow
+161=NET-0011: Already connected
+162=NET-0012: No connection
+163=NET-0013: Connection disturbed
+164=NET-0014: Connection aborted
+165=NET-0015: Host not found
+166=NET-0016: Host error
+167=NET-0017: Protocol not available
+168=NET-0018: Unknown protocol
+169=NET-0019: Unknown service
+170=NET-0020: Unknown host
+171=NET-0021: Server not found
+172=NET-0022: Security error

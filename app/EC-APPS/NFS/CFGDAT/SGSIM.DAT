@@ -1,0 +1,66 @@
+; SGSIM.DAT
+;
+; Liste der zu simulierenden Steuergeräte
+;
+; Datenformat einer Zeile:
+;
+; 1. Integrationsstufe EXXX-XX-XX-XXX
+;    alphanumerisch 14-stellig                  Wildcard ? erlaubt
+;
+;    Integrationsstufe XX.XXXX ( altes Format )
+;    alphanumerisch 4 bis 7-stellig             Wildcard ? erlaubt
+;
+; 2. SG-Adresse 2-stellig hex
+;
+; 3. Typschlüssel T + 4-stellig alpanumerisch   Wildcard ? erlaubt  Negation ! erlaubt
+;    Mehrere Typschlüssel werden und-verknüpft
+;
+; 4. Sonderausstattung S + 3-stellig numerisch  Wildcard ? erlaubt  Negation ! erlaubt
+;    Mehrere Sonderausstattungen werden und-verknüpft
+;
+; 5. Zusbau-Nummer Z + 7-stellig numerisch
+;
+; 6. HW*-Nummer H + 7-stellig numerisch
+;
+;
+;
+;
+;
+
+; Es kann auch der CAS-Auftrag simuliert werden.
+; Er muss in der Sektion [AUFTRAG] stehen und hat die gleiche Form wie die der Trace-Datei FZG.TMP
+[MUSTER_AUFTRAG]
+FGNR           : WBAGM21010DR49348
+Baureihe       : E65
+Mehrkanal      : nein
+TypSchluessel  : GM21
+Codierbaustand : 0103
+Ist  I-Stufe   : 6.98
+Soll I-Stufe   : 6.98
+Lack           : 0892
+Polster        : U6FA
+SA_Anz         : 25
+ SA202 SA216 SA229 SA238 SA245 SA261 SA302 SA316 SA323 SA438
+ SA441 SA488 SA502 SA508 SA521 SA522 SA548 SA609 SA630 SA650
+ SA672 SA676 SA856 SA863 SA883
+E_Wort_Anz     : 1
+ LEDE
+HO_Wort_Anz    : 0
+
+[MUSTER_E65]
+????-??-??-???      0F     TAB?? T!AB44  S2?? S!201 S400  Z1234567
+
+????-??-??-???      02     T????                          Z7654321
+; Zusbau-Nummer 7654321 mit SG-Adresse 02 ist bei beliebiger Integrationsstufe ( immer )
+; und beliebigem Typschlüssel ( immer ) simuliert
+;
+
+[E65]
+
+[E60]
+
+[RR1]
+
+[E89X]
+
+; EOF

@@ -1,0 +1,4303 @@
+//**********************************************************************
+//* ProgrammierAblaufBeschreibungsDatei PABD
+//* für Flash-Prozess mit
+//* Muster SteuerGeräteBeschreibungsDatei SGBD
+//**********************************************************************
+//* History:
+//* 16.02.2001 rd V1.00 Freigabe der Muster PABD
+//* 03.04.2001 rd V1.01 TesterPresent, DNMT, ENMT Handling erweitert
+//*               V1.01 TesterPresentHandlingSwitch neu dazu
+//*               V1.01 Bei Wiederaufsetzen TransferExit mit Datenanzahl=0
+//* 21.05.2001 rd V1.02 WiederaufsetzenSwitch neu dazu
+//* 11.07.2001 rd V2.00 Benötigt mindestens WinKfp Version 2.0
+//*               V2.00 Neue Programmierstati in FlashStatusLesen
+//*               V2.00 Funktion SetEcuAdr neu dazu
+//*               V2.00 Überarbeitung AIF lesen
+//*               V2.00 Überarbeitung Datenreferenz lesen
+//*               V2.00 Loeschzeit jetzt Wordparameter
+//* 03.12.2001 rj V2.10 Erweiterung um neue Prozessortypen
+//*                     Neuer Name von 00flash auf 01flash
+//* 18.03.2002 rj V2.11 Setzen der globalen Variable SIMULATION:
+//*                     ALt: SIMULATION = TRUE
+//*                     Neu: SIMULATION = FALSE
+//* 15.05.2002 Mw V3.00 Auswerten der 17-stelligen Fahrgestellnummer bei AIF_LESEN
+//*               V3.00 Aufruf von SG_PHYS_HWNR_LESEN für die Anzeige der physik. Hardwarenummer
+//*               V3.00 Aufruf von SG_INNENTEMP_LESEN für die Anzeige der SG-Innentemperatur
+//*               V3.00 Erweiterung der Adressraums auf 4 Adressbytes
+//* 13.06.2002 Pf V3.01 Fehlerbehebung FLASH_BLOCK_LAENGE_GESAMT => Unsigned Int
+//*               V3.01 Fehlerbehebung FLASH_SCHREIBEN_ANZAHL => Unsigned Int
+//* 08.08.2002 Pf V4.00 # Deaktivierung/Aktivierung des FZGBusses während der Flashprogrammierung
+//*                     # Polling Verfahren während des RESETs am Ende der Flashprogrammierung Prozess
+//*                       Funktion : "STEUERGERAETE_RESET
+//*                     # Prozessor Typ : entweder "Standard" oder "HC12DG128""
+//*                     # Wiederaufsetzen in der "Programmieren" Funktion
+//*                       Wenn 1 Fehler auftritt, flashen 2 Datenblöcke zurück
+//* 27.08.2002 Pf V4.01 # Boot Sektor Update : BSUTime in der PAF File gelesen. Wenn nicht vorhanden,
+//*                       ist die Null Werte gültig
+//* 12.11.2002 Pf V4.02 # AuffuellenSwitch: Auffuellung von Datenbloecke bis zu Maximal Block Laenge (MXBL)
+//*                       Betroffen ist die Funktion CDHGetApiJobByteData()
+//* 27.11.2002 Pf V4.03 # Daten Laenge Buffer beim "Flash_Loeschen" automatsich auffuellen
+//*
+//* 27.11.2002 Pf V4.04 # ENMT nach dem RESET am Ende der Programmierung nach dem Polling Verfahren geschoben
+//* 28.11.2002 Pf V4.05 # Polling Verfahren am Ende der Programmierung (nach dem RESET Aufruf) geloescht
+//*                     # Maximal Anzahl von Wiederaufsetzen ist parametrierbar
+//* 29.11.2002 Pf V4.06 # ENMT und DNMT wie in der 03Flash.ips implementiert
+//*                     # TesterPresentHandling DNMTTimerZeit = 10000 msec
+//*                     # 2 Wiederaufsetzen Verfahren sind // implementiert:
+//*                           WiederaufsetzenSwitch: nur den letzen Telegramm wird gesendet
+//*                                           => NICHT MIT NEUEN Standard Core zu verwenden
+//*                           WiederaufsetzenSwitchBlock: die 2 letzten fehlerfreien Datenbloecken
+//*                           werden wiederholt
+//* 05.12.2002 Pf V4.07 # "SgInnenTemperaturLesen" und "SgPhysHwNrLesen" Parameter werden in dem anzupassenden
+//*                       Teil verschoben (vor "Ab hier darf....!!!")
+//* 19.02.2003 Pf V4.08 # Neue Implementierung der "TesterPresentHandling" Funktion
+//*                     # Auffuellung: Berücksichtigung der Länge des Puffers "Buffer": von BufferSize nach MaxData
+//*                     # Funktion TesterPresentHandling: - Nachdem die Busse geweckt wurden, warten 2000 mSek.
+//*                     # damit diese auch wach sind
+//*                     # - Neue Werte für TesterPresentTimerZeit = 8000
+//* 21.02.2003 Pf V5.00 # Optimierung des Wiederaufsetzen- Verfahrens. Ab dieser Version wird nur ein Backup- Puffer
+//*                     # kopiert und seine Reihenfolge wird mit einem boolean Flag (BufferErst_X) markiert.
+//*
+//* 05.09.2003 KuS V6.00 # Änderungen:
+//*                      # -Baudratenumschaltung
+//*                      # -SG Status nach Abbruch der Programmierung
+//*                      # -Dynamische MXBL
+//*                      # -XXL-Telegramme
+//*                      # -Neue Parameter
+//*                      # -Debug-Ausgaben geändert
+//*                      # -Abbruch bei Programmierung NOK
+//*                      # -Neue Implementierung Download-Teil mit verbessertem Wiederaufsetzen
+//*
+//* 02.03.2005 MK  V6.10 # Berechnungsfehler behoben bei: AddWordToDWord, SubWordFromDWord
+//*                      # TesterPresentHandling: keine ApiFehler-Prüfung mehr, konnte zu COAPI_ECU_TIMEOUT führen
+//*                      # FlashSchreiben: Prüfung auf i.O. (0x01) statt auf n.i.O. (0x02); 0x00 wurde als i.O. interpretiert
+//*                      # cabiexit: im Fehlerfall zuerst Bus wecken, dann Kommunikation zu SG prüfen; keine Fehlerauswertung
+//*                      # Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//*                      # erweiterte Fehlercodes abhängig Flashzustand und Fehlerursache generieren
+//*                      # nach einem ENMT 6 sec warten, bis SG's wieder hochgefahren und kommunikationsfähig sind
+//*
+//* 29.04.2005 MK  V6.11 # BMW-Standard für Low-Level-Retry eingesetzt, Defaultwert für Sendeintervall
+//*                      # einmalige Ermittlung des Programmierzuganges (OPPS-MOST) für LLR- und MXBL-Einstellung
+//*                      # Korrektur Busruhe: Timer initialisieren jetzt vor DNMT
+//*                      # cabiexit: 2 Min bei Abbruch warten
+//*                      # bei Abbruch vor Flashstate 2 (Programmierung) warten
+//*                      # erweiterte Fehlercodes auch bei FlashLöschen & TransferData
+//*
+//* 07.06.2005 MK  V6.12 # neu: Fehlercodes 70x4/70x5, wenn nicht OPPS-MOST-Zugang benutzt wird
+//*                      # neu: Fehlercode COAPI_ADDRESS_CALC_ERROR bei Adressberechnungsfehler statt COAPI_DEBUG_INFO
+//*                      # Debugausgabe um OPPS/MOST-Einstellungen erweitert
+//*
+//* 21.07.2005 MH  V6.13 # neu: eigene Funktion PruefeSignatur
+//*                      # neu: TesterPresent können auch während Signaturprüfung gesendet werden
+//*
+//* 17.12.2004 KuS V7.00 # Änderungen:
+//*                      # -Änderung auf CoAPI Kopierfunktionen. Erfordert CoAPI Version 3.6.0
+//*                      # -TesterPresent verlängert über kompletten ECU Programming Mode Zeitraum
+//*                      # -TesterPresent im WAS Ablauf
+//*                      # -WAS als Standard aktiviert
+//*                      # -Baudratenumschaltung entfernt
+//*
+//* 28.09.2005 MH  V8.00 # 6.13 mit 7.00 zusammengeführt
+//*                      # neu: Einstellung DIREKT_MOST_PROG für Geräte die direkt auf MOST programmierbar sind
+//*                      # neu: Einstellung BUSRUHE_START_PUNKT und BUSRUHE_ENDE_PUNKT
+//*                      #      zur Wahl des Start- und Endzeitpunkt der Busruhe
+//*                      # TesterPresentHandling Ueberarbeitet
+//*                      # Authentisieren und Flash-Loeschen angepasst um TesterPresents senden zu können
+//*                      # neu: Vor Wiederaufsetzen wird Programmierstatus Lesen gepollt (für maximal ca. 10 Sekunden)
+//*                      #      um Komunikation mit SG wiederherzustellen
+//*
+//* 04.11.2005 MH  V8.01 # Korrektur des Wiederaufsetzenablaufs
+//*
+//**********************************************************************
+
+
+// Version, Verantwortung, Steuergerätedaten
+string ModulName = "08FLASH";
+string Revision = "8.01";
+string Author = "ESG EE-21 Maximilian Heller,ESG GmbH EE-21 Sven Kurzeder,ESG GmbH EE-21 Michael Knoebl,BMW EE-21 Stefan Jurchen";
+string Comment = "PABD für ARS_E70";
+string SGFamilie = "ARS70";
+
+
+int SG_MAXANZAHL_AIF = 0x0F;
+// Anzahl der im SG gespeicherten Anwender-Info-Felder, Werte kleiner 0x02 nicht zulaessig.
+
+int LL_INTERVAL = 5;
+// Zeitlicher Abstand mit dem LL-Telegramme gesendet werden. Default: 5 [ms]
+
+int SG_GROESSE_AIF = 0x40;
+// Groesse eines Anwender-Info-Feld, default = 0x12.
+// 0x12 	 18dez - Kleines AIF
+// 0x33 	 51dez - Groesse AIF
+// 0x40 	 64dez - Groesses AIF (Power PC)
+
+int SG_ENDEKENNUNG_AIF = 0xFE;
+// Kennzeichnung des letzten Anwender-Info-Feld, default = 0x01.
+// 0xFE 	 Letztes AIF nicht ueberschreibbar
+// 0x01 	 Letztes AIF ist ueberschreibbar
+
+string SG_AUTHENTISIERUNG = "Asymetrisch";
+// Authentisierungsart des Steuergeraets, default = "Asymetrisch".
+// Simple 	 
+// Symetrisch 	 
+// Asymetrisch 	 
+// Keine 	 
+
+string BUSRUHE_START_PUNKT = "StartDiagnose";
+// zur Wahl des Start- und Endzeitpunkt der Busruhe
+// StartDiagnose 	 vor erstem Start-Diagnose
+// FlashLoeschen 	 vor erstem Flash-Loeschen
+// DatenDownload 	 vor erstem Daten-Schreiben
+
+string BUSRUHE_ENDE_PUNKT = "Reset";
+// zur Wahl des Start- und Endzeitpunkt der Busruhe
+// DownloadEnde 	 nach letztem Daten-Schreiben
+// SignaturPruefen 	 nach letztem Signatur-Pruefen
+// DiagnoseEnde 	 nach letztem Diagnose-Ende
+// Reset 	 nach letztem Reset
+
+bool ProgrammUndDaten = FALSE;
+// Programmierung von Programm und/oder Daten. Default = FALSE.
+// TRUE 	 wenn Programme und Daten
+// FALSE 	 wenn nur Programm
+
+string ProzessorTyp = "Standard";
+// Definiert den im Steuergeraet verwendeten Prozessortyp.
+// Standard 	 
+// HC12D128 	 Auswirkung : RequestDownload bei 0x004000, 0x0080000, 0x00C000
+
+bool AuffuellenSwitch = FALSE;
+// Aktiviert/Deaktiviert das Auffuellen der Telegramme bis zur MXBL vor der Uebertragung. Default = FALSE.
+// TRUE 	 Datenblock zum Flashen wird bis zur MXBL aufgefuellt
+// FALSE 	 Auffuellung Verfahren wird ausgeschaltet
+
+bool SgInnenTemperaturLesen = FALSE;
+// Definiert ob das Steuergeraet ein Auslesen der Innentemperatur unterstuetzt oder nicht.
+// TRUE 	 Das Steuergeraet unterstuetzt die Ausgabe der Innentemperatur
+// FALSE 	 Das Steuergeraet unterstuetzt  n i c h t  die Ausgabe der Innentemperatur
+
+bool SgPhysHwNrLesen = TRUE;
+// Definiert ob das Steuergeraet ein Auslesen der pysikalischen Hardwarenummer unterstuetzt oder nicht.
+// TRUE 	 Unterstuetzt
+// FALSE 	 Nicht unterstuetzt
+
+bool WiederaufsetzenSwitch = FALSE;
+// Altes Wiederaufsetzen Verfahren, wo nur das letzte Telegramm wiederholt wird.
+// TRUE 	 Es wird im Kommunikationsfehlerfall bei Transfer Data wiederaufgesetzt
+// FALSE 	 Es wird im Kommunikationsfehlerfall bei Transfer Data nicht wiederaufgesetzt
+
+bool WiederaufsetzenBlockSwitch = TRUE;
+// Neues Wiederaufsetzen Verfahren, wo die beiden letzten fehlerfreien Telegramme wiederholt werden. Default = TRUE.
+// TRUE 	 Es wird im Kommunikationsfehlerfall bei Transfer Data wiederaufgesetzt
+// FALSE 	 Es wird im Kommunikationsfehlerfall bei Transfer Data nicht wiederaufgesetzt
+
+int WartenNachECUProgrammMode = 0;
+// Wartezeit nach Umschalten in den Programmiermodus in Sekunden.
+
+bool TesterPresentHandlingSwitch = TRUE;
+// Aktiviert/Deaktiviert das Senden von DNMT - TesterPresent - ENMT
+// TRUE 	 Es wird DNMT, TesterPresent, ENMT gesendet
+// FALSE 	 Es wird kein DNMT, TesterPresent, ENMT gesendet
+
+bool DebugSwitch = FALSE;
+// Aktiviert/Deaktiviert das Schreiben von Debug-Informationen in die error.log Datei.
+// TRUE 	 Es werden Debuginformationen in error.log geschrieben
+// FALSE 	 Es werden keine Debuginformationen in error.log geschrieben
+
+bool DynamischeMXBL = FALSE;
+// Aktiviert/Deaktiviert die MXBL Anpassung vor jedem Datenblock. Default = FALSE.
+// TRUE 	 Die MXBL wird nach jeden RequestDownload angepasst
+// FALSE 	 Es findet keine Anpassung der MXBL statt
+
+bool TestSchluesselAuthentisierung = FALSE;
+// Aktiviert/Deaktiviert die automatische Teschluesselauthentisierung.
+// TRUE 	 Bei einer fehlerhaften Authentisierung mit scharfen Schluessel wird eine Authentisierung mit einem Testschluessel versucht
+// FALSE 	 Kein Versuch einer Authentisierung mit einem Testschluessel nach einer fehlerhaften Authentisierung mit einem scharfen Schluessel
+
+bool DIREKT_MOST_PROG = FALSE;
+// Einstellung DIREKT_MOST_PROG fuer Geraete die direkt auf MOST programmierbar sind .
+// TRUE 	 Aktiviert SG kann direkt ber den MOST-Bus programmiert werden
+// FALSE 	 Deaktiviert SG kann nicht direkt ber den MOST-Bus programmiert werden
+
+
+//**********************************************************************
+//*                                                                    *
+//*            A b   h i e r   d a r f   n i c h t s                   *
+//*                                                                    *
+//*            g e ä n d e r t   w e r d e n   ! ! !                   *
+//*                                                                    *
+//**********************************************************************
+
+//**********************************************************************
+//*                                                                    *
+//*     Anfang des Codes                                               *
+//*                                                                    *
+//**********************************************************************
+
+#include "cabi.h"
+
+
+//**********************************************************************
+//*            G l o b a l e   V a r i a b l e n                       *
+//**********************************************************************
+
+bool TesterPresentHandlingFlag  = FALSE;
+bool ProgSuccess                = TRUE;
+bool OppsAccess                 = FALSE;
+bool OppsMostAccess             = FALSE;
+int  FlashState                 = 0;
+int  BusruheStartState          = 5;
+int  BusruheEndeState           = 5;
+
+//**********************************************************************
+//*            F e h l e r n u m m e r n                               *
+//**********************************************************************
+
+int     COAPI_ECU_PROG_STATUS_ERROR             = 2080; // Programmierstatus fehlerhaft
+int     COAPI_ECU_AUTHENTICATION_ERROR          = 2081; // Authentisierung fehlerhaft
+int     COAPI_ECU_FLASH_ERASE_ERROR             = 2082; // Flash löschen fehlerhaft
+int     COAPI_ECU_FLASH_REQUEST_DOWNLOAD_ERROR  = 2083; // Flash Download vorbereiten fehlerhaft
+int     COAPI_ECU_FLASH_DOWNLOAD_ERROR          = 2084; // Flash Download fehlerhaft
+int     COAPI_ECU_FLASH_TRANSFER_EXIT_ERROR     = 2085; // Flash Download abschliessen fehlerhaft
+int     COAPI_ECU_SIGNATUR_ERROR                = 2086; // Signaturpruefung fehlerhaft
+int     COAPI_ECU_READ_AIF                      = 2087; // AIF lesen fehlerhaft
+int     COAPI_ECU_WRITE_AIF                     = 2088; // AIF schreiben fehlerhaft
+int     COAPI_ECU_PROGRAMMING_MODE_ERROR        = 2089; // Programmiermode umschalten fehlerhaft
+int     COAPI_ECU_AUTHENTICATION_FORMAT_ERROR   = 2090; // Authentisierung Formatfehler
+int     COAPI_ECU_DATA_REFERENZ_ERROR           = 2091; // Datenreferenz fehlerhaft
+int     COAPI_ADDRESS_CALC_ERROR                = 2098; // Fehler bei Adressberechnung
+int     COAPI_PROCESSOR_TYPE_ERROR              = 2099; // Prozessortyp fehlerhaft
+
+int     COAPI_EDIABAS_ERROR_MATRIX              = 7000; // bis 7099 belegt
+
+int     COAPI_ECU_IDENT_ERROR                   = 7210; // SG: Ident lesen
+int     COAPI_ECU_HWREF_ERROR                   = 7211; // SG: HW-Referenz lesen
+int     COAPI_ECU_ZIF_ERROR                     = 7212; // SG: ZIF lesen
+int     COAPI_ECU_ZIFBACKUP_ERROR               = 7213; // SG: ZIF-Backup lesen
+int     COAPI_ECU_RESET_ERROR                   = 7214; // SG: Reset ausführen
+int     COAPI_ECU_TIMES_ERROR                   = 7215; // SG: Zeiten lesen
+int     COAPI_ECU_MXBL_ERROR                    = 7216; // SG: MaxBlocklänge
+int     COAPI_ECU_SERIAL_ERROR                  = 7217; // SG: Seriennummer lesen
+int     COAPI_ECU_RANDOM_ERROR                  = 7218; // SG: Zufallszahl lesen
+int     COAPI_ECU_STOPDIAG_ERROR                = 7219; // SG: Stop Diagnose
+int     COAPI_ECU_PHYHWNR_ERROR                 = 7220; // SG: Physikalische HW-Nummer lesen
+int     COAPI_ECU_INNENTEMP_ERROR               = 7221; // SG: Innentemperatur lesen
+
+int     COAPI_SGBD_FLASHPARAM_ERROR             = 7228; // P-SGBD: Flashparameter setzen
+int     COAPI_SGBD_DIAGPROT_ERROR               = 7229; // P-SGBD: Diagnoseprotokoll setzen
+
+int     COAPI_OPPS_STATUS_ERROR                 = 7400; // OPPS: OPPS Version bzw. Zugang ermitteln
+
+int     COAPI_DEBUG_INFO                        = 9000; // Debuginformation in error.log
+
+//**********************************************************************
+//*            F u n k t i o n e n                                     *
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* Name      : OutputDebugString
+//*
+//* Funktion  : Debugausgabe in Datei error.log
+//*
+//* Parameter : LineNr   - ZeilenNr im PABD-File
+//*             Info     - Auszugebender Text
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+OutputDebugString(in: int LineNr, in: string Info)
+{
+string temp;
+
+        if (DebugSwitch == TRUE)
+        {
+                temp = Info;
+                CDHSetError (COAPI_DEBUG_INFO, "Debug-Info", temp, LineNr, "");
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : OutputDebugInt
+//*
+//* Funktion  : Debugausgabe in Datei error.log
+//*
+//* Parameter : LineNr   - ZeilenNr im PABD-File
+//*             Info     - Auszugebender Text
+//*             Wert     - Auszugebende Zahl
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+OutputDebugInt(in: int LineNr, in: string Info, in: int Wert)
+{
+string temp;
+
+        if (DebugSwitch == TRUE)
+        {
+                inttostring(Wert, temp);
+                temp = Info + ": " + temp;
+                OutputDebugString(LineNr, temp);
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : OutputDebugBool
+//*
+//* Funktion  : Debugausgabe in Datei error.log
+//*
+//* Parameter : LineNr   - ZeilenNr im PABD-File
+//*             Info     - Auszugebender Text
+//*             Wert     - Auszugebender Bool-Wert
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+OutputDebugBool(in: int LineNr, in: string Info, in: bool Wert)
+{
+string temp;
+
+        if (DebugSwitch == TRUE)
+        {
+                if (Wert == TRUE)
+                {
+                        temp = Info + ": TRUE";
+                }
+                else
+                {
+                        temp = Info + ": FALSE";
+                }
+                OutputDebugString(LineNr, temp);
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : hexstring
+//*
+//* Funktion  : Erzeugt einen 2-stelligen Hexstring
+//*
+//* Parameter : IntWert  - Zahl
+//*
+//* Rueckgabe : StrWert  - 2-stelliger Hexstring
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+hexstring(in: int IntWert, inout: string StrWert)
+{
+int Low, High;
+
+        StrWert="??";
+
+        Low = IntWert / 16;
+        Low = Low * 16;
+        Low = IntWert - Low;
+
+        High = IntWert / 256;
+        High = High * 256;
+        High = IntWert - High;
+        High = High / 16;
+
+                 if (Low == 0)    StrWert = "0";
+        else if (Low == 1)    StrWert = "1";
+        else if (Low == 2)    StrWert = "2";
+        else if (Low == 3)    StrWert = "3";
+        else if (Low == 4)    StrWert = "4";
+        else if (Low == 5)    StrWert = "5";
+        else if (Low == 6)    StrWert = "6";
+        else if (Low == 7)    StrWert = "7";
+        else if (Low == 8)    StrWert = "8";
+        else if (Low == 9)    StrWert = "9";
+        else if (Low == 10)   StrWert = "A";
+        else if (Low == 11)   StrWert = "B";
+        else if (Low == 12)   StrWert = "C";
+        else if (Low == 13)   StrWert = "D";
+        else if (Low == 14)   StrWert = "E";
+        else if (Low == 15)   StrWert = "F";
+
+                 if (High == 0)   StrWert = "0" + StrWert;
+        else if (High == 1)   StrWert = "1" + StrWert;
+        else if (High == 2)   StrWert = "2" + StrWert;
+        else if (High == 3)   StrWert = "3" + StrWert;
+        else if (High == 4)   StrWert = "4" + StrWert;
+        else if (High == 5)   StrWert = "5" + StrWert;
+        else if (High == 6)   StrWert = "6" + StrWert;
+        else if (High == 7)   StrWert = "7" + StrWert;
+        else if (High == 8)   StrWert = "8" + StrWert;
+        else if (High == 9)   StrWert = "9" + StrWert;
+        else if (High == 10)  StrWert = "A" + StrWert;
+        else if (High == 11)  StrWert = "B" + StrWert;
+        else if (High == 12)  StrWert = "C" + StrWert;
+        else if (High == 13)  StrWert = "D" + StrWert;
+        else if (High == 14)  StrWert = "E" + StrWert;
+        else if (High == 15)  StrWert = "F" + StrWert;
+}
+
+
+//**********************************************************************
+//*
+//* Name      : TestCDHFehler
+//*
+//* Funktion  : Ueberpruefen, ob ein CDH-Fehler aufgetreten ist
+//*             und wenn ja: Setzen der ReturnWerte und Ausstieg
+//*
+//* Parameter : FStatus - Returnwert dieser Funktion
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+TestCDHFehler(in: int FStatus)
+{
+        if (FStatus != 0)
+        {
+                CDHSetReturnVal(FStatus);
+                exit();
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : SetCDHFehler
+//*
+//* Funktion  : Setzen der ReturnWerte
+//*
+//* Parameter : CStatus  - FehlerNr
+//*             ProcName - Name der aufrufenden PABD-Funktion
+//*             LineNr   - ZeilenNr im PABD-File
+//*             Info     - SgbdName + EDIABAS-Job
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+SetCDHFehler(in: int CStatus, in: string ProcName,
+                         in: int LineNr, in: string Info )
+{
+        CDHSetError(CStatus, ModulName, ProcName, LineNr, Info);
+        CDHSetReturnVal(CStatus);
+        exit();
+}
+
+//**********************************************************************
+//*
+//* Name      : SetFlashState
+//*
+//* Funktion  : Setzen des Flash-Zustandes
+//*
+//* Parameter : State    - Zustand
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 02.03.2005 MK V6.10 Ersterstellung
+//**********************************************************************
+SetFlashState(in: int State)
+{
+int Status;
+
+        CDHSetCabdWordPar("FLASH_STATE", State, Status);
+        FlashState = State;
+
+        OutputDebugInt( 545, "===> Wechsel zu FlashState", State);
+}
+
+//**********************************************************************
+//*
+//* Name      : GetFlashState
+//*
+//* Funktion  : Wiederherstellen des Flash-Zustandes
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 02.03.2005 MK V6.10 Ersterstellung
+//**********************************************************************
+GetFlashState()
+{
+int Status;
+
+        CDHGetCabdWordPar("FLASH_STATE", FlashState, Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : TestApiFehler
+//*
+//* Funktion  : Ueberpruefen, ob bei ApiJob ein Fehler aufgetreten ist
+//*             und wenn ja: Setzen der ReturnWerte und Ausstieg
+//*
+//* Parameter : CStatus  - FehlerNr bei Fehler
+//*             ProcName - Name der aufrufenden PABD-Funktion
+//*             LineNr   - ZeilenNr im PABD-File
+//*             Info     - SgbdName + EDIABAS-Job
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 erweiterte Fehlercodes abhängig Flashzustand und Fehlerursache generieren
+//**********************************************************************
+TestApiFehler(in: int CStatus, in: string ProcName,
+                          in: int LineNr, in: string Info )
+{
+bool    rc;
+string  ApiStatusText;
+string  SgbdName;
+int     ErrCode, iTmp;
+string  strTmp, strTmp2;
+
+        // existiert JOB_STATUS bzw. hat SG geantwortet ?
+        apiResultText(rc, ApiStatusText, "JOB_STATUS", 1, "");
+        if(rc == TRUE)
+        {
+                // JA: Ergebnis nicht OKAY ?
+                if(ApiStatusText != "OKAY")
+                {
+                        // Fehlertext und -code nach Vorgabe setzten
+                        CDHSetError(CStatus, ModulName, ProcName, LineNr, Info + ": " + ApiStatusText);
+                        CDHSetReturnVal(CStatus);
+                        exit();
+                }
+        }
+        else
+        {
+                // NEIN: JOB_STATUS gibt's nicht !
+                // -> neue Fehlercodes generieren (Kommunikationsfehler)
+
+                // EDIABAS-Fehler auslesen
+                apiErrorText(ApiStatusText);
+                apiErrorCode(ErrCode);
+
+                // IFH-0009: keine Antwort vom SG ?
+                if(ErrCode == 19)
+                {
+
+                        // Name der Flash-SGBD besorgen, damit Jobs daraus verwendet werden können
+                        CDHGetSgbdName(SgbdName, iTmp);
+
+                        // SG-Adresse zwischenspeichern
+                        CDHapiJob(SgbdName, "FLASH_PARAMETER_LESEN", "", "");
+                        CDHapiResultInt(iTmp, "SG_ADRESSE", 1);
+
+                        if (DIREKT_MOST_PROG == TRUE)
+                        {
+                                // Kommunikation mit MOST-CAN-Gateway prüfen
+                                CDHapiJob(SgbdName, "FLASH_PARAMETER_SETZEN", "0x62;2;18;1;simple", "");
+                        }
+                        else
+                        {
+                                // Kommunikation mit OBD-CAN-Gateway prüfen
+                                CDHapiJob(SgbdName, "FLASH_PARAMETER_SETZEN", "0x00;2;18;1;simple", "");
+                        }
+
+                        CDHapiJob(SgbdName, "IDENT", "", "");
+                        apiResultText(rc, strTmp, "JOB_STATUS", 1, "");
+                        if(rc == TRUE)
+                                ErrCode = 2;            // 2: OPPS-(MOST)-Zugang; keine Antwort vom SG, GW i.O.
+                        else
+                                ErrCode = 3;            // 3: OPPS-(MOST)-Zugang; keine Antwort vom SG und GW
+
+                        // OPPS-(MOST)-Zugang prüfen
+                        if(((DIREKT_MOST_PROG == TRUE ) && (OppsMostAccess == FALSE)) ||    // Kann MOST, wird aber nicht benutzt, oder
+                           ((DIREKT_MOST_PROG == FALSE) && (OppsAccess     == FALSE)))      // kann kein MOST und es wird kein OPPS benutzt
+                        {
+                                ErrCode = ErrCode + 2;  // 4 bzw. 5: kein OPPS-(MOST)-Zugang
+                        }
+
+                        // ursprüngliche Parameter wieder einstellen
+                        inttostring(iTmp, strTmp);
+                        inttostring(SG_MAXANZAHL_AIF, strTmp2);
+                        strTmp = strTmp + ";" + strTmp2;
+                        inttostring(SG_GROESSE_AIF, strTmp2);
+                        strTmp = strTmp + ";" + strTmp2;
+                        inttostring(SG_ENDEKENNUNG_AIF, strTmp2);
+                        strTmp = strTmp + ";" + strTmp2;
+                        strTmp = strTmp + ";" + SG_AUTHENTISIERUNG;
+                        CDHapiJob(SgbdName, "FLASH_PARAMETER_SETZEN", strTmp, "");
+                }
+
+                // anderer IFH-Fehler ?
+                else if((ErrCode >=  10) && (ErrCode <=  59))
+                        ErrCode = 6;
+
+                // NET-Fehler ?
+                else if((ErrCode >= 150) && (ErrCode <= 199))
+                        ErrCode = 7;
+
+                // API-Fehler ?
+                else if((ErrCode >= 120) && (ErrCode <= 149))
+                        ErrCode = 8;
+
+                // anderer EDIABAS-Fehler
+                else
+                        ErrCode = 9;
+
+                // Fehlercode gemäß FlashState generieren und ausgeben
+                GetFlashState();
+                ErrCode = COAPI_EDIABAS_ERROR_MATRIX + (FlashState * 10) + ErrCode;
+                CDHSetError(ErrCode, ModulName, ProcName, LineNr, Info + ": " + ApiStatusText);
+                CDHSetReturnVal(ErrCode);
+                // Programmierung noch nicht mal begonnen ?
+                if(FlashState < 2) {
+                        if (DIREKT_MOST_PROG == TRUE) {
+                                CDHDelay(60*1000);      // dann 1 Min warten
+                        } else {
+                                CDHDelay(20*1000);      // dann 20 Sec warten
+                        }
+                }
+                exit();
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : TestApiFehlerNoExit
+//*
+//* Funktion  : Ueberpruefen, ob bei ApiJob ein Fehler aufgetreten ist
+//*             und wenn ja: Setzen der ReturnWerte, aber kein Ausstieg
+//*             auch nicht bei Kommunikationsfehler
+//*
+//* Parameter : CStatus  - FehlerNr bei Fehler
+//*             ProcName - Name der aufrufenden PABD-Funktion
+//*             LineNr   - ZeilenNr im PABD-File
+//*             Info     - SgbdName + EDIABAS-Job
+//*
+//* Rueckgabe : RetVal : kein Fehler 0, sonst CStatus
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 25.01.2001 rd V0.05 CDHapiResultText ersetzt durch apiResultText
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+TestApiFehlerNoExit(in: int CStatus, in: string ProcName,
+                                        in: int LineNr, in: string Info, out: int RetVal)
+{
+bool    rc;
+string  ApiStatusText;
+
+        // Rückgabewert vorbelegen: JOB war i.O.
+        RetVal = 0;
+
+        // existiert JOB_STATUS bzw. hat SG geantwortet ?
+        apiResultText(rc, ApiStatusText, "JOB_STATUS", 1, "");
+        if(rc == TRUE)
+        {
+                // JA: Ergebnis nicht OKAY ?
+                if(ApiStatusText != "OKAY")
+                {
+                        // Fehlertext und -code nach Vorgabe setzten
+                        CDHSetError(CStatus, ModulName, ProcName, LineNr, Info + ": " + ApiStatusText);
+                        CDHSetReturnVal(CStatus);
+                        RetVal = CStatus;
+                }
+        }
+        else
+        {
+                // NEIN: JOB_STATUS gibt's nicht !
+                // EDIABAS-Fehler auslesen
+                apiErrorText(ApiStatusText);
+
+                // EDIABAS-Fehlertext und Fehlercode setzten
+                CDHSetError(CStatus, ModulName, ProcName, LineNr, Info + ": " + ApiStatusText);
+                CDHSetReturnVal(CStatus);
+                RetVal = CStatus;
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : CheckForOppsAccess
+//*
+//* Funktion  : Ermittelt, ob ein OPPS Most-Zugang zum Flashen verwendet
+//*             wird und setzt die globalen Variablen "OppsMostAccess"
+//*             und "OppsAccess" entsprechend
+//*
+//* Parameter : ProcName - Name der aufrufenden PABD-Funktion
+//*             SgbdName - SGBD
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 29.04.2005 MK V6.11 Ersterstellung
+//**********************************************************************
+CheckForOppsAccess(in: string ProcName, in: string SgbdName)
+{
+string  Stat_Typ;
+string  Stat_Interface;
+int     Stat_Version;
+
+        // Initialisierung: Programmierung nicht über OPPS-Zugang oder OPPS-MOST-Zugang
+        OppsAccess = FALSE;
+        OppsMostAccess = FALSE;
+
+        if (DIREKT_MOST_PROG == TRUE)
+        {
+                // Interfacetyp und Interfaceversion ermitteln
+                CDHapiJob("OPPS", "STATUS_TYP_VER", "", "");
+                TestApiFehler(COAPI_OPPS_STATUS_ERROR, ProcName, 788, "OPPS, STATUS_TYP_VER");
+                CDHapiResultText(Stat_Typ, "STAT_TYP", 1, "");
+                OutputDebugString( 790, "Interface-Typ      : " + Stat_Typ);
+                CDHapiResultInt(Stat_Version, "STAT_VERSION", 1);
+                OutputDebugInt( 792, "Interface-Version  ", Stat_Version);
+
+                // OPPS verfügbar ?
+                if(Stat_Typ == "OPPS")
+                {
+                        // Programmierung über OPPS
+                        OppsAccess = TRUE;
+
+                        // ab Version 4.12?
+                        if(Stat_Version >= 412)
+                        {
+
+                                // OPPS-Zugang ermitteln
+                                CDHapiJob("OPPS", "STATUS_ROUTER", "", "");
+                                TestApiFehler(COAPI_OPPS_STATUS_ERROR, ProcName, 806, "OPPS, STATUS_ROUTER");
+                                CDHapiResultText(Stat_Interface, "STAT_INTERFACE", 1, "");
+                                OutputDebugString( 808, "Interface-Zugang   : " + Stat_Interface);
+                                if(Stat_Interface == "MOST")
+                                {
+                                        // Programmierung über OPPS-MOST-Zugang
+                                        OppsMostAccess = TRUE;
+                                }
+                        }
+                }
+        }
+        else
+        {
+                // Interfacetyp ermitteln
+                CDHapiJob(SgbdName, "INTERFACETYPE", "", "");
+                TestApiFehler(COAPI_OPPS_STATUS_ERROR, ProcName, 821, SgbdName + ", INTERFACETYPE");
+                CDHapiResultText(Stat_Typ, "INTERFACE_TYP", 1, "");
+                OutputDebugString( 823, "Interface-Typ      : " + Stat_Typ);
+
+                // OPPS verfügbar ?
+                if(Stat_Typ == "OPPS")
+                {
+                        // Programmierung über OPPS
+                        OppsAccess = TRUE;
+                }
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : SetOppsMostParams
+//*
+//* Funktion  : Setzt die BMW-Standard OPPS Most-Zugangs-Parameter
+//*             und das Low-Level-Intervall entsprechend der Einstellung
+//*             LL_INTERVAL.
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 29.04.2005 MK V6.11 Ersterstellung
+//**********************************************************************
+SetOppsMostParams()
+{
+string  Temp;
+
+        // OPPS: BMW-Standard Low-Level-Retry Werte einstellen
+        //       27: 27 x 0,363 ms -> 9,801 ms Wartezeit für Wiederholung nach n.i.O.-Fall
+        //       20: max. 20 Wiederholungen
+        CDHapiJob("OPPS", "STEUERN_MOSTCTRL_LLRETRY", "27;20", "");
+
+        // OPPS: minimale Telegrammzwischenzeit für MOST-Kontrollkanal einstellen
+        inttostring(LL_INTERVAL, Temp);
+        CDHapiJob("OPPS", "STEUERN_MOSTCTRL_LLINTERVALL", Temp, "");
+}
+
+//**********************************************************************
+//*
+//* Name      : ResetOppsMostParams
+//*
+//* Funktion  : Setzt die OPPS Most-Zugangs-Parameter wieder zurück.
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 29.04.2005 MK V6.11 Ersterstellung
+//**********************************************************************
+ResetOppsMostParams()
+{
+        // OPPS: Defaultwert (5 ms) für minimale Telegrammzwischenzeit einstellen
+        CDHapiJob("OPPS", "STEUERN_MOSTCTRL_LLINTERVALL", "5", "");
+}
+
+//**********************************************************************
+//*
+//* Name      : StopTesterPresentHandling
+//*
+//* Funktion  : Fahrzeugbus wieder wecken.
+//*
+//* Parameter : ProcName      - Name der aufrufenden PABD-Funktion
+//*             SgbdName      - SGBD
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 28.09.2005 MH  V8.00 Ersterstellung
+//**********************************************************************
+StopTesterPresentHandling(in: string ProcName, in: string SgbdName)
+{
+int     DNMTTimerNr = 1;
+int     TesterPresentTimerNr = 2;
+int     Status;
+
+        // ENMT nur senden von gerade TesterPresentHandling aktiv ist
+        if (TesterPresentHandlingFlag != FALSE)
+        {
+                // Fahrzeugbusse wieder wecken und Timer loeschen
+                TesterPresentHandlingFlag = FALSE;  // Deaktiviert
+
+//      OutputDebugString( 911, "--> Enable Normal Message Transmission");
+                CDHapiJob(SgbdName, "NORMALER_DATENVERKEHR", "JA;NEIN;JA", "");
+//      TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 913, SgbdName + ", NORMALER_DATENVERKEHR (JA;NEIN;JA)");
+                settimer(DNMTTimerNr, 0);
+                settimer(TesterPresentTimerNr, 0);
+                // warten, bis alle Steuergeräte wieder hochgefahren und diagnosefähig sind
+                // lt. LH muß dies nach spätestens 5 sec geschehen sein
+                // -> 6 sec mit Reserve
+                CDHDelay(6000);
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : TesterPresentHandling
+//*
+//* Funktion  : Fahrzeugbus einschlafen lassen,
+//*             Tester Present senden,
+//*             ggf. Fahrzeugbus wieder wecken.
+//*
+//* Parameter : ProcName      - Name der aufrufenden PABD-Funktion
+//*             SgbdName      - SGBD
+//*             Force_Sending - Senden von TP erzwingen (wenn in der Busruhe),
+//*                             auch wenn noch nicht TesterPresentTimerZeit vergangen ist
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 29.01.2001 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 30.03.2001 rd V1.01 TesterPresentHandlingSwitch neu dazu
+//* 19.02.2003 sj V4.08 - TesterPresentTimerZeit = 8000
+//*                     - "settimer" wird vor dem "NORMALER_DATENVERKEHR" Job Aufruf
+//*                        aufgerufen und nicht mehr nachher
+//* 04.08.2003 KuS V6.00 Änderung für Baudratenumschaltung. Neuer Parameter DiagProt
+//* 02.03.2005 MK  V6.10 keine ApiFehler-Prüfung mehr, konnte zu COAPI_ECU_TIMEOUT führen
+//*                      nach einem ENMT 6 sec warten, bis SG's wieder hochgefahren und kommunikationsfähig sind
+//*                      Korrektur Busruhe: Timer initialisieren jetzt vor DNMT
+//* 21.07.2005 MH  V6.13 neu: Force_Sending zum Erzwingen des Sendens eines TP
+//* 18.10.2004 KuS V7.00 Parameter DiagProt entfernt
+//*                      TesterPresentTimerZeit = 7750 gesetzt
+//* 28.09.2005 MH  V8.00 Überarbeitung:
+//*                      - Senden von ENMT/TP/DNMT in Abhängigkeit von den globalen Variablen
+//*                        BusruheStartState, BusruheEndeState und FlashState
+//*                      - Parameter Ein entfernt
+//*                      - Parameter Force_Sending hinzugefügt
+//**********************************************************************
+TesterPresentHandling(in: string ProcName, in: string SgbdName, in: bool Force_Sending)
+{
+int     DNMTTimerNr = 1;
+int     DNMTTimerZeit= 10000;           // Zeit in ms
+int     TesterPresentTimerNr = 2;
+int     TesterPresentTimerZeit= 7750;   // Zeit in ms
+bool    DNMTTimerAbgelaufen;
+bool    TesterPresentTimerAbgelaufen;
+int     Status;
+
+        if (TesterPresentHandlingSwitch == TRUE)
+        {
+                // Während der FlashStates zw. BusruheStartState und BusruheEndeState DNMT/TP senden
+                if ((FlashState >= BusruheStartState) && (FlashState <= BusruheEndeState))
+                {
+                        TesterPresentHandlingFlag = TRUE;   // Aktiviert
+                        testtimer(DNMTTimerNr, DNMTTimerAbgelaufen);
+                        if (DNMTTimerAbgelaufen == TRUE)
+                        {
+                                // Fahrzeugbusse einschlafen lassen und Timer aufziehen
+//              OutputDebugString( 979, "--> Disable Normal Message Transmission");
+                                settimer(DNMTTimerNr, DNMTTimerZeit);
+                                settimer(TesterPresentTimerNr, TesterPresentTimerZeit);
+                                CDHapiJob(SgbdName, "NORMALER_DATENVERKEHR", "NEIN;NEIN;JA", "");
+//              TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 983, SgbdName + ", NORMALER_DATENVERKEHR (NEIN;NEIN;JA)");
+                                CDHapiJob(SgbdName, "NORMALER_DATENVERKEHR", "JA;NEIN;NEIN", "");
+//              TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 985, SgbdName + ", NORMALER_DATENVERKEHR (JA;NEIN;NEIN)");
+                        }
+                        else
+                        {
+                                testtimer(TesterPresentTimerNr, TesterPresentTimerAbgelaufen);
+                                if ((TesterPresentTimerAbgelaufen == TRUE) || (Force_Sending == TRUE))
+                                {
+                                        // TesterPresent absetzen und Timer wieder aufziehen
+//                  OutputDebugString( 993, "--> Tester Present");
+                                        settimer(DNMTTimerNr, DNMTTimerZeit);
+                                        settimer(TesterPresentTimerNr, TesterPresentTimerZeit);
+                                        CDHapiJob(SgbdName, "DIAGNOSE_AUFRECHT", "NEIN;JA", "");
+//                  TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 997, SgbdName + ", DIAGNOSE_AUFRECHT (NEIN;JA)");
+                                }
+                        }
+                }
+                else
+                {
+                        // wenn nicht mehr in einem Busruhe-FlashState, aber noch Busruhe aktiv, dann jetzt ENMT senden!
+                        StopTesterPresentHandling(ProcName, SgbdName);
+                }
+        }
+}
+
+//**********************************************************************
+//*
+//* Name      : Jobs
+//*
+//* Funktion  : Ausgabe der unterstuetzten Jobs
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+Jobs()
+{
+string ProcName = "Jobs";
+int    Status;
+
+        OutputDebugString( 1029, ProcName);
+        CDHSetCabdPar("JOB[1]",     "JOB_ERMITTELN",      Status);
+        CDHSetCabdPar("JOB[2]",     "INFO",               Status);
+        CDHSetCabdPar("JOB[3]",     "SG_IDENT_LESEN",     Status);
+        CDHSetCabdPar("JOB[4]",     "SG_AIF_LESEN",       Status);
+        CDHSetCabdPar("JOB[5]",     "SG_AIF_SCHREIBEN",   Status);
+        CDHSetCabdPar("JOB[6]",     "SG_STATUS_LESEN",    Status);
+        CDHSetCabdPar("JOB[7]",     "SG_PROGRAMMIEREN",   Status);
+        CDHSetCabdPar("JOB[8]",     "FEHLER_LOESCHEN",    Status);
+        CDHSetCabdPar("JOB[9]",     "DATEN_REFERENZ",     Status);
+        CDHSetCabdPar("JOB[10]",    "HW_REFERENZ",        Status);
+        CDHSetCabdPar("JOB[11]",    "ZIF",                Status);
+        CDHSetCabdPar("JOB[12]",    "ZIF_BACKUP",         Status);
+        CDHSetCabdPar("JOB[13]",    "U_PROG_LESEN",       Status);
+        CDHSetCabdPar("JOB[14]",    "GET_DIAG_PROT",      Status);
+        CDHSetCabdPar("JOB[15]",    "SET_DIAG_PROT",      Status);
+        CDHSetCabdPar("JOB[16]",    "SET_ECU_ADDRESS",    Status);
+        CDHSetCabdPar("JOB[17]",    "SG_INNENTEMP_LESEN", Status);
+        CDHSetCabdPar("JOB[18]",    "SG_PHYS_HWNR_LESEN", Status);
+        CDHSetCabdPar("JOB_ANZAHL", "18",                 Status);
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : UProgLesen
+//*
+//* Funktion  : Dummy Job Programmierspannung auslesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+UProgLesen()
+{
+string ProcName = "UProgLesen";
+int    Status;
+
+        OutputDebugString( 1073, ProcName);
+        CDHSetCabdPar("U_PROG", "0.0V", Status);
+        TestCDHFehler(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : GetDiagProt
+//*
+//* Funktion  : Diagnoseprotokolle des SG lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+GetDiagProt()
+{
+string ProcName = "GetDiagProt";
+int    Status;
+string SgbdName;
+string StringResult;
+int    ProtAnzahl;
+int    i;
+string ResultName;
+
+        OutputDebugString( 1104, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "DIAGNOSEPROTOKOLL_LESEN", "", "");
+        TestApiFehler(COAPI_SGBD_DIAGPROT_ERROR, ProcName, 1110, SgbdName + ", DIAGNOSEPROTOKOLL_LESEN");
+
+        CDHapiResultInt(ProtAnzahl, "DIAG_PROT_ANZAHL", 1);
+        CDHSetCabdWordPar("DIAG_PROT_ANZAHL", ProtAnzahl, Status);
+        OutputDebugInt( 1114, "ProtAnzahl         ", ProtAnzahl);
+
+        i=0;
+        while(i < ProtAnzahl )
+        {
+                i = i + 1;
+                inttostring(i,ResultName);
+                ResultName="DIAG_PROT_NR" + ResultName;
+
+                CDHapiResultText(StringResult, ResultName, 1, "");
+                CDHSetCabdPar(ResultName, StringResult, Status);
+                OutputDebugString( 1125, ResultName+"      : "+StringResult);
+        }
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : SetDiagProt
+//*
+//* Funktion  : Diagnoseprotokoll setzen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+SetDiagProt()
+{
+string ProcName = "SetDiagProt";
+int    Status;
+string SgbdName;
+string DiagProt;
+
+        OutputDebugString( 1154, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHGetCabdPar("DIAG_PROT", DiagProt, Status);
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "DIAGNOSEPROTOKOLL_SETZEN", DiagProt, "");
+        TestApiFehler(COAPI_SGBD_DIAGPROT_ERROR, ProcName, 1163, SgbdName + ", DIAGNOSEPROTOKOLL_SETZEN (" + DiagProt + ")");
+        OutputDebugString( 1164, "DiagProt           : " + DiagProt);
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : SetEcuAdr
+//*
+//* Funktion  : Diagnoseadresse setzen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 03.07.2001 rd V2.00 Ersterstellung
+//* 02.03.2005 MK V6.10 Änderungen für erweiterte Fehlercodes
+//**********************************************************************
+SetEcuAdr()
+{
+string ProcName = "SetEcuAdr";
+int    Status;
+string SgbdName;
+string EcuAdr;
+string StringArgument;
+string Temp;
+
+        SetFlashState(0);
+
+        OutputDebugString( 1196, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHGetCabdPar("ECU_ADDRESS", EcuAdr, Status);
+        TestCDHFehler(Status);
+        OutputDebugString( 1203, "EcuAdr             : 0x"+EcuAdr);
+
+        StringArgument="0x" + EcuAdr;
+        inttostring(SG_MAXANZAHL_AIF, Temp);
+        StringArgument= StringArgument + ";" + Temp;
+        inttostring(SG_GROESSE_AIF, Temp);
+        StringArgument= StringArgument + ";" + Temp;
+        inttostring(SG_ENDEKENNUNG_AIF, Temp);
+        StringArgument= StringArgument + ";" + Temp;
+        StringArgument= StringArgument + ";" + SG_AUTHENTISIERUNG;
+
+        CDHapiJob(SgbdName, "FLASH_PARAMETER_SETZEN", StringArgument, "");
+        TestApiFehler(COAPI_SGBD_FLASHPARAM_ERROR, ProcName, 1215, SgbdName + ", FLASH_PARAMETER_SETZEN (" + StringArgument + ")");
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+
+        SetFlashState(1);
+
+        CheckForOppsAccess(ProcName, SgbdName); // Programmierzugang ermitteln (für erweiterte Fehlercodes)
+}
+
+//**********************************************************************
+//*
+//* Name      : VersionInfo
+//*
+//* Funktion  : Ausgabe der PABD-VersionInfo
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+VersionInfo()
+{
+string ProcName = "VersionInfo";
+int    Status;
+
+        OutputDebugString( 1244, ProcName);
+        CDHSetCabdPar("REVISION", Revision, Status);
+        CDHSetCabdPar("AUTHOR", Author, Status);
+        CDHSetCabdPar("COMMENT", Comment, Status);
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : Ident
+//*
+//* Funktion  : ID-Daten des SG lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 SetFlashState hinzugefügt für erweiterte Fehlercodes
+//**********************************************************************
+Ident()
+{
+string ProcName = "Ident";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+        OutputDebugString( 1276, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "IDENT", "", "");
+        TestApiFehler(COAPI_ECU_IDENT_ERROR, ProcName, 1282, SgbdName + ", IDENT");
+
+        CDHapiResultText (StringResult,      "ID_BMW_NR",     1, "");
+        CDHSetCabdPar    ("ID_BMW_NR",       StringResult,    Status);
+
+        CDHapiResultText (StringResult,     "ID_HW_NR",       1, "");
+        CDHSetCabdPar    ("ID_HW_NR",       StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_DIAG_INDEX",  1, "");
+        CDHSetCabdPar    ("ID_DIAG_INDEX",  StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_COD_INDEX",   1, "");
+        CDHSetCabdPar    ("ID_COD_INDEX",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_VAR_INDEX",   1, "");
+        CDHSetCabdPar    ("ID_VAR_INDEX",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_DATUM",       1, "");
+        CDHSetCabdPar    ("ID_DATUM",       StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_LIEF_NR",     1, "");
+        CDHSetCabdPar    ("ID_LIEF_NR",     StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_LIEF_TEXT",   1, "");
+        CDHSetCabdPar    ("ID_LIEF_TEXT",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_SW_NR_MCV",   1, "");
+        CDHSetCabdPar    ("ID_SW_NR_MCV",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_SW_NR_FSV",   1, "");
+        CDHSetCabdPar    ("ID_SW_NR_FSV",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_SW_NR_OSV",   1, "");
+        CDHSetCabdPar    ("ID_SW_NR_OSV",   StringResult,     Status);
+
+        CDHapiResultText (StringResult,     "ID_SW_NR_RES",   1, "");
+        CDHSetCabdPar    ("ID_SW_NR_RES",   StringResult,     Status);
+
+        CDHapiResultInt  (IntResult,        "ID_DATUM_TAG",   1);
+        CDHSetCabdWordPar("ID_DATUM_TAG",   IntResult,        Status);
+
+        CDHapiResultInt  (IntResult,        "ID_DATUM_MONAT", 1);
+        CDHSetCabdWordPar("ID_DATUM_MONAT", IntResult,        Status);
+
+        CDHapiResultInt  (IntResult,        "ID_DATUM_JAHR",  1);
+        CDHSetCabdWordPar("ID_DATUM_JAHR",  IntResult,        Status);
+
+        CDHSetCabdPar    ("ID_PROD_NR",     "000000000",      Status);
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+
+        SetFlashState(2);
+}
+
+//**********************************************************************
+//*
+//* Name      : FehlerLoeschen
+//*
+//* Funktion  : Fehlerspeicher loeschen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+FehlerLoeschen()
+{
+string ProcName = "FehlerLoeschen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+        OutputDebugString( 1360, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "FS_LOESCHEN", "", "");
+        TestApiFehler(COAPI_ECU_DELETE_DTC_ERROR, ProcName, 1366, SgbdName + ", FS_LOESCHEN");
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : AifLesen
+//*
+//* Funktion  : erste freie AIF-Adresse und Anzahl freie AIF-Eintraege
+//*             des SGs sowie alle Daten des aktuellen Aifs
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 03.07.2001 rd V2.00 Überarbeitung für Letztes AIF ist überschreibbar
+//**********************************************************************
+AifLesen()
+{
+string ProcName = "AifLesen";
+int    Status;
+string SgbdName;
+string AifNr;
+string StringResult;
+int    IntResult;
+int    AifAnzFrei;
+
+        OutputDebugString( 1399, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHGetCabdPar     ("AIF_NUMMER", AifNr, Status);
+        TestCDHFehler (Status);
+
+        CDHapiJob(SgbdName, "AIF_LESEN", AifNr, "");
+        TestApiFehler(COAPI_ECU_READ_AIF, ProcName, 1408, SgbdName + ", AIF_LESEN");
+
+        CDHapiResultInt  (IntResult,          "AIF_GROESSE",      1);
+        CDHSetCabdWordPar("AIF_GROESSE",      IntResult,          Status);
+
+        CDHapiResultInt  (IntResult,          "AIF_ADRESSE_LOW",  1);
+        CDHSetCabdWordPar("AIF_ADRESSE_LOW",  IntResult,          Status);
+
+        CDHapiResultInt  (IntResult,          "AIF_ADRESSE_HIGH", 1);
+        CDHSetCabdWordPar("AIF_ADRESSE_HIGH", IntResult,          Status);
+
+        CDHapiResultInt  (AifAnzFrei,         "AIF_ANZ_FREI",     1);
+        // Letztes AIF ist überschreibbar
+        if ((SG_ENDEKENNUNG_AIF == 0x01) && (AifAnzFrei == 1) && (AifNr != "0"))
+        {
+                inttostring(SG_MAXANZAHL_AIF, StringResult);
+                if (StringResult == AifNr)
+                        AifAnzFrei=0;
+        }
+        CDHSetCabdWordPar("AIF_ANZ_FREI",     AifAnzFrei,         Status);
+
+        CDHapiResultText (StringResult,       "AIF_FG_NR_LANG",   1, "");
+        CDHSetCabdPar    ("AIF_FG_NR",        StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_DATUM",        1, "");
+        CDHSetCabdPar    ("AIF_DATUM",        StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_SW_NR",        1, "");
+        CDHSetCabdPar    ("AIF_SW_NR",        StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_BEHOERDEN_NR", 1, "");
+        CDHSetCabdPar    ("AIF_BEHOERDEN_NR", StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_ZB_NR",        1, "");
+        CDHSetCabdPar    ("AIF_ZB_NR",        StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_SERIEN_NR",    1, "");
+        CDHSetCabdPar    ("AIF_SERIEN_NR",    StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_HAENDLER_NR",  1, "");
+        CDHSetCabdPar    ("AIF_HAENDLER_NR",  StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_KM",           1, "");
+        CDHSetCabdPar    ("AIF_KM",           StringResult,       Status);
+
+        CDHapiResultText (StringResult,       "AIF_PROG_NR",      1, "");
+        CDHSetCabdPar    ("AIF_PROG_NR",      StringResult,       Status);
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : HwReferenzLesen
+//*
+//* Funktion  : HW-Referenz lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//**********************************************************************
+HwReferenzLesen()
+{
+string ProcName = "HwReferenzLesen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+        OutputDebugString( 1484, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "HARDWARE_REFERENZ_LESEN", "", "");
+        TestApiFehler(COAPI_ECU_HWREF_ERROR, ProcName, 1490, SgbdName + ", HARDWARE_REFERENZ_LESEN");
+
+        CDHapiResultInt  (IntResult,           "HW_REF_STATUS",     1);
+        CDHSetCabdWordPar("HW_REF_STATUS",     IntResult,           Status);
+
+        CDHapiResultText (StringResult,        "HW_REF_SG_KENNUNG", 1, "");
+        CDHSetCabdPar    ("HW_REF_SG_KENNUNG", StringResult,        Status);
+
+        CDHapiResultText (StringResult,        "HW_REF_PROJEKT",    1, "");
+        CDHSetCabdPar    ("HW_REF_PROJEKT",    StringResult,        Status);
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : DatenReferenzLesen
+//*
+//* Funktion  : Daten-Referenz lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 03.07.2001 rd V2.00 Überarbeitung ERROR_NO_DREF
+//**********************************************************************
+DatenReferenzLesen()
+{
+string ProcName = "DatenReferenzLesen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+bool   rc;
+
+        OutputDebugString( 1530, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "DATEN_REFERENZ_LESEN", "", "");
+        apiResultText (rc, StringResult, "JOB_STATUS", 1, "");
+        if (rc==TRUE)
+        {
+                if (StringResult == "OKAY")
+                {
+                        CDHapiResultInt  (IntResult,                  "DATEN_REF_STATUS",         1);
+                        CDHSetCabdWordPar("DATEN_REF_STATUS",         IntResult,                  Status);
+
+                        CDHapiResultText (StringResult,               "DATEN_REF_SG_KENNUNG",     1, "");
+                        CDHSetCabdPar    ("DATEN_REF_SG_KENNUNG",     StringResult,               Status);
+
+                        CDHapiResultText (StringResult,               "DATEN_REF_PROJEKT",        1, "");
+                        CDHSetCabdPar    ("DATEN_REF_PROJEKT",        StringResult,               Status);
+
+                        CDHapiResultText (StringResult,               "DATEN_REF_PROGRAMM_STAND", 1, "");
+                        CDHSetCabdPar    ("DATEN_REF_PROGRAMM_STAND", StringResult,               Status);
+
+                        CDHapiResultText (StringResult,               "DATEN_REF_DATENSATZ",      1, "");
+                        CDHSetCabdPar    ("DATEN_REF_DATENSATZ",      StringResult,               Status);
+                }
+                else
+                {
+                        if (StringResult == "ERROR_NO_DREF")
+                        {
+                                CDHSetCabdWordPar("DATEN_REF_STATUS",         0,   Status);
+                                CDHSetCabdPar    ("DATEN_REF_SG_KENNUNG",     "-", Status);
+                                CDHSetCabdPar    ("DATEN_REF_PROJEKT",        "-", Status);
+                                CDHSetCabdPar    ("DATEN_REF_PROGRAMM_STAND", "-", Status);
+                                CDHSetCabdPar    ("DATEN_REF_DATENSATZ",      "-", Status);
+                        }
+                        else
+                        {
+                                TestApiFehler(COAPI_ECU_DATA_REFERENZ_ERROR, ProcName, 1568, SgbdName + ", DATEN_REFERENZ_LESEN");
+                        }
+                }
+        }
+        else
+        {
+                TestApiFehler(COAPI_ECU_DATA_REFERENZ_ERROR, ProcName, 1574, SgbdName + ", DATEN_REFERENZ_LESEN");
+        }
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : ZifLesen
+//*
+//* Funktion  : ZIF lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//**********************************************************************
+ZifLesen()
+{
+string ProcName = "ZifLesen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+        OutputDebugString( 1605, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "ZIF_LESEN", "", "");
+        TestApiFehler(COAPI_ECU_ZIF_ERROR, ProcName, 1611, SgbdName + ", ZIF_LESEN");
+
+        CDHapiResultInt  (IntResult,            "ZIF_STATUS",         1);
+        CDHSetCabdWordPar("ZIF_STATUS",         IntResult,            Status);
+
+        CDHapiResultText (StringResult,         "ZIF_SG_KENNUNG",     1, "");
+        CDHSetCabdPar    ("ZIF_SG_KENNUNG",     StringResult,         Status);
+
+        CDHapiResultText (StringResult,         "ZIF_PROJEKT",        1, "");
+        CDHSetCabdPar    ("ZIF_PROJEKT",        StringResult,         Status);
+
+        CDHapiResultText (StringResult,         "ZIF_PROGRAMM_STAND", 1, "");
+        CDHSetCabdPar    ("ZIF_PROGRAMM_STAND", StringResult,         Status);
+
+        CDHapiResultText (StringResult,         "ZIF_BMW_HW",         1, "");
+        CDHSetCabdPar    ("ZIF_BMW_HW",         StringResult,         Status);
+
+        CDHSetCabdPar    ("ZIF_BMW_PST",        "",                   Status); // ???
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : ZifBackupLesen
+//*
+//* Funktion  : ZIF-Backup lesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//**********************************************************************
+ZifBackupLesen()
+{
+string ProcName = "ZifBackupLesen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+        OutputDebugString( 1658, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHapiJob(SgbdName, "ZIF_BACKUP_LESEN", "", "");
+        TestApiFehler(COAPI_ECU_ZIFBACKUP_ERROR, ProcName, 1664, SgbdName + ", ZIF_BACKUP_LESEN");
+
+        CDHapiResultInt  (IntResult,                   "ZIF_BACKUP_STATUS",         1);
+        CDHSetCabdWordPar("ZIF_BACKUP_STATUS",         IntResult,                   Status);
+
+        CDHapiResultText (StringResult,                "ZIF_BACKUP_SG_KENNUNG",     1, "");
+        CDHSetCabdPar    ("ZIF_BACKUP_SG_KENNUNG",     StringResult,                Status);
+
+        CDHapiResultText (StringResult,                "ZIF_BACKUP_PROJEKT",        1, "");
+        CDHSetCabdPar    ("ZIF_BACKUP_PROJEKT",        StringResult,                Status);
+
+        CDHapiResultText (StringResult,                "ZIF_BACKUP_PROGRAMM_STAND", 1, "");
+        CDHSetCabdPar    ("ZIF_BACKUP_PROGRAMM_STAND", StringResult,                Status);
+
+        CDHapiResultText (StringResult,                "ZIF_BACKUP_BMW_HW",         1, "");
+        CDHSetCabdPar    ("ZIF_BACKUP_BMW_HW",         StringResult,                Status);
+
+        CDHSetCabdPar    ("ZIF_BACKUP_BMW_PST",        "",                          Status); // ???
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : AifSchreiben
+//*
+//* Funktion  : Dummy Job Aif schreiben
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//**********************************************************************
+AifSchreiben()
+{
+string ProcName = "AifSchreiben";
+int    Status=0;
+
+        OutputDebugString( 1707, ProcName);
+        OutputDebugString( 1708, "Dummy Job Aif schreiben");
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//*************************************************************
+//*
+//* Name      : Innentemp
+//*
+//* Funktion  : Innentemperatur des SG auslesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2001 SK V1.00 Freigabe
+//* 16.05.2002 Softing Mw Ausgabe ist konfigurierbar
+//* 02.03.2005 MK V6.10 Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//*************************************************************
+Innentemp()
+{
+string ProcName = "Innentemp";
+string SgbdName;
+string Innentemperatur;
+string Innentemp_einh;
+int    Status;
+
+        if (SgInnenTemperaturLesen == TRUE)
+        {
+                OutputDebugString( 1739, ProcName);
+                CDHapiInit();                         // CDH-Initialisierung
+                CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+                TestCDHFehler(Status);
+
+                CDHapiJob(SgbdName, "INNENTEMP_LESEN", "", "");       //Innentemperatur aus SG lesen
+                TestApiFehler(COAPI_ECU_INNENTEMP_ERROR, ProcName, 1745, SgbdName + ", INNENTEMP_LESEN");
+
+                CDHapiResultText (Innentemperatur,     "SG_INNENTEMP",       1, "");
+                CDHSetCabdPar    ("SG_INNENTEMP",      Innentemperatur,      Status);
+
+                CDHapiResultText (Innentemp_einh,      "SG_INNENTEMP_EINH",  1, "");
+                CDHSetCabdPar    ("SG_INNENTEMP_EINH", Innentemp_einh,       Status);
+
+                CDHTestError(Status);
+                CDHSetReturnVal(Status);
+        }
+        else
+        {
+                Status = COAPI_CABD_PAR_ERROR;
+                TestCDHFehler(Status);
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : PhysHwNrLesen
+//*
+//* Funktion  : Physikalische Hardwarenummer des SG auslesen
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 26.11.2001 Softing Mw Mustererstellung
+//* 17.05.2002 Softing Mw Ausgabe ist konfigurierbar
+//* 02.03.2005 MK V6.10 Allgemeiner Fehler COAPI_ECU_TIMEOUT durch eigene Fehlercodes ersetzt
+//*************************************************************
+PhysHwNrLesen()
+{
+string ProcName = "PhysHwNrLesen";
+string SgbdName;
+string PhysHwNummer;
+int    Status;
+
+        if (SgPhysHwNrLesen == TRUE)
+        {
+                OutputDebugString( 1788, ProcName);
+                CDHapiInit();                         // CDH-Initialisierung
+                CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+                TestCDHFehler(Status);
+
+                CDHapiJob(SgbdName, "PHYSIKALISCHE_HW_NR_LESEN", "", "");       //Physikalische Hardwarenummer aus SG lesen
+                TestApiFehler(COAPI_ECU_PHYHWNR_ERROR, ProcName, 1794, SgbdName + ", PHYSIKALISCHE_HW_NR_LESEN");
+
+                CDHapiResultText (PhysHwNummer, "PHYSIKALISCHE_HW_NR", 1, "");
+                CDHSetCabdPar    ("PHYSIKALISCHE_HW_NR", PhysHwNummer, Status);
+
+                CDHTestError(Status);
+                CDHSetReturnVal(Status);
+        }
+        else
+        {
+                Status = COAPI_CABD_PAR_ERROR;
+                TestCDHFehler(Status);
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : FlashSchreiben
+//*
+//* Funktion  : Daten in Buffer an SG senden
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             Buffer - Binaerpuffer mit Daten
+//*             BufferSize - Groesse des Binaerpuffers Buffer
+//*             RequestDownloadBuffer - Binaerpuffer mit Startadresse und Laenge des aktuellen Datenblocks
+//*             NoExit - TRUE wenn kein Abbruch im Fehlerfall von FLASH_SCHREIBEN erfolgen soll, FALSE andererseits
+//*
+//* Rueckgabe : RetVal - Status von FLASH_SCHREIBEN
+//*
+//*************************************************************
+//* History   :
+//* 24.06.2003 V1.00 KuS Ersterstellung
+//* 02.03.2005 V6.10 MK  Überarbeitung der Fehlerabfrage
+//*************************************************************
+FlashSchreiben(in: string SgbdName,
+                           in: int Buffer,
+                           in: int BufferSize,
+                           in: int RequestDownloadBuffer,
+                           in: bool NoExit,
+                           out: int RetVal)
+{
+string  ProcName = "FlashSchreiben";
+int     Status = 0;
+int     SgStatus = 1;   // Block i.O.
+
+        RetVal = 0;
+        CDHapiJobData(SgbdName, "FLASH_SCHREIBEN_XXL", Buffer, BufferSize, "");
+
+        // MK: wenn bei der Übertragung ohne Wiederaufsetzen ein Fehler passiert,
+        //     dann sofort mit den neuen Fehlercodes abbrechen.
+        //     Deshalb: "TestApiFehlerNoExit" nur, wenn Wiederaufsetzen in PABD eingeschalten ist
+        if ((NoExit == TRUE) && ((WiederaufsetzenBlockSwitch == TRUE) || (WiederaufsetzenSwitch == TRUE)))
+                // Übertragung mit Wiederaufsetzen
+                TestApiFehlerNoExit(COAPI_ECU_FLASH_DOWNLOAD_ERROR, ProcName, 1847, SgbdName + ", FLASH_SCHREIBEN (...)", Status);
+        else
+                // Übertragung ohne Wiederaufsetzen oder beim Wiederaufsetzen (1 bis 3 Blöcke)
+                TestApiFehler(COAPI_ECU_FLASH_DOWNLOAD_ERROR, ProcName, 1850, SgbdName + ", FLASH_SCHREIBEN (...)");
+
+        if (Status == 0)    // Kann nur abgefragt werden wenn Status gleich Null ist.
+                CDHapiResultInt(SgStatus, "FLASH_SCHREIBEN_STATUS", 1);
+
+        if (SgStatus != 1)
+        {
+                // SG meldet Programmierung NOK --> Programmierung mit TransferExit abschliesen und beenden.
+                CDHapiJobData(SgbdName, "FLASH_SCHREIBEN_ENDE", RequestDownloadBuffer, 21, "");
+                // MK: ursprünglichen Fehler nicht verschleiern
+                // TestApiFehler(COAPI_ECU_FLASH_TRANSFER_EXIT_ERROR, ProcName, 1860, SgbdName + ", WAS - FLASH_SCHREIBEN_ENDE Datenbloecke(...)");
+                // Fehler eintragen und dann abbrechen
+                SetCDHFehler(COAPI_ECU_FLASH_DOWNLOAD_ERROR, ProcName, 1862, "SG meldet Programmierung NOK. Abbruch!!");
+        }
+
+        RetVal = Status;
+}
+
+//*************************************************************
+//*
+//* Name      : AddWordToDWord
+//*
+//* Funktion  : Word zu Double Word addieren
+//*
+//* Parameter : LowByte - Low-Byte Teil des DWord
+//*             MidLowByte - MidLow-Byte Teil des DWord
+//*             MidHighByte - MidHigh-Byte Teil des DWord
+//*             HighByte - High-Byte Teil des DWord
+//*             AddWord - Word das addiert werden soll
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 03.07.2003 V1.00 KuS Ersterstellung
+//* 02.03.2005 MK  V6.10 Berechnungsfehler behoben
+//*************************************************************
+AddWordToDWord(inout: int LowByte,
+                           inout: int MidLowByte,
+                           inout: int MidHighByte,
+                           inout: int HighByte,
+                           in: int AddWord)
+{
+int     NextByte = 0;
+
+        LowByte = LowByte + AddWord;
+        // Uebertrag auf MidLow
+        if (LowByte > 0xFF)
+        {
+                NextByte = LowByte / 256;
+                MidLowByte = MidLowByte + NextByte;
+                LowByte = LowByte - (NextByte * 256);
+        }
+        // Uebertrag auf MidHigh
+        if (MidLowByte > 0xFF)
+        {
+                NextByte = MidLowByte / 256;
+                MidHighByte = MidHighByte + NextByte;
+                MidLowByte = MidLowByte - (NextByte * 256);
+        }
+        // Uebertrag auf High
+        if (MidHighByte > 0xFF)
+        {
+                NextByte = MidHighByte / 256;
+                HighByte = HighByte + NextByte;
+                MidHighByte = MidHighByte - (NextByte * 256);
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : AddDWordToDWord
+//*
+//* Funktion  : Double Word zu Double Word addieren
+//*
+//* Parameter : LowByte - Low-Byte Teil des DWord
+//*             MidLowByte - MidLow-Byte Teil des DWord
+//*             MidHighByte - MidHigh-Byte Teil des DWord
+//*             HighByte - High-Byte Teil des DWord
+//*             AddLowByte - Low-Byte Teil des DWord
+//*             AddMidLowByte - MidLow-Byte Teil des DWord
+//*             AddMidHighByte - MidHigh-Byte Teil des DWord
+//*             AddHighByte - High-Byte Teil des DWord
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+AddDWordToDWord(inout: int LowByte,
+                                inout: int MidLowByte,
+                                inout: int MidHighByte,
+                                inout: int HighByte,
+                                in: int AddLowByte,
+                                in: int AddMidLowByte,
+                                in: int AddMidHighByte,
+                                in: int AddHighByte)
+{
+        LowByte = LowByte + AddLowByte;
+        if (LowByte > 0xFF)
+        {
+                MidLowByte = MidLowByte + 1; // Uebertrag nach MidLow
+                LowByte = LowByte - 0x100;
+        }
+        if (MidLowByte > 0xFF)
+        {
+                MidHighByte = MidHighByte + 1;// Uebertrag nach MidHigh
+                MidLowByte = MidLowByte - 0x100;
+        }
+        if (MidHighByte > 0xFF)
+        {
+                HighByte = HighByte + 1; // Uebertrag nach High
+                MidHighByte = MidHighByte - 0x100;
+        }
+        MidLowByte = MidLowByte + AddMidLowByte;
+        if (MidLowByte > 0xFF)
+        {
+                MidHighByte = MidHighByte + 1;// Uebertrag nach MidHigh
+                MidLowByte = MidLowByte - 0x100;
+        }
+        if (MidHighByte > 0xFF)
+        {
+                HighByte = HighByte + 1; // Uebertrag nach High
+                MidHighByte = MidHighByte - 0x100;
+        }
+        MidHighByte = MidHighByte + AddMidHighByte;
+        if (MidHighByte > 0xFF)
+        {
+                HighByte = HighByte + 1; // Uebertrag nach High
+                MidHighByte = MidHighByte - 0x100;
+        }
+        HighByte = HighByte + AddHighByte;
+}
+
+//*************************************************************
+//*
+//* Name      : SubDWordFromDWord
+//*
+//* Funktion  : Double Word von Double Word subtrahieren
+//*
+//* Parameter : LowByte - Low-Byte Teil des DWord
+//*             MidLowByte - MidLow-Byte Teil des DWord
+//*             MidHighByte - MidHigh-Byte Teil des DWord
+//*             HighByte - High-Byte Teil des DWord
+//*             AddLowByte - Low-Byte Teil des DWord
+//*             AddMidLowByte - MidLow-Byte Teil des DWord
+//*             AddMidHighByte - MidHigh-Byte Teil des DWord
+//*             AddHighByte - High-Byte Teil des DWord
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+SubDWordFromDWord(inout: int LowByte,
+                                  inout: int MidLowByte,
+                                  inout: int MidHighByte,
+                                  inout: int HighByte,
+                                  in: int SubLowByte,
+                                  in: int SubMidLowByte,
+                                  in: int SubMidHighByte,
+                                  in: int SubHighByte)
+{
+        LowByte = LowByte - SubLowByte;
+        if (LowByte < 0)
+        {
+                LowByte       = LowByte + 0x100;
+                MidLowByte    = MidLowByte - 1;
+        }
+        if (MidLowByte < 0)
+        {
+                MidLowByte    = MidLowByte + 0x100;
+                MidHighByte   = MidHighByte - 1;
+        }
+        if (MidHighByte < 0)
+        {
+                MidHighByte  = MidHighByte + 0x100;
+                HighByte = HighByte - 1;
+        }
+        MidLowByte = MidLowByte - SubMidLowByte;
+        if (MidLowByte < 0)
+        {
+                MidLowByte    = MidLowByte + 0x100;
+                MidHighByte   = MidHighByte - 1;
+        }
+        if (MidHighByte < 0)
+        {
+                MidHighByte  = MidHighByte + 0x100;
+                HighByte = HighByte - 1;
+        }
+        MidHighByte = MidHighByte - SubMidHighByte;
+        if (MidHighByte < 0)
+        {
+                MidHighByte  = MidHighByte + 0x100;
+                HighByte = HighByte - 1;
+        }
+        HighByte = HighByte - SubHighByte;
+}
+
+//*************************************************************
+//*
+//* Name      : BufferAuffuellen
+//*
+//* Funktion  : Buffer mit 0xFF bis MXBL auffuellen
+//*
+//* Parameter : Buffer - Binaerpuffer mit Daten
+//*             BufferSize - Groesse des Binaerpuffers Buffer
+//*             MaxData - MXBL des SG
+//*
+//* Rueckgabe :
+//*
+//*************************************************************
+//* History   :
+//* 07.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+BufferAuffuellen(in: int Buffer,
+                                 in: int BufferSize,
+                                 in: int MaxData)
+{
+string  ProcName = "BufferAuffuellen";
+int     Status = 0;
+int     Byte = 0xFF;
+int     Position = 0;
+int     MaxDataHighByte = 0;
+int     MaxDataLowByte = 0;
+
+//  OutputDebugInt( 2078, "Auffuellen des Buffer mit BufferSize = ",BufferSize);
+        Position = BufferSize - 1;              // Um das alte letzte Byte zu überschreiben: ETX=0x03h
+        while (Position <= MaxData + 21 - 1)    // 20 von Info Bytes(Adresse,...)
+        {                                       // Letztes Byte ist fuer ETX = 03h
+                CDHBinBufWriteByte(Buffer, Byte, Position, Status);
+                Position = Position + 1;
+                BufferSize = BufferSize + 1;
+        }
+        CDHBinBufWriteByte(Buffer, 0x03, Position, Status); //Letzte Byte ist immer ETX = 03h
+        BufferSize = BufferSize + 1;
+
+        if (MaxData > 0xFF)
+        {
+                MaxDataHighByte = (MaxData / 256);
+                MaxDataLowByte  = (MaxData - (MaxDataHighByte * 256));
+        }
+        else
+        {
+                MaxDataHighByte = 0x00;
+                MaxDataLowByte  = MaxData;
+        }
+
+        CDHBinBufWriteByte(Buffer, MaxDataLowByte, 13, Status);     // Anzahl Bytedaten LowByte
+        CDHBinBufWriteByte(Buffer, MaxDataHighByte, 14, Status);    // Anzahl Bytedaten HighByte
+
+        CDHBinBufWriteByte(Buffer, MaxDataLowByte, 15, Status);     // Anzahl Wortdaten LowByte
+        CDHBinBufWriteByte(Buffer, MaxDataHighByte, 16, Status);    // Anzahl Wortdaten HighByte
+}
+
+//*************************************************************
+//*
+//* Name      : SubWordFromDWord
+//*
+//* Funktion  : Word von Double Word subtrahieren
+//*
+//* Parameter : LowByte - Low-Byte Teil des DWord
+//*             MidLowByte - MidLow-Byte Teil des DWord
+//*             MidHighByte - MidHigh-Byte Teil des DWord
+//*             HighByte - High-Byte Teil des DWord
+//*             SubWord - Word das subtrahiert werden soll
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 03.07.2003 KuS V6.00 Ersterstellung
+//* 02.03.2005 MK  V6.10 Berechnungsfehler behoben
+//* 07.06.2005 MK  V6.12 neu: Fehlercode COAPI_ADDRESS_CALC_ERROR
+//*************************************************************
+SubWordFromDWord(inout: int LowByte,
+                                 inout: int MidLowByte,
+                                 inout: int MidHighByte,
+                                 inout: int HighByte,
+                                 in: int SubWord)
+{
+int     SubWordHigh;
+int     SubWordMidHigh;
+int     SubWordMidLow;
+int     SubWordLow;
+
+        SubWordHigh = 0;
+        SubWordMidHigh = 0;
+        SubWordMidLow = SubWord / 256;
+        SubWordLow = SubWord - (SubWordMidLow * 0x100);
+
+        if (LowByte < SubWordLow)
+        {
+                LowByte = (LowByte - SubWordLow) + 0x100;
+                SubWordMidLow = SubWordMidLow + 1;
+        }
+        else
+        {
+                LowByte = LowByte - SubWordLow;
+        }
+
+        if (MidLowByte < SubWordMidLow)
+        {
+                MidLowByte = (MidLowByte - SubWordMidLow) + 0x100;
+                SubWordMidHigh = SubWordMidHigh + 1;
+        }
+        else
+        {
+                MidLowByte = MidLowByte - SubWordMidLow;
+        }
+
+        if (MidHighByte < SubWordMidHigh)
+        {
+                MidHighByte = (MidHighByte - SubWordMidHigh) + 0x100;
+                SubWordHigh = SubWordHigh + 1;
+        }
+        else
+        {
+                MidHighByte = MidHighByte - SubWordMidHigh;
+        }
+
+        if (HighByte < SubWordHigh)
+        {
+                SetCDHFehler(COAPI_ADDRESS_CALC_ERROR, "SubWordFromDWord", 0, "Fehler bei Adressberechnung");
+        }
+        else
+        {
+                HighByte = HighByte - SubWordHigh;
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : WASBufferKopieren
+//*
+//* Funktion  : Buffer in einen der WASBackup Buffer kopieren
+//*
+//* Parameter : Buffer - Binaerpuffer mit Daten
+//*             BufferSize - Groesse des Binaerpuffers Buffer
+//*             WASBuffer - WAS Puffer zum Speichern der Daten
+//*             WASBufferSize - Groesse des Binaerpuffers WASBuffer
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 14.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+WASBufferKopieren(in: int Buffer,
+                                  in: int BufferSize,
+                                  inout: int WASBuffer,
+                                  inout: int WASBufferSize)
+{
+int     Status = 0;
+int     Position = 0;
+int     Byte = 0;
+
+        if (WASBufferSize !=  BufferSize)  // Neu Erzeugen des Puffers. Sonst Fehler beim WAS eines kleineren Blocks als MXBL
+        {
+                CDHBinBufDelete(WASBuffer,Status);
+                TestCDHFehler(Status);
+                CDHBinBufCreate(WASBuffer,Status);
+                TestCDHFehler(Status);
+        }
+
+        // Coapi-Funktion benutzen
+        CDHBinBufCopy(Buffer, WASBuffer, 0, 0, BufferSize, Status);
+        TestCDHFehler(Status);
+
+        WASBufferSize = BufferSize;
+}
+
+//*************************************************************
+//*
+//* Name      : FlashSchreibenEnde
+//*
+//* Funktion  : SGBG Job FLASH_SCHREIBEN_ENDE ausführen
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             RequestDownloadBuffer - Binaerpuffer mit Startadresse und Länge
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+FlashSchreibenEnde(in: string SgbdName,
+                                   in: int RequestDownloadBuffer)
+{
+string  ProcName = "FlashSchreibenEnde";
+
+        CDHapiJobData(SgbdName, "FLASH_SCHREIBEN_ENDE", RequestDownloadBuffer, 21, "");
+        TestApiFehler(COAPI_ECU_FLASH_TRANSFER_EXIT_ERROR, ProcName, 2245, SgbdName + ", FLASH_SCHREIBEN_ENDE (...)");
+}
+
+//*************************************************************
+//*
+//* Name      : FlashSchreibenAdresse
+//*
+//* Funktion  : SGBG Job FLASH_SCHREIBEN_ADRESSE ausführen
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             RequestDownloadBuffer - Binaerpuffer mit Startadresse und Länge
+//*             DynMaxData - Angepassste MXBL (FLASH_SCHREIBEN_ADRESSE)
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+FlashSchreibenAdresse(in: string SgbdName,
+                                          in: int RequestDownloadBuffer,
+                                          inout: int DynMaxData)
+{
+string  ProcName = "FlashSchreibenAdresse";
+
+        CDHapiJobData(SgbdName, "FLASH_SCHREIBEN_ADRESSE", RequestDownloadBuffer, 21, "");
+        TestApiFehler(COAPI_ECU_FLASH_REQUEST_DOWNLOAD_ERROR, ProcName, 2271, SgbdName + ", FLASH_SCHREIBEN_ADRESSE (...)");
+
+        // Dynamische MXBL Behandlung
+        if (DynamischeMXBL == TRUE)
+        {
+                CDHapiResultInt(DynMaxData, "FLASH_BLOCKLAENGE_DATEN", 1);
+                DynMaxData = DynMaxData - 1;    // Das Service Id (SID) muss abgezogen werden
+                OutputDebugInt( 2278, "DynMaxData ", DynMaxData);
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : VorbereitenRDBuffer
+//*
+//* Funktion  : Setzen der Werte im RequestDownloadBuffer
+//*
+//* Parameter : StartAdrLow - Low Byte der Startadresse
+//*             StartAdrMidLow - MidLow Byte der Startadresse
+//*             StartAdrMidHigh - MidHigh Byte der Startadresse
+//*             StartAdrHigh - High Byte der Startadresse
+//*             DataBlockLengthLow - Low Byte der Datenblocklaenge
+//*             DataBlockLengthMidLow - MidLow Byte der Datenblocklaenge
+//*             DataBlockLengthMidHigh - MidHigh Byte der Datenblocklaenge
+//*             DataBlockLengthHigh - High Byte der Datenblocklaenge
+//*             RequestDownloadBuffer - Binaerpuffer mit Startadresse und Länge
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 16.07.2003 V6.00 KuS Ersterstellung
+//*************************************************************
+VorbereitenRDBuffer(in: int StartAdrLow,
+                                        in: int StartAdrMidLow,
+                                        in: int StartAdrMidHigh,
+                                        in: int StartAdrHigh,
+                                        in: int DataBlockLengthLow,
+                                        in: int DataBlockLengthMidLow,
+                                        in: int DataBlockLengthMidHigh,
+                                        in: int DataBlockLengthHigh,
+                                        inout: int RequestDownloadBuffer)
+{
+int     Status = 0;
+
+        // Startadresse fuer Telegramm setzen
+        CDHBinBufWriteByte(RequestDownloadBuffer, StartAdrLow,     17, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, StartAdrMidLow,  18, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, StartAdrMidHigh, 19, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, StartAdrHigh   , 20, Status);
+        TestCDHFehler(Status);
+
+        // Laenge des Datenblocks fuer Telegramm setzen
+        CDHBinBufWriteByte(RequestDownloadBuffer, DataBlockLengthLow,     13, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, DataBlockLengthMidLow,  14, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, DataBlockLengthMidHigh, 15, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, DataBlockLengthHigh,    16, Status);
+        TestCDHFehler(Status);
+}
+
+//*************************************************************
+//*
+//* Name      : Delay
+//*
+//* Funktion  : Warten (ggf. mit TP Handling)
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             DelayTime - Wartezeit in MSekunden
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 14.06.2003 V6.00 KuS Ersterstellung
+//* 28.09.2005 V8.00 MH  Änderung des TP Handling
+//*                      Umbenennung in "Delay"
+//*************************************************************
+Delay(in: string SgbdName, in : int DelayTime)
+{
+string ProcName = "Delay";
+int DelayTimeCounter = 0;
+
+        while (DelayTimeCounter < DelayTime)
+        {
+                CDHDelay(500);
+                // ACHTUNG: Wenn ein TP gesendet wird, verzögert das den Vorgang um das busabhängige Telegramm-Timeout!
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+                DelayTimeCounter = DelayTimeCounter + 500;
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : SGReset
+//*
+//* Funktion  : SGBG Job STEUERGERAETE_RESET ausführen
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             ResetZeit - ResetZeit des SG
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 12.08.2003 V6.00 KuS Ersterstellung
+//* 28.09.2005 V8.00 MH  Parameter TP entfernt
+//*************************************************************
+SGReset(in: string SgbdName, in: int ResetZeit)
+{
+string  ProcName = "SGReset";
+
+        OutputDebugString( 2388, "Reset");
+        CDHapiJob(SgbdName, "STEUERGERAETE_RESET", "", "");
+        TestApiFehler(COAPI_ECU_RESET_ERROR, ProcName, 2390, SgbdName + ", STEUERGERAETE_RESET");
+        if (ResetZeit > 0)
+        {
+                Delay(SgbdName, ResetZeit * 1000 + 500);
+        }
+        else
+        {
+                Delay(SgbdName, 500);
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : PruefeSignatur
+//*
+//* Funktion  : SignaturPrüfung für angegebenen Bereich durchführen
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             SignaturBereich - "Programm" oder "Daten"
+//*             SignaturTestZeit - SignaturTestZeit des SG
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 21.07.2005 V6.13 MH Ersterstellung
+//*************************************************************
+PruefeSignatur(in: string SgbdName, in: string SignaturBereich, in: int SignaturTestZeit)
+{
+string  ProcName = "PruefeSignatur";
+
+bool    rc;
+string  ApiStatusText;
+
+bool    RoutineNotCompleteErhalten = FALSE;
+bool    OkayErhalten = FALSE;
+
+bool    SignaturTestZeitAbgelaufen;
+int     PollingWarteZeit = 1000;
+int     TPfaelligCounter = 0;
+
+        // Sende erzwungenes TP (damit, wenn RespPend auf Signaturprüfung kommt, kein Timeout entsteht)
+        TesterPresentHandling(ProcName, SgbdName, TRUE);
+
+        settimer(3, (SignaturTestZeit * 1000) + 1000); // SignaturTestZeit + 1 Sekunde zusätzlich
+        testtimer(3, SignaturTestZeitAbgelaufen);
+
+        // Polling solange kein Okay erhalten und die Signaturprüfungszeit nicht vergangen ist
+        while ((OkayErhalten == FALSE) && (SignaturTestZeitAbgelaufen == FALSE))
+        {
+
+                CDHapiJob (SgbdName, "NG_SIGNATUR_PRUEFEN", SignaturBereich, "");
+                // existiert JOB_STATUS bzw. hat SG geantwortet ?
+                apiResultText(rc, ApiStatusText, "JOB_STATUS", 1, "");
+                if(rc == TRUE) // Ergebnis erhalten?
+                {
+                        if(ApiStatusText == "OKAY")
+                        {
+                                // Siganturprüfung erfolgreich beendet
+                                OutputDebugString( 2449, "Siganturpruefung erfolgreich beendet");
+                                OkayErhalten = TRUE;
+                        }
+                        else
+                        {
+                                if (ApiStatusText == "ROUTINE_NOT_COMPLETE")
+                                {
+                                        if (RoutineNotCompleteErhalten == FALSE)
+                                        {
+                                                // Ein RoutineNotComplete erhalten
+                                                OutputDebugString( 2459, "Ein RoutineNotComplete bei Siganturpruefung erhalten");
+                                                RoutineNotCompleteErhalten = TRUE;
+
+                                        }
+//                  else
+//                  {
+//
+//                      OutputDebugString( 2466, "Wiederholtes RoutineNotComplete bei Authentisierung erhalten");
+//                      // kein Abbruch bei wiederholtem RoutineNotComplete
+//                      // TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2468, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+//                  }
+                                }
+                                else
+                                {
+                                        if (ApiStatusText == "NO_RESPONSE")
+                                        {
+                                                if (RoutineNotCompleteErhalten == FALSE)
+                                                {
+                                                        // Auf ersten Job weder ein RoutineNotComplete noch eine andere Antwort erhalten
+                                                        OutputDebugString( 2478, "Auf ersten Job bei Siganturpruefung weder ein RoutineNotComplete noch eine andere Antwort erhalten");
+                                                        TestApiFehler(COAPI_ECU_SIGNATUR_ERROR, ProcName, 2479, SgbdName + ", NG_SIGNATUR_PRUEFEN (" + SignaturBereich + ")");
+
+                                                }
+                                        }
+                                        else
+                                        {
+                                                // Fehler im Ablauf, bei etwas anderem als "NO_RESPONSE" (&& "ROUTINE_NOT_COMPLETE")
+//                      if (ApiStatusText == "ERROR_SG_RESPONSE")
+//                          OutputDebugString( 2487, "Bei Authentisierung keine brauchbare Antwort vom SG erhalten");
+//                      else if (ApiStatusText == "ERROR_ERROR_AUTHENTICATION")
+//                          OutputDebugString( 2489, "Bei Authentisierung negative Antwort vom SG erhalten");
+//                      else
+//                          OutputDebugString( 2491, "Bei Authentisierung unbekannten JOB_STATUS erhalten");
+                                                // Entsprechende Fehlerbehandlung einleiten
+                                                TestApiFehler(COAPI_ECU_SIGNATUR_ERROR, ProcName, 2493, SgbdName + ", NG_SIGNATUR_PRUEFEN (" + SignaturBereich + ")");
+                                        }
+                                }
+
+                                TPfaelligCounter = TPfaelligCounter + 1;
+                                if (TPfaelligCounter == 3) {
+                                        TesterPresentHandling(ProcName, SgbdName, TRUE);
+                                        TPfaelligCounter = 0;
+//                  // Verzögerung vom Bus einberechnen
+//                  if (DIREKT_MOST_PROG == TRUE)
+//                      PollingWarteZeit = PollingWarteZeit - 400;
+//                  else
+//                      PollingWarteZeit = PollingWarteZeit - 800;
+                                }
+
+                                // PollingWarteZeit warten
+                                CDHDelay(PollingWarteZeit);
+                                PollingWarteZeit = 1000;
+
+                        } // end of else of if(ApiStatusText == "OKAY")
+                }
+                else
+                { // kein Ergebnis erhalten
+
+                        // Fehler im Aufruf der Signaturprüfung
+                        OutputDebugString( 2518, "Fehler im Aufruf der Signaturpruefung");
+                        // Entsprechende Fehlerbehandlung einleiten
+                        TestApiFehler(COAPI_ECU_SIGNATUR_ERROR, ProcName, 2520, SgbdName + ", NG_SIGNATUR_PRUEFEN (" + SignaturBereich + ")");
+
+                }
+
+                testtimer(3, SignaturTestZeitAbgelaufen);
+
+        } // end of while ((OkayErhalten == FALSE) && (SignaturTestZeitAbgelaufen == FALSE))
+
+        if (OkayErhalten == FALSE)
+        {
+                OutputDebugString( 2530, "Ueberschreitung der Siganturpruefungszeit");
+                // Überschreitung der Siganturprüfungszeit also entsprechende Fehlerbehandlung einleiten
+                TestApiFehler(COAPI_ECU_SIGNATUR_ERROR, ProcName, 2532, SgbdName + ", NG_SIGNATUR_PRUEFEN (" + SignaturBereich + ")");
+                // Fehlertext und -code nach Vorgabe setzten
+                // CDHSetError(COAPI_ECU_SIGNATUR_ERROR, ModulName, ProcName,   0, SgbdName + ", NG_SIGNATUR_PRUEFEN (" + SignaturBereich + "): " + ApiStatusText);
+                // CDHSetReturnVal(COAPI_ECU_SIGNATUR_ERROR);
+                // exit();
+        }
+}
+
+//*************************************************************
+//*
+//* Name      : LoescheFlash
+//*
+//* Funktion  : Loeschen des angegebenen Speicherbereichs
+//*
+//* Parameter : SgbdName   - Name der verwendeten SGBD
+//*             Buffer     - BinBuffer mit Beschreibung des Speicherbereichs
+//*             BufferSize - Groesse des BinBuffers
+//*             LoeschZeit - LoeschZeit des SG
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 28.09.2005 V8.00 MH Ersterstellung
+//*************************************************************
+LoescheFlash(in: string SgbdName, in: int Buffer, in: int BufferSize, in: int LoeschZeit)
+{
+string  ProcName = "LoescheFlash";
+
+bool    rc;
+string  ApiStatusText;
+
+bool    RoutineNotCompleteErhalten = FALSE;
+bool    OkayErhalten = FALSE;
+
+bool    LoeschZeitAbgelaufen;
+int     PollingWarteZeit = 2000;
+int     TPfaelligCounter = 0;
+
+        // Sende erzwungenes TP (damit, wenn RespPend auf Flashlöschen kommt, kein Timeout entsteht)
+        TesterPresentHandling(ProcName, SgbdName, TRUE);
+
+        settimer(3, (LoeschZeit * 1000) + 1000); // LoeschZeit + 1 Sekunde zusätzlich
+        testtimer(3, LoeschZeitAbgelaufen);
+
+        // Polling solange kein Okay erhalten und die FlashLoeschzeit nicht vergangen ist
+        while ((OkayErhalten == FALSE) && (LoeschZeitAbgelaufen == FALSE))
+        {
+                CDHapiJobData (SgbdName, "NG_FLASH_LOESCHEN", Buffer, BufferSize, "");
+                // existiert JOB_STATUS bzw. hat SG geantwortet ?
+                apiResultText(rc, ApiStatusText, "JOB_STATUS", 1, "");
+                if(rc == TRUE) // Ergebnis erhalten?
+                {
+                        if(ApiStatusText == "OKAY")
+                        {
+                                // FlashLoeschen erfolgreich beendet
+                                OutputDebugString( 2588, "FlashLoeschen erfolgreich beendet");
+                                OkayErhalten = TRUE;
+                        }
+                        else
+                        {
+                                if (ApiStatusText == "ROUTINE_NOT_COMPLETE")
+                                {
+                                        if (RoutineNotCompleteErhalten == FALSE)
+                                        {
+                                                // Ein RoutineNotComplete erhalten
+                                                OutputDebugString( 2598, "Ein RoutineNotComplete bei FlashLoeschen erhalten");
+                                                RoutineNotCompleteErhalten = TRUE;
+
+                                        }
+//                  else
+//                  {
+//
+//                      OutputDebugString( 2605, "Wiederholtes RoutineNotComplete bei Authentisierung erhalten");
+//                      // kein Abbruch bei wiederholtem RoutineNotComplete
+//                      // TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2607, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+//                  }
+                                }
+                                else
+                                {
+                                        if (ApiStatusText == "NO_RESPONSE")
+                                        {
+                                                if (RoutineNotCompleteErhalten == FALSE)
+                                                {
+                                                        // Auf ersten Job weder ein RoutineNotComplete noch eine andere Antwort erhalten
+                                                        OutputDebugString( 2617, "Auf ersten Job bei FlashLoeschen weder ein RoutineNotComplete noch eine andere Antwort erhalten");
+                                                        TestApiFehler(COAPI_ECU_FLASH_ERASE_ERROR, ProcName, 2618, SgbdName + ", NG_FLASH_LOESCHEN (...)");
+                                                }
+                                        }
+                                        else
+                                        {
+                                                // Fehler im Ablauf, bei etwas anderem als "NO_RESPONSE" (&& "ROUTINE_NOT_COMPLETE")
+//                      if (ApiStatusText == "ERROR_SG_RESPONSE")
+//                          OutputDebugString( 2625, "Bei Authentisierung keine brauchbare Antwort vom SG erhalten");
+//                      else if (ApiStatusText == "ERROR_ERROR_AUTHENTICATION")
+//                          OutputDebugString( 2627, "Bei Authentisierung negative Antwort vom SG erhalten");
+//                      else
+//                          OutputDebugString( 2629, "Bei Authentisierung unbekannten JOB_STATUS erhalten");
+                                                // Entsprechende Fehlerbehandlung einleiten
+                                                TestApiFehler(COAPI_ECU_FLASH_ERASE_ERROR, ProcName, 2631, SgbdName + ", NG_FLASH_LOESCHEN (...)");
+                                        }
+                                }
+
+                                TPfaelligCounter = TPfaelligCounter + 1;
+                                if (TPfaelligCounter == 3) {
+                                        TesterPresentHandling(ProcName, SgbdName, TRUE);
+                                        TPfaelligCounter = 0;
+//                  // Verzögerung vom Bus einberechnen
+//                  if (DIREKT_MOST_PROG == TRUE)
+//                      PollingWarteZeit = PollingWarteZeit - 400;
+//                  else
+//                      PollingWarteZeit = PollingWarteZeit - 800;
+                                }
+
+                                // PollingWarteZeit warten
+                                CDHDelay(PollingWarteZeit);
+                                PollingWarteZeit = 1000;
+
+                        } // end of else of if(ApiStatusText == "OKAY")
+
+                } else { // kein Ergebnis erhalten
+
+                        // Fehler im Aufruf des FlashLoeschens
+                        OutputDebugString( 2655, "Fehler im Aufruf des FlashLoeschens");
+                        // Entsprechende Fehlerbehandlung einleiten
+                        TestApiFehler(COAPI_ECU_FLASH_ERASE_ERROR, ProcName, 2657, SgbdName + ", NG_FLASH_LOESCHEN (...)");
+                }
+
+                testtimer(3, LoeschZeitAbgelaufen);
+
+        } // end of while ((OkayErhalten == FALSE) && (LoeschZeitAbgelaufen == FALSE))
+
+        if (OkayErhalten == FALSE)
+        {
+                OutputDebugString( 2666, "Ueberschreitung der FlashLoeschzeit");
+                // Überschreitung der FlashLoeschzeit also entsprechende Fehlerbehandlung einleiten
+                TestApiFehler(COAPI_ECU_FLASH_ERASE_ERROR, ProcName, 2668, SgbdName + ", NG_FLASH_LOESCHEN (...)");
+                // Fehlertext und -code nach Vorgabe setzten
+                // CDHSetError(COAPI_ECU_FLASH_ERASE_ERROR, ModulName, ProcName,   0, SgbdName + ", NG_FLASH_LOESCHEN (...): " + ApiStatusText);
+                // CDHSetReturnVal(COAPI_ECU_FLASH_ERASE_ERROR);
+                // exit();
+        }
+}
+
+
+//*************************************************************
+//*
+//* Name      : Authentisierung
+//*
+//* Funktion  : Authentisierung
+//*
+//* Parameter : SgbdName - Name der verwendeten SGBD
+//*             AuthentisierungZeit - Authentisierungszeit des SG
+//*             TestKey - Testschluesselauthentisierung
+//*             NoExit - kein Abbruch nach negativer Resp auf Authentisierung
+//*             RetVal
+//*
+//* Rueckgabe : -
+//*
+//*************************************************************
+//* History   :
+//* 18.10.2004 V6.00 KuS Ersterstellung
+//* 28.09.2005 V8.00 MH  Polling mit TesterPresent bei Freischalten implementiert
+//*************************************************************
+Authentisierung(in: string SgbdName, in : int AuthentisierungZeit,
+                                in: bool TestKey, in : bool NoExit, out: int RetVal)
+{
+string ProcName = "Authentisierung";
+string AUTHENTISIERUNGS_LEVEL = "3";
+int    AuthentisierungZufallsZahl;
+string AuthentisierungArt;
+int    AuthentisierungSchluessel;
+int    AuthentisierungSchluesselLaenge;
+int    AuthentisierungBuffer;
+string Key;
+string UserIdSGBD;
+string UserId;
+string SgSerienNr;
+
+bool   rc;
+string ApiStatusText;
+
+bool   RoutineNotCompleteErhalten = FALSE;
+bool   AntwortErhalten = FALSE;
+
+bool   AuthentisierungZeitAbgelaufen;
+int    PollingWarteZeit = 2000;
+int    TPfaelligCounter = 0;
+
+int    Status = 0;
+int    STATUS_NO_ERROR = 0;
+int    STATUS_ERROR = -1;
+
+        CDHapiJob(SgbdName, "SERIENNUMMER_LESEN", "", "");
+        TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 2726, SgbdName + ", SERIENNUMMER_LESEN");
+        CDHapiResultText(SgSerienNr, "SERIENNUMMER", 1, "");
+        // nur die Zeichen 5-8 + terminierungs-Null benutzen
+        midstr(SgSerienNr,SgSerienNr,5,5);
+        OutputDebugString( 2730, "SgSerienNr         : "+SgSerienNr);
+
+        // Zufallszahlen holen
+        CDHAuthGetRandom(UserId,UserIdSGBD);
+
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        CDHapiJob(SgbdName, "AUTHENTISIERUNG_ZUFALLSZAHL_LESEN", AUTHENTISIERUNGS_LEVEL+";"+UserIdSGBD, "");
+        TestApiFehler(COAPI_ECU_TIMEOUT, ProcName, 2738, SgbdName + ", AUTHENTISIERUNG_ZUFALLSZAHL_LESEN (3;"+UserIdSGBD+")");
+
+        // Erzeugen Buffer fuer Authentisierungs Zufallszahl
+        CDHBinBufCreate(AuthentisierungZufallsZahl,Status);
+        TestCDHFehler(Status);
+
+        CDHapiResultBinary(AuthentisierungZufallsZahl, "ZUFALLSZAHL", 1, Status);
+        TestCDHFehler(Status);
+
+        CDHapiResultText(AuthentisierungArt, "AUTHENTISIERUNG", 1,"");
+        OutputDebugString( 2748, "Authentisierungsart : "+AuthentisierungArt);
+
+        // Schluessel auswaehlen
+        if (TRUE == TestKey)
+        {
+                // Testschluessel verwenden
+                Key="??";
+                if (AuthentisierungArt=="Asymetrisch")
+                        Key="T_SMA";
+                if (AuthentisierungArt=="Symetrisch")
+                        Key="T_SMB";
+                if (AuthentisierungArt=="Simple")
+                        Key="T_SMC";
+        }
+        else
+        {
+                // SGFamilie verwenden
+                Key = SGFamilie;
+        }
+        OutputDebugString( 2767, "Key  : " + Key);
+
+        // Erzeugen Buffer fuer Authentisierungs Schlüssel
+        CDHBinBufCreate(AuthentisierungSchluessel,Status);
+        TestCDHFehler(Status);
+
+        CDHCallAuthenticate(Key, UserId, SgSerienNr,
+                                                AuthentisierungArt,
+                                                AuthentisierungZufallsZahl,
+                                                AUTHENTISIERUNGS_LEVEL,
+                                                AuthentisierungSchluessel,
+                                                AuthentisierungSchluesselLaenge,
+                                                Status);
+
+        if (Status != STATUS_NO_ERROR)
+                TestCDHFehler(COAPI_ECU_AUTHENTICATION_FORMAT_ERROR);
+
+        OutputDebugInt( 2784, "Schluessellaenge   ",AuthentisierungSchluesselLaenge);
+
+        // Erzeugen Buffer fuer Authentisierungs Buffer
+        CDHBinBufCreate(AuthentisierungBuffer,Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(AuthentisierungBuffer, 1, 0, Status);
+        CDHBinBufWriteByte(AuthentisierungBuffer, AuthentisierungZeit, 4, Status);
+        CDHBinBufWriteByte(AuthentisierungBuffer, AuthentisierungSchluesselLaenge, 13, Status);
+        CDHBinBufWriteByte(AuthentisierungBuffer, 0, 14, Status);
+
+        CDHBinBufWriteByte(AuthentisierungBuffer, 3, 21 + AuthentisierungSchluesselLaenge, Status); // ETX setzen (03h)
+
+        // AuthentisierungSchluessel nach AuthentisierungBuffer kopieren
+        CDHBinBufCopy(AuthentisierungSchluessel, AuthentisierungBuffer, 0, 21, AuthentisierungSchluesselLaenge, Status);
+        TestCDHFehler(Status);
+
+        // ------------------------------------------------------
+        // Polling mit TP
+
+        // Sende erzwungenes TP (damit, wenn RespPend auf Freischalten kommt, kein Timeout entsteht)
+        TesterPresentHandling(ProcName, SgbdName, TRUE);
+
+        settimer(3, (AuthentisierungZeit * 1000) + 1000); //  AuthentisierungsZeit + 1 Sekunde zusätzlich
+        testtimer(3, AuthentisierungZeitAbgelaufen);
+
+        // Polling solange kein Okay erhalten und die Authentisierungszeit nicht vergangen ist
+        while ((AntwortErhalten == FALSE) && (AuthentisierungZeitAbgelaufen == FALSE))
+        {
+                CDHapiJobData (SgbdName, "NG_AUTHENTISIERUNG_START", AuthentisierungBuffer, 21+AuthentisierungSchluesselLaenge, "");
+                // existiert JOB_STATUS bzw. hat SG geantwortet ?
+                apiResultText(rc, ApiStatusText, "JOB_STATUS", 1, "");
+                if(rc == TRUE) // Ergebnis erhalten?
+                {
+                        if(ApiStatusText == "OKAY")
+                        {
+                                // Authentisieren erfolgreich beendet
+                                OutputDebugString( 2820, "Authentisierung erfolgreich beendet");
+                                AntwortErhalten = TRUE;
+
+                        }
+                        else if ((ApiStatusText == "ERROR_ERROR_AUTHENTICATION") && (NoExit == TRUE))
+                        {
+
+                                // Authentisieren erfolglos beendet, aber es soll nicht abgebrochen werden
+                                OutputDebugString( 2828, "Authentisierung erfolglos beendet, aber es soll nicht abgebrochen werden");
+                                AntwortErhalten = TRUE;
+                        }
+                        else
+                        {
+                                if (ApiStatusText == "ROUTINE_NOT_COMPLETE")
+                                {
+                                        if (RoutineNotCompleteErhalten == FALSE)
+                                        {
+                                                // Ein RoutineNotComplete erhalten
+                                                OutputDebugString( 2838, "Ein RoutineNotComplete bei Authentisierung erhalten");
+                                                RoutineNotCompleteErhalten = TRUE;
+                                        }
+//                  else
+//                  {
+//
+//                      OutputDebugString( 2844, "Wiederholtes RoutineNotComplete bei Authentisierung erhalten");
+//                      // kein Abbruch bei wiederholtem RoutineNotComplete
+//                      // TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2846, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+//                  }
+                                }
+                                else
+                                {
+                                        if (ApiStatusText == "NO_RESPONSE")
+                                        {
+                                                if (RoutineNotCompleteErhalten == FALSE)
+                                                {
+                                                        // Auf ersten Job weder ein RoutineNotComplete noch eine andere Antwort erhalten
+                                                        OutputDebugString( 2856, "Auf ersten Job bei Authentisierung weder ein RoutineNotComplete noch eine andere Antwort erhalten");
+                                                        TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2857, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+                                                }
+                                        }
+                                        else
+                                        {
+                                                // Fehler im Ablauf, bei etwas anderem als "NO_RESPONSE" (&& "ROUTINE_NOT_COMPLETE")
+//                      if (ApiStatusText == "ERROR_SG_RESPONSE")
+//                          OutputDebugString( 2864, "Bei Authentisierung keine brauchbare Antwort vom SG erhalten");
+//                      else if (ApiStatusText == "ERROR_ERROR_AUTHENTICATION")
+//                          OutputDebugString( 2866, "Bei Authentisierung negative Antwort vom SG erhalten");
+//                      else
+//                          OutputDebugString( 2868, "Bei Authentisierung unbekannten JOB_STATUS erhalten");
+                                                // Entsprechende Fehlerbehandlung einleiten
+                                                TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2870, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+                                        }
+                                }
+
+                                TPfaelligCounter = TPfaelligCounter + 1;
+                                if (TPfaelligCounter == 3) {
+                                        TesterPresentHandling(ProcName, SgbdName, TRUE);
+                                        TPfaelligCounter = 0;
+//                  // Verzögerung vom Bus einberechnen
+//                  if (DIREKT_MOST_PROG == TRUE)
+//                      PollingWarteZeit = PollingWarteZeit - 400;
+//                  else
+//                      PollingWarteZeit = PollingWarteZeit - 800;
+                                }
+
+                                // PollingWarteZeit warten
+                                CDHDelay(PollingWarteZeit);
+                                PollingWarteZeit = 1000;
+
+                        } // end of else of if((ApiStatusText == "ERROR_ERROR_AUTHENTICATION") && (NoExit == TRUE))
+                }
+                else
+                { // kein Ergebnis erhalten
+
+                        // Fehler im Aufruf der Authentisierung
+                        OutputDebugString( 2895, "Fehler im Aufruf der Authentisierung");
+                        // Entsprechende Fehlerbehandlung einleiten
+                        TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2897, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+                }
+
+                testtimer(3, AuthentisierungZeitAbgelaufen);
+
+        } // end of while ((AntwortErhalten == FALSE) && (AuthentisierungZeitAbgelaufen == FALSE))
+
+        if (AntwortErhalten == FALSE) // ACHUTNG: Keine Antwort führt auch bei (NoExit == FALSE) zum Abbruch!
+        {
+                OutputDebugString( 2906, "Ueberschreitung der AuthentisierungZeit");
+                // Überschreitung der AuthentisierungZeit, also entsprechende Fehlerbehandlung einleiten
+                TestApiFehler(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2908, SgbdName + ", NG_AUTHENTISIERUNG_START (...)");
+                // Fehlertext und -code nach Vorgabe setzten
+                // CDHSetError(COAPI_ECU_AUTHENTICATION_ERROR, ModulName, ProcName,   0, SgbdName + ", NG_AUTHENTISIERUNG_START (...): " + ApiStatusText);
+                // CDHSetReturnVal(COAPI_ECU_AUTHENTICATION_ERROR);
+                // exit();
+        }
+        else
+        {
+                TestApiFehlerNoExit(COAPI_ECU_AUTHENTICATION_ERROR, ProcName, 2916, SgbdName + ", AUTHENTISIERUNG_START ( SG-Schluessel ...)", Status);
+        }
+
+        //------------------------------------------------------
+
+        RetVal = Status;
+
+        // Löschen Buffer fuer Authentisierungs Buffer
+        CDHBinBufDelete(AuthentisierungBuffer,Status);
+        // Löschen Buffer fuer Authentisierungs Zufallszahl
+        CDHBinBufDelete(AuthentisierungZufallsZahl,Status);
+        // Löschen Buffer fuer Authentisierungs Schlüssel
+        CDHBinBufDelete(AuthentisierungSchluessel,Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : Programmieren
+//*
+//* Funktion  : Programmieren des SG
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 05.09.2003 KuS V6.00 Änderungen 06Flash
+//**********************************************************************
+Programmieren()
+{
+string ProcName = "Programmieren";
+int    Status;
+string SgbdName;    // Name der verwendeten SGBD die fuer alle Jobs verwendet wird
+
+int    Index;   // Schleiferzaehler Variable
+int    IntWert; // Temporärer Speicherplatz fuer Byte-Werte
+string StrWert; // Temporärer Speicherplatz fuer String-Werte
+string Text;    // Temporärer Speicherplatz fuer Debug-Texte
+
+int    Buffer;          // Binaerpuffer zur Aufnahme der Programmierdaten
+int    StartAdrBuffer;  // Binaerpuffer zur Aufnahme der Startadressen der Datenbloecke
+int    BlockLengthBuffer;
+int    RequestDownloadBuffer;
+
+int    MaxData;
+int    DynMaxData;
+int    BufferSize;
+int    NrOfData;
+
+int    ZwischenBuffer;
+int    ZwischenBufferSize;
+int    ZwischenBufferNrOfData;
+
+int    BlockCounter;
+bool   BlockSchreibenFlag;
+bool   FreibrennBlockFlag;
+int    AdrSprungFlag;
+bool   FreibrennBlockSchreiben = FALSE;
+
+int    AktuellAdrLow, AktuellAdrMidLow, AktuellAdrMidHigh, AktuellAdrHigh;
+int    StartAdrLow, StartAdrMidLow, StartAdrMidHigh, StartAdrHigh;
+int    NextAdrLow, NextAdrMidLow, NextAdrMidHigh, NextAdrHigh;
+int    DataLengthLow, DataLengthMidLow, DataLengthMidHigh, DataLengthHigh;
+int    DataBlockLengthLow, DataBlockLengthMidLow, DataBlockLengthMidHigh, DataBlockLengthHigh;
+int    EndDataBlockLengthLow, EndDataBlockLengthMidLow, EndDataBlockLengthMidHigh, EndDataBlockLengthHigh;
+
+int    LoeschZeit;
+int    SignaturTestZeit;
+int    ResetZeit;
+int    AuthentisierungZeit;
+
+int    SgStatus;
+
+int    PROG_WITH_AIF;
+int    AifGroesse;
+string AifDaten;
+int    AifDatenLen;
+string StringArgument;
+
+int    BSUTime;                 // Boot Sektor Update
+
+int    DataBlockLoopCounter;    // Zaehler üeber alle Datenblocke
+bool   BlockEnd;                // Flag fuer die Kennzeichnung eines erkannten Datenblockendes
+int    NextByte;                // Für Implementierung MaxData > 255
+
+// OPPS XXL
+int    MXBL_STANDARD = 254;
+int    MXBL_MOST_XXL = 1002;
+
+// WAS Variablen
+int    WASBuffer_A_Handle, WASBuffer_B_Handle;              // Handle der Buffer fuer WAS
+int    WASBuffer_1_Size, WASBuffer_2_Size;                  // Groeße der WAS Buffer
+int    WASBuffer_1_Pointer, WASBuffer_2_Pointer;            // Zeiger auf die WAS Buffer
+int    WASBuffer_1_Size_Pointer, WASBuffer_2_Size_Pointer;  // Groeße der WAS Buffer die durch Zeiger bestimmt sind
+bool   WASSwitch;                                           // Flag zur Auswahl des richtigen WAS Buffer
+int    DEFAULT_BUFFER_SIZE = 22;                            // Anzahl der in den Binärpuffern zusätzlich enthaltenen Daten
+int    WASOffset;                                           // Anzahl an Bytes die bei einem WAS zurückgegangen wird.
+// Anzahl der Daten die bei einem WAS von der WAS Startadresse im Datenblock verbleiben
+int    RemainingDataBlockLengthLow, RemainingDataBlockLengthMidLow, RemainingDataBlockLengthMidHigh, RemainingDataBlockLengthHigh;
+// Anzahl der Daten die im Datenblock erfolgreich übertragen wurden und bei einem WAS nicht wiederholt werden
+int    WrittenDataBlockLengthLow, WrittenDataBlockLengthMidLow, WrittenDataBlockLengthMidHigh, WrittenDataBlockLengthHigh;
+// Startadresse fuer WAS
+int    WASStartAdrLow, WASStartAdrMidLow, WASStartAdrMidHigh, WASStartAdrHigh;
+
+// Schleifenvariablen für wiederholtes PrgStatus_lesen vor WAS
+int    WASPrgStatusLesenWiederholung;
+bool   WASPrgStatusLesenErfolgreich;
+string WASPrgStatusLesenApiStatusText;
+
+//############################################################################################################
+// (1) Initialisierung
+//############################################################################################################
+
+        SetFlashState(2);
+
+
+        ProgSuccess = FALSE;
+
+        OutputDebugString( 3037, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName,Status);      // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        // Erzeugen der dynamischen Puffer
+        CDHBinBufCreate(StartAdrBuffer, Status);    // Erzeugen des StartAdressDaten-Buffers
+        TestCDHFehler(Status);
+        CDHBinBufCreate(BlockLengthBuffer, Status); // Erzeugen des LaengenDaten-Buffers
+        TestCDHFehler(Status);
+        CDHBinBufCreate(Buffer, Status);            // Erzeugen des Flashdaten-Buffers
+        TestCDHFehler(Status);
+        CDHBinBufCreate(ZwischenBuffer, Status);    // Erzeugen des Flashdaten-ZwischenBuffers
+        TestCDHFehler(Status);
+
+        // Programmierzugang ermitteln und ggf. SG-spezifische OPPS-MOST-Parameter setzen
+        CheckForOppsAccess(ProcName, SgbdName);
+        if(OppsMostAccess == TRUE)
+                SetOppsMostParams();
+
+        // Busruhe Start und Ende festlegen
+        if (BUSRUHE_START_PUNKT == "StartDiagnose")
+                BusruheStartState = 3;
+        else if (BUSRUHE_START_PUNKT == "FlashLoeschen")
+                BusruheStartState = 4;
+        else if (BUSRUHE_START_PUNKT == "DatenDownload")
+                BusruheStartState = 5;
+        else
+                OutputDebugString( 3065, "BUSRUHE_START_PUNKT hat ungültigen Wert \'"+BUSRUHE_START_PUNKT+"\'; Default-Wert wird verwendet!");
+
+        if (BUSRUHE_ENDE_PUNKT == "DownloadEnde")
+                BusruheEndeState = 5;
+        else if (BUSRUHE_ENDE_PUNKT == "SignaturPruefen")
+                BusruheEndeState = 6;
+        else if (BUSRUHE_ENDE_PUNKT == "DiagnoseEnde")
+                BusruheEndeState = 8;
+        else if (BUSRUHE_ENDE_PUNKT == "Reset")
+                BusruheEndeState = 9;
+        else
+                OutputDebugString( 3076, "BUSRUHE_ENDE_PUNKT hat ungültigen Wert \'"+BUSRUHE_ENDE_PUNKT+"\'; Default-Wert wird verwendet!");
+
+
+
+//############################################################################################################
+// (2) Ausgeben von PADB und SGBD Informationen
+//############################################################################################################
+
+        if (DebugSwitch == TRUE)
+        {
+                // SGBD Informationen ausgeben
+                OutputDebugString( 3087, "SGBD-Name                         : " + SgbdName);
+                CDHapiJob(SgbdName, "INFO", "", "");
+                CDHapiResultText(StrWert   , "ORIGIN", 1, "");
+                OutputDebugString( 3090, "SGBD-Origin                       : " + StrWert);
+                CDHapiResultText(StrWert   , "REVISION", 1, "");
+                OutputDebugString( 3092, "SGBD-Revision                     : " + StrWert);
+                CDHapiResultText(StrWert   , "PACKAGE", 1, "");
+                OutputDebugString( 3094, "SGBD-Package                      : " + StrWert);
+
+                // PABD Informationen ausgeben
+                OutputDebugString( 3097, "PABD-Modulname                    : " + ModulName);
+                OutputDebugString( 3098, "PABD-Revision                     : " + Revision);
+                OutputDebugString( 3099, "PABD-Author                       : " + Author);
+                OutputDebugString( 3100, "PABD-Comment                      : " + Comment);
+
+                // PABD Einstellungen ausgeben
+                OutputDebugString( 3103, "PABD-SGFamilie                    : " + SGFamilie);
+                OutputDebugInt   ( 3104, "PABD-SG_MAXANZAHL_AIF             " , SG_MAXANZAHL_AIF);
+                OutputDebugInt   ( 3105, "PABD-SG_GROESSE_AIF               " , SG_GROESSE_AIF);
+                OutputDebugInt   ( 3106, "PABD-SG_ENDEKENNUNG_AIF           " , SG_ENDEKENNUNG_AIF);
+                OutputDebugString( 3107, "PABD-SG_AUTHENTISIERUNG           : " + SG_AUTHENTISIERUNG);
+                OutputDebugBool  ( 3108, "PABD-ProgrammUndDaten             : " , ProgrammUndDaten);
+                OutputDebugString( 3109, "PABD-ProzessorTyp                 : " + ProzessorTyp);
+                OutputDebugBool  ( 3110, "PABD-AuffuellenSwitch             : " , AuffuellenSwitch);
+                OutputDebugBool  ( 3111, "PABD-DynamischeMXBL               : " , DynamischeMXBL);
+                OutputDebugBool  ( 3112, "PABD-WiederaufsetzenBlockSwitch   : " , WiederaufsetzenBlockSwitch);
+                OutputDebugInt   ( 3113, "PABD-WartenNachECUProgrammMode    " , WartenNachECUProgrammMode);
+                OutputDebugBool  ( 3114, "PABD-TestSchluesselAuthentisierung: " , TestSchluesselAuthentisierung);
+                OutputDebugBool  ( 3115, "PABD-WiederaufsetzenSwitch        : " , WiederaufsetzenSwitch);
+                OutputDebugBool  ( 3116, "PABD-SgInnenTemperaturLesen       : " , SgInnenTemperaturLesen);
+                OutputDebugBool  ( 3117, "PABD-SgPhysHwNrLesen              : " , SgPhysHwNrLesen);
+                OutputDebugBool  ( 3118, "PABD-TesterPresentHandlingSwitch  : " , TesterPresentHandlingSwitch);
+                OutputDebugBool  ( 3119, "PABD-DebugSwitch                  : " , DebugSwitch);
+                OutputDebugBool  ( 3120, "PABD-DIREKT_MOST_PROG             : " , DIREKT_MOST_PROG);
+                OutputDebugString( 3121, "PABD-BUSRUHE_START_PUNKT          : " + BUSRUHE_START_PUNKT);
+                OutputDebugString( 3122, "PABD-BUSRUHE_ENDE_PUNKT           : " + BUSRUHE_ENDE_PUNKT);
+                OutputDebugInt   ( 3123, "MOST: min. Telegrammzwischenzeit  " , LL_INTERVAL);
+                OutputDebugBool  ( 3124, "OPPS: benutzt                     : " , OppsAccess);
+                OutputDebugBool  ( 3125, "OPPS: MOST-Zugang benutzt         : " , OppsMostAccess);
+        }
+
+//############################################################################################################
+// (3) Flash Zeiten aus SG auslesen
+//############################################################################################################
+
+        CDHapiJob(SgbdName, "FLASH_ZEITEN_LESEN", "", "");
+        TestApiFehler(COAPI_ECU_TIMES_ERROR, ProcName, 3133, SgbdName + ", FLASH_ZEITEN_LESEN");
+
+        CDHapiResultInt(LoeschZeit,          "FLASH_LOESCHZEIT",       1);
+        CDHapiResultInt(SignaturTestZeit,    "FLASH_SIGNATURTESTZEIT", 1);
+        CDHapiResultInt(ResetZeit,           "FLASH_RESETZEIT",        1);
+        CDHapiResultInt(AuthentisierungZeit, "FLASH_AUTHENTISIERZEIT", 1);
+
+        OutputDebugInt( 3140, "LoeschZeit         ", LoeschZeit);
+        OutputDebugInt( 3141, "SignaturTestZeit   ", SignaturTestZeit);
+        OutputDebugInt( 3142, "ResetZeit          ", ResetZeit);
+        OutputDebugInt( 3143, "AuthentisierungZeit", AuthentisierungZeit);
+
+
+//############################################################################################################
+// (4) Programmierstatus abfragen
+//############################################################################################################
+
+        CDHapiJob(SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+        // MK: Fehlerhandling überarbeitet
+        TestApiFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 3152, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+
+        CDHapiResultInt(SgStatus, "FLASH_PROGRAMMIER_STATUS", 1);
+        OutputDebugInt( 3155, "ProgrammierStatus vor der Programmierung  ", SgStatus);
+        // ProgStatus auswerten
+        if ((SgStatus >= 0x10) && (SgStatus <= 0x7F))
+        {
+                SetCDHFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 3159, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+        }
+        if (SgStatus >= 0x80)
+                SgStatus = 0x01; // Für Zulieferer reserviert - Interpretation wie 0x01
+        if ((SgStatus != 0x01) && (SgStatus != 0x00) && (SgStatus != 0x0F))
+        {
+                // STEUERGERAET ist im Boot-Modus
+                // Reset der Statemachine
+                SGReset(SgbdName, ResetZeit);
+        }
+
+
+//############################################################################################################
+// (5) Blocklänge lesen
+//############################################################################################################
+
+        CDHapiJob(SgbdName, "FLASH_BLOCKLAENGE_LESEN", "", "FLASH_BLOCKLAENGE_GESAMT");
+        TestApiFehler(COAPI_ECU_MXBL_ERROR, ProcName, 3176, SgbdName + ", FLASH_BLOCKLAENGE_LESEN");
+        CDHapiResultInt(MaxData, "FLASH_BLOCKLAENGE_GESAMT", 1 );
+
+        if(MaxData < 0)
+                MaxData = MaxData + 65536;  // MaxData > 0x8000
+
+        MaxData = MaxData - 1;          // Service ID wird nicht gezaehlt
+
+        // MK: OppsMostAccess verwendet
+        if(MaxData > MXBL_STANDARD)     // MXBL > 0x00FF
+        {
+                if(OppsMostAccess == TRUE)
+                {
+                        if(MaxData > MXBL_MOST_XXL)
+                        {
+                                MaxData = MXBL_MOST_XXL;
+                        }
+                }
+                else
+                {
+                        MaxData = MXBL_STANDARD;    // Programmierung nicht über OPPS-MOST-Zugang
+                }
+        }
+        OutputDebugInt( 3199, "MXBL               ",MaxData);
+
+
+        SetFlashState(3);
+
+//############################################################################################################
+// (6) Block-Informationen berechnen
+//############################################################################################################
+
+        //**********************************************************************
+        // Laenge & Anfangsadressen der Datenbloecke ohne Adressenluecken ermitteln
+        // Start
+        //**********************************************************************
+        // ersten Datenblock holen
+        CDHGetApiJobByteData(MaxData, Buffer, BufferSize, NrOfData, Status);
+
+        if (NrOfData == 0)
+        {
+                Status = COAPI_READ_INPUT_FILE_ERROR;
+        }
+
+        BlockCounter = 0;
+        BlockSchreibenFlag  = TRUE;
+
+        DataBlockLengthLow     = 0;
+        DataBlockLengthMidLow  = 0;
+        DataBlockLengthMidHigh = 0;
+        DataBlockLengthHigh    = 0;
+
+        DataLengthLow     = 0;
+        DataLengthMidLow  = 0;
+        DataLengthMidHigh = 0;
+        DataLengthHigh    = 0;
+
+        while (NrOfData > 0)
+        {
+                // Startadresse bestimmen
+                CDHBinBufReadByte(Buffer, AktuellAdrLow,     17, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(Buffer, AktuellAdrMidLow,  18, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(Buffer, AktuellAdrMidHigh, 19, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(Buffer, AktuellAdrHigh,    20, Status);
+                TestCDHFehler(Status);
+
+                StartAdrLow     = AktuellAdrLow;
+                StartAdrMidLow  = AktuellAdrMidLow;
+                StartAdrMidHigh = AktuellAdrMidHigh;
+                StartAdrHigh    = AktuellAdrHigh;
+
+                NextAdrLow      = AktuellAdrLow; // fuer Erkennung auf Datenblockende
+                NextAdrMidLow   = AktuellAdrMidLow;
+                NextAdrMidHigh  = AktuellAdrMidHigh;
+                NextAdrHigh     = AktuellAdrHigh;
+
+                // Laenge des Datenblocks feststellen
+                AdrSprungFlag = 0;
+                FreibrennBlockFlag = FALSE;
+                while (AdrSprungFlag != 1)
+                {
+                        // Naechste Adresse Berechnen
+                        AddWordToDWord(NextAdrLow, NextAdrMidLow, NextAdrMidHigh, NextAdrHigh, NrOfData);
+
+                        // Laenge des Datenblocks
+                        AddWordToDWord(DataBlockLengthLow, DataBlockLengthMidLow, DataBlockLengthMidHigh, DataBlockLengthHigh, NrOfData);
+
+                        // Naechsten Datenblock lesen
+                        CDHGetApiJobByteData (MaxData, Buffer, BufferSize, NrOfData, Status); // Daten holen
+                        TestCDHFehler (Status);
+
+                        CDHBinBufReadByte(Buffer,AktuellAdrLow,     17, Status);
+                        TestCDHFehler(Status);
+                        CDHBinBufReadByte(Buffer,AktuellAdrMidLow,  18, Status);
+                        TestCDHFehler(Status);
+                        CDHBinBufReadByte(Buffer,AktuellAdrMidHigh, 19, Status);
+                        TestCDHFehler(Status);
+                        CDHBinBufReadByte(Buffer,AktuellAdrHigh,    20, Status);
+                        TestCDHFehler(Status);
+
+                        // Ueberpruefung auf Adressluecke
+                        if ((NextAdrLow     == AktuellAdrLow)     && // keine Luecke
+                                (NextAdrMidLow  == AktuellAdrMidLow)  && // keine Luecke
+                                (NextAdrMidHigh == AktuellAdrMidHigh) && // keine Luecke
+                                (NextAdrHigh    == AktuellAdrHigh))      // keine Luecke
+                        {
+                                AdrSprungFlag = 0;  // keine Luecke
+
+                                // Sonderbehandlung Segmentwechsel
+                                if (ProzessorTyp == "HC12DG128")
+                                {
+                                        if ((NextAdrLow == 0x00) &&
+                                                ((NextAdrMidLow == 0x40) || (NextAdrMidLow == 0x80) || (NextAdrMidLow == 0xC0)) &&
+                                                (NextAdrMidHigh == 0x00) &&
+                                                (NextAdrHigh    == 0x00))
+                                        {
+                                                hexstring(NextAdrMidLow, StrWert);
+                                                OutputDebugString( 3296, "Segmentwechsel bei 00:" + StrWert + ":00");
+                                                AdrSprungFlag = 1;  // Segmentwechsel
+                                        }
+                                }
+                        }
+                        else
+                        {
+                                if ((StartAdrLow     == AktuellAdrLow)     && // Freibrennblock
+                                        (StartAdrMidLow  == AktuellAdrMidLow)  && // fuer Flash
+                                        (StartAdrMidHigh == AktuellAdrMidHigh) && // (Lauter 0xFF)
+                                        (StartAdrHigh    == AktuellAdrHigh))
+                                {
+                                        AdrSprungFlag = 1;      // Freibrennblock erkannt
+                                        FreibrennBlockFlag = TRUE;
+                                        if (FreibrennBlockSchreiben == TRUE)
+                                        {
+                                                BlockSchreibenFlag = TRUE;
+                                        }
+                                        else
+                                        {
+                                                BlockSchreibenFlag = FALSE;
+                                        }
+                                }
+                                else
+                                {
+                                        AdrSprungFlag = 1;      // echte Adressluecke
+                                }
+                        }
+
+                        if (NrOfData==0)
+                        {
+                                AdrSprungFlag = 1;          // Datenende
+                        }
+
+                } // end of while (AdrSprungFlag != 1)
+
+                // Startadressen im Buffer merken
+                CDHBinBufWriteByte(StartAdrBuffer,StartAdrLow,     (4*BlockCounter),   Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(StartAdrBuffer,StartAdrMidLow,  (4*BlockCounter)+1, Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(StartAdrBuffer,StartAdrMidHigh, (4*BlockCounter)+2, Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(StartAdrBuffer,StartAdrHigh,    (4*BlockCounter)+3, Status);
+                TestCDHFehler(Status);
+
+                // Datenlaenge im Buffer merken
+                CDHBinBufWriteByte(BlockLengthBuffer,DataBlockLengthLow,     (4*BlockCounter),   Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(BlockLengthBuffer,DataBlockLengthMidLow,  (4*BlockCounter)+1, Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(BlockLengthBuffer,DataBlockLengthMidHigh, (4*BlockCounter)+2, Status);
+                TestCDHFehler(Status);
+                CDHBinBufWriteByte(BlockLengthBuffer,DataBlockLengthHigh,    (4*BlockCounter)+3, Status);
+                TestCDHFehler(Status);
+
+                // Gesamtlänge errechnen
+                if (FreibrennBlockFlag == FALSE)
+                {
+                        AddDWordToDWord(DataLengthLow,      DataLengthMidLow,      DataLengthMidHigh,      DataLengthHigh,
+                                                        DataBlockLengthLow, DataBlockLengthMidLow, DataBlockLengthMidHigh, DataBlockLengthHigh);
+                }
+
+                DataBlockLengthLow     = 0;
+                DataBlockLengthMidLow  = 0;
+                DataBlockLengthMidHigh = 0;
+                DataBlockLengthHigh    = 0;
+
+                BlockCounter = BlockCounter + 1;
+
+        } // end of while (NrOfData > 0)
+
+        // DebugOutput aller gefundenen Datenbloecke und deren Adressen
+        if (DebugSwitch == TRUE)
+        {
+                OutputDebugInt( 3371, "Anzahl Datenbloecke", BlockCounter);
+                Index = 0;
+                while (Index < BlockCounter)
+                {
+                        inttostring(Index, StrWert);
+                        Text="Block(" + StrWert + ") Startadressse = ";
+                        CDHBinBufReadByte(StartAdrBuffer, IntWert, (4*Index)+3, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(StartAdrBuffer, IntWert, (4*Index)+2, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(StartAdrBuffer, IntWert, (4*Index)+1, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(StartAdrBuffer, IntWert, (4*Index),   Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + "     Anzahl Bytes = ";
+
+                        CDHBinBufReadByte(BlockLengthBuffer, IntWert, (4*Index)+3, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(BlockLengthBuffer, IntWert, (4*Index)+2, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(BlockLengthBuffer, IntWert, (4*Index)+1, Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert + ":";
+
+                        CDHBinBufReadByte(BlockLengthBuffer, IntWert, (4*Index),   Status);
+                        hexstring(IntWert, StrWert);
+                        Text = Text + StrWert;
+
+                        OutputDebugString( 3409, Text);
+                        Index = Index + 1;
+                }
+                Text = "Gesamtanzahl Bytes= ";
+                hexstring(DataLengthHigh,    StrWert);
+                Text = Text + StrWert + ":";
+                hexstring(DataLengthMidHigh, StrWert);
+                Text = Text + StrWert + ":";
+                hexstring(DataLengthMidLow,  StrWert);
+                Text = Text + StrWert + ":";
+                hexstring(DataLengthLow,     StrWert);
+                Text = Text + StrWert;
+                OutputDebugString( 3421, Text);
+        }
+
+        TestCDHFehler(Status);
+        //**********************************************************************
+        // Ende
+        // Laenge & Anfangsadressen der Datenbloecke ohne Adressenluecken ermitteln
+        //**********************************************************************
+
+
+//############################################################################################################
+// (7) StartDiagonsticSession und Authentisierung
+//############################################################################################################
+
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        //**********************************************************************
+        // StartDiagonsticSession wird vor der Authentisierung durchgefuehrt.
+        // Bei positive Response muss sie nicht mehr durchgefuehrt werden,
+        // bei negative Response wird die Authentisierung aufgerufen
+        // mit nachfolgendem StartDiagonsticSession
+        //**********************************************************************
+
+        CDHapiJob(SgbdName, "DIAGNOSE_MODE", "ECUPM", "");
+        TestApiFehlerNoExit(COAPI_ECU_PROGRAMMING_MODE_ERROR, ProcName, 3445, SgbdName + ", DIAGNOSE_MODE (ECUPM)", Status);
+
+
+        //**********************************************************************
+        // Status von StartDiagonsticSession auswerten
+        //**********************************************************************
+        if (Status != 0)
+        {
+                //**********************************************************************
+                // Authentisierung
+                // Start
+                //**********************************************************************
+
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                Status = 0;
+                // Authentisierung mit scharfen Schluessel und keinem Fehlerabbruch bei Authentisierungsfehler wenn TestschluesselAuthentisierung aktiviert
+                Authentisierung(SgbdName, AuthentisierungZeit, FALSE, TestSchluesselAuthentisierung, Status);
+                if ((Status != 0) && (TRUE == TestSchluesselAuthentisierung))
+                {
+                        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                        // Authentisierung mit Test-Schluessel und Fehlerabbruch bei Authentisierungsfehler
+                        Authentisierung(SgbdName, AuthentisierungZeit, TRUE, FALSE, Status);
+                }
+
+                //**********************************************************************
+                // Ende
+                // Authentisierung
+                //**********************************************************************
+
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                CDHapiJob(SgbdName, "DIAGNOSE_MODE", "ECUPM", "");
+                TestApiFehler(COAPI_ECU_PROGRAMMING_MODE_ERROR, ProcName, 3479, SgbdName + ", DIAGNOSE_MODE (ECUPM)");
+        }
+
+        if (WartenNachECUProgrammMode > 0)
+        {
+                Delay(SgbdName, WartenNachECUProgrammMode * 1000 + 500);
+        }
+        else
+        {
+                if (ResetZeit > 0)
+                {
+                        Delay(SgbdName, ResetZeit * 1000 + 500);
+                }
+                else
+                {
+                        Delay(SgbdName, 500);
+                }
+        }
+
+//############################################################################################################
+// (8) Daten schreiben vorbereiten und Flash löschen
+//############################################################################################################
+
+        // ersten Datenblock holen
+        CDHGetApiJobByteData (MaxData, Buffer, BufferSize, NrOfData, Status);
+        TestCDHFehler(Status);
+
+        SetFlashState(4);
+
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        //Auffuellen mit 0xFF bis MaxData (Laenge)
+        if (AuffuellenSwitch == TRUE)
+        {
+                if (NrOfData < MaxData)
+                {
+                        BufferAuffuellen(Buffer, BufferSize, MaxData);
+                }
+        }
+        //Ende von auffuellen mit 0xFF bis MaxData (Laenge)
+
+        // Flash-Speicher im SG loeschen
+        if (LoeschZeit < 256)
+        {
+                CDHBinBufWriteByte(Buffer, LoeschZeit,      4, Status);
+                CDHBinBufWriteWord(Buffer, 0,               5, Status);
+        }
+        else
+        {
+                CDHBinBufWriteByte(Buffer, 0,               4, Status);
+                CDHBinBufWriteWord(Buffer, LoeschZeit,      5, Status);
+        }
+
+        CDHBinBufWriteByte(Buffer, DataLengthLow,      13, Status); // Low
+        CDHBinBufWriteByte(Buffer, DataLengthMidLow,   14, Status); // MidLow
+        CDHBinBufWriteByte(Buffer, DataLengthMidHigh,  15, Status); // MidHigh
+        CDHBinBufWriteByte(Buffer, DataLengthHigh,     16, Status); // High
+        TestCDHFehler(Status);
+
+        // Flash löschen
+        LoescheFlash(SgbdName, Buffer, BufferSize, LoeschZeit);
+
+
+        SetFlashState(5);
+
+//############################################################################################################
+// (9) Daten schreiben
+//############################################################################################################
+
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        OutputDebugBool( 3550, "### 1. Datenblock schreiben: ", BlockSchreibenFlag);
+
+        // Erzeugen des RequestDownload-Buffers
+        CDHBinBufCreate(RequestDownloadBuffer, Status);
+        TestCDHFehler(Status);
+        CDHBinBufWriteByte(RequestDownloadBuffer, 0x01,  0, Status); // Datentyp Daten setzen
+        CDHBinBufWriteByte(RequestDownloadBuffer, 0x03, 21, Status); // ETX setzen
+        TestCDHFehler(Status);
+
+        DataBlockLoopCounter = 0;
+
+        CDHBinBufCreate(WASBuffer_A_Handle, Status);
+        TestCDHFehler(Status);
+        CDHBinBufCreate(WASBuffer_B_Handle, Status);
+        TestCDHFehler(Status);
+
+        while (DataBlockLoopCounter < BlockCounter) // solange nicht alle datenbloecke geschrieben sind
+        {
+                OutputDebugInt( 3568, "### Datenblock schreiben   ", DataBlockLoopCounter);
+
+                WASSwitch = FALSE;
+                WASBuffer_1_Size = DEFAULT_BUFFER_SIZE;
+                WASBuffer_2_Size = DEFAULT_BUFFER_SIZE;
+                WASBuffer_1_Size_Pointer = DEFAULT_BUFFER_SIZE;
+                WASBuffer_2_Size_Pointer = DEFAULT_BUFFER_SIZE;
+
+                // Startadresse des Datenblocks aus StartAdrBuffer holen
+                CDHBinBufReadByte(StartAdrBuffer, StartAdrLow,     (4 * DataBlockLoopCounter),     Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(StartAdrBuffer, StartAdrMidLow,  (4 * DataBlockLoopCounter) + 1, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(StartAdrBuffer, StartAdrMidHigh, (4 * DataBlockLoopCounter) + 2, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(StartAdrBuffer, StartAdrHigh,    (4 * DataBlockLoopCounter) + 3, Status);
+                TestCDHFehler(Status);
+
+                // Laenge des Datenblocks aus BlockLengthBuffer holen
+                CDHBinBufReadByte(BlockLengthBuffer, DataBlockLengthLow,     (4 * DataBlockLoopCounter),     Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(BlockLengthBuffer, DataBlockLengthMidLow,  (4 * DataBlockLoopCounter) + 1, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(BlockLengthBuffer, DataBlockLengthMidHigh, (4 * DataBlockLoopCounter) + 2, Status);
+                TestCDHFehler(Status);
+                CDHBinBufReadByte(BlockLengthBuffer, DataBlockLengthHigh,    (4 * DataBlockLoopCounter) + 3, Status);
+                TestCDHFehler(Status);
+
+                // Den RequestDownloadBuffer mit gelesenen Werten vorbereiten
+                VorbereitenRDBuffer(StartAdrLow, StartAdrMidLow, StartAdrMidHigh, StartAdrHigh,
+                                                        DataBlockLengthLow, DataBlockLengthMidLow, DataBlockLengthMidHigh, DataBlockLengthHigh,
+                                                        RequestDownloadBuffer);
+
+                //  Download anfordern
+                if (FALSE != BlockSchreibenFlag)
+                        FlashSchreibenAdresse(SgbdName, RequestDownloadBuffer, MaxData);
+
+                // Wg. mgl. RespPend. bei DownloadStart
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                // Variablen rücksetzen
+                EndDataBlockLengthLow       = 0; // fuer Erkennung auf Datenblockende
+                EndDataBlockLengthMidLow    = 0;
+                EndDataBlockLengthMidHigh   = 0;
+                EndDataBlockLengthHigh      = 0;
+
+                BlockEnd = FALSE;
+
+                // wenn der erste block nicht geschrieben wird, aber größer als MaxData ist.
+                // muss CDHGetApiJobBateData mehrmal aufgerufen werden und die bereits in buffer vorliegenden daten müssen fuer
+                // die erkenung des blockendes beruecksichtigt werden.
+                if (FALSE == BlockSchreibenFlag)
+                {
+                        AddWordToDWord(EndDataBlockLengthLow, EndDataBlockLengthMidLow, EndDataBlockLengthMidHigh, EndDataBlockLengthHigh, NrOfData);
+                        if ((DataBlockLengthLow          == EndDataBlockLengthLow     ) &&
+                                (DataBlockLengthMidLow       == EndDataBlockLengthMidLow  ) &&
+                                (DataBlockLengthMidHigh      == EndDataBlockLengthMidHigh ) &&
+                                (DataBlockLengthHigh         == EndDataBlockLengthHigh))
+                        {
+                                BlockEnd = TRUE;
+                        }
+                }
+
+                //**********************************************************************
+                //  Flash Block schreiben
+                //**********************************************************************
+                while (FALSE == BlockEnd)
+                {   // solange kein datenblockende erreicht ist
+
+                        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                        CDHGetApiJobByteData (MaxData, Buffer, BufferSize, NrOfData, Status); // Daten aus PAF Datei holen
+
+                        // prüfen auf datenblockende
+                        AddWordToDWord(EndDataBlockLengthLow, EndDataBlockLengthMidLow, EndDataBlockLengthMidHigh, EndDataBlockLengthHigh, NrOfData);
+                        if ((DataBlockLengthLow          == EndDataBlockLengthLow     ) &&
+                                (DataBlockLengthMidLow       == EndDataBlockLengthMidLow  ) &&
+                                (DataBlockLengthMidHigh      == EndDataBlockLengthMidHigh ) &&
+                                (DataBlockLengthHigh         == EndDataBlockLengthHigh))
+                        {
+                                OutputDebugString( 3648, "### BlockEnd = TRUE");
+                                BlockEnd = TRUE;
+                        }
+
+                        // nicht maxdata erhalten und es gibt noch weitere daten --> buffer auffüllen
+                        while ((NrOfData < MaxData) && (FALSE == BlockEnd) && (TRUE == BlockSchreibenFlag))
+                        {
+                                OutputDebugString( 3655, "### Buffer aufuellen");
+
+                                CDHGetApiJobByteData(MaxData - NrOfData, ZwischenBuffer, ZwischenBufferSize, ZwischenBufferNrOfData, Status);
+                                TestCDHFehler(Status);
+
+                                // Daten umkopieren
+                                CDHBinBufCopy(ZwischenBuffer, Buffer, 21, NrOfData + 21, ZwischenBufferNrOfData, Status);
+                                TestCDHFehler(Status);
+
+                                NextByte = (NrOfData + ZwischenBufferNrOfData) / 256;
+
+                                CDHBinBufWriteByte(Buffer, NextByte, 14, Status);     // Länge setzen
+                                CDHBinBufWriteByte(Buffer, (NrOfData + ZwischenBufferNrOfData) - (NextByte * 256), 13, Status);     // Länge setzen
+
+                                CDHBinBufWriteByte(Buffer, 3, NrOfData + ZwischenBufferNrOfData + 21, Status); // ETX setzen (03h)
+
+                                NrOfData = NrOfData + ZwischenBufferNrOfData;
+                                BufferSize = BufferSize + ZwischenBufferNrOfData;
+
+                                // erneutes prüfen auf datenblockende
+                                AddWordToDWord(EndDataBlockLengthLow, EndDataBlockLengthMidLow, EndDataBlockLengthMidHigh, EndDataBlockLengthHigh, ZwischenBufferNrOfData);
+
+                                if ((DataBlockLengthLow          == EndDataBlockLengthLow     ) &&
+                                        (DataBlockLengthMidLow       == EndDataBlockLengthMidLow  ) &&
+                                        (DataBlockLengthMidHigh      == EndDataBlockLengthMidHigh ) &&
+                                        (DataBlockLengthHigh         == EndDataBlockLengthHigh))
+                                {
+                                        OutputDebugString( 3682, "### BlockEnd = TRUE");
+                                        BlockEnd = TRUE;
+                                }
+                        }   // Ende von: if ( (NrOfData < MaxData) && (FALSE == BlockEnd) )
+
+                        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                        // Auffuellen wenn der Buffer nicht MXBL hat.
+                        if (AuffuellenSwitch == TRUE)
+                        {
+                                if (NrOfData < MaxData)
+                                {
+                                        BufferAuffuellen(Buffer, BufferSize, MaxData);
+                                }
+                        }
+
+                        Status = 0;
+                        // Daten an das SG senden
+                        if (FALSE != BlockSchreibenFlag)
+                                FlashSchreiben(SgbdName, Buffer, BufferSize, RequestDownloadBuffer, TRUE, Status);
+
+                        if (Status != 0 && (TRUE == WiederaufsetzenBlockSwitch || TRUE == WiederaufsetzenSwitch))
+                        {
+                                // WAS
+                                // Fehler aufgetreten, WAS initiieren
+
+                                OutputDebugString( 3708, "*** WAS WAS WAS WAS WAS ***");
+
+                                // ======================================================
+                                // MH 17.8.05: vor Wiederaufsetzen PrgStatus lesen,
+                                // im 2 sec Abstand max. 5 mal wiederholen (bei CAN jeweils inkl. 800 ms = max. 14 sec)
+                                // (falls ein verlorengegangenes RespPend des SG noch aussteht, o.ä.)
+                                //
+                                // Variablen:
+                                // int WASPrgStatusLesenWiederholung;
+                                // bool WASPrgStatusLesenErfolgreich;
+                                // string WASPrgStatusLesenApiStatusText;
+
+                                WASPrgStatusLesenWiederholung = 5;
+                                WASPrgStatusLesenErfolgreich = FALSE;
+
+                                OutputDebugString( 3723, "PrgStatus lesen");
+                                apiJob(SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "");
+                                apiResultText(WASPrgStatusLesenErfolgreich, WASPrgStatusLesenApiStatusText, "JOB_STATUS", 1, "");
+                                while ((WASPrgStatusLesenWiederholung>0) && (WASPrgStatusLesenErfolgreich == FALSE))
+                                {
+                                        // 2 Sekunden warten
+                                        Delay(SgbdName, 2000);
+
+                                        OutputDebugString( 3731, "PrgStatus lesen");
+                                        apiJob(SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "");
+                                        apiResultText(WASPrgStatusLesenErfolgreich, WASPrgStatusLesenApiStatusText, "JOB_STATUS", 1, "");
+                                        // Ungeachtet der Antwort fortsetzen
+                                        WASPrgStatusLesenWiederholung = WASPrgStatusLesenWiederholung - 1;
+                                }
+
+                                //------------------------------------------------------
+
+                                // Flash schreiben abschliessen
+                                FlashSchreibenEnde(SgbdName, RequestDownloadBuffer);
+
+                                // WAS Adresse berechnen
+                                        // Anzahl der bereits geschriebenen Daten neu berechnen (2 Bloecke zurueck bereits miteingerechnet)
+                                WrittenDataBlockLengthLow =     EndDataBlockLengthLow;
+                                WrittenDataBlockLengthMidLow =  EndDataBlockLengthMidLow;
+                                WrittenDataBlockLengthMidHigh = EndDataBlockLengthMidHigh;
+                                WrittenDataBlockLengthHigh =    EndDataBlockLengthHigh;
+                                if (TRUE == WiederaufsetzenBlockSwitch)
+                                        WASOffset = NrOfData + (WASBuffer_1_Size - DEFAULT_BUFFER_SIZE) + (WASBuffer_2_Size - DEFAULT_BUFFER_SIZE);
+                                else
+                                        WASOffset = NrOfData;
+                                SubWordFromDWord(WrittenDataBlockLengthLow,
+                                                                 WrittenDataBlockLengthMidLow,
+                                                                 WrittenDataBlockLengthMidHigh,
+                                                                 WrittenDataBlockLengthHigh,
+                                                                 WASOffset);
+
+                                        // Startadresse fuer WAS berechnen
+                                WASStartAdrLow =     StartAdrLow;
+                                WASStartAdrMidLow =  StartAdrMidLow;
+                                WASStartAdrMidHigh = StartAdrMidHigh;
+                                WASStartAdrHigh =    StartAdrHigh;
+                                AddDWordToDWord(WASStartAdrLow,
+                                                                WASStartAdrMidLow,
+                                                                WASStartAdrMidHigh,
+                                                                WASStartAdrHigh,
+                                                                WrittenDataBlockLengthLow,
+                                                                WrittenDataBlockLengthMidLow,
+                                                                WrittenDataBlockLengthMidHigh,
+                                                                WrittenDataBlockLengthHigh);
+
+                                        // Verbleibende Blocklaenge berechnen
+                                RemainingDataBlockLengthLow =     DataBlockLengthLow;
+                                RemainingDataBlockLengthMidLow =  DataBlockLengthMidLow;
+                                RemainingDataBlockLengthMidHigh = DataBlockLengthMidHigh;
+                                RemainingDataBlockLengthHigh =    DataBlockLengthHigh;
+                                SubDWordFromDWord(RemainingDataBlockLengthLow,
+                                                                  RemainingDataBlockLengthMidLow,
+                                                                  RemainingDataBlockLengthMidHigh,
+                                                                  RemainingDataBlockLengthHigh,
+                                                                  WrittenDataBlockLengthLow,
+                                                                  WrittenDataBlockLengthMidLow,
+                                                                  WrittenDataBlockLengthMidHigh,
+                                                                  WrittenDataBlockLengthHigh);
+
+                                        //RequestDownloadBuffer mit berechneten Adressen vorbereiten
+                                VorbereitenRDBuffer(WASStartAdrLow, WASStartAdrMidLow, WASStartAdrMidHigh, WASStartAdrHigh,
+                                                        RemainingDataBlockLengthLow, RemainingDataBlockLengthMidLow,
+                                                        RemainingDataBlockLengthMidHigh, RemainingDataBlockLengthHigh,
+                                                        RequestDownloadBuffer);
+
+                                // Flash schreiben Adressse
+                                FlashSchreibenAdresse(SgbdName, RequestDownloadBuffer, MaxData);
+
+                                // wg. mgl. RespPend. bei Download
+                                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                                // Buffer_1 schreiben
+                                if ((WASBuffer_1_Size_Pointer - DEFAULT_BUFFER_SIZE) > 0 && TRUE == WiederaufsetzenBlockSwitch)
+                                {
+                                        OutputDebugString( 3802, "*** WAS: WASBuffer_1 schreiben ***");
+                                        FlashSchreiben(SgbdName, WASBuffer_1_Pointer, WASBuffer_1_Size_Pointer, RequestDownloadBuffer, FALSE, Status);
+                                }
+
+                                // Buffer_2 schreiben
+                                if ((WASBuffer_2_Size_Pointer - DEFAULT_BUFFER_SIZE) > 0 && TRUE == WiederaufsetzenBlockSwitch)
+                                {
+                                        OutputDebugString( 3809, "*** WAS: WASBuffer_2 schreiben ***");
+                                        FlashSchreiben(SgbdName, WASBuffer_2_Pointer, WASBuffer_2_Size_Pointer, RequestDownloadBuffer, FALSE, Status);
+                                }
+
+                                // Buffer schreiben
+                                OutputDebugString( 3814, "*** WAS: Buffer schreiben ***");
+                                FlashSchreiben(SgbdName, Buffer, BufferSize, RequestDownloadBuffer, FALSE, Status);
+
+                                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                        }   // Ende von: if (Status != 0)
+                        else if (Status != 0)
+                        {
+                                // Fehler bei der Übertragung und kein WAS aktiviert --> Abbruch!
+                                SetCDHFehler(Status, ProcName, 3823, SgbdName + ", FLASH_SCHREIBEN (...)");
+                        }
+
+                        if ((TRUE == WiederaufsetzenBlockSwitch) && (TRUE == BlockSchreibenFlag))
+                        {
+                                // Buffer fuer WAS speichern
+                                if (FALSE == WASSwitch)
+                                {
+                                        WASBufferKopieren(Buffer, BufferSize, WASBuffer_A_Handle, WASBuffer_1_Size);
+                                        WASSwitch = TRUE;
+                                        WASBuffer_1_Pointer = WASBuffer_B_Handle;
+                                        WASBuffer_2_Pointer = WASBuffer_A_Handle;
+                                        WASBuffer_1_Size_Pointer = WASBuffer_2_Size;
+                                        WASBuffer_2_Size_Pointer = WASBuffer_1_Size;
+                                }
+                                else
+                                {
+                                        WASBufferKopieren(Buffer, BufferSize, WASBuffer_B_Handle, WASBuffer_2_Size);
+                                        WASSwitch = FALSE;
+                                        WASBuffer_1_Pointer = WASBuffer_A_Handle;
+                                        WASBuffer_2_Pointer = WASBuffer_B_Handle;
+                                        WASBuffer_1_Size_Pointer = WASBuffer_1_Size;
+                                        WASBuffer_2_Size_Pointer = WASBuffer_2_Size;
+                                }
+                        }
+                }   // Ende von: while (FALSE == BlockEnd)
+
+                //**********************************************************************
+                // Flash Schreiben abschliessen
+                //**********************************************************************
+                if (FALSE != BlockSchreibenFlag)
+                        FlashSchreibenEnde(SgbdName, RequestDownloadBuffer);
+
+                DataBlockLoopCounter = DataBlockLoopCounter + 1;
+                BlockSchreibenFlag = TRUE;
+
+        }   // Ende von: while (DataBlockLoopCounter < BlockCounter)
+
+        // Schönheitskorrektur, KEINE FUNKTION
+        CDHGetApiJobByteData(MaxData, Buffer, BufferSize, NrOfData, Status);
+
+        //**********************************************************************
+        // Ende - Datenbloecke schreiben
+        //**********************************************************************
+
+
+        SetFlashState(6);
+
+//############################################################################################################
+// (10) Signaturprüfung
+//############################################################################################################
+
+        // ggf. Fahrzeugbusse wieder wecken, Timer loeschen
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        //**********************************************************************
+        // Programmierstatus abfragen fuer Signaturpruefung
+        //**********************************************************************
+        CDHapiJob (SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+        TestApiFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 3882, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+        CDHapiResultInt(SgStatus, "FLASH_PROGRAMMIER_STATUS", 1);
+        OutputDebugInt( 3884, "ProgrammierStatus nach der Programmierung ", SgStatus);
+        // Programmierstatus auswerten
+
+        //**********************************************************************
+        // Signaturpruefung
+        //**********************************************************************
+        if (SgStatus == 0x06) // Signaturpruefung DAF nicht durchgefuehrt
+        {
+                PruefeSignatur(SgbdName, "Daten", SignaturTestZeit);
+        }
+        else
+        {
+                if ((SgStatus == 0x05) ||  // Signaturpruefung PAF nicht durchgefuehrt
+                        ((SgStatus == 0x0C) && (ProgrammUndDaten == FALSE)))
+                {
+                        PruefeSignatur(SgbdName, "Programm", SignaturTestZeit);
+                }
+                else
+                {
+                        // Programmierstatus nach Download nicht plausibel
+                        SetCDHFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 3904, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN, Programmierstatus nicht plausibel");
+                }
+        }
+
+
+        SetFlashState(7);
+
+//############################################################################################################
+// (11) AIF schreiben
+//############################################################################################################
+
+        // ggf. Fahrzeugbusse wieder wecken, Timer loeschen
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        //**********************************************************************
+        // Programmierstatus abfragen
+        //**********************************************************************
+        CDHapiJob(SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+        TestApiFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 3922, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+        CDHapiResultInt(SgStatus, "FLASH_PROGRAMMIER_STATUS", 1);
+        OutputDebugInt( 3924, "ProgrammierStatus nach der Signaturpruefung ", SgStatus);
+        // Programmierstatus auswerten
+
+
+        SetFlashState(8);
+
+        // ggf. Fahrzeugbusse wieder wecken, Timer loeschen
+        TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+        if ((SgStatus == 0x01) ||  // Normalbetrieb
+                ((SgStatus == 0x0C) && (ProgrammUndDaten == FALSE)))
+        {
+                CDHGetCabdWordPar("PROG_WITH_AIF" , PROG_WITH_AIF, Status);
+                TestCDHFehler(Status);
+                OutputDebugInt( 3938, "AIF schreiben aktiviert ",PROG_WITH_AIF);
+
+                if ( PROG_WITH_AIF == 1 )
+                {
+                        //**********************************************************************
+                        // AIF schreiben
+                        //**********************************************************************
+                        CDHGetCabdPar("AIF_FG_NR",        AifDaten, Status);
+                        TestCDHFehler(Status);
+                        StringArgument = AifDaten;
+                        CDHGetCabdPar("AIF_DATUM",        AifDaten, Status);
+                        TestCDHFehler(Status);
+                        StringArgument = StringArgument + ";" + AifDaten;
+                        CDHGetCabdPar("AIF_ZB_NR",        AifDaten, Status);
+                        TestCDHFehler(Status);
+                        StringArgument = StringArgument + ";" + AifDaten;
+
+                        CDHGetCabdWordPar("AIF_GROESSE",  AifGroesse, Status);
+                        TestCDHFehler(Status);
+                        OutputDebugInt( 3957, "AifGroesse              ",AifGroesse);
+
+                        //**********************************************************************
+                        // Daten für grosses AIF
+                        // 0x12  18 dez kleines AIF
+                        // 0x33  51 dez grosses AIF
+                        // 0x40  64 dez grosses AIF ( gilt nur fuer Power-Pc )
+                        // sonst Nicht zulaessig
+                        //**********************************************************************
+                        if ((AifGroesse == 0x40) || (AifGroesse == 0x33))
+                        {
+                                CDHGetCabdPar("AIF_SW_NR",        AifDaten, Status);
+                                TestCDHFehler(Status);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                                CDHGetCabdPar("AIF_BEHOERDEN_NR", AifDaten, Status);
+                                TestCDHFehler(Status);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                                CDHGetCabdPar("AIF_HAENDLER_NR",  AifDaten, Status);
+                                TestCDHFehler(Status);
+                                // 6 Byte BCD
+                                AifDaten = "000000" + AifDaten;
+                                strlen(AifDatenLen, AifDaten);
+                                midstr(AifDaten, AifDaten, AifDatenLen - 6, 6);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                                CDHGetCabdPar("AIF_SERIEN_NR",    AifDaten, Status);
+                                TestCDHFehler(Status);
+                                // 5 Byte ASCII
+                                AifDaten = "     " + AifDaten;
+                                strlen(AifDatenLen, AifDaten);
+                                midstr(AifDaten, AifDaten,AifDatenLen - 5, 5);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                                CDHGetCabdPar("AIF_KM",           AifDaten, Status);
+                                TestCDHFehler(Status);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                                CDHGetCabdPar("AIF_PROG_NR",      AifDaten, Status);
+                                TestCDHFehler(Status);
+                                // 12 Byte ASCII
+                                AifDaten = "            " + AifDaten;
+                                strlen(AifDatenLen, AifDaten);
+                                midstr(AifDaten, AifDaten, AifDatenLen - 12, 12);
+                                StringArgument = StringArgument + ";" + AifDaten;
+                        }
+                        OutputDebugString( 3999, "Aif Argument            : " + StringArgument);
+                        CDHapiJob(SgbdName, "AIF_SCHREIBEN", StringArgument, "");
+                        TestApiFehler(COAPI_ECU_WRITE_AIF, ProcName, 4001, SgbdName + ", AIF_SCHREIBEN (" + StringArgument + ")");
+                }
+
+
+//############################################################################################################
+// (12) Programmierung beenden
+//############################################################################################################
+
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                //**********************************************************************
+                // DIAGNOSE_ENDE
+                //**********************************************************************
+                CDHapiJob(SgbdName, "DIAGNOSE_ENDE", "", "");
+                TestApiFehler(COAPI_ECU_STOPDIAG_ERROR, ProcName, 4015, SgbdName + ", DIAGNOSE_ENDE");
+
+                SetFlashState(9);
+
+                // ggf. Fahrzeugbusse wieder wecken, Timer loeschen
+                TesterPresentHandling(ProcName, SgbdName, FALSE);
+
+                //**********************************************************************
+                //  STEUERGERAETE_RESET
+                //**********************************************************************
+                // Boot Sektor Update
+                CDHGetCabdWordPar("BSUTIME", BSUTime, Status);
+                OutputDebugInt( 4027, "BSUTime                       ", BSUTime);
+                ResetZeit =  ResetZeit + BSUTime;
+
+                OutputDebugInt( 4030, "ResetZeit mit BSUTime         ", ResetZeit);
+                SGReset(SgbdName, ResetZeit);
+
+                //**********************************************************************
+                // Programmierstatus abfragen
+                //**********************************************************************
+                CDHapiJob (SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+                TestApiFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 4037, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+                CDHapiResultInt(SgStatus, "FLASH_PROGRAMMIER_STATUS", 1);
+                OutputDebugInt( 4039, "ProgrammierStatus nach RESET  ",SgStatus);
+
+                // Programmierstatus auswerten
+                if ((SgStatus != 1) && ((SgStatus != 0x0C) || (BSUTime == 0)))
+                {
+                        SetCDHFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 4044, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+                }
+        }
+
+        // Fahrzeugbusse sicher wieder wecken, Timer loeschen
+        StopTesterPresentHandling(ProcName, SgbdName);
+
+        CDHTestError(Status);
+        CDHSetReturnVal(0);
+
+        OutputDebugString( 4054, "Programmierung erfolgreich beendet");
+        ProgSuccess = TRUE;
+}
+
+//**********************************************************************
+//*
+//* Name      : FlashStatusLesen
+//*
+//* Funktion  : Status des SG und Festlegung der Programmierung:
+//*             Programm-, Datenprogrammierung, Reihenfolge
+//*
+//* Parameter : HWNR_IS_NEW ( != 0 bedeutet neue HwNr -> Programmprog.)
+//*             (soll nur Status gelesen werden auf 0 setzen)
+//*
+//* Rueckgabe : PRG_TYP (1 Daten, 2 Programm, 3 Programm + Daten),
+//*             PRG_ORDER (1 Daten zuerst, 2 Programm zuerst)
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 03.07.2001 rd V2.00 Neue Programmierstati
+//**********************************************************************
+FlashStatusLesen()
+{
+string ProcName = "FlashStatusLesen";
+int    Status;
+string SgbdName;
+string StringResult;
+int    IntResult;
+
+int    SgStatus;
+int    IsNewHwNr;
+int    ProgTyp = 0;
+int    ProgOrder = 0;
+
+        OutputDebugString( 4090, ProcName);
+        CDHapiInit();                         // CDH-Initialisierung
+        CDHGetSgbdName(SgbdName, Status);     // SGBD-Name aus SGET
+        TestCDHFehler(Status);
+
+        CDHGetCabdWordPar("HWNR_IS_NEW", IsNewHwNr, Status);
+        TestCDHFehler(Status);
+        OutputDebugInt( 4097, "IsNewHwNr          ",IsNewHwNr);
+
+//**********************************************************************
+// Programmierstatus abfragen
+//**********************************************************************
+        CDHapiJob(SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+        TestApiFehler(COAPI_ECU_PROG_STATUS_ERROR, ProcName, 4103, SgbdName + ", FLASH_PROGRAMMIER_STATUS_LESEN");
+        CDHapiResultInt(SgStatus, "FLASH_PROGRAMMIER_STATUS", 1);
+        OutputDebugInt( 4105, "ProgrammierStatus  ",SgStatus);
+        if (SgStatus >= 0x80) SgStatus = 0x01; // Für Zulieferer reserviert - Interpretation wie 0x01
+
+        CDHSetCabdWordPar("SG_STATUS", SgStatus, Status);
+        CDHTestError(Status);
+
+//**********************************************************************
+// Festlegung Programm-, Datenprogrammierung, Reihenfolge
+//**********************************************************************
+
+        if ( ProgrammUndDaten == TRUE )
+        {
+                if( SgStatus == 0x05 || // Signaturpruefung PAF nicht durchgefuehrt
+                        SgStatus == 0x07 || // Programmprogrammiersitzung aktiv
+                        SgStatus == 0x0A || // Programmreferenzeintrag fehlerhaft
+                        SgStatus == 0x0B || // Referenzierungsfehler Hardware -> Programm
+                        SgStatus == 0x0C )  // Programm nicht vollstaendig
+                {
+                        ProgTyp = 3;          // Programm + Daten
+                        ProgOrder = 2;        // Programm zuerst
+                }
+
+                if( SgStatus == 0x00 || // Anlieferzustand
+                        SgStatus == 0x06 || // Signaturpruefung DAF nicht durchgefuehrt
+                        SgStatus == 0x08 || // Datenprogrammiersitzung aktiv
+                        SgStatus == 0x0D || // Datenreferenzeintrag fehlerhaft
+                        SgStatus == 0x0F )  // Daten nicht vollstaendig
+                {
+                        if( IsNewHwNr != 0 )
+                        {
+                                ProgTyp = 3;        // Programm + Daten
+                                ProgOrder = 1;      // Daten zuerst
+                        }
+                        else
+                        {
+                                ProgTyp = 1;        // nur Daten
+                                ProgOrder = 1;      // Daten zuerst
+                        }
+                }
+
+                if( SgStatus == 0x01 || // Normalbetrieb
+                        SgStatus == 0x0E )  // Referenzierungsfehler Programm -> Daten
+                {
+                        if( IsNewHwNr != 0 )
+                        {
+                                ProgTyp = 3;        // Programm + Daten
+                                ProgOrder = 2;      // Programm zuerst
+                        }
+                        else
+                        {
+                                ProgTyp = 1;        // nur Daten
+                                ProgOrder = 1;      // Daten zuerst
+                        }
+                }
+        }
+        else
+        {
+                ProgTyp = 2;            // nur Programm
+                ProgOrder = 2;          // Programm zuerst
+        }
+
+        CDHSetCabdWordPar("PROG_TYP", ProgTyp, Status);
+        TestCDHFehler(Status);
+        OutputDebugInt( 4168, "ProgTyp            ", ProgTyp);
+
+        CDHSetCabdWordPar("PROG_ORDER", ProgOrder, Status);
+        TestCDHFehler(Status);
+        OutputDebugInt( 4172, "ProgOrder          ", ProgOrder);
+
+        if ((ProgTyp == 0) || (ProgOrder == 0))
+        {
+                Status = COAPI_ECU_PROG_STATUS_ERROR;
+                SetCDHFehler(Status, ProcName, 4177, "PROG_TYP, PROG_ORDER ungültig");
+        }
+
+        CDHTestError(Status);
+        CDHSetReturnVal(Status);
+}
+
+//**********************************************************************
+//*
+//* Name      : cabimain
+//*
+//* Funktion  : Hauptfunktion des Scripts
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 03.12.2001 rj V2.10 Erweiterung um neue Prozessortypen
+//* 08.08.2002 pf V3.00 Nur 2 Moeglichkeiten als ProzessorTyp
+//**********************************************************************
+cabimain()
+{
+string ProcName = "cabimain";
+string JobName;
+int    Status = 0;
+
+        // Test ob Prozessortyp erlaubt
+        if ((ProzessorTyp != "Standard") && (ProzessorTyp != "HC12DG128"))
+        {
+                Status = COAPI_PROCESSOR_TYPE_ERROR;
+                SetCDHFehler(Status, ProcName, 4211, "ProzessorTyp = " + ProzessorTyp);
+        }
+
+        ModulName = SGFamilie; // Vorbelegung ModulName mit SgFamilie
+
+        OutputDebugString( 4216, ProcName);
+        CDHGetCabdPar("JOBNAME", JobName, Status);
+        TestCDHFehler(Status);
+
+                 if ( JobName == "JOB_ERMITTELN" )      Jobs();
+        else if ( JobName == "INFO" )               VersionInfo();
+        else if ( JobName == "SG_IDENT_LESEN" )     Ident();
+        else if ( JobName == "SG_AIF_LESEN" )       AifLesen();
+        else if ( JobName == "SG_AIF_SCHREIBEN" )   AifSchreiben();
+        else if ( JobName == "SG_STATUS_LESEN" )    FlashStatusLesen();
+        else if ( JobName == "SG_PROGRAMMIEREN" )   Programmieren();
+        else if ( JobName == "FEHLER_LOESCHEN" )    FehlerLoeschen();
+        else if ( JobName == "DATEN_REFERENZ" )     DatenReferenzLesen();
+        else if ( JobName == "HW_REFERENZ" )        HwReferenzLesen();
+        else if ( JobName == "ZIF" )                ZifLesen();
+        else if ( JobName == "ZIF_BACKUP" )         ZifBackupLesen();
+        else if ( JobName == "U_PROG_LESEN" )       UProgLesen();
+        else if ( JobName == "GET_DIAG_PROT" )      GetDiagProt();
+        else if ( JobName == "SET_DIAG_PROT" )      SetDiagProt();
+        else if ( JobName == "SET_ECU_ADDRESS" )    SetEcuAdr();
+        else if ( JobName == "SG_INNENTEMP_LESEN" ) Innentemp();
+        else if ( JobName == "SG_PHYS_HWNR_LESEN" ) PhysHwNrLesen();
+        else
+        {
+                Status = COAPI_CABD_PAR_ERROR;
+                SetCDHFehler(Status, ProcName, 4241, "JobName = " + JobName);
+        }
+        CDHSetReturnVal(Status);
+        exit();
+}
+
+//**********************************************************************
+//*
+//* Name      : cabiexit
+//*
+//* Funktion  : Exit-Funktion des Scripts
+//*
+//* Parameter : -
+//*
+//* Rueckgabe : -
+//*
+//**********************************************************************
+//* History   :
+//* 19.10.2000 rd V0.01 Ersterstellung
+//* 16.02.2001 rd V1.00 Freigabe
+//* 02.03.2005 MK V6.10 Überarbeitung der Fehlerbehandlung
+//**********************************************************************
+cabiexit()
+{
+string  ProcName = "cabiexit";
+string  SgbdName;
+int     Status = 0;
+int     i = 0;
+string  DiagProt = "NO_DIAG_PROT_SET";
+
+
+        // bei OPPS-MOST-Zugang wieder Default OPPS-Senderate einstellen
+        if (OppsMostAccess == TRUE)
+                ResetOppsMostParams();
+
+        OutputDebugString( 4276, ProcName);
+        if (ProgSuccess == FALSE)
+        {
+                //******************************************************************************
+                // hier keine Fehlerauswertung mehr, da Abbruchgrund sonst verschleiert wird !!!
+                //******************************************************************************
+                CDHGetSgbdName (SgbdName, Status);  // SGBD-Name aus SGET
+                if (TesterPresentHandlingFlag == TRUE)
+                {
+                        //**********************************************************************
+                        // Fahrzeugbusse wieder wecken
+                        // Timer loeschen
+                        // Tritt nur bei abgebrochener Programmierung auf
+                        //**********************************************************************
+                        StopTesterPresentHandling(ProcName, SgbdName);
+                }
+
+                // nach Abbruch nocheinmal Kommunikation zum SG prüfen
+                CDHapiJob (SgbdName, "FLASH_BLOCKLAENGE_LESEN",        "", "FLASH_BLOCKLAENGE_GESAMT");
+                CDHapiJob (SgbdName, "FLASH_PROGRAMMIER_STATUS_LESEN", "", "FLASH_PROGRAMMIER_STATUS");
+
+                if (DIREKT_MOST_PROG == TRUE)
+                {
+                        // Nach einem Abbruch lieber mochmal 2 min warten, bevor nächster Versuch gestartet wird
+                        CDHDelay(120*1000);
+                }
+                else
+                {
+                        // Nach einem Abbruch lieber mochmal 20 sec warten, bevor nächster Versuch gestartet wird
+                        CDHDelay(20*1000);
+                }
+        }
+
+        // Löschen der dynamischen Buffer
+        Status = 0;
+        i = 0;
+        while(Status == 0)
+        {
+                CDHBinBufDelete(i, Status);
+                i = i + 1;
+        }
+        CDHapiEnd();
+}
+
+// -- EOF --
+//*
+// -- EOF --

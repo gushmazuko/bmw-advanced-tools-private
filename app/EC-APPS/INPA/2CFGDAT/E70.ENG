@@ -1,0 +1,147 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E70.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 10.11.2004 GA V0.01 Erstellung
+//* 15.11.2004 GA V0.02 FOMO_70 in FOMO70 geändert
+//* 22.11.2004 GA V0.03 RSE_70 in RSE geändert
+//* 24.11.2004 GA V0.04 NAV_60, DXC_70 dazu
+//* 23.03.2005 GA V0.05 AMP60 durch AMPH70 ersetzt, AMPT70 dazu
+//* 04.04.2005 GA V0.06 MSV80 dazu
+//* 09.06.2005 GA V0.07 Amplifier an Anfang gesetzt, Text und Pos. von ULF geändert
+//* 27.06.2005 GA V0.08 AFS_70, ARS_60, EMF_70, EDCSHL, EDCSHR, EDCSVL, EDCSVR, RDC_60, VDM_70, VGSG90 dazu
+//* 16.08.2005 gr V0.09 FRM_87 removed
+//* 29.08.2005 GA V0.10 FLA_65 dazu
+//* 27.09.2005 gr V0.11 EHC_70 added
+//* 01.02.2006 sj V0.12 MSD80 dazu
+//* 28.03.2006 GA V0.13 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E70 V0.13
+ENTRY=     EXX,Functional Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=  D50M57,DDE 5.0  for M57 TU,
+ENTRY= DDE6M57,DDE 6    for M57TOP / M57TU2,
+ENTRY=,,
+ENTRY=   MSV70,MSV 70.0 for N52 (NG6),
+ENTRY=   MSV80,MSV 80.0 for N52KP (NG6),
+ENTRY=   MSD80,MSD 80.0 for N53 and N54,
+ENTRY= ME9_N62,ME 9     for N62,
+ENTRY= n63
+ENTRY=  VVT_14,Variable Valve Train Bank 1-4,
+ENTRY=  VVT_58,Variable Valve Train Bank 5-8,
+ENTRY=,,
+ENTRY=EKPM60_2,Fuel Pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+//ENTRY=    GS19,Gearbox Control Module GS19C,
+ENTRY=  VGSG90,Gearbox VGSG 4 Wheel,
+ENTRY=,,
+//ENTRY=    GS_70,Gear Lever,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= EHC_E65,1-Axle Air Suspension,
+ENTRY=  AFS_70,Active Front Steering,
+ENTRY=  ARS_70,Active Role Stability,
+ENTRY=,,
+ENTRY=  EDCSHL,Damper Control / Electronic front left,
+ENTRY=  EDCSHR,Damper Control / Electronic front right,
+ENTRY=  EDCSVL,Damper Control / Electronic rear left,
+ENTRY=  EDCSVR,Damper Control / Electronic rear right,
+ENTRY=,,
+ENTRY=  DXC_70,Dynamic Stability Control EHB_3 4 Wheel,
+ENTRY=,,
+ENTRY=  EHC_70,1-axle Air Suspension,
+ENTRY=  EMF_70,Parking Brake / Electromechanical,
+ENTRY=,,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+ENTRY=  VDM_70,Vertical Dynamic Management,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=    ACSM,Airbag,
+ENTRY=  FKA_70,Air Conditioning / Fond,
+ENTRY=  IHKA70,Air Conditioning / Control Panel,
+ENTRY=  FZD_70,Alarm System / DWA (in Function Center),
+ENTRY= SINE_65,Alarm System / DWA Sirens And Tilt Sensor,
+ENTRY=,,
+ENTRY=     CAS,Car Access System,
+ENTRY= ZBE_E87,Central Control Unit  ZBE,
+ENTRY=    CICR,NAVIGATION SYSTEM - in CIC,
+ENTRY=  FRM_70,Footwell Module Driver FRM_70,
+ENTRY=  FLA_65,Full beam assistent,
+ENTRY=,,
+ENTRY=  KOMB87,Instrument Cluster,
+ENTRY=  JBBF70,Junction Box Passenger,
+ENTRY=,,
+ENTRY= PDC_E87,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY=,,
+ENTRY=  FZD_70,Roof / Function Center (incl. DWA),
+//???ENTRY=  RLS_??,Rain And Light Sensor,
+ENTRY=  RFK_70,Rear Driving Camera System,
+ENTRY=,,
+ENTRY= AHM_E65,Trailer Module,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Seat Modules
+ENTRY= ALBV60F,Active Backrest Width Adjustment Driver,
+ENTRY= ALBV60B,Active Backrest Width Adjustment Passenger,
+ENTRY=,,
+ENTRY= FAS_PLX,Seat Module Driver,
+ENTRY= FAH_PLX,Seat Module Driver Rear,
+ENTRY= BFS_PLX,Seat Module Passenger,
+ENTRY= BFH_PLX,Seat Module Passenger Rear,
+
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY=  AMPH70,Amplifier / Hifi,
+ENTRY=  AMPT70,Amplifier / TopHifi,
+ENTRY=  ASK_60,Audio System Controller CCC,
+ENTRY=,,
+ENTRY= CDC_E65,Changer / Audio,
+ENTRY= MMC_E65,Changer / Multimedia,
+ENTRY=  CCCA60,Computer / CCC (Application),
+ENTRY=  CCC_60,Computer / Infotainment Computer,
+ENTRY=,,
+ENTRY=  HUD_70,Display / Head Up Display,
+ENTRY=  CID_70,Display / Central Information Display,
+ENTRY=  FOMO70,Display / Fondmonitor,
+ENTRY=,,
+ENTRY= ULF_60,Freespeach / And Loading Unit  ULF,
+ENTRY=,,
+ENTRY=  CCCG60,Gateway / MOST/CAN CCC,
+ENTRY=CHAMP_GW,Gateway / MOST/CAN (in CHAMP),
+ENTRY=MASK2_GW,Gateway / MOST/CAN MASK (in MASK2),
+ENTRY=,,
+ENTRY=     RSE,Infotainment Fond,
+ENTRY= KHI_E65,Headphone Interface,
+ENTRY=,,
+
+ENTRY=  MASK60,Radio / Analogue Radio,
+ENTRY=  DAB_60,Radio / Digital Radio Terrestrial DAB,
+ENTRY=  IBOC60,Radio / Hybrid Radio USA IBOC,
+ENTRY=,,
+ENTRY=  NAV_60,Navigation System (in MASK2),
+ENTRY=  JNAV60,Navigation System Japan,
+ENTRY=,,
+ENTRY= TEL_E65,Telefon,
+ENTRY=  ANT_60,Tuner / Aerial Tuner,
+ENTRY=  SAT_60,Tuner / Digital Satellite Radio USA,
+ENTRY=,,
+ENTRY= VID_E65,Video Modul,
+
+
+

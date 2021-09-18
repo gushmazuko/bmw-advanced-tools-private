@@ -1,0 +1,46 @@
+Results;SA_Code;Description
+BR;E90_;E89
+LACK;0A22;Sparkling Graphite Metallic 
+SA_1;1CA;Selection of COP relevant vehicles
+SA_2;205;Automatic transmission
+SA_3;240;Leather-steering wheel
+SA_4;249;Multifunction steering wheel
+SA_5;2BH;Light alloy wheels double-spoke style 156
+SA_6;354;Windscreen with green shade band
+SA_7;403;Glass roof, electrical
+SA_8;441;Smoker's package
+SA_9;494;Seat heating for driver and front passenger
+C_TYP;VB13;E90 Saloon N52B30 UL LHD US
+SA_10;497;Centre armrest in rear
+SA_11;4AB;Fine-wood trim burled walnut
+SA_12;520;Fog lights
+SA_13;521;Rain sensor
+SA_14;534;Automatic air conditioning
+SA_15;544;Cruise control with braking function
+SA_16;563;Lights package
+SA_17;5GA;Preparation for alarm system
+SA_18;640;Car-telephone preparation
+SA_19;645;Radio control US
+SA_20;663;Radio BMW Professional
+SA_21;676;HiFi loudspeaker system
+SA_22;693;Preparation for satellite tuner
+SA_23;694;Preparation for CD changer
+SA_24;818;Battery master switch
+SA_25;823;Hot-climate version
+SA_26;845;Acoustic seat-belt warning
+SA_27;850;Additional tank filling, export
+SA_28;853;Language version English
+SA_29;876;Radio frequency 315 MHz
+SA_30;925;Shipping protection package
+SA_31;992;Control of number-plate attachment
+SA_32;9AA;External skin protection
+C_DATE;0905;09.2005
+SA_ANZ;32;E89
+POLSTER;KASW;E89
+VERSION;02;E89
+E_WORT_1;B090;Battery 90 Ah, DO
+E_WORT_ANZ;1;E89
+JOB_STATUS;OKAY;E89
+ZUSBAU_ANZ;0;E89
+HO_WORT_ANZ;0;E89
+STANDARD_FA;E90_#0905*VB13%0A22&KASW$1CA$205$240$249$2BH$354$403$441$494$497$4AB$520$521$534$544$563$5GA$640$645$663$676$693$694$818$823$845$850$853$876$925$992$9AA-B090;E89

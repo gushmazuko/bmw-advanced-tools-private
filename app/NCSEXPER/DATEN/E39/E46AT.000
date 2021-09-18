@@ -1,0 +1,853 @@
+// Auftragsdatei: E46AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: x xxx xxx.5
+DATUM 26.01.2001
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-82   04.01.01  Léonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-62
+//   TI-433
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//          a           Datei neu erstellt                                                 04.01.01 Léonard
+//
+//
+//
+//
+DATEINAME                             E46AT.000
+//
+
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevanz)
+Z #0901                 PU01 MAERZ01 PU00 PU99 MAERZ99 PU98 FERNBED FAHRER_2_STUFIG   //Stand PU09_01
+>>>                     ASC_CI_03 IHKA_CI_02 LSZ_CI_27 PDC_CI_02 KMBI_CI_03 MRS3_CI_31 LSZ_CI_28 KMBI_CI_04
+>>>                     PDC_CI_03 GM5_CI_02 LSZ_CI_29 KMBI_CI_05 KMBI_CI_06 IHKA_CI_14 KMBI_CI_21
+//******************************************************************************
+//E: aktive Ergänzungszeilen (PUSY-Relevanz für Steuerung SA<100)
+E ZHZN  N0500           EL_ZUHEIZER                                  //NG-Motore siehe B E138.N
+E SBK   N0301           ENTFALL_SBK                                  //E46 Compact ohne SBK (E46/5+LL+BENZINER+!SA832)
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+//
+//******************************************************************************
+//K: Kundendienst-Ergänzungszeilen (keine PUSY-Relevanz)
+//*******************************************************************************
+K OHBA                  OHNE_BF_AIRBAG                                 //Deaktivierung Beifahrerairbag
+K OHFA                  OHNE_FA_AIRBAG                                 //Deaktivierung Fahrerairbag
+K MYDY                  MAYDAY                                         //Mayday-Modul US ab 06/2000 und rückwirkend
+//K OHSA                  OHNE_SE_AIRBAG                                 //Deaktivierung Seitenairbag vorn
+//K RA20                                                                 //20"-Räder als Sonderzubehör, codierrelevant?
+
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 100                                                                  //Nutzlasterhoehung
+W 103                                                                  //SA Ganzjahresreifen fuer Behoerde
+W 112                                                                  //Kontraststreifen leuchtrot RAL 3024
+W 112        =185       NOTARZT                                        //Kontraststreifen leuchtrot RAL 3024
+W 113                                                                  //Kontraststreifen minzgruen hell
+W 121                                                                  //VB fuer Unterbringung Anhaltekelle
+W 122                                                                  //VB fuer Unterbringung Schlagstoecke
+W 123                                                                  //Zusatz-Innenspiegel
+W 124                                                                  //Behoerdendachhhimmel
+W 130                                                                  //Waffenhalterung in Mittelarmlehne hinten
+W 145                                                                  //Alarmschalter mit Feuerwehrschaltung
+W 146                                                                  //zusaetzliche Energieversorgung
+W 155                                                                  //VB Montage TOP-4 fuer Handapparat
+W 168                                                                  //Abgasnorm EU2
+W 169                                                                  //Abgasnorm EU3
+W 178                                                                  //VB fuer Handfunkgeraete
+W 180                                                                  //VB bzw. Montage Dachantenne
+W 185                   OFFENE_AUSFUEHR                                //Einsatzfahrzeug offen
+W 186                                                                  //Einsatzfahrzeug getarnt
+W 199                   MILANSTEUERUNG                                 //Vorb. fuer bleihaltrigen Kraftstoff
+W 200                                                                  //Partikelfilter
+W 201                                                                  //Rapsmethylester (RME)-Ausfuehrung
+W 204                                                                  //Kuerzere Hinterachsuebersetzung
+W 204        =205+(EU31,EV91,EW91,EW51,EP71,EP91,EP31,EP51) KURZE_HA_UES   //M54B30 ECE Allrad Automatik
+W 205                   AUTOMATIK                                      //Automatic Getriebe
+W 206                   SEQ_GETRIEBE                                   //Sequentielles Getriebe
+W 210                   DSC3                                           //Dynamische Stab. Control III (DSCIII)
+W 210        =!(EU31,EU33,EV91,EW91,EW13,EW51,EP71,EP91,EP31,EP51,EM33)  DSC3 MK60  //Allradfzg. erhalten kein MK60
+W 213                                                                  //Hill Discent Control fuer E46/16
+W 225                                                                  //Entfall sportliche Fahrwerksabstimmung
+W 226                                                                  //Sportliche Fahrwerksabstimmung
+W 235                   ANH_KUPPLUNG                                   //Anhaengerkupplung, Kopf abnehmbar
+W 240                                                                  //Lederlenkrad mit Airbag
+W 249                   GESCHW_REG                                     //Multifunktion, ZWAKO entweder 240,255,709
+W 251                   RDW                                            //Reifendruckwarnung RDW ab 09/01
+W 255                                                                  //Sport-Lederlenkrad III mit Airbag
+W 256                   GESCHW_REG                                     //Sport-/MF-Lenkrad/Geschw.regelung
+W 257                   ENTF_S_AIRB_HI                                 //Entfall Seitenairbag hinten fuer US-Fahrzeuge
+W 259                   ENTF_SEITENAIRB                                //Entfall Seitenairbag Fa./Beifahrer
+W 261                   FOND_AIRBAG                                    //Seitenairbag fuer Fondpassagiere
+// Der SA 261 ist bei US-Fahrzeugen ab 06/00 die SA 257 zuzusteuern.
+W 262                   KOPF_AIRBAG                                    //Kopfairbag fuer Compact
+W 265                   RDKS                                           //Reifen Druck Control (RDC)
+W 273                                                                  //BMW LM Rad/Sternspeiche 43
+W 274                                                                  //BMW LM Rad/Doppelspeiche 53
+W 279                                                                  //BMW LM Rad/Sternspeiche 45
+W 286                                                                  //BMW LM Rad/Ellipsoidstyling 46
+W 288                                                                  //BMW LM Rad/Kreuzspeiche 42
+W 290                                                                  //BMW LM Rad/Sternspeiche 44
+W 293                                                                  //BMW LM Rad/V-Speiche 54
+W 295                                                                  //BMW LM Rad/Sternspeiche 96
+W 296                                                                  //BMW LM Rad/Classic
+W 298                                                                  //BMW LM Rad/Doppelspeiche 98 mit Sicherheitsbereifung
+// SA 298 Zwangskombination mit SA 265 RDKS oder SA 251 RDW
+W 302                   DWA FERNBED                                    //Alarmanlage mit Fernbedienung
+W 305                   FERNBED                                        //Fernbedienung fuer Zentralveriegelung
+W 313                   SPIEGELPAKET                                   //Aussenspiegelpaket
+W 315                                                                  //Heckscheibenwischer/beh.Waschduesen
+W 320                                                                  //Modellschriftzug Entfall
+W 321                                                                  //Tuergriffe in Wagenfarbe
+W 325                                                                  //M-Heckspoiler
+W 326                                                                  //Entfall Heckspoiler
+W 338                                                                  //M Sportpaket II
+W 340                                                                  //Stossleiste schwarz
+W 345                                                                  //Chrom-Line Interieur (Coupe,Cabrio)
+W 346                                                                  //Chrom-Line Exterieur
+W 347                                                                  //Titan-Line Exterieur
+W 351                                                                  //LM Gussrad 17" Sternsp.89
+W 354                                                                  //Gruenkeil Frontscheibe
+W 358                                                                  //Klimakomfort-Frontscheibe
+W 362                   AUSSTELLFENSTER                                //Ausstellfenster hinten elektrisch
+W 374                                                                  //BMW LM Rad/Radialspeiche 73
+W 375                                                                  //BMW LM Rad/Doppelspeiche 79
+W 377                                                                  //M Sportpaket
+W 380                   HARDTOP                                        //Hardtop- Vorbereitung
+W 386                                                                  //Dachreling
+W 387                                                                  //Windschott
+W 388                                                                  //Verdeck schwarz
+W 391                                                                  //Verdeck dunkelblau
+W 392                                                                  //Verdeck dunkelgruen
+W 399                   VERDECK_EL_AUT                                 //Vollautomatische Verdeckbetaetigung
+W 403                   GLAS_SHD                                       //Glas-Schiebe-Hebedach elektr.
+W 406                                                                  //Rolldach
+W 411                   FH_HINTEN                                      //Fensterheber,elektrisch vorn/hinten
+W 415                                                                  //Sonnenschutzrollo fuer Heckscheibe
+W 423                                                                  //Fussmatten in Velours
+W 426                                                                  //Aluminium Oberflaeche
+W 428                                                                  //Warndreieck und Verbandskasten
+W 431                                                                  //Innenspiegel, automatisch abblendend
+W 433                                                                  //Dekorleisten graphit
+W 434                                                                  //Sieblack Lackierung
+W 435                                                                  //Edelholzausfuehrung,Ahorn 97 hochglaenzend
+W 438                                                                  //Edelholzausfuehrung,Myrte hochglaenzend
+W 439                                                                  //Decorleisten mattchrom
+W 441                                                                  //Raucherpaket
+W 458                                                                  //Sitzverstellung elektr. Fahrer/Beif
+W 459                   SITZMEMORY                                     //Sitzverstellung elektr. Fahrer.Memory/Beif
+W 464                                                                  //Skisack
+W 465                                                                  //Durchladesystem
+W 467                                                                  //Taxi-Fondsitze in Stoff
+W 469                                                                  //Intgrierte Kindersitze im Fond
+W 470                                                                  //ISO fix fuer Ruecksitze
+W 473                                                                  //Armauflage vorn
+W 474                                                                  //Entfall Armauflage vorn
+W 481                                                                  //Sportsitze fuer Fahrer/Beifahrer
+W 488                                                                  //Lordosenstuetze Fahrer/Beifahrer
+W 490                                                                  //Sitzbreitenverstellung fuer M3
+W 493                                                                  //Ablagenpaket
+W 494                                                                  //Sitzheizung fuer Fahrer+Beifahrer
+W 495                                                                  //3 Pkt.-Gurt+Kopfstuetze hinten mitte
+W 498                                                                  //Kopfstuetzen im Fond
+W 502                   SWA                                            //Scheinwerfer-Waschanlage
+W 508                   PDC                                            //Park Distance Control (PDC)
+W 510                                                                  //Leuchtweitenregulierung Abblendlicht
+W 520                   NEBELSCHEINW                                   //Nebelscheinwerfer
+W 521                   REGENSENSOR                                    //Regensensor/Fahrlichtsteuerung
+W 522                   XENON                                          //Xenon-Licht
+W 524                                                                  //Lichtautomatik / Daemmerungsschalter f. Fahrlicht ab 9/01
+W 528                   AUC                                            //Automatische-Umluft-Control
+W 530                   KLIMAREGELUNG                                  //Klimaregelung
+W 534                   KLIMAAUTOMATIK AUC                             //Klimaautomatik incl. AUC
+W 548                   KM_TACHO                                       //Kilometertacho
+W 550                   BC_BASIS                                       //Bordcomputer
+W 577                                                                  //Mietwagenvorbereitung
+W 581                   TAXI                                           //Taxipaket
+W 602                   BORDMONITOR RADIO_NG                           //Bordmonitor mit TV
+W 606                   MIR LOW_NAVIGATION                             //MIR
+W 608                   NAVIGATION                                     //Navig. incl. Bordmonitor
+W 609                   NAVIGATION BORDMONITOR RADIO_NG                //Navigation + TV incl. Bordmonitor
+W 612                                                                  //BMW Assist
+W 620                                                                  //Sprachsteuerung (Telefon)
+W 630                   SIEMENS_GSM                                    //Telefonvorbereitung fuer Handy Siemens
+W 632                                                                  //Telefonvorbereitung fuer Handy Motorola
+W 640                                                                  //Vorbereitung fuer Autotelefoneinbau
+W 641                                                                  //AMPS Komplettvorb.
+W 645                   RADIO_US                                       //BMW US Radio
+W 650                                                                  //CD Laufwerk-Steuerung
+W 651                                                                  //MD Laufwerk-Steuerung
+W 660                                                                  //BMW Reverse C52 New Generation
+W 661                   RADIO_NG                                       //BMW Business C53New Generation
+W 663                   RADIO_NG                                       //BMW Professional CD54
+W 672                                                                  //CD Wechsler BMW 6 CD Changer
+W 674                                                                  //HiFi System Harman/Kardon
+W 676                                                                  //HIFI Lautsprechersystem
+W 679                                                                  //HIFI Subwoofersystem
+W 682                                                                  //Fondsitzbank in Stoff
+W 692                                                                  //Vorb. f. BMW 6 CD Changer I-Bus
+W 704                                                                  //Sportfahrwerk M
+W 709                                                                  //M Lederlenkrad
+W 710                   GESCHW_REG                                     //M Lederlenkrad mit Multifunktionstas.
+W 715                   SPORTPAKET                                     //Aerodynamikpaket M
+W 716                   SPORTPAKET_II                                  //Aerodynamikpaket M II
+W 753                                                                  //Youngline
+W 760                                                                  //Hochglanz Shadow Line
+W 761                                                                  //Individual Sonnenschutzverglasung
+W 771                                                                  //M Titan Line Interieur
+W 772                                                                  //M Aluminiumblenden anthrazit
+W 774                                                                  //Edelholz Eukalyptus
+W 775                                                                  //Individual Dachhimmel anthrazit
+W 778                                                                  //Individual Blende Einstiegshilfe
+W 785                                                                  //Weisse Blinkleuchten, rundum
+W 788                                                                  //LM-Gussraeder, Doppelspeiche, Styling 68M
+W 789                                                                  //BMW LM-Raeder mit Mischbereifung
+W 792                                                                  //LM-Schmiederad 19""
+W 793                   SEQ_M_GETRIEBE                                 //Sequentielles M-Getriebe
+W 800                                                                  //Abgasanlage komplett Laender
+W 801                                                                  //Auftragssteuerung ZD
+W 802                   KOREA                                          //Korea-Ausfuehrung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Korea LL
+// Zwangszusteuerung 875 Infrarotfernbedienung fuer Korea
+W 807                   JAPAN                                          //Japan-Ausfuehrung
+// Zwangszusteuerung 205 Automatikgetriebe ausser 318i
+// Zwangszusteuerung 548 KM/h Tacho fuer RL
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 845 Akustische Gurtwarnung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer LL
+// Zwangszusteuerung 875 Infrarotfernbedienung
+W 810                   AUSTRALIEN                                     //Australien-Ausfuehrung
+// Zwangszusteuerung 548 KM/h Tacho fuer Australien
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 825 Ozeanien-Radio
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz
+// Zwangszusteuerung 926 Reserverad wie Laufrad
+W 812                   ENGLAND                                        //England-Ausfuehrung
+// Zwangszusteuerung 877 Entfall Ueberkreuzbedienung fuer England
+W 815                                                                  //Schlechtwegepaket
+W 818                                                                  //Batteriehauptschalter
+W 820                                                                  //Brasilien-Ausfuehrung
+// Zwangszusteuerung 645 BMW US Radio fuer Brasilien
+// Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Brasilien
+W 821                                                                  //Aegypten-Ausfuehrung
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch
+W 822                   GOLF                                           //Golf-Ausfuehrung
+// Zwangszusteuerung 534 Klimaautomatik
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 845 Akustische Gurtwarnung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer LL
+W 823                   TROPEN                                         //Heissland-Ausfuehrung
+W 824                   ZA                                             //Suedafrika-Ausfuehrung
+// Zwangszusteuerung 548 KM/h Tacho fuer Suedafrika
+// Zwangszusteuerung 877 Entfall Ueberkreuzbedienung fuer Suedafrika
+W 825                   OZEANIEN                                       //Ozeanien-Radio
+W 832                   BATT_KOFFERRAUM                                //Batterie im Kofferraum
+W 833                                                                  //Singapur-Ausfuehrung
+// Zwangszusteuerung 875 Infrarotfernbedienung fuer Singapur bis 01/00
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz ab 01/99
+// Zwangszusteuerung 857 Vorb. f. nachtr. Einbau Klimaautomatik fuer Singapur
+W 834                   ENTF_FRANKREICH                                //Entfallumfaenge 330d Frankreich
+W 838                   KANADA                                         //Kanada-Ausfuehrung
+// Zwangszusteuerung 548 KM/h Tacho fuer Kanada ab MA99
+// Zwangszusteuerung 896 Tagfahrlicht fuer Kanada
+W 842                                                                  //Kaltland-Ausfuehrung
+W 843                                                                  //Motorauslegung
+W 845                   AK_GUWA                                        //Akustische Gurtwarnung
+W 846                                                                  //Taiwan-Ausfuehrung
+// Zwangszusteuerung 845 Akustische Gurtwarnung fuer Taiwan ab PU98
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz
+// Zwangszusteuerung 992 Steuerung Kennzeichenbefestigung ab 02/00 fuer AN31/AN51/AN55/AN91
+W 847                   SICH_FZG                                       //Vorbereitung f. Sicherheitsfahrzeug
+W 850                                                                  //Zusaetzl. Tankfuellung Export
+W 851                   DEUTSCH                                        //Amaturenbeschriftung deutsch
+W 853                   ENGLISCH                                       //Amaturenbeschriftung englisch
+W 854                   FRANZOESISCH                                   //Armaturenbeschriftung franzoesisch
+W 855                   ITALIENISCH                                    //Armaturenbeschriftung italienisch
+W 856                   SPANISCH                                       //Armaturenbeschriftung spanisch
+W 857                   KLIMAAUTOMATIK AUC                             //Vorb. Einbau Klimaautomatik incl. AUC
+W 858                                                                  //Motorauslegung fuer minderwertigen Kraftstoff
+W 861                                                                  //Aenderung Codierdatensatz (EOBD)
+W 863                                                                  //Europa/Haendlerverzeichnis
+W 864                                                                  //Uebersee/Haendlerverzeichnis
+W 875                   INFRAROT FERNBED                               //Infrarotfernbedienung
+W 876                   FERNBED                                        //Funkfrequenz 315 MHz
+W 877                   ENTF_UEBERKREUZ                                //Entfall ueberkreuzbedienung
+W 879                                                                  //Deutsch/Betriebsanl./Serviceheft
+W 880                                                                  //Englisch/Betriebsanl./Serviceheft
+W 881                                                                  //Franzoesisch/Betriebsanl./Serviceheft
+W 883                                                                  //Spanisch/Betriebsanl./Serviceheft
+W 884                                                                  //Italienisch/Betriebsanl./Serviceheft
+W 885                                                                  //Schwedisch/Betriebsanl./Serviceheft
+W 886                                                                  //Hollaendisch/Betriebsanl./Serviceheft
+W 887                                                                  //Arabisch/Betriebsanl./Serviceheft
+W 888                                                                  //Daenisch/Betriebsanl./Serviceheft
+W 889                                                                  //Portugiesich/Betriebsanl./Serviceheft
+W 896                   TAGFAHRLICHT                                   //Tagfahrlichtschaltung
+W 897                   DAUERTON                                       //Dauerton fuer DWA
+W 899                   ALARM_OPT_AL                                   //Optische Signalgebung fuer DWA
+W 901                                                                  //Sonderkontrolle allgemein
+W 902                                                                  //Sonderkontrolle Pressewagen
+W 903                                                                  //Sonderkontrolle Stand/Fotowagen
+W 904                                                                  //Sonderkontrolle Typpruefwagen
+W 905                                                                  //Sonderkontrolle Vorfuehrwagen
+W 906                                                                  //Sonderkontrolle Fotofahrz. b. Neuanl.
+W 910                                                                  //Entwicklungsfzg. o. Uebergabeinsp.
+W 911                                                                  //Entwicklungsfzg. m. Uebergabeinsp.
+W 915                                                                  //Entfall Aussenhautkonservierung
+W 916                                                                  //Entwicklungsfzg. ohne Konservierung
+W 920                   ALPINA                                         //Alpina
+W 920        =845+853+(EW51,EV51,EP51,EN51,BN51,BS51)  ALPINA JAPAN    //Alpina LA Japan fuer LL
+W 925                                                                  //Versandschutzpaket
+W 926                   ERSATZRAD                                      //Reserverad wie Laufrad
+W 927                                                                  //All Season Bereifung fuer Japan
+W 928                                                                  //Reifensteuerung
+W 931                                                                  //Winterreifen fuer Autovermieter
+W 932                                                                  //Winterreifen zusaetzlich
+W 933                                                                  //Radkappen fuer Winterraeder
+W 934                                                                  //Winterreifen auf LM-Raeder
+W 936                                                                  //BMW Handy bei Auslieferung anfordern
+W 937                                                                  //Navi CD Room bei Auslieferung anfordern
+W 938                                                                  //ZS Individualserie
+W 940                                                                  //Sonderwunsch-Ausstattung
+W 941                                                                  //Sonderwunschabwicklung
+W 942                                                                  //Storno Sonderwunsch
+W 944                                                                  //Nachtraegl. Umbau durch ZS
+W 945                                                                  //Beruecksichtigung Preisabhangigkeit
+W 946                                                                  //Beruecksichtigung Preisabhangigkeit
+W 948                                                                  //Kernmodellpaket V-1-KA
+W 950                                                                  //Lateinamerika-Paket
+W 951                                                                  //Korea-Paket
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Korea LL
+// Zwangszusteuerung 875 Infrarotfernbedienung fuer Korea
+W 952                                                                  //China-Paket
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer China LL
+W 953                                                                  //Taiwan-Paket
+// Zwangszusteuerung 845 Akustische Gurtwarnung fuer Taiwan ab PU98
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz
+// Zwangszusteuerung 992 Steuerung Kennzeichenbefestigung ab 02/00 fuer AN31/AN51/AN55/AN91
+W 954                                                                  //Businesspaket II fuer Grosskunden
+// Zwangszusteuerung 548 KM/h Tacho fuer Hongkong RL
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Hongkong
+W 955                                                                  //Business-Line Paket
+W 956                                                                  //Middle East-Paket
+W 957                                                                  //Hk-Paket
+W 960                                                                  //Lenkwinkelbegrenzung
+W 972                                                                  //Comfort Paket
+W 973                                                                  //Malaysia Paket
+// Zwangszusteuerung 548 KM/h Tacho fuer Malaysia RL
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+W 977                                                                  //Exclusiv Paket
+W 979                                                                  //Businesspaket fuer Grosskunden
+W 981                                                                  //Comfort plus Paket
+W 982                   HARDTOP                                        //Hardtop in Wagenfarbe
+W 983                                                                  //Modelljahrescode Export
+W 984                   SIA_INTERVALL                                  //Codierung Wartungsintervall auf 15.000 km
+W 986                                                                  //Terminpruefung
+W 987                                                                  //Existenzpruefung
+W 988                   SIA_INTERVALL2                                 //Codierung Wartungsintervall auf 11.000 km
+W 991                                                                  //Steuerung Vorserie
+W 992                                                                  //Steuerung Kennzeichenbefestigung
+W 993                                                                  //Modelljahrescode
+W 994                                                                  //Besondere Steuerung
+W 995                                                                  //Aenderungssperre
+W 997                                                                  //Haendlerpraesentation Export
+W 998                                                                  //Anlaufsteuerung interne Bedarfe
+W 999                                                                  //Auftragssteuerung HEA
+//                                                                    
+//******************************************************************************
+// ZUSAMMENFASSUNG ALLER TYPSCHLÜSSEL
+//*******************************************************************************
+// E46 Compact
+//--------------------------------------------------------------------------------------------
+W AT11                  E46 COMP N40B16 LL                             //Compact 316i      LL 03/02 - 12/07 f. Griechenland u. Portugal
+W AT11       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AT31                  E46 COMP M54B25 LL NEBELSCHEINW KLIMAREGELUNG  //Compact 323i      LL 04/01 - 12/07
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W AT32                  E46 COMP M54B25 RL NEBELSCHEINW KLIMAREGELUNG  //Compact 323i      RL 04/01 - 12/07
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W AT51                  E46 COMP N42B18 LL                             //Compact 316i      LL 04/01 - 12/07
+W AT51       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AT52                  E46 COMP N42B18 RL                             //Compact 316i      RL 04/01 - 12/07
+W AT52       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AT71                  E46 COMP M47D20 KW_105 LL                      //Compact 320d TUE  LL 09/01 - 12/07
+W AT71       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AT72                  E46 COMP M47D20 KW_105 RL                      //Compact 320d TUE  RL 09/01 - 12/07
+W AT72       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AU33                  E46 COMP M56B25 LL US KLIMAREGELUNG            //Compact 323i      LL 09/02 -
+//--------------------------------------------------------------------------------------------
+W AU51                  E46 COMP N42B20 LL                             //Compact 318i      LL 09/01
+W AU51       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AU52                  E46 COMP N42B20 RL                             //Compact 318i      RL 09/01
+W AU52       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AU91                  E46 COMP N44B20 LL                             //Compact 318ti     LL 03/02 - 12/07
+W AU91       =530,534   GEREGELT_KOMPR
+//********************************************************************************************
+// E46 Limousine
+//********************************************************************************************
+W ER11                  E46 LIM M43B19 KW_77 LL                        //Limousine 316i    LL 09/01 - 02/02
+W ER11       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W ER12                  E46 LIM M43B19 KW_77 RL                        //Limousine 316i    RL 09/01 - 02/02
+W ER12       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W ER18                  E46 LIM M43B19 KW_77 LL VIETNAM                //Limousine 316i    LL 09/01 - 02/02 Vietnam
+W ER18       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AL31                  E46 LIM M43B19 KW_87 LL                        //Limousine 318i    LL 12/97 - 02/02
+W AL31       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AL32                  E46 LIM M43B19 KW_87 RL                        //Limousine 318i    RL 04/98 - 02/02
+W AL32       =530,534   GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AL34                  E46 LIM M43B19 KW_87 RL MALAYSIA               //Limousine 318i    RL 05/99 - 08/01 Malaysia
+W AL34       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+//--------------------------------------------------------------------------------------------
+W AL35                  E46 LIM M43B19 KW_87 RL THAILAND               //Limousine 318i    RL 02/00 - 08/01 Thailand
+W AL35       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Thailand
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Thailand
+//--------------------------------------------------------------------------------------------
+W AL36                  E46 LIM M43B19 KW_87 LL AEGYPTEN               //Limousine 318i    LL 09/98 - 08/01 Aegypten
+W AL36       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch
+//--------------------------------------------------------------------------------------------
+W AL37                  E46 LIM M43B19 KW_87 RL INDONESIEN             //Limousine 318i    RL 09/98 - 08/01 Indonesien
+W AL37       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+//--------------------------------------------------------------------------------------------
+W AL39                  E46 LIM M43B19 KW_87 LL PHILIPPINEN            //Limousine 318i    LL 09/98 - 08/01 Philippinen
+W AL39       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+//--------------------------------------------------------------------------------------------
+W AS71                  E46 LIM M47D20 KW_105 LL KLIMAREGELUNG         //Limousine 320d TUE LL 09/01 - 11/04
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AS72                  E46 LIM M47D20 KW_105 RL KLIMAREGELUNG         //Limousine 320d TUE RL 09/01 - 02/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AY11                  E46 LIM N40B16 LL KLIMAREGELUNG GEREGELT_KOMPR //Limousine 316i    LL 03/02 - 03/05 f. Griechenland u. Portugal
+//--------------------------------------------------------------------------------------------
+W AY15                  E46 LIM N40B16 LL PHILIPPINEN KLIMAREGELUNG    //Limousine 316i    LL 06/02 - 05/05 Philippinien
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+//--------------------------------------------------------------------------------------------
+W AY31                  E46 LIM N42B18 LL KLIMAREGELUNG GEREGELT_KOMPR //Limousine 316i    LL 03/02 - 11/04
+//--------------------------------------------------------------------------------------------
+W AY32                  E46 LIM N42B18 RL KLIMAREGELUNG GEREGELT_KOMPR //Limousine 316i    RL 03/02 - 02/05
+//--------------------------------------------------------------------------------------------
+W AY71                  E46 LIM N42B20 LL KLIMAREGELUNG GEREGELT_KOMPR //Limousine 318i    LL 09/01 - 11/04
+//--------------------------------------------------------------------------------------------
+W AY72                  E46 LIM N42B20 RL KLIMAREGELUNG GEREGELT_KOMPR //Limousine 318i    RL 09/01 - 03/05
+//--------------------------------------------------------------------------------------------
+W AY74                  E46 LIM N42B20 RL MALAYSIA KLIMAREGELUNG       //Limousine 318i    RL 12/01 - 03/05 Malaysia
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+//--------------------------------------------------------------------------------------------
+W AY75                  E46 LIM N42B20 RL THAILAND KLIMAREGELUNG       //Limousine 318i    RL 12/01 - 03/05 Thailand
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Thailand
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Thailand
+//--------------------------------------------------------------------------------------------
+W AY76                  E46 LIM N42B20 LL AEGYPTEN KLIMAREGELUNG       //Limousine 318i    LL 12/01 - 03/05 Aegypten
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 823 Heissland-Ausfuehrung
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch
+//--------------------------------------------------------------------------------------------
+W AY77                  E46 LIM N42B20 RL INDONESIEN KLIMAREGELUNG     //Limousine 318i    RL 12/01 - 03/05 Indonesien
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+//--------------------------------------------------------------------------------------------
+W AY78                  E46 LIM N42B20 LL VIETNAM KLIMAREGELUNG        //Limousine 318i    LL 12/01 - 03/05 Vietnam
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Vietnam
+//--------------------------------------------------------------------------------------------
+W AY79                  E46 LIM N42B20 LL PHILIPPINEN KLIMAREGELUNG    //Limousine 318i    LL 12/01 - 03/05 Philippinien
+>>>                     GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+//--------------------------------------------------------------------------------------------
+W AY98                  E46 LIM N42B20 LL KLIMAREGELUNG                //Limousine 318i    LL 11/01 - 11/04 Russland
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AZ12                  E46 LIM M47D20 KW_105 RL KLIMAREGELUNG         //Limousine 320d TUE RL 10/01 - 03/05 ZAF
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AZ33                  E46 LIM M56B25 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 330i    US 09/02 -
+W AZ33       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W AZ53                  E46 LIM M56B30 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 330i    US 09/02
+>>>                     BC_BASIS
+W AZ53       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W ER51                  E46 LIM M43B19 KW_77 LL                        //Limousine 316i    LL 09/01 - 12/01 nur Griechenland, Portugal
+W ER51       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Griechenland
+//--------------------------------------------------------------------------------------------
+W ER55                  E46 LIM M43B19 KW_77 LL PHILIPPINEN            //Limousine 316i    LL 09/01 - 02/02 Philippinen
+W ER55       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+//--------------------------------------------------------------------------------------------
+W ER91                  E46 LIM M57D30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330d    LL 09/01 - 11/04
+>>>                     FH_HINTEN BC_BASIS                     
+W ER91       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W ER92                  E46 LIM M57D30 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330d    RL 09/01 - 02/05
+>>>                     FH_HINTEN BC_BASIS
+W ER92       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W ES11                  E46 LIM M52B20 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    LL 09/01 - 02/02
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ES35                  E46 LIM M52B25 RL THAILAND NEBELSCHEINW        //Limousine 323i    RL 09/01 - 12/05 Thailand
+>>>                     KLIMAREGELUNG BC_BASIS
+// Zwangszusteuerung 548 KM/h Tacho fuer Thailand
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Thailand
+//--------------------------------------------------------------------------------------------
+W ET11                  E46 LIM M52B20 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    LL 09/01 - 02/02 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET12                  E46 LIM M52B20 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    RL 09/01 - 02/02 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET15                  E46 LIM M54B22 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    RL 09/01 - 03/05 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET16                  E46 LIM M54B22 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    RL 09/01 - 03/05 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET35                  E46 LIM M54B25 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 325i    LL 09/01 - 03/05 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET36                  E46 LIM M54B25 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 325i    RL 09/01 - 03/05 ZAF
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W ET37                  E46 LIM M54B25 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 325i    US 09/01 - 03/05 ZAF
+//--------------------------------------------------------------------------------------------
+W ET55                  E46 LIM M54B30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330i    LL 09/01 - 03/05 ZAF
+>>>                     FH_HINTEN BC_BASIS
+W ET55       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W ET56                  E46 LIM M54B30 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330i    RL 09/01 - 03/05 ZAF
+>>>                     FH_HINTEN BC_BASIS
+W ET56       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EU31                  E46 LIM M54B25 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 325xi   LL 09/01 - 11/04
+>>>                     BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EU33                  E46 LIM M54B25 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 325xi   US 09/01 - 03/05
+>>>                     ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EU51                  E46 LIM M47D20 KW_85 LL KLIMAREGELUNG          //Limousine 320d    LL 09/01 - 03/03
+//--------------------------------------------------------------------------------------------
+W EU91                  E46 LIM M57D30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330d TUE LL 03/03 - 03/05
+>>>                     FH_HINTEN BC_BASIS
+W EU91       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EU92                  E46 LIM M57D30 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330d TUE RL 03/03 - 03/05
+>>>                     FH_HINTEN BC_BASIS
+W EU92       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EV91                  E46 LIM M57D30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330xd LL 09/01 - 02/03
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EW91                  E46 LIM M57D30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330xd TUE LL 03/03 - 03/05
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EV11                  E46 LIM M54B22 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    LL 09/01 - 11/04
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EV12                  E46 LIM M54B22 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    RL 09/01 - 11/04
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EV13                  E46 LIM M54B22 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 320i    LL 09/01 - 11/04
+//--------------------------------------------------------------------------------------------
+W EV18                  E46 LIM M54B22 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 320i    LL 09/01 - 11/04 Russland
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EV31                  E46 LIM M54B25 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 325i    LL 09/01 - 11/04
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EV32                  E46 LIM M54B25 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 325i    RL 09/01 - 02/05
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EV33                  E46 LIM M54B25 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 325i    US 09/01 - 03/05
+//--------------------------------------------------------------------------------------------
+W EV35                  E46 LIM M54B25 RL MALAYSIA NEBELSCHEINW        //Limousine 325i    RL 09/01 - 11/05 Malaysia
+>>>                     BC_BASIS
+// Zwangszusteuerung 548 KM/h Tacho fuer Malaysia
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Malaysia
+//--------------------------------------------------------------------------------------------
+W EV36                  E46 LIM M54B25 RL INDONESIEN NEBELSCHEINW      //Limousine 325i    RL 09/01 - 12/05 Indonesien
+>>>                     KLIMAREGELUNG BC_BASIS
+// Zwangszusteuerung 548 KM/h Tacho fuer Indonesien
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Indonesien
+//--------------------------------------------------------------------------------------------
+W EV37                  E46 LIM M54B25 LL PHILIPPINEN NEBELSCHEINW     //Limousine 325i    LL 09/01 - 12/05 Philippinen
+>>>                     KLIMAREGELUNG BC_BASIS
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Philpinien
+//--------------------------------------------------------------------------------------------
+W EV38                  E46 LIM M54B25 LL VIETNAM NEBELSCHEINW         //Limousine 325i    LL 09/01 - 12/05 Vietnam
+>>>                     KLIMAREGELUNG BC_BASIS
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Vietnam
+//--------------------------------------------------------------------------------------------
+W EV39                  E46 LIM M54B25 LL MEXICO NEBELSCHEINW          //Limousine 325i LL 09/01 - 12/05 Mexico
+>>>                     KLIMAREGELUNG BC_BASIS
+// Zwangszusteuerung 645 BMW US Radio fuer Mexico
+// Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+//--------------------------------------------------------------------------------------------
+W EV51                  E46 LIM M54B30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330i    LL 09/01 - 11/04
+>>>                     FH_HINTEN BC_BASIS
+W EV51       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EV52                  E46 LIM M54B30 RL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330i    RL 09/01 - 02/05
+>>>                     FH_HINTEN BC_BASIS
+W EV52       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EV53                  E46 LIM M54B30 LL US KLIMAREGELUNG FH_HINTEN   //Limousine 330i    US 09/01 - 03/05
+>>>                     BC_BASIS
+W EV53       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EV59                  E46 LIM M54B30 LL MEXICO NEBELSCHEINW          //Limousine 330i LL 09/01 - 12/05 Mexico
+>>>                     KLIMAREGELUNG FH_HINTEN BC_BASIS
+W EV59       =210       LENK_I_50
+// Zwangszusteuerung 645 BMW US Radio fuer Mexico
+// Zwangszusteuerung 856 Armaturenbeschriftung spanisch fuer Mexico
+// Zwangszusteuerung 876 Funkfrequenz 315 MHz fuer Mexico
+//--------------------------------------------------------------------------------------------
+W EW13                  E46 LIM M56B30 LL US NEBELSCHEINW KLIMAREGELUNG   //Limousine 330xi    LL 09/01 - 11/04
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EW51                  E46 LIM M54B30 LL NEBELSCHEINW KLIMAREGELUNG   //Limousine 330xi   LL 09/01 - 11/04
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//********************************************************************************************
+// Touring
+//********************************************************************************************
+W EL51                  E46 TOUR M47D20 KW_85 LL KLIMAREGELUNG         //Touring 320d      LL 09/01 - 02/03
+//--------------------------------------------------------------------------------------------
+W AP71                  E46 TOUR M47D20 KW_105 LL KLIMAREGELUNG        //Touring 320d TUE  LL 09/01 - 05/06
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AP72                  E46 TOUR M47D20 KW_105 RL KLIMAREGELUNG        //Touring 320d TUE  LL 09/01 - 05/06
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W EL91                  E46 TOUR M57D30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330d      LL 09/01 - 05/06
+>>>                     FH_HINTEN BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EP71                  E46 TOUR M57D30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330xd     LL 09/01 - 02/03
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EP91                  E46 TOUR M57D30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330xd TUE LL 03/03 - 06/05
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EL91                  E46 TOUR M57D30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330d      LL 09/01 - 02/03
+>>>                     FH_HINTEN BC_BASIS
+W EL91       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EL92                  E46 TOUR M57D30 RL NEBELSCHEINW KLIMAREGELUNG  //Touring 330d      RL 09/01 - 02/03
+>>>                     FH_HINTEN BC_BASIS
+W EL92       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EM91                  E46 TOUR M57D30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330d TUE  LL 03/03 - 03/05
+>>>                     FH_HINTEN BC_BASIS
+W EM91       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EM92                  E46 TOUR M57D30 RL NEBELSCHEINW KLIMAREGELUNG  //Touring 330d TUE  RL 03/03 - 03/05
+>>>                     FH_HINTEN BC_BASIS
+W EM92       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EM11                  E46 TOUR M52B20 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 320i      LL 09/01 - 02/02
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EN11                  E46 TOUR M54B22 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 320i      LL 09/01 - 05/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EN12                  E46 TOUR M54B22 RL NEBELSCHEINW KLIMAREGELUNG  //Touring 320i      RL 09/01 - 05/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EN31                  E46 TOUR M54B25 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 325i      LL 09/01 - 05/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+
+W EN32                  E46 TOUR M54B25 RL NEBELSCHEINW KLIMAREGELUNG  //Touring 325i      RL 09/01 - 05/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W EN33                  E46 TOUR M54B25 LL US KLIMAREGELUNG FH_HINTEN  //Touring 325i      US 09/01 - 05/06
+>>>                     GLAS_SHD
+//--------------------------------------------------------------------------------------------
+W EN51                  E46 TOUR M54B30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330i      LL 09/01 - 05/06
+>>>                     FH_HINTEN BC_BASIS
+W EN51       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EN52                  E46 TOUR M54B30 RL NEBELSCHEINW KLIMAREGELUNG  //Touring 330i      RL 09/01 - 05/06
+>>>                     FH_HINTEN BC_BASIS
+W EN52       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W EM33                  E46 TOUR M56B25 LL US KLIMAREGELUNG FH_HINTEN  //Touring 325xi     US 09/02 - 
+>>>                     ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EP31                  E46 TOUR M54B25 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 325xi     LL 09/01 - 05/06
+>>>                     BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W EP51                  E46 TOUR M54B30 LL NEBELSCHEINW KLIMAREGELUNG  //Touring 330i      LL 09/01 - 05/06
+>>>                     FH_HINTEN BC_BASIS ALLRAD DSC3
+//--------------------------------------------------------------------------------------------
+W AX13                  E46 TOUR M56B25 LL US KLIMAREGELUNG FH_HINTEN  //Touring 325i      US 09/02 -
+//--------------------------------------------------------------------------------------------
+W AX31                  E46 TOUR N42B18 LL KLIMAREGELUNG               //Touring 316i      LL 03/02 - 06/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AX32                  E46 TOUR N42B18 RL KLIMAREGELUNG               //Touring 316i      RL 03/02 - 06/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AX51                  E46 TOUR N42B20 LL KLIMAREGELUNG               //Touring 318i      LL 09/01 - 05/06
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W AX52                  E46 TOUR N42B20 RL KLIMAREGELUNG               //Touring 318i      RL 09/01 - 05/06
+>>>                     GEREGELT_KOMPR
+//********************************************************************************************
+// Coupe
+//********************************************************************************************
+W BL51                  E46 COUP M43B19 KW_77 LL                       //Coupe 316ci       LL 12/99 - 12/01 nur Griechenland, Portugal
+W BL51       =530,534   GEREGELT_KOMPR
+// Zwangszusteuerung 853 Amaturenbeschriftung englisch fuer Griechenland
+//--------------------------------------------------------------------------------------------
+W BL91                  E46 COUP S54B32 LL NEBELSCHEINW GESCHW_REG     //Coupe M3          LL 07/00 - 11/05
+>>>                     KLIMAAUTOMATIK AUC BC_BASIS DSC3 SITZMEMORY
+//--------------------------------------------------------------------------------------------
+W BL92                  E46 COUP S54B32  RL NEBELSCHEINW GESCHW_REG    //Coupe M3          RL 11/00 - 02/06
+>>>                     KLIMAAUTOMATIK AUC BC_BASIS DSC3 SITZMEMORY
+//--------------------------------------------------------------------------------------------
+W BL93                  E46 COUP S54B32 LL US NEBELSCHEINW GESCHW_REG  //Coupe M3          US 09/00 - 11/05
+>>>                     KLIMAREGELUNG BC_BASIS DSC3
+//--------------------------------------------------------------------------------------------
+W BM11                  E46 COUP M52B20 LL NEBELSCHEINW BC_BASIS       //Coupe 320ci       LL 06/99 - 02/02
+//--------------------------------------------------------------------------------------------
+W BM71                  E46 COUP N40B16 LL KLIMAREGELUNG               //Coupe 316ci       LL 03/02 - 11/05 f. Griechenland u. Portugal
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W BN11                  E46 COUP M54B22 LL NEBELSCHEINW KLIMAREGELUNG  //Coupe 320ci       LL 09/00 - 11/04
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BN12                  E46 COUP M54B22 RL NEBELSCHEINW KLIMAREGELUNG  //Coupe 320ci       RL 09/00 - 11/04
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BN31                  E46 COUP M54B25 LL NEBELSCHEINW KLIMAREGELUNG  //Coupe 325ci       LL 09/00 - 11/05
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BN32                  E46 COUP M54B25 RL NEBELSCHEINW KLIMAREGELUNG  //Coupe 325ci       RL 09/00 - 02/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BN33                  E46 COUP M54B25 LL US KLIMAREGELUNG            //Coupe 325ci       US 09/00 - 03/06
+//--------------------------------------------------------------------------------------------
+W BN51                  E46 COUP M54B30 LL NEBELSCHEINW KLIMAREGELUNG  //Coupe 330ci       LL 06/00 - 11/05
+>>>                     BC_BASIS
+W BN51       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W BN52                  E46 COUP M54B30 RL NEBELSCHEINW KLIMAREGELUNG  //Coupe 330ci       RL 06/00 - 02/06
+>>>                     BC_BASIS
+W BN52       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W BN53                  E46 COUP M54B30 LL US NEBELSCHEINW             //Coupe 330ci       US 06/00 - 03/06
+>>>                     KLIMAREGELUNG BC_BASIS
+W BN53       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W BN73                  E46 COUP M56B25 LL US KLIMAREGELUNG BC_BASIS   //Coupe 325ci       US 09/02 -
+//--------------------------------------------------------------------------------------------
+W BN93                  E46 COUP M56B30 LL US NEBELSCHEINW             //Coupe 330ci       US 09/02 -
+>>>                     KLIMAREGELUNG BC_BASIS
+W BN93       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W BV71                  E46 COUP N42B20 LL KLIMAREGELUNG               //Coupe 318ci       LL 09/01 - 11/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W BV72                  E46 COUP N42B20 RL KLIMAREGELUNG               //Coupe 318ci       RL 09/01 - 02/06
+>>>                     GEREGELT_KOMPR
+//********************************************************************************************
+// Cabrio     basierend auf FZG.-Beschreibung Ausgabe 1 vom 14.08.96
+//********************************************************************************************
+W BP71                  E46 CABR N42B20 LL KLIMAREGELUNG FH_HINTEN     //Cabrio 318ci      LL 09/01 - 08/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W BP72                  E46 CABR N42B20 RL KLIMAREGELUNG FH_HINTEN     //Cabrio 318ci      RL 09/01 - 08/05
+>>>                     GEREGELT_KOMPR
+//--------------------------------------------------------------------------------------------
+W BR91                  E46 CABR S54B32 LL NEBELSCHEINW GESCHW_REG     //Cabrio M3         LL 01/01 - 11/06
+>>>                     KLIMAAUTOMATIK AUC FH_HINTEN SITZMEMORY BC_BASIS DSC3 VERDECK_EL_AUT
+//--------------------------------------------------------------------------------------------
+W BR92                  E46 CABR S54B32 RL NEBELSCHEINW GESCHW_REG     //Cabrio M3         RL 04/01 - 11/06
+>>>                     KLIMAAUTOMATIK AUC FH_HINTEN SITZMEMORY BC_BASIS DSC3 VERDECK_EL_AUT
+//--------------------------------------------------------------------------------------------
+W BR93                  E46 CABR S54B32 LL US NEBELSCHEINW GESCHW_REG  //Cabrio M3         US 01/01 - 11/06
+>>>                     KLIMAREGELUNG FH_HINTEN SITZMEMORY BC_BASIS DSC3 VERDECK_EL_AUT
+//--------------------------------------------------------------------------------------------
+W BS11                  E46 CABR M54B22 LL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 320ci      LL 09/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BS12                  E46 CABR M54B22 RL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 320ci      RL 09/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BS31                  E46 CABR M54B25 LL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 325ci      LL 09/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS
+//-----------------------------------------------------------------------------------
+W BS32                  E46 CABR M54B25 RL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 325ci      RL 09/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BS33                  E46 CABR M54B25 LL US KLIMAREGELUNG FH_HINTEN  //Cabrio 323ci      US 09/00 - 11/06
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BS51                  E46 CABR M54B30 LL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 330ci      LL 06/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS VERDECK_EL_AUT
+W BS51       =210       LENK_I_50
+//-----------------------------------------------------------------------------------
+W BS52                  E46 CABR M54B30 RL NEBELSCHEINW KLIMAREGELUNG  //Cabrio 330ci      RL 06/00 - 11/06
+>>>                     FH_HINTEN BC_BASIS VERDECK_EL_AUT
+W BS52       =210       LENK_I_50
+//-----------------------------------------------------------------------------------
+W BS53                  E46 CABR M54B30 LL US NEBELSCHEINW             //Cabrio 330ci      US 06/00 - 11/06
+>>>                     KLIMAREGELUNG FH_HINTEN BC_BASIS VERDECK_EL_AUT
+W BS53       =210       LENK_I_50
+//--------------------------------------------------------------------------------------------
+W BS73                  E46 CABR M56B25 LL US KLIMAREGELUNG FH_HINTEN  //Cabrio 325ci      US 09/02 -
+>>>                     BC_BASIS
+//--------------------------------------------------------------------------------------------
+W BS93                  E46 CABR M56B30 LL US KLIMAREGELUNG FH_HINTEN  //Cabrio 330ci      US 09/02 -
+>>>                     BC_BASIS VERDECK_EL_AUT
+W BS93       =210       LENK_I_50

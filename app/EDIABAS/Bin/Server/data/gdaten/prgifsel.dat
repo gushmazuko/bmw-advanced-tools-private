@@ -1,0 +1,38 @@
+; Allgemeine Konfigurationsinfo Deutsch
+; general configuration information english
+; station identifier (e.g.: plant-running number-station name-ip1.1)
+ID 1.1-0003-progstatline03-123.123.123.123
+;Beispielzeile
+;SG ECU      Interface Hardware       Information        Protokoll     Paramater1                    P2       P3 P4 r  r
+SG EK924    -         -              -                  KWP2000*      -                             -        -  -  -  -
+SG EKB924   -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG EK927    -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG EK928    -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG MDS450   -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG MDS451   -         -              -                  KWP2000*      -                             -        -  -  -  -
+SG DDE504   -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG DDE506   -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG DDE51    -         -              -                  KWP2000*      -                             -        -  -  -  -
+SG SKV10    -         -              -                  KWP2000*      -                             -        -  -  -  -
+;SG SKV20    -         -              -                  KWP2000*      -                             -        -  -  -  -
+SG EPS85    -         -              -                  DS2           -                             -        -  -  -  -
+SG SBSL85    -        -              -                  KWP2000*      -                             -        -  -  -  -
+SG SBSR85    -        -              -                  KWP2000*      -                             -        -  -  -  -
+SG SIM85     -        -              -                  KWP2000*      -                             -        -  -  -  -	
+; 
+; Motorrad
+;
+SG MBMSK1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG MBMSK2    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG MBMSK7    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XABS1     -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XIABS1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XIABS2    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XDWA1     -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XKOMB1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XKOMB2    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XKOMB3    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XZFEB1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XZFEL1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XZFEH1    -         -              -                  KWP2000       -                             -        -  -  -  -
+SG XRBT1     -         -              -                  KWP2000       -                             -        -  -  -  -

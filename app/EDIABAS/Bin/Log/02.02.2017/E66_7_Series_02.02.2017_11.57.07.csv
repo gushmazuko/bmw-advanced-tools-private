@@ -1,0 +1,57 @@
+Results;SA_Code;Description
+BR;E66_;E65
+LACK;0668;Schwarz II 
+SA_1;202;Steptronic
+SA_2;216;Servotronic
+SA_3;245;Steering wheel column adjustment, electrical
+SA_4;248;Steering-wheel heating
+SA_5;268;Light alloy wheels with mixed tyres Star-spoke style 95
+SA_6;302;Alarm system
+SA_7;316;Automatic operation of tailgate
+SA_8;319;Integrated universal remote control
+SA_9;323;Soft-Close function for doors
+C_TYP;GN63;E66 N62B44 LHD US
+SA_10;358;Climate comfort windscreen
+SA_11;403;Glass roof, electrical
+SA_12;415;Roller sunblind for rear window
+SA_13;416;Roller sunblinds
+SA_14;423;Floor mats in velour
+SA_15;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_16;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_17;438;Fine-wood trim
+SA_18;441;Smoker's package
+SA_19;442;Cupholder
+SA_20;453;Active seat ventilation, front
+SA_21;455;Active seat for driver and front passenger
+SA_22;456;Comfort seats front, electrically adjustable
+SA_23;470;Child seat ISOFIX attachment
+SA_24;488;Lumbar support for driver and front passenger
+SA_25;494;Seat heating for driver and front passenger
+SA_26;496;Seat heating for rear seats
+SA_27;502;Headlight washer system
+SA_28;521;Rain sensor
+SA_29;522;Xenon Light
+SA_30;534;Automatic air conditioning
+SA_31;609;Navigation system Professional
+SA_32;620;Voice control
+SA_33;645;Radio control US
+SA_34;650;CD player
+SA_35;672;CD changer for 6 CDs
+SA_36;677;HiFi system Professional
+SA_37;691;CD holder
+SA_38;785;White direction indicator lights
+SA_39;845;Acoustic seat-belt warning
+SA_40;850;Additional tank filling, export
+SA_41;853;Language version English
+SA_42;925;Shipping protection package
+SA_43;992;Control of number-plate attachment
+C_DATE;0103;01.2003
+SA_ANZ;43;E65
+POLSTER;U6SW;E65
+VERSION;02;E65
+E_WORT_1;LEDE;Leather equipment
+E_WORT_ANZ;1;E65
+JOB_STATUS;OKAY;E65
+ZUSBAU_ANZ;0;E65
+HO_WORT_ANZ;0;E65
+STANDARD_FA;E66_#0103*GN63%0668&U6SW$202$216$245$248$268$302$316$319$323$358$403$415$416$423$430$431$438$441$442$453$455$456$470$488$494$496$502$521$522$534$609$620$645$650$672$677$691$785$845$850$853$925$992-LEDE;E65

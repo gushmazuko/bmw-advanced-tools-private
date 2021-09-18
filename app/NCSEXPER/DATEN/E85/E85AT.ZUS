@@ -1,0 +1,86 @@
+// Auftragsdatei: E85AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 918 364.5
+DATUM 01.09.2008
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-62   01.10.03  Klaus Leonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-82
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+// E6911.P  a           Datei neu erstellt                                                 19.03.01 Rochal
+//
+DATEINAME                             E85AT.ZUS
+//
+Z #1007                                           //Massnahmen zum Oktober 2007 
+Z #0408                                           //Massnahmen zum April 2008 
+Z #1008                                           //Massnahmen zum Oktober 2008 
+A #0101                                           //PPP-Stand 01.2001 
+A #0102                                           //PTO-Stand 01.2002 
+A #0202                                           //Vorserie 1, 02.2002 
+A #0502                                           //Vorserie 2, 05.2002 
+A #0602                                           //Anlauf - Serie, 06.2002 
+A #0902                                           //Serie, 09.2002 
+A #0303                                           //Massnahmen zum 03.2003 
+A #1003                                           //Massnahmen zum Oktober 2003 
+A #0404                                           //Massnahmen zum April 2004 
+A #1004                                           //Massnahmen zum Oktober 2004 
+A #0405                                           //Massnahmen zum April 2005 
+A #1005                                           //Massnahmen zum Oktober 2005 
+A #0106                                           //Massnahmen zum Facelift 01/2006 
+A #0406                                           //Massnahmen zum April 04/2006 
+A #1006                                           //Massnahmen zum Oktober 2006 
+A #1206                                           //Qualitäts Massnahmen zum Dezember 2006 
+A #0407                                           //Massnahmen zum April 2007 
+A #1007                                           //Massnahmen zum Oktober 2007 
+A #0408                                           //Massnahmen zum April 2008 
+A #1008                                           //Massnahmen zum Oktober 2008 
+E EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+E IRSD                                            //Short range radar disabled for ECE types 
+E L633                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box im Werk 
+E MEKS                                            //Vorhalt für Umstellung auf die neue Einklemmschutz SW im GM5 ab 15.01.2007 
+H EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H BFDY                                            //Brakeforcedisplay im Entwicklungsmodus, nur ECE! 
+H STVX                                            //BEG61.R invalid: STVR/L will not be coded in ECE-types 
+H ECRA                                            //ECE variant coding of US press vehicles 
+H IRSD                                            //Short range radar disabled for ECE types 
+H L633                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box im Werk 
+H MEKS                                            //Vorhalt für Umstellung auf die neue Einklemmschutz SW im GM5 ab 15.01.2007 
+H TAK6                                            //TCU Audiokorrektur E86, Projektnr.: 000000??? 
+K OI01                                            //Deaktivierung Fahrerairbag 
+K OI02                                            //Deaktivierung Beifahrerairbag 
+K OI03                                            //Deaktivierung Sidebag vorn links 
+K OI04                                            //Deaktivierung Sidebag vorn rechts 
+K OI09                                            //Deaktivierung Knieschutz vorn links 
+K OI10                                            //Deaktivierung Knieschutz vorn rechts 
+K OI11                                            //Deaktivierung FAHRER SEATBELTREMINDER 
+K OI12                                            //Deaktivierung BEIFAHRER SEATBELTREMINDER 
+K WHKL                                            //Nachrüstung Weisse Heckleuchten 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_IBUS US 
+K TEL3                                            //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge 
+K TEPR                                            //Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US 
+K K633                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K 633L                                            //Nachruestung Handy Bluetooth fuer TCU_IBUS-Stg US ohne Eject-Box 
+K HELF                                            //Nachruestung Facelift Heckleuchten E85 
+K HWFL                                            //Nachruestung Facelift Hauptscheinwerfer E85 
+K NSWA                                            //Deaktivierung NSW wenn FL an (Gesetzesanforderung Pennsylvania/USA) 
+K TAK6                                            //TCU Audiokorrektur E86, Projektnr.: 000000??? 

@@ -1,0 +1,1698 @@
+I ck
+U 20001016125333
+V E36ZST.000
+; In der ZST mÅssen zwingend Auftragsssteuerworte, welche die
+; SteuergerÑte definieren vergeben werden.
+;
+;******************************************************************************
+; ZUSAMMENFASSUNG ALLER SA- und VN-CODIERBITS UND AUFTRAGSSCHLöSSELWORTE
+;*******************************************************************************
+; 0877   V0395 00000000 0000000000000001 0000000000 1 ENTF_UEBERKREUZ
+; 0399   N0695 00000000 0000000000000002 0000000000 1 VERDECK_EL_AUT
+;              00000000 0000000000000004 0000000000 1 EG_2 M51D25WA3 mit EG2
+; H 0401 V0993 00000000 0000000000000010 0000000000 1 SHD
+; H 0410 V0993 00000000 0000000000000010 0000000000 1 ZVM
+; 0410         00000000 0000000000000010 0000000000 1 FH_VORN
+; H 0458 V0191 00000000 0000000000000010 0000000000 1 ZVM
+; H 0488 V0191 00000000 0000000000000010 0000000000 1 ZVM
+; H 0494 V0191 00000000 0000000000000010 0000000000 1 ZVM
+; H 0564 V0191 00000000 0000000000000010 0000000000 1 ZVM
+; 0214         00000000 0000000000000040 0000000000 1 ASC
+; 0300         00000000 0000000000000080 0000000000 1 ZV
+; 0301         00000000 0000000000000100 0000000000 1 DWA
+; H 0303 V0293 00000000 0000000000000200 0000000000 1 DWA INNENRAUMSCHUTZ NEIGUNGSGEBER
+; 0314         00000000 0000000000000400 0000000000 1 TUERSCHL_HEIZ
+; 0530         00000000 0000000000000800 0000000000 1 KLIMAREGELUNG
+; 0550         00000000 0000000000001000 0000000000 1 BC_BASIS
+; 0554         00000000 0000000000001000 0000000000 1 BC
+; H 0210 V0291 00000000 0000000000002000 0000000000 1 ZVM
+; 0210         00000000 0000000000002000 0000000000 0
+; 0302         00000000 0000000000004000 0000000802 1 DWA FERNBED
+; 0542         00000000 0000000000008000 0000000000 1 CHECK_CONTROL
+; H ONG  N0990 00000000 0000000000010000 0000000000 1 INNENRAUMSCH_ZA
+; 0822         00002200 0000000000020000 0000000000 1 GOLF
+; 0845         00000000 0000000000020000 0000000000 1 AK_GUWA
+; 0528         00000000 0000000000080000 0000000000 1 AUC
+; 0306         00000000 0000000000200000 0000000800 1 FERNBED
+; 0398         00000000 0000000000400000 0000000000 1 VERDECK_EL
+; 0395         00000000 0000000000800000 0000000000 1 UEBERROLLSCUTZ
+; 0209 N0997   00000000 0000000002000000 0000000000 1 SPERRDIFF (W75) //Lamellen-Sperdifferential 25%
+; 0401         00000000 0000000001000000 0000000000 1 SHD
+; 0403         00000000 0000000001000000 0000000000 1 SHD
+; 0411         00000000 0000000004000000 0000000000 1 FH_HINTEN
+; H 0537 V0993 00000000 0000000000001000 0000000000 1 BC
+; 0537         00000000 0000000008000000 0000000000 1 STANDLUEFTUNG
+; 0536         00000000 0000000010000000 0000000000 1 STANDHEIZUNG
+; 0210         00000000 0000000020000000 0000000000 1 DSC3          //DSC nur Z3, Z3/2 ohne HP! Bedingt ITT_DSC,LWS5 und ersetzt dann MK20 (¸ber SGET)
+; 0243         00000000 0000002000000000 0000000000 1 AIRBAG_BF
+; H MK60 N1099 00000000 0000000200000000 0000000000 1 MK60
+; H MY01 N1199 00000000 0000000400000000 0000000000 1 PU00
+; E ALEA N0600 00000000 0000000800000000 0000000000 1 KUNSTLEDER
+; E LEAT N0600 00000000 0000004000000000 0000000000 1 LEDER
+; E 0481 N0600 00000000 0000008000000000 0000000000 1 SPORTSITZ
+; E 0494 N0600 00000000 0000040000000000 0000000000 1 SITZHEIZUNG
+; 0540         00000000 0000020000000000 0000000000 1 GESCHW_REG
+; 0534         00000000 0000080000000000 0000000000 1 KLIMAAUTOMATIK
+; 0240         00000000 0000400000000000 0000000000 1 AIRBAG_F
+; 0242         00000000 0000400000000000 0000000000 1 AIRBAG_F
+; 0710         00000000 0000400000000000 0000000000 1 AIRBAG_F
+; 0899         00000000 0002000000000000 0000000000 1 ALARM_OPT_AL
+; xxxx         00000000 8000000000000000 0000000000 1
+; 0260         00000000 0000000000000008 0000000000 1 SEITENAIRBAG  //Seitenairbag fÅr Fahrer und Beifahrer
+; 1240         00000000 0000001000000000 0000000000 1 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag in der HO
+; 1243         00000000 0000010000000000 0000000000 1 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag in der HO
+; 1260         00000000 0000000100000000 0000000000 1 ENTF_SEITENAIRBAG //Deaktivierung Seitenairbag in der HO
+; H DWAH V0393 00000000 0000000000000000 0000000001 1             //DWA High SteuergerÑt
+;                                        0000000002   ZKE
+;                                                10   Kombi Redesign
+;                                               400   SA 550
+;                                               800   SA 302,305,306
+;                                              6000   ZAE
+;                                             10000   SA 900
+; H EWS  N0195 00000000 0000000000000000 0000040800 1 EWS           //mit Elektr. Wegfahrsperre
+;                                            400000   PYRO
+;                                            800000   ZAE2
+;                                           1000000   EWS2
+;                                           2000000   FIS
+; E ZA22 N0996 00000000 0000000000000000 0004000000 1 ZAE2_CI_05  //ZAE2 CI 5 (wird im Ersatzfall aut. umgeschlÅsselt!) Ab Pyrotechn. Gurtstraffer Serie!
+; H PU96 N0996 00000000 0000000000000000 0008000000 1 PU96        //US-MAN Start-lock Åber EWS auf AUT
+;              00000000 0000000000000000 0010000000 1 ROADSTER    //
+;              00000000 0000000000000000 0020000000 1 AUT         //Automatikgetriebe Roadster
+;              00000000 0000000000000000 0040000000 1 EWS_CAN     //leider vˆllig sinnlos verschwendet....
+; H GR23 N0397 00000000 0000000000000000 0080000000 1 GR2_CI_05   //FGR2 CI 05 ab 3/97 (wird im Ersatzfall aut. umgeschlÅsselt!)
+; H ERL3 N0197 00000000 0000000000000000 0100000000 1 ERL_CI03    //ERL_CI03 TNR 1 164 899 ohne blauen Punkt bei der Steckerleiste
+; H PU97 N0997 00000000 0000000000000000 0200000000 1 PU97        //MJ98: Entfall CVM bei öRS ohne el.Verdeck
+; H BCL2 N0197 00000000 0000000000000000 0400000000 1 BCL_CI_02   //UhrBC mit Codierindex 02 Nr. 8 377 996.0
+; H KMB2 N0397 00000000 0000000000000000 0800000000 1 KMB_CI_02   //Can-Kombi
+; H MK20 N0197 00000000 0000000000000000 0000000040 1             //war mal: ASC MK20EI/DSC mit CD 02 Bit bleibt, bis es eng wird, da unsicher, ob FZGe beim Kunden.
+; E MK03 N1097 00000000 0000000000000000 0000000080 1 ASC_CI_03 //ASC MK20EI/DSC mit CI 03: 1 164 896
+; E PU98 N0998 00000000 0000000000000000 1000000000 1 PU98         //EWS3D,
+; E MRZ9 N0399 00000000 0000000000000000 2000000000 1 MAERZ99      //MÑrz 99: herauslîsen km-Tacho aus Kanada, MRS3D
+; E PU99 N0199 00000000 0000000000000000 4000000000 1 PU99         //PU99: DSCIII Bremsfl¸ssigkeit inv. (synchron ab KBB-ƒnderung Entfall Auffanglˆsung mit EF-Relais)
+; E SBE2 N0199 00000000 0000000000000000 8000000000 S SBE2         //wurde verwendet f¸r SBE2-Fzge
+; E KMBC N0199 00000000 0000000080000000 0000000000
+;                                            1FED36
+; offene SA-Bits        11111----------- ----------
+; und VN- Bits          222-2----------- ----------
+;                       4444------------ ----------
+;                       -8888----------- ----------        Mit  31.05.99
+; E ALEA N0600 00000000 0000000800000000 0000000000 S KUNSTLEDER        //wurde verwendet f¸r SBE2-Fzge
+; E LEAT N0600 00000000 0000004000000000 0000000000 S LEDER  (W75)      //wurde verwendet f¸r SBE2-Fzge
+; E 0481 N0600 00000000 0000008000000000 0000000000 S SPORTSITZ (W75)   //wurde verwendet f¸r SBE2-Fzge
+; E 0494 N0600 00000000 0000040000000000 0000000000 S SITZHEIZUNG (W75) //wurde verwendet f¸r SBE2-Fzge
+; öbersicht zu TypschlÅssel-GM:
+;              10       belegt
+;              11       belegt
+;              12       belegt von ZA Exporttypen CP...
+;              13       belegt
+;              14       belegt
+;              15       belegt
+;              16       belegt
+;              17       belegt
+;              18       belegt
+;              19       frei
+;              1A       frei
+;              1B       frei
+;              1C       belegt
+;              1D       belegt
+;              1E0      belegt ROA5
+;              1E1      belegt ROA3
+;              1E3      belegt ROA3
+;              1E4      belegt ROA3
+;              1E5      belegt ROA3
+;              1E6      belegt ROA3
+;              1E7      belegt ROA3
+;              1E8      belegt ROA3
+;              1E9      belegt ROA3
+;              1EA      belegt ROA3 M54B22 CN11/2
+;              1EB      belegt ROA3 M54B25 CN33
+;              1EC      belegt ROA3 M54B30 CN51/2/3
+;              1ED      belegt ROA5 M54B30 CK71/73
+;              1EE      belegt ROA5
+;              1EF      belegt ROA5
+;              1F       frei
+;
+B SALA        //Neue Bereichskennung fÅr ZEKO!!
+; Tabstops:  ^14                                51^ ^53    ^60(Bemerkung ohne SW)
+;*******************************************************************************
+;
+0100         00000000 0000000000000000 0000000000 0               //Nutzlasterhîhung
+0103         00000000 0000000000000000 0000000000 0               //Aggregate-Unterschutz
+0104         00000000 0000000000000000 0000000000 0               //Rammschutz vorn
+0107         00000000 0000000000000000 0000000000 0               //Vorbereitung elektron. Fahrtenschreiber
+0110         00000000 0000000000000000 0000000000 0               //Vorbereitung fÅr Montage Notarzttransparent
+0112         00000000 0000000000000000 0000000000 0               //Kontraststreifen Leuchtrot RAL 3024
+0113         00000000 0000000000000000 0000000000 0               //Kontraststreifen MinzgrÅn-hell (Polizei Bayern)
+0114         00000000 0000000000000000 0000000000 0               //Beklebung Polizei Norddeutschland
+0115         00000000 0000000000000000 0000000000 0               //Beklebung Feuerwehr Nordrheinwestfahlen)
+0119         00000000 0000000000000000 0000000000 0               //Elektrik Zusatzmodul
+0120         00000000 0000000000000000 0000000000 0               //Basisausstattung
+0121         00000000 0000000000000000 0000000000 0               //Vorb.f.Unterbriegel
+0122         00000000 0000000000000000 0000000000 0               //Behîrde
+0123         00000000 0000000000000000 0000000000 0               //Tandem-Innenspiegel
+0124         00000000 0000000000000000 0000000000 0               //Behîrden-Himmel
+0125         00000000 0000000000000000 0000000000 0               //Behîrden-Innenausstattung offen
+0126         00000000 0000000000000000 0000000000 0               //Behîrden-Innenausstattung getarnt
+0129         00000000 0000000000000000 0000000000 0               //Waffenhalterung im Dach vorne
+0130         00000000 0000000000000000 0000000000 0               //Waffenhalterung in Mittelarmlehne hinten
+0139         00000000 0000000000000000 0000000000 0               //RKLE blau
+0141         00000000 0000000000000000 0000000000 0               //Tonfolgesignalanlage
+0142         00000000 0000000000000000 0000000000 0               //2 RKLE blau
+0143         00000000 0000000000000000 0000000000 0               //Alarmschalter mit Polizeischaltung
+0145         00000000 0000000000000000 0000000000 0               //Alarmschalter mit Feuerwehrschaltung
+0146         00000000 0000000000000000 0000000000 0               //zusÑtzliche Energieversorgung
+0147         00000000 0000000000000000 0000000000 0               //Abnehmbare RKLE blau
+0149         00000000 0000000000000000 0000000000 0               //Doppelblitzleuchte abnehmbar
+0150         00000000 0000000000000000 0000000000 0               //Vorbereitung Montage RTK 4 SL mit Handapparat
+0151         00000000 0000000000000000 0000000000 0               //Montage RTK 6 mit Handapparat
+0155         00000000 0000000000000000 0000000000 0               //TOP 4 mit Handapparat
+0159         00000000 0000000000000000 0000000000 0               //Montage Aerodynic-Anlage
+0160         00000000 0000000000000000 0000000000 0               //Montage Becker Signalanlage
+0166         00000000 0000000000000000 0000000000 0               //Vb Montage Anhaltesignal Hutablage
+0168         00000000 0000000000000000 0000000000 0               //Abgasnorm EU2
+0169         00000000 0000000000000000 0000000000 0               //Katalysator fÅr Diesel
+0172         00000000 0000000000000000 0000000000 0               //Vorbereitung Fu 7b
+0173         00000000 0000000000000000 0000000000 0               //Individualserie Californnia Edition
+0174         00000000 0000000000000000 0000000000 0               //Vorbereitung FuG mit Handapparat auf Instrument
+0176         00000000 0000000000000000 0000000000 0               //FunkgerÑt abgesetzt
+0180         00000000 0000000000000000 0000000000 0               //Vorbereitung fÅr Montage Dachantenne
+0181         00000000 0000000000000000 0000000000 0               //Komplettmontage Dachantenne
+0185         00000000 0000000000000000 0000000000 0               //offene AusfÅhrung E36/3
+0186         00000000 0000000000000000 0000000000 0               //getarnte AusfÅhrung E36/3
+0191         00000000 0000000000000000 0000000000 0               //Individualserie Mehrwertstrategie
+0199         00000000 0000000000000000 0000000000 0               //Konventionelle Abgastechnik
+0203         00000000 0000000000000000 0000000000 0               //LÑngere HinterachsÅbersetzung f. Touring
+0204         00000000 0000000000000000 0000000000 0               //KÅrzere HinterachsÅbersetzung
+0205         00000000 0000000000000000 0030000000 1 AUTOMATIK     //Automatikgetriebe Roadster
+H 0209 V0997 00000000 0000000000000000 0000000000 0               //Lamellen-Sperdifferential 25%
+0209         00000000 0000000002000000 0000000000 1 SPERRDIFF       //Lamellen-Sperdifferential 25% ab PU97 nur noch Z3
+; ZVM in SGERM
+H 0210 V0191 00000000 0000000000002000 0000000000 1 ZVM           //Anti-Blockier-System (ABS)
+H 0210 V0798 00000000 0000000000000000 0000000000 0               //Anti-Blockier-System (ABS)
+;wurde mit E DSC3 N0499 gesteuert:
+0210         00000000 0000000020000000 0000000000 1 DSC3          //DSC nur Z3, Z3/2 ohne HP! Bedingt ITT_DSC,LWS5 und ersetzt dann MK20 (¸ber SGET)
+0212         00000000 0000000000000000 0000000000 0               //Entfall Anti-Blockier-System (ABS), nur 316i/318i
+; ASC_T in SGERM
+0214         00000000 0000000000000040 0000000000 1 ASC           //ASC+T
+0215         00000000 0000000000000000 0000000000 0               //Servolenkung drehzahlabh. geregelt
+0218         00000000 0000000000000000 0000000000 0               //Sportlenkrad neu
+0230         00000000 0000000000000000 0000000000 0               //Sportfahrwerk mit Tieferlegung
+0235         00000000 0000000000000000 0000000000 0               //AnhÑngerkupplung, Kopf abnehmbar
+; Airbag in SGERM
+H 0240 V0993 00000000 0000000000000000 0000000000 0               //Lederlenkrad mit Airbag
+0240         00000000 0000400000000000 0000000000 1 AIRBAG_F      //Lederlenkrad mit Airbag
+; Airbag in SGERM
+H 0242 V0993 00000000 0000000000000000 0000000000 0               //Fahrerairbag mit Serienkranz(PUR)
+0242         00000000 0000400000000000 0000000000 1 AIRBAG_F      //Fahrerairbag mit Serienkranz(PUR)
+H 0243 V0993 00000000 0000000000000000 0000000000 0               //Airbag fÅr Beifahrer
+0243         00000000 0000002000000000 0000000000 1 AIRBAG_BF     //Airbag fÅr Beifahrer
+1240         00000000 0000001000000000 0000000000 1 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag in der HO
+1243         00000000 0000010000000000 0000000000 1 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag in der HO
+0244         00000000 0000000000000000 0000000000 0               //LenksÑulenverst. mech. f. Touring
+0246         00000000 0000000000000000 0000000000 0               //Lenkradhîhenverstellung manuell
+0247         00000000 0000000000000000 0000000000 0               //Lenkradaxialverstellung
+0249         00000000 0000000000000000 0000000000 0               //Multifunktion (Lenkrad)
+;Airbag in SGERM 255 wird codierrelevant
+H 0255 V0994 00000000 0000000000000000 0000000000 0               //Sport-Lederlenkrad II mit Airbag
+0255         00000000 0000400000000000 0000000000 1               //E38 Design-Lenkrad
+0260         00000000 0000000000000008 0000000000 1 SEITENAIRBAG  //Seitenairbag fÅr Fahrer und Beifahrer
+1260         00000000 0000000100000000 0000000000 1 ENTF_SEITENAIRB   //Deaktivierung Seitenairbag in der HO
+0263         00000000 0000000000000000 0000000000 0               //Alugussrad
+0264         00000000 0000000000000000 0000000000 0               //Alugussrad
+0268         00000000 0000000000000000 0000000000 0               //BMW-LM Raeder mit Mischbereifung
+0269         00000000 0000000000000000 0000000000 0               //BMW-LM Rad Radialspeichenstyling
+0270         00000000 0000000000000000 0000000000 0               //BMW-Stahlfelgen 6,5Jx15 mit 205/60 R 15
+0271         00000000 0000000000000000 0000000000 0               //LM- RÑder (Styl.36) 7Jx15 205/60 R
+0272         00000000 0000000000000000 0000000000 0               //LM- RÑder (Styl.35) 7Jx16 225/50 R
+0273         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad/Sternspeichenstyling
+0275         00000000 0000000000000000 0000000000 0               //LM- RÑder Z Star Chrom (Styl.35) 7Jx16 225/50 R fÅr E36/7
+0276         00000000 0000000000000000 0000000000 0               //LM- RÑder (Styl.18) 7,5Jx17 225/45 R fÅr E36/7
+0277         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad/Doppelspeichenstyl. 7Jx16 mit 225/50 R 16
+0278         00000000 0000000000000000 0000000000 0               //BMW LM Rad Styling 78
+0281         00000000 0000000000000000 0000000000 0               //BMW LM Rad Verchromt 7Jx16 mit 225/50 R 16 Styl. 18
+0282         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad/Sportspeichenstyl.II 7Jx15 mit 205/60 R 16
+0283         00000000 0000000000000000 0000000000 0               //BMW LM LBS-Rad/BMW-Styling 7Jx15 mit 205/60 R 15
+0285         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad/BMW-Styling 7Jx15 mit 205/60 R 15
+0286         00000000 0000000000000000 0000000000 0               //LM-Rad 7 Jx15 mit Reifen 205/60R15 (Styl. 6)
+0287         00000000 0000000000000000 0000000000 0               //LM-Rad 7 Jx15 mit Reifen 205/60R15 (Styl. 13)
+0288         00000000 0000000000000000 0000000000 0               //LM-Rad Kreuzspeiche
+0290         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad Sportlicheres Design
+0292         00000000 0000000000000000 0000000000 0               //BMW LM Gu·rad/BMW-Styling 7Jx15 mit 205/60 R 15
+0296         00000000 0000000000000000 0000000000 0               //BMW LM Schmiederad/Classic 7Jx16 mit 225/50 R 16
+0297         00000000 0000000000000000 0000000000 0               //BMW LM Rad Streamline
+0299         00000000 0000000000000000 0000000000 0               //LM- RÑder (Styl.18) 7,5Jx17 225/45 R vorn, 8,5Jx17 245/40 R hinten fÅr E36/7
+0300         00000000 0000000000000080 0000000000 1 ZV            //Zentralverriegelung m. Diebstahlsich
+;Integration Innenraumschutz Åber GVN ab 0393
+H 0301 V0195 00000000 0000000000000100 0000000000 1 DWA           //Diebstahlwarnanlage
+0301         00000000 0000000000000100 0000000000 S               //Diebstahlwarnanlage
+H 0302 V0194 00000000 0000000000000000 0000000000 S               //Diebstahlwarnanlage/Fernbedienung
+0302         00000000 0000000000004000 0000000800 1 DWA FERNBED   //Diebstahlwarnanlage/Fernbedienung
+H 0303 V0393 00000000 0000000000000200 0000000000 1 INNENRAUMSCHUTZ //Innenraumschutz/Neigungsalarmgeber
+0303         00000000 0000000000000200 0000000000 0               //Innenraumschutz/Neigungsalarmgeber
+0305         00000000 0000000000200000 0000000800 1 FERNBED       //FunkschlÅssel  3
+H 0306 V0692 00000000 0000000000000000 0000000000 0               //Fernbedienung fÅr Zentralverriegel
+H 0306 V0993 00000000 0000000000200000 0000000000 1 FERNBED       //Fernbedienung fÅr Zentralverriegel
+0306         00000000 0000000000200000 0000000800 1 FERNBED       //Fernbedienung fÅr Zentralverriegel
+0314         00000000 0000000000000400 0000000000 1 TUERSCHL_HEIZ //Au·enspiegel(ab PU96 SE)/Fahrerschl.,Waschd.beheizt.
+0315         00000000 0000000000000000 0000000000 0               //Heckscheibenw., beh. Spiegel (ab PU96 SE), Schlo·, Waschd.
+0320         00000000 0000000000000000 0000000000 0               //Entfall Modellschriftzug
+0322         00000000 0000000000000000 0000000000 0               //Entfall Chromleisten hinten
+0325         00000000 0000000000000000 0000000000 0               //HeckflÅgel
+0336         00000000 0000000000000000 0000000000 0               //Technik Sportpaket
+0337         00000000 0000000000000000 0000000000 0               //M Technik Sportpaket
+0340         00000000 0000000000000000 0000000000 0               //Sto·fÑnger in Wagenfarbe
+0341         00000000 0000000000000000 0000000000 0               //Sto·fÑnger kompl. in Wagenfarbe
+0343         00000000 0000000000000000 0000000000 0               //Techn. OberflÑche Chrom matt
+0344         00000000 0000000000000000 0000000000 0               //Alu Line
+0345         00000000 0000000000000000 0000000000 0               //Chrompaket
+0346         00000000 0000000000000000 0000000000 0               //Chrom-Line Exterieur
+0354         00000000 0000000000000000 0000000000 0               //Frontscheibe GrÅn mit GrÅnkeil
+0355         00000000 0000000000000000 0000000000 0               //Klare Frontscheibe mit GrÅnkeil
+0362         00000000 0000000000000000 0000000000 0               //elektrisches Ausstellfenster hinten
+0363         00000000 0000000000000000 0000000000 0               //17 Zoll LM Raeder
+; VERDECK_EL in SGERM
+0376         00000000 0000000000000000 0000000000 S               //EM-Verdeck dunkelbraun
+0377         00000000 0000000000000000 0000000000 S               //EM-Verdeck dunkelblau
+0380         00000000 0000000000000000 0000000000 0               //Vorbereitung Hardtop
+0385         00000000 0000000000000000 0000000000 0               //DachtrÑger-LÑngsschienen
+0386         00000000 0000000000000000 0000000000 0               //Dachreyling f. Touring
+0388         00000000 0000000000000000 0000000000 0               //Stoffverdeck schwarz
+0389         00000000 0000000000000000 0000000000 0               //Stoffverdeck titangrau
+0390         00000000 0000000000000000 0000000000 0               //Stoffverdeck grenadinrot
+0391         00000000 0000000000000000 0000000000 0               //Stoffverdeck mauve
+0392         00000000 0000000000000000 0000000000 0               //Stoffverdeck dunkelgrÅn
+0393         00000000 0000000000000000 0000000000 0               //Stoffverdeck tÅrkis
+0394         00000000 0000000000000000 0000000000 0               //Stoffverdeck beige
+; VERDECK_EL in SGERM
+0395         00000000 0000000000800000 0000000000 1 UEBERROLLSCHUTZ //öberrollschutz-System bzw Z3 öberrollbÅgel
+0398         00000000 0000000000400000 0000000000 1 VERDECK_EL    //VerdeckbetÑtigung Elektro-Mech. bzw Z3 Hydr.
+0399         00000000 0000000000000002 0000000000 1 VERDECK_EL_AUT //VerdeckbetÑtigung vollautomatisch
+0400         00000000 0000000000000000 0000000000 0               //Stahlschiebedach mechanisch
+H 0401 V0993 00000000 0000000000000010 0000000000 1 ZVM           //Schiebe-Hebedach,elektrisch
+0401         00000000 0000000001000000 0000000000 1 SHD           //Schiebe-Hebedach,elektrisch
+0403         00000000 0000000001000000 0000000000 1 SHD           //Glas-Schiebe-Hebedach elektrisch
+0406         00000000 0000000000000000 0000000000 0               //Rolldach
+0410         00000000 0000000000000010 0000000000 1 FH_VORN       //Fensterheber,elektr., vorne
+; Vor 0993: Lim Åber SGERM ZVM. Cabrio Åber "CAB" FH hi codieren, Åber SGERM ZKE4. (Coupe/Road nicht angeboten)
+; Nach 0993: Lim/Cabrio Åber SGERM ZKE4 (GVN) "FH_EL_HI" codiert FH hi.
+H 0411 V0993 00000000 0000000000000010 0000000000 1 ZVM           //Fensterheber,elektr. vorn/hinten
+0411         00000000 0000000004000000 0000000000 1 FH_HINTEN     //Fensterheber,elektr. vorn/hinten
+0413         00000000 0000000000000000 0000000000 0               //GepÑckraumtrennetz
+0415         00000000 0000000000000000 0000000000 0               //Sonnenschutzrollo fÅr Heckscheibe
+0416         00000000 0000000000000000 0000000000 0               //el. Sonnenschutzrollo fÅr Heckscheibe
+0423         00000000 0000000000000000 0000000000 0               //Veloursmatten
+0428         00000000 0000000000000000 0000000000 0               //Warndreieck und Verbandkasten integr. Unterbrin
+0431         00000000 0000000000000000 0000000000 0               //Elektrochrom- Innenspiegel
+0433         00000000 0000000000000000 0000000000 0               //Lackierung Graphit
+0434         00000000 0000000000000000 0000000000 0               //Lackierung metallic
+0435         00000000 0000000000000000 0000000000 0               //Holz Ahorn 97 hochgl‰nzend
+0438         00000000 0000000000000000 0000000000 0               //Holz Myrte hochgl‰nzend
+0439         00000000 0000000000000000 0000000000 0               //Mattchrom
+0440         00000000 0000000000000000 0000000000 0               //Nichtraucher-Paket
+0441         00000000 0000000000000000 0000000000 0               //Raucherpaket
+0442         00000000 0000000000000000 0000000000 0               //Cupholder
+0451         00000000 0000000000000000 0000000000 0               //Beifahrersitz Hîhenverstellung manuell
+H 0454 V0191 00000000 0000000000000010 0000000000 0 ZVM           //el. Sitzverstellung Fahrer mit Neigungsverst.
+0454         00000000 0000000000000000 0000000000 0               //el. Sitzverstellung Fahrer mit Neigungsverst.
+0455         00000000 0000000000000000 0000000000 0               //Sitzverstellung Fahrer
+; ZVM Åber SGERM
+H 0458 V0191 00000000 0000000000000010 0000000000 1 ZVM           //Sitzverstellung elektr. Fahrer/Beif
+0458         00000000 0000000000000000 0000000000 0               //Sitzverstellung elektr. Fahrer/Beif
+0464         00000000 0000000000000000 0000000000 0               //Skisack incl. Mittelarmlehne im Fond
+0465         00000000 0000000000000000 0000000000 0               //Durchladeeinrichtung
+0469         00000000 0000000000000000 0000000000 0               //2 Kindersitze intgriert in der Fondsitzbank
+0472         00000000 0000000000000000 0000000000 0               //Mittelarmlehne vorn
+0473         00000000 0000000000000000 0000000000 0               //Armauflage vorn mit Ablagefach
+0475         00000000 0000000000000000 0000000000 0               //Mittelarmlehne vorn mit Lenkradaxialverst.
+0481         00000000 0000000000000000 0000000000 0               //Sportsitze
+0482         00000000 0000000000000000 0000000000 0               //Sportlederlenkrad mit Sportsitze
+; ZVM Åber SGERM
+H 0488 V0191 00000000 0000000000000010 0000000000 1 ZVM           //LordosenstÅtze Fahrer
+0488         00000000 0000000000000000 0000000000 0               //LordosenstÅtze Fahrer
+0489         00000000 0000000000000000 0000000000 0               //Lordosenverstellung Beifahrersitz elektr.
+0493         00000000 0000000000000000 0000000000 0               //Ablagepaket inkl. GetrÑnkehalter
+; ZVM Åber SGERM
+H 0494 V0191 00000000 0000000000000010 0000000000 1 ZVM           //Sitzheizung fÅr Fahrer+Beifahrer
+0494         00000000 0000000000000000 0000000000 0               //Sitzheizung fÅr Fahrer+Beifahrer
+0497         00000000 0000000000000000 0000000000 0               //Mittelarmlehne im Fond
+0498         00000000 0000000000000000 0000000000 0               //KopfstÅtzen im Fond
+0500         00000000 0000000000000020 0000000000 0               //Scheinwerfer Reinigungsanlage
+0502         00000000 0000000000000000 0000000000 0               //Scheinwerfer-Waschanlage
+0505         00000000 0000000000000000 0000000000 0               //Scheinwerferwaschanlage mit SA 315
+0508         00000000 0000000000000000 0000000000 0               //Park-Distanz-Control (PDC) Einparkhilfe
+0510         00000000 0000000000000000 0000000000 0               //Leuchtweitenregulierung
+0520         00000000 0000000000000000 0000000000 0               //Nebelscheinwerfer mit Freiformreflektor
+0528         00000000 0000000000080000 0000000000 1 AUC           //Autom.-Umluft-Control (AUC)
+0529         00000000 0000000000040000 0000000000 0               //Mikrofilter
+; Klimaregelung Åber SGET
+0530         00000000 0000000000000800 0000000000 1 KLIMAREGELUNG  //Klimaanlage
+; Klimaregelung Åber SGET: wird zusammen mit 534 geordert!
+0532         00000000 0000000000000800 0000000000 1 KLIMAREGELUNG  //Klimaanlage ZG
+; Klimaautomatik Åber SGET
+0534         00000000 0000080000000000 0000000000 1 KLIMAAUTOMATIK //Klimaautomatik
+; BC V Åber SGERM
+H 0536 V0691 00000000 0000000000001000 0000000000 1 BC            //Standheizung
+0536         00000000 0000000010000000 0000000000 1 STANDHEIZUNG  //Standheizung
+H 0537 V0291 00000000 0000000000000000 0000000000 0               //StandlÅftung
+H 0537 V0993 00000000 0000000000001000 0000000000 1 BC            //StandlÅftung
+0537         00000000 0000000008000000 0000000000 1 STANDLUEFTUNG //StandlÅftung
+; GR2 Åber SGERM
+H 0540 V0994 00000000 0000000000000000 0000000000 0               //Geschwindigkeitsregelung
+0540         00000000 0000020000000000 0000000000 1 GESCHW_REG    //Geschwindigkeitsregelung
+0542         00000000 0000000000008000 0000000000 1 CHECK_CONTROL //Check-Control
+H 0545 V0891 00000000 0000000000000000 0000000000 0               //DZM
+0545         00000010 0000000000000000 0000000000 1 KM_TACHO      //DZM RL: incl km-Tacho
+0546         00000000 0000000000000000 0000000000 0               //Drehzahlmesser mph-Tacho m. EC
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO      //Kilometertacho
+0550         00000000 0000000000001000 0000000400 1 BC_BASIS      //Uhren-BC f. Compact u. Roadster
+0554         00000000 0000000000001000 0000000000 1 BC            //Bordcomputer mit Fernbedienung
+0556         00000000 0000000000000000 0000000000 0               //Au·entemperaturanzeige mit Digitaluhr
+; ZVM Åber SGERM
+H 0564 V0191 00000000 0000000000000010 0000000000 1 ZVM           //Innenlichtpaket
+0564         00000000 0000000000000000 0000000000 0               //Innenlichtpaket
+0570         00000000 0000000000000000 0000000000 0               //StÑrkere Stromversorgung
+0577         00000000 0000000000000000 0000000000 0               //Vorbereitung Mietwagen
+0621         00000000 0000000000000000 0000000000 0               //Autotelefon C-Netz (CH451 Motorola)
+0623         00000000 0000000000000000 0000000000 0               //Autotelefon D-Netz
+0627         00000000 0000000000000000 0000000000 0               //Autotelefon C-Netz (Siemens C3)
+0629         00000000 0000000008000000 0000000000 0               //Telefon D-Netz m. Eject-Box u. Kartenleser vorn
+0633         00000000 0000000000000000 0000000000 0               //Vorber. Telefoneinbau Siemens C-Netz, Bedienhîr
+0634         00000000 0000000000000000 0000000000 0               //Vorber. Telefoneinbau VDA C-Netz, Bedienhîrer v
+0635         00000000 0000000000000000 0000000000 0               //Vorber. incl. Antenne (D-Netz)
+0636         00000000 0000000000000000 0000000000 0               //Handy-Autotelefon
+0637         00000000 0000000000000000 0000000000 0               //Vorber. Telefoneinbau incl Antenne (C3)
+0640         00000000 0000000000000000 0000000000 0               //Vorber. Telefoneinbau US  Audiofox
+0643         00000000 0000000000000000 0000000000 0               //VDA Telefon-Vorbereitung
+0650         00000000 0000000000000000 0000000000 0               //BMW Reverse
+0651         00000000 0000000000000000 0000000000 0               //BMW Reverse RDS
+0652         00000000 0000000000000000 0000000000 0               //BMW Radio
+0654         00000000 0000000000000000 0000000000 0               //BMW Radio Bavaria C III
+0657         00000000 0000000000000000 0000000000 0               //BMW Radio Bavaria C Reverse III
+0658         00000000 0000000000000000 0000000000 0               //BMW Bavaria CD23 RDS
+0659         00000000 0000000000000000 0000000000 0               //BMW Bavaria CD 1.1
+0660         00000000 0000000000000000 0000000000 0               //Radio BMW Bavaria C Reverse RDS
+0661         00000000 0000000000000000 0000000000 0               //Radio BMW Business RDS
+0662         00000000 0000000000000000 0000000000 0               //Weltradio CD43
+0668         00000000 0000000000000000 0000000000 0               //BMW Bavaria Reverse RDS
+0669         00000000 0000000000000000 0000000000 0               //BMW Bavaria C23 RDS
+0670         00000000 0000000000000000 0000000000 0               //BMW Prof./RDS C24
+0671         00000000 0000000000000000 0000000000 0               //CD-Plattenwechsler bei Radio incl. SA676
+0672         00000000 0000000000000000 0000000000 0               //CD-Wechsler (Pioneer)
+0673         00000000 0000000000000000 0000000000 0               //Subwoofer fÅr US-HiFi-Anlage SA 676
+0674         00000000 0000000000000000 0000000000 0               //Harman-Sound-System
+0676         00000000 0000000000000000 0000000000 0               //HIFI-System
+0679         00000000 0000000000000000 0000000000 0               //Heckscheibenantenne
+0680         00000000 0000000000000000 0000000000 0               //Versenkantenne
+0683         00000000 0000000000000000 0000000000 0               //Telefon-Heckantenne fÅr D-Netz
+0685         00000000 0000000000000000 0000000000 0               //Antenne fÅr C-Netz Telefon
+0686         00000000 0000000000000000 0000000000 0               //Antennen-Diversity
+0687         00000000 0000000000000000 0000000000 0               //Radiovorbereitung
+0690         00000000 0000000000000000 0000000000 0               //Cassettenhalterung
+0692         00000000 0000000000000000 0000000000 0               //Vorbereitung fÅr CD-Wechsler I-Bus
+0694         00000000 0000000000000000 0000000000 0               //Radio C33 DIN US
+0696         00000000 0000000000000000 0000000000 0               //Cartridge-Halterung
+0704         00000000 0000000000000000 0000000000 0               //M Technik Sportfahrwerk incl. Tieferlegung (15m
+0708         00000000 0000000000000000 0000000000 0               //M Technik Sportlenkrad neu
+; Airbag Åber SGERM
+H 0710 V0993 00000000 0000000000000000 0000000000 0               //M Technic-Lederlenkrad mit Airbag
+0710         00000000 0000400000000000 0000000000 1 AIRBAG_F      //M Technic-Lederlenkrad mit Airbag
+0715         00000000 0000000000000000 0000000000 0               //M Aerodynamikpaket
+0717         00000000 0000000000000000 0000000000 0               //Editionsmodell Comfort
+0718         00000000 0000000000000000 0000000000 0               //Editionsmodell Exklusiv
+0719         00000000 0000000000000000 0000000000 0               //Editionsmodell Sport
+0720         00000000 0000000000000000 0000000000 0               //Sport Limited Edition
+0730         00000000 0000000000000000 0000000000 0               //Individualserie 93
+0738         00000000 0000000000000000 0000000000 0               //EdelholzausfÅhrung Eibe Club
+0739         00000000 0000000000000000 0000000000 0               //EdelholzausfÅhrung Birke
+0755         00000000 0000000000000000 0000000000 0               //Open-Air-Compact Softtop
+0756         00000000 0000000000000000 0000000000 0               //BMW LM-Rad Rundspeichenstyling
+0757         00000000 0000000000000000 0000000000 0               //M-Soundanlage
+0758         00000000 0000000000000000 0000000000 0               //Luxus-Compact
+0759         00000000 0000000000000000 0000000000 0               //Family-Compact
+0761         00000000 0000000000000000 0000000000 0               //Sonnenschutzverglasung
+0765         00000000 0000000000000000 0000000000 0               //E36/2 M Technik Paket USA
+0766         00000000 0000000000000000 0000000000 0               //Individualserie '94 "Gruppe N"
+0767         00000000 0000000000000000 0000000000 0               //E36/2 M Technik Paket Schweiz
+0768         00000000 0000000000000000 0000000000 0               //Individualserie Clubsport
+0769         00000000 0000000000000000 0000000000 0               //Individualserie
+0770         00000000 0000000000000000 0000000000 0               //Individualserie Classic
+0771         00000000 0000000000000000 0000000000 0               //Aerodynamikpaket Sport Edition Asien
+0772         00000000 0000000000000000 0000000000 0               //BMW Individual Highline-Ausstattung
+0773         00000000 0000000000000000 0000000000 0               //Vogelaugenahorn grau/Erw. Holzausst. Eibe
+0774         00000000 0000000000000000 0000000000 0               //Individualserie 93 Japan ZSW
+0775         00000000 0000000000000000 0000000000 0               //Dachhimmel antrahzit
+0776         00000000 0000000000000000 0000000000 0               //Individualausstattung Chrom fÅr /2/4/C
+0777         00000000 0000000000000000 0000000000 0               //Individualserie 93 Japan ZSW
+0778         00000000 0000000000000000 0000000000 0               //Kennzeichnung BMW Individual
+0779         00000000 0000000000000000 0000000000 0               //TÅrgriff BMW Individual
+0781         00000000 0000000000000000 0000000000 0               //BMW LM-M Kontur, Styling 23
+0783         00000000 0000000000000000 0000000000 0               //LM-Schmiederad (Motorsport)
+0784         00000000 0000000000000000 0000000000 0               //Individual Aussenspiegel
+0785         00000000 0000000000000000 0000000000 0               //Individual-Blinkleuchten weiss
+0786         00000000 0000000000000000 0000000000 0               //Ma·nahmen 17"-RÑder
+0787         00000000 0000000000000000 0000000000 0               //Individualserie 93
+0788         00000000 0000000000000000 0000000000 0               //Individualserie 93
+0789         00000000 0000000000000000 0000000000 0               //Individualserie 93
+0793         00000000 0000000000040000 0000000000 1 ASG_GETRIEBE  //SMG Sequentielles M-Getriebe fÅr M3
+0798         00000000 0000000000000000 0000000000 0               //Stoffverdeck magenta
+0800         00000000 0000000000000000 0000000000 0               //Kat.-Anlage LÑnder
+0801         00000100 0000000000000000 0000000000 0               //Auftragssteuerung ZD
+0802         00000200 0000000000000000 0000000000 0               //LÑnderausfÅhrung Korea
+0803         00000000 0000000000000000 0000000000 0               //Entfall 3. Bremsleuchte
+H 0804 V0996 00000400 0000000000000000 0000000000 1 CH/A QUITT    //Schweiz/ôsterreich-AusfÅhrung
+0804         00000000 0000000000000000 0000000000 0               //Schweiz/ôsterreich-AusfÅhrung ab PU96 wie ECE
+0805         00000000 0000000000000000 0000000000 0               //Aktivkohlefilter
+0806         00000000 0000000000000000 0000000000 0               //3. Bremsleuchte
+H 0807 V0994 00000700 0000000000000000 0000000000 1 JAPAN         //LÑnderausfÅhrung Japan
+0807         00000700 0000000000020000 0000000000 1 JAPAN AK_GUWA QUITT //LÑnderausfÅhrung Japan
+H 0808 V0794 00000800 0000000000000000 0000000000 0               //LÑnderausfÅhrung Israel
+H 0808 V0195 00000800 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung Israel
+0808         00000800 0000000000000000 0000000000 0               //LÑnderausfÅhrung Israel
+H 0809 V0996 00000900 0000000000000000 0000000000 1 DAENEMARK QUITT //LÑnderausfÅhrung DÑnemark
+0809         00000000 0000000000000000 0000000000 0               //LÑnderausfÅhrung DÑnemark
+H 0810 V0997 00001010 0000000000000000 0000000000 1 AUSTRALIEN QUITT //LÑnderausfÅhrung Australien KM-Tacho Serie
+0810         00001000 0000000000000000 0000000000 1 AUSTRALIEN QUITT //LÑnderausfÅhrung Australien Entfall KM-Tacho aus Serie
+H 0811 V0794 00001100 0000000000000000 0000000000 0               //LÑnderausfÅhrung Belgien
+H 0811 V0195 00001100 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung Belgien
+0811         00001100 0000000000000000 0000000000 0               //LÑnderausfÅhrung Belgien
+H 0812 V0292 00000000 0000000000000000 0000000000 0               //LÑnderausfÅhrung England
+H 0812 V0393 00001200 0000000000000000 0000000000 1 ENGLAND       //LÑnderausfÅhrung England
+H 0812 V0993 00001200 0000000000000000 0000000200 1 ENGLAND       //LÑnderausfÅhrung England
+0812         00001200 0000000000000000 0000000000 1 ENGLAND QUITT //LÑnderausfÅhrung England
+H 0813 V0393 00001300 0000000000000000 0000000000 0               //LÑnderausfÅhrung Frankreich
+H 0813 V0993 00001300 0000000000000000 0000000200 1               //LÑnderausfÅhrung Frankreich
+H 0813 V0794 00001300 0000000000000000 0000000000 0               //LÑnderausfÅhrung Frankreich
+H 0813 V0195 00001300 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung Frankreich
+0813         00001300 0000000000000000 0000000000 0               //LÑnderausfÅhrung Frankreich
+H 0814 V0393 00001400 0000000000000000 0000000000 0               //LÑnderausfÅhrung Italien
+H 0814 V0993 00001400 0000000000000000 0000000200 1               //LÑnderausfÅhrung Italien
+H 0814 V0794 00001400 0000000000000000 0000000000 0               //LÑnderausfÅhrung Italien
+H 0814 V0195 00001400 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung Italien
+0814         00001400 0000000000000000 0000000000 0               //LÑnderausfÅhrung Italien
+0815         00000000 0000000000000000 0000000000 0               //Schlechtweg-Paket
+H 0816 V0794 00001600 0000000000000000 0000000000 0               //LÑnderausfÅhrung Osteuropa
+H 0816 V0195 00001600 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung Osteuropa
+0816         00001600 0000000000000000 0000000000 0               //LÑnderausfÅhrung Osteuropa
+0817         00000000 0000000000000000 0000000000 0               //Motorauslegung ROZ 91
+0818         00000000 0000000000000000 0000000000 0               //Batteriehauptschalter
+H 0819 V0293 00001900 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Spanien
+H 0819 V0993 00001900 0000000000000000 0000000200 1               //LÑnderausfÅhrung fÅr Spanien
+H 0819 V0794 00001900 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Spanien
+H 0819 V0195 00001900 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung fÅr Spanien
+0819         00001900 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Spanien
+H 0820 V0794 00002000 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Lateinamerika
+H 0820 V0195 00002000 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung fÅr Lateinamerika
+0820         00002000 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Lateinamerika
+H 0821 V0794 00002100 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Aegypten
+H 0821 V0195 00002100 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung fÅr Aegypten
+0821         00002100 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Aegypten
+H 0822 V0593 00002200 0000000000000000 0000000000 1 GOLF          //LÑnderausfÅhrung fÅr Golf
+H 0822 V0997 00002200 0000000000020000 0000000000 1 GOLF QUITT    //LÑnderausfÅhrung fÅr Golf Ak.Gurtwarn. Serie
+0822         00002200 0000000000000000 0000000000 1 GOLF QUITT    //LÑnderausfÅhrung fÅr Golf Entfall ak. Gurtwarn. aus Serie
+H 0823 V0794 00000000 0000800000000000 0000000000 0 TROPEN        //LÑnderausfÅhrung fÅr Hei·land
+0823         00000000 0000800000000000 0000000000 1 TROPEN        //LÑnderausfÅhrung fÅr Tropen
+0824         00002410 0000000000000000 0000000000 0 ZA QUITT      //LÑnderausfÅhrung fÅr SÅdafrika
+H 0827 V0393 00002700 0000000000000000 0000000000 1               //LÑnderausfÅhrung fÅr Skandinavien
+H 0827 V0993 00002700 0000000000000000 0000000200 1               //LÑnderausfÅhrung fÅr Skandinavien
+0827         00002700 0000000000000000 0000000000 1 QUITT         //LÑnderausfÅhrung fÅr Skandinavien
+0829         00000000 0000000000000000 0000000000 0               //Vorbereitung fÅr Cabrioumbau
+0830         00003000 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Nordland
+0832         00000000 0000000000000000 0000000000 0               //Batterie im Kofferraum
+H 0838 V0993 00003800 0000000000000000 0000000000 1 KANADA        //LÑnderausfÅhrung fÅr Canada
+H 0838 V0195 00003800 0000000000000000 0000006000 1 KANADA QUITT  //LÑnderausfÅhrung fÅr Canada
+H 0838 V0997 00003800 0000000000000400 0000006000 1 KANADA        //Canada vor PU97: SA 314 Serienumfang
+0838         00003800 0000000000000000 0000006000 1 KANADA        //Canada nach PU97: SA 314 100% SA befindet sich im Auftrag
+0842         00000000 0000000000000000 0000000000 0               //Kaltland
+0843         00000000 0000000000000000 0000000000 0               //Motorauslegung
+0845         00000000 0000000000020000 0000000000 1 AK_GUWA       //Akustische Gurtwarnung
+0846         00004600 0000000000000000 0000000000 0               //LÑnderausfÅhrung fÅr Taiwan
+0847         00000000 0000000000000000 0000000000 0               //Fahrwerk / Sicherheitsfahrzeug
+0848         00000000 0000000000000000 0000000000 0               //erweiterter Kabelbaum
+0850         00000000 0000000000000000 0000000000 0               //ZusÑtzlich TankfÅllung Export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH       //Sprachversion deutsch
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH      //Sprachversion englisch
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH  //Sprachversion franzˆsisch
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH   //Sprachversion italienisch
+0856         00000006 0000000000000000 0000000000 1 SPANISCH      //Sprachversion spanisch
+0857         00000000 0000000000000000 0000000000 0               //Vorbereitung fÅr Klimaanlage
+0858         00000000 0000000000000000 0000000000 0               //Motor nierderverdichtet
+0860         00000000 0000000000000000 0000000000 0               //Seitliche Blinkleuchten vorn
+0861         00000000 0000000000000000 0000000000 0               //ƒnderung Codierdatensatz
+0863         00000000 0000000000000000 0000000000 0               //HÑndlerverzeichnis Europa
+0864         00000000 0000000000000000 0000000000 0               //HÑndlerverzeichnis öbersee
+0875         00000000 0000000000200001 0000000000 1 FERNBED ENTF_UEBERKREUZ //IR-Fernbedienung an Stelle Funkfernbedienung
+0876         00000000 0000000000000000 0000000000 0               //Funkfernbedienung, Umstellung auf 315 MHz
+0877         00000000 0000000000000001 0000000000 1 ENTF_UEBERKREUZ //Entfall öberkreuzbedienung bei DWA ab 03/95
+0879         00000000 0000000000000000 0000000000 0               //Bordliteratur Deutsch
+0880         00000000 0000000000000000 0000000000 0               //Bordliteratur Englisch
+0881         00000000 0000000000000000 0000000000 0               //Bordliteratur Franzîsisch
+0883         00000000 0000000000000000 0000000000 0               //Bordliteratur Spanisch
+0884         00000000 0000000000000000 0000000000 0               //Bordliteratur Italienisch
+0885         00000000 0000000000000000 0000000000 0               //Bordliteratur Schwedisch
+0886         00000000 0000000000000000 0000000000 0               //Bordliteratur HollÑndisch
+0887         00000000 0000000000000000 0000000000 0               //Bordliteratur Arabisch
+0888         00000000 0000000000000000 0000000000 0               //Bordliteratur DÑnisch
+0889         00000000 0000000000000000 0000000000 0               //Bordliteratur Portugiesisch
+0896         00000000 0000000000000000 0000000000 0               //Tagesfahrlichtschaltung
+H 0897 V0393 00000020 0000000000000000 0000000000 1 DAUERTON      //DWA-Dauerton
+H 0897 V0993 00000020 0000000000000000 0000000200 1 DAUERTON      //DWA-Dauerton
+0897         00000020 0000000000000000 0000000000 1 DAUERTON      //DWA-Dauerton
+H 0899 V0994 00000000 0000000000000000 0000000000 0               //Export-Fahrzeug, DWA mit opt. Alarm Abblendlicht
+0899         00000000 0002000000000000 0000000000 1 ALARM_OPT_AL  //Export-Fahrzeug, DWA mit opt. Alarm Abblendlicht
+H 0900 V0195 00000000 0000000000000000 0000010000 1 ZS_DIREKT     //anerk. Wegfahrsicherung lt. AZT/TöV
+0900         00000000 0000000000000000 0000010000 0               //anerk. Wegfahrsicherung lt. AZT/TöV
+0901         00000000 0000000000000000 0000000000 0               //Sonderkontrolle allgemein
+0902         00000000 0000000000000000 0000000000 0               //Sonderkontrolle Pressewagen
+0903         00000000 0000000000000000 0000000000 0               //Sonderkontrolle Stand/Fotowagen
+0904         00000000 0000000000000000 0000000000 0               //Sonderkontrolle TypprÅfwagen
+0905         00000000 0000000000000000 0000000000 0               //Sonderkontrolle VorfÅhrwagen
+0906         00000000 0000000000000000 0000000000 0               //Sonderkontrolle Fotofahrz.b.Neuanl.
+0907         00000000 0000000000000000 0000000000 0               //James Bond Edition
+0910         00000000 0000000000000000 0000000000 0               //Entwicklungsfzg ohne öbergabeinsp
+0911         00000000 0000000000000000 0000000000 0               //Entwicklungsfzg mit öbergabeinsp
+0915         00000000 0000000000000000 0000000000 0               //Entfall Au·enhautkonservierung
+0916         00000000 0000000000000000 0000000000 0               //Entwicklungsfzg. ohne Konservierung
+0918         00000000 0000000000000000 0000000000 0               //Alpina B3 Steuerung
+0919         00000000 0000000000000000 0000000000 0               //ALU-TÅren
+H 0920 V0991 00000000 0000000000000000 0000000000 0               //Alpina
+H 0920 V0396 00000040 0000000000000000 0000000000 1 ALPINA        //Alpina
+0920         00000040 0000000000000020 0000000000 1 ALPINA ALPINA_328 //Alpina
+0921         000000C0 0000000000000000 0000000000 1 M60B40        //Alpina B8 Sondersteuerung
+0924         00000000 0000000000000000 0000000000 0               //Spiegel mit planem Glas Beifahrers.
+0925         00000000 0000000000000000 0000000000 0               //Versandschutzpaket
+0928         00000000 0000000000000000 0000000000 0               //Reifensteuerung
+0929         00000000 0000000000000000 0000000000 0               //Windschutz beigelegt
+0932         00000000 0000000000000000 0000000000 0               //Winterreifen zusÑtzlich
+0938         00000000 0000000000000000 0000000000 0               //Winterpaket WA
+0940         00000000 0000000000000000 0000000000 0               //Sonderwunsch Ausstattung
+0941         00000000 0000000000000000 0000000000 0               //Sonderwunschabwicklung
+0943         00000000 0000000000000000 0000000000 0               //Sonderwunsch Motorsport-Werk
+0944         00000000 0000000000000000 0000000000 0               //NachtrÑglicher Umbau durch ZS
+0945         00000000 0000000000000000 0000000000 0               //BerÅcksichtigung PreisabhÑngigk.
+0948         00000000 0000000000000000 0000000000 0               //Kernmodellpaket
+0949         00000000 0000000000000000 0000000000 0               //Standard Paket fÅr Lateinamerika
+0950         00000000 0000000000000000 0000000000 0               //Premium Lateinamerika Paket
+0951         00000000 0000000000000000 0000000000 0               //Korea Paket
+0952         00000000 0000000000000000 0000000000 0               //China Paket
+0956         00000000 0000000000000000 0000000000 0               //Paket
+0957         00000000 0000000000000000 0000000000 0               //Hongkong-Paket, zur Faktura-Steuerung
+0960         00000000 0000000000000000 0000000000 0               //Lenkwinkelbegrenzung 17 Zoll
+0961         00000000 0000000000000000 0000000000 0               //Sondermotor Motorblock in GG
+0962         00000000 0000000000000000 0000000000 0               //Motorkennfeld
+0964         00000000 0000000000000000 0000000000 0               //Entfall seitl. Blinkleuchten
+0970         00000000 0000000000000000 0000000000 0               //Sonderausstattungspaket
+0971         00000000 0000000000000000 0000000000 0               //Exclusiv- Paket
+0972         00000000 0000000000000000 0000000000 0               //Komfort- Paket
+0973         00000000 0000000000000000 0000000000 0               //Malaysia Paket
+0974         00000000 0000000000000000 0000000000 0               //Singapur Paket
+0975         00000000 0000000000000000 0000000000 0               //SchmutzfÑnger hinten
+0980         00000000 0000000000000000 0000000000 0               //Hardtop schwarz
+0982         00000000 0000000000000000 0000000000 0               //Hardtop in Wagenfarbe
+0983         00000000 0000000000000000 0000000000 0               //Modelljahrescode f. Export
+0985         00000000 0000000000000000 0000000000 0               //US-RadioergÑnzungssatz
+0986         00000000 0000000000000000 0000000000 0               //Terminpruefung
+0987         00000000 0000000000000000 0000000000 0               //Existenzpruefung
+0991         00000000 0000000000000000 0000000000 0               //Sondersteuerungs- SA fÅr Vorserienfzg.
+0992         00000000 0000000040000000 0000000000 1 US_KENNZEICHEN //Kennzeichenbefestigung wie US-Serienfzg.
+0993         00000000 0000000000000000 0000000000 0               //Modelljahrescode
+0994         00000000 0000000000000000 0000000000 0               //Besondere Betreuung
+0995         00000000 0000000000000000 0000000000 0               //énderungssperre
+0996         00000000 0000000000000000 0000000000 0               //Steuerung Leder US
+0997         00000000 0000000000000000 0000000000 0               //HÑndlerprÑsentation Export
+0998         00000000 0000000000000000 0000000000 0               //Anlaufsteuerung intern
+0999         00000000 0000000000000000 0000000000 0               //Pilotprojekt Termintreue
+B TYP         //Neue Bereichskennung fÅr ZEKO!!
+;*******************************************************************************
+; CoupÇ
+H BE11 V0997 10310000 0000000000000090 0000002116 1 COUP M43B16  MAN LL BASIS //CoupÇ 316i   LL M43
+BE11         10310000 0000000000000090 0100002116 1 COUP M43B16  MAN LL BASIS //CoupÇ 316i   LL M43
+H BE12 V0997 10320000 0000000000000090 0000002116 1 COUP M43B16  MAN RL BASIS //CoupÇ 316i   LL M43
+BE12         10320000 0000000000000090 0100002116 1 COUP M43B16  MAN RL BASIS //CoupÇ 316i   LL M43
+H BE21 V0997 10410000 0000000000000090 0000002116 1 COUP M43B16  AUT LL BASIS //CoupÇ 316iA  LL M43
+BE21         10410000 0000000000000090 0100002116 1 COUP M43B16  AUT LL BASIS //CoupÇ 316iA  LL M43
+H BE22 V0997 10420000 0000000000000090 0000002116 1 COUP M43B16  AUT RL BASIS //CoupÇ 316iA  RL M43
+BE22         10420000 0000000000000090 0100002116 1 COUP M43B16  AUT RL BASIS //CoupÇ 316iA  RL M43
+BE51         10510000 0000000000000090 0000000000 1 COUP M42B18  MAN LL BASIS //CoupÇ 318is  LL M42
+BE52         10520000 0000000000000090 0000000000 1 COUP M42B18  MAN RL BASIS //CoupÇ 318is  RL M42
+BE53         10530000 0000000000000090 0000000000 1 COUP M42B18  MAN LL US    //CoupÇ 318is  US M42
+BE61         10610000 0000000000000090 0000000000 1 COUP M42B18  AUT LL BASIS //CoupÇ 318isA LL M42
+BE62         10620000 0000000000000090 0000000000 1 COUP M42B18  AUT RL BASIS //CoupÇ 318isA RL M42
+BE63         10630000 0000000000000090 0000000000 1 COUP M42B18  AUT LL US    //CoupÇ 318isA US M42
+H BE71 V0997 10710000 0000000000000090 0000002116 1 COUP M44B19  MAN LL BASIS //CoupÇ 318is  LL M44
+BE71         10710000 0000000000000090 0100002116 1 COUP M44B19  MAN LL BASIS //CoupÇ 318is  LL M44
+H BE72 V0997 10720000 0000000000000090 0000002116 1 COUP M44B19  MAN RL BASIS //CoupÇ 318is  RL M44
+BE72         10720000 0000000000000090 0100002116 1 COUP M44B19  MAN RL BASIS //CoupÇ 318is  RL M44
+BE73         10730000 0000000000000090 0000006116 1 COUP M44B19  MAN LL US    //CoupÇ 318is  US M44
+H BE81 V0997 10810000 0000000000000090 0000002116 1 COUP M44B19  AUT LL BASIS //CoupÇ 318isA LL M44
+BE81         10810000 0000000000000090 0100002116 1 COUP M44B19  AUT LL BASIS //CoupÇ 318isA LL M44
+H BE82 V0997 10820000 0000000000000090 0000002116 1 COUP M44B19  AUT RL BASIS //CoupÇ 318isA RL M44
+BE82         10820000 0000000000000090 0100002116 1 COUP M44B19  AUT RL BASIS //CoupÇ 318isA RL M44
+BE83         10830000 0000000000000090 0000006116 1 COUP M44B19  AUT LL US    //CoupÇ 318isA US M44
+H BF03 V0993 11030000 0000000000008490 0000000014 1 COUP S50B30  AUT LL US    //CoupÇ M3A    US S50
+BF03         11030000 0000000000008490 0000006116 1 COUP S50B30  AUT LL US    //CoupÇ M3A    US S50
+BF11         11110000 0000000000000090 0000000000 1 COUP M50B20  MAN LL BASIS //CoupÇ 320i   LL M50
+BF12         11120000 0000000000000090 0000000000 1 COUP M50B20  MAN RL BASIS //CoupÇ 320i   RL M50
+BF21         11210000 0000000000000090 0000000000 1 COUP M50B20  AUT LL BASIS //CoupÇ 320iA  LL M50
+BF22         11220000 0000000000000090 0000000000 1 COUP M50B20  AUT RL BASIS //CoupÇ 320iA  RL M50
+BF31         11310000 0000000000008090 0000000000 1 COUP M50B25  MAN LL BASIS //CoupÇ 325i   LL M50
+BF32         11320000 0000000000008090 0000000000 1 COUP M50B25  MAN RL BASIS //CoupÇ 325i   RL M50
+BF33         11330000 0000000000008090 0000000000 1 COUP M50B25  MAN LL US    //CoupÇ 325i   US M50
+BF38         11380010 0000000000018090 0000000000 1 COUP M50B25  MAN RL ZA    //CoupÇ 325i   RL M50
+BF41         11410000 0000000000008090 0000000000 1 COUP M50B25  AUT LL BASIS //CoupÇ 325iA  LL M50
+BF42         11420000 0000000000008090 0000000000 1 COUP M50B25  AUT RL BASIS //CoupÇ 325iA  RL M50
+BF43         11430000 0000000000008090 0000000000 1 COUP M50B25  AUT LL US    //CoupÇ 325iA  US M50
+BF48         11480010 0000000000018090 0000000000 1 COUP M50B25  AUT RL ZA    //CoupÇ 325iA  RL M50 SÅdafrika CKD
+H BF51 V0194 11510000 0000000000000000 0000000000 1 COUP M52B20  MAN LL BASIS //CoupÇ 320i   LL M52
+H BF51 V0996 11510000 0000000000000090 0000022116 1 COUP M52B20  MAN LL BASIS //CoupÇ 320i   LL M52
+BF51         11510000 00000000000000D0 0000022116 1 COUP M52B20  MAN LL BASIS //CoupÇ 320i   LL M52
+H BF52 V0194 11520000 0000000000000000 0000000000 1 COUP M52B20  MAN RL BASIS //CoupÇ 320i   RL M52
+H BF52 V0996 11520000 0000000000000090 0000022116 1 COUP M52B20  MAN RL BASIS //CoupÇ 320i   RL M52
+BF52         11520000 00000000000000D0 0000022116 1 COUP M52B20  MAN RL BASIS //CoupÇ 320i   RL M52
+H BF61 V0194 11610000 0000000000000000 0000000000 1 COUP M52B20  AUT LL BASIS //CoupÇ 320iA  LL M52
+H BF61 V0996 11610000 0000000000000090 0000022116 1 COUP M52B20  AUT LL BASIS //CoupÇ 320iA  LL M52
+BF61         11610000 00000000000000D0 0000022116 1 COUP M52B20  AUT LL BASIS //CoupÇ 320iA  LL M52
+H BF62 V0194 11620000 0000000000000000 0000000000 1 COUP M52B20  AUT RL BASIS //CoupÇ 320iA  RL M52
+H BF62 V0996 11620000 0000000000000090 0000022116 1 COUP M52B20  AUT RL BASIS //CoupÇ 320iA  RL M52
+BF62         11620000 00000000000000D0 0000022116 1 COUP M52B20  AUT RL BASIS //CoupÇ 320iA  RL M52
+H BF71 V0194 11710000 0000000000000000 0000000000 1 COUP M52B25  MAN LL BASIS //CoupÇ 323i   LL M52
+H BF71 V0996 11710000 0000000000000090 0000022116 1 COUP M52B25  MAN LL BASIS //CoupÇ 323i   LL M52
+BF71         11710000 00000000000000D0 0000022116 1 COUP M52B25  MAN LL BASIS //CoupÇ 323i   LL M52
+H BF72 V0194 11720000 0000000000000000 0000000000 1 COUP M52B25  MAN RL BASIS //CoupÇ 323i   RL M52
+H BF72 V0996 11720000 0000000000000090 0000022116 1 COUP M52B25  MAN RL BASIS //CoupÇ 323i   RL M52
+BF72         11720000 00000000000000D0 0000022116 1 COUP M52B25  MAN RL BASIS //CoupÇ 323i   RL M52
+H BF73 V0194 11730000 0000000000000000 0000000000 1 COUP M52B25  MAN LL US    //CoupÇ 323i   US M52
+BF73         11730000 00004000000080D0 0000022116 1 COUP M52B25  MAN LL US    //CoupÇ 323i   US M52
+H BF81 V0194 11810000 0000000000000000 0000000000 1 COUP M52B25  AUT LL BASIS //CoupÇ 323iA  LL M52
+H BF81 V0996 11810000 0000000000000090 0000022116 1 COUP M52B25  AUT LL BASIS //CoupÇ 323iA  LL M52
+BF81         11810000 00000000000000D0 0000022116 1 COUP M52B25  AUT LL BASIS //CoupÇ 323iA  LL M52
+H BF82 V0194 11820000 0000000000000000 0000000000 1 COUP M52B25  AUT RL BASIS //CoupÇ 323iA  RL M52
+H BF82 V0996 11820000 0000000000000090 0000022116 1 COUP M52B25  AUT RL BASIS //CoupÇ 323iA  RL M52
+BF82         11820000 00000000000000D0 0000022116 1 COUP M52B25  AUT RL BASIS //CoupÇ 323iA  RL M52
+H BF83 V0194 11830000 0000000000000000 0000000000 1 COUP M52B25  AUT LL US    //CoupÇ 323iA  US M52
+BF83         11830000 00004000000080D0 0000022116 1 COUP M52B25  AUT LL US    //CoupÇ 323iA  US M52
+H BF91 V0993 11910000 0000000000008490 0000000014 1 COUP S50B30  MAN LL BASIS //CoupÇ M3     LL S50
+BF91         11910000 0000000000008490 0000002116 1 COUP S50B30  MAN LL BASIS //CoupÇ M3     LL S50
+H BF92 V0993 11920000 0000000000008490 0000000014 1 COUP S50B30  MAN RL BASIS //CoupÇ M3     RL S50
+BF92         11920000 0000000000008490 0000002116 1 COUP S50B30  MAN RL BASIS //CoupÇ M3     RL S50
+H BF93 V0993 11930000 0000000000008490 0000000014 1 COUP S50B30  MAN LL US    //CoupÇ M3     US S50
+BF93         11930000 0000000000008490 0000006116 1 COUP S50B30  MAN LL US    //CoupÇ M3     US S50
+BF98         11980010 0000000000018090 0000002116 1 COUP S50B30  MAN RL ZA    //CoupÇ M3     RL S50 SÅdafrika CKD
+BF99         11990000 0000000000008490 0000002116 1 COUP S50B30  MAN LL BASIS //CoupÇ M3 GT  LL S50
+;BG03         11F30000 00004000000084D0 0000026116 1 COUP S50B32  AUT LL US  //CoupÇ M3A US S50 Tö Airbag SE ab PU96 nie produziert
+H BG11 V0194 11A10000 0000000000000000 0000000000 1 COUP M52B28  MAN LL BASIS //CoupÇ 328i   LL M52
+H BG11 V0996 11A10000 0000000000008090 0000022116 1 COUP M52B28  MAN LL BASIS //CoupÇ 328i   LL M52
+BG11         11A10000 00000000000080D0 0000022116 1 COUP M52B28  MAN LL BASIS //CoupÇ 328i   LL M52
+H BG12 V0194 11A20000 0000000000000000 0000000000 1 COUP M52B28  MAN RL BASIS //CoupÇ 328i   RL M52
+H BG12 V0996 11A20000 0000000000008090 0000022116 1 COUP M52B28  MAN RL BASIS //CoupÇ 328i   RL M52
+BG12         11A20000 00000000000080D0 0000022116 1 COUP M52B28  MAN RL BASIS //CoupÇ 328i   RL M52
+H BG13 V0194 11A30000 0000000000000000 0000000000 1 COUP M52B28  MAN LL US    //CoupÇ 328i   US M52
+H BG13 V0996 11A30000 0000000000008090 0000026116 1 COUP M52B28  MAN LL US    //CoupÇ 328i   US M52
+BG13         11A30000 00004000000080D0 0000026116 1 COUP M52B28  MAN LL US    //CoupÇ 328i   US M52
+H BG21 V0194 11B10000 0000000000000000 0000000000 1 COUP M52B28  AUT LL BASIS //CoupÇ 328iA  LL M52
+H BG21 V0996 11B10000 0000000000008090 0000022116 1 COUP M52B28  AUT LL BASIS //CoupÇ 328iA  LL M52
+BG21         11B10000 00000000000080D0 0000022116 1 COUP M52B28  AUT LL BASIS //CoupÇ 328iA  LL M52
+H BG22 V0194 11B20000 0000000000000000 0000000000 1 COUP M52B28  AUT RL BASIS //CoupÇ 328iA  RL M52
+H BG22 V0996 11B20000 0000000000008090 0000022116 1 COUP M52B28  AUT RL BASIS //CoupÇ 328iA  RL M52
+BG22         11B20000 00000000000080D0 0000022116 1 COUP M52B28  AUT RL BASIS //CoupÇ 328iA  RL M52
+H BG23 V0194 11B30000 0000000000000000 0000000000 1 COUP M52B28  AUT LL US    //CoupÇ 328iA  US M52
+H BG23 V0996 11B30000 0000000000008090 0000026116 1 COUP M52B28  AUT LL US    //CoupÇ 328iA  US M52
+BG23         11B30000 00004000000080D0 0000026116 1 COUP M52B28  AUT LL US    //CoupÇ 328iA  US M52
+;BG91/92 lÑuft zu 11/98 aus
+;BG93 lÑuft zu 06/99 aus
+H BG91 V0194 11E10000 0000000000000000 0000000000 1 COUP S50B32  MAN LL BASIS //CoupÇ M3 LL S50 Tö
+H BG91 V0996 11E10000 0000000000008490 0000022116 1 COUP S50B32  MAN LL BASIS //CoupÇ M3 LL S50 Tö
+BG91         11E10000 0000400000008490 0000022116 1 COUP S50B32  MAN LL BASIS //CoupÇ M3 LL S50 Tö
+H BG92 V0194 11E20000 0000000000000000 0000000000 1 COUP S50B32  MAN RL BASIS //CoupÇ M3 RL S50 Tö
+H BG92 V0996 11E20000 0000000000008490 0000022116 1 COUP S50B32  MAN RL BASIS //CoupÇ M3 RL S50 Tö
+BG92         11E20000 0000400000008490 0000022116 1 COUP S50B32  MAN RL BASIS //CoupÇ M3 RL S50 Tö
+H BG93 V0194 11E30000 0000000000000000 0000000000 1 COUP S50B32  MAN LL US    //CoupÇ M3 US S50 Tö Airbag Serie ab Anlauf
+BG93         11E30000 00004000000084D0 0000026116 1 COUP S50B32  MAN LL US    //CoupÇ M3 US S50 Tö Airbag Serie ab Anlauf
+; Cabrio
+H BH31 V0997 13E10000 0000000004000080 000000211E 1 CABR M43B18  MAN LL BASIS  //Cabrio 318i   LL M43
+H BH31 V0398 13E10000 0000000004000080 010000211E 1 CABR M43B18  MAN LL BASIS  //Cabrio 318i   LL M43
+BH31         13E10000 00000000040000C0 010000219E 1 CABR M43B18  MAN LL BASIS  //Cabrio 318i   LL M43 ASC/MKK20 Serie
+H BH32 V0997 13E20000 0000000004000080 000000211E 1 CABR M43B18  MAN RL BASIS  //Cabrio 318i   RL M43
+H BH32 V0398 13E20000 0000000004000080 010000211E 1 CABR M43B18  MAN RL BASIS  //Cabrio 318i   RL M43
+BH32         13E20000 00000000040000C0 010000219E 1 CABR M43B18  MAN RL BASIS  //Cabrio 318i   RL M43 ASC/MKK20 Serie
+H BH41 V0997 14010000 0000000004000080 000000211E 1 CABR M43B18  AUT LL BASIS  //Cabrio 318iA  LL M43
+H BH41 V0398 14010000 0000000004000080 010000211E 1 CABR M43B18  AUT LL BASIS  //Cabrio 318iA  LL M43
+BH41         14010000 00000000040000C0 010000219E 1 CABR M43B18  AUT LL BASIS  //Cabrio 318iA  LL M43 ASC/MKK20 Serie
+H BH42 V0997 14020000 0000000004000080 000000211E 1 CABR M43B18  AUT RL BASIS  //Cabrio 318iA  RL M43
+H BH42 V0398 14020000 0000000004000080 010000211E 1 CABR M43B18  AUT RL BASIS  //Cabrio 318iA  RL M43
+BH42         14020000 00000000040000C0 010000219E 1 CABR M43B18  AUT RL BASIS  //Cabrio 318iA  RL M43 ASC/MKK20 Serie
+H BH73 V0398 14C30000 0000000004000080 000000611E 1 CABR M44B19  MAN LL US     //Cabrio 318is  US M44
+BH73         14C30000 00000000040000C0 000000611E 1 CABR M44B19  MAN LL US     //Cabrio 318is  US M44 ASC Serie
+H BH83 V0398 14D30000 0000000004000080 000000611E 1 CABR M44B19  AUT LL US     //Cabrio 318isA US M44
+BH83         14D30000 00000000040000C0 000000611E 1 CABR M44B19  AUT LL US     //Cabrio 318isA US M44 ASC Serie
+BJ11         14110000 0000000004000080 000000211E 1 CABR M50B20  MAN LL BASIS  //Cabrio 320i   LL M50
+BJ12         14120000 0000000004000080 000000211E 1 CABR M50B20  MAN RL BASIS  //Cabrio 320i   RL M50
+BJ21         14210000 0000000004000080 000000211E 1 CABR M50B20  AUT LL BASIS  //Cabrio 320iA  LL M50
+BJ22         14220000 0000000004000080 000000211E 1 CABR M50B20  AUT RL BASIS  //Cabrio 320iA  RL M50
+H BJ31 V0194 14310000 0000000000000000 000000000E 1 CABR M52B20  MAN LL BASIS  //Cabrio 320i   LL M52
+H BJ31 V0996 14310000 0000000004000080 000002211E 1 CABR M52B20  MAN LL BASIS  //Cabrio 320i   LL M52
+BJ31         14310000 00000000040000C0 000002211E 1 CABR M52B20  MAN LL BASIS  //Cabrio 320i   LL M52
+H BJ32 V0194 14320000 0000000000000000 000000000E 1 CABR M52B20  MAN RL BASIS  //Cabrio 320i   RL M52
+H BJ32 V0996 14320000 0000000004000080 000002211E 1 CABR M52B20  MAN RL BASIS  //Cabrio 320i   RL M52
+BJ32         14320000 00000000040000C0 000002211E 1 CABR M52B20  MAN RL BASIS  //Cabrio 320i   RL M52
+H BJ41 V0194 14410000 0000000000000000 000000000E 1 CABR M52B20  AUT LL BASIS  //Cabrio 320iA  LL M52
+H BJ41 V0996 14410000 0000000004000080 000002211E 1 CABR M52B20  AUT LL BASIS  //Cabrio 320iA  LL M52
+BJ41         14410000 00000000040000C0 000002211E 1 CABR M52B20  AUT LL BASIS  //Cabrio 320iA  LL M52
+H BJ42 V0194 14420000 0000000000000000 000000000E 1 CABR M52B20  AUT RL BASIS  //Cabrio 320iA  RL M52
+H BJ42 V0996 14420000 0000000004000080 000002211E 1 CABR M52B20  AUT RL BASIS  //Cabrio 320iA  RL M52
+BJ42         14420000 00000000040000C0 000002211E 1 CABR M52B20  AUT RL BASIS  //Cabrio 320iA  RL M52
+H BJ51 V0993 14510000 0000000000008090 000000001E 1 CABR M50B25  MAN LL BASIS  //Cabrio 325i   LL M50
+BJ51         14510000 0000000004008080 000000001E 1 CABR M50B25  MAN LL BASIS  //Cabrio 325i   LL M50
+H BJ52 V0993 14520000 0000000000008090 000000001E 1 CABR M50B25  MAN RL BASIS  //Cabrio 325i   RL M50
+BJ52         14520000 0000000004008080 000000001E 1 CABR M50B25  MAN RL BASIS  //Cabrio 325i   RL M50
+H BJ53 V0993 14530000 0000000000008090 000000001E 1 CABR M50B25  MAN LL US     //Cabrio 325i   US M50
+BJ53         14530000 0000000004008080 000000001E 1 CABR M50B25  MAN LL US     //Cabrio 325i   US M50
+H BJ61 V0993 14610000 0000000000008090 000000001E 1 CABR M50B25  AUT LL BASIS  //Cabrio 325iA  LL M50
+BJ61         14610000 0000000004008080 000000001E 1 CABR M50B25  AUT LL BASIS  //Cabrio 325iA  LL M50
+H BJ62 V0993 14620000 0000000000008090 000000001E 1 CABR M50B25  AUT RL BASIS  //Cabrio 325iA  RL M50
+BJ62         14620000 0000000004008080 000000001E 1 CABR M50B25  AUT RL BASIS  //Cabrio 325iA  RL M50
+H BJ63 V0993 14630000 0000000000008090 000000001E 1 CABR M50B25  AUT LL US     //Cabrio 325iA  US M50
+BJ63         14630000 0000000004008080 000000001E 1 CABR M50B25  AUT LL US     //Cabrio 325iA  US M50
+H BJ71 V0194 14710000 0000000000000000 000000000E 1 CABR M52B25  MAN LL BASIS  //Cabrio 323i   LL M52
+H BJ71 V0996 14710000 0000000004000080 000002211E 1 CABR M52B25  MAN LL BASIS  //Cabrio 323i   LL M52
+BJ71         14710000 00000000040000C0 000002211E 1 CABR M52B25  MAN LL BASIS  //Cabrio 323i   LL M52
+H BJ72 V0194 14720000 0000000000000000 000000000E 1 CABR M52B25  MAN RL BASIS  //Cabrio 323i   RL M52
+H BJ72 V0996 14720000 0000000004000080 000002211E 1 CABR M52B25  MAN RL BASIS  //Cabrio 323i   RL M52
+BJ72         14720000 00000000040000C0 000002211E 1 CABR M52B25  MAN RL BASIS  //Cabrio 323i   RL M52
+H BJ73 V0194 14730000 0000000000000000 000000000E 1 CABR M52B25  MAN LL US     //Cabrio 323i   US M52
+BJ73         14730000 00004000040080C0 000002211E 1 CABR M52B25  MAN LL US     //Cabrio 323i   US M52
+H BJ81 V0194 14810000 0000000000000000 000000000E 1 CABR M52B25  AUT LL BASIS  //Cabrio 323iA  LL M52
+H BJ81 V0996 14810000 0000000004000080 000002211E 1 CABR M52B25  AUT LL BASIS  //Cabrio 323iA  LL M52
+BJ81         14810000 00000000040000C0 000002211E 1 CABR M52B25  AUT LL BASIS  //Cabrio 323iA  LL M52
+H BJ82 V0194 14820000 0000000000000000 000000000E 1 CABR M52B25  AUT RL BASIS  //Cabrio 323iA  RL M52
+H BJ82 V0996 14820000 0000000004000080 000002211E 1 CABR M52B25  AUT RL BASIS  //Cabrio 323iA  RL M52
+BJ82         14820000 00000000040000C0 000002211E 1 CABR M52B25  AUT RL BASIS  //Cabrio 323iA  RL M52
+H BJ83 V0194 14830000 0000000000000000 000000000E 1 CABR M52B25  AUT LL US     //Cabrio 323iA  US M52
+BJ83         14830000 00004000040080C0 000002211E 1 CABR M52B25  AUT LL US     //Cabrio 323iA  US M52
+BJ91         14910000 0000000004008480 000000211E 1 CABR S50B30  MAN LL BASIS  //Cabrio M3     LL S50
+BJ92         14920000 0000000004008480 000000211E 1 CABR S50B30  MAN RL BASIS  //Cabrio M3     RL S50
+BK53         14A30000 0000000004000080 000000611E 1 CABR M42B18  MAN LL US     //Cabrio 318is  US M42
+BK63         14B30000 0000000004000080 000000611E 1 CABR M42B18  AUT LL US     //Cabrio 318isA US M42
+H BK71 V0194 14E10000 0000000000000000 000000000E 1 CABR M52B28  MAN LL BASIS  //Cabrio 328i   LL M52
+H BK71 V0996 14E10000 0000000004008080 000002211E 1 CABR M52B28  MAN LL BASIS  //Cabrio 328i   LL M52
+BK71         14E10000 00000000040080C0 000002211E 1 CABR M52B28  MAN LL BASIS  //Cabrio 328i   LL M52
+H BK72 V0194 14E20000 0000000000000000 000000000E 1 CABR M52B28  MAN RL BASIS  //Cabrio 328i   RL M52
+H BK72 V0996 14E20000 0000000004008080 000002211E 1 CABR M52B28  MAN RL BASIS  //Cabrio 328i   RL M52
+BK72         14E20000 00000000040080C0 000002211E 1 CABR M52B28  MAN RL BASIS  //Cabrio 328i   RL M52
+H BK73 V0194 14E30000 0000000000000000 000000000E 1 CABR M52B28  MAN LL US     //Cabrio 328i   US M52
+H BK73 V0996 14E30000 0000000004008080 000002611E 1 CABR M52B28  MAN LL US     //Cabrio 328i   US M52
+BK73         14E30000 00004000040080C0 000002611E 1 CABR M52B28  MAN LL US     //Cabrio 328i   US M52
+H BK81 V0194 14F10000 0000000000000000 000000000E 1 CABR M52B28  AUT LL BASIS  //Cabrio 328iA  LL M52
+H BK81 V0996 14F10000 0000000004008080 000002211E 1 CABR M52B28  AUT LL BASIS  //Cabrio 328iA  LL M52
+BK81         14F10000 00000000040080C0 000002211E 1 CABR M52B28  AUT LL BASIS  //Cabrio 328iA  LL M52
+H BK82 V0194 14F20000 0000000000000000 000000000E 1 CABR M52B28  AUT RL BASIS  //Cabrio 328iA  RL M52
+H BK82 V0996 14F20000 0000000004008080 000002211E 1 CABR M52B28  AUT RL BASIS  //Cabrio 328iA  RL M52
+BK82         14F20000 00000000040080C0 000002211E 1 CABR M52B28  AUT RL BASIS  //Cabrio 328iA  RL M52
+H BK83 V0194 14F30000 0000000000000000 000000000E 1 CABR M52B28  AUT LL US     //Cabrio 328iA  US M52
+H BK83 V0996 14F30000 0000000004008080 000002611E 1 CABR M52B28  AUT LL US     //Cabrio 328iA  US M52
+BK83         14F30000 00004000040080C0 000002611E 1 CABR M52B28  AUT LL US     //Cabrio 328iA  US M52
+;BK91/92 lÑuft zu 09/99 aus
+H BK91 V0996 13910000 0000000004008480 000002211E 1 CABR S50B32  MAN LL BASIS  //Cabrio M3     LL S50 Tö
+BK91         13910000 0000400004008480 000002211E 1 CABR S50B32  MAN LL BASIS  //Cabrio M3     LL S50 Tö
+H BK92 V0996 13920000 0000000004008480 000002211E 1 CABR S50B32  MAN RL BASIS  //Cabrio M3     RL S50 Tö
+BK92         13920000 0000400004008480 000002211E 1 CABR S50B32  MAN RL BASIS  //Cabrio M3     RL S50 Tö
+H BK03 V0197 13030000 0000000000000000 000000000E 1 CABR S50B32  AUT LL US     //Cabrio M3     LL S50 Tö
+BK03         13030000 00004000040084C0 000002211E 1 CABR S50B32  AUT LL US     //Cabrio M3     LL S50 Tö
+H BK93 V0197 13930000 0000000000000000 000000000E 1 CABR S50B32  MAN LL US     //Cabrio M3     LL S50 Tö
+BK93         13930000 00004000040084C0 000002211E 1 CABR S50B32  MAN LL US     //Cabrio M3     LL S50 Tö
+; Limousine
+H CA01 V0997 15010000 0000000000000000 0000000000 1 LIM  M43B18  AUT LL BASIS       //Limousine 318iA   LL M43
+CA01         15010000 0000000000000080 0100002114 1 LIM  M43B18  AUT LL BASIS       //Limousine 318iA   LL M43
+H CA02 V0997 15020000 0000000000000000 0000000000 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43
+CA02         15020000 0000000000000080 0100002114 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43
+H CP42 V0997 12420000 0000000000000000 0000000000 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43 ZA Exp. n. Australien (mit LA)
+CP42         12420000 0000000000000080 0100002114 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43 ZA Exp. n. Australien (mit LA)
+H CA04 V0997 15040010 0000000000000000 0000000000 1 LIM  M43B18  AUT RL MALAYSIA    //Limousine 318iA   RL M43 Malaysia CKD
+CA04         15040010 0000000000000080 0100002114 1 LIM  M43B18  AUT RL MALAYSIA    //Limousine 318iA   RL M43 Malaysia CKD
+H CA05 V0997 15050010 0000000000000000 0000000000 1 LIM  M43B18  AUT RL THAILAND    //Limousine 318iA   RL M43 Thailand CKD
+CA05         15050010 0000000000000080 0100002114 1 LIM  M43B18  AUT RL THAILAND    //Limousine 318iA   RL M43 Thailand CKD
+H CA08 V0997 15080010 0000000000000000 0000000000 1 LIM  M43B18  AUT RL ZA          //Limousine 318iA   RL M43 SÅdafrika CKD
+CA08         15080010 0000000000010080 0100002114 1 LIM  M43B18  AUT RL ZA          //Limousine 318iA   RL M43 SÅdafrika CKD
+H CA09 V0997 15091010 0000000000000000 0000000000 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43 SÅdafrika CKD f. Exp. Australien
+CA09         15091010 0000000000000080 0100002114 1 LIM  M43B18  AUT RL BASIS       //Limousine 318iA   RL M43 SÅdafrika CKD f. Exp. Australien
+CA11         15110000 0000000000000000 0000000000 1 LIM  M40B16  MAN LL BASIS       //Limousine 316i    LL M40
+CA12         15120000 0000000000000080 0000000000 1 LIM  M40B16  MAN RL BASIS       //Limousine 316i    RL M40
+CA21         15210000 0000000000000000 0000000000 1 LIM  M40B16  AUT LL BASIS       //Limousine 316iA   LL M40
+CA22         15220000 0000000000000080 0000000000 1 LIM  M40B16  AUT RL BASIS       //Limousine 316iA   RL M40
+H CA31 V0191 15310000 0000000000000000 0000000000 1 LIM  M40B18  MAN LL BASIS       //Limousine 318i    LL M40
+CA31         15310000 0000000000000080 0000000000 1 LIM  M40B18  MAN LL BASIS       //Limousine 318i    LL M40
+CA32         15320000 0000000000000080 0000000000 1 LIM  M40B18  MAN RL BASIS       //Limousine 318i    RL M40
+CA34         15340010 0000000000000080 0000000000 1 LIM  M40B18  MAN RL MALAYSIA    //Limousine 318i    RL M40 Malaysia CKD
+CA35         15350010 0000000000000080 0000000000 1 LIM  M40B18  MAN RL THAILAND    //Limousine 318i    RL M40 Thailand CKD
+CA37         15370010 0000000000000080 0000000000 1 LIM  M40B18  MAN RL INDONESIEN  //Limousine 318i    RL M40 Indonesien CKD
+CA38         15380010 0000000000010080 0000000000 1 LIM  M40B18  MAN RL ZA          //Limousine 318i    RL M40 SÅdafrika CKD
+H CA41 V0191 15410000 0000000000000000 0000000000 1 LIM  M40B18  AUT LL BASIS       //Limousine 318iA   LL M40
+CA41         15410000 0000000000000080 0000000000 1 LIM  M40B18  AUT LL BASIS       //Limousine 318iA   LL M40
+CA42         15420000 0000000000000080 0000000000 1 LIM  M40B18  AUT RL BASIS       //Limousine 318iA   RL M40
+CA44         15440010 0000000000000080 0000000000 1 LIM  M40B18  AUT RL MALAYSIA    //Limousine 318iA   RL M40 Malaysia CKD
+CA45         15450010 0000000000000080 0000000000 1 LIM  M40B18  AUT RL THAILAND    //Limousine 318iA   RL M40 Thailand CKD
+CA47         15470010 0000000000000080 0000000000 1 LIM  M40B18  AUT RL INDONESIEN  //Limousine 318iA   RL M40 Indonesien CKD
+CA48         15480010 0000000000010080 0000000000 1 LIM  M40B18  AUT RL ZA          //Limousine 318iA   RL M40 SÅdafrika CKD
+CA51         15510000 0000000000000080 0000000000 1 LIM  M42B18  MAN LL BASIS       //Limousine 318is   LL M42
+CA52         15520000 0000000000000080 0000000000 1 LIM  M42B18  MAN RL BASIS       //Limousine 318is   RL M42
+H CA53 V0993 15530000 0000000000000090 0000000000 1 LIM  M42B18  MAN LL US          //Limousine 318is   US M42
+CA53         15530000 0000000004000080 0000000000 1 LIM  M42B18  MAN LL US          //Limousine 318is   US M42
+CA58         15580010 0000000000010080 0000000000 1 LIM  M42B18  MAN RL ZA          //Limousine 318is   RL M42 SÅdafrika CKD
+CA61         15610000 0000000000000080 0000000000 1 LIM  M42B18  AUT LL BASIS       //Limousine 318isA  LL M42
+CA62         15620000 0000000000000080 0000000000 1 LIM  M42B18  AUT RL BASIS       //Limousine 318isA  RL M42
+H CA63 V0993 15630000 0000000000000090 0000000000 1 LIM  M42B18  AUT LL US          //Limousine 318isA  US M42
+CA63         15630000 0000000004000080 0000000000 1 LIM  M42B18  AUT LL US          //Limousine 318isA  US M42
+CA68         15680010 0000000000010080 0000000000 1 LIM  M42B18  AUT RL ZA          //Limousine 318isA  RL M42 SÅdafrika CKD
+H CA71 V0195 15710000 0000000000000000 0000002114 1 LIM  M43B16  MAN LL BASIS       //Limousine 316i    LL M43
+H CA71 V0997 15710000 0000000000000080 0000002114 1 LIM  M43B16  MAN LL BASIS       //Limousine 316i    LL M43
+CA71         15710000 0000000000000080 0100002114 1 LIM  M43B16  MAN LL BASIS       //Limousine 316i    LL M43
+H CA72 V0997 15720000 0000000000000080 0000002114 1 LIM  M43B16  MAN RL BASIS       //Limousine 316i    RL M43
+CA72         15720000 0000000000000080 0100002114 1 LIM  M43B16  MAN RL BASIS       //Limousine 316i    RL M43
+H CA79 V0997 15790000 0000000000000080 0000002114 1 LIM  M43B16  MAN LL BASIS       //Limousine 316i    LL M43 Philipinen CKD
+CA79         15790000 0000000000000080 0100002114 1 LIM  M43B16  MAN LL BASIS       //Limousine 316i    LL M43 Philipinen CKD
+H CA81 V0195 15810000 0000000000000000 0000002114 1 LIM  M43B16  AUT LL BASIS       //Limousine 316iA   LL M43
+H CA81 V0997 15810000 0000000000000080 0000002114 1 LIM  M43B16  AUT LL BASIS       //Limousine 316iA   LL M43
+CA81         15810000 0000000000000080 0100002114 1 LIM  M43B16  AUT LL BASIS       //Limousine 316iA   LL M43
+; fÅr CP21 kein Serien-ASC!
+H CP21 V0997 12210000 0000000000000080 0000002114 1 LIM  M43B16  AUT LL BASIS       //Limousine 316iA   LL M43 ZA Exp. n. Taiwan (mit LA)
+CP21         12210000 0000000000000080 0100002114 1 LIM  M43B16  AUT LL BASIS       //Limousine 316iA   LL M43 ZA Exp. n. Taiwan (mit LA)
+H CA82 V0997 15820000 0000000000000080 0000002114 1 LIM  M43B16  AUT RL BASIS       //Limousine 316iA   RL M43
+CA82         15820000 0000000000000080 0100002114 1 LIM  M43B16  AUT RL BASIS       //Limousine 316iA   RL M43
+H CA91 V0997 15910000 0000000000000080 0000002114 1 LIM  M43B18  MAN LL BASIS       //Limousine 318i    LL M43
+CA91         15910000 0000000000000080 0100002114 1 LIM  M43B18  MAN LL BASIS       //Limousine 318i    LL M43
+H CP31 V0997 12310000 0000000000000080 0000002114 1 LIM  M43B18  MAN LL BASIS       //Limousine 318i    LL M43 ZA Exp. n. Deutschland (mit LA)
+CP31         12310000 0000000000000080 0100002114 1 LIM  M43B18  MAN LL BASIS       //Limousine 318i    LL M43 ZA Exp. n. Deutschland (mit LA)
+H CA92 V0997 15920000 0000000000000080 0000002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43
+CA92         15920000 0000000000000080 0100002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43
+H CP32 V0997 12320000 0000000000000080 0000002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43 ZA Exp. n. Australien (mit LA)
+CP32         12320000 0000000000000080 0100002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43 ZA Exp. n. Australien (mit LA)
+H CA94 V0997 15940010 0000000000000080 0000002114 1 LIM  M43B18  MAN RL MALAYSIA    //Limousine 318i    RL M43 Malaysia CKD
+CA94         15940010 0000000000000080 0100002114 1 LIM  M43B18  MAN RL MALAYSIA    //Limousine 318i    RL M43 Malaysia CKD
+H CA95 V0997 15950010 0000000000000080 0000002114 1 LIM  M43B18  MAN RL THAILAND    //Limousine 318i    RL M43 Thailand CKD
+CA95         15950010 0000000000000080 0100002114 1 LIM  M43B18  MAN RL THAILAND    //Limousine 318i    RL M43 Thailand CKD
+H CA97 V0997 15970010 0000000000000080 0000002114 1 LIM  M43B18  MAN RL INDONESIEN  //Limousine 318i    RL M43 Indonesien CKD
+CA97         15970010 0000000000000080 0100002114 1 LIM  M43B18  MAN RL INDONESIEN  //Limousine 318i    RL M43 Indonesien CKD
+H CA98 V0997 15980010 0000000000010080 0000002114 1 LIM  M43B18  MAN RL ZA          //Limousine 318i    RL M43 SÅdafrika CKD
+CA98         15980010 0000000000010080 0100002114 1 LIM  M43B18  MAN RL ZA          //Limousine 318i    RL M43 SÅdafrika CKD
+H CA99 V0997 15991010 0000000000000080 0000002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43 SÅdafrika CKD f. Exp. Australien
+CA99         15991010 0000000000000080 0100002114 1 LIM  M43B18  MAN RL BASIS       //Limousine 318i    RL M43 SÅdafrika CKD f. Exp. Australien
+H CB01 V0194 16010000 0000000000000000 0000000000 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+H CB01 V0996 16010000 0000000000000080 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+CB01         16010000 00000000000000C0 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+CB11         16110000 0000000000000080 0000000000 1 LIM  M50B20  MAN LL BASIS       //Limousine 320i    LL M50
+CB12         16120000 0000000000000080 0000000000 1 LIM  M50B20  MAN RL BASIS       //Limousine 320i    RL M50
+H CB13 V0993 16130000 0000000000000090 0000000000 1 LIM  M50B20  MAN LL US          //Limousine 320i    US M50 nur LA Kanada
+CB13         16130000 0000000004000080 0000006116 1 LIM  M50B20  MAN LL US          //Limousine 320i    US M50 nur LA Kanada
+CB16         16160006 0000000000000080 0000000000 1 LIM  M50B20  MAN LL BASIS       //Limousine 320i    LL M50 Brasilien CKD
+CB17         16170010 0000000000000080 0000000000 1 LIM  M50B20  MAN RL INDONESIEN  //Limousine 320i    RL M50 Indonesien CKD
+CB18         16180010 0000000000018080 0000000000 1 LIM  M50B20  MAN RL ZA          //Limousine 320i    RL M50 SÅdafrika CKD
+CB21         16210000 0000000000000080 0000000000 1 LIM  M50B20  AUT LL BASIS       //Limousine 320iA   LL M50
+CB22         16220000 0000000000000080 0000000000 1 LIM  M50B20  AUT RL BASIS       //Limousine 320iA   RL M50
+H CB23 V0993 16230000 0000000000000090 0000000000 1 LIM  M50B20  AUT LL US          //Limousine 320iA   US M50 nur LA Kanada
+CB23         16230000 0000000004000080 0000006116 1 LIM  M50B20  AUT LL US          //Limousine 320iA   US M50 nur LA Kanada
+CB27         16270010 0000000000000080 0000000000 1 LIM  M50B20  AUT RL INDONESIEN  //Limousine 320iA   RL M50 Indonesien CKD
+CB28         16280010 0000000000018080 0000000000 1 LIM  M50B20  AUT RL ZA          //Limousine 320iA   RL M50 SÅdafrika CKD
+H CB31 V0990 16310000 0000000000000000 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50
+H CB31 V0192 16310000 0000000000008080 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50
+CB31         16310000 0000000000008090 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50
+H CB32 V0990 16320000 0000000000000000 0000000000 1 LIM  M50B25  MAN RL BASIS       //Limousine 325i    RL M50
+H CB32 V0192 16320000 0000000000008080 0000000000 1 LIM  M50B25  MAN RL BASIS       //Limousine 325i    RL M50
+CB32         16320000 0000000000008090 0000000000 1 LIM  M50B25  MAN RL BASIS       //Limousine 325i    RL M50
+H CB33 V0990 16330000 0000000000000000 0000000000 1 LIM  M50B25  MAN LL US          //Limousine 325i    US M50
+H CB33 V0192 16330000 0000000000008080 0000000000 1 LIM  M50B25  MAN LL US          //Limousine 325i    US M50
+H CB33 V0993 16330000 0000000000008090 0000000000 1 LIM  M50B25  MAN LL US          //Limousine 325i    US M50
+CB33         16330000 0000000004008080 0000006116 1 LIM  M50B25  MAN LL US          //Limousine 325i    US M50
+H CB34 V0990 16340010 0000000000000000 0000000000 1 LIM  M50B25  MAN RL MALAYSIA    //Limousine 325i    RL M50 Malaysia CKD
+H CB34 V0192 16340010 0000000000008080 0000000000 1 LIM  M50B25  MAN RL MALAYSIA    //Limousine 325i    RL M50 Malaysia CKD
+CB34         16340010 0000000000008090 0000000000 1 LIM  M50B25  MAN RL MALAYSIA    //Limousine 325i    RL M50 Malaysia CKD
+H CB35 V0990 16350010 0000000000000000 0000000000 1 LIM  M50B25  MAN RL THAILAND    //Limousine 325i    RL M50 Thailand CKD
+H CB35 V0192 16350010 0000000000008080 0000000000 1 LIM  M50B25  MAN RL THAILAND    //Limousine 325i    RL M50 Thailand CKD
+CB35         16350010 0000000000008090 0000000000 1 LIM  M50B25  MAN RL THAILAND    //Limousine 325i    RL M50 Thailand CKD
+H CB38 V0990 16380010 0000000000000000 0000000000 1 LIM  M50B25  MAN RL ZA          //Limousine 325i    RL M50
+H CB38 V0192 16380010 0000000000018080 0000000000 1 LIM  M50B25  MAN RL ZA          //Limousine 325i    RL M50
+CB38         16380010 0000000000018090 0000000000 1 LIM  M50B25  MAN RL ZA          //Limousine 325i    RL M50
+H CB39 V0990 16390006 0000000000000000 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50 Uruguay CKD
+H CB39 V0192 16390006 0000000000008080 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50 Uruguay CKD
+CB39         16390006 0000000000008090 0000000000 1 LIM  M50B25  MAN LL BASIS       //Limousine 325i    LL M50 Uruguay CKD
+H CB41 V0990 16410000 0000000000000000 0000000000 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50
+H CB41 V0192 16410000 0000000000008080 0000000000 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50
+CB41         16410000 0000000000008090 0000000000 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50
+H CB42 V0990 16420000 0000000000000000 0000000000 1 LIM  M50B25  AUT RL BASIS       //Limousine 325iA   RL M50
+H CB42 V0192 16420000 0000000000008080 0000000000 1 LIM  M50B25  AUT RL BASIS       //Limousine 325iA   RL M50
+CB42         16420000 0000000000008090 0000000000 1 LIM  M50B25  AUT RL BASIS       //Limousine 325iA   RL M50
+H CB43 V0990 16430000 0000000000000000 0000000000 1 LIM  M50B25  AUT LL US          //Limousine 325iA   US M50
+H CB43 V0192 16430000 0000000000008080 0000000000 1 LIM  M50B25  AUT LL US          //Limousine 325iA   US M50
+H CB43 V0993 16430000 0000000000008090 0000000000 1 LIM  M50B25  AUT LL US          //Limousine 325iA   US M50
+CB43         16430000 0000000004008080 0000006116 1 LIM  M50B25  AUT LL US          //Limousine 325iA   US M50
+H CB44 V0990 16440010 0000000000000000 0000000000 1 LIM  M50B25  AUT RL MALAYSIA    //Limousine 325iA   RL M50 Malaysia CKD
+H CB44 V0192 16440010 0000000000008080 0000000000 1 LIM  M50B25  AUT RL MALAYSIA    //Limousine 325iA   RL M50 Malaysia CKD
+CB44         16440010 0000000000008090 0000000000 1 LIM  M50B25  AUT RL MALAYSIA    //Limousine 325iA   RL M50 Malaysia CKD
+H CB45 V0990 16450010 0000000000000000 0000000000 1 LIM  M50B25  AUT RL THAILAND    //Limousine 325iA   RL M50 Thailand CKD
+H CB45 V0192 16450010 0000000000008080 0000000000 1 LIM  M50B25  AUT RL THAILAND    //Limousine 325iA   RL M50 Thailand CKD
+CB45         16450010 0000000000008090 0000000000 1 LIM  M50B25  AUT RL THAILAND    //Limousine 325iA   RL M50 Thailand CKD
+H CB47 V0990 16470006 0000000000000000 0000002116 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50 MEXIKO CKD
+H CB47 V0192 16470006 0000000000008080 0000002116 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50 MEXIKO CKD
+CB47         16470006 0000000000008090 0000002116 1 LIM  M50B25  AUT LL BASIS       //Limousine 325iA   LL M50 MEXIKO CKD
+H CB48 V0990 16480010 0000000000000000 0000000000 1 LIM  M50B25  AUT RL ZA          //Limousine 325iA   RL M50 SÅdafrika CKD
+H CB48 V0192 16480010 0000000000018080 0000000000 1 LIM  M50B25  AUT RL ZA          //Limousine 325iA   RL M50 SÅdafrika CKD
+CB48         16480010 0000000000018090 0000000000 1 LIM  M50B25  AUT RL ZA          //Limousine 325iA   RL M50 SÅdafrika CKD
+H CB51 V0194 16510000 0000000000000000 0000000000 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52
+H CB51 V0996 16510000 0000000000000080 0000022114 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52
+CB51         16510000 00000000000000C0 0000022114 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52
+CP51         12510000 00000000000000C0 0000022114 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52 ZA Exp. n. Deutschland (mit LA)
+H CB52 V0194 16520000 0000000000000000 0000000000 1 LIM  M52B20  MAN RL BASIS       //Limousine 320i    RL M52
+H CB52 V0996 16520000 0000000000000080 0000022114 1 LIM  M52B20  MAN RL BASIS       //Limousine 320i    RL M52
+CB52         16520000 00000000000000C0 0000022114 1 LIM  M52B20  MAN RL BASIS       //Limousine 320i    RL M52
+H CB57 V0194 16570000 0000000000000000 0000000000 1 LIM  M52B20  MAN RL INDONESIEN  //Limousine 320i    RL M52 Indonesien CKD
+H CB57 V0996 16570010 0000000000000080 0000022114 1 LIM  M52B20  MAN RL INDONESIEN  //Limousine 320i    RL M52 Indonesien CKD
+CB57         16570010 00000000000000C0 0000022114 1 LIM  M52B20  MAN RL INDONESIEN  //Limousine 320i    RL M52 Indonesien CKD
+H CB59 V0194 16590000 0000000000000000 0000000000 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52 Vietnam CKD
+H CB59 V0996 16590003 0000000000000080 0000022114 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52 Vietnam CKD
+CB59         16590003 00000000000000C0 0000022114 1 LIM  M52B20  MAN LL BASIS       //Limousine 320i    LL M52 Vietnam CKD
+H CB61 V0194 16610000 0000000000000000 0000000000 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52
+H CB61 V0996 16610000 0000000000000080 0000022114 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52
+CB61         16610000 00000000000000C0 0000022114 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52
+H CB62 V0194 16620000 0000000000000000 0000000000 1 LIM  M52B20  AUT RL BASIS       //Limousine 320iA   RL M52
+H CB62 V0996 16620000 0000000000000080 0000022114 1 LIM  M52B20  AUT RL BASIS       //Limousine 320iA   RL M52
+CB62         16620000 00000000000000C0 0000022114 1 LIM  M52B20  AUT RL BASIS       //Limousine 320iA   RL M52
+H CB67 V0194 16670000 0000000000000000 0000000000 1 LIM  M52B20  AUT RL INDONESIEN  //Limousine 320iA   RL M52 Indonesien CKD
+H CB67 V0996 16670010 0000000000000080 0000022114 1 LIM  M52B20  AUT RL INDONESIEN  //Limousine 320iA   RL M52 Indonesien CKD
+CB67         16670010 00000000000000C0 0000022114 1 LIM  M52B20  AUT RL INDONESIEN  //Limousine 320iA   RL M52 Indonesien CKD
+H CB69 V0194 16690000 0000000000000000 0000000000 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52 Philipinen CKD
+H CB69 V0996 16690000 0000000000000080 0000022114 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52 Philipinen CKD
+CB69         16690000 00000000000000C0 0000022114 1 LIM  M52B20  AUT LL BASIS       //Limousine 320iA   LL M52 Philipinen CKD
+H CB71 V0194 16710000 0000000000000000 0000000000 1 LIM  M52B25  MAN LL BASIS       //Limousine 323i    LL M52
+H CB71 V0996 16710000 0000000000000080 0000022114 1 LIM  M52B25  MAN LL BASIS       //Limousine 323i    LL M52
+CB71         16710000 00000000000000C0 0000022114 1 LIM  M52B25  MAN LL BASIS       //Limousine 323i    LL M52
+CP71         12710000 00000000000000C0 0000022114 1 LIM  M52B25  MAN LL BASIS       //Limousine 323i    LL M52 ZA Exp. n. Lateinamerika/Dtschl. (mit LA)
+H CB72 V0194 16720000 0000000000000000 0000000000 1 LIM  M52B25  MAN RL BASIS       //Limousine 323i    RL M52
+H CB72 V0996 16720000 0000000000000080 0000022114 1 LIM  M52B25  MAN RL BASIS       //Limousine 323i    RL M52
+CB72         16720000 00000000000000C0 0000022114 1 LIM  M52B25  MAN RL BASIS       //Limousine 323i    RL M52
+CP72         12720000 00000000000000C0 0000022114 1 LIM  M52B25  MAN RL BASIS       //Limousine 323i    RL M52 ZA Exp. n. Australien (mit LA)
+H CB75 V0194 16750000 0000000000000000 0000000000 1 LIM  M52B25  MAN RL THAILAND    //Limousine 323i    RL M52 Thailand CKD
+H CB75 V0996 16750010 0000000000000080 0000022114 1 LIM  M52B25  MAN RL THAILAND    //Limousine 323i    RL M52 Thailand CKD
+CB75         16750010 00000000000000C0 0000022114 1 LIM  M52B25  MAN RL THAILAND    //Limousine 323i    RL M52 Thailand CKD
+H CB77 V0194 16770000 0000000000000000 0000000000 1 LIM  M52B25  MAN RL INDONESIEN  //Limousine 323i    RL M52 Indonesien CKD
+H CB77 V0996 16770010 0000000000000080 0000022114 1 LIM  M52B25  MAN RL INDONESIEN  //Limousine 323i    RL M52 Indonesien CKD
+CB77         16770010 00000000000000C0 0000022114 1 LIM  M52B25  MAN RL INDONESIEN  //Limousine 323i    RL M52 Indonesien CKD
+H CB78 V0194 16780000 0000000000000000 0000000000 1 LIM  M52B25  MAN RL ZA          //Limousine 323i    RL M52 SÅdafrika CKD
+H CB78 V0996 16780010 0000000000010080 0000022114 1 LIM  M52B25  MAN RL ZA          //Limousine 323i    RL M52 SÅdafrika CKD
+CB78         16780010 00000000000100C0 0000022114 1 LIM  M52B25  MAN RL ZA          //Limousine 323i    RL M52 SÅdafrika CKD
+H CB81 V0194 16810000 0000000000000000 0000000000 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+H CB81 V0996 16810000 0000000000000080 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+CB81         16810000 00000000000000C0 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52
+CP81         12810000 00000000000000C0 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 323iA   LL M52 ZA Exp. n. Lateinamerika (mit LA)
+H CB82 V0194 16820000 0000000000000000 0000000000 1 LIM  M52B25  AUT RL BASIS       //Limousine 323iA   RL M52
+H CB82 V0996 16820000 0000000000000080 0000022114 1 LIM  M52B25  AUT RL BASIS       //Limousine 323iA   RL M52
+CB82         16820000 00000000000000C0 0000022114 1 LIM  M52B25  AUT RL BASIS       //Limousine 323iA   RL M52
+CP82         12820000 00000000000000C0 0000022114 1 LIM  M52B25  AUT RL BASIS       //Limousine 323iA   RL M52 ZA Exp. n. Australien (mit LA)
+H CB85 V0194 16850000 0000000000000000 0000000000 1 LIM  M52B25  AUT RL THAILAND    //Limousine 323iA   RL M52 Thailand CKD
+H CB85 V0996 16850010 0000000000000080 0000022114 1 LIM  M52B25  AUT RL THAILAND    //Limousine 323iA   RL M52 Thailand CKD
+CB85         16850010 00000000000000C0 0000022114 1 LIM  M52B25  AUT RL THAILAND    //Limousine 323iA   RL M52 Thailand CKD
+H CB87 V0194 16870000 0000000000000000 0000000000 1 LIM  M52B25  AUT RL INDONESIEN  //Limousine 323iA   RL M52 Indonesien CKD
+H CB87 V0996 16870010 0000000000000080 0000022114 1 LIM  M52B25  AUT RL INDONESIEN  //Limousine 323iA   RL M52 Indonesien CKD
+CB87         16870010 00000000000000C0 0000022114 1 LIM  M52B25  AUT RL INDONESIEN  //Limousine 323iA   RL M52 Indonesien CKD
+H CB88 V0194 16880000 0000000000000000 0000000000 1 LIM  M52B25  AUT RL ZA          //Limousine 323iA   RL M52 SÅdafrika CKD
+H CB88 V0996 16880010 0000000000010080 0000022114 1 LIM  M52B25  AUT RL ZA          //Limousine 323iA   RL M52 SÅdafrika CKD
+CB88         16880010 00000000000100C0 0000022114 1 LIM  M52B25  AUT RL ZA          //Limousine 323iA   RL M52 SÅdafrika CKD
+H CB89 V0197 16890000 0000000000000000 0000000000 1 LIM  M52B25  AUT LL BASIS       //Limousine 328iA   LL M52 MEXIKO CKD
+CB89         16890000 00000000000000C0 0000022114 1 LIM  M52B25  AUT LL BASIS       //Limousine 328iA   LL M52 MEXIKO CKD
+H CB91 V1094 16910000 0000000004008480 0000000000 1 LIM  S50B30  MAN LL BASIS       //Limousine M3      LL S50
+CB91         16910000 0000000000008490 0000000000 1 LIM  S50B30  MAN LL BASIS       //Limousine M3      LL S50
+H CB92 V1094 16920000 0000000004008480 0000000000 1 LIM  S50B30  MAN RL BASIS       //Limousine M3      RL S50
+CB92         16920000 0000000000008490 0000000000 1 LIM  S50B30  MAN RL BASIS       //Limousine M3      RL S50
+H CC11 V0996 17110000 0000000000000080 0000000000 1 LIM  M51D25WA2 MAN LL BASIS     //Limousine 325td   LL M51
+H CC11 V0997 17110000 00000000000000C0 0000000000 1 LIM  M51D25WA2 MAN LL BASIS     //Limousine 325td   LL M51
+CC11         17110000 00000000000000C0 0100000000 1 LIM  M51D25WA2 MAN LL BASIS     //Limousine 325td   LL M51
+H CC12 V0996 17120000 0000000000000080 0000000000 1 LIM  M51D25WA2 MAN RL BASIS     //Limousine 325td   RL M51
+H CC12 V0997 17120000 00000000000000C0 0000000000 1 LIM  M51D25WA2 MAN RL BASIS     //Limousine 325td   RL M51
+CC12         17120000 00000000000000C0 0100000000 1 LIM  M51D25WA2 MAN RL BASIS     //Limousine 325td   RL M51
+H CC21 V0996 17210000 0000000000000080 0000000000 1 LIM  M51D25WA2 AUT LL BASIS     //Limousine 325tdA  LL M51
+H CC21 V0997 17210000 00000000000000C0 0000000000 1 LIM  M51D25WA2 AUT LL BASIS     //Limousine 325tdA  LL M51
+CC21         17210000 00000000000000C0 0100000000 1 LIM  M51D25WA2 AUT LL BASIS     //Limousine 325tdA  LL M51
+H CC22 V0996 17220000 0000000000000080 0000000000 1 LIM  M51D25WA2 AUT RL BASIS     //Limousine 325tdA  RL M51
+H CC22 V0997 17220000 00000000000000C0 0000000000 1 LIM  M51D25WA2 AUT RL BASIS     //Limousine 325tdA  RL M51
+CC22         17220000 00000000000000C0 0100000000 1 LIM  M51D25WA2 AUT RL BASIS     //Limousine 325tdA  RL M51
+; Codierrelevant fÅr M51D25WA3 mit ASC und
+; Schadstoffreduzierung EG2
+; Einsatz in Serie ab 1/96
+H CC31 V0196 17310000 0000000000000080 0000000000 1 LIM  M51D25WA3 MAN LL BASIS     //Limousine 325tds  LL M51 EG2
+H CC31 V0996 17310000 0000000000000084 0000000000 1 LIM  M51D25WA3 MAN LL BASIS     //Limousine 325tds  LL M51 EG2
+H CC31 V0997 17310000 00000000000000C4 0000000000 1 LIM  M51D25WA3 MAN LL BASIS     //Limousine 325tds  LL M51 EG2
+CC31         17310000 00000000000000C4 0100000000 1 LIM  M51D25WA3 MAN LL BASIS     //Limousine 325tds  LL M51 EG2
+H CC32 V0196 17320000 0000000000000080 0000000000 1 LIM  M51D25WA3 MAN RL BASIS     //Limousine 325tds  RL M51 EG2
+H CC32 V0996 17320000 0000000000000084 0000000000 1 LIM  M51D25WA3 MAN RL BASIS     //Limousine 325tds  RL M51 EG2
+H CC32 V0997 17320000 00000000000000C4 0000000000 1 LIM  M51D25WA3 MAN RL BASIS     //Limousine 325tds  RL M51 EG2
+CC32         17320000 00000000000000C4 0100000000 1 LIM  M51D25WA3 MAN RL BASIS     //Limousine 325tds  RL M51 EG2
+H CC38 V0196 17380010 0000000000010080 0000000000 1 LIM  M51D25WA3 MAN RL ZA        //Limousine 325tds  LL M51 EG2 SÅdafrika CKD
+H CC38 V0996 17380010 0000000000010084 0000000000 1 LIM  M51D25WA3 MAN RL ZA        //Limousine 325tds  LL M51 EG2 SÅdafrika CKD
+H CC38 V0997 17380010 00000000000100C4 0000000000 1 LIM  M51D25WA3 MAN RL ZA        //Limousine 325tds  LL M51 EG2 SÅdafrika CKD
+CC38         17380010 00000000000100C4 0100000000 1 LIM  M51D25WA3 MAN RL ZA        //Limousine 325tds  LL M51 EG2 SÅdafrika CKD
+; Codierrelevant fÅr M51D25WA3 mit ASC und
+; Schadstoffreduzierung EG2
+; Einsatz in Serie ab 1/96
+H CC41 V0196 17410000 0000000000000080 0000000000 1 LIM  M51D25WA3 AUT LL BASIS     //Limousine 325tdsA LL M51 EG2
+H CC41 V0996 17410000 0000000000000084 0000000000 1 LIM  M51D25WA3 AUT LL BASIS     //Limousine 325tdsA LL M51 EG2
+H CC41 V0997 17410000 00000000000000C4 0000000000 1 LIM  M51D25WA3 AUT LL BASIS     //Limousine 325tdsA LL M51 EG2
+CC41         17410000 00000000000000C4 0100000000 1 LIM  M51D25WA3 AUT LL BASIS     //Limousine 325tdsA LL M51 EG2
+H CC42 V0196 17420000 0000000000000080 0000000000 1 LIM  M51D25WA3 AUT RL BASIS     //Limousine 325tdsA RL M51 EG2
+H CC42 V0996 17420000 0000000000000084 0000000000 1 LIM  M51D25WA3 AUT RL BASIS     //Limousine 325tdsA RL M51 EG2
+H CC42 V0997 17420000 00000000000000C4 0000000000 1 LIM  M51D25WA3 AUT RL BASIS     //Limousine 325tdsA RL M51 EG2
+CC42         17420000 00000000000000C4 0100000000 1 LIM  M51D25WA3 AUT RL BASIS     //Limousine 325tdsA RL M51 EG2
+H CC51 V0997 17510000 0000000000000080 0000002114 1 LIM  M41D17  MAN LL BASIS       //Limousine 318tds  LL M41
+CC51         17510000 0000000000000080 0100002114 1 LIM  M41D17  MAN LL BASIS       //Limousine 318tds  LL M41
+H CC52 V0997 17520000 0000000000000080 0000002114 1 LIM  M41D17  MAN RL BASIS       //Limousine 318tds  RL M41
+CC52         17520000 0000000000000080 0100002114 1 LIM  M41D17  MAN RL BASIS       //Limousine 318tds  RL M41
+H CC73 V0993 15A30000 0000000000000090 0000000000 1 LIM  M42B18  MAN LL US          //Limousine 318is   US M42 CKD
+CC73         15A30000 0000000004000080 0000006116 1 LIM  M42B18  MAN LL US          //Limousine 318is   US M42 CKD
+H CC83 V0993 15B30000 0000000000000090 0000000000 1 LIM  M42B18  AUT LL US          //Limousine 318isA  US M42 CKD
+CC83         15B30000 0000000004000080 0000006116 1 LIM  M42B18  AUT LL US          //Limousine 318isA  US M42 CKD
+;CD03 lÑuft zu 05/98 aus
+CD03         16F30000 00004000040084C0 0000022116 1 LIM  S50B32  AUT LL US          //Limousine M3 A    US S50 Tö  AGB,FH hinten Serie
+H CD11 V0194 16A10000 0000000000000000 0000000000 1 LIM  M52B28  MAN LL BASIS       //Limousine 328i    LL M52
+H CD11 V0996 16A10000 0000000000008090 0000022116 1 LIM  M52B28  MAN LL BASIS       //Limousine 328i    LL M52
+CD11         16A10000 00000000000080D0 0000022116 1 LIM  M52B28  MAN LL BASIS       //Limousine 328i    LL M52
+H CD12 V0194 16A20000 0000000000000000 0000000000 1 LIM  M52B28  MAN RL BASIS       //Limousine 328i    RL M52
+H CD12 V0996 16A20000 0000000000008090 0000022116 1 LIM  M52B28  MAN RL BASIS       //Limousine 328i    RL M52
+CD12         16A20000 00000000000080D0 0000022116 1 LIM  M52B28  MAN RL BASIS       //Limousine 328i    RL M52
+H CD13 V0194 16A30000 0000000000000000 0000000000 1 LIM  M52B28  MAN LL US          //Limousine 328i    US M52
+H CD13 V0996 16A30000 0000000004008080 0000026116 1 LIM  M52B28  MAN LL US          //Limousine 328i    US M52
+CD13         16A30000 00000000040080C0 0000026116 1 LIM  M52B28  MAN LL US          //Limousine 328i    US M52
+H CD14 V0194 16A40000 0000000000000000 0000000000 1 LIM  M52B28  MAN RL MALAYSIA    //Limousine 328i    RL M52 Malysia CKD
+H CD14 V0996 16A40010 0000000000008090 0000022116 1 LIM  M52B28  MAN RL MALAYSIA    //Limousine 328i    RL M52 Malysia CKD
+CD14         16A40010 00000000000080D0 0000022116 1 LIM  M52B28  MAN RL MALAYSIA    //Limousine 328i    RL M52 Malysia CKD
+H CD18 V0194 16A80000 0000000000000000 0000000000 1 LIM  M52B28  MAN RL ZA          //Limousine 328i    RL M52 SÅdafrika CKD
+H CD18 V0996 16A80010 0000000000018090 0000022116 1 LIM  M52B28  MAN RL ZA          //Limousine 328i    RL M52 SÅdafrika CKD
+CD18         16A80010 00000000000180D0 0000022116 1 LIM  M52B28  MAN RL ZA          //Limousine 328i    RL M52 SÅdafrika CKD
+H CD21 V0194 16B10000 0000000000000000 0000000000 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52
+H CD21 V0996 16B10000 0000000000008090 0000022116 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52
+CD21         16B10000 00000000000080D0 0000022116 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52
+H CD22 V0194 16B20000 0000000000000000 0000000000 1 LIM  M52B28  AUT RL BASIS       //Limousine 328iA   RL M52
+H CD22 V0996 16B20000 0000000000008090 0000022116 1 LIM  M52B28  AUT RL BASIS       //Limousine 328iA   RL M52
+CD22         16B20000 00000000000080D0 0000022116 1 LIM  M52B28  AUT RL BASIS       //Limousine 328iA   RL M52
+CP02         12020000 00000000000080D0 0000022116 1 LIM  M52B28  AUT RL BASIS       //Limousine 328iA   RL M52 ZA Exp. n. Australien (mit LA)
+H CD23 V0194 16B30000 0000000000000000 0000000000 1 LIM  M52B28  AUT LL US          //Limousine 328iA   US M52
+H CD23 V0996 16B30000 0000000004008080 0000026116 1 LIM  M52B28  AUT LL US          //Limousine 328iA   US M52
+CD23         16B30000 00000000040080C0 0000026116 1 LIM  M52B28  AUT LL US          //Limousine 328iA   US M52
+H CD24 V0194 16B40000 0000000000000000 0000000000 1 LIM  M52B28  AUT RL MALAYSIA    //Limousine 328iA   RL M52 Malysia CKD
+H CD24 V0996 16B40010 0000000000008090 0000022116 1 LIM  M52B28  AUT RL MALAYSIA    //Limousine 328iA   RL M52 Malysia CKD
+CD24         16B40010 00000000000080D0 0000022116 1 LIM  M52B28  AUT RL MALAYSIA    //Limousine 328iA   RL M52 Malysia CKD
+H CD27 V0194 16B70000 0000000000000000 0000000000 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52 MEXIKO CKD
+H CD27 V0996 16B70006 0000000000008090 0000022116 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52 MEXIKO CKD
+CD27         16B70006 00000000000080D0 0000022116 1 LIM  M52B28  AUT LL BASIS       //Limousine 328iA   LL M52 MEXIKO CKD
+H CD28 V0194 16B80000 0000000000000000 0000000000 1 LIM  M52B28  AUT RL ZA          //Limousine 328iA   RL M52 SÅdafrika CKD
+H CD28 V0996 16B80010 0000000000018090 0000022116 1 LIM  M52B28  AUT RL ZA          //Limousine 328iA   RL M52 SÅdafrika CKD
+CD28         16B80010 00000000000180D0 0000022116 1 LIM  M52B28  AUT RL ZA          //Limousine 328iA   RL M52 SÅdafrika CKD
+H CD33 V0194 16C30000 0000000000000000 0000000000 1 LIM  M52B28  MAN LL US          //Limousine 328iA   LL M52 US
+H CD33 V0996 16C30000 0000000004008080 0000026116 1 LIM  M52B28  MAN LL US          //Limousine 328iA   LL M52 US
+CD33         16C30000 00004000040080C0 0000026116 1 LIM  M52B28  MAN LL US          //Limousine 328iA   LL M52 US
+H CD43 V0194 16D30000 0000000000000000 0000000000 1 LIM  M52B28  AUT LL US          //Limousine 328iA   LL M52 US
+H CD43 V0996 16D30000 0000000004008080 0000026116 1 LIM  M52B28  AUT LL US          //Limousine 328iA   LL M52 US
+CD43         16D30000 00004000040080C0 0000026116 1 LIM  M52B28  AUT LL US          //Limousine 328iA   LL M52 US
+H CD71 V0997 15C10000 0000000000000080 0000002114 1 LIM  M44B19  MAN LL BASIS       //Limousine 318is   LL M44
+CD71         15C10000 0000000000000080 0100002114 1 LIM  M44B19  MAN LL BASIS       //Limousine 318is   LL M44
+H CD72 V0997 15C20000 0000000000000080 0000002114 1 LIM  M44B19  MAN RL BASIS       //Limousine 318is   RL M44 in Deutschl. gef.
+CD72         15C20000 0000000000000080 0100002114 1 LIM  M44B19  MAN RL BASIS       //Limousine 318is   RL M44 in Deutschl. gef.
+H CD52 V0997 15E20000 0000000000000080 0000002114 1 LIM  M44B19  MAN RL BASIS       //Limousine 318is   RL M44 in ZA gefertigt
+CD52         15E20000 0000000000000080 0100002114 1 LIM  M44B19  MAN RL BASIS       //Limousine 318is   RL M44 in ZA gefertigt
+CD73         15C30000 0000000004000080 0000006116 1 LIM  M44B19  MAN LL US          //Limousine 318is   US M44 CKD in W10 gefertigt
+CC93         15C30000 0000000004000080 0000006116 1 LIM  M44B19  MAN LL US          //Limousine 318is   US M44 CKD in dtsch Werk gefertigt
+H CD78 V0997 15C80010 0000000000010080 0000002114 1 LIM  M44B19  MAN RL ZA          //Limousine 318is   RL M44 SÅdafrika CKD
+CD78         15C80010 0000000000010080 0100002114 1 LIM  M44B19  MAN RL ZA          //Limousine 318is   RL M44 SÅdafrika CKD
+H CD81 V0997 15D10000 0000000000000080 0000002114 1 LIM  M44B19  AUT LL BASIS       //Limousine 318isA  LL M44
+CD81         15D10000 0000000000000080 0100002114 1 LIM  M44B19  AUT LL BASIS       //Limousine 318isA  LL M44
+H CD82 V0997 15D20000 0000000000000080 0000002114 1 LIM  M44B19  AUT RL BASIS       //Limousine 318isA  RL M44 in Deutschl. gef.
+CD82         15D20000 0000000000000080 0100002114 1 LIM  M44B19  AUT RL BASIS       //Limousine 318isA  RL M44 in Deutschl. gef.
+H CD62 V0997 15F20000 0000000000000080 0000002114 1 LIM  M44B19  AUT RL BASIS       //Limousine 318isA  RL M44 in ZA gefertigt
+CD62         15F20000 0000000000000080 0100002114 1 LIM  M44B19  AUT RL BASIS       //Limousine 318isA  RL M44 in ZA gefertigt
+CD83         15D30000 0000000004000080 0000006116 1 LIM  M44B19  AUT LL US          //Limousine 318isA  US M44 CKD in W10 gefertigt
+CC03         15D30000 0000000004000080 0000006116 1 LIM  M44B19  AUT LL US          //Limousine 318isA  US M44 CKD in dtsch Werk gefertigt
+H CD88 V0997 15D80010 0000000000010080 0000002114 1 LIM  M44B19  AUT RL ZA          //Limousine 318isA  RL M44 SÅdafrika CKD
+CD88         15D80010 0000000000010080 0100002114 1 LIM  M44B19  AUT RL ZA          //Limousine 318isA  RL M44 SÅdafrika CKD
+;CD91/92/98 lÑuft zu 11/97 aus
+;CD93 lÑuft zu 05/98 aus
+H CD91 V0996 16E10000 0000000000008490 0000022116 1 LIM  S50B32  MAN LL BASIS       //Limousine M3      LL S50 Tö
+CD91         16E10000 0000400000008490 0000022116 1 LIM  S50B32  MAN LL BASIS       //Limousine M3      LL S50 Tö
+H CD92 V0996 16E20000 0000000000008490 0000022116 1 LIM  S50B32  MAN RL BASIS       //Limousine M3      RL S50 Tö
+CD92         16E20000 0000400000008490 0000022116 1 LIM  S50B32  MAN RL BASIS       //Limousine M3      RL S50 Tö
+CD93         16E30000 00004000040084C0 0000026116 1 LIM  S50B32  MAN LL US          //Limousine M3      US S50 Tö ABG,FH hi Serie
+H CD98 V0996 16E80000 0000000000008480 0000026116 1 LIM  S50B32  MAN RL ZA          //Limousine M3      ZA S50 Tö ABG,FH hi Serie
+CD98         16E80000 0000400000018480 0000026116 1 LIM  S50B32  MAN RL ZA          //Limousine M3      ZA S50 Tö ABG,FH hi Serie
+; Touring
+H CE11 V0997 18110000 0000000000000080 0000002114 1 TOUR M43B16  MAN LL BASIS       //Touring 316i    LL M43
+H CE11 V0398 18110000 0000000000000080 0100002114 1 TOUR M43B16  MAN LL BASIS       //Touring 316i    LL M43
+CE11         18110000 00000000000000C0 0100002194 1 TOUR M43B16  MAN LL BASIS       //Touring 316i    LL M43 ASC/MK20 Serie
+H CE12 V0997 18120000 0000000000000080 0000002114 1 TOUR M43B16  MAN RL BASIS       //Touring 316i    RL M43
+H CE12 V0398 18120000 0000000000000080 0100002114 1 TOUR M43B16  MAN RL BASIS       //Touring 316i    RL M43
+CE12         18120000 00000000000000C0 0100002194 1 TOUR M43B16  MAN RL BASIS       //Touring 316i    RL M43 ASC/MK20 Serie
+H CE21 V0997 18210000 0000000000000080 0000002114 1 TOUR M43B16  AUT LL BASIS       //Touring 316iA   LL M43
+H CE21 V0398 18210000 0000000000000080 0100002114 1 TOUR M43B16  AUT LL BASIS       //Touring 316iA   LL M43
+CE21         18210000 00000000000000C0 0100002194 1 TOUR M43B16  AUT LL BASIS       //Touring 316iA   LL M43 ASC/MK20 Serie
+H CE22 V0997 18220000 0000000000000080 0000002114 1 TOUR M43B16  AUT RL BASIS       //Touring 316iA   RL M43
+H CE22 V0398 18220000 0000000000000080 0100002114 1 TOUR M43B16  AUT RL BASIS       //Touring 316iA   RL M43
+CE22         18220000 00000000000000C0 0100002194 1 TOUR M43B16  AUT RL BASIS       //Touring 316iA   RL M43 ASC/MK20 Serie
+H CE31 V0997 18310000 0000000000000080 0000002114 1 TOUR M43B18  MAN LL BASIS       //Touring 318i    LL M43
+H CE31 V0398 18310000 0000000000000080 0100002114 1 TOUR M43B18  MAN LL BASIS       //Touring 318i    LL M43
+CE31         18310000 00000000000000C0 0100002194 1 TOUR M43B18  MAN LL BASIS       //Touring 318i    LL M43 ASC/MK20 Serie
+H CE32 V0997 18320000 0000000000000080 0000002114 1 TOUR M43B18  MAN RL BASIS       //Touring 318i    RL M43
+H CE32 V0398 18320000 0000000000000080 0100002114 1 TOUR M43B18  MAN RL BASIS       //Touring 318i    RL M43
+CE32         18320000 00000000000000C0 0100002194 1 TOUR M43B18  MAN RL BASIS       //Touring 318i    RL M43 ASC/MK20 Serie
+H CE41 V0997 18410000 0000000000000080 0000002114 1 TOUR M43B18  AUT LL BASIS       //Touring 318iA   LL M43
+H CE41 V0398 18410000 0000000000000080 0100002114 1 TOUR M43B18  AUT LL BASIS       //Touring 318iA   LL M43
+CE41         18410000 00000000000000C0 0100002194 1 TOUR M43B18  AUT LL BASIS       //Touring 318iA   LL M43 ASC/MK20 Serie
+H CE42 V0997 18420000 0000000000000080 0000002114 1 TOUR M43B18  AUT RL BASIS       //Touring 318iA   RL M43
+H CE42 V0398 18420000 0000000000000080 0100002114 1 TOUR M43B18  AUT RL BASIS       //Touring 318iA   RL M43
+CE42         18420000 00000000000000C0 0100002194 1 TOUR M43B18  AUT RL BASIS       //Touring 318iA   RL M43 ASC/MK20 Serie
+H CE51 V0194 18510000 0000000000000000 0000000000 1 TOUR M52B20  MAN LL BASIS       //Touring 320i    LL M52
+H CE51 V0996 18510000 0000000000000080 0000022114 1 TOUR M52B20  MAN LL BASIS       //Touring 320i    LL M52
+CE51         18510000 00000000000000C0 0000022114 1 TOUR M52B20  MAN LL BASIS       //Touring 320i    LL M52
+H CE52 V0194 18520000 0000000000000000 0000000000 1 TOUR M52B20  MAN RL BASIS       //Touring 320i    RL M52
+H CE52 V0996 18520000 0000000000000080 0000022114 1 TOUR M52B20  MAN RL BASIS       //Touring 320i    RL M52
+CE52         18520000 00000000000000C0 0000022114 1 TOUR M52B20  MAN RL BASIS       //Touring 320i    RL M52
+H CE61 V0194 18610000 0000000000000000 0000000000 1 TOUR M52B20  AUT LL BASIS       //Touring 320iA   LL M52
+H CE61 V0996 18610000 0000000000000080 0000022114 1 TOUR M52B20  AUT LL BASIS       //Touring 320iA   LL M52
+CE61         18610000 00000000000000C0 0000022114 1 TOUR M52B20  AUT LL BASIS       //Touring 320iA   LL M52
+H CE62 V0194 18620000 0000000000000000 0000000000 1 TOUR M52B20  AUT RL BASIS       //Touring 320iA   RL M52
+H CE62 V0996 18620000 0000000000000080 0000022114 1 TOUR M52B20  AUT RL BASIS       //Touring 320iA   RL M52
+CE62         18620000 00000000000000C0 0000022114 1 TOUR M52B20  AUT RL BASIS       //Touring 320iA   RL M52
+H CE71 V0194 18710000 0000000000000000 0000000000 1 TOUR M52B25  MAN LL BASIS       //Touring 323i    LL M52
+H CE71 V0996 18710000 0000000000000080 0000022114 1 TOUR M52B25  MAN LL BASIS       //Touring 323i    LL M52
+CE71         18710000 00000000000000C0 0000022114 1 TOUR M52B25  MAN LL BASIS       //Touring 323i    LL M52
+H CE72 V0194 18720000 0000000000000000 0000000000 1 TOUR M52B25  MAN RL BASIS       //Touring 323i    RL M52
+H CE72 V0996 18720000 0000000000000080 0000022114 1 TOUR M52B25  MAN RL BASIS       //Touring 323i    RL M52
+CE72         18720000 00000000000000C0 0000022114 1 TOUR M52B25  MAN RL BASIS       //Touring 323i    RL M52
+H CE81 V0194 18810000 0000000000000000 0000000000 1 TOUR M52B25  AUT LL BASIS       //Touring 323iA   LL M52
+H CE81 V0996 18810000 0000000000000080 0000022114 1 TOUR M52B25  AUT LL BASIS       //Touring 323iA   LL M52
+CE81         18810000 00000000000000C0 0000022114 1 TOUR M52B25  AUT LL BASIS       //Touring 323iA   LL M52
+H CE82 V0194 18820000 0000000000000000 0000000000 1 TOUR M52B25  AUT RL BASIS       //Touring 323iA   RL M52
+H CE82 V0996 18820000 0000000000000080 0000022114 1 TOUR M52B25  AUT RL BASIS       //Touring 323iA   RL M52
+CE82         18820000 00000000000000C0 0000022114 1 TOUR M52B25  AUT RL BASIS       //Touring 323iA   RL M52
+; Codierrelevant fÅr M51D25WA3 mit ASC und
+; Schadstoffreduzierung EG2
+; Einsatz in Serie ab 1/96
+H CF01 V1295 17D10000 0000000000000080 0000002114 1 TOUR M51D25WA3 AUT LL BASIS     //Touring 325tdsA LL M51
+H CF01 V0996 17D10000 0000000000000084 0000002114 1 TOUR M51D25WA3 AUT LL BASIS     //Touring 325tdsA LL M51 EG2
+H CF01 V0997 17D10000 00000000000000C4 0000002114 1 TOUR M51D25WA3 AUT LL BASIS     //Touring 325tdsA LL M51 EG2
+CF01         17D10000 00000000000000C4 0100002114 1 TOUR M51D25WA3 AUT LL BASIS     //Touring 325tdsA LL M51 EG2
+H CF02 V1295 17D20000 0000000000000080 0000002114 1 TOUR M51D25WA3 AUT RL BASIS     //Touring 325tdsA RL M51
+H CF02 V0996 17D20000 0000000000000084 0000002114 1 TOUR M51D25WA3 AUT RL BASIS     //Touring 325tdsA RL M51 EG2
+H CF02 V0997 17D20000 00000000000000C4 0000002114 1 TOUR M51D25WA3 AUT RL BASIS     //Touring 325tdsA RL M51 EG2
+CF02         17D20000 00000000000000C4 0100002114 1 TOUR M51D25WA3 AUT RL BASIS     //Touring 325tdsA RL M51 EG2
+H CF11 V0194 18A10000 0000000000000000 0000000000 1 TOUR M52B28  MAN LL BASIS       //Touring 328i    LL M52
+H CF11 V0996 18A10000 0000000000008090 0000022116 1 TOUR M52B28  MAN LL BASIS       //Touring 328i    LL M52
+CF11         18A10000 00000000000080D0 0000022116 1 TOUR M52B28  MAN LL BASIS       //Touring 328i    LL M52
+H CF12 V0194 18A20000 0000000000000000 0000000000 1 TOUR M52B28  MAN RL BASIS       //Touring 328i    RL M52
+H CF12 V0996 18A20000 0000000000008090 0000022116 1 TOUR M52B28  MAN RL BASIS       //Touring 328i    RL M52
+CF12         18A20000 00000000000080D0 0000022116 1 TOUR M52B28  MAN RL BASIS       //Touring 328i    RL M52
+H CF21 V0194 18B10000 0000000000000000 0000000000 1 TOUR M52B28  AUT LL BASIS       //Touring 328iA   LL M52
+H CF21 V0996 18B10000 0000000000008090 0000022116 1 TOUR M52B28  AUT LL BASIS       //Touring 328iA   LL M52
+CF21         18B10000 00000000000080D0 0000022116 1 TOUR M52B28  AUT LL BASIS       //Touring 328iA   LL M52
+H CF22 V0194 18B20000 0000000000000000 0000000000 1 TOUR M52B28  AUT RL BASIS       //Touring 328iA   RL M52
+H CF22 V0996 18B20000 0000000000008090 0000022116 1 TOUR M52B28  AUT RL BASIS       //Touring 328iA   RL M52
+CF22         18B20000 00000000000080D0 0000022116 1 TOUR M52B28  AUT RL BASIS       //Touring 328iA   RL M52
+H CF51 V0997 17A10000 0000000000000080 0000002114 1 TOUR M41D17  MAN LL BASIS       //Touring 318tds  LL M41
+H CF51 V0398 17A10000 0000000000000080 0100002114 1 TOUR M41D17  MAN LL BASIS       //Touring 318tds  LL M41
+CF51         17A10000 00000000000000C0 0100002194 1 TOUR M41D17  MAN LL BASIS       //Touring 318tds  LL M41 ASC/MK20 Serie
+H CF52 V0997 17A20000 0000000000000080 0000002114 1 TOUR M41D17  MAN RL BASIS       //Touring 318tds  RL M41
+H CF52 V0398 17A20000 0000000000000080 0100002114 1 TOUR M41D17  MAN RL BASIS       //Touring 318tds  RL M41
+CF52         17A20000 00000000000000C0 0100002194 1 TOUR M41D17  MAN RL BASIS       //Touring 318tds  RL M41 ASC/MK20 Serie
+; Codierrelevant fÅr M51D25WA3 mit ASC und
+; Schadstoffreduzierung EG2
+; Einsatz in Serie ab 1/96
+H CF91 V1295 17C10000 0000000000000080 0000002114 1 TOUR M51D25WA3 MAN LL BASIS     //Touring 325tds  LL M51
+H CF91 V0996 17C10000 0000000000000084 0000002114 1 TOUR M51D25WA3 MAN LL BASIS     //Touring 325tds  LL M51 EG2
+H CF91 V0997 17C10000 00000000000000C4 0000002114 1 TOUR M51D25WA3 MAN LL BASIS     //Touring 325tds  LL M51 EG2
+CF91         17C10000 00000000000000C4 0100002194 1 TOUR M51D25WA3 MAN LL BASIS     //Touring 325tds  LL M51 EG2 +MK20
+H CF92 V1295 17C20000 0000000000000080 0000002114 1 TOUR M51D25WA3 MAN RL BASIS     //Touring 325tds  RL M51
+H CF92 V0996 17C20000 0000000000000084 0000002114 1 TOUR M51D25WA3 MAN RL BASIS     //Touring 325tds  RL M51 EG2
+H CF92 V0997 17C20000 00000000000000C4 0000002114 1 TOUR M51D25WA3 MAN RL BASIS     //Touring 325tds  RL M51 EG2
+CF92         17C20000 00000000000000C4 0100002194 1 TOUR M51D25WA3 MAN RL BASIS     //Touring 325tds  RL M51 EG2 +MK20
+;           Bit fÅr Compact aus altem Codiersystem bei neuen Typen berÅcksichtigen:
+;           VN: ..400.
+; Compact
+H CG11 V0195 1C110000 0000000000000000 0000002514 1 COMP M43B16  MAN LL BASIS       //Compact 316i    LL M43
+H CG11 V0997 1C110000 0000000000000080 0000002514 1 COMP M43B16  MAN LL BASIS       //Compact 316i    LL M43
+H CG11 V0398 1C110000 0000000000000080 0100002514 1 COMP M43B16  MAN LL BASIS       //Compact 316i    LL M43
+H CG11 V0998 1C110000 00000000000000C0 0100002516 1 COMP M43B16  MAN LL BASIS       //Compact 316i    LL M43 MK20
+CG11         1C110000 00000000000000C0 0900002596 1 COMP M43B16  MAN LL BASIS       //Compact 316i    LL M43 CAN-KMB
+H CG12 V0997 1C120000 0000000000000080 0000002514 1 COMP M43B16  MAN RL BASIS       //Compact 316i    RL M43
+H CG12 V0398 1C120000 0000000000000080 0100002514 1 COMP M43B16  MAN RL BASIS       //Compact 316i    RL M43
+H CG12 V0998 1C120000 00000000000000C0 0100002516 1 COMP M43B16  MAN RL BASIS       //Compact 316i    RL M43 MK20
+CG12         1C120000 00000000000000C0 0900002596 1 COMP M43B16  MAN RL BASIS       //Compact 316i    RL M43 CAN-KMB
+H CG21 V0195 1C210000 0000000000000000 0000002514 1 COMP M43B16  AUT LL BASIS       //Compact 316iA   LL M43
+H CG21 V0997 1C210000 0000000000000080 0000002514 1 COMP M43B16  AUT LL BASIS       //Compact 316iA   LL M43
+H CG21 V0398 1C210000 0000000000000080 0100002514 1 COMP M43B16  AUT LL BASIS       //Compact 316iA   LL M43
+H CG21 V0998 1C210000 00000000000000C0 0100002516 1 COMP M43B16  AUT LL BASIS       //Compact 316iA   LL M43
+CG21         1C210000 00000000000000C0 0900002596 1 COMP M43B16  AUT LL BASIS       //Compact 316iA   LL M43 CAN-KMB MK20
+H CG22 V0997 1C220000 0000000000000080 0000002514 1 COMP M43B16  AUT RL BASIS       //Compact 316iA   RL M43
+H CG22 V0398 1C220000 0000000000000080 0100002514 1 COMP M43B16  AUT RL BASIS       //Compact 316iA   RL M43
+H CG22 V0998 1C220000 00000000000000C0 0100002516 1 COMP M43B16  AUT RL BASIS       //Compact 316iA   RL M43
+CG22         1C220000 00000000000000C0 0900002596 1 COMP M43B16  AUT RL BASIS       //Compact 316iA   RL M43 CAN-KMB MK20
+;M52B25 Serie ab 09/97
+H CG31 V0996 1C310000 0000000000000000 0000000400 1 COMP M52B25  MAN LL BASIS       //Compact 323ti   LL M52
+H CG31 V0398 1C310000 00004000002010C0 0000BF2D14 1 COMP M52B25  MAN LL BASIS       //Compact 323ti   LL M52
+CG31         1C310000 00004000002010C0 0000BF2D16 1 COMP M52B25  MAN LL BASIS       //Compact 323ti   LL M52
+H CG41 V0996 1C410000 0000000000000000 0000000400 1 COMP M52B25  AUT LL BASIS       //Compact 323tiA  LL M52
+H CG41 V0398 1C410000 00004000002010C0 0000BF2D14 1 COMP M52B25  AUT LL BASIS       //Compact 323tiA  LL M52
+CG41         1C410000 00004000002010C0 0000BF2D16 1 COMP M52B25  AUT LL BASIS       //Compact 323tiA  LL M52
+;M52 MJ99
+;Offene Punkte:
+;Geschwindigkeitsregler FGR2-Kennfeld nîtig: klÑrt Eisenmann
+;mit MS 42 => EWS 2.3 nicht fÅr: M52B25+COMP
+;SIAII => kein TôNS
+;CAN? => Kombi nicht auf CAN EWS_CAN-Ausschlu· fÅr COMP+M52B25 in der CVT!
+; SIEHE KOMMENTAR BEIM ERSTEN Z3 MJ99!
+H CT31 V0398 1D110000 00004000002010C0 0000000400 1 COMP M52B25  MAN LL BASIS EWS_CAN      //Compact 323 ti LL M52 MJ99
+H CT31 V0998 1D110000 00004000002010C0 0000BF2D16 1 COMP M52B25  MAN LL BASIS EWS_CAN      //Compact 323 ti LL M52 MJ99
+CT31         1D110000 00004000002010C0 0800BF2D16 1 COMP M52B25  MAN LL BASIS EWS_CAN      //Compact 323 ti LL M52 MJ99 CAN-KMB
+H CT41 V0398 1D210000 00004000002010C0 0000000400 1 COMP M52B25  AUT LL BASIS EWS_CAN      //Compact 323tiA LL M52 MJ99
+H CT41 V0998 1D210000 00004000002010C0 0000BF2D16 1 COMP M52B25  AUT LL BASIS EWS_CAN      //Compact 323tiA LL M52 MJ99
+CT41         1D210000 00004000002010C0 0800BF2D16 1 COMP M52B25  AUT LL BASIS EWS_CAN      //Compact 323tiA LL M52 MJ99 CAN-KMB
+;
+;M43 MJ99
+H CS11 V0398 1D310000 00004000000000C0 0000000400 1 COMP M43B19  MAN LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99
+H CS11 V0998 1D310000 00004000000000C0 0000002596 1 COMP M43B19  MAN LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99 MK20
+CS11         1D310000 00004000000000C0 0800002596 1 COMP M43B19  MAN LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99 CAN-KMB
+H CS12 V0398 1D320000 00004000000000C0 0000000400 1 COMP M43B19  MAN RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99
+H CS12 V0998 1D320000 00004000000000C0 0000002596 1 COMP M43B19  MAN RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99 MK20
+CS12         1D320000 00004000000000C0 0800002596 1 COMP M43B19  MAN RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99 CAN-KMB
+H CS21 V0398 1D410000 00004000000000C0 0000000400 1 COMP M43B19  AUT LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99
+H CS21 V0998 1D410000 00004000000000C0 0000002596 1 COMP M43B19  AUT LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99 MK20
+CS21         1D410000 00004000000000C0 0800002596 1 COMP M43B19  AUT LL BASIS EWS_CAN      //Compact 316i LL M43 MJ99 CAN-KMB
+H CS22 V0398 1D420000 00004000000000C0 0000000400 1 COMP M43B19  AUT RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99
+H CS22 V0998 1D420000 00004000000000C0 0000002596 1 COMP M43B19  AUT RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99 MK20
+CS22         1D420000 00004000000000C0 0800002596 1 COMP M43B19  AUT RL BASIS EWS_CAN      //Compact 316i RL M43 MJ99 CAN-KMB
+;
+H CG51 V0398 1C510000 0000000000000080 0000002514 1 COMP M42B18  MAN LL BASIS       //Compact 318ti   LL M42
+CG51         1C510000 0000000000000080 0000002516 1 COMP M42B18  MAN LL BASIS       //Compact 318ti   LL M42
+H CG52 V0398 1C520000 0000000000000080 0000002514 1 COMP M42B18  MAN RL BASIS       //Compact 318ti   RL M42
+CG52         1C520000 0000000000000080 0000002516 1 COMP M42B18  MAN RL BASIS       //Compact 318ti   RL M42
+CG53         1C530000 0000000000000090 0000006516 1 COMP M42B18  MAN LL US          //Compact 318ti   US M42
+H CG61 V0398 1C610000 0000000000000080 0000002514 1 COMP M42B18  AUT LL BASIS       //Compact 318tiA  LL M42
+CG61         1C610000 0000000000000080 0000002516 1 COMP M42B18  AUT LL BASIS       //Compact 318tiA  LL M42
+H CG62 V0398 1C620000 0000000000000080 0000002514 1 COMP M42B18  AUT RL BASIS       //Compact 318tiA  RL M42
+CG62         1C620000 0000000000000080 0000002516 1 COMP M42B18  AUT RL BASIS       //Compact 318tiA  RL M42
+CG63         1C630000 0000000000000090 0000006516 1 COMP M42B18  AUT LL US          //Compact 318tiA  US M42
+H CG71 V0997 1C710000 0000000000000080 0000002514 1 COMP M44B19  MAN LL BASIS       //Compact 318ti   LL M44
+H CG71 V0398 1C710000 0000000000000080 0100002514 1 COMP M44B19  MAN LL BASIS       //Compact 318ti   LL M44
+H CG71 V0998 1C710000 00000000000000C0 0100002596 1 COMP M44B19  MAN LL BASIS       //Compact 318ti   LL M44 MK20
+CG71         1C710000 00000000000000C0 0900002596 1 COMP M44B19  MAN LL BASIS       //Compact 318ti   LL M44 CAN-KMB
+H CG72 V0997 1C720000 0000000000000080 0000002514 1 COMP M44B19  MAN RL BASIS       //Compact 318ti   RL M44
+H CG72 V0398 1C720000 0000000000000080 0100002514 1 COMP M44B19  MAN RL BASIS       //Compact 318ti   RL M44
+H CG72 V0998 1C720000 00000000000000C0 0100002596 1 COMP M44B19  MAN RL BASIS       //Compact 318ti   RL M44 MK20
+CG72         1C720000 00000000000000C0 0900002596 1 COMP M44B19  MAN RL BASIS       //Compact 318ti   RL M44 CAN-KMB
+H CG73 V0398 1C730000 0000000000000090 0000006516 1 COMP M44B19  MAN LL US          //Compact 318ti   US M44
+H CG73 V0998 1C730000 00000000000000D0 0000006516 1 COMP M44B19  MAN LL US          //Compact 318ti   US M44
+CG73         1C730000 00000000000000D0 0800006516 1 COMP M44B19  MAN LL US          //Compact 318ti   US M44 CAN-KMB
+H CG81 V0997 1C810000 0000000000000080 0000002514 1 COMP M44B19  AUT LL BASIS       //Compact 318tiA  LL M44
+H CG81 V0398 1C810000 0000000000000080 0100002514 1 COMP M44B19  AUT LL BASIS       //Compact 318tiA  LL M44
+H CG81 V0998 1C810000 00000000000000C0 0100002516 1 COMP M44B19  AUT LL BASIS       //Compact 318tiA  LL M44 CAN-KMB
+CG81         1C810000 00000000000000C0 0900002516 1 COMP M44B19  AUT LL BASIS       //Compact 318tiA  LL M44 CAN-KMB
+H CG82 V0997 1C820000 0000000000000080 0000002514 1 COMP M44B19  AUT RL BASIS       //Compact 318tiA  RL M44
+H CG82 V0398 1C820000 0000000000000080 0100002514 1 COMP M44B19  AUT RL BASIS       //Compact 318tiA  RL M44
+H CG82 V0998 1C820000 00000000000000C0 0100002596 1 COMP M44B19  AUT RL BASIS       //Compact 318tiA  RL M44 MK20
+CG82         1C820000 00000000000000C0 0900002596 1 COMP M44B19  AUT RL BASIS       //Compact 318tiA  RL M44 CAN-KMB
+H CG83 V0398 1C830000 0000000000000090 0000006516 1 COMP M44B19  AUT LL US          //Compact 318tiA  US M44
+H CG83 V0998 1C830000 00000000000000D0 0000006516 1 COMP M44B19  AUT LL US          //Compact 318tiA  US M44
+CG83         1C830000 00000000000000D0 0800006516 1 COMP M44B19  AUT LL US          //Compact 318tiA  US M44 CAN-KMB
+H CH11 V0398 1CA10000 0000000000000080 0000002514 1 COMP M43B18CNG MAN LL BASIS     //Compact 318g    LL M43 CNG
+CH11         1CA10000 0000000000000080 0000002516 1 COMP M43B18CNG MAN LL BASIS     //Compact 318g    LL M43 CNG
+H CH12 V0398 1CA20000 0000000000000080 0000002514 1 COMP M43B18CNG MAN LL BASIS     //Compact 318g    RL M43 CNG
+CH12         1CA20000 0000000000000080 0000002516 1 COMP M43B18CNG MAN LL BASIS     //Compact 318g    RL M43 CNG
+H CH21 V0398 1CB10000 0000000000000080 0000002514 1 COMP M43B18CNG AUT LL BASIS     //Compact 318gA   LL M43 CNG
+CH21         1CB10000 0000000000000080 0000002516 1 COMP M43B18CNG AUT LL BASIS     //Compact 318gA   LL M43 CNG
+H CH22 V0398 1CB20000 0000000000000080 0000002514 1 COMP M43B18CNG AUT LL BASIS     //Compact 318gA   RL M43 CNG
+CH22         1CB20000 0000000000000080 0000002516 1 COMP M43B18CNG AUT LL BASIS     //Compact 318gA   RL M43 CNG
+H CJ51 V0997 1D510000 0000000000000080 0000002514 1 COMP M41D17  MAN LL BASIS       //Compact 318tds  LL M41
+H CJ51 V0398 1D510000 0000000000000080 0100002514 1 COMP M41D17  MAN LL BASIS       //Compact 318tds  LL M41
+H CJ51 V0998 1D510000 00000000000000C0 0100002596 1 COMP M41D17  MAN LL BASIS       //Compact 318tds  LL M41 MK20
+CJ51         1D510000 00000000000000C0 0900002596 1 COMP M41D17  MAN LL BASIS       //Compact 318tds  LL M41 CAN-KMB
+H CJ52 V0997 1D520000 0000000000000080 0000002514 1 COMP M41D17  MAN RL BASIS       //Compact 318tds  RL M41
+H CJ52 V0398 1D520000 0000000000000080 0100002514 1 COMP M41D17  MAN RL BASIS       //Compact 318tds  RL M41
+H CJ52 V0998 1D520000 00000000000000C0 0100002596 1 COMP M41D17  MAN RL BASIS       //Compact 318tds  RL M41 MK20
+CJ52         1D520000 00000000000000C0 0900002596 1 COMP M41D17  MAN RL BASIS       //Compact 318tds  RL M41 CAN-KMB
+;CG91        1D910000 0000000000000000 0000000000 S COMP S50B32 MAN LL BASIS
+;CG92        1D920000 0000000000000000 0000000000 S COMP S50B32 MAN RL BASIS
+;Roadster
+;           Bit fÅr Roadster aus altem Codiersystem bei neuen Typen berÅcksichtigen:
+;           VN: ..400.
+;           GM "1E..." nur fÅr Z3, Z3/2!!! wg VK-Programmierung EWS-DME Abgleich!! (Huber, VK-22, 15.03.96)
+;           nicht ohne Absprache mit DIS vom 1E abweichen: wird verwendet f¸r 
+;           Abr¸stung Seitenairbag Freischaltung. 22.01.99
+H CH71 V0997 1E110000 0000400000000080 0010322514 1 ROA3 M44B19  MAN LL BASIS       //Roadster Z3 318is   LL M44
+H CH71 V0398 1E110000 0000400000000090 0110322516 1 ROA3 M44B19  MAN LL BASIS       //Roadster Z3 318is   LL M44 power windows standard MY98
+H CH71 V0999 1E110000 0000400000000090 0110322596 1 ROA3 M44B19  MAN LL BASIS       //Roadster Z3 318is   LL M44 power windows standard MY98, MK20
+CH71         1E110000 0000400000000090 4110322596 1 ROA3 M44B19  MAN LL BASIS       //Roadster Z3 318is   LL M44 power windows standard MY98, MK20
+H CH72 V0997 1E120000 0000400000000080 0010322514 1 ROA3 M44B19  MAN RL BASIS       //Roadster Z3 318is   RL M44
+H CH72 V0398 1E120000 0000400000000090 0110322516 1 ROA3 M44B19  MAN RL BASIS       //Roadster Z3 318is   RL M44 power windows standard MY98
+H CH72 V0999 1E120000 0000400000000090 0110322596 1 ROA3 M44B19  MAN RL BASIS       //Roadster Z3 318is   RL M44 power windows standard MY98, MK20
+CH72         1E120000 0000400000000090 4110322596 1 ROA3 M44B19  MAN RL BASIS       //Roadster Z3 318is   RL M44 power windows standard MY98, MK20
+H CH73 V0195 1E130000 0000400000000080 0010326514 1 ROA3 M44B19  MAN LL US          //Roadster Z3 318is   US M44
+H CH73 V0997 1E130000 0000402000000080 0010326514 1 ROA3 M44B19  MAN LL US          //Roadster Z3 318is   US M44
+H CH73 V0999 1E130000 0000402000000090 0010326516 1 ROA3 M44B19  MAN LL US          //Roadster Z3 318is   US M44 power windows standard MY98
+CH73         1E130000 0000402000000090 4010326516 1 ROA3 M44B19  MAN LL US          //Roadster Z3 318is   US M44 power windows standard MY98
+H CJ11 V0997 1E310000 0000400000000080 0010322514 1 ROA3 M43B18  MAN LL BASIS      //Roadster Z3 318i    LL M43
+H CJ11 V0999 1E310000 0000400000000090 0110322516 1 ROA3 M43B18  MAN LL BASIS     //Roadster Z3 318i    LL M43 power windows standard MY98
+CJ11         1E310000 0000400000000090 4110322516 1 ROA3 M43B18  MAN LL BASIS     //Roadster Z3 318i    LL M43 power windows standard MY98
+;MJ 99 mit EWS .III-Schnittstelle und ASCMK20
+;ueber M99-Typen werden folgende Merkmale gesetzt:
+;        Z3M43  Z3M52   CompEU3M43  CompEU3M52  Auftrag
+;EWS_CAN   x      x        x         ?      =EWS_CAN
+;CAN       x      x        x         -      =EWS_CAN
+;MK20      x      x        x         -      =ASC_MK20+ASC_CI_03 in die Typen
+;FGR2     nie    nie     bleibt   bleibt    =bleibt wie bisher.
+;Wart.lang x      x        x         -      =EWS_CAN+!(COMP+M52B25) wo einstellbar?
+;TOENS     x      x        x         -      =EWS_CAN+!(COMP+M52B25) : 1 438 022.1
+;Oelpredri x      x        x         -      =EWS_CAN+!(COMP+M52B25)
+;
+H CM11 V0997 1E410000 0000000000000000 0010000400 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99
+H CM11 V0498 1E410000 00004000000000D0 0050322516 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99
+H CM11 V0998 1E410000 00004000000000D0 0052322596 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 FIS MK20/DSC
+H CM11 V0499 1E410000 00004000000000D0 0852322596 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 CAN-KMB
+H CM11 V0999 1E410000 00004000000000D0 2852322596 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MRS3
+H CM11 V0201 1E410000 00004000000000D0 6852322596 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MRS3
+CM11         1E410000 00004002000000D0 6852322596 1 ROA3 M43B19  MAN LL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MK60
+H CM12 V0997 1E420000 0000000000000000 0010000400 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99
+H CM12 V0498 1E420000 00004000000000D0 0050322516 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99
+H CM12 V0998 1E420000 00004000000000D0 0052322596 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 FIS MK20/DSC
+H CM12 V0499 1E420000 00004000000000D0 0852322596 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 CAN-KMB
+H CM12 V0999 1E420000 00004000000000D0 2852322596 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MRS3
+H CM12 V0201 1E420000 00004000000000D0 6852322596 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MRS3
+CM12         1E420000 00004002000000D0 6852322596 1 ROA3 M43B19  MAN RL BASIS EWS_CAN      //Roadster Z3 318i    LL M43 MJ99 MRS3 MK60
+;
+H CJ31 V0190 1E510000 0000000000000000 0010000400 1 ROA3 M52B28  MAN LL BASIS       //Roadster Z3 328i    LL M52
+H CJ31 V0999 1E510000 00004000020000D0 0010322516 1 ROA3 M52B28  MAN LL BASIS       //Roadster Z3 328i    LL M52
+CJ31         1E510000 00004000020000D0 4010322516 1 ROA3 M52B28  MAN LL BASIS       //Roadster Z3 328i    LL M52
+H CJ32 V0190 1E520000 0000000000000000 0010000400 1 ROA3 M52B28  MAN RL BASIS       //Roadster Z3 328i    RL M52
+H CJ32 V0999 1E520000 00004000020000D0 0010322516 1 ROA3 M52B28  MAN RL BASIS       //Roadster Z3 328i    RL M52
+CJ32         1E520000 00004000020000D0 4010322516 1 ROA3 M52B28  MAN RL BASIS       //Roadster Z3 328i    RL M52
+H CJ33 V0190 1E530000 0000000000000000 0010000400 1 ROA3 M52B28  MAN LL US          //Roadster Z3 328i    US M52
+H CJ33 V0195 1E530000 00004000000000D0 0010326514 1 ROA3 M52B28  MAN LL US          //Roadster Z3 328i    US M52
+H CJ33 V0999 1E530000 00004020020000D0 0010326516 1 ROA3 M52B28  MAN LL US          //Roadster Z3 328i    US M52
+CJ33         1E530000 00004020020000D0 4010326516 1 ROA3 M52B28  MAN LL US          //Roadster Z3 328i    US M52
+;MJ 99 mit EWS .III-Schnittstelle und ASCMK20 (Sperrdiff nicht Serie lt. Aussage EF und TAIS)
+H CL31 V0197 1E810000 0000000000000000 0010000400 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99
+H CL31 V0498 1E810000 00004000000000D0 0050322516 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99
+H CL31 V0998 1E810000 00004000000000D0 0052322596 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99 FIS MK20/DSC
+H CL31 V0499 1E810000 00004000000000D0 0852322596 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99 mit CAN-KMB
+H CL31 V0999 1E810000 00004000000000D0 2852322596 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99 MRS3
+CL31         1E810000 00004000000000D0 6852322596 1 ROA3 M52B20  MAN LL BASIS EWS_CAN      //Roadster Z3 320i    LL M52 MJ99 MRS3
+H CL32 V0197 1E820000 0000000000000000 0010000400 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99
+H CL32 V0498 1E820000 00004000000000D0 0050322516 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99
+H CL32 V0998 1E820000 00004000000000D0 0052322596 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99 FIS MK20/DSC
+H CL32 V0499 1E820000 00004000000000D0 0852322596 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99 mit CAN-KMB
+H CL32 V0999 1E820000 00004000000000D0 2852322596 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99 MRS3
+CL32         1E820000 00004000000000D0 6852322596 1 ROA3 M52B20  MAN RL BASIS EWS_CAN      //Roadster Z3 320i    RL M52 MJ99 MRS3
+;MJ 99 mit EWS .III-Schnittstelle und ASCMK20 Ersatz fÅr CJ31/2/3, CH93 neu hinzu
+H CH31 V0197 1E610000 0000000000000000 0010000400 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99
+H CH31 V0498 1E610000 00004000020000D0 0050322516 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99
+H CH31 V0998 1E610000 00004000020000D0 0052322596 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99 FIS MK20/DSC
+H CH31 V0499 1E610000 00004000020000D0 0852322596 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99 mit CAN-KMB
+H CH31 V0999 1E610000 00004000020000D0 2852322596 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99 MRS3
+CH31         1E610000 00004000020000D0 6852322596 1 ROA3 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z3 328i    LL M52 MJ99 MRS3
+H CH32 V0197 1E620000 0000000000000000 0010000400 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99
+H CH32 V0498 1E620000 00004000020000D0 0050322516 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99
+H CH32 V0998 1E620000 00004000020000D0 0052322596 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99 FIS MK20/DSC
+H CH32 V0499 1E620000 00004000020000D0 0852322596 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99 mit CAN-KMB
+H CH32 V0999 1E620000 00004000020000D0 2852322596 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99 MRS3
+CH32         1E620000 00004000020000D0 6852322596 1 ROA3 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z3 328i    RL M52 MJ99 MRS3
+H CH33 V0197 1E630000 0000000000000000 0010000400 1 ROA3 M52B28  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99
+H CH33 V0998 1E630000 00004020020000D0 0050326516 1 ROA3 M52B28  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99
+H CH33 V0499 1E630000 00004020020000D0 0850326596 1 ROA3 M52B28  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 mit CAN-KMB
+H CH33 V0999 1E630000 00004020020000D0 2850326596 1 ROA3 M52B28  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 MRS3
+CH33         1E630000 00004020020000D0 6850326596 1 ROA3 M52B28  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 MRS3
+H CH93 V0197 1E730000 0000000000000000 0010000400 1 ROA3 M52B25  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99
+H CH93 V0998 1E730000 00004020020000D0 0050326516 1 ROA3 M52B25  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99
+H CH93 V0499 1E730000 00004020020000D0 0850326596 1 ROA3 M52B25  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 mit CAN-KMB, MK20/DSC
+H CH93 V0999 1E730000 00004020020000D0 2850326596 1 ROA3 M52B25  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 MRS3
+CH93         1E730000 00004020020000D0 6850326596 1 ROA3 M52B25  MAN LL US EWS_CAN         //Roadster Z3 328i    US M52 MJ99 MRS3
+;
+;M54
+H CN11 V0998 1EA10000 0000000000000000 0010000400 1 ROA3 M54B22  MAN LL BASIS EWS_CAN      //Roadster Z3 320i LL M54
+H CN11 V0999 1EA10000 00004000000000D0 2852322596 1 ROA3 M54B22  MAN LL BASIS EWS_CAN      //Roadster Z3 320i LL M54
+H CN11 V0201 1EA10000 00004000000000D0 6852322596 1 ROA3 M54B22  MAN LL BASIS EWS_CAN      //Roadster Z3 320i LL M54
+CN11         1EA10000 00004002000000D0 6852322596 1 ROA3 M54B22  MAN LL BASIS EWS_CAN      //Roadster Z3 320i LL M54 MK60
+H CN12 V0998 1EA20000 0000000000000000 0010000400 1 ROA3 M54B22  MAN RL BASIS EWS_CAN      //Roadster Z3 320i RL M54
+H CN12 V0999 1EA20000 00004000000000D0 2852322596 1 ROA3 M54B22  MAN RL BASIS EWS_CAN      //Roadster Z3 320i RL M54
+H CN12 V0201 1EA20000 00004000000000D0 6852322596 1 ROA3 M54B22  MAN RL BASIS EWS_CAN      //Roadster Z3 320i RL M54
+CN12         1EA20000 00004002000000D0 6852322596 1 ROA3 M54B22  MAN RL BASIS EWS_CAN      //Roadster Z3 320i RL M54 MK60
+H CN13 V0998 1EA30000 0000000000000000 0010000400 1 ROA3 M54B22  MAN LL US EWS_CAN         //Roadster Z3 320i US M54
+H CN13 V0999 1EA30000 00004020020000D0 2852326596 1 ROA3 M54B22  MAN LL US EWS_CAN         //Roadster Z3 320i US M54
+CN13         1EA30000 00004020020000D0 6852326596 1 ROA3 M54B22  MAN LL US EWS_CAN         //Roadster Z3 320i US M54
+H CN33 V0998 1EB30000 0000000000000000 0010000400 1 ROA3 M54B25  MAN LL US EWS_CAN         //Roadster Z3 325i US M54
+H CN33 V0999 1EB30000 00004020020000D0 2850326596 1 ROA3 M54B25  MAN LL US EWS_CAN         //Roadster Z3 325i US M54
+H CN33 V0201 1EB30000 00004020020000D0 6850326596 1 ROA3 M54B25  MAN LL US EWS_CAN         //Roadster Z3 325i US M54
+CN33         1EB30000 00004022020000D0 6850326596 1 ROA3 M54B25  MAN LL US EWS_CAN         //Roadster Z3 325i US M54 MK60
+H CN51 V0998 1EC10000 0000000000000000 0010000400 1 ROA3 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z3 330i LL M54
+H CN51 V0999 1EC10000 00004000020000D0 2852322596 1 ROA3 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z3 330i LL M54 mit CAN-KMB
+H CN51 V0201 1EC10000 00004000020000D0 6852322596 1 ROA3 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z3 330i LL M54 mit CAN-KMB
+CN51         1EC10000 00004002020000D0 6852322596 1 ROA3 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z3 330i LL M54 mit CAN-KMB MK60
+H CN52 V0998 1EC20000 0000000000000000 0010000400 1 ROA3 M54B30  MAN RL BASIS EWS_CAN      //Roadster Z3 330i RL M54
+H CN52 V0999 1EC20000 00004000020000D0 2852322596 1 ROA3 M54B30  MAN RL BASIS EWS_CAN      //Roadster Z3 330i RL M54
+H CN52 V0201 1EC20000 00004000020000D0 6852322596 1 ROA3 M54B30  MAN RL BASIS EWS_CAN      //Roadster Z3 330i RL M54
+CN52         1EC20000 00004002020000D0 6852322596 1 ROA3 M54B30  MAN RL BASIS EWS_CAN      //Roadster Z3 330i RL M54 MK60
+H CN53 V0998 1EC30000 0000000000000000 0010000400 1 ROA3 M54B30  MAN LL US EWS_CAN         //Roadster Z3 330i US M54
+H CN53 V0999 1EC30000 00004020020000D0 2850326596 1 ROA3 M54B30  MAN LL US EWS_CAN         //Roadster Z3 330i US M54
+H CN53 V0201 1EC30000 00004020020000D0 6850326596 1 ROA3 M54B30  MAN LL US EWS_CAN         //Roadster Z3 330i US M54
+CN53         1EC30000 00004022020000D0 6850326596 1 ROA3 M54B30  MAN LL US EWS_CAN         //Roadster Z3 330i US M54 MK60
+H CK71 V0998 1ED10000 0000000000000000 0010000400 1 ROA5 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z5 330i LL M54
+H CK71 V0999 1ED10000 00004020020000D0 2852322596 1 ROA5 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z5 330i LL M54
+H CK71 V0201 1ED10000 00004020020000D0 6852322596 1 ROA5 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z5 330i LL M54
+CK71         1ED10000 00004022020000D0 6852322596 1 ROA5 M54B30  MAN LL BASIS EWS_CAN      //Roadster Z5 330i LL M54 MK60
+H CK73 V0998 1ED30000 0000000000000000 0010000400 1 ROA5 M54B30  MAN LL US EWS_CAN         //Roadster Z5 330i US M54
+H CK73 V0999 1ED30000 00004020000000D0 2850326596 1 ROA5 M54B30  MAN LL US EWS_CAN         //Roadster Z5 330i US M54
+H CK73 V0100 1ED30000 00004020000000D0 6850326596 1 ROA5 M54B30  MAN LL US EWS_CAN         //Roadster Z5 330i US M54
+H CK73 V0201 1ED30000 000040A0020000D0 6850326596 1 ROA5 M54B30  MAN LL US EWS_CAN         //Roadster Z5 330i US M54
+CK73         1ED30000 000040A2020000D0 6850326596 1 ROA5 M54B30  MAN LL US EWS_CAN         //Roadster Z5 330i US M54 MK60
+;
+H CK31 V0190 1EE10000 0000000000000000 0010000400 1 ROA5 M52B28  MAN LL BASIS       //Roadster Z5 328i    LL M52 alter Typ ohne ZKE4 vor SE
+H CK31 V0196 1EE10000 00004000000000D0 0010322514 1 ROA5 M52B28  MAN LL BASIS       //Roadster Z5 328i    LL M52 alter Typ ohne ZKE4 vor SE
+H CK31 V0999 1EE10000 00004020020000D0 0010322516 1 ROA5 M52B28  MAN LL BASIS       //Roadster Z5 328i    LL M52
+CK31         1EE10000 00004020020000D0 4010322516 1 ROA5 M52B28  MAN LL BASIS       //Roadster Z5 328i    LL M52
+H CK32 V0190 1EE20000 0000000000000000 0010000400 1 ROA5 M52B28  MAN RL BASIS       //Roadster Z5 328i    RL M52 alter Typ ohne ZKE4 vor SE
+H CK32 V0196 1EE20000 00004000000000D0 0010322514 1 ROA5 M52B28  MAN RL BASIS       //Roadster Z5 328i    RL M52 alter Typ ohne ZKE4 vor SE
+H CK32 V0999 1EE20000 00004020020000D0 0010322516 1 ROA5 M52B28  MAN RL BASIS       //Roadster Z5 328i    RL M52
+CK32         1EE20000 00004020020000D0 4010322516 1 ROA5 M52B28  MAN RL BASIS       //Roadster Z5 328i    RL M52
+;nie produktiver Typ:
+H CK33 V0190 1EE30000 0000000000000000 0010000400 1 ROA5 M52B28  MAN LL US          //Roadster Z5 328i    US M52 alter Typ ohne ZKE4 vor SE
+H CK33 V0195 1EE30000 00004000000000D0 0010326514 1 ROA5 M52B28  MAN LL US          //Roadster Z5 328i    US M52 alter Typ ohne ZKE4 vor SE
+H CK33 V0196 1EE30000 00004020000000D0 0010326514 1 ROA5 M52B28  MAN LL US          //Roadster Z5 328i    US M52 alter Typ ohne ZKE4 vor SE
+H CK33 V0999 1EE30000 00004020020000D0 0010326516 1 ROA5 M52B28  MAN LL US          //Roadster Z5 328i    US M52 Typ nie produktiv: Ersatzweise kommt CK53
+CK33         1EE30000 00004020020000D0 4010326516 1 ROA5 M52B28  MAN LL US          //Roadster Z5 328i    US M52 Typ nie produktiv: Ersatzweise kommt CK53
+;
+H CM91 V0997 1E010000 0000000000000000 0010000400 1 ROA5 S50B32  MAN LL BASIS       //Roadster Z5 M GT    LL S52
+H CM91 V0498 1E010000 0000402002200490 0010322516 1 ROA5 S50B32  MAN LL BASIS       //Roadster Z5 M GT    LL S52
+H CM91 V0499 1E010000 0000402002200490 0012322516 1 ROA5 S50B32  MAN LL BASIS       //Roadster Z5 M GT    LL S52 FIS
+H CM91 V0999 1E010000 0000402002200490 2012322516 1 ROA5 S50B32  MAN LL BASIS       //Roadster Z5 M GT    LL S52 MRS3D
+CM91         1E010000 0000402002200490 6012322516 1 ROA5 S50B32  MAN LL BASIS       //Roadster Z5 M GT    LL S52 MRS3D
+H CM92 V0997 1E020000 0000000000000000 0010000400 1 ROA5 S50B32  MAN RL BASIS       //Roadster Z5 M GT    RL S52
+H CM92 V0498 1E020000 0000402002200490 0010322516 1 ROA5 S50B32  MAN RL BASIS       //Roadster Z5 M GT    RL S52
+H CM92 V0499 1E020000 0000402002200490 0012322516 1 ROA5 S50B32  MAN RL BASIS       //Roadster Z5 M GT    RL S52 FIS
+H CM92 V0999 1E020000 0000402002200490 2012322516 1 ROA5 S50B32  MAN RL BASIS       //Roadster Z5 M GT    RL S52 MRS3D
+CM92         1E020000 0000402002200490 6012322516 1 ROA5 S50B32  MAN RL BASIS       //Roadster Z5 M GT    RL S52 MRS3D
+H CM93 V0997 1E030000 0000000000000000 0010000400 1 ROA5 S50B32  MAN LL US          //Roadster Z5 M GT    US S52
+H CM93 V0998 1E030000 0000402002000490 0010326516 1 ROA5 S50B32  MAN LL US          //Roadster Z5 M GT    US S52
+H CM93 V0499 1E030000 00004020020004D0 0010326516 1 ROA5 S50B32  MAN LL US          //Roadster Z5 M GT    US S52 ASC
+H CM93 V0999 1E030000 00004020020004D0 2010326516 1 ROA5 S50B32  MAN LL US          //Roadster Z5 M GT    US S52 MRS3D
+CM93         1E030000 00004020020004D0 6010326516 1 ROA5 S50B32  MAN LL US          //Roadster Z5 M GT    US S52 MRS3D
+; Z3/2 HP TUE
+H CN91 V0998 1E040000 0000000000000000 0010000400 1 ROA5 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z5 M TUE   LL S54
+H CN91 V0999 1E040000 0000402022200490 2812322516 1 ROA5 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z5 M TUE   LL S54
+CN91         1E040000 0000402022200490 6812322516 1 ROA5 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z5 M TUE   LL S54
+H CN92 V0998 1E050000 0000000000000000 0010000400 1 ROA5 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z5 M TUE   RL S54
+H CN92 V0999 1E050000 0000402022200490 2812322516 1 ROA5 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z5 M TUE   RL S54
+CN92         1E050000 0000402022200490 6812322516 1 ROA5 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z5 M TUE   RL S54
+H CN93 V0998 1E060000 0000000000000000 0010000400 1 ROA5 S54B32  MAN LL US    EWS_CAN      //Roadster Z5 M TUE   US S54
+H CN93 V0999 1E060000 00004020220004D0 2810326516 1 ROA5 S54B32  MAN LL US    EWS_CAN      //Roadster Z5 M TUE   US S54
+H CN93 V0100 1E060000 00004020220004D0 6810326516 1 ROA5 S54B32  MAN LL US    EWS_CAN      //Roadster Z5 M TUE   US S54
+CN93         1E060000 00004420220004D0 6810326516 1 ROA5 S54B32  MAN LL US    EWS_CAN      //Roadster Z5 M TUE   US S54
+;MJ 99 mit EWS .III-Schnittstelle und ASCMK20, Ersatz fÅr CK31/2/3, (Sperrdiff. Serie)
+H CK51 V0197 1EF10000 0000000000000000 0010000400 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99
+H CK51 V0997 1EF10000 0000402000000090 0050322516 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99
+H CK51 V0498 1EF10000 00004020020000D0 0050322516 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99
+H CK51 V0998 1EF10000 00004020020000D0 0052322596 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99 FIS MK20/DSC
+H CK51 V0499 1EF10000 00004020020000D0 0852322596 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99 CAN-KMB
+H CK51 V0999 1EF10000 00004020020000D0 2852322596 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99 MRS3D
+CK51         1EF10000 00004020020000D0 6852322596 1 ROA5 M52B28  MAN LL BASIS EWS_CAN      //Roadster Z5 328i    LL M52 MJ99 MRS3D
+; CK52 evtl. nie produktiv
+H CK52 V0197 1EF20000 0000000000000000 0010000400 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99
+H CK52 V0997 1EF20000 0000402000000090 0050322516 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99
+H CK52 V0498 1EF20000 00004020020000D0 0050322516 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99
+H CK52 V0499 1EF20000 00004020020000D0 0852322516 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99 CAN-KMBFIS
+H CK52 V0999 1EF20000 00004020020000D0 2852322516 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99 MRS3D
+CK52         1EF20000 00004020020000D0 6852322516 1 ROA5 M52B28  MAN RL BASIS EWS_CAN      //Roadster Z5 328i    RL M52 MJ99 MRS3D
+H CK53 V0197 1EF30000 0000000000000000 0010000400 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99 
+H CK53 V0997 1EF30000 0000402000000090 0050326516 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99
+H CK53 V0998 1EF30000 00004020020000D0 0050326516 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99
+H CK53 V0499 1EF30000 00004020020000D0 0850326596 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99 mit CAN-KMB, MK20/DSC
+H CK53 V0999 1EF30000 00004020020000D0 2850326596 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99 MRS3D
+CK53         1EF30000 00004020020000D0 6850326596 1 ROA5 M52B28  MAN LL US    EWS_CAN      //Roadster Z5 328i    US M52 MJ99 MRS3D
+;
+;Bem: SA 209 Sperrdifferential ist nicht im Typ da kein ASC MK20/DSC3 fÅr Mroa existiert.
+;Integration in die Typen nur wenn ASC MK20/DSC3 kommt.
+;CK91: SA 305 voraussichtlich nicht Serienumfang (13.11.97) Projektnachtrag folgt.
+;gem. PN 8541/10 CK91 ohne SA 305 als Serie
+H CK91 V0195 1E910000 0000000000000000 0010000400 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL
+H CK91 V0995 1E910000 0000400000000480 0010322534 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL
+H CK91 V0498 1E910000 0000402000000490 0010322534 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL
+H CK91 V0499 1E910000 0000402000000490 0012322534 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL FIS
+H CK91 V0999 1E910000 0000402000000490 2012322534 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL MRS3
+CK91         1E910000 0000402000000490 6012322534 1 ROA3 S50B32  MAN LL BASIS       //Roadster Z3 M3      LL MRS3
+H CK92 V0195 1E920000 0000000000000000 0010000400 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL
+H CK92 V0995 1E920000 0000400000000480 0010322534 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL
+H CK92 V0498 1E920000 0000402000000490 0010322534 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL
+H CK92 V0499 1E920000 0000402000000490 0012322534 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL FIS
+H CK92 V0999 1E920000 0000402000000490 2012322534 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL MRS3
+CK92         1E920000 0000402000000490 6012322534 1 ROA3 S50B32  MAN RL BASIS       //Roadster Z3 M3      RL MRS3
+H CK93 V0195 1E930000 0000000000000000 0010000400 1 ROA3 S50B32  MAN LL US          //Roadster Z3 M3      US
+H CK93 V0998 1E930000 0000402000000490 0010326534 1 ROA3 S50B32  MAN LL US          //Roadster Z3 M3      US
+H CK93 V0499 1E930000 00004020000004D0 0010326534 1 ROA3 S50B32  MAN LL US          //Roadster Z3 M3      US ASC
+H CK93 V0999 1E930000 00004020000004D0 2010326534 1 ROA3 S50B32  MAN LL US          //Roadster Z3 M3      US MRS3
+CK93         1E930000 00004020000004D0 6010326534 1 ROA3 S50B32  MAN LL US          //Roadster Z3 M3      US MRS3
+; Z3 HP TUE
+H CL91 V0998 1E940000 0000000000000000 0010000400 1 ROA3 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z3 M3 TUE  LL
+H CL91 V0999 1E940000 0000402022000490 2812322536 1 ROA3 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z3 M3 TUE  LL
+CL91         1E940000 0000402022000490 6812322536 1 ROA3 S54B32  MAN LL BASIS EWS_CAN      //Roadster Z3 M3 TUE  LL
+H CL92 V0998 1E950000 0000000000000000 0010000400 1 ROA3 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z3 M3 TUE  RL
+H CL92 V0999 1E950000 0000402022000490 2812322536 1 ROA3 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z3 M3 TUE  RL
+CL92         1E950000 0000402022000490 6812322536 1 ROA3 S54B32  MAN RL BASIS EWS_CAN      //Roadster Z3 M3 TUE  RL
+H CL93 V0998 1E960000 0000000000000000 0010000400 1 ROA3 S54B32  MAN LL US    EWS_CAN      //Roadster Z3 M3 TUE  US
+H CL93 V0999 1E960000 00004020220004D0 2810326536 1 ROA3 S54B32  MAN LL US    EWS_CAN      //Roadster Z3 M3 TUE  US
+H CL93 V0100 1E960000 00004020220004D0 6810326536 1 ROA3 S54B32  MAN LL US    EWS_CAN      //Roadster Z3 M3 TUE  US
+CL93         1E960000 00004420220004D0 6810326536 1 ROA3 S54B32  MAN LL US    EWS_CAN      //Roadster Z3 M3 TUE  US
+B ZUSATZ      //Neue Bereichskennung fÅr ZEKO!!
+;
+;*******************************************************************************
+; ERGéNZUNGSSTEUERWORTE: Fuer Produktion aktive Steuerwoerter:
+;                        Ergaenzungs-PUSY zwingend notwendig!
+; solange Einsatzaenderung wird E-Wort bereitgestellt anschliessend
+; Integration in GVN oder Typen oder SAen
+;*******************************************************************************
+;
+;
+;
+;********************************************************************************
+;
+H E36  N0990 00000000 0000000000000000 0000000000 1 E36         //E36 Baureihe
+H DWAH V0393 00000000 0000000000000000 0000000001 1             //DWA High SteuergerÑt
+H ONG  N0990 00000000 0000000000010000 0000000000 1 INNENRAUMSCH_ZA     //DWA Innenraumsch. ohne Neigungsgeber (ZA)
+H SOFT V1290 00000000 0000000000000000 0000000014 1 ZVM_RL_US       //ZVM ohne Soft on/off f. Japan, England, US, Australien, ZA
+H SOFT N0692 00000000 0000000000000000 0000000000 1                 //"ausblenden fÅr SchlÅsselerstellung
+H IRS  N0692 00000000 0000000000000000 0000000100 1 INNENRAUMSCHUTZ //+303 in 302
+H IRS  N0393 00000000 0000000000000000 0000000000 1                 //"ausblenden fÅr SchlÅsselerstellung
+H NFB1 N0992 00000000 0000000000000000 0000000200 1 NUR_FERNBED //Ent-/SchÑrfen nur Åber Fernbedienung
+H NFB1 N0992 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H NFB2 N0992 00000000 0000000000000000 0000000800 1 NUR_FERNBED   //Ent-/SchÑrfen nur Åber Fernbedienung
+H NFB2 N0992 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H ZKE4 N0393 00000000 0000000000000000 0000000002 1 GM4           //ZKE IV
+H ZKE4 N0399 00000000 0000000000000000 0000000000 1               //ausblenden fuer Schluesselerstellung
+H DWAE V0993 00000000 0000000000000000 0000001000 1 DWA4          //DWAIV als Ersatz fÅr DWAIII HO-SchlÅssel
+H DWAE N0993 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H PU93 N0493 00000000 0000000000000000 0000002000 1 PU93          //PU' 93
+H PU93 N0993 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H SBE  N0694 00000000 0000000000000000 0000008000 1 SBE           //Airbag mit Sitzbelegungserkennung
+H AS5  N0993 00000000 0000000000000000 0000020000 1 ASC_CI_05     //ASC mit SW-Stand A5
+H EWS  N0195 00000000 0000000000000000 0000040800 1 EWS           //mit Elektr. Wegfahrsperre
+H EWS  N0195 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H KRZ  N0395 00000000 0000000000000000 0000100000 1 UEBERKREUZBED //öberkreuzbedienung bei DWA SE
+H KRZ  N0395 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H PU95 N0995 00000000 0000000000000000 0000200000 1 PU95          //PU '95
+H PU95 N0995 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H FGR2 N0993 00000000 0000000000000000 0000080000 1 FGR2          //Geschwindigkeitsregelung mit CI 04, auch fÅr Ersatz gÅltig
+H FGR2 N0196 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+H EG2  N0995 00000000 0000000000000004 0000000000 1 EG2           //M51D25WA3 mit EG2
+H EG2  N1295 00000000 0000000000000000 0000000000 1               //"ausblenden fÅr SchlÅsselerstellung
+;
+H EWS2 N0195 00000000 0000000000000000 0001000000 1 EWS_CI_02     //EWS CI 02 ab 01/96, (wird im Ersatzfall aut. umgeschlÅsselt!)
+H EWS2 N1296 00000000 0000000000000000 0000000000 1               //ausblenden EWS CI 02 ab 10/96
+; H EWS2 N0195 mu· wg Ersatzfall hier als eigene Zeile stehen bleiben
+; ZAE wurde vercodet zwischen 09/93 und 11/96 (Entfall E-Wort) fÅr US-Typen
+H ZAE  N0993 00000000 0000000000000000 0000006000 1 ZAE    //Airbag Zentrale Auslîseelektronik (ZAE) fÅr US-Typen
+H ZAE  N1196 00000000 0000000000000000 0000000000 1        //ausblenden ZAE
+;
+H ZAE2 N0393 00000000 0000000000000000 0000800000 1 ZAE2          //ZAE2 ab 03/96, (wird im Ersatzfall aut. umgeschlÅsselt!)
+H ZAE2 N0996 00000000 0000000000000000 0000000000 1               //ausblenden ZAE2
+; H ZAE2 N0393 mu· wg Ersatzfall hier als eigene Zeile stehen bleiben
+;
+H ZA22 N0393 00000000 0000000000000000 0004000000 1 ZAE2_CI_05  //ZAE2 CI 5 (wird im Ersatzfall aut. umgeschlÅsselt!) Ab Pyrotechn. Gurtstraffer Serie!
+H ZA22 N1296 00000000 0000000000000000 0000000000 1             //ausblenden: ZAE2 CI 5
+; H ZA22 N0393 mu· wg Ersatzfall hier als eigene Zeile stehen bleiben (Produktion bis PU96 ohne ZAE2-Bit!)
+;
+H KMB2 N0990 00000000 0000000000000000 0000000030 1 KMB_CI_27 //Redes.KMB m.wechs. Cod.stecker (wird im Ersatzfall aut. umgeschlÅsselt!)
+H KMB2 N0996 00000000 0000000000000000 0000000000 1           //ausblenden Redes.KMB in GVN N0996 integr.
+; H KMB2 N0990 mu· wg Ersatzfall hier als eigene Zeile stehen bleiben (Einsatz ab PU96)
+;
+H PU96 N0396 00000000 0000000000000000 0008000000 1 PU96        //US-MAN Start-lock Åber EWS auf AUT ab PU96
+H PU96 N0996 00000000 0000000000000000 0000000000 1             //ausblenden: PU96
+H FIS  N0196 00000000 0000000000000000 0002000000 1 FIS         //03/97: Funkinnenraumschutz fuer Z3
+H FIS  N0498 00000000 0000000000000000 0000000000 1             // ausblenden
+H PYRO N0695 00000000 0000000000000000 0000400000 1 PYRO        //Pyrotech. Gurtstr
+H PYRO N1297 00000000 0000000000000000 0000000000 1             //ausblenden, in G-Zeile
+H GR23 N0993 00000000 0000000000000000 0080000000 1 GR2_CI_05   //FGR2 CI 05 ab 3/97 (wird im Ersatzfall aut. umgeschlÅsselt!)
+H GR23 N1297 00000000 0000000000000000 0000000000 1             ////ausblenden, in G-Zeile
+H BCL2 N0990 00000000 0000000000000000 0400000000 1 BCL_CI_02   //UhrBC mit Codierindex 02 Nr. 8 377 996.0 ab PU97
+H BCL2 N1297 00000000 0000000000000000 0000000000 1             //ausblenden
+;
+; Das sinnlose Bit muﬂ dennoch als eigene Zeile stehen,
+; da manche ZCS (VT's) in den "Fehler bei VM-Generierung" geraten, weil die VN-Bit-Kombination nicht existiert.
+H EWSC N0198 00000000 0000000000000000 0040000000 1             //leider vˆllig sinnlos verschwendet....
+H EWSC N0198 00000000 0000000000000000 0040000000 1             //ZEKO ausblenden 
+;
+H ERL3 N0990 00000000 0000000000000000 0100000000 1 ERL_CI03    //TNR 1 164 899 Ersatzteil, Serie ab 3/97
+H ERL3 N1297 00000000 0000000000000000 0000000000 1             //ausblenden
+;H ERL3 N0990 mu· wg Ersatzfall hier als eigene Zeile stehen bleiben.
+;In die Typen Historisch integriert: M44 TLEV US bleibt bei CI 02.
+;Lieferung von 700 StÅck mit blauem Punkt bei der Steckerleiste haben CI 02 TNR 1 164 899
+;ohne blauen Punkt dann immer CI 03 TNR 1 164 899
+H MK20 N0197 00000000 0000000000000000 0000000040 1             //war mal: ASC MK20EI/DSC mit CD 02. Bit bleibt, bis es eng wird, da unsicher, ob FZGe beim Kunden.
+H MK20 N0197 00000000 0000000000000000 0000000000 1             //ausblenden
+;MK20 Serie und wird bei SA 210 (Z3, Z3/2) mit ITT_DSC ersetzt. (Wird in der SGET ausgeschlossen.)
+;F¸r aktuelle Typen (5/99) in die aktive Typzeile integriert:
+;Cabrio:BH31/32/41/42
+;Tour: CF51/52, CE31/32/41/42, CF91/92
+;Comp: CJ51/52, CG11/21/72/82, CS11/12/21/22
+;Z3: CM11/12, CL31/32, CH93/31/32/33
+;Z3/2: CK51/53
+H MK03 N1097 00000000 0000000000000000 0000000080 1 ASC_CI_03     //ASC MK20EI ab CI 03 aufw‰rts!
+H MK03 N0999 00000000 0000000000000000 0000000000 1               //ausblenden
+;
+H PU97 N0997 00000000 0000000000000000 0200000000 1 PU97        //MJ98: Entfall CVM bei öRS ohne el.Verdeck
+;
+H KMBC N0997 00000000 0000000000000000 0800000000 1 KMB_CI_02     //Can-Kombi ab 09/98 (vorher nur Vorserie!)
+H KMBC N0998 00000000 0000000000000000 0000000000 1               //ausblenden, da in den Typen integriert.
+;
+H PU98 N1197 00000000 0000000000000000 1000000000 1 PU98         //EWS3D f¸r /7,Comp
+H PU98 N0998 00000000 0000000000000000 0000000000 1              //ausblenden
+;
+;Nur Spartanburg: Integriert in die Typen (PN 8001/103 und PN 8020/081):
+;CM11/12, CL31/32, CH31/32/33/93, CK91/92/93, CK51/52/53, CM91/92/93 und M54, S54B32
+H MRZ9 N0199 00000000 0000000000000000 2000000000 1 MAERZ99       //Z3: MRS3D 8 386 192 (PN 8020/081), Kanada mit KM-Tacho.
+H MRZ9 N0499 00000000 0000000000000000 0000000000 1               // ausblenden
+;
+H PU99 N0199 00000000 0000000000000000 4000000000 1 PU99         //DSCIII: Bremsfl¸ssigkeit inv. (synchron ab KBB-ƒnderung Entfall Auffanglˆsung mit EF-Relais)
+; E36/5 nur in Verb. mit KMB_CI_03
+H KMB3 N0997 00000000 0000000080000000 0000000000 1 KMB_CI_03    //SW 10 CI 03 wird aut. umgeschl¸sselt. Ersatzteil ab 9/97
+;
+H MK60 N1099 00000000 0000000200000000 0000000000 1 MK60         //ASC/DSC MK60 CAS:For CM11/2,CN11/2,CK71/3,CN51/2/3 if SA210, MK60 is used. For HP, if SA210, MK60 is not used.
+; MK60: types have got the MK60 bit at any time since 0201. Conditions with SA210 are realized in SGET.
+H MY01 N1199 00000000 0000000400000000 0000000000 1 PU00         //ModelYear 2001: Japan start lock;
+;
+H GVN  N0990 00000000 0000000000000000 0000000000 0    //Serienstart. Ma·nahmen gelten immer fÅr die BR!
+H GVN  N1290 00000000 0000000000000000 0000000010 1    //ab 12/90 Kombi Åberarbeitet
+H GVN  N0692 00000000 0000000000000000 0000000014 1    //Ma·nahme ZVM ohne SOFT ON/OFF fÅr J,GB,US,AUS,ZA
+H GVN  N0393 00000000 0000000000000000 0000000114 1    //Ma·nahme SA 303 in 302 ingegriert
+H GVN  N0993 00000000 0000000000000000 0000002114 1    //PU'93-Ma·nahmen
+H GE1  N0694 00000000 0000000000000000 0000008000 1    //Ma·nahme Sitzbelegungserkennung (abwÑhlbar!)
+H GVN  N0195 00000000 0000000000000000 0000052914 1    //Ma·nahmen ZS direkt, EWSI
+H GVN  N0395 00000000 0000000000000000 0000152914 1    //Ma·nahme öberkreuzbedienung DWA
+H GVN  N0995 00000000 0000000000000000 0000352914 1    //PU'95-Ma·nahmen
+H GVN  N0196 00000000 0000000000000000 00003D2914 1    //+FGR2 (wird im Ersatzfall aut. umgeschlÅsselt!)
+H GVN  N0396 00000000 0000000000000000 0000BD2914 1    //+ZAEII CI 03
+H GVN  N0996 00000000 0000000000000000 0008BD2934 1    //MJ97: US-MAN Start-lock, KMB redes.,ZAEII CI 05 mit Hand bei Nicht-Spartanburg-Fzgen auswÑhlen!
+H GVN  N1296 00000000 0000000000000000 000DBD2934 1    //EWS CI 02, ZAEII CI 05
+H GVN  N0997 00000000 0000000000000000 020DBD2934 1    //PU97
+H GVN  N1197 00000000 0000400000000000 068DFF2934 1   //+FGR2 CI 05,PYRO,BCL CI02,ABGF,ASC CI05
+H GVN  N0998 00000000 0000400000000000 168DFF2934 1   //+FGR2 CI 05,PYRO,BCL CI02,ABGF,ASC CI05, PU98
+H GVN  N0399 00000000 0000400000000000 168DFF2936 1   //+FGR2 CI 05,PYRO,BCL CI02,ABGF,ASC CI05, PU98, ZKE4
+H GVN  N0201 00000000 0000400400000000 168DFF2936 1   //+FGR2 CI 05,PYRO,BCL CI02,ABGF,ASC CI05, PU98, ZKE4 +PU00
+G            00000000 0000400480000000 168DFFA936 1    //ab 09/99 (KMBC CI03 ab PU99)
+C 1E

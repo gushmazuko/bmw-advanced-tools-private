@@ -1,0 +1,297 @@
+// Auftragsdatei: E65AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 911 378.5
+DATUM 10.07.2012
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-92
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                        Datum    Name
+// E3959.N  a           Erstfreigabe fuer FA
+// ...
+// ...
+// ...
+// S1E57.P  af          SA 950 hinzu,
+//                      Z #1101 entfaellt, ASW M_DME in Zeile Z #1001 integriert                 01.10.01 Haller
+//                      2 Typen fuer CKD Thailand hinzu, GN25 (basis GN22) und GN45 (basis GN42) 09.10.01 Wagener
+//
+//
+//
+DATEINAME                             E67AT.ZUS
+//
+//
+//      zukuenftige Aktionen:
+//      ASW zu E-Wort "E PA5M" nach sicherem Einsatz in Abstimmung mit der naechsten HO-CD in Zeitkriterium integrieren
+Z #0907                                           //E65MUe zu 09/07, 06-09-500 
+A #0100                                           //PPP-Stand 09_99 
+A #1100                                           //Vorserie 1 
+A #0201                                           //Vorserie 2 
+A #0301                                           //Vorserie 2 Pulk 8, Montagestart 26.03.01 
+A #0401                                           //Vorserie 3 Pulk 1, Montagestart 23.04.01, Datenfestschreibung 6.40 
+A #0501                                           //Vorserie 3 Pulk 6, Montagestart 28.05.01, Datenfestschreibung 6.50 
+A #0701                                           //Serienstart 
+A #0801                                           //Datenfestschreibung I6.53, SE 20.08.01 
+A #1001                                           //Datenfestschreibung I6.54, SE ca. 20.10.01 
+A #1101                                           //Datenfestschreibung I6.55, November 2001, codierrelevantes Telefon US 
+A #0302                                           //Maerz 2002, I 6. 
+A #0902                                           //Sep 2002 gem. S.Buegl I 6.87 
+A #0103                                           //Jan. 2003, SE EVEREST-Plattform fuer US, I 6.093.1 
+A #0303                                           //Maerz 03/03, I6.100 
+A #0603                                           //Juni 06/03, I6.110 
+A #0903                                           //PU 09/03, I6.126 
+A #1203                                           //Q-Massnahme zu 12/03, 03-12-500 
+A #0304                                           //Maerz 04, 04-03-500 
+A #0904                                           //PU 09/04, 04-09-500 
+A #0305                                           //E65MUe zu 03/05, 05-03-500 
+A #0605                                           //E65MUe zu 06/05, 05-06-510 
+A #0905                                           //E65MUe zu 09/05, 05-09-500 
+A #0306                                           //E65MUe zu 03/06, 06-03-500 
+A #0906                                           //E65MUe zu 03/06, 06-03-500 
+A #0307                                           //E65MUe zu 03/07 
+A #0907                                           //E65MUe zu 09/07, 06-09-500 
+E LEDE                                            //Lederausstattung 
+E EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+E 701S                                            //E67-Sonderoption 701S 
+E 702S                                            //E67-Sonderoption 702S 
+E 703S                                            //E67-Sonderoption 703S 
+E 704S                                            //E67-Sonderoption 704S 
+E 705S                                            //E67-Sonderoption 704S 
+E 706S                                            //E67-Sonderoption 704S 
+E 707S                                            //E67-Sonderoption 707S 
+E 708S                                            //E67-Sonderoption 708S 
+E 709S                                            //E67-Sonderoption 709S 
+E 710S                                            //E67-Sonderoption 711S 
+E 711S                                            //E67-Sonderoption 711S 
+E 712S                                            //E67-Sonderoption 712S 
+E 713S                                            //E67-Sonderoption 704S 
+E 714S                                            //E67-Sonderoption 714S 
+E 715S                                            //E67-Sonderoption 715S 
+E 716S                                            //E67-Sonderoption 716S 
+E 717S                                            //E67-Sonderoption 704S 
+E 718S                                            //E67-Sonderoption 704S 
+E 719S                                            //E67-Sonderoption 719S 
+E 720S                                            //E67-Sonderoption 704S 
+E 721S                                            //E67-Sonderoption 704S 
+E 722S                                            //E67-Sonderoption 704S 
+E 723S                                            //E67-Sonderoption 723S 
+E 724S                                            //E67-Sonderoption 704S 
+E 725S                                            //E67-Sonderoption 725S 
+E 726S                                            //E67-Sonderoption 704S 
+E 727S                                            //E67-Sonderoption 704S 
+E 728S                                            //E67-Sonderoption 704S 
+E 729S                                            //E67-Sonderoption 704S 
+E 730S                                            //E67-Sonderoption 730S 
+E 731S                                            //E67-Sonderoption 731S 
+E 732S                                            //E67-Sonderoption 732S 
+E 733S                                            //E67-Sonderoption 733S 
+E 734S                                            //E67-Sonderoption 734S 
+E 735S                                            //E67-Sonderoption 735S 
+E 736S                                            //E67-Sonderoption 736S 
+E 737S                                            //E67-Sonderoption 737S 
+E 738S                                            //E67-Sonderoption 738S 
+E 739S                                            //E67-Sonderoption 739S 
+E 740S                                            //E67-Sonderoption 740S 
+E 741S                                            //E67-Sonderoption 741S 
+E 742S                                            //E67-Sonderoption 742S 
+E 743S                                            //E67-Sonderoption 743S, Zusammenfassung von 5 Sonderoptionen 
+E 744S                                            //E67-Sonderoption 742S, Entfall Fondklimaanlage 
+E 745S                                            //E67_745S                        //E67-Sonderoption, Entfall Xenonlicht ab MUe 
+E K638                                            //Nachruestung Telefon ECE TCU 
+H I110                                            //Test HKL.C02 zur I-Stufe 6.110 
+H TRSW                                            //nur eine Blinkleuchten je Frontscheinwerfer (Tarnscheinwerfer), nur PPP 
+H MBOS                                            //Codierung BOS im CAS aktiv 
+H ONAK                                            //keine Anzeige der Navi-Richtungsinformation im Kombi, nur VS2 Pulk 8 und 9 
+H OACC                                            //Aufbau mit ACC, ACC inaktiv 
+H ORLS                                            //Aufbau mit RLS, RLS inaktiv 
+H LEDE                                            //Lederausstattung 
+H OEHC                                            //Aufbau mit Luftfederung, Luftfederung inaktiv 
+H OPGS                                            //Aufbau mit PGS, PGS inaktiv 
+H PA5M                                            //Kurzes Timedelay Beifahrerairbag 
+H LMTE                                            //FIZ-FAHRZEUGE; Warmueberwachung Ruecklicht/Bremslicht akt 
+H LSCH                                            //ab 0902 fest im FA 
+H 456L                                            //Aktivierung Aktive Kopfstuetze Fahrerseite bei Umbau nur Fahrer-Basissitz auf Fahrer-Komfortsitz ohne Spiegelmemory-Funktion. Individual!! 
+H I671                                            //EKP ab sofort bis I6.71 einsetzt 
+H I685                                            //Datenfestschreibung I6.85 
+H KEMU                                            //E-Wort fuer KEX-Fahrzeuge E65 MUe 
+H KEX2                                            //KEX_2C                          //E-Wort fuer KEX_2C-Fahrzeuge die die neuen Ruecklichter bekommen 
+H RSEM                                            //RSE mid System  RSE_MID 
+H RSEH                                            //RSE high System  RSE_HIGH 
+H EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H 744S                                            //E67-Sonderoption 742S, Entfall Fondklimaanlage 
+H MEKA                                            //K-Wort fuer den Mekkapfeil im Navi 
+H EFZG                                            //Steuerung fuer CLASS_PWR 
+H CEUS                                            //Bivalenter Umbau E68 auf US 
+H NZEV                                            //Monovalenter Aufbau E68 fuer US 
+H FLCN                                            //Nachruestung Schwellwertsatz normal 
+H FLCS                                            //Nachruestung Schwellwertsatz sehr empfindlich 
+H 701S                                            //E67-Sonderoption 701S 
+H 702S                                            //E67-Sonderoption 702S 
+H 703S                                            //E67-Sonderoption 703S 
+H 704S                                            //E67-Sonderoption 704S 
+H 705S                                            //E67-Sonderoption 704S 
+H 706S                                            //E67-Sonderoption 704S 
+H 707S                                            //E67-Sonderoption 707S 
+H 708S                                            //E67-Sonderoption 708S 
+H 709S                                            //E67-Sonderoption 709S 
+H 710S                                            //E67-Sonderoption 711S 
+H 711S                                            //E67-Sonderoption 711S 
+H 712S                                            //E67-Sonderoption 712S 
+H 713S                                            //E67-Sonderoption 704S 
+H 714S                                            //E67-Sonderoption 714S 
+H 715S                                            //E67-Sonderoption 715S 
+H 716S                                            //E67-Sonderoption 716S 
+H 717S                                            //E67-Sonderoption 704S 
+H 718S                                            //E67-Sonderoption 704S 
+H 719S                                            //E67-Sonderoption 719S 
+H 720S                                            //E67-Sonderoption 704S 
+H 721S                                            //E67-Sonderoption 704S 
+H 722S                                            //E67-Sonderoption 704S 
+H 723S                                            //E67-Sonderoption 723S 
+H 724S                                            //E67-Sonderoption 704S 
+H 725S                                            //E67-Sonderoption 725S 
+H 726S                                            //E67-Sonderoption 704S 
+H 727S                                            //E67-Sonderoption 704S 
+H 728S                                            //E67-Sonderoption 704S 
+H 729S                                            //E67-Sonderoption 704S 
+H 730S                                            //E67-Sonderoption 730S 
+H 731S                                            //E67-Sonderoption 731S 
+H 732S                                            //E67-Sonderoption 732S 
+H 733S                                            //E67-Sonderoption 733S 
+H 734S                                            //E67-Sonderoption 734S 
+H 735S                                            //E67-Sonderoption 735S 
+H 736S                                            //E67-Sonderoption 736S 
+H 737S                                            //E67-Sonderoption 737S 
+H 738S                                            //E67-Sonderoption 738S 
+H 739S                                            //E67-Sonderoption 739S 
+H 740S                                            //E67-Sonderoption 740S 
+H 741S                                            //E67-Sonderoption 741S 
+H 742S                                            //E67-Sonderoption 742S 
+H 743S                                            //E67-Sonderoption 743S, Zusammenfassung von 5 Sonderoptionen 
+H 744S                                            //E67-Sonderoption 742S 
+H 745S                                            //E67_745S                        //E67-Sonderoption, Entfall Xenonlicht ab MUe 
+H B080                                            //Steuerung Batterie auf 80AH 
+H B090                                            //Steuerung Batterie auf 90AH 
+H B095                                            //Steuerung Batterie auf 95AH 
+H B110                                            //Steuerung Batterie auf 110AH 
+H ID4P                                            //4 ID-Geben fuer Passiv Access 
+H GUJA                                            //Seatbelt-Reminder Fahrer Japan 
+H TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST 
+H EVER                                            //Nachruestung Everest-Plattform 
+H NAV2                                            //Nachruestung Navi2 in Fahrzeuge vor 03/03, notwendig zur Dokumentation und KMM fuer Ersatzteilversorung 
+H OI01                                            //Deaktivierung Fahrerairbag 
+H OI02                                            //Deaktivierung Beifahrerairbag 
+H OI03                                            //Deaktivierung Sidebag vorn links 
+H OI04                                            //Deaktivierung Sidebag vorn rechts 
+H OI05                                            //Deaktivierung AHPS links 
+H OI06                                            //Deaktivierung AHPS rechts 
+H OI07                                            //Deaktivierung Sidebag Fond links 
+H OI08                                            //Deaktivierung Sidebag Fond rechts 
+H OI09                                            //Deaktivierung Knieschutz vorn links 
+H OI10                                            //Deaktivierung Knieschutz vorn rechts 
+H K302                                            //Nachruestung DWA mit Innenraumschutz und Notstromsierene, ohne Batterieanpassung 
+H K235                                            //Nachruestung Anhaengerkupplung, ohne Batterieanpassung 
+H K536                                            //Nachruestung Standheizung 
+H K601                                            //Nachruestung TV-Modul 
+H K609                                            //Nachruestung Navigation 
+H K630                                            //Nachruestung Telefon ECE 
+H ORGS                                            //Deaktivierung Reizgassensoren 
+H PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+H TAST                                            //Nachruestung der Controllertasten vorne und hinten 
+H KK09                                            //Kundendienstnachruestung Korea SA 609 ab MUe05 
+H NNBL                                            //Nachruestung der MUe-Beleuchtung 
+H BENI                                            //Nachruestung Video Benin 
+H NNIC                                            //Nachruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+H TVHY                                            //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul 
+H TAIN                                            //(Tankklappe Indonesien) 
+H VIDR                                            //Umruestung wegen ruckelndem TV-Bild 
+H K242                                            //Umruestung zur Leistungsanhebung 745d 
+H IPOD                                            //Nachruestung iPod 
+H K638                                            //Nachruestung Telefon ECE TCU 
+H UMDA                                            //Umruestung Daempfer 
+H IBAC                                            //Nachruestung 
+H KPLC                                            //Nachruestung 
+H NL12                                            //Umruestung Schlag nach Schiebephase - Holland 
+H KLED                                            //Nachruestung LED Leuchten für Anhänger 
+H RCIQ                                            //Umruestung Kaltstart Leerlaufqualität 
+H MGUS                                            //Getriebesteuerung US in KMM 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST 
+K EVER                                            //Nachruestung Everest-Plattform 
+K NAV2                                            //Nachruestung Navi2 in Fahrzeuge vor 03/03, notwendig zur Dokumentation und KMM fuer Ersatzteilversorung 
+K OI01                                            //Deaktivierung Fahrerairbag 
+K OI02                                            //Deaktivierung Beifahrerairbag 
+K OI03                                            //Deaktivierung Sidebag vorn links 
+K OI04                                            //Deaktivierung Sidebag vorn rechts 
+K OI05                                            //Deaktivierung AHPS links 
+K OI06                                            //Deaktivierung AHPS rechts 
+K OI07                                            //Deaktivierung Sidebag Fond links 
+K OI08                                            //Deaktivierung Sidebag Fond rechts 
+K OI09                                            //Deaktivierung Knieschutz vorn links 
+K OI10                                            //Deaktivierung Knieschutz vorn rechts 
+K OI11                                            //Deaktivierung FAHRER SEATBELTREMINDER 
+K OI12                                            //Deaktivierung BEIFAHRER SEATBELTREMINDER 
+K K302                                            //Nachruestung DWA mit Innenraumschutz und Notstromsirene, ohne Batterieanpassung 
+K K235                                            //Nachruestung Anhaengerkupplung, ohne Batterieanpassung 
+K K536                                            //Nachruestung Standheizung 
+K K601                                            //Nachruestung TV-Modul 
+K K609                                            //Nachruestung Navigation 
+K K630                                            //Nachruestung Telefon ECE 
+K K631                                            //Umruestung Telefon ECE TCU 
+K K633                                            //Nachruestung BT Aktivierung bei TCU (nur bei SA639,SA641 und SA664) (Handy ueber BT) bis c06 
+K K638                                            //Nachruestung Telefon ECE TCU 
+K B080                                            //Batterietausch auf 80 Ah-Batterie 
+K B090                                            //Batterietausch auf 90 Ah-Batterie 
+K B095                                            //Batterietausch auf 95 Ah-Batterie 
+K B110                                            //Batterietausch auf 110 Ah-Batterie 
+K BA90                                            //Batterietausch auf 90AGM 
+K ID4P                                            //4 ID-Geben fuer Passiv Access 
+K ORGS                                            //Deaktivierung Reizgassensoren 
+K PUMP                                            //Nachruestung neue Kraftstoffpunpe 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K TAST                                            //Nachruestung der Controllertasten vorne und hinten 
+K KK09                                            //Kundendienstnachruestung Korea SA 609 ab MUe05 
+K NNBL                                            //Nachruestung der MUe-Beleuchtung 
+K BENI                                            //Nachruestung Video Benin 
+K NNIC                                            //Nachruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+K TVHY                                            //Umruestung/Nachruestung SA601 Digital-TV mit HybridVideomodul 
+K TAIN                                            //(Tankklappe Indonesien) 
+K MNVD                                            //N73-Motor Niederverdichtet 
+K UEDC                                            //Umruestung EDC fuer E67 
+K VIDR                                            //Umruestung wegen ruckelndem TV-Bild 
+K K242                                            //Umruestung zur Leistungsanhebung 745d 
+K IPOD                                            //Nachruestung iPod 
+K OEOE                                            //Oeffnen ohne Entriegeln 
+K KFDM                                            //Nachruestung Flexibles Diagnose Modul 
+K USEC                                            //Umruestung Kommunikationsumfaenge von US nach ECE-spezifikation 
+K KONI                                            //Umruestung Nightvision Kontrast 
+K BELL                                            //Nachruestung (KWort BELL: ab #0305, SA638 oder K638, getrennte Regelung der Lautstaerke des Klingeltons, Anforderung VS-21 Herr Schuemmer) 
+K BTBT                                            //Nachruestung 164, Ueberstellen eines Telefongespraechs in den Privacy Mode 
+K MEKA                                            //K-Wort fuer den Mekkapfeil im Navi 
+K KOAB                                            //Komfortlichtabschaltung 
+K UMDA                                            //Umruestung Daempfer 
+K IBAC                                            //Nachruestung 
+K KPLC                                            //Nachruestung 
+K NL12                                            //Umruestung Sclag nach Schiebephase - Holland 
+K KLED                                            //Nachruestung LED Leuchten für Anhänger 
+K RCIQ                                            //Umruestung Kaltstart Leerlaufqualität 
+K MGUS                                            //Getriebesteuerung US in KMM 
+K GUJA                                            //Seatbelt-Reminder Fahrer Japan 
+K FLCN                                            //Nachruestung Schwellwertsatz normal 
+K FLCS                                            //Nachruestung Schwellwertsatz sehr empfindlich 

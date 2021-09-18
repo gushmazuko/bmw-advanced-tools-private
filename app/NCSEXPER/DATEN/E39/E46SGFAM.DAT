@@ -1,0 +1,44 @@
+; Baureihen-SGFAM-/ZCS-Datei E46, 07.06.00, Le
+;-----------------------------------------------------------------------
+; 17.01.97  Léonard PDC integriert
+; 03.03.97  Léonard Integration GT,TV,ASC
+; 20.08.97  Léonard Integration RDC,UEB2
+; 08.10.97  Léonard Integration SM
+; 03.11.97  Léonard Integration RA34
+; 10.06.98  Léonard Integration ZHZ
+; 20.07.98  Léonard Integration CVM
+; 14.01.99  Léonard Integration IHKR
+; 04.02.99  Léonard Integration FTM und BTM
+; 15.03.99  Léonard Integration BIT
+; 15.12.99  Léonard Integration MK60
+; 07.06.00  Léonard Integration MOT
+; 15.01.00  Léonard Integration TUS
+;-----------------------------------------------------------------------
+; SG   ABD      SGBD     ZCS FA  KOMMENTAR
+S ABG  A_ZAE2   C_ZAE2   0   0
+S ASC  A_ASCDSC C_ASCDSC 0   0
+S BIT  A_BIT    C_BIT    0   0
+S BTM  A_TM46   C_BTM46  0   0
+S CVM  A_CVM2   C_CVM2   0   0
+S DSC  A_ASCDSC C_ASCDSC 0   0
+S EWS  A_EWS3   C_EWS3   1   0
+S FTM  A_TM46   C_FTM46  0   0
+S GM5  A_GM5    C_GM5    0   0
+S GR2  A_FGR2   C_FGR2   0   0
+S GT   A_GT     C_GT     0   0
+S IHKR A_IHK46  C_IHK    0   0
+S IHK  A_IHK46  C_IHK    0   0
+S KMB  A_KMB46  C_KMB46  1   1
+S LSZ  A_LSZ    C_LSZ    0   1
+S LWS  A_LWS5   C_LWS5   0   0
+S MK60 A_ASCDSC DSC_MK60 0   0
+S MOT  A_ME9_4N C_ME9_4N 0   0
+S PDC  A_PDC    C_PDC    0   0
+S RAD  A_RADIO  C_RADIO  0   0
+S RDC  A_RDC    C_RDC    0   0
+S SHD  A_SHD    C_SHD    0   0
+S TV1  A_TV1    C_TV1    0   0
+S UEB  A_UEB2   C_UEB2   0   0
+S SM   A_SM     C_SM     0   0
+S ZHZ  A_ZHZ    C_ZHZ    0   0
+S TUS  A_TELUS  TEL_US   0   0

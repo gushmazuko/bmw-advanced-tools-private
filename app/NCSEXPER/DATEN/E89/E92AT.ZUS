@@ -1,0 +1,347 @@
+// Auftragsdatei: E89AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 933 698.5
+DATUM 03.05.2016
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EE-82             Obrman
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-82
+//   TD-433
+//   TI-430
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             E92AT.ZUS
+//
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevanz)
+////
+Z #0315                                           //PU 03/15 
+A #1103                                           //I4.25 
+A #1203                                           //I4.30 //I_4_30 entfernt 22.03.2007 LI 
+A #0304                                           //I4.40 
+A #0404                                           //04-06-445 (AP Pulk 6 E87 W6) 
+A #0504                                           //04-06-510       HEA E87 
+A #0904                                           //04-09-XXX 
+A #1204                                           //04-12-XXX       HEA E90 
+A #0305                                           //PU 03/05 
+A #0605                                           //PU 06/05 
+A #0905                                           //PU 09/05 
+A #1205                                           //PU 12/05 
+A #0306                                           //PU 09/05 
+A #0606                                           //PU 06/06 
+A #0906                                           //PU 09/06 
+A #1206                                           //PU 12/06 
+A #0307                                           //PU 12/06 
+A #0607                                           //PU 12/06 
+A #0907                                           //PU 06/06 
+A #1207                                           //PU 06/06 
+A #0308                                           //PU 06/06 
+A #0908                                           //PU 09/08 
+A #0209                                           //PU 02/09 
+A #0309                                           //PU 02/09 
+A #0609                                           //PU 02/09 
+A #0909                                           //PU 09/09 
+A #1209                                           //PU 12/09 
+A #0310                                           //PU 03/10 
+A #0610                                           //PU 06/10 
+A #0910                                           //PU 09/10 
+A #0311                                           //PU 03/11 
+A #0911                                           //PU 09/11 
+A #0312                                           //PU 03/12 
+A #0712                                           //PU 07/12 
+A #1112                                           //PU 09/12 
+A #0313                                           //PU 09/12 
+A #0713                                           //PU 09/12 
+A #1113                                           //PU 09/13 
+A #0314                                           //PU 03/14 
+A #0714                                           //PU 07/14 
+A #1114                                           //PU 11/14 
+A #0315                                           //PU 03/15 
+E B046                                            //46 Ah-Batterie 
+E B055                                            //55 Ah-Batterie 
+E B070                                            //70 Ah-Batterie 
+E B080                                            //80 Ah-Batterie 
+E B090                                            //90 Ah-Batterie 
+E A070                                            //70 Ah-AGM Batterie 
+E A080                                            //80 Ah-AGM Batterie 
+E A090                                            //90 Ah-AGM Batterie 
+E EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+E TARN                                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer 
+E EFZG                                            //Erprobungsfahrzeuge (CLASS_PWR) nur in Verbindung mit Werksteuer-SAs 0W3 bzw. 0W4 
+E EMOA                                            //Entfall Most-Adapter (MAIL Haller 27.2. 7:56) PA603 / 586 
+E SIXT                                            //Deaktivierung DSC M3 bei Sixt Fzgen 
+E ANRA                                            //" fuer "anderes Radio" laut SCCB vom 05.11.09 E-Wort nicht codierrelevant, nur KMM!!!! 
+E OGKB                                            //Ohne Gurtkraftbegrenzer FA/BF 
+E OSPS                                            //Sitzpositions-Sensoren FA/BF auscodieren 
+E M3NK                                            //Entfall SA534 bei M3 GTS KG91, KG92 //NA190286 
+E RECA                                            //Nachruestung Performance Sportsitz fuer M3 GTS Nachruestung Performance Sportsitz, Projektnr.: 000000484 
+E MSPS                                            //Sitzpositions-Sensoren BF eincodieren E84US 
+E MPTC                                            //PTC verbau ab Werk - CEK vom 09.05.2008 
+H FITT                                            //Anzeige CC Meldungen im Kombi Aktiv 
+H TARN                                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer 
+H KMB1                                            //fuer Zwischenstand PL2-Kombi mit Codierindex 1 in der I2.20 
+H B046                                            //46 Ah-Batterie 
+H B055                                            //55 Ah-Batterie 
+H B070                                            //70 Ah-Batterie 
+H B080                                            //80 Ah-Batterie 
+H B090                                            //90 Ah-Batterie 
+H A070                                            //70 Ah-AGM Batterie 
+H A080                                            //80 Ah-AGM Batterie 
+H A090                                            //90 Ah-AGM Batterie 
+H ID4P                                            //4 ID-Geben fuer Passiv Access 
+H NNIC                                            //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+H IHKA                                            //Mit +IHKA ist in der low Variante E87 ohne FZD auch mit Klima kein FZD noetig 
+H SPHZ                                            //Nachruestung Spiegelheizung 
+H NDVD                                            //Nachruestung FOND DVD PLAYER 
+H DBFA                                            //Nachruestung Deaktivierung Beifahrerairbag 
+H RIND                                            //Nachruestoption Radionavigation Indianapolis E87 und E90 
+H GSHI                                            //Gurtstraffer hinten sind bis VS E90/E91 nicht verbaut. / rear belttighter not buld in till VS E90/E91 
+H GKBF                                            //Ohne Gurtkontakt Beifahrer (PVL E90)                   / 
+H SHSZ                                            //Standheizung als Sonderzubehoer 
+H OPSS                                            //TEMPORAERES E-WORT spez. fuer CAS & KOMBI ab I-5.20! (nur FIT/Labcar) 
+H OI12                                            //Seatbeltreminder Beifahrer deaktivieren (PVL E90) 
+H OPOL                                            //Ohne Pol Dimmung (MRS5 Flash 05-09-410 -> 05-09-420) 
+H IALT                                            //Alte I-Tafel Verbaut (fuer Steuerung passende IHKA Software) 
+H EWS4                                            //Vorhalt fuer neue EWS Generation (nicht codierrelevant!) 
+H MEPS                                            //EPS Steuerung Vorserie 
+H KMP3                                            //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden) 
+H ULF2                                            //Steuerung ULF2 in CCC_APP; SVS_MICRO  (most oder analog) 
+H BRSP                                            //Steuerung Datensatz fuer 06-03-511 Breitensportfahrzeuge 100% ab 0606 
+H USHD                                            //Aktivierung Schiebehubdach mit Klemme R (PA603/161 ?) 
+H IPOD                                            //Nachruestung IPOD als CD Wechsler 
+H OEOE                                            //Kundenwunsch Heckklappe oeffnen ohne entriegeln 
+H ABIG                                            //Nachruestung Abbiegelicht noch nicht in ASAP 
+H DIFI                                            //Dieselpartikelfilter 
+H MLIB                                            //Umruestung fuer Libanon wegen schlechter Kraftstoffqualitaet 
+H HFMM                                            //Nachruestung HFM-Nachruestung E90N46 mit SA858 
+H K302                                            //Nachruestung Alarmanlage 0306 - 0906 
+H HOS3                                            //Steuerung im Werk fuer den Aufbrauch von Teilen bis 0307 
+H SWUL                                            //Software Update Mulf 
+H K638                                            //Nachruestung Autotelefon Professional 
+H K644                                            //Nachruestung Freisprecheinrichtung Universal 
+H MOGB                                            //Ohne GB (M3 PPP Patch) 
+H KOAB                                            //Umruestung Komfortlichtabschaltung 
+H DCAN                                            //Ab 03/07 setzt abhaengig vom Motor DCAN ein. Bitte nur vor 09/07 zusteuern ! 
+H EHHS                                            //Neue Heckscheibe, Einsatzt 100% ab JUNI06, einfliessend mit EHHS 
+H ALKS                                            //CO2_ALKS                                //Adaptive Luftklappensteuerung 
+H MMSA                                            //Motor Start Stop Automatik 
+H MIGR                                            //Intelligente Generator Regelung "6Zyl Diesel" 
+H KOKU                                            //Kompressor Kupplung 
+H OMSA                                            //Ohne Motor Start Stop Automatik, bis Ende 08/13 
+H IGRX                                            //IGR_6BMOT                               //IRG-Codierung fuer "Benzin" 6Zyl. 
+H NSWA                                            //(Projektnr.:000000251)Pennsylvenia Nachruestung FRMFA 
+H SPBR                                            //Nachruestung Sport Bremsen, Projektnr.:000000478 
+H OSST                                            //Nachruestung Deaktivierung SST 
+H EXRA                                            //Nachruestung externes Radio (Kombi noch kein Antrag !!) 
+H OI03                                            //Deaktivierung Sidebag vorn links 
+H OI04                                            //Deaktivierung Sidebag vorn rechts 
+H ZBEP                                            //Umruestung PL2 Umruestung von der ZBEH auf Perform. Controller, Projektnr.:000000379 
+H K640                                            //Nachruestung Freisprecheinrichtung Universal (Mute ohne FZD), Projektnr.:000000370 
+H OSTH                                            //Nachruestung Standheizung, Projektnr.:000000347 
+H OKOM                                            //Umruestung Komfortoeffnen Deaktivierung, Projektnr.:000000304 
+H MKOM                                            //Umruestung Komfortoeffnen Aktivierung, Projektnr.:000000304 
+H XFRM                                            //Nachruestung Standheizung (Bauraum schaffen $520 entfernen ohne FRM Tausch), Projektnr.:000000412 
+H MUEB                                            //Nachruestsatz Heckleuchten LCI Massnahme E87N, Projektnr.:FZ 000000246 
+H UKKP                                            //Umruestung Klima Kompressor 
+H KLED                                            //Nachruestung LED Leuchten fuer Anhaenger, Projektnr.:  000000453 
+H NAVP                                            //Nachruestung Navi Portable, Projektnr.: 000000419 
+H RUZU                                            //Umruestung E90/91 M57D30TU2 Drehzahlschwankung, Projektnr.: 000000474 
+H NSBK                                            //Nachruestung Spiegelbeiklappen, Projektnr.: 000000480 
+H RECA                                            //Nachruestung Performance Sportsitz fuer M3 GTS Nachruestung Performance Sportsitz, Projektnr.: 000000484 
+H RECF                                            //Nachruestung Performance Sportsitz nur Fahrer, Projektnr.: 49563 
+H LINS                                            //Nachruestung Performance Sportsitz Patch wegen LIN Spiegel 
+H TAK1                                            //TCU Audiokorrektur E91, Projektnr.: 000000506 
+H URLK                                            //Nachruestung / Ersatzteilfall MSD80 beim ALPINA B3, Projektnr.: 000000504 
+H EMOA                                            //Entfall Most-Adapter (MAIL Haller 27.2. 7:56) PA603 / 586 
+H MUEF                                            //Steuerungsdummy zur klaren Trennung FRONT/HECK 
+H MUEH                                            //Nachruestung / Umruestung Facelift Heckleuchten, Projektnr.: 000000536 
+H MUEG                                            //Nachruestung / Umruestung Facelift Front- und Heckleuchten, Projektnr.: 000000539 
+H K5DA                                            //Abschaltung BF- Airbag, nur in Verbindung mit Dach- Elektrik- Modul Ohne ISOFIX, Projektnr.: 000000554 
+H MPTC                                            //PTC verbau ab Werk - CEK vom 09.05.2008 
+H OBBV                                            //Auskodieren Bremsbelagverschleissanzeige, Projektnr.: 000000557 
+H ZUOF                                            //Zuheizer ohne Funktion, Projektnr.: 000000563 
+H EFZG                                            //Erprobungsfahrzeuge (CLASS_PWR) nur in Verbindung mit Werksteuer-SAs 0W3 bzw. 0W4 
+H WGAK                                            //Nachruestung / Wastegate-Massnahme, Projektnr.: 000000712 
+H ASCD                                            //ASC (Diesel) Regelung N57 mit W-Raedern. 
+H NPOW                                            //Umruestung / Leistungssteigerung N54 135i / 335i, Projektnr.: 22761 
+H ZABF                                            //Zweistufiger Airbag Beifahrersitz 09-09-410 < 09-09-450 danach H-Wort 
+H RNIC                                            //Umruestung / Anfahrdrehzahlanhebung bei Kupplungsrupfen E89xN47, Projektnr.: 98161 156511 190164 
+H KNIC                                            //Umruestung KMM/ Anfahrdrehzahlanhebung bei Kupplungsrupfen E89xN47 EU3 EU4, Projektnr.:169745 
+H DIRU                                            //Umruestung / E9x N53 MSD80 Ruckeln, Projektnr.: 113847 
+H IRRE                                            //Umruestung / Ispeech One Shot Irland PN 187425 
+H ONSW                                            //Nachruestung Nachruestung Standheizung - Deaktivierung NSW 
+H SIXT                                            //Deaktivierung DSC M3 bei Sixt Fzgen 
+H EEKP                                            //Fahrzeuge vor 10-03-450 nachcodiert ohne durchgefuehrte Umbaumassnahmen 
+H E459                                            //Fuer Typ-Schl. PM93 ab 03/10 bis 09/10 
+H ANRA                                            //" fuer "anderes Radio" laut SCCB vom 05.11.09 E-Wort nicht codierrelevant, nur KMM!!!! 
+H OGKB                                            //Ohne Gurtkraftbegrenzer FA/BF 
+H OSPS                                            //Sitzpositions-Sensoren FA/BF auscodieren 
+H OSAT                                            //Entfall Satellitenbilder in einigen Laendern 
+H MUH2                                            //Umruestung fuer fuer LCI-Heckleuchtennachruestung E92/E93 
+H MUH1                                            //Umruestung fuer LCI- Heckleuchtennachruestung E82/E88 
+H KDDE                                            //Umruestung DDE71 N47D20O0 Performance L2 (ursprunglich nur KMM) 
+H KDD1                                            //Umruestung / E91 v-max Erhoehung mit Diesel-Performance 
+H KAMP                                            //Ersatz Can-Bus HiFi AMP durch Low Cost HiFi E89 
+H K3AR                                            //NA Heckgepaecktraeger E84 fuer Fahrzeuge zwischen 09/09 und 03/10 
+H ONIC                                            //Deaktivierung Anfahrdrehzahlanhebung NA190231 
+H M3NK                                            //Entfall SA534 bei M3 GTS KG91, KG92 //NA190286 
+H KSHD                                            //E84 Komfortstellung Panaramadach fuer Fahrzeuge vor 09/10 
+H KATB                                            //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E90US nur fuer KMM 
+H MSPS                                            //Sitzpositions-Sensoren BF eincodieren E84US 
+H TINT                                            //Telematikintegration fuer verschiedene Platf. 
+H FHRC                                            //Umruestung / E89/E93 FH hinten 
+H KEPS                                            //EPS FSC fuer Altfahzeuge/Mischverbau (nur fuer KMM) 
+H AGRI                                            //Inverses AGR-Ventil 
+H KDD2                                            //Diesel-Performance-Paket 
+H KNET                                            //Radiotelefonie fuer US 
+H CTM3                                            //PVL E89 mit dem alten Verdeck mit 3 Ventile  Funktion Oeffnen und Schliessen bei Fahrt 
+H EOAS                                            //Ohne Aufrollstrammer, um aeltere Fahrzeuge im FIT mit 16 Zuendkreis-Geraeten weiterhin verwenden 
+H KRAD                                            //CD83 fuer ALPINE-Radio (CD73) 
+H OK3Z                                            //Umruestung DDE Datenstand bei Oxi Kat Tausch E90US 
+H DMBA                                            //Nachruestung DMB Audio 
+H KDSC                                            //DSC E84 Trockenbremsen 
+H KEQA                                            //Kundenbeschwerde EQ AMPT70 E89 
+H AMKS                                            //N46T Panama knocking noise nur fuer KMM 
+H SWTK                                            //Schwellwert Tuerkontakt 
+H OSNU                                            //Ohne Diagnose der Hallsensoren in der Schlossnuss 
+H HLED                                            //Nachruestung LED Heckleuchten fuer E84 ohne Xenonlicht 
+H FLXL                                            //Nachruestung fuer LCI-Xenon/AHL-Scheinwerfer in E84-Fahrzeuge vor LCI Produktion (07/12) 
+H FLCE                                            //automatische Fahrlichtsteuerung empfindlich 
+H KLSD                                            //Lautsprecherdiagnose fuer ASD de-/aktivieren 
+H KVNE                                            //CTM E93, neuer Sensor Dachpaket abgelegt links 
+H OVSW                                            //CTM E93, neuer Sensor VSW 1.4 Dachpaket abgelegt links (neu ab 12-07-450, bzw. im Werkseinsatz am 12-07) wird ausblendbar gemacht. (Verbau und Fehlerbewertung) 
+H H6VA                                            //S6VAA 
+K ONEG                                            //deaktivierung Neigungsgeber 
+K OFIS                                            //deaktivierung Innenraumsensor 
+K MTFL                                            //mit Tagfahrlicht 
+K OSZV                                            //ohne Selektive Zentralverriegelung 
+K MSZV                                            //mit Selektive Zentralverriegelung 
+K LOCK                                            //verriegeln 16 km/h An  (ohne Head Unit) 
+K NLOC                                            //verriegeln 16 km/h Aus (ohne Head Unit) 
+K FLCN                                            //automatische Fahrlichtsteuerung normal empfindlich (Empfindlich = Serie) 
+K FLCS                                            //automatische Fahrlichtsteuerung sehr empfindlich 
+K C107                                            //Umruestung der Aktivierung des mech. Verfahrens (CKM_A107) (keine Aktivierung/Akt. nach Entriegeln mit FB/Akt. nach Entriegeln mit FB und Tuer oeffnen) 
+K TELD                                            //Deaktivierung Funktion Telematic fuer TCU_MOST 
+K PVCA                                            //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung 
+K K639                                            //SAZK639               //Nachruestung Everest-Plattform fuer US (SA639) 
+K K633                                            //Nachruestung HANDY VORBEREITUNG BUSINESS (nur mit SA639) 
+K K641                                            //Aufruestsatz Universal Handyvorbereitung US Standard (Suedamerika und Korea) 
+K RASK                                            //Aktivierung RING Bit im MASK 
+K OSVS                                            //Deaktivierung Funktion "Low Sprachverarbeitung" in MASK / M-ULF 
+K KSET                                            //Automatische Sitzverstellung nach FB Entriegeln 
+K OI11                                            //Seatbeltreminder Fahrer deaktivieren 
+K OI12                                            //Seatbeltreminder Beifahrer deaktivieren 
+K GKBF                                            //Ohne Gurtkontakt Beifahrer 
+K SHSZ                                            //Standheizung als Sonderzubehoer 
+K OI03                                            //Deaktivierung Sidebag vorn links 
+K OI04                                            //Deaktivierung Sidebag vorn rechts 
+K ID4P                                            //4 ID-Geben fuer Passiv Access 
+K NNIC                                            //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren" 
+K IHKA                                            //Mit +IHKA ist in der low Variante E87 ohne FZD auch mit Klima kein FZD noetig 
+K SPHZ                                            //Nachruestung Spiegelheizung 
+K NDVD                                            //Nachruestung FOND DVD PLAYER 
+K DBFA                                            //Nachruestung Deaktivierung Beifahrerairbag 
+K RIND                                            //Nachruestoption Radionavigation Indianapolis E87 und E90 
+K KMP3                                            //Umruestung/Nachruestung MP3 Aktivierung bei CCC fuer Fzg. vor 09/05 (Fzg. muessen mind. auf CCC_APP.C08 geflasht werden) 
+K USHD                                            //Aktivierung Schiebehubdach mit Klemme R (PA603/161 ?) 
+K IPOD                                            //Nachruestung IPOD als CD Wechsler 
+K OEOE                                            //Kundenwunsch Heckklappe oeffnen ohne entriegeln 
+K ABIG                                            //Nachruestung Abbiegelicht noch nicht in ASAP 
+K DIFI                                            //Dieselpartikelfilter 
+K MLIB                                            //Umruestung fuer Libanon wegen schlechter Kraftstoffqualitaet 
+K HFMM                                            //Nachruestung HFM-Nachruestung E90N46 mit SA858 
+K KFDM                                            //Nachruestung Flexibles Diagnose Modul 
+K K302                                            //Nachruestung Alarmanlage 0306 - 0906 
+K SWUL                                            //Software Update Mulf 
+K K638                                            //Nachruestung Autotelefon Professional 
+K K644                                            //Nachruestung Freisprecheinrichtung Universal 
+K KOAB                                            //Umruestung Komfortlichtabschaltung 
+K NSWA                                            //(Projektnr.:000000251)Pennsylvenia Nachruestung FRMFA 
+K SPBR                                            //Nachruestung Sport Bremsen 
+K OSST                                            //Nachruestung Deaktivierung SST 
+K EXRA                                            //Nachruestung externes Radio, Projektnr.:000000260, 261 
+K ZBEP                                            //Umruestung PL2 Umruestung von der ZBEH auf Perform. Controller, Projektnr.:000000379 
+K K640                                            //Nachruestung Freisprecheinrichtung Universal (Mute ohne FZD), Projektnr.:000000370 
+K OSTH                                            //Nachruestung Standheizung, Projektnr.:000000347 
+K OKOM                                            //Umruestung Komfortoeffnen Deaktivierung, Projektnr.:000000304 
+K MKOM                                            //Umruestung Komfortoeffnen Aktivierung, Projektnr.:000000304 
+K XFRM                                            //Nachruestung Standheizung (Bauraum schaffen $520 entfernen ohne FRM Tausch), Projektnr.:000000412 
+K MUEB                                            //Nachruestsatz Heckleuchten LCI Massnahme E87N, Projektnr.:FZ 000000246 
+K KLED                                            //Nachruestung LED Leuchten fuer Anhaenger, Projektnr.:  000000453 
+K NAVP                                            //Nachruestung Navi Portable, Projektnr.: 000000419 
+K RUZU                                            //Umruestung E90/91 M57D30TU2 Drehzahlschwankung, Projektnr.: 000000474 
+K NSBK                                            //Nachruestung Spiegelbeiklappen, Projektnr.: 000000480 
+K RECA                                            //Nachruestung Performance Sportsitz, Projektnr.: 000000484 
+K RECF                                            //Nachruestung Performance Sportsitz nur Fahrer, Projektnr.: 49563 
+K LINS                                            //Nachruestung Performance Sportsitz Patch wegen LIN Spiegel 
+K TAK1                                            //TCU Audiokorrektur E91, Projektnr.: 000000506 
+K URLK                                            //Nachruestung / Ersatzteilfall MSD80 beim ALPINA B3, Projektnr.: 000000504 
+K MUEH                                            //Nachruestung / Umruestung Facelift Heckleuchten, Projektnr.: 000000536 
+K MUEG                                            //Nachruestung / Umruestung Facelift Front- und Heckleuchten, Projektnr.: 000000539 
+K K5DA                                            //Abschaltung BF- Airbag, nur in Verbindung mit Dach- Elektrik- Modul Ohne ISOFIX, Projektnr.: 000000554 
+K OBBV                                            //Auskodieren Bremsbelagverschleissanzeige, Projektnr.: 000000557 
+K ZUOF                                            //Zuheizer ohne Funktion, Projektnr.: 000000563 
+K WGAK                                            //Nachruestung / Wastegate-Massnahme, Projektnr.: 000000712 
+K ASCD                                            //ASC (Diesel) Regelung N57 mit W-Raedern. 
+K NPOW                                            //Umruestung / Leistungssteigerung N54 135i / 335i, Projektnr.: 22761, N55 135i / 335i, NA 190224 190565 
+K RNIC                                            //Umruestung / Anfahrdrehzahlanhebung bei Kupplungsrupfen E89xN47 EU5, Projektnr.: 156511 (98161) 190174 
+K KNIC                                            //Umruestung KMM/ Anfahrdrehzahlanhebung bei Kupplungsrupfen E89xN47 EU3 EU4, Projektnr.:169745 
+K DIRU                                            //Umruestung / E9x N53 MSD80 Ruckeln, Projektnr.: 113847 
+K IRRE                                            //Umruestung / Ispeech One Shot Irland PN 187425 
+K ONSW                                            //Nachruestung Nachruestung Standheizung - Deaktivierung NSW            //NA 187686 
+K OSAT                                            //Entfall Satellitenbilder in einigen Laendern                          //NA 190129 
+K MUH2                                            //Umruestung fuer fuer LCI-Heckleuchtennachruestung E92/E93             //NA 190103 
+K KDDE                                            //Umruestung DDE71 N47D20O0 Performance L2 (ursprunglich nur KMM)       //NA 190132 
+K KDD1                                            //Umruestung / E91 v-max Erhoehung mit Diesel-Performance               //NA 190151 
+K KAMP                                            //Ersatz Can-Bus HiFi AMP durch Low Cost HiFi E89                       //NA 190171 
+K K3AR                                            //NA Heckgepaecktraeger E84 fuer Fahrzeuge zwischen 09/09 und 03/10     //NA 190183 
+K ONIC                                            //Deaktivierung Anfahrdrehzahlanhebung                                  //NA 190231 
+K KSHD                                            //E84 Komfortstellung Panaramadach fuer Fahrzeuge vor 09/10             //NA 190218 
+K KATB                                            //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E90US nur fuer KMM      //NA 190216 
+K GTRR                                            //HO Wort zur Behebung des Schaltklackerproblem's im DKG /GS40 in HO    //NA 190279 
+K MUH1                                            //Umruestung fuer LCI- Heckleuchtennachruestung E82/E88                 //190284 
+K FHRC                                            //Umruestung / E89/E93 FH hinten                                        //NA 190296 190491 
+K KEPS                                            //EPS FSC fuer Altfahzeuge/Mischverbau                                  //NA 190323 190324 
+K AGRI                                            //Inverses AGR-Ventil                                                   //NA 190306 
+K KDD2                                            //Diesel-Performance-Paket                                              //NA 190308 
+K KNET                                            //Radiotelefonie fuer US                                                //NA 190334 
+K KRAD                                            //Umruestung CD83 fuer ALPINE-Radio CD73, nur fuer KMM                  //NA 190357 190358 
+K OK3Z                                            //Umruestung DDE Datenstand bei Oxi Kat Tausch E90US nur fuer KMM       //NA 190370 
+K DMBA                                            //Nachruestung DMB Audio                                                //NA 190385 
+K KDSC                                            //DSC E84 Trockenbremsen                                                //NA 190381 190485 
+K KEQA                                            //Kundenbeschwerde EQ AMPT70 E89                                        //NA 190411 
+K AMKS                                            //N46T Panama knocking noise nur fuer KMM                               //NA 190413 
+K SWTK                                            //Schwellwert Tuerkontakt                                               //NA 190424 
+K HLED                                            //Nachruestung LED Heckleuchten fuer E84 ohne Xenonlicht                //NA 190442 
+K FLXL                                            //Nachruestung fuer LCI-Xenon/AHL-Scheinwerfer in E84-Fahrzeuge vor LCI Produktion (07/12)        //NA 190467, 190468 
+K FLCE                                            //automatische Fahrlichtsteuerung empfindlich                           //NA 190475 
+K KLSD                                            //Lautsprecherdiagnose fuer ASD de-/aktivieren                          //NA 190488 
+K KVNE                                            //CTM E93, neuer Sensor Dachpaket abgelegt links                        //NA 190495 
+K OKOS                                            //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877          //NA 190627 
+K MUE9                                            //Nachruestung Facaelift-Xenonscheinwerfer E89                          //NA 190578 und 190580 
+K CSUS                                            //Car-Sharing US, Deaktivierung CC-Meldung Schluessel steckt 
+K HETR                                            //Nachruestung Heck-Gepaecktraeger                                      //NA 190723 
+K KCBS                                            //Korrektur CBS                                                         //NA 190738 
+K HAKV                                            //Harmonisierung Motorverhalten Kupplungsvorgang N20                    //NA 190804 
+K TVM2                                            //Nachruestung TVM2, digitales TV                                       //NA 190830 
+K ERA1                                            //Ersatz Radio 1 Visteon durch Radio 1.2 Conti                          //NA 191066 
+K UC4G                                            //Umruestung Combox von 2G nach 4G, nur US                              //NA 191308 

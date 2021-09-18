@@ -1,0 +1,144 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei F01.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 28.03.2006 GA V0.01 Erstellung
+//* 03.04.2006 GA V0.02 FKA01->FKA_01 umbenannt, HKA_02 dazu
+//* 04.07.2006 GA V0.03 MSD80, MSV80, MSD85, MSD87 dazu
+//* 13.10.2006 GA V0.04 EMA_BF dazu
+//* 24.10.2006 GA V0.05 CIC_GW entfallen
+//* 24.10.2006 GA V0.06 Beschreibung von EMA_FA, BF wurde nicht komplett angezigt
+//* 23.11.2006 GA V0.07 F01 in FXX umbenannt
+//* 12.01.2006 GA V0.08 EMA_FA ind EMA_LI, EMA_BF in EMA_RE umbenannt
+//* 15.01.2007 GA V0.09 CIDF, CIDF2 dazu
+//* 15.01.2007 GA V0.10 RDC_GEN2 gegen AUTRDC, CIC gegen AUT_HU, TVM_01 gegen AUTTVM, AMPH70 und AMPT70 gegen AUTAMP getauscht
+//* 15.01.2007 GA V0.11 ACC_E65, AHM_01, FLA_01, MMC_E65, PDC_E65 dazu, RFK entfallen
+//* 03.07.2007 asc V0.12 DDE73N57, MSD85L6 korrigiert, MSD/MSV80 entfallen
+//* 23.07.2007 GA V0.13 Korrektur: EHC01 in EHC_01
+//* 06.08.2007 GA V0.14 Korrektur: PDC_E65 in PDC_01
+//* 21.09.2007 JM V0.15 MSD87 für N54 hinzu
+//* 26.09.2007 JM V0.16 Optische Korrektur der Menüauswahl
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl F01 V0.16
+ENTRY=     FXX,Funktionale Jobs,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+
+ENTRY=   ,,
+ENTRY=  DDE73N57,DDE 7.3      für N57,
+ENTRY=   ,,
+ENTRY=   MSD85L6,MSD 85.0     für N63,
+ENTRY=     MSD87,MSD 87.0     für N54,
+ENTRY=   MSD87_C,MSD 87.0     für N74 Master,
+ENTRY=   MSV90,MSV 90					für N52 TUE,
+ENTRY=,,
+ENTRY=  EKP301,Elektrische Kraftstoffpumpe        EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=  GS100A,Getriebesteuergerät               GS,
+ENTRY=,,
+ENTRY=  GS100A_ea,EGS  GS100A_EA,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=  ASA_01,Aktivlenkung                       ASA,
+ENTRY= ACC_E65,Adaptive Cruise Control            ACC,
+ENTRY=,,
+ENTRY=  DSC_01,Dynamische Stabilitätskontrolle    DSC,
+
+ENTRY=  ICMQL,-dynamik Management / Längs&Quer-ICMQL,
+ENTRY=   ICMV,-dynamik Management / Vertikal    ICMV,
+ENTRY=,,
+ENTRY=  EMF_01,Feststellbremse / Elektromech.     EMF,
+ENTRY=  HSR_01,Hinterachs-Schräglaufregelung      HSR,
+ENTRY=,,
+ENTRY=  EHC_01,Luftfeder                          EHC,
+ENTRY=,,
+ENTRY=   RK_VL,Radknoten vorne links            RK_VL,
+ENTRY=   RK_VR,Radknoten vorne rechts           RK_VR,
+ENTRY=   RK_HL,Radknoten hinten links           RK_HL,
+ENTRY=   RK_HR,Radknoten hinten rechts          RK_HR,
+ENTRY=,,
+ENTRY=  AUTRDC,Reifendruckkontrolle               RDC,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=   ACSM3,Airbag Steuergerät              ACSM,
+ENTRY=  VOCS01,Airbag: Innenraumkamera         VOCS,
+ENTRY=  AHM_01,Anhängermodul                    AHM,
+ENTRY=  EMA_LI,Aufroller Elektromech. Links     EMA,
+ENTRY=  EMA_RE,Aufroller Elektromech. Rechts    EMA,
+//ENTRY= AHM_E65,Anhängermodul,
+ENTRY=  BEHO60,Behördenmodul                   BEHO,
+ENTRY=,,
+ENTRY=    CAS4,Car Access System                CAS,
+ENTRY=    FZD3,Dach / Funktionszentrum          FZD,
+ENTRY=,,
+ENTRY= KAFAS01,Fa.asistenz./ Kamerabasiertes  KAFAS,
+ENTRY= TRSVC01,Fa.asistenz./ Top/rear/side    TRSVC,
+ENTRY=  FLA_01,Fernlichtassistent               FLA,
+ENTRY=    FRM3,Fußraummodul Fahrer              FRM,
+ENTRY=,,
+ENTRY=  ZGW_01,Gateway / Zentrales              ZGW,
+ENTRY=  GWS_01,Gangwahlschalter                 GWS,
+ENTRY=  HKL_01,Heckklappenlift                  HKL,
+
+ENTRY=  KOMB01,Instrumentenkombi              KOMBI,
+ENTRY=   JBBF3,Junction Box Beifahrer          JBBF,
+ENTRY=,,
+ENTRY=  IHKA01,Klimaautomatik/ -regelung Bedienteil,
+ENTRY=  FKA_01,Klimaautomatik/ Fond             FKA,
+ENTRY=  HKA_02,Klimaautomatik/ Heckklima        HKA,
+ENTRY=,,
+ENTRY=    NIVI,Nachtsichtsystem                NIVI,
+ENTRY=,,
+ENTRY=  PDC_01,Park Distance Control            PDC,
+//ENTRY=,,
+ENTRY=  SZL_01,Schaltzentrum Lenksäule          SZL,
+ENTRY=,,
+ENTRY=  ZBE_01,Zentrale Bedieneinheit           ZBE,
+ENTRY=  ZBEF01,Zentrale Bedieneinheit  Fond    ZBEF,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY=  FAS_01,Sitzmodul Fahrer                   FAS,
+ENTRY=  BFS_01,Sitzmodul Beifahrer                BFS,
+ENTRY=  FAH_01,Sitzmodul Fahrer hinten            FAH,
+ENTRY=  BFH_01,Sitzmodul Beifahrer hinten         BFH,
+
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+//ENTRY=     CIC,Computer/ Infotainment Computer    CIC,
+//ist jetzt AUT_HU,Radio/Headunit!!!
+ENTRY=  CID_01,Display / Zentrales Info Display   CID,
+ENTRY=    CIDF,Display / Fond links             CID_L,
+ENTRY=   CIDF2,Display / Fond rechts            CID_R,
+ENTRY=  HUD_01,Display / Head Up                  HUD,
+ENTRY=  RSE_01,Entertainment hinten               RSE,
+ENTRY=,,
+ENTRY=  CIC_HD,Festplattte im CIC              CIC_HD,
+ENTRY=  AUT_HU,Radio/Headunit                      HU,
+ENTRY=,,
+ENTRY= TEL_E65,Telefon                            TEL,
+ENTRY=  SAT_60,Tuner / Digitaler Satellitentuner  USA,
+ENTRY=  AUTTVM,TV                                  TV,
+ENTRY=,,
+ENTRY=  AUTAMP,Verstärker                         AMP,
+ENTRY=  VSW_01,Videoswitch                        VSW,
+ENTRY= CDC_E65,Wechsler / Audio                   CDC,
+ENTRY= MMC_E65,Wechsler / Multimedia-Changer      MMC,
+
+
+
+

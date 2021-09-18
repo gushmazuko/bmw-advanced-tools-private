@@ -1,0 +1,877 @@
+// Auftragsdatei: E70AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: x xxx xxx.5
+DATUM 03.05.2016
+//
+//                     Kurzz.  Datum     Name
+// Bearbeiter:         EG-75   08.02.06  Léonard
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EI-73
+//   TI-433
+//
+// Aenderungsdokumentation:
+// NAEL-     Zeichn. xmal/
+// Nr.       Index   Seite Kurzbeschreibung                                                   Datum    Name
+
+//
+DATEINAME                             E70AT.000
+//
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevanz)
+//--------------------------------------------------------------------------------------------------
+Z #0713                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11 MAERZ12 JULI12 MAERZ13 JULI13  //I_13-07-500
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+//-----------------------------------------------------------------------------------------------------
+A #0604                                                                                                                 //I_2_10
+A #1004                                                                                                                 //I_2_20
+A #0105                                                                                                                 //I_2_21
+A #0305                                                                                                                 //I_3_10
+A #0905                                                                                                                 //I_3_20
+A #1005                                                                                                                 //I_3_30
+A #0306                                                                                                                 //I_410
+A #0906                                                                                                                 //SOP
+A #0407                 MAERZ07                                                                                         //I_07-03-500
+A #1007                 MAERZ07 PU07                                                                                    //I_07-09-500
+A #0408                 MAERZ07 PU07 MAERZ08                                                                            //I_08-03-500
+A #1008                 MAERZ07 PU07 MAERZ08 PU08                                                                       //I_08-09-500
+A #0409                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09                                                               //I_09-03-500
+A #1009                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09                                                          //I_09-09-500
+A #1209                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09                                                          //I_09-12-500
+A #0410                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10                                                  //I_10-03-500
+A #1010                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10                                             //I_10-09-500
+A #0411                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11                                     //I_11-03-500
+A #1011                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11                                //I_11-09-500
+A #0412                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11 MAERZ12                        //I_12-02-500
+A #0712                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11 MAERZ12 JULI12                 //I_12-07-500
+A #0313                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11 MAERZ12 JULI12 MAERZ13         //I_13-03-500
+A #0713                 MAERZ07 PU07 MAERZ08 PU08 MAERZ09 PU09 MAERZ10 PU10 MAERZ11 PU11 MAERZ12 JULI12 MAERZ13 JULI13  //I_13-07-500
+
+//
+//******************************************************************************
+//E: aktive Ergaenzungszeilen (PUSY-Relevanz fuer Steuerung SA<100)
+//******************************************************************************
+//Es duerfen KEINE E-/K-Worte definiert werden die mit „P“ oder „L“ beginnen!!!
+E TARN                  TARN                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer
+E A070                  BATT_AGM_70AH                   //70 Ah AGM battery
+E A090                  BATT_AGM_90AH                   //90 Ah AGM battery
+E A105                  BATT_AGM_105AH                  //105 Ah AGM battery
+E B070                  BATTERIE_70AH                   //70 Ah standard battery
+E B080                  BATTERIE_80AH                   //80 Ah standard battery
+E B090                  BATTERIE_90AH                   //90 Ah standard battery
+E B110                  BATTERIE_110AH                  //110 Ah standard battery
+E EFZG                  MUSTERBAU                       //Testing vehicles (CLASS_PWR)                                                  //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll
+//                                                      //only with plant option code S0W3 or SA0W4                                     //im CAS3 wird CLASSS_PWR angesteuert
+E EWS4                                                  //all cars with EWS4, in the moment for 6 cyl. DME (MSV80), not coding relevant, only for CASCADE EWS synchronization
+E FITT                  FITT                            //FITT-Betrieb
+E 200S                  SECURITY                        //Special coding security vehicle Mexico                                        //Sondercodierung Sicherheitsfahrzeug Mexiko
+E OASD                  ARS_OASD                        //Without suction throttle                                                      //Ohne aktive Saugdrossel
+//E TASW                  TARN_SW_HALOG                   //fuer Tarnscheinwerfer mit Halogen
+//E TASX                  TARN_SW_XENON                   //fuer Tarnscheinwerfer mit Xenon
+E XJSW                  SW_TAUSCH                       //Scheinwerfertausch Japan, abgestimmt mit Gerd Pitz, 31.03.2011
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+//******************************************************************************
+H TARN                  TARN                            //fuer alle PPP-Fzg. mit Tarnscheinwerfer
+H A070                  BATT_AGM_70AH                   //70 Ah AGM battery
+H A090                  BATT_AGM_90AH                   //90 Ah AGM battery
+H A105                  BATT_AGM_105AH                  //105 Ah AGM battery
+H B070                  BATTERIE_70AH                   //70 Ah standard battery
+H B080                  BATTERIE_80AH                   //80 Ah standard battery
+H B090                  BATTERIE_90AH                   //90 Ah standard battery
+H B110                  BATTERIE_110AH                  //110 Ah standard battery
+H AUFS                  OHNE_UPFRONT                    //Upfront sensor deactivating for ECE                                           //Upfrontsensor-Deaktivierung  fuer ECE
+H N54B                  N54_E71                         //Motorvariante                 nicht KMM-relevant (Monika Weber, 19.07.2010)
+H N63B                  N63_E71                         //Motorvariante                 nicht KMM-relevant (Monika Weber, 19.07.2010)
+H E524                  ALC_ENTFALL                     //FRM//Adaptive Headlights, deletion for E71 Test vehicle                       //Entfall Adaptives Kurvenlicht fuer E71 Versuchsfahrzeuge
+H EFZG                  MUSTERBAU                       //Testing vehicles (CLASS_PWR)                                                  //Erprobungsfahrzeuge ( E-Wort nur in Verbindung mit den Werksteuer-SAs 0W3 bzw. 0W4 gesetzt soll
+H CLTC                  CLT_NACH_CRASH                  //Mexiko, Russland wegen fehlender LA (CAS)
+H ZVSE                  SELEKTIVE_ZV                    // Thailand wegen fehlender LA (CAS)
+H AQBS                  ARS_QBS                         //Coding for transverse acceleration sensor                                     //Quer-Beschleunigungssensor-Codierung fuer Vorserienfahrzeuge vor E070-07-12-420
+H E8SZ                  ABBIEGLICHT_AUS                 //Decoding turn off light
+H VAFS                  VA_STABI_FS                     //ARS//Coding for old "VA-stabilizer" with spring-operating storage             //Kodierdaten fuer den „alten“ VA-Stabi mit Federspeicher
+H EWS4                                                  //all cars with EWS4, in the moment for 6 cyl. DME (MSV80), not coding relevant, only for CASCADE EWS synchronization
+H FITT                  FITT                            //FITT-Betrieb
+H DEWL                  DECODIER_WL                     //Decoding welcome light
+H BELS                  TANK_BELS3                      //Kennung fuer BELS3 Fahrzeuge
+H KOKU                  //CO2_KOKU                      //Compressor clutch for ECE 8Zyl with option code 01CB till PU07                //Kompressor Kupplung fuer ECE 8Zyl mit SA1CB vor PU07
+H FSEA                  //FUNKSCHLUESSEL                //New concept for KEY-CHAIN TRANSMITTER
+H AFSI                  //AFS_IEX                       //AFS fuer IEX-Fahrzeuge
+H MASK                  //RADIO_MASK                    //option code 663+ E MASK = MASK instead of CHAMP                               //Radio BMW Professional (SA663) with MASK
+H IGRX                  //IGR_6BMOT                     //6 cyl. DMW with intelligent battery sensor                                    //IRG-Codierung fuer 6Zyl.
+H AGKB                  //OHNE_AGKB                     //Without seatbelt load limiter front passenger                                 //Ohne Gurtkraftbegrenzer Beifahrer (PVL E70)
+H VARS                  //VENTILBL_ALT                  //ARS valve block from E070-06-10-330 in E070-06-10-410 and higher
+H 200S                  SECURITY                        //Special coding security vehicle Mexico                                        //Sondercodierung Sicherheitsfahrzeug Mexiko
+H 201S                                                  //KMM-Steuerung Securitymodul L4 Mexico
+H OASD                  ARS_OASD                        //Without suction throttle                                                      //Ohne aktive Saugdrossel
+H MEBS                  ENDBESCHL_STR                   //Steuerung im Werk zum Verbau vom Endbeschlagsstrammer Airbag
+H EEKP                  EKP_HW                          //Fahrzeuge vor 10-03-450 nachcodiert ohne durchgefuehrte Umbaumassnahmen
+H NPOW                                                  //Umruestung / Leistungssteigerung N54, Projektnr.: 190150 / 190577
+H EDTV                  ENTF_DIG_TV                     //Verbau DVB-T anstatt DTMB in China            seit 15.07.2010 nicht mehr relevant (Hr. Wefers, 19.07.2010)
+H ECEW                  ECE_WECHSEL                     //AHL-US wird duch AHL-ECE ab 03/11 ersetzt     kann zu 11-03-450 entfallen (Roland Wagener, 20.07.2010)
+H KATB                                                  //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E70US nur fuer KMM
+H TINT                  TEL_INTEGR                      //Telematikintegration fuer verschiedene Entwicklunngs- und Test-Plattformen, keine Steuerung im Werk, nur als H-Wort
+H KLE1                  LED_KENNZL                      //LED-Kennzeichenleuchte, einfliessend nach 12/2010, Nach Einsatz der Maerz-Massnahmen 2011 loeschen!
+H IAGR                                                  //Inverses AGR-Ventil                                                           //Fallback fuer Produktion
+H XJSW                  SW_TAUSCH                       //Scheinwerfertausch Japan, abgestimmt mit Gerd Pitz, 31.03.2011
+//H K3AG                  NACH_REAR_VIEW                  //Retrofitting rear view camera
+
+//H FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal
+//H FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich
+//H 702S                  SECUR_SODER_W                   //Sondercodierung FH_HINTEN Sicherheitsfahrzeug Mexiko
+//H 703S                  SECUR_A_KID                     //Sondercodierung Schluesselabziehen in jeder Getriebeschalterstellung
+//
+//H TEST                  CABD_DEBUG                      //SA zum einschleusen von debug CABDen in die SGET
+//
+//******************************************************************************
+//K: Kundendienst-Ergaenzungszeilen (keine PUSY-Relevanz)
+//*******************************************************************************
+//Es duerfen KEINE E-/K-Worte definiert werden die mit „P“ oder „L“ beginnen!!!
+K TELD                  TELEMATIC_DIS                   //Deaktivierung Funktion Telematic fuer TCU_MOST                                //NA :000000275
+K RASK                  MOST_RING_MASK                  //Aktivierung RING Bit im MASK
+K AHMU                  ANH_KUPPLUNG_US                 //Retrofitting Towbar with removeable ball head for US                          //Nachruestung Anhaengerkupplung, Kopf abnehmbar for US         //NA 000000505 000000142
+K IPOD                  IPOD                            //Nachruestung iPod                                                             //000000316
+K K3AC                  ANH_KUPPLUNG_SW                 //Retrofitting Towbar pivoted                                                   //Nachruestung Anhaengerkupplung schwenkbar                     //NA 99301
+K OEOE                  OEOE                            //Open without unlock (GB)                                                      //fuer Oeffnen ohne Entriegeln GB                               //NA 000000114
+K NSWA                  NSW_AUS                         //Front fog lamp out if high-beam light ore headlight flasher on (US only)      //NSW aus, wenn FL oder LH ein (nur fuer USA)                   //NA 000000247
+K OKLA                  OHNE_KOMF_L_AB                  //Comfort switch-off, deletion                                                  //Ohne Komfortlichtabschaltung
+K OI03                  OHNE_SIDEBAG_VL                 //Side bag front left deactivating                                              // Deaktivierung Sidebag vorn links                             //NA :000000262
+K OI04                  OHNE_SIDEBAG_VR                 //Side bag front right deactivating                                             //Deaktivierung Sidebag vorn rechts                             //NA :000000264
+K OI11                  OHNE_FA_SBR                     //Seatbeltreminder driver deactivating                                          //Deaktivierung FAHRER SEATBELTREMINDER                         //NA 000000272
+K OI12                  OHNE_BF_SBR                     //Seatbeltreminder front passenger deactivating                                 //Deaktivierung BEIFAHRER SEATBELTREMINDER                      //NA 000000272
+K ACKT                  KLIMASTILE                      //AC ON by climate mode change via AUTO button                                  //AC EIN bei Klimastilwechsel ueber AUTO Taste                  //NA 000000405
+K VADK                  DUAL_KOLB_STABI                 //Coding for new VA-stabilizer (dual pistons stabilizer)                        // Kodierdaten fuer den „neuen“ VA Stabi (Doppelkolbenstabi)    //NA 000000471 bzw. 190985 fuer E70
+K KLED                  LED_AHM                         //After-market equipment led lights for trailer                                 //NA 000000452
+K KFDM                                                  //Flexible diagnostic module not coding relevant                                //Flexibles Diagnose Modul
+K ID4P                  ID_GEBER_4                      //4 ID-Geben fuer Passiv Access
+K PVCA                  AKT_PERS_V_CALL                 //Aktivierung Personal Voice Calls gekoppelt mit der Spracherkennung
+K OSVS                  OHNE_SVS_LOW                    //Deaktivierung Funktion "Low Sprachverarbeitung" in MASK / M-ULF
+K NNIC                  NACHRUEST_NIC                   //Umruestung bei Kundenbeanstandung "Kupplungsrupfen beim Anfahren"             //NA 000000481 vom 21.11.07 von Frank Reuter
+K C107                  NACHR_CKM_A107                  //Umruestung der Aktivierung des mech. Verfahrens (CKM_A107)                    //NA 000000267
+K OKOM                  OKOM                            //Umruestung Komfortoeffnen Deaktivierung, Projektnr.:000000494                 //NA 000000494
+K K5DA                  DEAKT_BEIF_AIRB                 //Front passenger deactivating                                                  //BEIFAHRERAIRBAG-DEAKTIVIERUNG         //NA 000000521 000000106
+K FLCN                  SCHWELL_NORM                    //Nachruestung Schwellwertsatz normal                                           //NA 000000520
+K FLCS                  SCHWELL_SUPER                   //Nachruestung Schwellwertsatz sehr empfindlich                                 //NA 000000520
+K FLCE                  SCHWELL_EMPF                    //Nachruestung Schwellwertsatz empfindlich                                      //NA190472
+K FLCU                  SCHWELL_UNEMPF                  //Nachruestung Schwellwertsatz unempfindlich                                    //NA190472
+K K15A                  KL15_OFF                        //Deaktivierung der Funktion KL15 Abschaltung per SW                            //NA 000000582
+//K MKOM                  MKOM                            //Umruestung Komfortoeffnen Aktivierung, Projektnr.:000000304
+//K ENCL                                                  //For function „Entsichern mit Centerlock“                                    //Fuer Funktion „Entsichern mit Centerlock“
+K KPTC                  KPTC                            //Obstruct of the new box of building blocks PTCs in vehicles with production date before 03/2010    //Verbau des neuen Baukasten PTCs in Fahrzeugen mit Produktionsdatum vor 03/2010 //NA 126181
+K IAGR                                                  //Inverses AGR-Ventil                                                           //NA190307
+K IRRE                  IRRE                            //Umruestung / Ispeech One Shot Irland PN 187425                                //NA 187425
+K MUEH                  MUE_BEL_HECK                    //Nachruestung / Umruestung Facelift Heckleuchten                               //NA 161461
+K MUEF                  MUE_BEL_FRONT                   //Nachruestung / Umruestung Scheinwefer Facelift fuer E70                       //NA 190102
+K ONSW                  OHNE_NEBELSW                    //Nachruestung / Entfall NSW fuer E71 Perfomance Paket FRM                      //NA 190101 und 190374
+K KSHK                  KSHK                            //Nachruestung / Temperaturerhoehung Sitheizung SM                              //NA 190112
+K OSAT                  OHNE_SAT_BILD                   //Entfall Satellitenbilder in einigen Laendern CIC                              //NA 190130
+K KAMP                  ERSATZ_AMP                      //Ersatz Can-Bus HiFi AMP durch Low Cost HiFi L4                                //NA 190168
+K NPOW                                                  //Umruestung / Leistungssteigerung N54/N63                                      //NA 190150/190173/190577
+K KLOA                                                  //Umruestung / E70N62 Gasannahme beim losfahren                                 //NA 190156 / 190487
+K KVNK                  NACH_KL_30G_Z                   //Nachruestung / Kodierpaket Standnutzer NICHT FUeR DEN E72                     //NA 190190
+//K K3AG                  NACH_REAR_VIEW                //Retrofitting rear view camera                                                 //NA 190189
+K KATB                                                  //Umruestung / DDE73 Datenkompatibilitaet fuer SCR-Kat bei E70US nur fuer KMM   //NA 190215
+K SWUS                  NACHR_LED_TAG                   //Nachruestung LED-Tagfahrlich aus 03/11 in aeltere Fahrzeuge                   //NA 190248
+K OK3Z                                                  //DDE-Datenstand bei Oxi Kat Tausch E70US, nur KMM                              //NA 190369
+K DMBA                  DMB_AUDIO_NA                    //Nachruestung DMB-Audio-Funktion fuer Fahrzeuge mit SA 654                     //NA 190384 / NA 190458
+K FLHL                  FACELIFT_HL                     //Nachruestung Facelift-Heckleuchte E71                                         //NA 190398
+K DSLI                  SPEEDLIMIT_ENTF                 //Deaktivierung Speed Limit Information                                         //NA 190392
+K SWTK                  SCHWELLWERT_TK                  //Nachruestung Offsetwert zum Erkennen der Tuerkontakte                         //
+K NEKP                  NACHRUEST_EKP                   //Nachruestung einer geregelten EKP fuer N52 bei Benzingeruch                   //NA 190446
+K OKOS                  O_KOMFORT_SCHL                  //Nachruestung Entfall Komfortoeffnen ueber Schloss bei SA 877                  //NA 190626
+K AL6V                  ARS_L6_V                        //Umruestung Stabilisator Vorderachse                                           //NA 190623 und NA 190980 fuer E71, bzw. 190985 fuer E70
+K AL6H                  ARS_L6_H                        //Umruestung Stabilisator Hinterachse                                           //NA 190624
+K CMPB                                                  //Umruestung SW Parkbremse                                                      //NA 190749
+K TVM2                  NACHR_TVM2                      //Nachruestung TVM2, digitales TV                                               //NA 190825
+K UC4G                                                  //Umruestung COMBOX von 2G nach 4G, nur US                                      //NA 191280
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 106                   SICHER                          //SECURITY (Basic FE81, FE82)
+W 109                   SICHER_PLUS                     //SECURITY PLUS (Basic FE81, FE82)/PA262/001
+W 163                   ABGASNORM_EU6                   //EU 6 exhaust emissions norm                           //Abgasnorm EU6
+W 169                   ABGASNORM_EU3                   //EU 3 exhaust emissions norm                           //Abgasnorm EU3
+W 199                   OHNE_KAT                        //Equipped leaded fuel                                  //Katalysator-Entfall
+W 1A1                                                   //EQUIPMENT F. COKING FUELS                             //AUSST.F.KRAFTST.M.VERK
+W 1CA                                                   //Selection CO2 pertinent vehicles                      //Steuerung CoP/CO2 Selektion
+W 1CB                   ACEA_CO2                        //ACEA / CO2 CONTENT                                    //ACEA /CO2 Umfang
+W 205                                                   //Automatic transmission                                //Automatik-Getriebe- //Serie
+//W 206                   SEQ_GETRIEBE                    //Sequential manual transmission (SMG)                //SEQUENZIELLES SCHALT GETRIEBE (SSG)(INKL. FDC Schalter) (NICHT M5 & M6!)
+W 212                                                   //Brake system for countries                            //Ausstattung Bremsanlage Laender
+W 217                   AFS                             //Active Steering                                       //Aktive front steering (ZWAKO -216 bei E60/E61 +229 +/-226)AKTIVLENKUNG (NICHT M5 & M6!)
+W 220                   NIVEAUREG                       //Level control system                                  //Niveauregulierung
+W 225                                                   //SPORTS SUSPENSION SETTINGS, DELETION                  //SPORTLICHE FAHRWERKSABSTIMMUNG, ENTFALL
+W 226                   SPORTFAHRWERK                   //Sports suspension                                     //Sportliche Fahrwerksabstimmung
+W 230                   ABBAU_ABG_UMF                   //EU specific additional equipment                      //EU spezifische Zusatzumfaenge
+W 233                   ANH_LAST                        //Increased towing capacity                             //Erhoehte Anhaengelast
+W 235                   ANH_KUPPLUNG                    //Towbar with removeable ball head                      //Anhaengerkupplung, Kopf abnehmbar
+W 240                                                   //Leather steering wheel                                //Lederlenkrad - //Serie
+W 245                   ELSV                            //STEERING COLUMN ADJUSTMENT ELEC PA671/146             //LENKSAEULENVERSTELLUNG ELEKTRISCH
+W 248                   LENKRADHEIZUNG                  //Steering wheel heating                                //Lenkradheizung
+W 249                                                   //MULTIFUNCTION F0R STEERING WHEEL                      //Multifunktion fuer Lenkrad
+W 255                                                   //Sports leather steering wheel                         //Sport-Lederlenkrad II mit Airbag
+W 2A3                                                   //Alloy wheels 19" style 424                            //LM-Raeder 19" Styling 424
+W 2AL                                                   //LT/ALY WHEELS STREAMLINE 297/MT                       //LM RAEDER STREAMLINE 297/MB
+W 2C9                                                   //Alloy wheels star spoke 209                           //LM Raeder Sternspeiche 209
+W 2DE                                                   //Light alloy wheels star spoke 334                     //LM Raeder Sternspeiche 334
+W 2KR                                                   //Alloy wheels v-spoke 257                              //LM Raeder V-Speiche 257
+W 2LA                                                   //Alloy wheels y spoke 114                              //LM Raeder Y-Speiche 114      //PNA54710
+W 2LD                                                   //Alloy wheels y spoke 211 (19Z)                        //LM Raeder Y-Speiche 211
+W 2LE                                                   //Alloy wheels Y spoke 214 W MISCH (20Z)                //LM Raeder Y-Speiche 214 m. Misch.
+W 2LK                                                   //Alloy wheels y spoke 335                              //LM Raeder Y-Speiche 335
+W 2LL                                                   //Alloy wheels Y spoke 335 W MISCH                      //LM Raeder Y-Speiche 335 m. Misch.
+W 2LM                                                   //Alloy wheels Y spoke 336 W MISCH                      //LM Raeder Y-Speiche 336 m. Misch.
+W 2LX                                                   //Alloy wheels Y spoke 337 W MISCH                      //LM Raeder Y-Speiche 337 m. Misch.
+W 2M4                                                   //Individual Lederlkr. Lederintarsie
+W 2M5                                                   //INDIV. LT/ALY WH.V-SP. 223 I MIXED TY                 //M LM RAEDER V-SPEICHE 223 M / MB
+W 2M6                                                   //BMW INDIVIDUAL ST.W.W.WOODEN RING                     //BMW INDIVIDUAL LEDERLR.M.HOLZINTARS
+W 2M9                                                   //Light alloy wheels V- SPOKE 227 M/MB
+W 2MW                                                   //BMW IND.ALLOY WHEELS V-SP.265 I/MB                    //BMW INDIV. LM RAEDER V-SP.265 I/MB
+W 2NT                                                   //W LM WHEELS FRT SPEICHE 299 W MB                      //M LM RAEDER V-SPEICHE 299 M/MB
+W 2NU                                                   //W LM WHEELS DOUBLE SPOKE 300 W MB                     //M LM RAEDER DOPPELSPEICHE 300 M/MB
+W 2NY                                                   //M LT/ALY DOUBLE SPOKE 333 M/MT                        //M LM RAEDER DOPPELSPEICHE 333 M/MB
+W 2PA                                                   //Locking wheel bolts                                   //Radschraubensicherung
+W 2PH                                                   //Light alloy wheels 20"                                //20" M-Raeder Doppelspeiche Styling 435M
+W 2RR                                                   //Licht Alloy Wheels Anthracite                         //LM-Raeder Anthrazit
+W 2RV                                                   //Light Alloy Wheels in Black                           //LM-Raeder in scharz
+W 2RX                                                   //Light alloy wheels star spoke 210 (18Z)               //LM Raeder Sternspeiche 210
+W 2RY                                                   //Light alloy wheels star spoke 212 (19Z)               //LM Raeder Sternspeiche 212
+W 2RZ                                                   //LT/ALY W. star spoke 213 W mixed tyres (19Z)          //LM Raeder Sternspeiche 213 m. Misch.
+W 2S6                                                   //ALLOY WHEELS STAR SPOKE 258                           //LM RAEDER STERNSPEICHE 258
+W 2SG                                                   //Alloy wheels star spoke 232                           //LM Raeder Sternspeiche 232
+W 2SH                                                   //Alloy wheels star spoke 258/MT                        //LM Raeder Sternspeiche 258/MT
+W 2SK                                                   //Alloy wheels star spoke 259/MT                        //LM Raeder Sternspeiche 259/MT
+W 2UL                                                   //Winter-Whell Set V-Spoke 223M                         //SZ Winter-Kompl. Rad V-Speiche 223M
+W 2UN                                                   //Winter-Whell Set V-Spoke 257M                         //SZ Winter-Kompl. Rad V-Speiche 257
+W 2UP                                                   //Winter-Whell Set V-Spoke 298M                         //SZ Winter-Kompl. Rad V-Speiche 298
+W 2UR                                                   //Winter-Whell Set Y-Spoke 214M                         //SZ Winter-Kompl. Rad Y-Speiche 214M
+W 2US                                                   //Winter-Whell Set Crossspoke 177                       //SZ Winter-Kompl. Rad Kreuzsp 177
+W 2UW                                                   //Winter-Whell Set Starsp 209                           //SZ Winter-Kompl. Sternsp. 209
+W 2VA                   ADAPTIVE_DRIVE                  //Adaptive drive                                        //Adaptive drive
+W 2VB                   DIRECT_RDC                      //Direct tire pressure control                          //Direkte Reifendruckkontrolle
+W 2XA                                                   //                                                      //Sport-Lederlenkrad mit Schaltwippen
+W 300                                                   //Emergency wheel                                       //Notrad
+W 302                   ALARMANLAGE                     //Alarm system                                          //Alarmanlage mit Fernbedienung
+W 316                   AUTOM_HECKKL                    //Automatic tailgate operation                          //AutomatischE Heckklappenbetaetigung
+W 319                   //UNIV_REMOTE                   //Integrated universal remote control 431               //integrated universal remote control   //integrierte Universalfernbedienung
+W 320                                                   //Model designation,deletion                            //Modellschriftzug Entfall
+W 321                                                   //Exterieur volume in body color                        //Exterieurumfaenge in Wagenfarbe
+W 322                   PASSIV_ACCESS                   //Comfort access system                                 //Komfort-Zugangssystem (PASSIVE ACCESS)
+W 323                                                   //Soft close automatic system for doors                 //Soft-close-automatik fuer Tueren
+W 328                   TRITTBRETT                      //ALUMINUM RUNNING BOARD                                //Aluminium-Trittbrett
+W 330                   SPORTPAKET                      //Sport package                                         //Sportpaket
+W 336                                                   //M Sport packager light                                //M Sportpaket light
+W 337                                                   //M Sports package                                      //M TECHNIK SPORTPAKET (INKL. FDC Schalter) (NICHT E63/64)
+W 346                                                   //CHROME Exterior Line                                  //Exteriorline
+W 347                                                   //TITAN Exterior Line                                   //Exteriorline
+W 348                                                   //Highlight Exterieur E72-FKL fuer E71                   //Highlight Exterieur E72 hood for E71 //A75182
+W 354                                                   //Green stripe windscreen                               //Gruenkeil-Frontscheibe
+W 358                   KLIMAGLAS                       //Aircond.comfort-windshield                            //Klimakomfort-Frontscheibe
+W 386                                                   //Roof rail                                             //Dachreling
+W 3AC                   ANH_KUPPLUNG_SW                 //Trailer tow hitch                                     //Anhaengerkupplung schwenkbar
+W 3AG                   REAR_VIEW_CAM                   //REAR VIEW CAMERA                                      //Heckkamera
+W 3AH                   TOP_VIEW_RVC                    //REAR VIEW CAMERA WITH TOP VIEW                        //RUECKFAHRKAMERA MIT TOP VIEW
+W 3AP                                                   //Windscreen with GREY SHADE BAND                       //Graukeil-Frontscheibe
+W 3AS                                                   //Roof rail silver                                      //Dachreling in silber
+W 3AW                   REALLY_HOT                      //WASHER NOZZLES WITHOUT HEATING A41447                 //SPRITZDUESEN OHNE BEHEIZUNG
+W 3MA                                                   //Individual Dachreling Alu satiniert
+W 3MB                                                   //Individual Ext Line Alu satiniert
+W 3MC                                                   //IND DACHELING HI-GLS SHADOW LINE
+W 402                   PANORAMA_SD                     //Panorama glass roof                                   //Panoramaglasdach, elektrisch
+W 403                   GLAS_SHD                        //Glas roof, electric                                   //Glasdach, elektrisch
+W 413                                                   //Luggage compartment net                               //Gepaeckraumtrennetz
+W 417                                                   //Sunblinds for rear side windows, mechanical           //Sonnenschutzrollo hintere Tuersch.
+W 423                                                   //Floor mats, Velours                                   //Fussmatten in Hochflor-Velours
+W 428                                                   //Warning triangle                                      //Warndreieck und Verbandskasten
+W 430                   SPIEGELPAKET                    //Int. and ext. mirrors w. automatic anti-dazzle func.  //Innen-/Aussenspiegel, aut. abblendend
+W 431                   AUTO_ABBLEND_I                  //Interior mirror with automatic anti-dazzle function   //Innenspiegel automatisch abblendend
+W 441                                                   //Smoker´s package                                      //Raucherpaket
+W 451                   AKTIVSITZ_FA                    //Active seat for driver                                //Aktivsitz fuer Fahrer
+W 453                   SITZBELUEF_VORN SITZHEIZUNG_VO  //Active seat ventilation, front                        //Aktive Sitzbelueftung vorn
+W 455                   AKTIVSITZ_FA_BF //LORDOSE       //Active seat for driver and front passenger            //Aktivsitz fuer Fahrer/Beifahrer
+W 456                   KOMFORTSITZ LORDOSE             //Comfort seats front,electrically adjustable           //Komfortsitz elektr. incl. el. Lenksaeule
+W 459                   SITZMEMORY_FA                   //Seat adjust. electric with memory for driver's seat   //Sitzverst. elektr. Fahrer Memory/Beif.
+W 464                                                   //Ski bag                                               //Skisack
+W 470                   ISOFIX_SITZ                     //Child seat mount ISOFIX with front passenger airbag off switch        //Kindersitzbefestigung ISOFIX mit Abschaltung BF- Airbag, nur in Verbindung mit Dach- Elektrik- Modul
+W 473                                                   //Armrest, Front                                        //Armauflage vorn
+W 481                   //SPORTSITZ                     //Sports seats for driver and front passenger           //Sportsitze fuer Fahrer/Beifahrer
+W 488                   LORDOSE                         //Lumbar support for driver and front passenger         //Lordosenstuetze Fahrer/Beifahrer
+W 490                                                   //SEAT BACK WIDTH ADJUSTMENT                            //LEHNENBREITENVERSTELLUNG
+W 493                                                   //Storage compartment package                           //Ablagenpaket
+W 494                   SITZHEIZUNG_VO                  //Seat heating for driver and front passenger           //Sitzheizung fuer Fahrer/Beifahrer
+W 496                   SITZHEIZUNG_FO                  //Seat heating for rear seats                           //Sitzheizung fuer Fondsitze/Intensivreinigung
+W 4A1                                                   //Interior trim finishers graphitane matt               //Interieurleisten graphitan matt
+W 4AB                                                   //Fine-wood trim burr walnut                            //Edelholzausfuehrung Nussbaumwurzel
+W 4AD                                                   //INTERIOR ALUM. LENGTHWISE FINE                        //Interieurl. ALU. Laengsschliff fein
+W 4AZ                                                   //Fine-wood trim baboo grain dark brown                 //Edelholzaus. bambus maser dunkelbr
+W 4B6                                                   //Finterior alum. flywheel black                        //INTERIEURL.ALU.FLYWHEEL SCHWARZ
+W 4BN                                                   //Fine-wood trim ash grain                              //Edelholzausfuehrung Esche maser
+W 4BP                                                   //Fine_wood_trim poplar grain bright                    //Edelholzausfuehrung pappel maser hell
+W 4CG                                                   //IN RAIL SATINSILBER OPAQUE                            //INT.LEISTEN SATINSILBER MATT
+W 4M5                                                   //Ind. instrument finished in leather                   //INDIVIDUAL INSTRUMENTENTAFEL LEDER
+W 4ML                                                   //Indiv. int. trim piano finish black                   //Ind. int. Leisten Pianolack schwarz
+W 4MT                                                   //Int outp alum. shadow drk gebuersteT                  //INT.LEIST.ALU SHADOW DUNKEL,GEBUERSTET
+W 4MU                                                   //Fine-wood eukalyptus striker red brown                //IND.EDELH.EUKALYPTUS RIEGEL ROTBRAUN
+W 4MY                                                   //INT.TR.FIN. BLACK leather. CARBON STRUCTURE           //INT.LEIST. LEDER CARBONSTR. SCHWARZ
+W 4NA                   DIGITALKOMPASS                  //Interior mirror with dig. compass                     //Innenspiegel mit digitalem Kompass
+W 4NB                   KLIMA_4ZONEN KLIMA_HIGH         //Automatic air conditioning 4 Zonen                    //Klimaautomatik 4zonig
+W 4NC                   HEIZUNG_SITZR                   //Additional heating/ventilation                        //Zusatzheizung fuer 3te Sitzreihe, elektrisch
+W 4ND                                                   //Instrument finished in leather                        //INTRUMENTENTAFEL LEDERBEZOGEN
+W 4NE                   BLOW_BY_HEIZER                  //Blow-by-heizer
+W 4UB                   SEAT_EXTENSION                  //Seat extension 5+2                                    //Sitzerweiterung 5+2
+W 4UD                                                   //Luggage compartment package                           //Laderaumpaket
+W 4UK                                                   //5-Seater
+W 4UP                                                   //Adaptive fixing system                                //Adaptives Befestigungssystem
+W 4US                   ZWEI_SITZER                     //Two seater preparation                                //2 Sitzigkeit Vorbereitung
+W 502                   SWA                             //Headlight washer system                               //Scheinwerfer-Waschanlage
+W 508                   PDC                             //Park distance control (PDC)
+W 520                                                   //FOG LIGHT                                             //Nebelscheinwerfer
+W 521                   REGENSENSOR                     //Rain sensor                                           //Regensensor
+W 522                   XENONLICHT                      //Xenon light                                           //Xenon-Licht
+W 524                   ALC XENONLICHT REGENSENSOR      //Adaptive Headlights                                   //Adaptives Kurvenlicht
+W 534                   KLIMA_HIGH                      //Automatic air conditioning 2 Zonen                    //Klimaautomatik zweizonig
+W 536                   STANDHEIZUNG                    //Auxiliary heating                                     //Standheizung
+W 541                   ACC                             //ACTIVE CRUISE CONTROL                                 //AKTIVE GESCHWINDIGKEITSREGELUNG
+W 544                   D_GESCHW_REG                    //Cruise control with braking function                  //Dynamische Geschwindigkeitsregelung
+W 548                   KM_TACHO                        //Speedometer with kilometer reading                    //Kilometertacho
+W 552                   LED_LICHT ALC REGENSENSOR       //LED Headlights                                        //LED-Scheinwerfer                    PN A53954
+W 563                   LICHTPAKET                      //interior lights package                               //Light package kein Zwang zu 321
+W 571                                                   //BOOSTED POWER SUPPLY                                  //STAERKERE STROMVERSORGUNG PLUS
+W 575                                                   //ZUSAETZLICHE 12-V-STECKDOSEN PN A51997
+W 5AB                   OHNE_BFD                        //Brake force display, deletion                         //Zweistufige Bremsleuchten Entfall (BFD)
+W 5AC                   FLA                             //Autom. high-beam headlights control                   //30.11.2005 09:41Fernlichtassistent
+W 5AD                   TLC                             //LANE DEVIATION WARNING                                //SPURVERLASSENSWARNUNG
+W 5AH                   DECO_BFD                        //DEKODIERUNG DYNAMIC STOP LIGHT                        //DEKODIERUNG DYNAMISCHE BREMSLEUCHTEN
+W 5DA                   DEAKT_BEIF_AIRB                 //Front passenger deactivating                         //Beifahrerairbag-Deaktivierung
+W 5DF                   ACC_STOP_GO                     //ACTIVE CRUISE CTRL+STOP&GO FUNCT                     //AKTIVE.GESCHW.REG.+STOP&GO FUNKT.
+W 5DK                   SIDE_VIEW_CAM                   //SIDE VIEW CAMERA
+W 601                   TV CCC                          //TV-Function                                           //TV-Funktion
+W 602                   BORDMONITOR CCC                 //ON-BOARD MONITOR WITH TV                              //Bordmonitor miT TV
+W 609                   NAVIGATION CCC                  //Navigation system professional                        //Navigation + TV incl. Bordmonitor
+W 610                   HUD XENONLICHT                  //Head up display                                       //HEAD UP DISPLAY (ZWAKO +534)  (lt. PN PA190/118 NICHT MIT LA802 KOREA, HONKONG, CHINA) (SE 11/03 PA190/150)
+W 612                   BMW_ASSIST                      //BMW Assist                                            //BMW Assist
+W 614                   INTERNETZUGANG                  //BMW internet access                                   //BMW Internetzugang
+W 615                   ONLINE_INFOWELT                 //Extended BMW Online Information                       //Erweiterte BMW Online Information
+W 616   V0408           ONLINE_PLATFORM CCC             //Online-Platform                                       //Online-Platform
+W 616   N0408           ONLINE_PLATFORM                 //Online-Platform                                       //Online-Platform
+W 620                   SPRACHEINGABE                   //Voice control                                         //Sprachsteuerung
+W 633                   VORB_TEL_BUSINE                 //PREP.MOB. PH. BUSINESS BLUET.INTERF                   //Handy VS BUSINESS fuer alle ECE LL/RL Einsatztermin ????
+W 639                   TEL_PROF_US                     //Complete preparation cellular phone USA/CND           //Preparation for car phone US           //Autotelefonvorbereitung US
+W 640                   TELE_VORBE                      //Car telephone preparation                             //Telephone preparation
+W 641                                                   //Universal cellphone preparation US standard           //Telephone preparation AMPS net         //Autotelefonvorbereitung AMPS-Netz
+W 644                   ULF                             //Universal cell-phone preparation                      //Preparation for car phone bluetooth    //Autotelefonvorbereitung Bluetooth
+W 645                   RADIO_US                        //Radio control US                                      //BMW US Radio
+W 646                                                   //Car telephone preparation Japan                       //Autotelefonvorbereitung Japan
+W 653                   RADIO_DIGITAL                   //Digital radio US (IBOC)                               //BMW Digitalradio US (IBOC)
+W 654                   RADIO_DAB                       //DAB TUNER
+W 655                   SATELITENRADIO                  //Satellitetuner                                        //BMW Satelittenradio US
+W 663                   RADIO_PROF                      //Radio BMW Professional                                //BMW Professional CD54
+W 672                   CD_WECHSLER                     //CD changer for 6 CD's                                 //CD Wechsler BMW 6 CD Changer
+W 676                   HIFI_SYSTEM                     //HiFi loudspeaker system                               //HIFI Lautsprechersystem
+W 677                   TOP_HIFI                        //HiFi system Professional                              //HiFi system professional DSP     //HIFI-System Professional DSP
+W 678                                                    //Headphone system in rear                             //KOPFHOERERANLAGE IM FOND
+W 693                   SAT_TUNER                       //Preparation for satellite tuner                       //Einbauvorbereitung Sattelitenradio/Sep.Tuner US
+W 694                   VORB_CD_WECHLER                 //Preparation for CD changer                            //CD Wechsler Vorbereitung
+W 696                   DVD_WECHSLER                    //DVD changer for 6 disks                               //BMW 6 CD-changer only with DVD_AREA_CODE (09/04)
+W 697                   DVD_AREA_CODE_1 SETCODE         //Area - Code 1 for DVD                                 //DVD-AREA CODE 1 US/CAN
+W 698                   DVD_AREA_CODE_2 SETCODE         //Area - Code 2 for DVD ECE/Japan
+W 699                   DVD_AREA_CODE_3 SETCODE         //Area - Code 3 for DVD Philippinen/Malaysia/Oceanien
+W 6AA                   BMW_TELESERVICE                 //BMW Teleservices
+W 6AB                   TELESERVICES                    //CONTROL TELESERVICES                                  //STEUERUNG TELESERVICES
+W 6AL                   BMW_LIVE                        //BMW Live                                              //BMW Live
+W 6FE                   //MASK_NEUSEELAND               //"MASK" VARIANT NEW ZEALAND                            //MASK-VARIANTE NEUSEELAND
+W 6FF                   DVD_FOND                        //DVD system for rear-seat occupants                    //DVD-System im FOND
+W 6FL                   AUDIOPLAYER_USB                 //Audioplayer via USB                                   //Audioplayer ueber USB
+W 6FS                                                   //TV-Funktion analog                                    //PN 76437 vom 03.11.2011
+W 6NF                   HANDYMP3                        //SMARTPHONE PREP BLUE USB AUD SECTION                  //SMARTPHONE VORB.BLUET.USB/AUD.SCHNITT
+W 6NR                   BMW_APPS                        //BMW Apps //A47488
+W 6S1                   TUERKISCH                       //Language version Tuerkisch
+W 6S2                   GRIECHISCH                      //Sprachversion Griechisch
+W 6S3                   PORTUGIESISCH EUR_SP            //Language version Portugisisch
+W 6S4                   SCHWEDISCH EUR_SP               //Language version Schwedisch
+W 6UD                   RUSSISCH                        //Language version Russia                               //Sprache Russisch
+W 6UE                   DIEBSTAHLSCHUTZ                 //Theft protection NAVI DVD                             //Diebstahlschutz Navigation
+W 6UH                   NAVI_INFO                       //Trafic info for navigation in USA (not for Canada)    //Verkehrsinfo fuer Navigation"
+W 6VC                   COMBOX                          //CONTROL COMBOX                                        //STEUERUNG COMBOX
+W 700                   DVD_AREA_CODE_4 SETCODE         //Area - Code 4 for DVD SAM/Mexico/Australia
+W 701                   DVD_AREA_CODE_5 SETCODE         //Area - Code 5 for DVD Russia/Inodnesia/AFG
+W 702                   DVD_AREA_CODE_6 SETCODE         //Area - Code 6 for DVD China
+W 704                                                   //M-Sportfahrwerk
+W 710                                                   //M LEATHER STEERING WHEEL
+W 716                   AEROPAKET                       //                                                      //M Aerodynamikpaket II
+W 734                                                   //Levant package
+W 737                                                   //INTERIOR TRIM ALU SHADOW, BRUSHED                     //INTERIEURLEISTE ALU SHADOW,GEB
+W 752                   INDIVID_AUDIO                   //INDIVIDUAL HIGH END AUDIO
+W 760                                                   //Individual sun protection glazing                     //Individual Sonnenschutzverglasung
+W 761                                                   //Individual sun protection glazing                     //Individual Sonnenschutzverglasung
+W 767                                                   //M Performance Package                                 //M Performance Paket
+W 775                                                   //Individual roof-lining Anthracite                     //Individual Dachhimmel anthrazit
+W 778                                                   //                                                      //BMW-Individual Einstiegsleisten
+W 7A2                                                   //Innovationspaket
+W 7A6                                                   //Innovation package of i.V.m. editions                 //Innovationspaket i.V.m. Editionen
+W 7CA                                                   //BMW repair inclusive (3 years/100.000 km)             //BMW repair inclusive (3 Jahre/100.000 km)
+W 7CB                                                   //BMW repair inclusive (4 years/80.000 km)              //BMW repair inclusive (4 Jahre/80.000 km)
+W 7CC                                                   //BMW repair inclusive (4 years/100.000 km)             //BMW repair inclusive (4 Jahre/100.000 km)
+W 7CD                                                   //BMW repair inclusive (5 years/100.000 km)             //BMW repair inclusive (5 Jahre/100.000 km)
+W 7CE                                                   //BMW repair inclusive (5 years/120.000 km)             //BMW repair inclusive (5 Jahre/120.000 km)
+W 7CF                                                   //BMW repair inclusive (3 years/80.000 km)              //BMW repair inclusive (3 Jahre/80.000 km)
+W 7CG                                                   //BMW repair inclusive (3 years)
+W 7CH                                                   //BMW repair inclusive (4 years)
+W 7CK                                                   //BMW repair inclusive (5 years)
+W 7CL                                                   //BMW repair inclusive (4 years/120.000 km)
+W 7D1                                                   //BMW service inclusive (5years)                        //BMW Service Inclusive (5Years)
+W 7D2                                                   //BMW SERVICE + REPAIR INCLUSIVE (1 Year)
+W 7D3                                                   //BMW SERVICE + REPAIR INCLUSIVE (2 Years)
+W 7D4                                                   //BMW SERVICE + REPAIR INCLUSIVE (3 Years)
+W 7D5                                                   //BMW SERVICE + REPAIR INCLUSIVE (4 Years)
+W 7D6                                                   //BMW SERVICE + REPAIR INCLUSIVE (5 Years)
+W 7D7                                                   //BMW Basic service inclusive (2Years 40.000km)
+W 7D8                                                   //BMW service inclusive (2Years 40.000km)
+W 7DA                                                   //BMW Basic Service Inclusive (3  Year / 90.000km)      //BMW Basic Service Inclusive (3 Jahre / 90.000 km)
+W 7DB                                                   //BMW SERVICE INCLUSIVE (3Year 90.000km)                //BMW Service Inclusive (3 Jahre / 80.000 km)
+W 7DC                                                   //BMW SERVICE + REPAIR INCLUSIVE (3Year 90.000km)       //BMW Service + Repair Inclusive (3 Jahre / 90.000 km)
+W 7DD                                                   //BMW Basic Service Inclusive (4 Year / 60.000km)       //BMW Basic Service Inclusive (4 Jahre / 60.000 km)
+W 7DE                                                   //BMW SERVICE INCLUSIVE (4Year 60.000km)                //BMW Service Inclusive (4 Jahre / 60.000 km)
+W 7DF                                                   //BMW SERVICE + REPAIR INCLUSIVE 4Year 100.000km)       //BMW Service + Repair Inclusive (4 Jahre / 100.000 km)
+W 7DG                                                   //BMW BMW SERVICE INCLUSIVE (6Year 200.000km)
+W 7DH                                                   //BMW SERVICE + REPAIR INCLUSIVE (3 Year / 150.000 km)
+W 7DK                                                   //BMW SERVICE + REPAIR INCLUSIVE (6 Year / 200.000 km)
+W 7DL                                                   //BMW Basic service inclusive (10Year 100.000km)        //BMW Basis Service Inclusive (10Year 100.000km)
+W 7DM                                                   //BMW service inclusive (10Year 100.000km)              //BMW Service Inclusive (10Year 100.000km)
+W 7DN                                                   //BMW Basic service inclusive (10Year 150.000km)        //BMW Basis Service Inclusive (10Year 150.000km)
+W 7DP                                                   //BMW service inclusive (10Year 150.000km)              //BMW Service Inclusive (10Year 150.000km)
+W 7DR                                                   //BMW Basic service inclusive (1year)                   //BMW Basis Service Inclusive (1Year)
+W 7DS                                                   //BMW Basic service inclusive (2years)                  //BMW Basis Service Inclusive (2Years)
+W 7DT                                                   //BMW Basic service inclusive (3years)                  //BMW Basis Service Inclusive (3Years)
+W 7DU                                                   //BMW Basic service inclusive (4years)                  //BMW Basis Service Inclusive (4Years)
+W 7DV                                                   //BMW Basic service inclusive (5years)                  //BMW Basis Service Inclusive (5Years)
+W 7DW                                                   //BMW service inclusive (1year)                         //BMW Service Inclusive (1Year)
+W 7DX                                                   //BMW service inclusive (2years)                        //BMW Service Inclusive (2Years)
+W 7DY                                                   //BMW service inclusive (3years)                        //BMW Service Inclusive (3Years)
+W 7DZ                                                   //BMW service inclusive (4years)                        //BMW Service Inclusive (4Years)
+W 7FH                                                   //BMW service inclusive NB(5/100)                       //BMW service inclusive NB(5/100)
+W 7G7                                                   //Edition 10 Jear X5 PA671/145
+W 7H3                                                   //TECH PACKAGE
+W 7H4                                                   //Special Edition 8831
+W 7H5                                                   //Special Edition 8832
+W 7M5                   BMW_IND_EXT_PAK                 //BMW INDIVIDUAL EXTERIEURPAKET
+W 7MC                                                   //Edition Exclusive / Luxury
+W 7ME                                                   //M DRIVERS PACKAGE
+W 7MG                                                   //M Performance Paket                                                                   PN A60369
+W 7MH                                                   //M Sport Edition                                                                       PN A60369
+W 7N1                                                   //BMW Basic Service Inclusive (4 Year / 100.000km)      //BMW Basic Service Inclusive (4 Jahre / 100.000km)
+W 7N2                                                   //BMW Service Inclusive (4 Jahre / 100.000km)           //BMW Service Inclusive (4 Jahre / 100.000km)
+W 7N3                                                   //BMW Service + Repair Inclusive (4 Year / 100.000km)   //BMW Service + Repair Inclusive (4 Jahre / 100.000km)
+W 7N4                                                   //BMW Basic Service Inclusive (4 Year / 120.000km)      //BMW Basic Service Inclusive (4 Jahre / 120.000km)
+W 7N5                                                   //BMW Service Inclusive (4 Year / 120.000km)            //BMW Service Inclusive (4 Jahre / 120.000km)
+W 7N6                                                   //BMW Service + Repair Inclusive (4 Year / 120.000km)   //BMW Service + Repair Inclusive (4 Jahre / 120.000km)
+W 7N7                                                   //BMW Basic Service Inclusive (5 Year / 80.000km)       //BMW Basic Service Inclusive (5 Year / 80.000km)
+W 7N8                                                   //BMW Service Inclusive (5 Year / 80.000km)             //BMW Service Inclusive (5 Year / 80.000km)
+W 7N9                                                   //BMW Service + Repair Inclusive (5 Year / 80.000km)    //BMW Service + Repair Inclusive (5 Year / 80.000km)
+W 7NA                                                   //BMW service inclusive 5/100                           //BMW SERVICE INCLUSIVE
+W 7NB                                                   //BMW service+repair inclusive 5/100                    //BMW SERVICE INCLUSIVE
+W 7NC                                                   //BMW service inclusive 5/120                           //BMW SERVICE INCLUSIVE
+W 7ND                                                   //BMW service+repair inclusive 5/120                    //BMW SERVICE INCLUSIVE
+W 7NE                                                   //BMW service inclusive 6/150                           //BMW SERVICE INCLUSIVE
+W 7NF                                                   //BMW service+repair inclusive 6/150                    //BMW SERVICE INCLUSIVE
+W 7NG                                                   //BMW basic service inclusive (3Year 60.000km)          //BMW SERVICE INCLUSIVE (PA623/052)
+W 7NH                                                   //BMW basic service inclusive (5Year 100.000km)         //BMW SERVICE INCLUSIVE (PA623/052)
+W 7NK                                                   //BMW service inclusive (5Year 60.000km)                //BMW SERVICE INCLUSIVE (PA623/052)
+W 7NL                                                   //BMW service+repair inclusive (5Year 60.000km)         //BMW SERVICE INCLUSIVE (PA623/052)
+W 7NM                                                   //BMW SERVICE INCLUSIVE (3Year 60.000km)                //(3 Jahre oder 60000km)(PA623/056)
+W 7NN                                                   //BMW SERVICE + REPAIR INCLUSIVE (3Year 60.000km)       //(3 Jahre oder 60000km)(PA623/056)
+W 7NP                                                   //BMW Basic Service Inclusive (3Year 100.000km)         //(3 Jahre / 100.000 km) [PA623/063]
+W 7NR                                                   //BMW Service Inclusive (3Year 100.000km)               //(3 Jahre / 100.000 km) [PA623/063]
+W 7NS                                                   //BMW Service + Repair Inclusive (3Year 100.000km)      //(3 Jahre / 100.000 km) [PA623/063]
+W 7NT                                                   //BMW Basic Service Inclusive (3  Year / 80.000km)      //BMW Basic Service Inclusive (3 Jahre / 80.000km)
+W 7NU                                                   //BMW Service Inclusive (3 Year / 80.000km)             //BMW Service Inclusive (3 Jahre / 80.000km)
+W 7NV                                                   //BMW Service + Repair Inclusive (3 Year / 80.000km)    //BMW Service + Repair Inclusive (3 Jahre / 80.000km)
+W 7NW                                                   //BMW Basic Service Inclusive (5 Year / 60.000km)       //BMW Basic Service Inclusive (5 Jahre / 60.000km)
+W 7NX                                                   //BMW Basic Service Inclusive (4 Year / 80.000km)       //BMW Basic Service Inclusive (4 Jahre / 80.000 km)
+W 7NY                                                   //BMW Service Inclusive (4 Year / 80.000km)             //BMW Service Inclusive (4 Jahre / 80.000km)
+W 7NZ                                                   //BMW Service + Repair Inclusive (4 Year / 80.000km)    //BMW Service + Repair Inclusive (4 Jahre / 80.000km)
+W 7R3                                                   //Ukraine package
+W 7R7                                                   //Innovationspaket
+W 7RR                   DYNAMIC_PAKET                   //BMW X6 DYNAMIC PACKAGE A44664 A43649 till 03/10
+W 7RS                                                   //Comfort Paket
+W 7SK                                                   //MO Innovation Paket
+W 7SP                                                   //Navigation system professional with integr. Prep.MOB. PH. BUSINESS BLUET.INTERF  //Navigationssystem Professional mit integrierter Handyvorbereitung Bluetooth
+W 7T1                                                   //BMW Basic Service Inclusive (5 Year / 120.000km)
+W 7T2                                                   //BMW Basic Service Inclusive (6 Year / 150.000km)
+W 7T3                                                   //BMW Basic Service Inclusive (6 Year / 200.000km)
+W 7T4                                                   //BMW Basic Service Inclusive (10 Year / 200.000km)
+W 7T5                                                   //BMW Service Inclusive (10 Year / 200.000km)
+W 7T6                                                   //BMW Basic Service Inclusive (6 Year / 110.000km)PA338 / 250
+W 7T7                                                   //BMW Basic Service Inclusive PLUS(6 Year / 110.000km)PA338 / 250
+W 7T8                                                   //BMW Basic Service Inclusive Ultimate(6 Year / 110.000km)PA338 / 250
+W 7U1                                                   //BMW Repair Inclusive 6 Jahre / 120 Tkm
+W 7U2                                                   //BMW Repair Inclusive 6 Jahre / 200 Tkm
+W 7U9                                                   //BMW Basic Service Inclusive, deletion
+W 7UA                                                   //BMW Basic Service Inclusive (6 Year / 120.000km)PA338 / 250
+W 7UB                                                   //BMW Basic Service Inclusive Plus (6 Year / 120.000km)PA338 / 250
+W 7UC                                                   //BMW Basic Service Inclusive Ultimate(6 Year / 120.000km)PA338 / 250
+W 7UD                                                   //BMW Basic Service Inclusive (7 Year / 140.000km)PA338 / 250
+W 7UE                                                   //BMW Basic Service Inclusive Plus (7 Year / 140.000km)PA338 / 250
+W 7UF                                                   //BMW Basic Service Inclusive (8 Year / 160.000km)PA338 / 250
+W 7UG                                                   //BMW Basic Service Inclusive Plus (8 Year / 160.000km)PA338 / 250
+W 7UH                                                   //BMW Basic Service Inclusive (9 Year / 180.000km)PA338 / 250
+W 7UK                                                   //BMW Basic Service Inclusive Plus (9 Year / 180.000km)PA338 / 250
+W 7XA                                                   //M-Lederlenkrad mit Schaltwippen und Multifunktion                                     PN A60369
+
+// ******************************** L A E N D E R V A R I A N T E N ***************************************************
+W 8AA                   CHINA                           //China version                                         //China-Ausfuehrung
+W 8AC                   //SKD_RUSSLAND                  //SKD_RUSSLAND
+W 8A1                   POLNISCH                        //Sprachversion Polnisch //Polnisch/Englisch/Deutsch
+W 8A2                   UNGARISCH                       //Sprachversion Ungarisch //Ungarisch/Englisch/Deutsch
+W 8A3                   ARABISCH                        //Language version arabic
+W 801                   DEUTSCHLAND                     //Germany version                                       //Deutschland-Ausfuehrung
+W 802                   KOREA                           //Korea version                                         //Korea-Ausfuehrung
+W 807                   JAPAN                           //Japanese version                                      //Japan - Ausfuehrung
+W 810                   AUSTRALIEN                      //Australia version                                     //Australien - Ausfuehrung
+W 812                   ENGLAND                         //English/Irish version                                 //England - Ausfuehrung
+W 815                                                   //Schlechtwegpaket/Steinschlagschutz
+W 818                                                   //Battery main switch                                   //Batteriehauptschalter
+W 822                   GOLF                            //Gulf version                                          //Golf - Ausfuehrung
+W 823                   HEISSLAND                       //Hot climate version                                   //Heissland-Ausfuehrung, Ergaenzungs-LA fuer Golf und Heisslaender
+W 825                   OZEANIEN                        //Radio control Oceania 645                             //Steuerung Radio Ozeanien
+W 838                   KANADA KM_TACHO                 //Canadian version                                      //Kanada - Ausfuehrung
+W 840                   HIGH_SPEED                      //High-speed tuning                                     //Hochgeschwindigkeitsabstimmung
+W 842                   KALTLAND                        //Cold climate version                                  //Kaltland-Ausfuehrung
+W 843                   MOTORAUSLEGUNG                  //Engine layou                                          //MOTORAUSLEGUNG (LEISTUNGSREDUZIERUNG FUER BELGIEN PA623/102)
+W 845                   AK_GUWA                         //Acoustic belt warning                                 //Akustische Gurtwarnung
+W 850                                                   //Additional fuel tank filling for export               //ZUSAETZLICHE TANKBEFUELLUNG EXPORT
+W 851                   DEUTSCH                         //Language version German                               //SPRACHE DEUTSCH (ENGLISCH GB, FRANZOESISCH)
+W 852                   JAPANISCH                       //Language version Japanese                             //SPRACHE JAPANISCH (ENGLISCH GB, DEUTSCH)
+W 853                   ENGLISCH                        //Language version English                              //SPRACHE ENGLISCH (FRANZOESISCH, SPANISCH)
+W 854                   FRANZOESISCH EUR_SP             //Language version French                               //SPRACHE FRANZOeSISCH (ENGLISCH GB, SPANISCH)
+W 855                   ITALIENISCH EUR_SP              //Language version Italian                              //SPRACHE ITALIENISCH (ENGLISCH GB, DEUTSCH)
+W 856                   SPANISCH EUR_SP                 //Language version Spanish                              //SPRACHE SPANISCH (ENGLISCH GB, FRANZOESISCH)
+W 858                   MIND_KRAFTSTOFF                 //Engine settings for lower-quality fuel                //MOTORAUSLEGUNG FUER MINDERWERTIGEN KRAFTSTOFF
+W 859                   OHNE_TV_VORN                    //Decoding TV                                           //DECODIERUNG TV FUNKTION VORNE (lt. PN8190/048)
+W 861                   MILANSTEUERUNG                  //Change of coding data set                             //AENDERUNG CODIERDATENSATZ "MIL-OFF" LAMPE (MOTORSG!)
+W 863                                                   //Europe /dealer directory                              //SERVICE KONTAKT-FLYER EUROPA-HAENDLERVERZEICHNIS
+W 864                                                   //Overseas /dealer directory                            //SERVICE KONTAKT-FLYER UEBERSEE
+W 866                   CHINESISCH_TRAD                 //Language version Chinese                              //SPRACHE CHINESISCH TRADITIONELL (CHINESISCH SIMPL., ENGLISCH GB)
+W 867                   KOREANISCH                      //Language version Korean                               //SPRACHE KOREANISCH (ENGLISCH GB, DEUTSCH)
+W 868                   NIEDERLAENDISCH EUR_SP          //Language version for Netherland                       //SPRACHE HOLLAENDISCH (ENGLISCH GB, FRANZOESISCH)PA190/154 zur PU0904 frei
+W 869                   SCHWEIZ EUR_SP                  //Language version for Switzerland/German               //SPRACHE SCHWEIZ-DEUTSCH (ITALIENISCH, FRANZOESISCH)
+// *********************************************************************************************************************
+W 874                                                   //Radio-frequency 434 MHz                               //FUNKFREQUENZ 434,2 MHZ
+W 876                   //FUNK_FREQ_315                   //Radio frequency 315 MHz                               //Funkfrequenz 315 MHz
+W 877                   ENTF_UEBERKREUZ                 //Deletion Cross-over operation                         //Entfall Ueberkreuzbedienung DWA
+W 879                                                   //German owner's handbook/service booklet               //deutsch/Betriebsanl./Serviceheft
+W 880                                                   //English owner's handbook/service booklet              //englsch/Betriebsanl./Serviceheft
+W 881                                                   //French owner's handbook/service booklet               //franzoesisch/Betriebsanl./Serviceheft
+W 883                                                   //Spanish owner's handbook/service booklet              //spanisch/Betriebsanl./Serviceheft
+W 884                                                   //Italian owner's handbook/service booklet              //italienisch/Betriebsanl./Serviceheft
+W 885                                                   //Swedish owner's handbook/service booklet              //schwedisch/Betriebsanl./Serviceheft
+W 886                                                   //Dutch owner's handbook/service booklet                //hollaendisch/Betriebsanl./Servi
+W 887                                                   //Arabian owner's handbook/service booklet              //arabisch/Betriebsanl./Serviceheft
+W 888                                                   //Danish owner's handbook/service booklet               //daenisch/Betriebsanl./Serviceheft
+W 889                                                   //Portuguese owner's handbook/service booklet           //portugiesisch/Betriebsanl./Serviceheft
+W 891                                                   //RUSSIAN/OWNERS HANDBOOK/SERVICE BOOKLET               //russisch/Betriebsanl./Serviceheft/PA603/530
+W 892                                                   //Chinese simplified
+W 893                                                   //MO Package III
+W 894                                                   //V5-IC PACKAGE 1
+W 896                   TAGFAHRLICHT                    //Daytime lights function                               //Tagfahrlichtschaltung
+W 8AE                                                   //Greek/owner's handb./serv. bookl                      //GRIECHISCH BETRIEBSANL./SERVICEHEFT
+W 8AF                                                   //Korean/owner's handb./serv. bookl                     //Koreanisch BETRIEBSANL./SERVICEHEFT
+W 8AK                                                   //SLOVAKIEN/OWNERS HANDBOOK/SERVICE BOOKLEt             //SLOWAKISCH/BETRIEBSANL./sERVICEHEFT/PA603/530
+W 8AL                                                   //CZECH/OWNERS HANDBOOK/SERVICE BOOKLEt                 //TSCHECHISCH/BETRIEBSANL./sERVICEHEFT/PA603/530
+W 8AR                                                   //ROMANIAN/OWNERS HANDBOOK/SERVICE BOOKLEt              //RUMAENISCH/BETRIEBSANL./sERVICEHEFT/PA603/530
+W 8AT                                                   //Polnisch/Betriebsanleitung/Serviceheft
+W 8AU                                                   //Ungarisch/Betriebsanleitung/Serviceheft
+W 8AV                                                   //Bordliteratur slowenisch
+W 8KA                   SIA__8KA SIA_NEU                // Wartungsintervall 30Tkm/24 Monate, ab SOP Sep 09 Basis SA?
+W 8KB                   SIA__8KB SIA_NEU                // Wartungsintervall 25Tkm/24 Monate, ab SOP Sep 09
+W 8KC                   SIA__8KC SIA_NEU                // Wartungsintervall 24Tkm/24 Monate, ab SOP Sep 09
+W 8KD                   SIA__8KD SIA_NEU                // Wartungsintervall 12Tkm/24 Monate, ab SOP Sep 09
+W 8KE                   SIA__8KE SIA_NEU                // Wartungsintervall 12Tkm/24 Monate, ab SOP Sep 09
+W 8KF                   SIA__8KF SIA_NEU                // Wartungsintervall 25Tkm/12 Monate, ab SOP Sep 09
+W 8KG                   SIA__8KG SIA_NEU                // Wartungsintervall 20Tkm/18 Monate, ab SOP Sep 09
+W 8KH                   SIA__8KH SIA_NEU                // Wartungsintervall 20Tkm/12 Monate, ab SOP Sep 09
+W 8KK                   SIA__8KK SIA_NEU                // Wartungsintervall 15Tkm/18 Monate, ab SOP Sep 09
+W 8KL                   SIA__8KL SIA_NEU                // Wartungsintervall 15Tkm/12 Monate, ab SOP Sep 09
+W 8KM                   SIA__8KM SIA_NEU                // Wartungsintervall 12Tkm/12 Monate, ab SOP Sep 09
+W 8KN                   SIA__8KN SIA_NEU                // Wartungsintervall 10Tkm/12 Monate, ab SOP Sep 09
+W 8KP                   SIA__8KP SIA_NEU                // Wartungsintervall 08Tkm/12 Monate, ab SOP Sep 09
+W 8LA                   INDIEN                          //India version                                         //LA8LA Indien-Ausfuehrung
+W 8LB                                                   //Laendersteuerung 00464, Brasilien
+W 8LF                   STEUERUNG_8LF                   //COUNTRY CONTROL 02331                                 //LAENDERSTEUERUNG 02331
+W 8LH                   HONGKONG                        //Hongkong version 04142                                //Laendersteuerung 04142 Hongkong
+W 8LR                   RUSSLAND                        //Laendersteuerung 10323 (Russland)
+W 8LS                   SINGAPUR                        //Singapur version 00780                                //Laendersteuerung 00780 Singapur
+W 8LT                   TAIWAN_LAND                     //Taiwan version 04825                                  //Laendersteuerung 04825 Taiwan
+W 8RE                                                   //8-fach-Bereifung
+W 8S1                   TAGFLICHT_AUS                   //Disabling of Daytime lights function                  //Decodierung Tagfahrleuchten A45850
+W 8S2                   ALARMSIGNAL                     //Coding of alarm signal                               //Kodierung Alarmsignal (PA603/050)
+W 8S4                   DECO_V_LICHT                    //Decoding variable light distribution                  //Decodierung variable Lichtverteilung
+W 8S6                                                   //Vorverkauft fuer Export (lt. Statusbericht Nov.2005)
+W 8S7                   FUHRPARK_O_TV                   //Fleet vehicle without TV Funktion                     //„Fuhrparkfahrzeuge ohne TV Funktion“ Dekodierung TV im CCC analog SA 8LH bzw. SA 859 = Menu TV raus - fuer Reduzierung GEZ-Gebuehr
+W 8S9                                                   //Non-Fuel-vehicle                                      //Non-Fuel-Fzge
+W 8SA                                                   //Country-specific release of navigation                //Laenderspez. NAVI.-Freischaltung
+W 8SC                                                   //Country-specific release of teleservice               //Laenderspez. Teleservice-Freischaltung
+W 8SH                                                   //                                                      //Leistungsreduzierung Thailand, PN A72453
+W 8SL                                                   //Preparation for trailer tow hitch                     //Vorbereitung Anhaengerkupplung(LT. PN PA190/152 AB 03/04)
+W 8SM                                                   //vin, visible from outside                             //Fahrgestellnummer, v. aussen sichtbar
+W 8SP                                                   //CO2 control                                           //CO2 Steuerung
+W 8ST                   SIA_EXTRA_KURZ SIA_ALT          //Coding service interval step 3- for 6000km            //Kodierung Wartungsintervall Stufe 3 - fuer 6.000km
+W 8SU                                                   //VIN FOR SECURITY                                      //FAHRGESTELLNUMMER FUER SECURITY
+W 8SW                                                   //Surface transport protection                          //Transportschutz Aussenhaut
+W 8SX                   PROVIDERZUORD                   //Provider assigment for TELEM.ONLINE-D.                //Providerzuordnung f.Telem.Online-D.(TAIS 05.08)
+W 8SY                                                   //Country spec. release of navigation                   //Laenderspez. Navi.-Freischaltung
+W 8SZ                   ABBIEGLICHT_AUS                 //Decoding turn off light                               //Decodierung Abbiegelicht
+W 8TE                                                   //RDC FREQUENCY VARIATION                               //RDC FREQUENZVARIANTE
+W 8TD                   DEC_V_LIM_INFO                  //DECODING SPEED LIMIT INFO                             //DECODIERUNG SPEED LIMIT INFO
+W 8TG                   ZENTR_SICHERUNG                 //ANTI-THEFT SYSTEM                                     //DIEBSTAHLSICHERUNG
+W 8TH                   SPEED_LIMIT_INF                 //SPEED LIMIT INFO                                      //SPEED LIMIT INFO
+W 8TL                   TFL_FR_HE_AKTIV                 //DAYTIME LIGHTS FRONT AND REAR AKTIV                   //TAGFAHRLICHT FRONT UND HECK AKTIV A45850
+W 8TM                   TFL_INAKTIV                     //DAYTIME LIGHTS BY AUTOMOTIVE START INACTIVE           //Tagfahrlicht bei Fahrzeugstart inaktiv A45850
+W 8TN                   TFL_LICHTMENUE                  //DAYTIME LIGHTS ABOUT LIGHTMENU ADJUSTABLE             //Tagfahrlicht ueber Lichtmenue einstellbar  A45850
+W 8TP                                                   //Steuerung N1 (Arbeitsname)
+W 901                                                   //Special check movie cars                              //Sonderkontrolle allgemein
+W 902                                                   //Special check press vehicles                          //Sonderkontrolle Pressewagen
+W 903                                                   //Special check trade fair/photo vehicle                //Sonderkontrolle Stand/Fotowagen
+W 905                                                   //Special check demo vehicle                            //Sonderkontrolle Vorfuehrwagen
+W 906                                                   //Spec. check photo veh.f nw series run-in              //Sonderkontrolle Fotofahr Z.B.Neuanl.
+W 909                   DIAGNOSEDOSE                    //Diagnostic socket Plus                                //Diagnoseanschluss im Fussraum (OBD PLUS)
+W 910                                                   //Development vehicle without handover inspection       //Entwicklungsfzg ohne Uebergabeinsp
+W 911                                                   //Development vehicle with handover inspection          //Entwicklungsfzg mit Uebergabeinsp
+W 912                                                   //OE-Package
+W 914                                                   //LA-Premium package
+W 916                                                   //Entwicklungsfzg. ohne Konservierung
+W 925                                                   //Shipment protection package                           //Versandschutzpaket
+W 927                   ALL_SEASON                      //All season tyres                                      //All season-Bereifung
+W 931                                                   //Winter wheels instead of summer wheels (PA603/343     //Winterraeder statt Sommerraeder
+W 934                                                   //Winter tyres on lt/aly wheels                         //Winterreifen auf LM-Raeder
+W 936                                                   //Request bmw mobile phone on delivery                  //BMW Handy bei AUslief. anfordern
+W 938                                                   //STEUERUNG ZS-INDIVIDUA
+W 940                                                   //Special request equipment                             //Sonderwunsch Ausstattung
+W 941                                                   //SPECIAL REQUEST PROCESSING A43437                     //EXTERNE NACHRUESTUNG
+W 944                                                   //RETROFITTING BY ZS                                    //NACHTRAEGLICHER  UMBAU DURCH ZS
+W 948                                                   //CORE MODEL PACKAGE V5-KA
+W 949                                                   //LA-Sport package
+W 950                                                   //Latin america package
+W 953                                                   //Taiwan package
+W 955                                                   //MO Package I
+W 956                                                   //MO Package II
+W 957                                                   //HK Package
+W 962                                                   //Licence plate carrier, deletion                       //Entfall Kennzeichentraeger vorne
+W 964                                                   //Request Navi DVD on delivery                          //NAVI DVD bei Auslieferung Anfordern (ZWAKO 609)
+W 973                                                   //Technology Package                                    //Technologie-Paket
+W 975                                                   //HIGHLINE OE
+W 976                                                   //LA Comfort Package
+W 977                                                   //Exclusive line
+W 983                                                   //Model year, export                                    //Modelljahrescode f. Export (in FgstNr.)
+W 984                   SIA_INTERVALL SIA_ALT           //Coding service interval                               //Codierung Wartungsintervall auf 24.000 km
+W 986                                                   //timimg check                                          //Terminpruefung
+W 987                                                   //existence check                                       //Existenzpruefung
+W 988                   SIA_INTERVALL2 SIA_ALT          //Coding extrem short maintenance interval              // Codierung Wartungsintervall auf 11.000 km
+W 991                                                   //Pre-series management
+W 992                                                   //Number plate attachment management                    //Coordination licence attachment       //Kennzeichenbefestigung wie US
+W 993                                                   //Model year code                                       //Modelljahrescode (in FgstNr.)
+W 995                                                   //CHANGE BAN                                            //AENDERUNGSSPERRE
+W 997                                                   //Dealer presentation export                            //Haendlerpraesentation Export
+W 998                                                   //Launch control internal demands                       //Anlaufsteuerung interne Bedarfe
+W 999                                                   //Order control first dealer cars                       //Auftragssteuerung HEA
+W 9A2                                                   //Convenience Package
+W 9A3                                                   //Technologie Package
+W 9A4                                                   //Luxury Package
+W 9A8                                                   //Driver Package 1
+W 9A9                                                   //Driver Package 2
+W 9AA                                                   //EXTERNAL SKIN PROTECTION                              //AUSSENHAUTSCHUTZ
+W 9AB                                                   //EXTERNAL SKIN PROTECTION DELETION                     //AUSSENHAUTSCHUTZ ENTFALL
+W 9AC                                                   //CAMOUFFLAGE NSG VEHICLES                              //TARNUNG NSG FAHRZEUGE
+W 9AE                                                   //Developing configuration E/E DATA                     //ENTWICKLUNGSKONFIGURATION E/E DATEN
+W 9AG                                                   //Modelljahr Export II
+W 9AW                                                   //Delivery BMW world (PA603/453)                        //Auslieferung BMW Welt
+W 9B8                                                   //Comfort Package V4-R1
+W 9B9                                                   //Executive Package V4-R1
+W 9BD                                                   //Business package
+W 9BN                                                   //V5-IC Package 4
+W 9BR                                                   //Lateinamerikapaket 1
+W 9BS                                                   //Lateinamerikapaket 2
+W 9BT                                                   //Lateinamerikapaket 3
+W 9BU                                                   //Driver Comfort Package
+W 9BV                                                   //Sunshine Package
+W 9BW                                                   //Interior Comfort Package
+W 9BX                                                   //Sight Package
+W 9BY                                                   //Light Package
+W 9BZ                                                   //Connenctivity Package
+W 9CA                                                   //Comfort Package
+W 9CB                                                   //Sight Package
+W 9CG                                                   //Baltic-Paket 1
+W 9CH                                                   //Baltic-Paket 2
+W 9CK                                                   //Baltic-Paket 3
+W 9CL                                                   //Baltic-Paket 4
+W 9CM                                                   //Baltic-Paket 5
+W 9CX                                                   //Driver Comfort Package B4-R1
+W 9CY                                                   //Visibility Package B4-R1
+W 9CZ                                                   //Luxury Package B4-R1
+W 9KA                                                   //Sonderkennzeichen-1
+W 9KB                                                   //Sonderkennzeichen-2
+W 9KC                                                   //Sonderkennzeichen-3
+W 9KD                                                   //Sonderkennzeichen-4
+W 9KE                                                   //Sonderkennzeichen-5
+W 9KF                                                   //Sonderkennzeichen-6
+W 9KG                                                   //Sonderkennzeichen-7
+W 9KH                                                   //Sonderkennzeichen-8
+W 9KK                                                   //Sonderkennzeichen-9
+W 9KL                                                   //Sonderkennzeichen-10
+W 9WR                                                   //Winter wheels BMW world (PA603/453)                   //Winterraeder BMW Welt
+W S34                                                   //                                                      //Azuritschwarz metallic
+W XC4                                                   //BMW INDIVIDUAL COMPOSITION                            //Polster, Leiste, Lenkrad,Dachhimmel, Einstiegsleiste (SABI-Code siehe PR893/003)
+W XE1                                                   //Nussbaum amarone (SABI-Code siehe PR893/003)
+W XE3                                                   //Eukalyptus Riegel rotbraun (SABI-Code siehe PR893/003)
+W XE7                                                   //Pianolack schwarz (SABI-Code siehe PR893/003)
+W XE9                                                   //Interieurleiste lederbezogen (SABI-Code siehe PN A55351)
+W XL1                                                   //Holzintarsie lt. Leiste (SABI-Code siehe PR893/003)
+W XL2                                                   //Lederringintarsie lt. Polster (SABI-Code siehe PR893/003)
+W XT1                                                   //BMW individual Instrumententafel lederbezogen (SABI-Code siehe PR893/003)
+W X01                                                   //Perlsilber metallic
+W X02                                                   //BMW-Individual Lackierung Citrinschwarz metallic.
+W X03                                                   //Rubinschwarz metallic
+
+//
+//******************************************************************************
+// ZUSAMMENFASSUNG ALLER TYPSCHLUeSSEL
+//*******************************************************************************
+// E70
+////--------------------------------------------------------------------------------------------
+W FE41                  E70 N52B30 LL ECE        //N52B30oL KP (N52B30O1)                                       //X5 3,0I LL 04/07 - 11/09 und 01.08.2011 - 31.12.2011   200kW
+//----------------------------------------------------------------------------------------------
+W FE42                  E70 N52B30 RL ECE        //N52B30oL KP (N52B30O1)                                       //X5 3,0I RL 04/07 - 11/09   200kW
+//----------------------------------------------------------------------------------------------
+W FE43                  E70 N52B30 LL US XENONLICHT          //N52B30oL KP (N52B30O1)                           //X5 3,0I LL US 10/06 - 11/09 und 01.08.2011 - 31.12.2011   200kW
+//----------------------------------------------------------------------------------------------
+W FE81                  E70 N62B48 LL ECE                //(N62B48O1)                                           //X5 4,8I LL 12/06 - 09/09   261kW
+//----------------------------------------------------------------------------------------------
+W FE82                  E70 N62B48 RL ECE                //(N62B48O1)                                           //X5 4,8I RL 12/06 - 09/09   261kW
+//----------------------------------------------------------------------------------------------
+W FE83                  E70 N62B48 LL US XENONLICHT      //(N62B48O1)                                           //X5 4,8I LL US 10/06 - 09/09   261kW
+//----------------------------------------------------------------------------------------------
+W FF41                  E70 M57D30 LL ECE                //(M57D30O2)                                           //X5 3,0D LL 12/06 - 03/10   173kW
+//----------------------------------------------------------------------------------------------
+W FF42                  E70 M57D30 RL ECE                //(M57D30O2)                                           //X5 3,0D RL 12/06 - 03/10   173kW
+//----------------------------------------------------------------------------------------------
+W FF01                  E70 M57SD30 LL ECE               //(M57D30T2)                                           //X5 3,0SD LL 10/07 - 03/10  210kW
+//----------------------------------------------------------------------------------------------
+W FF02                  E70 M57SD30 RL ECE               //(M57D30T2)                                           //X5 3,0SD RL 10/07 - 03/10  210kW
+//----------------------------------------------------------------------------------------------
+W FF03                  E70 M57SD30 LL US XENONLICHT      //(M57D30T2)                                          //X5 3,0SD LL US 10/08 - 03/10  210kW
+//----------------------------------------------------------------------------------------------
+W GY01  V0412           E70 S63B44 LL ECE XENONLICHT REGENSENSOR       //(S63B44O0)                             //X5 M LL 05/09 - 07/13  404KW
+W GY01  N0412           E70 S63B44 LL ECE XENONLICHT REGENSENSOR ASD   //(S63B44O0)                             //X5 M LL 05/09 - 07/13  404KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W GY02  V0412           E70 S63B44 RL ECE XENONLICHT REGENSENSOR       //(S63B44O0)                             //X5 M RL 05/09 - 07/13  404KW
+W GY02  N0412           E70 S63B44 RL ECE XENONLICHT REGENSENSOR ASD   //(S63B44O0)                             //X5 M RL 05/09 - 07/13  404KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W GY03  V0412           E70 S63B44 LL US XENONLICHT REGENSENSOR        //(S63B44O0)                             //X5 M LL US 05/09 - 07/13  400KW
+W GY03  N0412           E70 S63B44 LL US XENONLICHT REGENSENSOR ASD    //(S63B44O0)                             //X5 M LL US 05/09 - 07/13  400KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W ZV41                  E70 N55B30 LL ECE                //(N55B30M0)                                           //XDRIVE35 LL 04/10 - 07/13  225KW
+//----------------------------------------------------------------------------------------------
+W ZV42                  E70 N55B30 RL ECE                //(N55B30M0)                                           //XDRIVE35 RL 04/10 - 07/13  225KW
+//----------------------------------------------------------------------------------------------
+W ZV43                  E70 N55B30 LL US XENONLICHT      //(N55B30M0)                                           //XDRIVE35 LL US 04/10 - 07/13  225KW
+//----------------------------------------------------------------------------------------------
+W ZV81                  E70 N63B44 LL ECE                //(N63B44O0)                                           //XDRIVE50 LL 04/10 - 07/13   300KW
+//----------------------------------------------------------------------------------------------
+W ZV82                  E70 N63B44 RL ECE                //(N63B44O0)                                           //XDRIVE50 RL 04/10 - 07/13   300KW
+//----------------------------------------------------------------------------------------------
+W ZV83                  E70 N63B44 LL US XENONLICHT      //(N63B44O0)                                           //XDRIVE50 LL US 04/10 - 07/13   300KW
+//----------------------------------------------------------------------------------------------
+W ZW03                  E70 M57SD30 LL US XENONLICHT     //(M57D30T2)                                           //X5 XDRIV LL US 04/10 - 07/13  210kW
+//----------------------------------------------------------------------------------------------
+W ZW41                  E70 N57D30O0 LL ECE              //(N57D30O0)                                           //XDRIVE30 LL 04/10 - 07/13  180kW
+//---------------------------------------------------------  -----------------------------------
+W ZW42                  E70 N57D30O0 RL ECE              //(N57D30O0)                                           //XDRIVE30 RL 04/10 - 07/13  180kW
+//----------------------------------------------------------------------------------------------
+W ZW61                  E70 N57D30T0 LL ECE              //(N57D30T0)                                           //XDRIVE35 LL 04/10 - 07/13  220kW
+//----------------------------------------------------------------------------------------------
+W ZW62                  E70 N57D30T0 RL ECE              //(N57D30T0)                                           //XDRIVE35 RL 04/10 - 07/13  220kW
+//----------------------------------------------------------------------------------------------
+W ZW63                  E70 N57D30T0 LL US XENONLICHT    //(N57D30T0)                                           //XDRIVE35 LL 04/11 - 08/13  220kW
+//----------------------------------------------------------------------------------------------
+W ZW81  V0412           E70 N57D30S1 LL ECE                                                     //(N57D30S1)    //XDRIVE50 LL 04/12 - 07/13  280kW, M-Performance
+W ZW81  N0412           E70 N57D30S1 LL ECE NIVEAUREG PDC HIGH_SPEED ASD XENONLICHT KLIMA_HIGH  //(N57D30S1)    //XDRIVE50 LL 04/12 - 07/13  280kW, M-Performance
+//----------------------------------------------------------------------------------------------
+W ZW82  V0412           E70 N57D30S1 RL ECE                                                     //(N57D30S1)    //XDRIVE50 RL 04/12 - 07/13  280kW, M-Performance
+W ZW82  N0412           E70 N57D30S1 RL ECE NIVEAUREG PDC HIGH_SPEED ASD XENONLICHT KLIMA_HIGH  //(N57D30S1)    //XDRIVE50 RL 04/12 - 07/13  280kW, M-Performance
+//----------------------------------------------------------------------------------------------
+W GY21                  E70 N55B30 LL ECE                //(N55B30M0)                                           //XDRIVE40 LL 08/12 - 07/13  nur LA China, nur in Verbindung mit SA7MH/767
+//----------------------------------------------------------------------------------------------
+
+// E71
+//----------------------------------------------------------------------------------------------
+W FG21                  E71 N55B30 LL ECE XENONLICHT REGENSENSOR                        //(N55B30M0)            //X6 XDRIV LL 04/10 - 07/14  225KW
+//----------------------------------------------------------------------------------------------
+W FG22                  E71 N55B30 RL ECE XENONLICHT REGENSENSOR                        //(N55B30M0)            //X6 XDRIV RL 04/10 - 07/14  225KW
+//----------------------------------------------------------------------------------------------
+W FG23                  E71 N55B30 LL US XENONLICHT REGENSENSOR                         //(N55B30M0)            //X6 XDRIV LL US 04/10 - 07/14  225KW
+//----------------------------------------------------------------------------------------------
+W FG41                  E71 N54B30 LL ECE                                               //(N54B30O0)            //X6 3,0I LL 01/08 - 04/10   225kW
+//----------------------------------------------------------------------------------------------
+W FG42                  E71 N54B30 RL ECE                                               //(N54B30O0)            //X6 3,0I RL 01/08 - 04/10   225kW
+//----------------------------------------------------------------------------------------------
+W FG43                  E71 N54B30 LL US XENONLICHT                                     //(N54B30O0)            //X6 3,0I LL US 01/08 - 04/10   225kW
+//----------------------------------------------------------------------------------------------
+W FG81                  E71 N63B44 LL ECE                                               //(N63B44O0)            //X6 4,4I LL 05/08 - 07/14   300kW
+//----------------------------------------------------------------------------------------------
+W FG82                  E71 N63B44 RL ECE                                               //(N63B44O0)            //X6 4,4I RL 10/08 - 07/14   300kW
+//----------------------------------------------------------------------------------------------
+W FG83                  E71 N63B44 LL US XENONLICHT                                     //(N63B44O0)            //X6 4,4I LL US  05/08 - 07/14   300kW
+//----------------------------------------------------------------------------------------------
+W FG01                  E71 M57SD30 LL ECE                                              //(M57D30T2)            //X6 3,0SD LL 01/08 - 04/10  210kW
+//----------------------------------------------------------------------------------------------
+W FG02                  E71 M57SD30 RL ECE                                              //(M57D30T2)            //X6 3,0SD RL 01/08 - 04/10  210kW
+//----------------------------------------------------------------------------------------------
+W FG61                  E71 M57D30 LL ECE                                               //(M57D30O2)            //X6 3,0D LL 04/08 - 04/10   173kW
+//----------------------------------------------------------------------------------------------
+W FG62                  E71 M57D30 RL ECE                                               //(M57D30O2)            //X6 3,0D RL 04/08 - 04/10   173kW
+//----------------------------------------------------------------------------------------------
+W FH01                  E71 N57D30T0 LL ECE XENONLICHT REGENSENSOR                      //(N57D30T0)            //X6 35D LL 04/10 - 07/14  220kW
+//---------------------------------------------------------------------------------------------
+W FH02                  E71 N57D30T0 RL ECE XENONLICHT REGENSENSOR                      //(N57D30T0)            //X6 35D RL 04/10 - 07/14  220kW
+//----------------------------------------------------------------------------------------------
+W FH61                  E71 N57D30O0 LL ECE XENONLICHT REGENSENSOR                      //(N57D30O0)            //X6 30D LL 04/10 - 07/14  180kW
+//----------------------------------------------------------------------------------------------
+W FH62                  E71 N57D30O0 RL ECE XENONLICHT REGENSENSOR                      //(N57D30O0)            //X6 30D RL 04/10 - 07/14  180kW
+//----------------------------------------------------------------------------------------------
+W FH81  V0412           E71 N57D30S1 LL ECE XENONLICHT REGENSENSOR                      //(N57D30S1)                                    //X6 30D LL 04/12 - 07/14  280kW, M-Performance
+W FH81  N0412           E71 N57D30S1 LL ECE XENONLICHT REGENSENSOR NIVEAUREG ADAPTIVE_DRIVE HIGH_SPEED ASD KLIMA_HIGH     //(N57D30S1)  //X6 30D LL 04/12 - 07/14  280kW, M-Performance
+//----------------------------------------------------------------------------------------------
+W FH82  V0412           E71 N57D30S1 RL ECE XENONLICHT REGENSENSOR                      //(N57D30S1)                                    //X6 3,0D RL 04/12 - 07/14  280kW, M-Performance
+W FH82  N0412           E71 N57D30S1 RL ECE XENONLICHT REGENSENSOR NIVEAUREG ADAPTIVE_DRIVE HIGH_SPEED ASD KLIMA_HIGH     //(N57D30S1)  //X6 3,0D RL 04/12 - 07/14  280kW, M-Performance
+//----------------------------------------------------------------------------------------------
+W GZ01  V0412           E71 S63B44 LL ECE XENONLICHT REGENSENSOR                        //(S63B44O0)            //X6 M LL 05/09 - 07/14  404KW
+W GZ01  N0412           E71 S63B44 LL ECE XENONLICHT REGENSENSOR ASD                    //(S63B44O0)            //X6 M LL 05/09 - 07/14  404KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W GZ02  V0412           E71 S63B44 RL ECE XENONLICHT REGENSENSOR                        //(S63B44O0)            //X6 M RL 05/09 - 07/14  404KW
+W GZ02  N0412           E71 S63B44 RL ECE XENONLICHT REGENSENSOR ASD                    //(S63B44O0)            //X6 M RL 05/09 - 07/14  404KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W GZ03  V0412           E71 S63B44 LL US XENONLICHT REGENSENSOR                         //(S63B44O0)            //X6 M LL US 05/09 - 07/14  400KW
+W GZ03  N0412           E71 S63B44 LL US XENONLICHT REGENSENSOR ASD                     //(S63B44O0)            //X6 M LL US 05/09 - 07/14  400KW, ab 04/12 mit ASD Serie
+//----------------------------------------------------------------------------------------------
+W GZ21                  E71 N55B30 LL ECE XENONLICHT REGENSENSOR                        //(N55B30M0)            //X6 XDRIVE40 LL 08/12 - 07/13  nur LA China, nur in Verbindung mit SA7MH/767
+//----------------------------------------------------------------------------------------------
+
+// E72
+
+//----------------------------------------------------------------------------------------------
+W FH21                  E72 N63B44 LL ECE XENONLICHT REGENSENSOR     //(N63B44O0)                               //X 50I HY LL     10/09 - 12/11  300kW
+//----------------------------------------------------------------------------------------------
+W FH03                  E72 N63B44 LL US XENONLICHT REGENSENSOR      //(N63B44O0)                               //X 50I HY LL US  10/09 - 12/11  300kW
+//----------------------------------------------------------------------------------------------

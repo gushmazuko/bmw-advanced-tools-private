@@ -1,0 +1,625 @@
+;INFO.GER vom 02.08.2006 15:17
+;--------------------------
+;--------------------------
+$ECUINDEXTEXT SG-Index
+$ECUADDRTEXT SG-Adresse
+$PRIODEFAULTTEXT Unverbaut
+$AA QY 29 01 ABS56                  -                                                                                                      
+$AA LJ 21 01 ACC260                 -                                                                                                      
+$AA A7 21 01 ACC65                  -                                                                                                      
+$AA HN 21 01 ACCN60                 -                                                                                                      
+$AA NK 01 01 ACSM2                  -                                                                                                      
+$AA MQ 01 01 ACSM60                 -                                                                                                      
+$AA MC 16 01 AFS260                 -                                                                                                      
+$AA B7 16 01 AFS60                  -                                                                                                      
+$AA NM 16 01 AFS70                  -                                                                                                      
+$AA KN 16 01 AFS90                  -                                                                                                      
+$AA JA 71 01 AHM60                  -                                                                                                      
+$AA A8 71 01 AHM65                  -                                                                                                      
+$AA LU 59 01 ALBV60                 ALBV Fahrer                                                                                            
+$AA LU 5A 02 ALBV60                 ALBV Beifahrer                                                                                         
+$AA EX 22 01 ALC60                  -                                                                                                      
+$AA RM 37 01 AMP56                  -                                                                                                      
+$AA FN 37 01 AMP60                  -                                                                                                      
+$AA AA 37 01 AMP65                  -                                                                                                      
+$AA TQ 37 01 AMPH1                  -                                                                                                      
+$AA NP 37 01 AMPH70                 -                                                                                                      
+$AA NN 37 01 AMPT70                 -                                                                                                      
+$AA GS 23 01 ARS60                  Aktive Rollstabilisierung E60                                                                          
+$AA A1 23 01 ARS65                  -                                                                                                      
+$AA PZ 23 01 ARS70                  -                                                                                                      
+$AA TR 16 01 ASA1                   -                                                                                                      
+$AA QX 29 01 ASCT56                 -                                                                                                      
+$AA AB 3F 01 ASKCC                  Sonder SGBD fuer die 3 ASK .                                                                           
+$AA RF 3F 01 ASKCD4                 Sonder SGBD fuer die 3 ASK .                                                                           
+$AA RG 3F 01 ASKMD4                 Sonder SGBD fuer die 3 ASK .                                                                           
+$AA AC 3F 01 ASK_CD                 Sonder SGBD fuer die 3 ASK .                                                                           
+$AA AD 3F 01 ASK_MD                 Sonder SGBD fuer die 3 ASK .                                                                           
+$AA AE 47 01 AT1_65                 -                                                                                                      
+$AA AF 47 01 AT2_65                 -                                                                                                      
+$AA MZ 5C 01 BEHO60                 -                                                                                                      
+$AA RP 60 01 BKOML2                 -                                                                                                      
+$AA KH 12 01 BMSC2                  .                                                                                                      
+$AA HP 99 01 BRSZ1                  -                                                                                                      
+$AA BW 65 01 BZM65                  -                                                                                                      
+$AA BX 66 01 BZMF65                 -                                                                                                      
+$AA HJ 41 01 CANS63                 -                                                                                                      
+$AA GT 40 01 CAS260                 -                                                                                                      
+$AA SA 40 01 CAS3                   -                                                                                                      
+$AA SH 40 01 CAS4                   -                                                                                                      
+$AA QI 40 01 CAS58                  -                                                                                                      
+$AA HR 40 01 CASH60                 CASHE60                                                                                                
+$AA HS 40 01 CASL60                 -                                                                                                      
+$AA AH 40 01 CASZAS                 -                                                                                                      
+$AA IG 35 01 CC3560                 -                                                                                                      
+$AA ID 3B 01 CC3B60                 -                                                                                                      
+$AA IE 3F 01 CC3F60                 Sonder SGBD fuer die 3 ASK .                                                                           
+$AA IF 47 01 CC4760                 -                                                                                                      
+$AA FM 62 01 CC6260                 -                                                                                                      
+$AA FL 63 01 CC6360                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA KI A0 01 CCA060                 -                                                                                                      
+$AA LK A0 01 CCMD60                 -                                                                                                      
+$AA MP 3C 01 CDC265                 -                                                                                                      
+$AA SB A9 01 CDC270                 CDC Decoder                                                                                            
+$AA FH 3C 01 CDC60                  -                                                                                                      
+$AA PN 3C 01 CDC70                  -                                                                                                      
+$AA LH 3C 01 CDCHL2                 -                                                                                                      
+$AA KG 3C 01 CDCPL2                 -                                                                                                      
+$AA SD AA 01 CDCV70                 -                                                                                                      
+$AA DP 3C 01 CDC_65                 -                                                                                                      
+$AA SK 14 01 CEM68                  .                                                                                                      
+$AA QB 63 01 CHAMB1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA QA 62 01 CHAMG1                 -                                                                                                      
+$AA QD 90 01 CHAMO1                 -                                                                                                      
+$AA QC 63 01 CHAMP1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA QH 90 01 CHAMS1                 -                                                                                                      
+$AA QG 92 01 CHAMV1                 -                                                                                                      
+$AA QE 91 01 CHSPB1                 -                                                                                                      
+$AA QF 91 01 CHSPP1                 -                                                                                                      
+$AA ER 73 01 CID60                  -                                                                                                      
+$AA PI 73 01 CID70                  -                                                                                                      
+$AA IB 73 01 CID81                  -                                                                                                      
+$AA IA 73 01 CID90                  -                                                                                                      
+$AA ES 74 01 CIDF60                 CID Rear                                                                                               
+$AA FP 74 01 CIDF65                 CID Rear                                                                                               
+$AA PJ 74 01 CIDF70                 CID Rear                                                                                               
+$AA PJ 75 02 CIDF70                 CID Rear2                                                                                              
+$AA FJ 42 01 CIM2                   -                                                                                                      
+$AA DR 42 01 CIMD65                 -                                                                                                      
+$AA AI 42 01 CIM_65                 -                                                                                                      
+$AA RZ 3B 01 CNAV1                  -                                                                                                      
+$AA PF 24 01 CTM93                  -                                                                                                      
+$AA EW 24 01 CVM64                  -                                                                                                      
+$AA TE 24 01 CVM881                 -                                                                                                      
+$AA ME 5B 01 DABEU1                 -                                                                                                      
+$AA 51 12 01 DDE22                  -                                                                                                      
+$AA 52 12 01 DDE30                  -                                                                                                      
+$AA 53 12 01 DDE40                  -                                                                                                      
+$AA 57 12 01 DDE409                 .                                                                                                      
+$AA 56 12 01 DDE40F                 -                                                                                                      
+$AA 57 11 01 DDE40O                 -                                                                                                      
+$AA 54 12 01 DDE41A                 -                                                                                                      
+$AA 55 13 01 DDE41B                 -                                                                                                      
+$AA JC 12 01 DDE502                 -                                                                                                      
+$AA JB 12 01 DDE503                 -                                                                                                      
+$AA 58 12 01 DDE504                 -                                                                                                      
+$AA 59 12 01 DDE506                 -                                                                                                      
+$AA JD 12 01 DDE507                 -                                                                                                      
+$AA JE 12 01 DDE508                 -                                                                                                      
+$AA JF 12 01 DDE509                 -                                                                                                      
+$AA 5A 12 01 DDE51                  -                                                                                                      
+$AA 5A 13 02 DDE51                  Slave                                                                                                  
+$AA LQ 12 01 DDE603                 -                                                                                                      
+$AA LP 12 01 DDE604                 -                                                                                                      
+$AA LR 12 01 DDE606                 -                                                                                                      
+$AA DV 12 01 DDE608                 -                                                                                                      
+$AA NE 12 01 DDE609                 -                                                                                                      
+$AA LS 12 01 DDE626                 -                                                                                                      
+$AA LT 12 01 DDE63                  -                                                                                                      
+$AA LT 13 02 DDE63                  Slave                                                                                                  
+$AA WA 12 01 DDE70                  -                                                                                                      
+$AA WB 12 01 DDE71                  -                                                                                                      
+$AA WD 12 01 DDE73                  dde7.3                                                                                                 
+$AA 50 12 01 DE21                   -                                                                                                      
+$AA MR 29 01 DSC260                 -                                                                                                      
+$AA NX 29 01 DSC56                  -                                                                                                      
+$AA EK 29 01 DSC60                  -                                                                                                      
+$AA HB 29 01 DSC81                  -                                                                                                      
+$AA SX 29 01 DSC890                 -                                                                                                      
+$AA LA 29 01 DSC90                  -                                                                                                      
+$AA MS 29 01 DSCA26                 -                                                                                                      
+$AA EL 29 01 DSCA60                 -                                                                                                      
+$AA LF 29 01 DSCM60                 -                                                                                                      
+$AA TW 29 01 DSCM90                 -                                                                                                      
+$AA DQ 29 01 DSC_65                 -                                                                                                      
+$AA IU 41 01 DWA260                 -                                                                                                      
+$AA KF 41 01 DWA360                 -                                                                                                      
+$AA ED 41 01 DWA60                  -                                                                                                      
+$AA AM 41 01 DWA65                  -                                                                                                      
+$AA GK 41 01 DWAPL2                 -                                                                                                      
+$AA KM 41 01 DWAS63                 -                                                                                                      
+$AA LN 29 01 DXC853                 -                                                                                                      
+$AA MT 29 01 DXC860                 -                                                                                                      
+$AA LV 29 01 DXC883                 -                                                                                                      
+$AA MU 29 01 DXC890                 -                                                                                                      
+$AA SJ 29 01 DXCP83                 -                                                                                                      
+$AA EZ 67 01 ECO60                  Ergo Commander Front                                                                                   
+$AA AN 67 01 ECO65                  Ergo Commander Front                                                                                   
+$AA AN 68 02 ECO65                  Ergo Commander-Fond.                                                                                   
+$AA IV 39 01 EDC65                  -                                                                                                      
+$AA A6 39 01 EDCK65                 -                                                                                                      
+$AA QL A5 01 EDCS70                 EDCS vorne links                                                                                       
+$AA QL A6 02 EDCS70                 EDCS vorne rechts                                                                                      
+$AA QL A7 03 EDCS70                 EDCS hinten links                                                                                      
+$AA QL A8 04 EDCS70                 EDCS hinten rechts                                                                                     
+$AA RT 29 01 EHB360                 -                                                                                                      
+$AA PD 29 01 EHB70                  -                                                                                                      
+$AA RU 29 01 EHBA60                 -                                                                                                      
+$AA RS 29 01 EHBX60                 -                                                                                                      
+$AA NL 38 01 EHC61                  -                                                                                                      
+$AA AP 38 01 EHC65                  -                                                                                                      
+$AA LL 38 01 EHC90                  -                                                                                                      
+$AA 0F 12 01 EK726                  -                                                                                                      
+$AA 0X 12 01 EK726L                 -                                                                                                      
+$AA 0T 12 01 EK726M                 -                                                                                                      
+$AA 0L 12 01 EK924                  -                                                                                                      
+$AA 0R 12 01 EK927                  -                                                                                                      
+$AA 0R 13 02 EK927                  Slave                                                                                                  
+$AA 44 12 01 EK9272                 -                                                                                                      
+$AA 44 13 02 EK9272                 Slave                                                                                                  
+$AA 0Q 12 01 EK928                  -                                                                                                      
+$AA 2Q 12 01 EK9282                 -                                                                                                      
+$AA 4Q 12 01 EK9284                 -                                                                                                      
+$AA 5Q 12 01 EK9285                 -                                                                                                      
+$AA 6Q 12 01 EK9286                 -                                                                                                      
+$AA 7Q 12 01 EK9287                 -                                                                                                      
+$AA 0W 12 01 EKB924                 -                                                                                                      
+$AA 0V 12 01 EKB928                 -                                                                                                      
+$AA 2W 12 01 EKB945                 -                                                                                                      
+$AA 0U 12 01 EKD924                 -                                                                                                      
+$AA LD 12 01 EKH927                 DME Bank 1                                                                                             
+$AA LD 13 02 EKH927                 DME Bank 2                                                                                             
+$AA LI 17 01 EKM260                 -                                                                                                      
+$AA 2M 12 01 EKM928                 -                                                                                                      
+$AA FI 17 01 EKP60                  -                                                                                                      
+$AA 0P 12 01 EKR926                 -                                                                                                      
+$AA 0N 12 01 EKV926                 -                                                                                                      
+$AA 1L 12 01 EKV946                 -                                                                                                      
+$AA A2 2A 01 EMF65                  -                                                                                                      
+$AA PE 2A 01 EMF70                  -                                                                                                      
+$AA 40 12 01 EML3                   -                                                                                                      
+$AA 41 12 01 EML3A                  -                                                                                                      
+$AA D1 12 01 EML3S                  -                                                                                                      
+$AA 0S 13 01 EMS2K                  -                                                                                                      
+$AA NW 30 01 EPS56                  -                                                                                                      
+$AA GJ 37 01 EPS85                  -                                                                                                      
+$AA RD 30 01 EPSPL2                 -                                                                                                      
+$AA BD 61 01 FBIE65                 -                                                                                                      
+$AA JX 1D 01 FFP90                  -                                                                                                      
+$AA PA 79 01 FKA70                  -                                                                                                      
+$AA MX 5F 01 FLA65                  -                                                                                                      
+$AA RL 72 01 FRM2                   -                                                                                                      
+$AA NT 72 01 FRM70                  -                                                                                                      
+$AA NV 72 01 FRMF56                 -                                                                                                      
+$AA GX 72 01 FRMPL2                 -                                                                                                      
+$AA NQ 56 01 FZD70                  -                                                                                                      
+$AA HC 56 01 FZD81                  -                                                                                                      
+$AA 2Y 32 01 G7X2                   -                                                                                                      
+$AA 20 32 01 G7X3                   -                                                                                                      
+$AA 2Z 32 01 G7_3                   -                                                                                                      
+$AA 2X 32 01 G7_X                   -                                                                                                      
+$AA 22 32 01 G832                   -                                                                                                      
+$AA 27 32 01 G832Z                  -                                                                                                      
+$AA 23 32 01 G834                   -                                                                                                      
+$AA ?2 32 01 G836                   -                                                                                                      
+$AA 25 32 01 G851                   -                                                                                                      
+$AA 21 32 01 G922                   -                                                                                                      
+$AA 2D 32 01 G9221                  -                                                                                                      
+$AA 29 32 01 GD20                   -                                                                                                      
+$AA 2A 32 01 GD855                  -                                                                                                      
+$AA 28 32 01 GD8600                 -                                                                                                      
+$AA 2B 32 01 GD8602                 -                                                                                                      
+$AA 2C 32 01 GD8603                 -                                                                                                      
+$AA 2H 32 01 GD8604                 -                                                                                                      
+$AA 24 32 01 GD870                  -                                                                                                      
+$AA XX 32 01 GDASG                  -                                                                                                      
+$AA 2K 32 01 GDE192                 -                                                                                                      
+$AA 2T 18 01 GDE194                 -                                                                                                      
+$AA 2R 18 01 GDE214                 -                                                                                                      
+$AA 26 32 01 GDSMG                  -                                                                                                      
+$AA 2F 32 01 GDSMG2                 -                                                                                                      
+$AA GQ 18 01 GDSMG3                 -                                                                                                      
+$AA 2M 32 01 GK30                   -                                                                                                      
+$AA 2N 18 01 GK35                   -                                                                                                      
+$AA MG 18 01 GKE191                 -                                                                                                      
+$AA 2L 18 01 GKE192                 -                                                                                                      
+$AA QM 18 01 GKE193                 -                                                                                                      
+$AA 2P 18 01 GKE194                 -                                                                                                      
+$AA SL 18 01 GKE195                 -                                                                                                      
+$AA MH 18 01 GKE211                 -                                                                                                      
+$AA QN 18 01 GKE213                 -                                                                                                      
+$AA 2S 18 01 GKE214                 -                                                                                                      
+$AA SM 18 01 GKE215                 -                                                                                                      
+$AA SP 18 01 GKES10                 GKES10                                                                                                 
+$AA SQ 18 01 GKES20                 GKES20                                                                                                 
+$AA NC 18 01 GM1912                 -                                                                                                      
+$AA TV 18 01 GS40                   -                                                                                                      
+$AA QZ 18 01 GSAW21                 -                                                                                                      
+$AA 30 12 01 GSE1                   -                                                                                                      
+$AA RA 18 01 GSF21                  AISIN R53                                                                                              
+$AA SU 5E 01 GWS60                  -                                                                                                      
+$AA PH 5E 01 GWS70                  -                                                                                                      
+$AA SZ 5E 01 GWSS60                 -                                                                                                      
+$AA AS 79 01 HKA65                  -                                                                                                      
+$AA KE 6B 01 HKL61                  -                                                                                                      
+$AA AT 6B 01 HKL65                  -                                                                                                      
+$AA SQ 6B 01 HKL70                  -                                                                                                      
+$AA RQ 60 01 HKOML2                 -                                                                                                      
+$AA PG 3D 01 HUD70                  -                                                                                                      
+$AA EJ 3D 01 HUDE60                 -                                                                                                      
+$AA MF 5B 01 IBOCU1                 -                                                                                                      
+$AA RC 53 01 IBOCU2                 -                                                                                                      
+$AA TU 1C 01 ICM1                   -                                                                                                      
+$AA TK 78 01 IHA256                 -                                                                                                      
+$AA TL 78 01 IHK256                 -                                                                                                      
+$AA QR 78 01 IHKA56                 -                                                                                                      
+$AA GU 78 01 IHKA81                 -                                                                                                      
+$AA GL 78 01 IHKB60                 -                                                                                                      
+$AA A5 78 01 IHKB65                 -                                                                                                      
+$AA NG 78 01 IHKB70                 -                                                                                                      
+$AA NI 79 01 IHKF70                 -                                                                                                      
+$AA GN 78 01 IHKH60                 -                                                                                                      
+$AA A4 78 01 IHKH65                 -                                                                                                      
+$AA NH 78 01 IHKH70                 -                                                                                                      
+$AA GV 78 01 IHKR81                 -                                                                                                      
+$AA QS 78 01 IHKS56                 -                                                                                                      
+$AA GW 78 01 IHR81                  -                                                                                                      
+$AA TM 78 01 IHS256                 -                                                                                                      
+$AA QT 78 01 IHS56                  -                                                                                                      
+$AA QW 55 01 ISPB70                 -                                                                                                      
+$AA NR 00 01 JBBF70                 -                                                                                                      
+$AA GY 00 01 JBBF81                 -                                                                                                      
+$AA B5 61 01 JBIT65                 -                                                                                                      
+$AA FT 3B 01 JNAV60                 -                                                                                                      
+$AA AV 3B 01 JNAVI                  -                                                                                                      
+$AA ET 72 01 KBM60                  -                                                                                                      
+$AA RR 99 01 KFS                    -                                                                                                      
+$AA MV 00 01 KGM60                  -                                                                                                      
+$AA AW 3A 01 KHI_65                 -                                                                                                      
+$AA HQ 3A 01 KHM60                  Kopfhörer-Modul E60                                                                                    
+$AA RY 3B 01 KNAV1                  -                                                                                                      
+$AA NZ 60 01 KOMB56                 -                                                                                                      
+$AA HU 60 01 KOMB60                 -                                                                                                      
+$AA A3 60 01 KOMB65                 -                                                                                                      
+$AA NS 60 01 KOMB70                 -                                                                                                      
+$AA SY 60 01 KOMBI6                 -                                                                                                      
+$AA HD 60 01 KOMBL2                 -                                                                                                      
+$AA SP 1C 01 LDM60                  -                                                                                                      
+$AA PC 1C 01 LDM70                  -                                                                                                      
+$AA JW 1C 01 LDM90                  -                                                                                                      
+$AA JM 70 01 LM260                  -                                                                                                      
+$AA QQ 70 01 LM360                  -                                                                                                      
+$AA SR 70 01 LM460                  -                                                                                                      
+$AA DT 70 01 LM60                   -                                                                                                      
+$AA 00 70 01 LME60                  -                                                                                                      
+$AA A0 70 01 LME65                  -                                                                                                      
+$AA RV 21 01 LRR1                   -                                                                                                      
+$AA 31 12 01 M1_3                   -                                                                                                      
+$AA 70 12 01 M1_7                   -                                                                                                      
+$AA 71 12 01 M1_7ZS                 -                                                                                                      
+$AA 05 12 01 M333                   -                                                                                                      
+$AA 04 12 01 M335                   -                                                                                                      
+$AA 02 12 01 M3_1                   -                                                                                                      
+$AA 08 12 01 M3_3                   -                                                                                                      
+$AA 03 12 01 M3_31                  -                                                                                                      
+$AA 13 12 01 M401                   -                                                                                                      
+$AA 0H 12 01 M5217A                 -                                                                                                      
+$AA 01 12 01 M527                   -                                                                                                      
+$AA IK 91 01 MACSP1                 -                                                                                                      
+$AA PP 91 01 MACSP2                 -                                                                                                      
+$AA IL 91 01 MAMSP1                 -                                                                                                      
+$AA PQ 91 01 MAMSP2                 -                                                                                                      
+$AA IM 91 01 MANSP1                 -                                                                                                      
+$AA PR 91 01 MANSP2                 -                                                                                                      
+$AA FW 63 01 MASKC1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA PS 63 01 MASKC2                 -                                                                                                      
+$AA FY 62 01 MASKG1                 -                                                                                                      
+$AA PT 62 01 MASKG2                 -                                                                                                      
+$AA FV 63 01 MASKM1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA PU 63 01 MASKM2                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA FX 63 01 MASKN1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA PV 63 01 MASKN2                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA FZ 90 01 MASKS1                 -                                                                                                      
+$AA PW 90 01 MASKS2                 -                                                                                                      
+$AA PX 92 01 MASKV2                 -                                                                                                      
+$AA SF 98 01 MASLW1                 MASK LW                                                                                                
+$AA SG 98 01 MASLW2                 MASK LW                                                                                                
+$AA KL 3B 01 MASNR1                 -                                                                                                      
+$AA PY 3B 01 MASNR2                 -                                                                                                      
+$AA JL 12 01 MBMSK1                 -                                                                                                      
+$AA JV 12 01 MBMSK2                 .                                                                                                      
+$AA MD 12 01 MBMSK7                 -                                                                                                      
+$AA AX 62 01 MCGW65                 -                                                                                                      
+$AA 00 12 01 MD3_3                  -                                                                                                      
+$AA 0A 12 01 MD5214                 -                                                                                                      
+$AA 0B 12 01 MD5216                 -                                                                                                      
+$AA 09 12 01 MD5217                 -                                                                                                      
+$AA 09 13 02 MD5217                 -                                                                                                      
+$AA 0C 12 01 MD521B                 -                                                                                                      
+$AA 0K 12 01 MD521C                 -                                                                                                      
+$AA 0E 12 01 MD521L                 -                                                                                                      
+$AA 0E 13 02 MD521L                 -                                                                                                      
+$AA 0G 12 01 MD521N                 -                                                                                                      
+$AA 0D 12 01 MD521R                 -                                                                                                      
+$AA 0M 12 01 MD521S                 -                                                                                                      
+$AA 0M 13 02 MD521S                 -                                                                                                      
+$AA 07 12 01 MD524                  -                                                                                                      
+$AA 06 12 01 MD526                  -                                                                                                      
+$AA 0I 12 01 MD526A                 -                                                                                                      
+$AA 60 12 01 MDB43                  -                                                                                                      
+$AA 61 12 01 MDB46                  -                                                                                                      
+$AA 10 12 01 MDS410                 -                                                                                                      
+$AA 11 12 01 MDS411                 -                                                                                                      
+$AA 16 12 01 MDS412                 -                                                                                                      
+$AA 15 12 01 MDS42                  -                                                                                                      
+$AA 19 12 01 MDS43                  -                                                                                                      
+$AA CE 12 01 MDS450                 -                                                                                                      
+$AA 1C 12 01 MDS451                 -                                                                                                      
+$AA 14 12 01 MDS50                  -                                                                                                      
+$AA 18 12 01 MDS52                  -                                                                                                      
+$AA HX 44 01 MDSD60                 -                                                                                                      
+$AA 1E 12 01 ME1745                 -                                                                                                      
+$AA PK 12 01 MED172                 -                                                                                                      
+$AA PL 12 01 MEV172                 -                                                                                                      
+$AA PM 12 01 MEV175                 Prince TÜ                                                                                              
+$AA 1A 12 01 MKB_C                  -                                                                                                      
+$AA SC AB 01 MMC270                 MMC Decoder                                                                                            
+$AA AY 31 01 MMC65                  -                                                                                                      
+$AA PM 31 01 MMC70                  -                                                                                                      
+$AA DS 32 01 MMIC65                 -                                                                                                      
+$AA AZ 63 01 MMIGT8                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA AZ 34 01 MMIGT8                 MMI-Fond                                                                                               
+$AA SE AC 01 MMV270                 -                                                                                                      
+$AA KK 43 01 MPM60                  -                                                                                                      
+$AA TF 3C 01 MPODI1                 -                                                                                                      
+$AA NY 01 01 MRS656                 -                                                                                                      
+$AA GZ 01 01 MRSZ5                  -                                                                                                      
+$AA LM 01 01 MRSZT5                 -                                                                                                      
+$AA 12 12 01 MS40                   -                                                                                                      
+$AA 17 12 01 MS411A                 -                                                                                                      
+$AA RB 13 01 MS5150                 -                                                                                                      
+$AA 77 12 01 MSD70                  MDD70 f. N53; DME&HDEV integriert                                                                      
+$AA 33 12 01 MSD80                  -                                                                                                      
+$AA 66 12 01 MSD802                 -                                                                                                      
+$AA TP 12 01 MSD812                 -                                                                                                      
+$AA 99 12 01 MSD851                 -                                                                                                      
+$AA 32 12 01 MSDA70                 -                                                                                                      
+$AA 1B 12 01 MSS54                  -                                                                                                      
+$AA JZ 12 01 MSS60                  -                                                                                                      
+$AA JY 12 01 MSS65                  -                                                                                                      
+$AA K1 12 01 MSS70                  -                                                                                                      
+$AA 34 12 01 MSV70                  -                                                                                                      
+$AA MW 12 01 MSV80                  -                                                                                                      
+$AA 67 12 01 MSV801                 -                                                                                                      
+$AA 1D 12 01 MV1746                 -                                                                                                      
+$AA 2L 12 01 MV946                  -                                                                                                      
+$AA 3L 12 01 MVS946                 -                                                                                                      
+$AA B1 3B 01 NAVI65                 -                                                                                                      
+$AA MB 57 01 NIVI65                 NIVI65                                                                                                 
+$AA ND 8B 01 NVC65                  -                                                                                                      
+$AA B2 27 01 PA65                   -                                                                                                      
+$AA LW 64 01 PDC2                   -                                                                                                      
+$AA EQ 64 01 PDC60                  -                                                                                                      
+$AA B3 64 01 PDC65                  -                                                                                                      
+$AA GR 64 01 PDC81                  -                                                                                                      
+$AA KZ 27 01 PGS2                   -                                                                                                      
+$AA RE 27 01 PGS56                  -                                                                                                      
+$AA B4 43 01 PM_65                  -                                                                                                      
+$AA TS 0F 01 QSG71                  QSG                                                                                                    
+$AA KA 63 01 RA1CL2                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA JZ 63 01 RA1L2                  Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA TN 92 01 RA1VL2                 -                                                                                                      
+$AA KC 63 01 RA2CL2                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA KB 63 01 RA2ML2                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA KD 62 01 RA2SL2                 -                                                                                                      
+$AA MY 92 01 RA2VL2                 -                                                                                                      
+$AA TH 63 01 RACDL2                 -                                                                                                      
+$AA HE 63 01 RAD1                   -                                                                                                      
+$AA HF 63 01 RAD2                   -                                                                                                      
+$AA EB 3E 01 RADP1                  -                                                                                                      
+$AA KR 58 01 RADPF1                 -                                                                                                      
+$AA TI 62 01 RAGWL2                 -                                                                                                      
+$AA IN 37 01 RAMP1                  -                                                                                                      
+$AA EI 3F 01 RASCD1                 -                                                                                                      
+$AA TJ 92 01 RAVIL2                 -                                                                                                      
+$AA DY 65 01 RBZM1                  -                                                                                                      
+$AA UC 40 01 RCAS1                  -                                                                                                      
+$AA FU 40 01 RCAS2                  -                                                                                                      
+$AA DZ 73 01 RCC1                   -                                                                                                      
+$AA GG 74 01 RCCHL1                 CID Rear                                                                                               
+$AA UK 74 01 RCCHL2                 CID Rear                                                                                               
+$AA GH 75 02 RCCHR1                 CID Rear2                                                                                              
+$AA UL 75 02 RCCHR2                 CID Rear2                                                                                              
+$AA IT 3C 01 RCDC1                  -                                                                                                      
+$AA IH 42 01 RCIMD1                 -                                                                                                      
+$AA RX 70 01 RDC53                  -                                                                                                      
+$AA EG 20 01 RDC60                  -                                                                                                      
+$AA B6 20 01 RDC_65                 -                                                                                                      
+$AA GC 67 01 RECO1                  -                                                                                                      
+$AA GD 67 01 RECOF1                 -                                                                                                      
+$AA EU 38 01 REHC21                 -                                                                                                      
+$AA PB 77 01 RFK70                  -                                                                                                      
+$AA F1 78 01 RIHKA1                 -                                                                                                      
+$AA F9 6C 01 RKFS1                  -                                                                                                      
+$AA RJ 6C 01 RKFS2                  -                                                                                                      
+$AA EA 60 01 RKOMB1                 -                                                                                                      
+$AA JK 45 01 RLS260                 -                                                                                                      
+$AA 45 45 01 RLS60                  -                                                                                                      
+$AA A9 45 01 RLS65                  -                                                                                                      
+$AA F7 99 01 RMCGH1                 -                                                                                                      
+$AA F8 62 01 RMCGW1                 -                                                                                                      
+$AA EH 34 01 RMMIH1                 MMI-Fond                                                                                               
+$AA EC 63 01 RMMIV1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA F6 34 01 RMMJH1                 MMI-Fond                                                                                               
+$AA F5 63 01 RMMJV1                 Mensch Maschine Interface RMMI1 erweitert MMI-Front                                                    
+$AA NA 26 01 RSE70                  -                                                                                                      
+$AA NJ 7C 01 RSEH65                 -                                                                                                      
+$AA IW 4F 01 RTBH1                  -                                                                                                      
+$AA TB 4F 01 RTBHK1                 -                                                                                                      
+$AA TA 4D 01 RTBK1                  -                                                                                                      
+$AA IX 4D 01 RTBV1                  -                                                                                                      
+$AA IY 4E 01 RTFH1                  -                                                                                                      
+$AA TD 4E 01 RTFHK1                 -                                                                                                      
+$AA TC 4C 01 RTFK1                  -                                                                                                      
+$AA IZ 4C 01 RTFV1                  -                                                                                                      
+$AA FR 00 01 RZGM1                  -                                                                                                      
+$AA DC 03 01 SASL65                 -                                                                                                      
+$AA DD 04 01 SASR65                 -                                                                                                      
+$AA JG A1 01 SBL260                 -                                                                                                      
+$AA JI A1 01 SBL264                 -                                                                                                      
+$AA JH A2 01 SBR260                 -                                                                                                      
+$AA JJ A2 01 SBR264                 -                                                                                                      
+$AA FA 09 01 SBSL60                 -                                                                                                      
+$AA II 09 01 SBSL64                 -                                                                                                      
+$AA DI 09 01 SBSL65                 -                                                                                                      
+$AA HL A1 01 SBSL85                 -                                                                                                      
+$AA FB 0A 01 SBSR60                 -                                                                                                      
+$AA IJ 0A 01 SBSR64                 -                                                                                                      
+$AA DJ 0A 01 SBSR65                 -                                                                                                      
+$AA HM A2 01 SBSR85                 -                                                                                                      
+$AA BB 00 01 SCSL65                 -                                                                                                      
+$AA BC 00 01 SCSR65                 -                                                                                                      
+$AA HT 54 01 SDAR60                 -                                                                                                      
+$AA LG 54 01 SDAR65                 -                                                                                                      
+$AA F3 49 01 SEM167                 Security 1                                                                                             
+$AA F4 4A 01 SEM267                 -                                                                                                      
+$AA TT FF 01 SENSO1                 -                                                                                                      
+$AA FE 0E 01 SFZ60                  -                                                                                                      
+$AA DN 0E 01 SFZ65                  -                                                                                                      
+$AA GB 01 01 SGMS60                 -                                                                                                      
+$AA GA 00 01 SGMZ60                 -                                                                                                      
+$AA GI 7A 01 SH60                   -                                                                                                      
+$AA KQ 7A 01 SH6065                 -                                                                                                      
+$AA RW 44 01 SHD56                  -                                                                                                      
+$AA BI 44 01 SHD65                  -                                                                                                      
+$AA IR 7A 01 SHZ260                 -                                                                                                      
+$AA FF 7A 01 SHZH60                 -                                                                                                      
+$AA BJ 7A 01 SHZH65                 -                                                                                                      
+$AA FD 01 01 SIM60                  -                                                                                                      
+$AA DA 01 01 SIM65                  -                                                                                                      
+$AA HK A4 01 SIM85                  SIM                                                                                                    
+$AA 14 50 01 SINE                   -                                                                                                      
+$AA LE 12 01 SKH68                  .                                                                                                      
+$AA 91 1B 01 SKV10                  VVT Bank1 .                                                                                            
+$AA 92 1B 01 SKV20                  VVT Bank1 .                                                                                            
+$AA 92 1E 02 SKV20                  VVT Bank2 .                                                                                            
+$AA IQ 6D 01 SM6065                 Fahrersitz                                                                                             
+$AA IQ 69 02 SM6065                 Fahrerseite hinten .                                                                                   
+$AA IQ 6E 03 SM6065                 Beifahrersitz                                                                                          
+$AA IQ 6A 04 SM6065                 Beifahrerseite hinten .                                                                                
+$AA BL 6D 01 SM65                   Fahrersitz                                                                                             
+$AA BL 69 02 SM65                   Fahrerseite hinten .                                                                                   
+$AA BL 6E 03 SM65                   Beifahrersitz                                                                                          
+$AA BL 6A 04 SM65                   Beifahrerseite hinten .                                                                                
+$AA BM 00 01 SMK465                 -                                                                                                      
+$AA BN 00 01 SMM165                 -                                                                                                      
+$AA BO 00 01 SMM265                 -                                                                                                      
+$AA BP 00 01 SMM565                 -                                                                                                      
+$AA HG 6D 01 SMPL2                  Fahrersitz                                                                                             
+$AA HG 6E 03 SMPL2                  Beifahrersitz                                                                                          
+$AA SN 6D 01 SMPLX1                 Fahrersitz                                                                                             
+$AA SN 69 02 SMPLX1                 Fahrerseite hinten .                                                                                   
+$AA SN 6E 03 SMPLX1                 Beifahrersitz                                                                                          
+$AA SN 6A 04 SMPLX1                 Beifahrerseite hinten .                                                                                
+$AA CA 00 01 SMS065                 -                                                                                                      
+$AA CB 00 01 SMS365                 -                                                                                                      
+$AA CC 00 01 SMS565                 -                                                                                                      
+$AA NU 00 01 SPEG56                 -                                                                                                      
+$AA DH 08 01 SSBF65                 -                                                                                                      
+$AA DG 07 01 SSFA65                 -                                                                                                      
+$AA DM 0D 01 SSH65                  -                                                                                                      
+$AA HY AD 01 STLO85                 -                                                                                                      
+$AA HZ AE 01 STRO85                 -                                                                                                      
+$AA DE 05 01 STVL65                 -                                                                                                      
+$AA HV AD 01 STVL85                 -                                                                                                      
+$AA DF 06 01 STVR65                 -                                                                                                      
+$AA HW AE 01 STVR85                 -                                                                                                      
+$AA BF 35 01 SVS_65                 -                                                                                                      
+$AA IP 02 01 SZL260                 -                                                                                                      
+$AA NB 02 01 SZL360                 -                                                                                                      
+$AA F2 02 01 SZL60                  -                                                                                                      
+$AA DB 02 01 SZL65                  -                                                                                                      
+$AA HA 02 01 SZL81                  -                                                                                                      
+$AA QV 02 01 SZLL56                 -                                                                                                      
+$AA DU 65 01 SZM60                  -                                                                                                      
+$AA FS 65 01 SZM63                  -                                                                                                      
+$AA ZZ DD 01 SZME60                 -                                                                                                      
+$AA KR 4D 01 TBB65                  -                                                                                                      
+$AA KS 4F 01 TBHB65                 -                                                                                                      
+$AA BZ 4F 01 TBHH65                 -                                                                                                      
+$AA KW 4F 01 TBHK65                 -                                                                                                      
+$AA C7 4F 01 TBHL65                 -                                                                                                      
+$AA KV 4D 01 TBK65                  -                                                                                                      
+$AA BY 4D 01 TB_H65                 -                                                                                                      
+$AA C6 4D 01 TB_L65                 -                                                                                                      
+$AA EF 06 01 TEBF60                 -                                                                                                      
+$AA EE 05 01 TEFA60                 -                                                                                                      
+$AA UB 36 01 TELE15                 -                                                                                                      
+$AA EM 36 01 TELE60                 -                                                                                                      
+$AA GE 36 01 TELE65                 -                                                                                                      
+$AA BE 36 01 TELECE                 -                                                                                                      
+$AA EN 36 01 TELJ60                 -                                                                                                      
+$AA SW 36 01 TELU15                 -                                                                                                      
+$AA EO 36 01 TELU60                 -                                                                                                      
+$AA GF 36 01 TELU65                 -                                                                                                      
+$AA CD 36 01 TELUSA                 -                                                                                                      
+$AA KT 4C 01 TFB65                  -                                                                                                      
+$AA KU 4E 01 TFHB65                 -                                                                                                      
+$AA C1 4E 01 TFHH65                 -                                                                                                      
+$AA KY 4E 01 TFHK65                 -                                                                                                      
+$AA C9 4E 01 TFHL65                 -                                                                                                      
+$AA KX 4C 01 TFK65                  -                                                                                                      
+$AA C0 4C 01 TF_H65                 -                                                                                                      
+$AA C8 4C 01 TF_L65                 -                                                                                                      
+$AA ST 5D 01 TLC60                  -                                                                                                      
+$AA YX 00 01 T_SMA                  -                                                                                                      
+$AA YY 00 01 T_SMB                  -                                                                                                      
+$AA YZ 00 01 T_SMC                  -                                                                                                      
+$AA SV 36 01 ULF260                 -                                                                                                      
+$AA IS 36 01 ULF60                  -                                                                                                      
+$AA NF 39 01 VDM70                  -                                                                                                      
+$AA QP 19 01 VGSG70                 -                                                                                                      
+$AA KJ 34 01 VGSG83                 MMI-Fond                                                                                               
+$AA MN 19 01 VGSG90                 -                                                                                                      
+$AA C2 4B 01 VID65                  -                                                                                                      
+$AA EP 4B 01 VIDD65                 -                                                                                                      
+$AA CG 4B 01 VIDJ65                 -                                                                                                      
+$AA LC 4B 01 VMHDR1                 -                                                                                                      
+$AA LB 4B 01 VMHFB1                 -                                                                                                      
+$AA RH 4B 01 VMHJ1                  -                                                                                                      
+$AA RI 4B 01 VMVSW1                 -                                                                                                      
+$AA SS 48 01 VSJC70                 -                                                                                                      
+$AA C4 46 01 WIM_65                 -                                                                                                      
+$AA QJ 29 01 XABS1                  -                                                                                                      
+$AA TY 29 01 XABS2                  -                                                                                                      
+$AA JU 41 01 XDWA1                  -                                                                                                      
+$AA SI 41 01 XDWA2                  -                                                                                                      
+$AA JT 29 01 XIABS1                 -                                                                                                      
+$AA MM 29 01 XIABS2                 -                                                                                                      
+$AA JS 60 01 XKOMB1                 -                                                                                                      
+$AA MK 60 01 XKOMB2                 -                                                                                                      
+$AA ML 60 01 XKOMB3                 -                                                                                                      
+$AA TX 60 01 XKOMB4                 -                                                                                                      
+$AA MJ 47 01 XRAD1                  -                                                                                                      
+$AA MI 73 01 XRBT1                  -                                                                                                      
+$AA RK 41 01 XRDC1                  -                                                                                                      
+$AA QK 72 01 XZFEB1                 -                                                                                                      
+$AA JR 72 01 XZFEH1                 -                                                                                                      
+$AA JQ 72 01 XZFEL1                 -                                                                                                      
+$AA QU 67 01 ZBEH56                 Ergo Commander Front                                                                                   
+$AA EY 67 01 ZBEH60                 Ergo Commander Front                                                                                   
+$AA JP 67 01 ZBEHL2                 Ergo Commander Front                                                                                   
+$AA DU 67 01 ZBEL87                 Ergo Commander Front                                                                                   
+$AA JN 67 01 ZBELL2                 Ergo Commander Front                                                                                   
+$AA FC 00 01 ZGM60                  -                                                                                                      
+$AA C5 00 01 ZGM_65                 -                                                                                                      

@@ -1,0 +1,371 @@
+// Änderungsdokumentation: E52
+//
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer:   8 377 061.5
+//
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Tabpositionen:   1 (NAEL-Nummer)
+//                 15 (Index)
+//                 17 (geänderte/neue Tabellen)
+//                 22 (Datum)
+//                 33 (Kurzzeichen)
+//                 41 (Name)
+
+DATEINAME                       E52AEDOC.000
+
+//NAEL-Nr.  Index    Datum      Kurzz.  Name
+//              Tabellen        Kurzbeschreibung
+
+///////////////////////////////////////////////////////////////////////////////
+NAEL E6712.K  a      05.02.98   EE-92   Knöchel
+     EBG_1.K    AEDOC, SGFAM,   -Daten neu erstellt für 1. Baugruppe
+                ZST, CVT, SGET,  VN 8000000000
+                ZCSUT, CONF
+     EBG11.L    CVT             -Bremslicht und Blinker nicht gemeinsam
+                                 wegen Tarnumfang
+     EBG12.1         12.05.98   EE-92   Knöchel
+                MRS3.C08,SGET,  -MRS3 hinzu für Pulk2
+                ZST,CVT,ZCSUT
+                IHKS.C01,SGET,  -IHKS integriert
+                CVT,ZCSUT
+                DSC5_7.C10,CVT, -DSC3 integriert
+                SGET,ZCSUT,
+                SGFAM,CONF
+                CVT,ZCSUT,SGET  -IKE CI 02 hinzu für Pulk2
+     EBG12.2         15.07.98   EE-92   Knöchel
+                CVT             -LCM-Daten korrigiert nach CBD vom 19.05.98
+                CVT             -geänderte Codierung für DSC
+                CVT             -Individualisierung eingearbeitet
+     E6712.K         30.10.98   EE-92   Knöchel
+                LWR.C01,GT.C01, -folgende Steuergeräte wurden neu integiert:
+                ELV_E52.C01,     LWR (autom./dyn. Leuchtweitenregulierung)
+                ZCSUT,SGFAM,     GT  (Grafikteil Navigation)
+                SGET,CONF,CVT    ELV (Elektrische Lenkungsverriegelung)
+                LCM_E52.C18,    -neuer Versionsstände für Steuergeräte:
+                CVT,SGET         LCM, GM5, IKE, MRS3, IHKS
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3619.M  b      14.12.98   EE-92   Knöchel
+                CVT             -Einarbeitung Änderung der CBD LCM.C18
+                CVT             -Einarbeitung Änderung der CBD GM5.C01
+///////////////////////////////////////////////////////////////////////////////
+NAEL E3831.M  c      01.03.99   EE-92   Knöchel
+     M9901.M  c      07.01.99   EE-92   Knöchel
+                CVT             -LCM.C18: BLK_V_GEDIMMT_ALS_ERSATZ bei ECE auf
+                                 nicht_aktiv codiert
+     M9902.M  c      14.01.99   EE-92   Knöchel
+                CVT,SGET,SGFAM  -geänderte IKE_E52.C03 wurde eingearbeitet,
+                IKE_E52.C03      Codierablauf ist geändert: A_IKE52
+                CVT             -LCM: BL_UND_BLK_H_GEMEINSAM für ECE auf
+                                 nicht_aktiv gesetzt!
+     E3831.M  c      01.03.99   EE-92   Knöchel
+                CVT,DSC5_7.C10  -DSC5_7.C10: HBA_DSC_5_7 geändert von wert_02
+                                 auf wert_01 (unempfindlich)
+                SGET,SGVT,CVT,  -Integr. Graphikteil Codierindex 02 (GT.C02)
+                GT.C02
+                ZST, ZCSUT      -Ändern der BR-Referenz (1.Stelle GM-Schlüssel)
+                                 von 7 auf 9 (7 ist belegt von R40)
+                CVT,DSC5_7.C10  -DSC5_7.C10: ACC_DSC_5_7 neu hinzu
+///////////////////////////////////////////////////////////////////////////////
+NAEL EE446.M  d      14.05.99   EE-92   Knöchel
+                CVT             -Japan ohne Zeitinspektion (PN 8009/179)
+                CVT,CONF,SGFAM, -Steuerung US-Radio über SA 645
+                ZST,ZCSUT,SGET,  Steuerung Ozeanien-Radio über SA 825
+                RA_MIR.C01,      Integration Multi-Informations-Radio (MIR)
+                RA_CD43.C01      (oder ersatzweise Radio CD43)
+                CVT,ELV_E52.C01 -geänderte Daten für ELV
+                GM5.C02,SGET,   -neues GM5 Codierindex 02 integriert
+                SGVT,CVT
+                CVT,SGET,SGVT   -neue SG-Version IHKS_E52.C02 integriert
+                CVT,IKE_E52.C03 -geänderte Daten für IKE
+                CVT             -Codierung GURTSCHLOSS_FAHRER auf aktiv bei
+                                 SA845 (akust.Gurtwarnung)
+                SGET, CVT       -neues Airbag-SG integriert: MRS3.C10
+                CVT,IKE_E52.C03 -TANK_KENNLINIE auf 72_l_prozentskala
+                                 TANK_FILTER_FALLEND auf 1.9_l/min
+                                 TANK_FILTER_STEIGEND auf 1.4_l/min
+                                 KUEHLMITTELTEMP_FEHLER_x auf wert_01
+                                 KUEHLMITTELTEMP_WERT auf kennlinie_02
+///////////////////////////////////////////////////////////////////////////////
+NAEL E0E17.M  e      28.07.99   EE-62   Knöchel
+     M9903.M  e      07.07.99   EE-62   Knöchel
+                ZST             -Entfall LA 820 Brasilien (PN 8021/040)
+                CVT             -Geänderter Wert DBC (HBA_DSC_5_7 wert_03)
+                IKE_E52.C03     -Entfall nicht CAN-relevanter Angaben
+                CVT             -Anpassung Quittierungsfunktionen für
+                                 Codierung und Car&Key Memory (PN 8008/099)
+                CVT             -SCHEIBE_ABSENKZEIT wert_02 für Vorserie
+     E0E17.M  e      28.07.99   EE-62   Knöchel
+                CVT             -FSW im GM5 hinzu: KOMFORTOEFFNEN_FB_O_FH_HI,
+                                 KOMFORTOEFFNEN_FB_O_SHD
+                ZST,SGET        -SA837(Entfall Navi) und SA442(Getränkehalter)
+                                 neu hinzu (PN8252/018)
+                ZST,CVT         -SA851 Sprachversion Deutsch neu hinzu (PN 8003/093)
+                SGET,CVT        -Neue CBD LCM.C18, PSW's (ece_e52, us__e52) geändert,
+                                 U_POTI_STELLUNG_2 in wert_03 geändert
+////////////////////////////////////////////////////////////////////////////////
+NAEL M9904.M  f      03.08.99   EE-62   Knöchel
+     M9904.M  f      03.08.99   EE-62   Knöchel
+                CVT,ZST         -E-Wort BLSN (Bremslichtschalter nicht prüfen)
+                                 neu hinzu (siehe auch E 0E01.M)
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3E12.M  f      01.10.99   EE-62   Léonard
+                ZST c           -Neues E-Wort VS2 fuer alle 1. und 2. Vorserienfzg.
+                                -G-Zeile auf 0000000000 gesetzt.
+                CVT             Entfernen der Codieroptionen von Fzg. vor Funktionsbau
+                IKE_E52.C03     FSW entfallen
+                                -Adr. 1C-1D     HERSTELLERSPEZ_DATEN
+                                -Adr. 26-2A     GESCHW_GAL_GONG
+                                -Adr. 26-2A     GAL_LOW
+                                -Adr. 56:0      GFG_GONG
+                                FSW Werte geaendert
+                                -Adr. 59:0      DZM_AUF_AB_DAEMPFUNG      [h] FFh
+                                                  wert_01                     04h  <-  07h
+                                -Adr. 5B:0      TACHO_AB_DAEMPFUNG        [h] FFh
+                                                  wert_01                     09h  <-  07h
+                                -Adr. 5B:1      TACHO_AUF_DAEMPFUNG       [h] FFh
+                                                  wert_01                     ECh  <-  F6h
+                                -Adr. 5B:0      TACHO_AB_DAEMPFUNG        [h] FFh
+                                                  wert_01                     09h  <-  19h
+                LCM.C18         -Adr. 00'13     AL_ALS_DRL  aktiv bei LA 838 (Kanada) oder US + SA 896 (Tagfahrlicht)
+                                -Adr. 00'13     GED_FL_ALS_DRL nicht_aktiv alle E52
+                MRS3.C08        Stg. MRS3.C08 aus Codierdaten entfernt. Betroffene Dateien E52SGET,E52ZST
+                MRS3.C10        Neuer Crashparametersatz
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6E10.M  g      16.10.99   EE-62   Léonard
+                GM5.C01/C02     HUB_VERZOEGERUNG_FH_VORN ist auf aktiv zu codieren.
+                E52CVT.000
+                     10.11.99   Neues FSW (HYST_KOMPENSATION_TEMP)fuer IHKS statt UNBELEGT eingefuegt.
+                                betroffene Files : IHKS_E52.C02, E52cvt.000
+                     11.11.99   Entfall Einstiegshilfe ueber Schloss und Fernbedienung,als Car/Key-Memory nicht mehr auswaehlbar.
+                                wert_02 für SCHEIBE_ABSENKZEIT geaendert alt: 0100 neu: 0101
+                     19.11.99   Neue LWR-Daten E52 LWR.C03
+////////////////////////////////////////////////////////////////////////////////
+NAEL E8E18.M  h      17.12.99   EE-62   Léonard
+                                Neue CBD MIR.C01 integriert, alte RA_MIR.C01 ungueltig.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3003.N  i      28.01.00   EE-62   Léonard
+                                -FSW WEGSTRECKE_EINHEIT in WEG_EINHEIT im IKE_E52.C02/C03 und E52CVT.000
+                                 geaendert, wegen Vereinheitlichung Carmemory.
+                                -GT.C03 integriert.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3316.N  k      28.02.00   EE-62   Léonard
+                                -FSW LED_RUECKLICHT_OPTION im LCM.C18 neu hinzu.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3564.N  l      28.03.00   EE-62   Léonard
+                                -Neue SA 642 in E52ZST.000/M00 Index d integriert.
+                   GT.C02/C03   -Inhalt der gt.c03 wurde nach gt.c04 und gt.c02 nach gt.c03 kopiert.
+                                 Fuer gt.c03/c04 wird eine neue CABD A_GT3.ipo und CSGBD C_GT3.prg benoetigt,
+                                 wegen Timeout Erhoehung und senden von DIAGNOSE_ENDE nach der Codierung,
+                                 damit die in den RAM geschriebenen Daten ins EEprom uebernommen werden.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3838.N  m      20.04.00   EE-62   Léonard
+                   E52SGET.000  -Airbag-SG für die Codierung nach Abstimmung mit EE-212, Hr. Smuk, gesperrt.
+                                 Begründung: Der vorhandene Parametersatz kann von EG-22 wegen fehlender
+                                             Misuse-Tests nicht freigezeichnet werden.
+                                             Geänderte SGET ans Band am 12.04.2000      --> Haller
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE115.N  n      12.05.00   EE-62   Léonard
+                   MIR.C01	Maskenfehler in Adr 05 beseitigt. FFb nach FFh geaendert.
+                   E52SGET.000  Airbag-SG für die Codierung nach Abstimmung mit EE-212, Hr. Smuk, freigegeben.
+                                Nach Empfehlung durch EG-22 und EG-23 in Absprache mit EG-42 und G-2-S3 wird
+                                der Parametersatz 174/07/T07 freigezeichnet.
+
+////////////////////////////////////////////////////////////////////////////////
+NAEL BE192.N  o      26.05.00   EE-62   Léonard
+                   GM5.C01/C02  FUNK_INNENRAUMSCHUTZ nicht_aktiv fuer US-Fzg. ohne Kanada.
+                                Carmemory FUNK_INNENRAUMSCHUTZ deaktiviert fuer US ohne Kanada.
+                   MIR.C01      Neue Bedingung fuer Ozeanien im FSW RDS-AF_SWITCHING
+                                 -alt RDS-AF_SWITCHING rds_off fuer Ozeanien
+                                 -neu RDS-AF_SWITCHING rds_on/af_man fuer Ozeanien
+                                 Betroffene Dateien E52CVT.000 und MIR.C01
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE354.N  o      07.06.00   EE-62   Léonard
+                    LCM.C18     Neues FSW RL_INNEN_BLINKT
+                                Betroffene Dateien E52CVT.000 und LCM.C18
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE488.N  p      21.07.00   EE-62   Léonard
+                    LCM.C18     Neue Progammparameter fuer ECE und US
+                                Betroffene Datei LCM.C18
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE617.N  q      01.09.00   EE-62   Léonard
+                    ZST e       SA 986 integriert
+                    CVT         -KOMFORTOEFFNUNG_FB ab Band deaktiviert.
+                                -Carmemory KOMFORTOEFFNUNG_FB deaktiviert.
+                                -Carmemory KOMFORTSCHLIESSUNG_FB auch bei IR-Fernbed. deaktiviert.
+                    LCM.C18     Neue Programmparameter fuer ECE
+                                FG-NR AF77828,AF77829,AF77830
+                                Datei wurde noch auf die HO-CD 23.0 mit aufgenommen.
+                    LCM.C18     Neues FSW CHECK_FILL_CAP Adr. 12'14 integriert.
+                    MIR.C01     Fehlerbeseitigung in Adr. 04
+                                 RDS-AF_SWITCHING   00000111b
+                                   rds_on/af_man         001b war 011b.
+////////////////////////////////////////////////////////////////////////////////
+                    21.09.00   EE-62   Léonard
+                    CVT        ZUENDSCHLUESSEL_WARNUNG aktiv bei US oder SA845 Akust. Gurtwarnung
+                               Funktion fuer HO- CD 24.0 am 21.09.00 geaendert.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E4E65.N  r     08.12.00   EE-62 Léonard
+                    GM5.C02    Neue FSW's TAKTUNG_IB, FH_INIT_TRANSPORTMODE, ASF_PARAMETER_VARIANTE, KOMFOEFFNEN_SPERRE_KEY_IN
+                                          TAKTUNG_VERBRAUCHERABSCHA, IB_SPERRE_BEI_FEHLER integriert.
+                               Betr. Dateien GM5.C02, E46CVT.000, SWT?SW.DAT
+////////////////////////////////////////////////////////////////////////////////
+NAEL N6E96.N  s     25.01.01   EE-82 Léonard
+                    ZST f      -Integration SA 775 Individual Dachhimmel Anthrazit
+                               -Entfall E-Wort VS2
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3566.P  t     30.03.01   EE-82 Léonard
+                    GM5        Aenderung der ZEIT_TUER/SCHLIESSZEIT auf wert_02 (400ms auf 650ms)
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3921.P  u     04.07.01   EE-82 Léonard
+                               Administrative Aenderung,Freigabe Codierdatenblatt
+////////////////////////////////////////////////////////////////////////////////
+NAEL E4E98.P  v     17.10.01   EE-82 Léonard
+                    ZST g      SA 802 LA Korea wird ab 03/02 codierrelevant. Steuerung ueber A-Wort
+                    CVT        FH_FAHRERTUER_TIPP_ZU   EINKLEMMSCH_REVERSIEREN    //[l] Tippfunktion zu b. Fahrertuer
+                                  nicht_aktiv            lang                       //E52+Korea
+                                  aktiv                  kurz                       //alle anderen
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEC75.P  w     19.12.01   EE-82 Léonard
+                    GM5.C04    GM5.C04 integriert.
+                    E52ZST     Neues E-Word PU02 integriert.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3307.R  x     15.12.01   EE-82 Léonard
+                    E52ZST     -SA 908 Spoc (Shortest possible order cycle integriert.
+                               -SA 920 Alpina integriert.
+                    IKE_E52    Alpina Codierung integriert.
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3862.R  y     28.03.02   EE-82   Ralf Hahn (07.03.02) (DIS-CD V30.0)
+                    SGET, SGVT -Neues Steuergerät DSC5_7.C18 [I8504.P] für Alpina Fahrzeuge integriert
+                               EE-82   Ralf Hahn (19.03.02)
+                    IKE_E52    -SIA_LITER_GRENZE für Alpina hinzu [E3723.R]
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEJ90.R  z     28.06.02   EE-82   Ralf Hahn (DIS-CD V31.0)
+                    GM5.C04   -Aenderungen der CBD GM5.C04[EED32R] in E52CVT eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEN13.R aa     26.07.02   EE-82   Ralf Hahn (DIS-CD V31.0)
+                    GM5.C04   -Aenderungen der CBD GM5.C04[EEM99.R] in E52CVT eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EES12.R ab     18.09.02   EE-82   Ralf Hahn (DIS-CD V32.0)
+                    GM5.C04   -Aenderungen der CBD GM5.C04[EEW51.R] in E52CVT eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEZ69.R ac     15.11.02   EE-82   Ralf Hahn
+                    ZST       -Neues E-Wort LCM4 fuer LCM.C20 mit integrierter LWR
+                    LCM.C20   -LCM.C20 integriert, nicht aktiv in SGET
+                    GT.C04    -ueberarbeitete CBD GT.C04[BE515.R] eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EE564.R ad     22.01.03    EE-82   Ralf Hahn
+                    LCM.C20    -CBD LCM.C20[EE976 R] integriert, nicht aktiv in SGET
+             LCM[E3594.S]      -ueberarbeitete CBD LCM.C20[E3594.S] eingearbeitet
+             ZST               -SA0964 NAVI DVD bei Auslieferung anfordern, integriert
+             GT[E3683.S]       -ueberarbeitete CBD GT.C04[E3683.S] eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEC07.S ae     26.03.03    EE-62   Ralf Hahn
+             GT[E3680.S]       -CBD GT.C05[E3680.S] in E52CVT eingearbeitet
+             LCM[EEA17.S]      -ueberarbeitete CBD LCM.C20[EEA17.S] eingearbeitet
+             LCM[EED09.S]      -CBD LCM.C21[EED09.S] in E52CVT eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL EEG24.S af     27.06.03    EE-62   Ralf Hahn
+             LCM[EEU68.S]      -ueberarbeitete CBD LCM.C21[EEU68.S] eingearbeitet
+             GM5.C04[EEU86.R]  -CBD GM5.C04[EEU86.R] Stand aktualisiert
+////////////////////////////////////////////////////////////////////////////////
+NAEL E3E09.S ag     02.10.03    EE-62   Ralf Hahn
+             GM5.C04[EE824.S]  -ueberarbeitete CBD GM5.C04[EE824.S] eingearbeitet
+             LCM[E2E50.S]      -CBD LCM.C21[E2E50.S] Stand aktualisiert
+             LWS5[EFN99.S]     -CBD LWS5.C01[EFN99.S] Stand aktualisiert
+             GM5.C05[EE824.S]  -CBD GM5.C05[EE824.S] in E52 CVT eingearbeitet
+             LCM[EE036.S]      -CBD LCM.C22[EE036.S] in E52 CVT eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL E6P47.S ah     11.12.03    EE-62   Ralf Hahn (DIS-CD V37.0)
+             GM5.C05[E4E77.S]  -ueberarbeitete CBD GM5.C05,C04[E4E77.S] eingearbeitet
+             GM5.C04[E7E80.S]  -CBD GM5.C04[E7E80.S] Stand aktualisiert
+             LWS5[EFT89.S]     -CBD LWS5.C01[EFT89.S] Stand aktualisiert
+             GM5.C05[E6P14.S]  -CBD GM5.C05[E6P14.S] Stand aktualisiert
+             GT.C05            -neue SGBD NAVMK4
+             LCM[E6E13.S]      -ueberarbeitete CBD LCM.C21,C22[E6E13.S] eingearbeitet
+////////////////////////////////////////////////////////////////////////////////
+NAEL E0000.T aj     08.04.04    EE-42   Bernhard Haller
+             GM5.C05[EES14T]   -ueberarbeitete CBD GM5.C05[EES14T] eingearbeitet
+             LCM.C21[EER70T]   -ueberarbeitete CBD LCM.C21[EER70T] eingearbeitet
+             LCM.C22[EER69T]   -ueberarbeitete CBD LCM.C22[EER69T] eingearbeitet
+             LCM.C23[EER71T]   -CBD LCM.C23[EER71T] als Ersatzteil neu hinzu
+////////////////////////////////////////////////////////////////////////////////
+NAEL E0001.T ak     08.04.04    EE-42   Bernhard Haller
+             LCM.C23[EE622T]   -ueberarbeitete CBD LCM.C23[EE622T] eingearbeitet
+                                ohne Auswirkung auf den E52, 
+                                neues FSW wegen Gleichteil mit E53
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0002.T al     12.10.04    EE-42   Stefan Miehling
+             LCM.C21[EG420T]   -überarbeitete CBD LCM.C21[EG420T] integriert
+             LCM.C22[EG421T]   -überarbeitete CBD LCM.C22[EG421T] integriert
+             LCM.C23[EG422T]   -überarbeitete CBD LCM.C23[EG422T] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0003.T am     22.12.04    EE-42   Stefan Miehling
+             GM5.C05[ENE94T]   -überarbeitete CBD GM5.C05[ENE94T] integriert
+             GT.C06[EG898T]    -neue CBD GT.C06[EG898T] integriert
+             LCM.C24[ENG33T]   -neue CBD LCM.C24 [ENG33T] integriert
+             GM5.C04[ENV56T]   -überarbeitete CBD GM5.C04[ENV56T] integriert
+             GM5.C05[ENV56T]   -überarbeitete CBD GM5.C05[ENV56T] integriert
+             LCM.C24[ENS57T]   -überarbeitete CBD LCM.C24 [ENS57T] integriert
+             LCM.C24[ENZ85T]   -überarbeitete CBD LCM.C24 [ENZ85T] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0004.T an     07.04.05    EE-42   Stefan Miehling Freigabe HO-CD42.0
+             SGET SGVT         -neue CBD GT.C07[EEA96U] integriert
+             GT.C07[EEA96U]    -neue CBD GT.C07[EEA96U] integriert 
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0005.T ao     04.07.05    EE-42   Stefan Miehling Freigabe HO-CD43.0
+             GM5.C05[q]        -überarbeitete CBD GM5.C04[EGC50U] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL E0006.T ap     30.01.05    EE-42   Stefan Miehling / Konstantin Diek Freigabe ProgMan 21.0
+             GM5.C05[s]        -überarbeitete CBD GM5.C05[ENF24U] integriert
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 009072aq aq   31.10.05   EE-42   Konstantin Diek
+  01.03.06   GM5.C05[t]        -überarbeitete CBD GM5.C05 [EEB79.V] integriert.
+  18.04.06   GM5.C05[u]        -überarbeitete CBD GM5.C05 [EET18.V] integriert.
+  09.05.06   GT.C07[b]         -überarbeitete CBD GT.C07 [EEZ45.V] integriert.
+  25.07.06   GM5.C05[v]        -überarbeitete CBD GM5.C05 [EGK26.V] integriert.
+  18.09.06   GT.C08[a]         -neues CI 08 [EGU12.V] integriert.
+  17.10.06   GT.C08[b]         -überarbeitete CBD GT.C08 [ENA51.V] integriert.
+  23.10.06  HO                E52_CONF.BAP                - folgende Zeilen angepasst:
+                                                          ; Dateiname der Fahrzeugauftragstabelle
+                                                          AT:      -
+  25.10.06   GM5.C05[w]        -überarbeitete CBD GM5.C05 [ENE63.V] integriert.
+///////////////////////////////////   DVD 24.0   //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+NAEL 009072ar ar   xx.xx.07   EE-42   Konstantin Diek (DI) / Olivella-Stern (OS) / Bernhard Haller (HA)
+//   Datum   |SB|I-Stufe EWE |HO-rel.|SGFAM| Datei-Name  | NAEL , AEI | Kommentar
+     20.11.06 DI                      GM5    GM5.C05      [ENL78.V, x] -Keine Änderung für E52
+     20.11.06 DI                      GT     GT.C08       [ENR72.V, c] -Keine Änderung für E52
+     06.02.07 OS                      LCM    LCM.C24      [E3978.W, d] -Keine Änderung für E52
+     06.02.07 OS                      GM5    GM5.C05      [EEE91.W, y] -Keine Änderung für E52
+     21.06.07 OS                                                       - LCM CI 20-24 Bitmaske für GETRIEBE_UEBERTEMP korrigiert
+     16.06.08 HA                      GM5    GM5.C06      [EE636.X, a] -für Ersatz neu hinzu
+///////////////////////////////////ISTA/P V31.0////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+ToDo:       Bei geänderten CBD'en E-Nummer angeben mit der sie Freigegeben wurde, erspart Rückfragen
+            8 377 061.5, Codierdaten E52    8377061
+            Zeichnungsindex i nicht Verwenden
+
+-Maximale Länge für TAIS            |
+ 8 377 061.5, Codierdaten E52
+-ueberarbeitete CBD GM5.C05,C04
+ (E4E77.S) eingearbeitet
+-CBD GM5.C04(E7E80.S)
+ Stand aktualisiert
+-CBD LWS5.C01(EFT89.S)
+ Stand aktualisiert
+-CBD GM5.C05(E6P14.S)
+ Stand aktualisiert
+-neue SGBD NAVMK4
+-ueberarbeitete CBD LCM.C21,C22
+ (E6E13.S) eingearbeitet

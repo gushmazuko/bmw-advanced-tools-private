@@ -1,0 +1,63 @@
+Version Checker Version 2.6
+
+	Configuration file "C:\EDIABAS\VC.INI":
+
+	ErrorLevel = 1
+	IgnoreTimeShift = 1
+
+Comparing installation **1** "C:\EDIABAS\VERSIONS.DEF"
+     with installation **2** "C:\EDIABAS":
+
+=======================================================================
+
+Package EDIABAS_BMW (BMW_BIN.PID, Version 7.3.0_Package_1.0 by BMW Group):
+
+	BIN\MFC71.DLL  (Version 7.10.3077.0)
+		==> WARNING: MFC71.DLL found in "C:\Windows\system32"
+	BIN\MSVCP71.DLL  (Version 7.10.3077.0)
+		==> WARNING: MSVCP71.DLL found in "C:\Windows\system32"
+	BIN\MSVCR71.DLL  (Version 7.10.3052.4)
+		==> WARNING: MSVCR71.DLL found in "C:\Windows\system32"
+	BIN\REGSVR32.EXE  (Version 5.00.1641.1 / 5.0.1641.1)
+		==> WARNING: REGSVR32.EXE found in "C:\Windows\system32"
+
+Package EDIABAS_BMW (BMW_HW.PID, Version 7.3.0_Package_1.0 by BMW Group):
+
+	HARDWARE\OMITEC\DRIVER\REGSVR32.EXE  (Version 5.1.2600.0 (XPClient.010817-1148) / 5.1.2600.0)
+		==> WARNING: REGSVR32.EXE found in "C:\Windows\system32"
+
+Package EDIABAS_BMW (BMW_REST.PID, Version 7.3.0_Package_1.0 by BMW Group):
+
+
+Package EDIC-BMW (EDIC.PID, Version 7.54a (7.3.0_Package_1.0) by Copyright Softing AG):
+
+
+Package EDIABAS_Softing (SOFTING.PID, Version 7.3.0_Package_1.0 by BMW Group, created by Softing AG):
+
+
+Package independent files:
+
+	-
+
+
+WARNING: Additional files found **2**:
+
+	BIN\63477BC6.BMW  [02/03/2012 13:51:18  284 Bytes]
+	BIN\63477BC6.SOFTING  [11/29/2011 12:30:20  64 Bytes]
+	BIN\EDIABAS.INI  [02/21/2012 10:28:39  26252 Bytes]
+	BIN\FUNK_1.INI  [05/05/2008 15:27:50  2666 Bytes]
+	BIN\FUNK_2.INI  [05/05/2008 15:28:00  2666 Bytes]
+	BIN\RPLUS.INI  [03/24/2011 15:27:03  566 Bytes]
+	BIN\XEDICC.INI  [11/28/2000 19:11:51  183 Bytes]
+	TRACE\FT_ERRORS@MMUC414917.LOG  [02/22/2012 08:06:38  142 Bytes]
+	TRACE\FT_V24@MMUC414917.LOG  [02/22/2012 08:06:32  0 Bytes]
+	TRACE\IFH.TRC  [12/13/2002 09:12:03  0 Bytes]
+
+=======================================================================
+
+Summary:
+
+	Installation		:	ORIGINAL
+
+	Version differences	:	0
+

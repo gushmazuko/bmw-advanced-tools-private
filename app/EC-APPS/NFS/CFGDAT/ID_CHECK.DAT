@@ -1,0 +1,47 @@
+; ID_CHECK.DAT
+;
+; Liste der zwingend verbauten Steuergeräteadressen und 
+; der Steuergeräteadressen bei denen der AIF-Eintrag systematisch fehlerhaft ist
+;
+; Datenformat einer Zeile:
+;
+; 1. Integrationsstufe EXXX-XX-XX-XXX
+;    alphanumerisch 14-stellig                  Wildcard ? erlaubt
+;
+;    Integrationsstufe XX.XXXX ( altes Format )
+;    alphanumerisch 4 bis 7-stellig             Wildcard ? erlaubt
+;
+; 2. SG-Adresse 2-stellig hex
+;
+; 3. Typschlüssel T + 4-stellig alpanumerisch   Wildcard ? erlaubt  Negation ! erlaubt
+;    Mehrere Typschlüssel werden und-verknüpft
+;
+; 4. Sonderausstattung S + 3-stellig numerisch  Wildcard ? erlaubt  Negation ! erlaubt
+;    Mehrere Sonderausstattungen werden und-verknüpft
+;
+; 5. Existiert E
+;    Steuergerät ist zwingend verbaut
+;
+; 6. AifEingriff A
+;    Steuergerät hat einen systematisch falschen AIF-Eintrag
+;
+;
+;
+
+[MUSTER]
+????-??-??-???      0F     TAB?? T!AB44  S2?? S!201 S400 Existiert AifEingriff
+
+????-??-??-???      02     T????
+; SG-Adresse 02 ist bei beliebiger Integrationsstufe ( immer )
+; und beliebigem Typschlüssel ( immer ) verbaut
+;
+
+[E65]
+
+[E60]
+
+[RR1]
+
+[E89X]
+
+; EOF

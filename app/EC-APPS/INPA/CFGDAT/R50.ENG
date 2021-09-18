@@ -1,0 +1,80 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei R50.ENG
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 31.05.1999 rd V0.01 Erstellung
+//* 13.06.2001 rd V1.00 Freigabe
+//* 12.12.2001 sk V1.01 DSP hinzugefügt
+//* 27.03.2002 rd V1.02 rls_ds2 hinzugefügt
+//* 28.03.2002 rd V1.03 nav_jap hinzugefügt
+//* 25.03.2002 rd V1.04 Diesel neu
+//* 13.11.2002 rd V1.05 cvm neu
+//* 28.02.2003 rd V1.06 NAV_JAP Name gleichgezogen mit allen BR
+//* 31.10.2003 mp V1.07 OC3 hinzu
+//* 16.02.2004 rd V1.08 Umstellung auf 32-Bit INPA
+//* 23.06.2004 rd V1.09 AISIN Getriebe hinzu
+//* 07.09.2004 GA V1.10 MRS5K dazu
+//* 13.10.2004 rd V1.11 Telefon dazu
+//* 04.11.2004 GA V1.12 D60TMCA dazu
+//* 15.11.2004 GA V1.13 EMS5150 dazu
+//* 27.06.2005 GA V1.14 RDC_53 dazu
+//* 28.03.2006 GA V1.15 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select R50 V1.15
+ENTRY=     R50,R50 Ident and error memory,
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   EMS2K,EMS2K, EMS5150 for Pentagon,
+ENTRY= D40TMCA,DDE40 for W17,
+ENTRY= D60TMCA,DDE6  for R50 W17 TMC EU4,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsf21,AISIN,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= dscmk60,DSC MK60,
+ENTRY= ehpsr50,Power Steering,
+ENTRY=    lws5,Steering Angle Sensor,
+ENTRY=     dws,Deflation Warning System,
+ENTRY=RDC_GEN2,Tire Pressure Monitoring,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag MRS4 KWP2000,
+ENTRY=   mrs5k,Airbag MRS5K,
+ENTRY=     OC3,Seat Occupation Recognition US vehicle OC3,
+ENTRY=     ews,Immobiliser,
+ENTRY= ihkar50,Automatic Temp. Control,
+ENTRY=kombir50,Instrument Pack,
+ENTRY=   lwr2a,Headlamp Levelling,
+ENTRY=  mflr50,MFL Steering Switches,
+ENTRY=     pdc,Park-Distance-Control,
+ENTRY=     aic,Rain Sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=   shd46,Sunroof,
+ENTRY=     bc1,Body and Lights BC1,
+ENTRY= xenon_l,Xenon Lights left,
+ENTRY= xenon_r,Xenon Lights right,
+ENTRY= cvm_R52,Convertible soft top module CVM,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication Systems
+ENTRY= bmbtr50,Display and Controls,
+ENTRY=    navi,Navigation,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=videomod,TV / Video Module,
+ENTRY= DSP_R50,Digital sound processor,
+ENTRY= telefon,Telephone,
+

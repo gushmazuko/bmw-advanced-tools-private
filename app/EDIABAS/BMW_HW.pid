@@ -1,0 +1,75 @@
+;{{00031085}} Created by PSIGN 2.6 - Do not modify this file !
+[Package]
+Title = EDIABAS_BMW
+Description = EDIABAS HARDWARE (Umfang BMW: CAN, EDICC, ENET, FUNK, OBD, OMITEC)
+Version = 7.3.0_Package_1.0
+Manufacturer = BMW Group
+Language =
+
+[Files]
+;*** CAN ***
+;    =HARDWARE\CAN\RELEASE_NOTES_CANDRIVER_EDIABAS.pdf   # künftig nicht mehr Bestandteil des Lieferpakets !
+;    =HARDWARE\CAN\Setup.exe                             # künftig nicht mehr Bestandteil des Lieferpakets !
+
+;*** EDICC ***
+File1=HARDWARE\EDICC\XEDICC.pdf
+
+;*** ENET ***
+File2=HARDWARE\ENET\Anleitung EDIABAS-Ethernet.pdf
+File3=HARDWARE\ENET\ENET_Doku.pdf
+File4=HARDWARE\ENET\MSWINSCK.ocx
+File5=HARDWARE\ENET\ZGW_SEARCH.exe
+
+;*** FUNK ***
+File6=HARDWARE\FUNK\Funk-Treiber Dokumentation V6_5_01_10.pdf
+
+;*** OBD ***
+File7=HARDWARE\OBD\OBD_DOKU.PDF
+;*** USB-OBD ***
+File8=Hardware\OBD\FTDI_USB_DRV\FTBUSUI.dll
+File9=Hardware\OBD\FTDI_USB_DRV\FTCSERCO.dll
+File10=Hardware\OBD\FTDI_USB_DRV\FTD2XX.dll
+File11=Hardware\OBD\FTDI_USB_DRV\FTDIBUS.inf
+File12=Hardware\OBD\FTDI_USB_DRV\FTDIBUS.sys
+File13=Hardware\OBD\FTDI_USB_DRV\FTDIPORT.INF
+File14=Hardware\OBD\FTDI_USB_DRV\FTLANG.dll
+File15=Hardware\OBD\FTDI_USB_DRV\FTSER2K.SYS
+File16=Hardware\OBD\FTDI_USB_DRV\FTSERUI2.dll
+
+;*** OMITEC ***
+File17=Hardware\OMITEC\AnleitungfuerOMITECInstallation.pdf
+File18=Hardware\OMITEC\InstructionforOMITECInstallation.pdf
+File19=Hardware\OMITEC\omitec_doku.pdf
+File20=Hardware\OMITEC\Driver\FTDIProgrammer.exe
+File21=Hardware\OMITEC\Driver\OmiBMWUpdater.exe
+File22=Hardware\OMITEC\Driver\OmiIHexTrans.dll
+File23=Hardware\OMITEC\Driver\OmiPT32.dll
+File24=Hardware\OMITEC\Driver\OmiPTConfig32.exe
+File25=Hardware\OMITEC\Driver\OmiPTDev1_32.dll
+File26=Hardware\OMITEC\Driver\OmiPTDev2_32.dll
+File27=Hardware\OMITEC\Driver\OmiPTDev3_32.dll
+File28=Hardware\OMITEC\Driver\OmiPTDev4_32.dll
+File29=Hardware\OMITEC\Driver\OmitecCheckRegistry.exe
+File30=Hardware\OMITEC\Driver\OMITECDriverVersionCheck.exe
+File31=Hardware\OMITEC\Driver\OMITECFirmwareUpdater.exe
+File32=Hardware\OMITEC\Driver\OmiUpdaterRes0407.dll
+File33=Hardware\OMITEC\Driver\registry_C.reg
+File34=Hardware\OMITEC\Driver\registry_C_EC_APPS.reg
+File35=Hardware\OMITEC\Driver\REGSVR32.BAT
+File36=Hardware\OMITEC\Driver\REGSVR32.EXE
+File37=Hardware\OMITEC\Driver\vcredis1.cab
+File38=Hardware\OMITEC\Driver\vcredist.msi
+File39=Hardware\OMITEC\Firmware\BMW EDIABAS.H86
+File40=Hardware\OMITEC\Firmware\BMW EDIABAS\P14001\P14001.xml
+File41=Hardware\OMITEC\Firmware\BMW EDIABAS\P14001\FW\BMW_EDIABAS_503\Binaries\BMW EDIABAS.H86
+File42=Hardware\OMITEC\FTDI_USB_DRV\FTBUSUI.dll
+File43=Hardware\OMITEC\FTDI_USB_DRV\FTD2XX.dll
+File44=Hardware\OMITEC\FTDI_USB_DRV\FTDIBUS.inf
+File45=Hardware\OMITEC\FTDI_USB_DRV\FTDIBUS.sys
+File46=Hardware\OMITEC\FTDI_USB_DRV\FTLANG.dll
+
+;*** OPPS ***
+File47=Hardware\OPPS\OPPS Browser.exe
+
+
+; EOF

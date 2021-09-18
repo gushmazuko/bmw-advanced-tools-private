@@ -1,0 +1,18 @@
+; ------------------------------------------------------------
+; MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer M3_1.HIS bzw. MS40.HIS
+; Autor: Stei
+; Datum: 06.04.93
+; Aenderungen:
+; 21.11.94   Ta   SG-Nummer neu
+; 24.02.97   Le   KFP10.0: SG-Nummer %2XB -> %2S
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; Historiendateizeile: ZBNR-Alt,ZBNR-Neu,Freigabekennung,SG-Nummer
+; z.B.: 1735826,1738122,01,08
+M "%7L"
+F "%7L,%7L,%2B,%2S"
+N "ZBALT,ZBNEU,FREI,SGNR"
+; ENDE

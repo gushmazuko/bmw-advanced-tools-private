@@ -1,0 +1,1771 @@
+;Tabelle: E39ZST.000                 Index: bs  vom: 04.10.11     NAEL: E4E89.P
+I bs
+U 20111004082024
+V E39ZST.000
+;
+;Stand:  Fahrzeugbeschreibung E39               Ausgabe 1 v. 19.03.01
+;Stand:  Fahrzeugbeschreibung E39 Länder        Ausgabe 3 v. 29.06.01
+;Stand:  Fahrzeugbeschreibung E39/2             Ausgabe 3 v. 11.12.00
+;Stand:  Fahrzeugbeschreibung E39/2 US          Ausgabe 1 v. 29.06.01
+;Stand:  Fahrzeugbeschreibung E39/3 + Länder    Ausgabe 1 v. 05.08.96
+;Stand:  Schlüsselnummernverzeichnis  Okt 00
+;Stand:  Statusbericht 06/01 v. 02.07.01
+;
+;
+;Schl        GM-Schl. SA-Schlüssel     VN-Schl.  FG ASW Beschreibung
+;*******************************************************************************************
+B ZUSATZ      //Neue Bereichskennung für ZEKO!!
+;
+;Historie Grundversionsnummer (GVN)
+H GVN  N0695 00000000 0000000000000000 0000000000 0     //2.VS (LCM CI 14h, Kombi CI 03h)
+H GVN  N0995 00000000 0000000000000040 0000000000 1     //Anlaufserie (FGR2 CI 04h, ASC in Serie)
+H GVN  N1095 00000000 0000000000000040 0000000040 1     //Einsatz KMB CI 04h
+H GVN  N0396 00000000 0000000000000040 0000002060 1     //März '96 Maßnahmen + ZAE2
+H GVN  N0496 00000000 0000000000000040 0000002460 1     //LCM CI 15
+H GVN  N0796 00000000 0000000000000040 0000002560 1     //EWS CI 02
+H GVN  N0996 00000000 0000000000000044 000003A7E4 1     //PU '96 Maßnahmen, IHKA.C02, LWR3, ZAE2.C05, LCM.C16
+H GVN  N0397 00000000 0000000000000044 000023E7F4 1     //März '97 Maßnahmen, FGR2.C05, IHKA.C03
+H GVN  N0997 00000000 0000000000001044 00007FE7F6 1     //PU'97 Maßnahmen, KMB.C05, KMBI.C11, MRS2.C07, TV2.C02
+H GVN  N0398 00000000 0000000000001044 00087FE7F6 1     //Ultraschallinnenraumschutz
+H GVN  N0698 00000000 0000000000001044 00297FE7F6 1     //PDC CI 02h, DSP CI 01h
+H GVN  N0998 00000000 0000000000001044 00AFFFFFF6 1     //PU'98 Maßnahmen, LWR, CAN, KMB.C06, KMBI.C12, LCM.C18, IHKR_E39.C10
+H GVN  N0399 00000000 0000000000001044 00EFFFFFF6 1     //März '99 Maßnahmen, MRS3.C10, ZHZ.C01, (GT.C02)
+H GVN  N0999 00000000 0000000000001044 005D50E880 1     //PU'99 Maßnahmen, HKM.C01, PDC.C03, (GT.C02)
+H GVN  N0300 00000000 0000000000001044 005D50E882 1     //März '00 Maßnahmen, HKM.C01, PDC.C03, (GT.C02)
+;H GVN  N0300 00000000 0000000000000004 0010000080 1     //Recycling aller bisherigen Serienbits (im Werk erst aktivieren, wenn CD21 in HO)
+H GVN  N0400 00000000 0000000000000004 0010000082 1     //März '00 Maßnahmen
+H GVN  N0900 00000000 0000000000000004 1010000082 1     //PU'00 Maßnahmen
+H GVN  N0901 00000000 0000000000000004 1010000882 1     //PU'01 Maßnahmen
+H GVN  N0302 00000000 0000000000000004 1010001882 1     //März 2002-Maßnahmen
+H GVN  N0902 00000000 0000000000000004 1010003882 1     //PU'02 Maßnahmen
+H GVN  N0303 00000000 0000000000000004 1010103882 1     //März 2003-Maßnahmen
+H GVN  N0903 00000000 0000000000000004 1010107882 1     //PU2003-Maßnahmen
+;H GVN  N0502 00000000 0000000000000004 1010008000 1     //LCM4, variabler Einsatztermin
+;
+;Aktuelle Grundversionsnummer (GVN)
+G            00000000 0000000000000004 1010107882 1     //=PU03
+H E39  N0695 00000000 0000000000000000 0000000000 1 E39 //Baureihe E39
+;
+;Ehemalige zeitbedingte E-Worte (für ZEKO ein-/ausgeblendet)
+H S430 N0996 00000000 0000000000000200 0000000000 1 SPIEGELPAKET //bei SA430 und 528i/535i/540i/SA940 ab PU96 bis PU97
+H S430 N0997 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H CAN  N0995 00000000 0000000000000000 0000000800 1 CAN //CAN: M62 ab PU97, M52/M51 ab PU98
+H CAN  N0998 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H S202 N0296 00000000 0001000000000000 0000000000 1 SCHRITTSCHALT //(DD61/62 ab 03/96, DD41/42 ab 09/96, DH41/42,DH61/62) ohne J, ZA, SA963
+H S202 N0998 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H S261 N0699 00000000 0000000000400000 0000000000 1 FOND_AIRBAG //Seitenairbag hinten bei SA261+!US (nicht f. US) //entfällt ab PU00
+H S261 N0900 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;H BLSN N1198 00000000 2000000000000000 0000000000 1 BLS_KORR //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98 -
+;H BLSN N0300 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MYDY N0999 00000000 0000000000000000 0010000040 1 MAYDAY    //Mayday-Modul US ab 09/2000 und rückwirkend
+;
+;Steuergeräte, die durch SA oder Typ bestimmt sind (für ZEKO ausgeblendet)
+H IKE  N0695 00000000 0000000000000000 0000000001 1 IKE //IKE statt Kombi
+H IKE  N0695 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H ASC8 N0695 00000000 0000000000000000 0000000008 1 ASC5_M51 //ASC5 mit CI 08h für M51
+H ASC8 N0695 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MRSZ N0396 00000000 0000000000000000 0000000080 1 MRSZ //MRSZ CI 04h
+H MRSZ N0396 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H S508 N0397 00000000 0000000000200000 0000000000 1 PDC //ab 03/97 für E39/2 + SA508
+H S508 N0398 00000000 0000000000000000 0000000000 1  //ab 03/98 für alle E39 SA-gesteuert (SA508)
+H BMR  N0900 00000000 0000100000000000 1000000000 1 BM_RADIO //NG-BM-Radio
+H BMR  N0900 00000000 0000000000000000 0000000000 1  //NG-BM-Radio
+;
+;Typ-bestimmte Maßnahmen
+H GM5  N0999 00000000 0400000000000000 0000000000 1 AUT_GM5 //DM63, DP63 ab 09/99 mit GM5-Getriebe
+H GM5  N0999 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;
+;Recycling aller Serien- u. Maßnahmen-Bits bis PU99 (alle betroffenen ASW's werden mit PU99-Bit verknüpft)
+H R000 N0999 00000000 0000000000000000 0010000000 1 MAERZ96 PU96 MAERZ97 PU97 PU98 MAERZ99 MRSZ CAN TV2 DSP_CI_01 ULS_INNENSCHUTZ ASC BC_BASIS CC_BASIS //(32)
+H R000 N0999 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H R001 N0999 00000000 0000000000000000 0010000000 1 KMB_CI_04 ZAE2 LCM_CI_15 EWS_CI_02 LWR_CI_03 ZAE2_CI_05 IHKA_CI_02 LCM_CI_16 GR2_CI_05 IHKA_CI_03     //(32)
+H R001 N0999 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H R002 N0999 00000000 0000000000000000 0010000000 1 MRS2_CI_07 KMB_CI_05 KMBI_CI_11 PDC_CI_02 LCM_CI_18 LCM_CI_17 KMB_CI_06 KMBI_CI_12 //(32)
+H R002 N0999 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;
+;Zeitlich gesteuerte Maßnahmen (für ZEKO ausgeblendet)
+H MA96 N0196 00000000 0000000000000000 0000002000 1 MAERZ96 KMB_CI_04 ZAE2 //März '96 Maßnahmen
+H MA96 N0396 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU96 N0796 00000000 0000000000000000 0000008000 1 PU96 LCM_CI_15 EWS_CI_02 LWR_CI_03 ZAE2_CI_05 IHKA_CI_02 LCM_CI_16 //PU '96 Maßnahmen: SA260, MRSZ
+H PU96 N0996 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MA97 N0197 00000000 0000000000000000 0000004000 1 MAERZ97 GR2_CI_05 IHKA_CI_03 //März '97 Maßnahmen + MRS2
+H MA97 N0397 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU97 N0797 00000000 0000000000000000 0000100000 1 PU97 MRS2_CI_07 KMB_CI_05 KMBI_CI_11 //PU97-Maßnahmen: CC mit Akustik, Kopfairbag, MRS2, KMB.C05
+H PU97 N0997 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU98 N0798 00000000 0000000000000000 0004000000 1 PU98 PDC_CI_02 LCM_CI_18 LCM_CI_17 KMB_CI_06 KMBI_CI_12 //PU98-Maßnahmen: SA510, ASC5.7
+H PU98 N0998 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MA99 N0199 00000000 0000000000000000 0040000000 1 MAERZ99 //März '99-Maßnahmen, MRS3.c10
+H MA99 N0399 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU99 N0799 00000000 0000000000000000 0010000000 1 PU99 //PU99-Maßnahmen, GM3.C05
+H PU99 N0999 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MA00 N0999 00000000 0000000000000000 0010000002 1 MAERZ00 //März 2000-Maßnahmen
+H MA00 N0300 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU00 N0300 00000000 0000000000000000 1000000000 1 PU00 PDC_CI_03 GT_CI_03 //PU2000-Maßnahmen
+H PU00 N0900 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU01 N0101 00000000 0000000000000000 1000000800 1 PU01 //PU2001-Maßnahmen
+H PU01 N1001 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MA02 N0501 00000000 0000000000000000 0010001000 1 MAERZ02 //März 2002-Maßnahmen
+H MA02 N0501 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H PU02 N0102 00000000 0000000000000000 1000002000 1 PU02 //PU2002-Maßnahmen
+H PU02 N0102 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+H MA03 N0502 00000000 0000000000000000 1000100000 1 MAERZ03 //März 2003-Maßnahmen
+H MA03 N0502 00000000 0000000000000000 0000000000 1  //März 2003-Maßnahmen
+H PU03 N0103 00000000 0000000000000000 1000004000 1 PU03 //PU2003-Maßnahmen
+H PU03 N0103 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;H LCM4 N0502 00000000 0000000000000000 1000008000 1 LCM_IV //LCM4, variabler Einsatztermin
+;H LCM4 N0502 00000000 0000000000000000 0000000000 1  //-"-ausblenden für ZEKO
+;
+;Steuergeräte, zeitgesteuert eingesetzt, aber rückwirkend gültig (ab PU99 über SGVT)
+H KMB4 V1095 00000000 0000000000000000 0000000040 1  //KMB CI 04h
+H ZAE2 V0396 00000000 0000000000000000 0000000020 1  //ZAE2 CI 03h
+H LCM5 V0496 00000000 0000000000000000 0000000400 1  //LCM CI 15h (M51+555/602/609, Japan)
+H EWS2 V0796 00000000 0000000000000000 0000000100 1  //EWS CI 02h
+H LWR3 V0996 00000000 0000000000000000 0000000200 1  //LWR CI 03h
+H ZAE5 V0996 00000000 0000000000000000 0000020000 1  //ZAE2 CI 05h, MRSZ CI 06h
+H IHK2 V0996 00000000 0000000000000000 0000000004 1  //IHKA CI 02h
+H LCM6 V0996 00000000 0000000000000000 0000010000 1  //LCM CI 16h (Großversuch, PU96)
+H FGR5 V0397 00000000 0000000000000000 0000000010 1  //FGR2 CI 05h
+H IHK3 V0397 00000000 0000000000000000 0000200000 1  //IHKA CI 03h
+H MRS2 V0997 00000000 0000000000000000 0000000002 1  //Airbag-Elektronik MRS2
+H KMB5 V0997 00000000 0000000000000000 0000040000 1  //Kombi E39 mit CI 05h
+H KI11 V0997 00000000 0000000000000000 0000080000 1  //Integriertes Kombi E38 CI 11h (ab PU97)
+H PDC2 V0698 00000000 0000000000000000 0020000000 1  //PDC CI 02h
+H LCM7 V0998 00000000 0000000000000000 0002000000 1  //LCM CI 17h (Tour. 03/98)
+H LCM8 V0998 00000000 0000000000000000 0080000000 1  //LCM CI 18h (SE PU98)
+H KMB6 V0998 00000000 0000000000000000 0000800000 1  //Kombi E39 mit CI 06h (ab PU98)
+H KI12 V0998 00000000 0000000000000000 0000001000 1  //Integriertes Kombi E38 CI 12h (ab PU98)
+H GT2  V0699 00000000 0000000000000000 0200000000 1  //Navi-Rechner SW mit CI 02
+H RB99 V0999 00000000 0000000000000000 00A2AF1776 1  //Recycling-Bits nur ohne PU99 zusteuern
+;
+;Steuergeräte, zeitgesteuert eingesetzt, aber rückwirkend gültig
+H TV2  V0997 00000000 0000000000000000 0000400000 1 TV2 //TV2-Modul CI 02h
+H DSP  V0698 00000000 0000000000000000 0001000000 1 DSP_CI_01 //DSP mit CI 01h (SE 03/98)
+H ULS  V0398 00000000 0000000000000000 0008000000 1 ULS_INNENSCHUTZ //Ultraschallinnenraumschutz
+;
+;Nachrüstung
+H NAVI N0996 00000000 1000000000000000 0000000000 1 NAVIGATION       //Nachrüstung Navigation ohne Videomodul
+H LEDR V0900 00000000 0000000000000000 2000000000 1 LED_RUECKL       //Nachrüstung LED-Rueckleuchten f. FZG vor PU00
+H TELD N0995 00000000 0000000000000000 4000800000 1 TELEMATIC_DIS    //Abruestung TeleService in der HO fuer TCU_IBUS-Stg.
+H 0638 N0995 00000000 0000000000000000 4002000000 1 TEL_PROF         //Autotelefonvorbereitung Professional
+H TEL3 N1095 00000000 0000000000000000 4000200000 1 TEL_PROF_US      //Nachruestung TCU_IBUS-Stg US fuer ECE-Fahrzeuge
+H TEPR N1095 00000000 0000000000000000 4080000000 1 TEL_PROF_MOD     //Nachruestung EJECT-BOX EVEREST, Handy fuer TCU_IBUS-Stg US
+H SPRE N1095 00000000 0000000000000000 4000080000 1 SPRACHEINGABE    //Spracheingabe für HO //ist Recycle-Bit
+H 0644 N1095 00000000 0000000000000000 4000040000 1 TEL_VORB         //Autotelefonvorbereitung Bluetooth mit Shiftbit da Rückwirkend gültig //ist Recycle-Bit
+;H USVN N0995 00000000 0000000000000000 8000000000 1 UMSCHALT_VENTIL  //Nachrüstung eines eines Umschaltventils in HO für Klima
+;
+;Aktuelle E-Worte
+E LSM  N0994 00000000 0000041000000000 0000000000 1 LSM              //Lenksäulenmemory (M62/M54B30/M52B28/M57+456/459, US+456/459)
+E RESE N0296 00000000 0000000000000100 0000000000 1 REGENSENSOR      //bei (SA500 außer US od. Sich.fzg) od. bei DE91/92 // E-Wort nur gueltig bis PU01
+E TEL  N0396 00000000 0000000000800000 0000000000 1 TELEFON          //bei SA640 mit (US-Typen od. SA645 od. LA802)
+E L807 N0997 00000700 0000000000000000 0000000000 1 JAPAN            //LA Japan bei (DT51,DT61,DS51,DS61,DR61,DN61,DT52,DT62,DS52,DS62,DR62,DN62)+SA920+SA845+SA853+!LA822
+E BLSN N1198 00000000 2000000000000000 0000000000 1 BLS_KORR         //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98
+E STR2 N0995 00000000 0800000000000000 0000000000 1 SERVO_2          //Servotronik II (M47/M51/M52/M54/M57+216), rückwirkend gültig
+E IFL  N1299 00000000 0000000000000000 0100000000 1 INTERM_FL        //intermittierendes Fernlicht ab KW02/2000 bei (Sich.fzg. außer US) od. (SA185 od. SA186)
+E NGR  N0900 00000000 0000000000040000 1000000000 1 RADIO_NG_MID     //NG-Radio mit MID (US/M62/S62/630/632/641/650/651/663 od. 661/M54B30/M57D30+536/555/645/677/807/825) außer bei SA602/609
+E SCHR N0301 00000000 0001000000000000 0000000000 1 SCHRITTSCHALT    //Schrittschaltung für Automatikgetriebe Serie ab 03/01 bei DT43 DT63 DS43
+E LCM4 N0502 00000000 0000000000000000 1000008000 1 LCM_IV           //LCM4, variabler Einsatztermin
+;
+;Zukünftige E-Worte
+;
+B SALA        //Neue Bereichskennung für ZEKO!!
+;
+;********************************* Vergebene VN-Bits *************************
+; IKE                                  0000000001 IKE //IKE statt Kombi
+; MRS2                                 0000000002 MRS2_CI_07 //Airbag-Elektronik MRS2
+; IHK2                                 0000000004 IHKA_CI_02 //IHKA CI 02h
+; ASC8                                 0000000008 ASC5_M51 //ASC5 mit CI 08h für M51
+; FGR5                                 0000000010 GR2_CI_05 //FGR2 CI 05h
+; ZAE2                                 0000000020 ZAE2 //ZAE2 CI 03h
+; KMB4                                 0000000040 KMB_CI_04 //KMB CI 04h
+; MRSZ                                 0000000080 MRSZ //MRSZ CI 04h
+; EWS2                                 0000000100 EWS_CI_02 //EWS CI 02h
+; LWR3                                 0000000200 LWR_CI_03 //LWR CI 03h
+; LCM5                                 0000000400 LCM_CI_15 //LCM CI 15h (M51+555/602/609, Japan)
+; CAN                                  0000000800 CAN //M52,M62 mit CAN
+; KMBI                                 0000001000 KMBI_CI_12 //Integriertes Kombi E38 CI 12h
+; MA96                                 0000002000 MAERZ96 //März '96 Maßnahmen
+; MA97                                 0000004000 MAERZ97 //März '97 Maßnahmen + MRS2
+; PU96                                 0000008000 PU96 //PU '96 Maßnahmen
+; LCM6                                 0000010000 LCM_CI_16 //LCM CI 16h (Großversuch, PU96)
+; ZAE5                                 0000020000 ZAE2_CI_05 //ZAE2 CI 05h, MRSZ CI 06h
+; KMB5                                 0000040000 KMB_CI_05 //Kombi E39 mit CI 05h
+; KI11                                 0000080000 KMBI_CI_11 //Integriertes Kombi E38 CI 11h
+; PU97                                 0000100000 PU97 //PU97-Maßnahmen: CC mit Akustik
+; IHK3                                 0000200000 IHKA_CI_03 //IHKA CI 03h
+; TV2                                  0000400000 TV2 //TV2-Modul CI 02h
+; KMB5                                 0000800000 KMB_CI_06 //Kombi E39 mit CI 06h
+; DSP                                  0001000000 DSP_CI_01 //DSP mit CI 01h (SE 03/98)
+; LCM7                                 0002000000 LCM_CI_17 //LCM CI 17h (Tour. 03/98, Lim. PU98)
+; PU98                                 0004000000 PU98 //PU98-Maßnahmen
+; MA98                                 0008000000 ULS_INNENSCHUTZ //Ultraschall-Innenraumschutz
+; PU99                                 0010000000 PU99 //PU99-Maßnahmen
+; PDC2                                 0020000000 PDC_CI_02 //PDC CI 02h
+; MA99                                 0040000000 MAERZ99 //März '99-Maßnahmen
+; LCM8                                 0080000000 LCM_CI_18 //LCM CI 18h (SE PU98)
+; IFL                                  0100000000 INTERM_FL //intermittierendes Fernlicht
+; GT2                                  0200000000 GT_CI_02  //GT CI 02h
+; 0603                                 0400000000 FONDMONITOR //Fondbildschirm
+; 0364,0396                            0800000000 RDW //Reifendruckwarnung
+; PU00                                 1000000000 PU00 //PU2000-Maßnahmen
+; LEDR                                 2000000000 LED_RUECKL ///Nachrüstung LED-Rueckleuchten f. FZG vor PU00
+;                                      4000000000  //Shiftbit verwendet für rückwirkendes Bitrecycling, nicht Verfügbar
+; USVN                                 8000000000  //
+;                                      8000000000  //noch verfügbar
+; !! Sollte eines der folgenden Recycle-Bits als rückwirkende (vor PU99) SA verwendet
+; !! werden, muß eine Rückschlüsselung aller Recycle-Bits durch die ZCSUT erfolgen!
+; MA00                                 0010000002 MAERZ00 //März2000-Maßnahmen
+; 0752                                 0010000004 M_SOUND //Individual Audiosystem
+; 0630                                 0010000010 SIEMENS_GSM //Telefon mit schnurlosem Hörer
+; MYDY                                 0010000040 MAYDAY      //Mayday-Modul US ab 09/2000
+; 0715                                 0010000100 SPORTPAKET  //M AERODYNAMIKPAKET ab 03/01 bei TOUR
+; 0358                                 0010000200 KLIMA_FRONTSCH //Klimakomfort-Frontscheibe ab 09/01 fuer RLS
+; 0601                                 0010000400 TV //TV-Funktion (ab 03/02)
+; MA02                                 0010001000 MAERZ02 //März2002-Maßnahmen
+; 0612                                 0010010000 BMW_ASSIST //Recycle-Bit
+; 0235                                 0010020000 ANH_KUPPLUNG //Recycle-Bit
+; 0644                                 0010040000 TEL_VORB  //Autotelefonvorbereitung Bluetooth //ist Recycle-Bit
+; 0644                                 4000040000 TEL_VORB  //Autotelefonvorbereitung Bluetooth mit Shiftbit da Rückwirkend gültig //ist Recycle-Bit
+; 0620                                 0010080000 SPRACHEINGABE  //Spracheingabe //ist Recycle-Bit
+; 0620                                 4000080000 SPRACHEINGABE  //Spracheingabe für HO //ist Recycle-Bit
+; 0639                                 4000200000 TEL_PROF_US //Recycle-Bit
+; TELD                                 4000800000 TELEMATIC_DIS //Recycle-Bit
+; 0638                                 4002000000 TEL_PROF //Recycle-Bit
+; 0676                                 0030000000 HIFI_SYSTEM //Recycle-Bit
+; TEPR                                 4080000000 TEL_PROF_MOD //Recycle-Bit
+;                                      4200000000  //Recycle-Bit
+;                                      4000000020  //Recycle-Bit ACHTUNG war V_Serie auf V24.0!
+; !! Folgende Recycle-Bits sind nicht als rückwirkende (vor PU00) SA verwendbar!!
+; !! diese Bits möglichst als Maßnahmen-Bits verwenden!!
+; PU01                                 1000000800 PU01    //Recycle-Bit (war CAN)
+; PU02                                 1000002000 PU02    //Recycle-Bit (war MAERZ96)
+; PU03                                 1000004000 PU03    //Recycle-Bit (war MAERZ97)
+; LCM4                                 1000008000 LCM_IV  //Recycle-Bit (war PU96)
+; MA03                                 1000100000 MAERZ03 //Recycle-Bit (war PU97)
+;                                      1000400000  //Recycle-Bit (war TV2)
+;                                      1001000000  //Recycle-Bit (war DSP_CI_01)
+;                                      1004000000  //Recycle-Bit (war PU98)
+;                                      1008000000  //Recycle-Bit (war ULS_INNENSCHUTZ)
+;                                      1040000000  //Recycle-Bit (war MAERZ99)
+;******************** Vergebene SA-Bits *****************************************
+;0223                 0000000000000001 EDC
+;1243                 0000000000000002 OHNE_BF_AIRBAG
+;0260                 0000000000000004 SEITENAIRBAG
+;0803                 0000000000000008 OHNE_3_BL
+;0401                 0000000000000010 SHD
+;0500                 0000000000000020 SWA INTENSIVR
+;0214                 0000000000000040 ASC
+;0510                 0000000000000080 LWR_MAN
+;H 0500 N0396         0000000000000100 REGENSENSOR
+;0430                 0000000000000200 SPIEGELPAKET
+;0520                 0000000000000400 NEBELSCHEINW
+;0963                 0000000000000800 M52B25 AUT_4_GANG
+;0550                 0000000000001000 BC_BASIS CC_BASIS
+;0265                 0000000000002000 RDKS
+;0302                 0000000000004000 DWA
+;0877                 0000000000008000 ENTF_UEBERKREUZ
+;0677                 0000000000010000 TOP_HIFI
+;0845                 0000000000020000 AK_GUWA
+;0670                 0000000000040000 RADIO_C34
+;NGR                  0000000000040000 1000000000 RADIO_NG_MID
+;0581                 0000000000080000 TAXI
+;0522                 0000000000100000 XENON LWR_AUT
+;0508                 0000000000200000 PDC
+;0261                 0000000000400000 FOND_AIRBAG
+;0629                 0000000000800000 TELEFON
+;0403                 0000000001000000 GLAS_SHD
+;0220                 0000000002000000 NIVEAUREG
+;0411                 0000000004000000 FH_HINTEN
+;0555                 0000000008000000 BC_HIGH STANDLUEFTUNG
+;0536                 0000000010000000 STANDHEIZUNG STANDLUEFTUNG
+;0538                 0000000020000000 LATENTWAERME
+;0609                 0000000040000000 NAVIGATION STANDLUEFTUNG
+;0602                 0000000080000000 BORDMONITOR STANDLUEFTUNG
+;0216                 0000000100000000 SERVOTRONIC
+;0826                 0000000200000000 EDC_EXPORT
+;0896                 0000000400000000 TAGFAHRLICHT
+;0446                 0000000800000000 FOND_MID
+;0456, 459            0000001000000000 SITZMEMORY SPIEGELMEMORY
+;1240                 0000002000000000 OHNE_FA_AIRBAG
+;0541                 0000004000000000 ACC
+;0210                 0000008000000000 DSC3
+;0445                 0000010000000000 FOND_GEBLAESE
+;0540, 0710           0000020000000000 GESCHW_REG
+; LSM                 0000040000000000 LSM
+;0534                 0000080000000000 KLIMAAUTOMATIK
+;0666                 0000100000000000 RADIO_CD43
+;                     0000100000000000 1000000000 BM_RADIO  //ab 02/01 über 602/609
+;0624                 0000200000000000 SIEMENS
+;0357                 0000400000000000 SCHUTZGLAS
+;0823                 0000800000000000 TROPEN
+;0202                 0001000000000000 SCHRITTSCHALT
+;0825                 0002000000000000 OZEANIEN //Steuerung Radio Ozeanien
+;0627                 0004000000000000 NOKIA
+;0204                 0008000000000000 KURZE_HA_UES //Kürzere Hinterachsübersetzung
+;0165                 0010000000000000 OHNE_ITS //Deakitivierung ITS
+;0645                 0020000000000000 RADIO_US //
+;0984                 0040000000000000 SIA_INTERVALL //Intervall f. V1-Region (war kurzzeitig SA791)
+;0194                 0080000000000000 FERNSTART
+;0316                 0100000000000000 HECKKLAPPE_HYDR //Automatische Heckklappe
+;0190                 0200000000000000 WE_SPRECHANLAGE //Wechselsprechanlage
+;GM5                  0400000000000000 AUT_GM5
+;STR2                 0800000000000000 SERVO_2 // Servotronic II f. E39Basis (4/6-Zyl) m. SA216
+;NAVI                 1000000000000000 NAVIGATION STANDLUEFTUNG //Nachrüstung Navigation ohne Bordmonitor
+;BLSN                 2000000000000000 BLS_KORR //Korrektur Bremslichtschalter Siemens, Einsatz 16.11.98 -
+;0988                 4000000000000000 SIA_KURZ //Service-Intervall stark verkürzt
+;0257                 8000000000000000 OH_THORAX_HI //Deaktivierung Seitenairbag hinten
+; !! Sollte eines der folgenden Recycle-Bits als rückwirkende (vor PU00) SA verwendet
+; !! werden, muß eine Rückschlüsselung aller Recycle-Bits durch die ZCSUT erfolgen!
+;                     0000000000000040 1000000000  //Recycle-Bit ab PU00 (war ASC)
+;                     0000000000001000 1000000000  //Recycle-Bit ab PU00 (war BC_BASIS CC_BASIS)
+;******************** Vergebene SA-Bits **************************************
+;
+01CA         00000000 0000000000000000 0000000000 0     //Steuerung CoP/CO2 Selektion
+0100         00000000 0000000000000000 0000000000 0     //Nutzlasterhöhung
+;0101         00000000 0000000000000000 0000000000 0     //Pseudo-Zeile für Prüfprogramm
+0102         00000000 0000000000000000 0000000000 0     //Behördenfahrwerk/-Bremsen verst.
+0103         00000000 0000000000000000 0000000000 0     //Ganzjahresreifen
+0104         00000000 0000000000000000 0000000000 S     //Nahost-Version
+0105         00000000 0000000000000000 0000000000 0     //Auftragssteuerung "Bund" (Motor 100kW)
+0107         00000000 0000000000000000 0000000000 S     //Vorbereitung elektron. Fahrtenschreiber
+0110         00000000 0000000000000000 0000000000 S     //Vorbereitung Montage Notarztschild
+0112         00000000 0000000000000000 0000000000 0     //Kontraststreifen Leuchtrot RAL 3024
+0113         00000000 0000000000000000 0000000000 0     //Kontraststreifen in Minzgrün-hell
+0114         00000000 0000000000000000 0000000000 0     //Beklebung Polizei Norddeutschland
+0115         00000000 0000000000000000 0000000000 0     //Beklebung Rettungsdienst Nordrheinwestfalen
+0116         00000000 0000000000000000 0000000000 0     //Standartenhalter links
+0117         00000000 0000000000000000 0000000000 0     //Standartenhalter rechts
+0119         00000000 0000000000000000 0000000000 S     //Elektrik Zusatzmodul
+0120         00000000 0000000000000000 0000000000 S     //Basisausstattung
+0121         00000000 0000000000000000 0000000000 0     //VB Aufnahme Anhaltekelle/Handfug
+0122         00000000 0000000000000000 0000000000 0     //Halterung Einsatzstöcke
+0123         00000000 0000000000000000 0000000000 0     //Zusatz-Innenspiegel
+0124         00000000 0000000000000000 0000000000 0     //Behördendachhimmel
+0125         00000000 0000000000000000 0000000000 S     //Behördeninnenausstattung offen
+0126         00000000 0000000000000000 0000000000 S     //Behördeninnenausstattung getarnt
+0129         00000000 0000000000000000 0000000000 0     //Waffenhalterung im Dach vorn
+0130         00000000 0000000000000000 0000000000 0     //Waffenhalterung in Mittelarmleh. hi
+0131         00000000 0000000000000000 0000000000 S     //Waffenhalterung für 3 Waffen
+0139         00000000 0000000000000000 0000000000 S     //1 Rundumkennleuchte blau
+0140         00000000 0000000000000000 0000000000 S     //1RKLE 130,Tonfolge,Polizeischaltung
+0141         00000000 0000000000000000 0000000000 S     //Tonfolgesignalanlage
+0142         00000000 0000000000000000 0000000000 S     //2 Rundumkennleuchten blau
+0143         00000000 0000000000000000 0000000000 S     //Alarmschalter m. Polizeischaltung
+0144         00000000 0000000000000000 0000000000 0     //RKA I abnehmbar.Tonf.Polizeischalt.
+0145         00000000 0000000000000000 0000000000 0     //Alarmschalter m.Feuerwehrschaltung
+0146         00000000 0000000000000000 0000000000 0     //zusätzliche Energieversorgung
+0147         00000000 0000000000000000 0000000000 S     //1 Rundumkennleuchte abnehmbar
+0149         00000000 0000000000000000 0000000000 S     //Doppelblitzleuchte abnehmbar
+0151         00000000 0000000000000000 0000000000 0     //Komplettmontage RTK-6
+0155         00000000 0000000000000000 0000000000 0     //Vb Montage TOP-4 mit Handapparat
+0159         00000000 0000000000000000 0000000000 S     //Montage Aero-Dynic-Anlage
+0160         00000000 0000000000000000 0000000000 S     //Montage Becker Signalanlage LU 322
+0165         00000000 0010000000000000 0000000000 1 OHNE_ITS //Deakitivierung ITS
+0166         00000000 0000000000000000 0000000000 S     //Vb Montage Anhaltesignal Hutablage
+0167         00000000 0000000000000000 0000000000 0     //Abgasnorm EU4
+0168         00000000 0000000000000000 0000000000 0     //Abgasreduzierung EG-Stufe II
+0169         00000000 0000000000000000 0000000000 0     //Abgasreduzierung EG-Stufe III
+0172         00000000 0000000000000000 0000000000 S     //Vorbereitung f. 7B kpl. Handschuhkasten
+0173         00000000 0000000000000000 0000000000 S     //Vorbereitung FuG/Handschuhfach
+0174         00000000 0000000000000000 0000000000 S     //Vorbereitung FuG 8B/9C kpl. Handsch
+0175         00000000 0000000000000000 0000000000 0     //Vorbereitung FUG 8B und 9C
+0176         00000000 0000000000000000 0000000000 S     //Funkgerät FUG 8B/9C abgesetzt
+0178         00000000 0000000000000000 0000000000 0     //Halterung Handfunkgerät
+0180         00000000 0000000000000000 0000000000 0     //Komplettmontage Dachantenne
+0181         00000000 0000000000000000 0000000000 0     //Komplettmontage Heckantenne
+0182         00000000 0000000000000000 0000000000 S     //Feuerlöschanlage
+0183         00000000 0000000000000000 0000000000 S     //Vorbereitung für akt. Verteidigung
+0184         00000000 0000000000000000 0000000000 S     //Notausstieg über Frontscheibe
+0185         00000000 0000000000000000 0000000000 0     //Einsatzfahrzeug offen
+0186         00000000 0000000000000000 0000000000 0     //Einsatzfahrzeug getarnt
+0188         00000000 0000000000000000 0000000000 S     //Beifahrer-Fondscheibe absenkbar
+0189         00000000 0000000000000000 0000000000 S     //Fahrer-Fondscheibe absenkbar
+H 0190 V0399 00000000 0000000000000000 0000000000 0     //Wechselsprechanlage
+0190         00000000 0200000000000000 0000000000 1 WE_SPRECHANLAGE //Wechselsprechanlage
+0191         00000000 0000000000000000 0000000000 S     //Beifahrertürscheibe absenkbar
+0192         00000000 0000000000000000 0000000000 S     //Fahrertürscheibe absenkbar
+0193         00000000 0000000000000000 0000000000 0     //Entfall Beheiz. Front-Seitenscheibe
+H 0194 V0998 00000000 0000000000000000 0000000000 S     //Fernstartanlage
+0194         00000000 0080000000000000 0000000000 1 FERNSTART //Fernstartanlage
+0195         00000000 0000000000000000 0000000000 S     //Ladezustandsanzeige f. Batterien
+0196         00000000 0000000000000000 0000000000 S     //Krafstofftank auslaufhemmend
+0197         00000000 0000000000000000 0000000000 S     //Akustische und optische Alarmanlage
+0198         00000000 0000000000000000 0000000000 S     //zusätzliche Frischluftanlage
+0199         00000000 0000000000000000 0000000000 0     //Katalysator-Entfall
+0201         00000000 0000000000000000 0000000000 0     //Rapsmethylester-Tauglichkeit RME
+0202         00000000 0001000000000000 0000000000 1 SCHRITTSCHALT //Schrittschaltung für Automatikgetriebe
+0203         00000000 0000000000000000 0000000000 S     //Längere Hinterachsübersetzung
+H 0204 V0998 00000000 0000000000000000 0000000000 0     //Kürzere Hinterachsübersetzung
+0204         00000000 0008000000000000 0000000000 1 KURZE_HA_UES //Kürzere Hinterachsübersetzung
+0207         00000000 0000000000000000 0000000000 S     //6-Gang Schaltgetriebe
+0210         00000000 0000008000000000 0000000000 1 DSC3 //DSC III / hydraulischer Bremsassistent
+0212         00000000 0000000000000000 0000000000 0     //Ausstattung Bremsanlage Länder
+H 0214 V1295 00000000 0000000000000040 0000000000 1 ASC //Aut.Stabil.-Control+Traction(ASC+T)
+0216         00000000 0000000100000000 0000000000 1 SERVOTRONIC //Servotronic
+0220         00000000 0000000002000000 0000000000 1 NIVEAUREG //1-Achs-Niveauregulierung
+0221         00000000 0000000000000000 0000000000 S     //2-Achs Niveauregulierung
+0223         00000000 0000000000000001 0000000000 1 EDC //Elektronische-Dämpfer-Control III
+0225         00000000 0000000000000000 0000000000 S     //Aktive-Wankstabilisierung (AWS)
+0226         00000000 0000000000000000 0000000000 S     //Sportl. Fahrwerksabstimmung
+0227         00000000 0000000002000000 0000000000 1 NIVEAUREG //Sporfahrw.+Tieferleg.+Niveaur.
+0228         00000000 0000000000000000 0000000000 S     //Komfortfahrwerk
+0230         00000000 0000000000000000 0000000000 S     //Sportf.m.Tieferl.u.Breitr.205/60R15
+0232         00000000 0000000000000000 0000000000 0     //LM / Styling 50 225/55R15
+H 0235 V0901 00000000 0000000000000000 0000000000 0     //Anhängerkupplung, Kopf abnehmbar
+0235         00000000 0000000000000000 0010020000 1 ANH_KUPPLUNG //Anhängerkupplung, Kopf abnehmbar
+H 0240 V0997 00000000 0000000000000000 0000000000 0     //Lederlenkrad mit Airbag
+0240         00000000 0000000000000000 0000000000 S     //Lederlenkrad mit Airbag
+1240         00000000 0000002000000000 0000000000 1 OHNE_FA_AIRBAG //Deaktivierung Fahrerairbag
+1243         00000000 0000000000000002 0000000000 1 OHNE_BF_AIRBAG //Deaktivierung Beifahrerairbag
+0248         00000000 0000000000000000 0000000000 0     //Lenkradkranz beheizt
+0249         00000000 0000000000000000 0000000000 0     //Multifunktion (Lenkrad)
+0255         00000000 0000000000000000 0000000000 0     //Sport-Lederlenkrad
+0257         00000000 8000000000000000 0000000000 1 OH_THORAX_HI //Deaktivierung Seitenairbag hinten (09/00)
+0258         00000000 0000000000000000 0000000000 0     //Bereifung m. Notlaufsystem
+H 0260 V0996 00000000 0000000000000004 0000000000 1 SEITENAIRBAG //Seitenairbag Fahrer/Beifahrer ab 03/96
+0260         00000000 0000000000000004 0000000080 S     //Seitenairbag Fahrer/Beifahrer ab 03/96
+H 0261 V0699 00000000 0000000000400000 0000000000 1 FOND_AIRBAG //Seitenairbag hinten
+H 0261 V0900 00000000 0000000000000000 0000000000 0     //Seitenairbag hinten (von 06/99 bis 09/00 über E-Wort)
+0261         00000000 0000000000400000 0000000000 1 FOND_AIRBAG //Seitenairbag hinten
+0263         00000000 0000000000000000 0000000000 0     //LM-Rad 8Jx18(vo.) u. 9Jx18(hi.) / Styling 42
+0265         00000000 0000000000002000 0000000000 1 RDKS //Reifendruckkontrollsystem bzw. RDW (Reifendruckwarnung)
+0266         00000000 0000000000000000 0000000000 0     //LM-Rad 7Jx16 / Styling 48
+0267         00000000 0000000000000000 0000000000 0     //LM-Rad 8Jx17 / Styling 49 (Entfall ab 09/00)
+0274         00000000 0000000000000000 0000000000 0     //LM-Flachsternstyling/ Styling 16
+0280         00000000 0000000000000000 0000000000 0     //AL-Gussrad 7Jx16 / Styling 33
+0283         00000000 0000000000000000 0000000000 0     //LM-Rad 7Jx16 / Styling 2 (Entfall ab 09/00)
+0288         00000000 0000000000000000 0000000000 0     //LM-Gussrad 7Jx16 / Styling 5 (Entfall ab 09/00)
+0289         00000000 0000000000000000 0000000000 S     //LM-Rad 8Jx17 / Styling 19 (Entfall ab 03/99)
+0291         00000000 0000000000000000 0000000000 0     //AL-Verbundrad 8Jx17 / Styling 5 // ab 09/00 n f US
+0292         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 29
+0296         00000000 0000000000000000 0000000000 0     //LM-Rad Classic / Styling 25 (Entfall ab 09/00)
+0299         00000000 0000000000000000 0000000000 0     //LM-Rad vo 8J / hi 9Jx17 / Styling 32
+0302         00000000 0000000000004000 0000000000 1 DWA //Diebstahlwarnanlage/Fernbedienung
+0304         00000000 0000000000000000 0000000000 S     //Persönl. Identifikationssystem
+0305         00000000 0000000000000000 0000000000 0     //Funkschlüssel
+0308         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 42 (09/00)
+0315         00000000 0000000000000000 0000000000 S     //Heckwischer
+0316         00000000 0100000000000000 0000000000 1 HECKKLAPPE_HYDR //Automatische Heckklappe
+0319         00000000 0000000000000000 0000000000 0     //integrierte Universal-Fernbedienung
+0320         00000000 0000000000000000 0000000000 0     //ohne Modellschriftzug
+0321         00000000 0000000000000000 0000000000 S     //Schriftzug V8
+0324         00000000 0000000000000000 0000000000 S     //Front- und Heckspoiler
+0325         00000000 0000000000000000 0000000000 S     //Heckflügel
+0326         00000000 0000000000000000 0000000000 0     //Entfall Heckspoiler
+0330         00000000 0000000000000000 0000000000 0     //Sportpaket
+0336         00000000 0000000000000000 0000000000 0     //Sportpaket US
+0337         00000000 0000000000000000 0000000000 0     //M Technik Sportpaket
+0339         00000000 0000000000000000 0000000000 0     //Shadowline //ab 09/00 n f 535iA/540iA
+0341         00000000 0000000000000000 0000000000 S     //Stoßfänger komplett in Wagenfarbe
+0345         00000000 0000000000000000 0000000000 0     //Chromline
+0346         00000000 0000000000000000 0000000000 0     //Chromline Exterieur
+0352         00000000 0000000000000000 0000000000 0     //Doppelverglasung
+0354         00000000 0000000000000000 0000000000 0     //Grünkeil-Frontscheibe
+0355         00000000 0000000000000000 0000000000 S     //Frontscheibe klar mit Grünkeil
+H 0357 V0998 00000000 0000000000000000 0000000000 0     //Schutzverglasung
+0357         00000000 0000400000000000 0000000000 1 SCHUTZGLAS //Schutzverglasung
+H 0358 V0901 00000000 0000000000000000 0000000000 0     //Klimakomfort-Frontscheibe
+0358         00000000 0000000000000000 0010000200 1 KLIMA_FRONTSCH //Klimakomfort-Frontscheibe
+0360         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 81 (09/00)
+0361         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 82 (09/00)
+0363         00000000 0000000000000000 0000000000 0     //LM-Rad 8Jx17 / Styling 32
+H 0364 V0300 00000000 0000000000000000 0000000000 0     //Sicherheitsbereifung
+0364         00000000 0000000000000000 0800000000 1 RDW //Sicherheitsbereifung // ab 09/01 n f 540iA SICH_FZG
+0365         00000000 0000000000000000 0000000000 S     //Heckscheibe, Verbundglas
+0378         00000000 0000000000000000 0000000000 S     //LM-Rad / Styling 80 Notlaufreifen
+0379         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 80 Normalreifen
+0385         00000000 0000000000000000 0000000000 0     //Dachträger-Längsschienen
+0386         00000000 0000000000000000 0000000000 0     //Dachreling
+0396         00000000 0000000000000000 0800000000 1 RDW //Sicherheitsbereifung (Runflat-Reifen)
+0397         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 83 (09/00)
+0401         00000000 0000000000000010 0000000000 1 SHD //Schiebe-Hebedach elektrisch
+0403         00000000 0000000001000000 0000000000 1 GLAS_SHD //Glas-Schiebe-Hebedach elektrisch
+0405         00000000 0000000000000000 0000000000 S     //Solardach
+H 0411 V0997 00000000 0000000004000000 0000000000 1 FH_HINTEN //Fensterheber,elektrisch vorn/hinten
+0411         00000000 0000000004000000 0000000000 S     //Fensterheber,elektrisch vorn/hinten
+0412         00000000 0000000000000000 0000000000 0     //Ausziehbare Beladehilfe
+0413         00000000 0000000000000000 0000000000 0     //Gepäckraumtrennetz
+0414         00000000 0000000000000000 0000000000 S     //Gepäckraumabdeckung, verstärkt
+0415         00000000 0000000000000000 0000000000 0     //Sonnenschutzrollo Heckscheibe, elektr.
+0416         00000000 0000000000000000 0000000000 0     //Hecksch.Rollo elektr.+seitl.mech.
+0417         00000000 0000000000000000 0000000000 0     //Seitensch.Rollo mech/hintere Türen
+0422         00000000 0000000000000000 0000000000 0     //Holz Muschelahorn "burgund"
+0423         00000000 0000000000000000 0000000000 0     //Fußmatten in Hochflos-Velours
+0425         00000000 0000000000000000 0000000000 0     //Gittergalvanik (Silber) auf Kunststoff (schwarz)
+0428         00000000 0000000000000000 0000000000 0     //Warndreieck und Verbandskasten
+H 0430 V0997 00000000 0000000000000000 0000000000 0     //Innen- und Außenspiegel,elektrochrom abblendend
+0430         00000000 0000000000000200 0000000000 1 SPIEGELPAKET //Innen- und Außenspiegel,elektrochrom abblendend
+0431         00000000 0000000000000000 0000000000 0     //Innenspiegel, elektrochrom abblendend
+0434         00000000 0000000000000000 0000000000 0     //Zierleisten Interieur Chrom matt
+0435         00000000 0000000000000000 0000000000 0     //Innen+Außenspie.stufenlos abblend.
+0436         00000000 0000000000000000 0000000000 S     //Vorb.f.stufenl.Abblend.u.Innenspieg.
+0437         00000000 0000000000000000 0000000000 S     //Instrumententafel in schwarz
+0438         00000000 0000000000000000 0000000000 0     //Edelholzausführung hochglänzend Nußbaum
+0439         00000000 0000000000000000 0000000000 0     //Zierleisten Alu gebürstet
+0441         00000000 0000000000000000 0000000000 0     //Raucherpaket
+0445         00000000 0000010000000000 0000000000 1 FOND_GEBLAESE //Fondorientierte Mittelkonsole
+0446         00000000 0000000800000000 0000000000 1 FOND_MID //Paket Fondorientierte Ausstattung (SA's 445, 415)
+0448         00000000 0000000000000000 0000000000 S     //High-Line Fondausstattung
+0449         00000000 0000000000000000 0000000000 0     //Electronic Toll Collection Japan (Mautinnenspiegel)
+0450         00000000 0000000000000000 0000000000 S     //Aktive Sitzbelueftung
+0451         00000000 0000000000000000 0000000000 0     //Aktivsitz für Fahrer // ab 09/00 f alle ausser US Lim
+0455         00000000 0000000000000000 0000000000 0    //09/99 f. M5 nur mit SA456 //Aktivsitz für F/BF
+0456         00000000 0000001000000000 0000000000 1 SITZMEMORY SPIEGELMEMORY //Komfortsitz elektr. incl. Memoryfkt
+0459         00000000 0000001000000000 0000000000 1 SITZMEMORY SPIEGELMEMORY //Sitzverst. elektr. F/BF Memoryfkt.
+0460         00000000 0000000000000000 0000000000 S     //Fondlehnenverstellung elektr.
+0462         00000000 0000000000000000 0000000000 S     //Ablagetische, E38 inkl. Memory für Fahrersitz ??
+0464         00000000 0000000000000000 0000000000 0     //Skisack
+0465         00000000 0000000000000000 0000000000 0     //Durchladesystem
+0467         00000000 0000000000000000 0000000000 0     //Taxi Fondsitz in Stoff
+0469         00000000 0000000000000000 0000000000 0     //2 integr. Kindersitze aus Sitzfläche ausklappbar
+0470         00000000 0000000000000000 0000000000 0     //Kindersitzbefestigung ISOFIX (09/01)
+0472         00000000 0000000000000000 0000000000 S     //Mittelarmlehne vorn Fahrer/Beif.
+0473         00000000 0000000000000000 0000000000 0     //Armauflage vorn
+0475         00000000 0000000000000000 0000000000 S     //Mittelarmlehne vorn, incl. Lenkradaxialverstellung
+0481         00000000 0000000000000000 0000000000 0     //Sportsitze
+0488         00000000 0000000000000000 0000000000 0     //Lordosenstütze Fahrer u. Beifahrer
+0490         00000000 0000000000000000 0000000000 S     //Lordosenstütze für Fondsitze
+0492         00000000 0000000000000000 0000000000 S     //Ablagefach in Fond-Mittelarmlehne
+0493         00000000 0000000000000000 0000000000 S     //Gehobene Ausstattung
+0494         00000000 0000000000000000 0000000000 0     //Sitzheizung Fahrer/Beifahrer
+0496         00000000 0000000000000000 0000000000 0     //Sitzheizung für Fondsitze
+0497         00000000 0000000000000000 0000000000 S     //Mittelarmlehne im Fond
+0498         00000000 0000000000000000 0000000000 S     //Kopfstuetzen im Fond
+0499         00000000 0000000000000000 0000000000 S     //Kopfstützen im Fond elektrisch
+0500         00000000 0000000000000020 0000000000 1 SWA INTENSIVR //Scheinw.Waschanl./Intensivreinigung (ab 09/00 ohne SA521)
+H 0508 V0398 00000000 0000000000000000 0000000000 0     //Park Distance Control (hinten)
+0508         00000000 0000000000200000 0000000000 1 PDC //Park Distance Control (hinten/ ab 09/00 auch vorn)
+0509         00000000 0000000000000000 0000000000 S     //Laser-Abstands-Meßgerät (LAM)
+H 0510 V0396 00000000 0000000000000000 0000000000 0     //Leuchtweitenregelung Abblendlicht
+H 0510 V0998 00000000 0000000000000080 0000000000 1 LWR_MAN //Leuchtweitenregelung Abblendlicht
+0510         00000000 0000000000000080 0000000000 S     //Leuchtweitenregelung Abblendlicht
+0520         00000000 0000000000000400 0000000000 1 NEBELSCHEINW //Nebelscheinwerfer // zu 09/00 Serie ausser 520i u 520d
+0521         00000000 0000000000000100 0000000000 1 REGENSENSOR //Regensensor (für US-Fzg.) // ab 09/01 +Fahr u.Lichtautomatik (Serie)
+0522         00000000 0000000000100000 0000000000 1 XENON LWR_AUT //Xenon-Licht mit autom. LWR
+0524         00000000 0000000000000000 0000000000 S     //Fahrlicht-Control
+0526         00000000 0000000000000000 0000000000 S     //Aktivkohlefilter für Heizung
+0527         00000000 0000000000000000 0000000000 S     //Aktivkohlefilter für Klimaanlage
+0531         00000000 0000000000000000 0000000000 S     //Entfall Mikrofilter
+0533         00000000 0000000000000000 0000000000 S     //Fondraum-Klimagebläse
+0534         00000000 0000080000000000 0000000000 1 KLIMAAUTOMATIK //Klimaautomatik
+0536         00000000 0000000010000000 0000000000 1 STANDHEIZUNG STANDLUEFTUNG //Standheizung incl. Standlüftung+Fernbed.
+H 0538 V0900 00000000 0000000020000000 0000000000 1 LATENTWAERME //S (09/00) //Latentwärmespeicher
+0538         00000000 0000000020000000 0000000000 S     //Latentwärmespeicher (Entfall ab 09/00)
+0539         00000000 0000000000000000 0000000000 S     //Fernbedienung f. Standheizung
+H 0540 V0900 00000000 0000020000000000 0000000000 1 GESCHW_REG //Geschw.reg. + Multifunktionslenkrad
+0540         00000000 0000000000000000 0000000000 S     //Geschw.reg. + Multifunktionslenkrad (Entfall ab 09/00)
+0541         00000000 0000004000000000 0000000000 1 ACC //Adaptiv Cruise Control
+0548         00000010 0000000000000000 0000000000 1 KM_TACHO //Kilometertacho
+H 0550 V0997 00000000 0000000000001000 0000000000 1 BC_BASIS CC_BASIS //Bordcomputer
+0550         00000000 0000000000001000 0000000000 S     //Bordcomputer
+0555         00000000 0000000008000000 0000000001 1 BC_HIGH STANDLUEFTUNG //Bordcomputer mit Fernbedienung und Standlüftung
+0571         00000000 0000000000000000 0000000000 S     //Staerkere Stromversorgung
+0575         00000000 0000000000000000 0000000000 S     //Steckdose im Gepäckr.incl.2.Batt.
+0577         00000000 0000000000000000 0000000000 0     //Vorbereitung für Mietwagen (Entfall ab 08/01)
+0581         00000000 0000000000080000 0000000000 1 TAXI //Taxipaket
+0585         00000000 0000000000000000 0000000000 0     //LM-Rad / Styling 71, geschraubt (09/02)
+0601         00000000 0000000000000000 0010000400 1 TV //TV-Funktion (03/02) --> +SA609 -SA602
+H 0602 V0901 00000000 0000000080000000 0000000001 1 BORDMONITOR STANDLUEFTUNG //Bordmonitor mit TV
+H 0602 V0302 00000000 0000100080000000 1000000001 1 BM_RADIO BORDMONITOR STANDLUEFTUNG //Bordmonitor mit TV bis 03/02
+0602         00000000 0000100080000000 1010000401 1 BM_RADIO BORDMONITOR STANDLUEFTUNG TV //Bordmonitor mit TV ab 03/02
+0603         00000000 0000000000000000 0400000000 1 FONDMONITOR //Fondbildschirm
+0604         00000000 0000000000000000 0000000000 S     //TV für Bordmonitor
+0605         00000000 0000000000000000 0000000000 S     //BTX/Telefon
+0607         00000000 0000000000000000 0000000000 S     //Personal-Computer (PC)
+0608         00000000 0000000000000000 0000000000 S     //Navigationssystem incl. Bordmonitor
+H 0609 V0901 00000000 0000000040000000 0000000001 1 NAVIGATION BORDMONITOR STANDLUEFTUNG //Navigation + TV incl. Bordmonitor
+0609         00000000 0000100040000000 1000000001 1 BM_RADIO NAVIGATION BORDMONITOR STANDLUEFTUNG //Navigation + TV incl. Bordmonitor
+H 0612 V0901 00000000 0000000000000000 0000000000 0     //BMW ASSIST (09/01) (ZWAKO 609, 630/632)
+0612         00000000 0000000000000000 0010010000 1 BMW_ASSIST //BMW ASSIST (09/01) (ZWAKO 609, 630/632)
+0620         00000000 0000000000000000 0010080000 1 SPRACHEINGABE  //Spracheingabe
+0622         00000000 0000000000000000 0000000000 0     //Zweithoerer im Fond fuer Telefon
+H 0624 V0998 00000000 0000000000800000 0000000000 1 TELEFON //Siemens-Handy
+H 0624 V0999 00000000 0000200000000000 0000000000 1 TELEFON SIEMENS //Siemens-Handy
+0624         00000000 0000000000000000 0000000000 S         //Siemens-Handy
+H 0625 V0999 00000000 0000000000800000 0000000000 1 TELEFON //Telefon D-Netz Handy (Kommunikationspaket 2)
+0625         00000000 0000000000800000 0000000000 S         //Telefon D-Netz Handy (Kommunikationspaket 2)
+0626         00000000 0000000000000000 0000000000 0     //Kommunikationspaket D-Netz Handy (Kommunikationspaket 2)
+H 0627 V0998 00000000 0000000000800000 0000000000 1 TELEFON //Nokia-Handy
+0627         00000000 0004000000000000 0000000000 1 TELEFON NOKIA //Nokia-Handy //ab 07/00 nur noch f. US
+0628         00000000 0000000000000000 0000000000 0     //Kommunik.-Paket SA's 555, 540, 629 werden zugesteuert
+0629         00000000 0000000000800000 0000000000 1 TELEFON //Kommunik.-Paket 1 m. Freisprecheinr. //ab 10/00 nur noch f. US u.ZWAKO249
+0630         00000000 0000000000000000 0010000010 1 TELEFON SIEMENS_GSM //Telefon mit schnurlosem Hörer (Siemens) (11/00) ZWAKO249
+0631         00000000 0000000000000000 0000000000 0     //Zweithörer im Fond, schnurlos nur in V. mit SA630 u SA446
+H 0632 V0301 00000000 0000000000800000 0000000000 1 TELEFON //Komplettvorbereitung Handy Motorola (Motorola-Handy V-Serie)
+0632         00000000 0000000000000000 0000000000 0     //Komplettvorbereitung Handy Motorola (Motorola-Handy V-Serie)
+0635         00000000 0000000000000000 0000000000 S     //Telefonvorbereitung BMW C-Netz
+0636         00000000 0000000000000000 0000000000 S     //Handy D-Netz Telefonvorbereitung S
+0638         00000000 0000000000000000 4002000000 1 TEL_PROF    //Autotelefonvorbereitung Professional
+0639         00000000 0000000000000000 4000200000 1 TEL_PROF_US //Autotelefonvorbereitung US incl. Telematic
+0640         00000000 0000000000000000 0000000000 0     //Telefonvorbereitung AMPS-Netz (s. E TEL N0396)
+0641         00000000 0000000000800000 0000000000 1 TELEFON //Telefonvorbereitung AMPS-Netz
+H 0644 V0902 00000000 0000000000000000 0010040000 1 TEL_VORB  //Autotelefonvorbereitung Bluetooth
+0644         00000000 0000000000000000 4000040000 1 TEL_VORB  //Autotelefonvorbereitung Bluetooth, ULF über BT
+H 0645 V0998 00000000 0000000000000000 0000000000 0     //C33 BMW Business RDS "US-Radio"
+0645         00000000 0020000000000000 0000000000 1 RADIO_US //C33 BMW Business RDS "US-Radio"
+0646         00000000 0000000000000000 0000000000 0     //Autotelefonvorbereitung Japan
+0650         00000000 0000000000000000 0000000000 0     //CD-Laufwerk (09/02)
+0651         00000000 0000000000000000 0000000000 0     //MD-Laufwerk (09/02) Entwicklung abgebrochen
+0661         00000000 0000000000000000 0000000000 0     //Radio BMW Business C53 (09/00)
+0663         00000000 0000000000000000 0000000000 0     //CD54 Radio BMW Professional (02/01)
+0665         00000000 0000000000000000 0000000000 0     //C33 BMW Business RDS (Entfall ab 09/00) --> SA661
+H 0666 V0998 00000000 0000000000000000 0000000000 0     //CD33 BMW Business CD RDS
+H 0666 V0900 00000000 0000100000000000 0000000000 1 RADIO_CD43  //CD43 BMW Business CD RDS
+0666         00000000 0000000000000000 0000000000 0     //CD43 BMW Business CD RDS ab 09/00 --> SA661 u. SA650
+H 0670 V0900 00000000 0000000000040000 0000000000 1 RADIO_C34 //S 09/00 //C34 BMW Professional RDS --> SA663
+0670         00000000 0000000000000000 0000000000 0     //C34 BMW Professional RDS
+0672         00000000 0000000000000000 0000000000 0     //CD Wechsler BMW 6 CD-Changer
+H 0676 V0802 00000000 0000000000000000 0000000000 0     //HIFI-Aktiv-Lautsprechersystem
+0676         00000000 0000000000000000 0030000000 1 HIFI_SYSTEM //HIFI-Aktiv-Lautsprechersystem
+0677         00000000 0000000000010000 0000000000 1 TOP_HIFI //Top HIFI-Lautsprechersystem
+0678         00000000 0000000000000000 0000000000 S     //Kopfhoereranlage im Fond
+;0678         00000000 0000000000000000 0000000000 0     //ab 09/01 //Kopfhoereranlage im Fond
+0681         00000000 0000000000000000 0000000000 S     //Dachantenne
+0682         00000000 0000000000000000 0000000000 S     //Fondsitzbank in Stoff (mit SA 581)
+0686         00000000 0000000000000000 0000000000 S     //Antennendiversity
+0689         00000000 0000000000000000 0000000000 S     //Vorbereitung für In-Car Video
+0690         00000000 0000000000000000 0000000000 0     //Cassettenhalterung
+0691         00000000 0000000000000000 0000000000 S     //Compact-Disc-Halterung
+0694         00000000 0000000000000000 0000000000 0     //Vorb.Pioneer/Alpine CD-Wechsler
+0695         00000000 0000000000000000 0000000000 S     //Fernbedienung für Radio
+0696         00000000 0000000000000000 0000000000 0     //CD Wechsler Business (früher: MMC)
+0697         00000000 0000000000000000 0000000000 S     //Automatic-Telefon-Antenne
+0698         00000000 0000000000000000 0000000000 S     //TV-Antenne automatisch
+0699         00000000 0000000000000000 0000000000 S     //Radio für Fuhrparkfahrzeuge
+07NA         00000000 0000000000000000 0000000000 0     //BMW Service Inclusive              PA190/116
+07NB         00000000 0000000000000000 0000000000 0     //BMW Service + Repair Inclusive     PA190/167
+0703         00000000 0000000000000000 0000000000 0     //Ungarn-Paket
+0704         00000000 0000000000000000 0000000000 0     //Sportfahrwerk, M Technik
+0705         00000000 0000000000000000 0000000000 0     //M-Technik, Fahrwerk
+0706         00000000 0000000000000000 0000000000 0     //V5-Paket
+0708         00000000 0000000000000000 0000000000 0     //M-Technic Sport-Lederlenkrad II
+0709         00000000 0000000000000000 0000000000 0     //S 09/00 //M Sportlederlenkrad ohne Multifunktionstasten
+H 0710 V0998 00000000 0000020000000000 0000000000 1 GESCHW_REG //M-Technic-Lederlenkrad + Geschw.reg.
+0710         00000000 0000000000000000 0000000000 0     //M-Technic-Lederlenkrad + Geschw.reg.
+0715         00000000 0000000000000000 0010000100 1 SPORTPAKET //M-Technik Aerodynamikpaket ab 03/01 bei TOUR
+0722         00000000 0000000000000000 0000000000 0     //Sport-Line
+0723         00000000 0000000000000000 0000000000 0     //High-Line
+0725         00000000 0000000000000000 0000000000 0     //Basispaket
+0730         00000000 0000000000000000 0000000000 0     //Advantage Paket
+0733         00000000 0000000000000000 0000000000 0     //Edelholzausführung hochglänzend
+0734         00000000 0000000000000000 0000000000 0     //Dummy Paket
+0735         00000000 0000000000000000 0000000000 0     //Dummy Paket
+H 0752 V0900 00000000 0000000000000000 0010000004 0 M_SOUND //Individual Audiosystem (09/00)
+0752         00000000 0000000000000000 0010000004 1 M_SOUND //Individual Audiosystem (09/00)
+0760         00000000 0000000000000000 0000000000 0     //Hochglanz Shadow Line
+0761         00000000 0000000000000000 0000000000 0     //Sonnenschutzverglasung (SSV)
+0763         00000000 0000000000000000 0000000000 0     //Individualserie Japan
+0768         00000000 0000000000000000 0000000000 0     //Atlanta Olympia Edition
+0772         00000000 0000000000000000 0000000000 S     //Individual High-Line Ausstattung
+0773         00000000 0000000000000000 0000000000 0     //Vogelaugenahorn grau/Erw. Holzausst. Eibe
+0774         00000000 0000000000000000 0000000000 0     //Edelholz Bruyere
+0775         00000000 0000000000000000 0000000000 0     //Dachhimmel in anthrazit
+0776         00000000 0000000000000000 0000000000 0     //Dachhimmel Alcantara schwarz
+0777         00000000 0000000000000000 0000000000 0     //Gepäckraumverkleidung Alcantara schwarz
+0778         00000000 0000000000000000 0000000000 0     //Kennzeichnung BMW Individual
+0779         00000000 0000000000000000 0000000000 0     //Carbon Line
+0780         00000000 0000000000000000 0000000000 0     //18" Rad für M5
+0781         00000000 0000000000000000 0000000000 S     //LM-Räder 9Jx17 auf Hinterachse
+0782         00000000 0000000000000000 0000000000 S     //Nürburgring Fahrwerkspaket
+0783         00000000 0000000000000000 0000000000 S     //ZS-LM-Schmiederad
+0784         00000000 0000000000000000 0000000000 S     //Aerodynamikspiegel
+0785         00000000 0000000000000000 0000000000 0     //Blinkergläser in weiß
+0786         00000000 0000000000000000 0000000000 S     //M Technic Fond-Sitzanlage
+0788         00000000 0000000000000000 0000000000 0     //M Doppelspeichenstyl.
+0790         00000000 0000000000000000 0000000000 0     //Zusatztank M5
+0791         00000000 0000000000000000 0000000000 0     //M-Technik Lenkungsabstimmung
+0793         00000000 0000000000000000 0000000000 S     //Sequentielles M-Getriebe !!Achtung bei Aktivierung (EWS:PARK/NEUTRAL_EINGANG)!!
+07AA         00000000 0000000000000000 0000000000 0     //Dummy Paket
+07AB         00000000 0000000000000000 0000000000 0     //Dummy Paket
+07AC         00000000 0000000000000000 0000000000 0     //Dummy Paket
+08SP         00000000 0000000000000000 0000000000 0     //CO2 Steuerung
+0800         00000000 0000000000000000 0000000000 S     //Katalysator Anlage Länder
+0801         00000100 0000000000000000 0000000000 0     //Auftragssteuerung ZD
+H 0802 V0996 00000200 0000000000020000 0000000000 1 KOREA //Korea-Ausführung
+H 0802 V0997 00000200 0000000000000000 0000000000 1 KOREA //Korea-Ausführung
+H 0802 V0998 00000200 0000000000000000 0000000000 0     //Korea-Ausführung
+H 0802 V0399 00000200 0000000000000000 0000000000 1 KOREA //Korea-Ausführung
+H 0802 V0599 00000200 0000000000000000 0000000000 0     //Korea-Ausführung
+H 0802 V0799 00000200 0000000000000000 0000000000 1 KOREA //Korea-Ausführung
+H 0802 V0501 00000200 0000000000000000 0000000000 0     //Korea-Ausführung
+0802         00000200 0000000000000000 0010000000 1 KOREA_NEU //Korea-Ausführung
+0803         00000000 0000000000000008 0000000000 1 OHNE_3_BL //Entfall 3. Bremsleuchte
+; Die SA 803 soll zu PU98 entfallen, muß aber aktiv bleiben wegen Umrüstung
+; Heckspoiler mit LED-Bremsleuchte (Codierung wie ohne 3. Bremsleuchte)
+H 0804 V0996 00000400 0000000000000000 0000000000 1 CH/A //Schweiz/™sterreich-Ausführung
+H 0804 V0997 00000400 0000000000000000 0000000000 0     //Schweiz-Ausführung
+0804         00000400 0000000000000000 0000000000 S     //Schweiz-Ausführung
+0805         00000500 0000000000000000 0000000000 S     //Aktivkohlefilter
+H 0807 V0396 00000710 0000000000020000 0000000001 1 JAPAN //Japan - Ausführung
+H 0807 V0997 00000710 0000000000020080 0000000001 1 JAPAN //Japan - Ausführung
+0807         00000700 0000000000000000 0000000001 1 JAPAN //Japan - Ausführung
+H 0808 V0997 00000800 0000000000000000 0000000000 0     //Israel - Ausführung
+0808         00000800 0000000000000000 0000000000 S     //Israel - Ausführung
+H 0809 V0997 00000900 0000000000000000 0000000000 1 DAENEMARK //Dänemark - Ausführung
+0809         00000900 0000000000000000 0000000000 S     //Dänemark - Ausführung
+H 0810 V0997 00001010 0000000000000000 0000000000 1 AUSTRALIEN KM_TACHO //Australien - Ausführung
+0810         00001000 0000000000000000 0000000000 1 AUSTRALIEN //Australien - Ausführung
+H 0811 V0996 00001100 0000000000000000 0000000000 1 BELGIEN //Belgien - Ausführung
+H 0811 V0998 00001100 0000000000000000 0000000000 0        //Belgien - Ausführung
+0811         00001100 0000000000000000 0000000000 S        //Belgien - Ausführung
+0812         00001200 0000000000000000 0000000000 1 ENGLAND //England - Ausführung
+H 0813 V0996 00001300 0000000000000000 0000000000 1 FRANKREICH //Frankreich - Ausführung
+H 0813 V0997 00001300 0000000000000000 0000000000 0     //Frankreich - Ausführung
+0813         00001300 0000000000000000 0000000000 S     //Frankreich - Ausführung
+H 0814 V0997 00001400 0000000000000000 0000000000 0     //Italien - Ausführung
+0814         00001400 0000000000000000 0000000000 S     //Italien - Ausführung
+0815         00000000 0000000000000000 0000000000 0     //Schlechtwegepaket
+H 0816 V0997 00001600 0000000000000000 0000000000 0     //Osteuropa-Ausführung
+0816         00001600 0000000000000000 0000000000 S     //Osteuropa-Ausführung
+0817         00000000 0000000000000000 0000000000 S     //Motorauslegung ROZ 91
+0818         00000000 0000000000000000 0000000000 0     //Batteriehauptschalter
+H 0819 V0996 00001900 0000000000000000 0000000000 1 SPANIEN //Spanien - Ausführung
+H 0819 V0997 00001900 0000000000000000 0000000000 0     //Spanien - Ausführung
+0819         00001900 0000000000000000 0000000000 S     //Spanien - Ausführung
+0820         00002000 0000000000000000 0000000000 0     //Brasilien - Ausführung
+0821         00002100 0000000000000000 0000000000 0     //Ägypten - Ausführung
+H 0822 V0997 00002200 0000000000020000 0000000000 1 GOLF //Golf - Ausführung
+0822         00002200 0000000000000000 0000000000 1 GOLF //Golf - Ausführung
+0823         00000000 0000800000000000 0000000000 1 TROPEN //Heißland (Tropen), Ergänzungs-LA für Golf und Heißländer
+0824         00002400 0000000000000000 0000000000 1 ZA  //Südafrika - Ausführung // ab 10/00
+H 0825 V0998 00000000 0000000000000000 0000000000 0     //Steuerung Radio Ozeanien
+0825         00000000 0002000000000000 0000000000 1 OZEANIEN //Steuerung Radio Ozeanien
+0826         00000000 0000000200000000 0000000000 1 EDC_EXPORT //Fahrwerk Exportabstimmung
+H 0830 V0997 00003000 0000000000000000 0000000000 1 NORDLAND //Nordland - Ausführung
+0830         00003000 0000000000000000 0000000000 S     //Nordland - Ausführung
+0831         00000000 0000000000000000 0000000000 0     //Entfall Radio
+0832         00000000 0000000000000000 0000000000 S     //Entfall CD-Halterung
+0833         00000000 0000000000000000 0000000000 S     //Kalifornien - Ausführung
+0835         00000000 0000000000000000 0000000000 S     //US-Touristen-Ausführung
+0837         00000000 0000000000000000 0000000000 S     //Entfall HIFI-Lautsprechersystem
+0838         00003800 0000000000000000 0000000000 1 KANADA //Kanada - Ausführung
+0840         00000000 0000000000000000 0000000000 S     //Entfall Fernbedienung für Radio
+0842         00000000 0000000000000000 0000000000 0     //Kaltland
+0843         00000000 0000000000000000 0000000000 0     //Motorauslegung
+0845         00000000 0000000000020000 0000000000 1 AK_GUWA //Akustische Gurtwarnung
+0846         00004600 0000000000000000 0000000000 0     //Taiwan - Ausführung
+0847         00000000 0000000000000000 0000000000 S     //2te Batterie für C-Netz Telefon
+0848         00000000 0000000000000000 0000000000 S     //erweiterter Kabelbaum
+0850         00000000 0000000000000000 0000000000 0     //Zusätzlich Tankfüllung Export
+0851         00000001 0000000000000000 0000000000 1 DEUTSCH //Armaturenbeschriftung deutsch (f. RL zusteuerbar)
+0853         00000003 0000000000000000 0000000000 1 ENGLISCH //Armaturenbeschriftung englisch
+0854         00000004 0000000000000000 0000000000 1 FRANZOESISCH //Armaturenbeschriftung französisch
+0855         00000005 0000000000000000 0000000000 1 ITALIENISCH //Armaturenbeschriftung italienisch
+0856         00000006 0000000000000000 0000000000 1 SPANISCH //Armaturenbeschriftung spanisch
+0857         00000000 0000000000000000 0000000000 S     //Vorbereitung für Klimaanlage
+0858         00000000 0000000000000000 0000000000 0     //Motor niederverdichtet
+0860         00000000 0000000000000000 0000000000 S     //Seitliche Blinkleuchten vorn
+0861         00000000 0000000000000000 0000000000 0     //Änderung Codierdatensatz
+0862         00000000 0000000000000000 0000000000 S     //Stoffsitze vorn bei Taxipaket
+0863         00000000 0000000000000000 0000000000 0     //Händlerverzeichnis Europa
+0864         00000000 0000000000000000 0000000000 0     //Händlerverzeichnis Übersee
+0865         00000000 0000000000000000 0000000000 S     //Ablagetische/Fußstützen im Fond
+0867         00000000 0000000000000000 0000000000 S     //HIFI-Lautsprechersystem US
+0868         00000000 0000000000000000 0000000000 S     //Radiovorbereitung ZF/ZI
+0869         00000000 0000000000000000 0000000000 S     //Radiovorbereitung ZG/ZZ
+0875         00000000 0000000000000000 0000000000 0     //Infrarotfernbedienung
+0876         00000000 0000000000000000 0000000000 0     //Funkfrequenz 315 MHz
+0877         00000000 0000000000008000 0000000000 1 ENTF_UEBERKREUZ //Entfall Überkreuzbedienung DWA
+0879         00000000 0000000000000000 0000000000 0     //Bordliteratur deutsch
+0880         00000000 0000000000000000 0000000000 0     //Bordliteratur englisch
+0881         00000000 0000000000000000 0000000000 0     //Bordliteratur französisch
+0882         00000000 0000000000000000 0000000000 S     //Gutschrift für Erstausstattung
+0883         00000000 0000000000000000 0000000000 0     //Bordliteratur spanisch
+0884         00000000 0000000000000000 0000000000 0     //Bordliteratur italienisch
+0885         00000000 0000000000000000 0000000000 0     //Bordliteratur schwedisch
+0886         00000000 0000000000000000 0000000000 0     //Bordliteratur holländisch
+0887         00000000 0000000000000000 0000000000 0     //Bordliteratur arabisch
+0888         00000000 0000000000000000 0000000000 0     //Bordliteratur dänisch
+0889         00000000 0000000000000000 0000000000 0     //Bordliteratur portugiesisch
+0890         00000000 0000000000000000 0000000000 S     //Standard-Ausstattung
+0891         00000000 0000000000000000 0000000000 S     //Executiv-Ausstattung
+0893         00000000 0000000000000000 0000000000 0     //MO-Paket III
+0894         00000000 0000000000000000 0000000000 0     //HK-2 Paket
+0896         00000000 0000000400000000 0000000000 1 TAGFAHRLICHT //Tagfahrlicht
+0897         00000020 0000000000000000 0000000000 1 DAUERTON //DWA-Dauerton
+0899         00000080 0000000000000000 0000000000 1 ALARM_OPT_AL //DWA opt. Alarm
+08SF         00000000 0000000000000000 0000000000 0     //Highline Sportedition E39/2
+08SG         00000000 0000000000000000 0000000000 0     //Highline Exclusivedition E39/2
+0900         00000000 0000000000000000 0000000000 0     //anerk. Wegfahrsicherung lt. AZT/TÜV
+0901         00000000 0000000000000000 0000000000 0     //Sonderkontrolle allgemein
+0902         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Pressewagen
+0903         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Stand/Fotowagen
+0904         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Typprüfwagen
+0905         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Vorführwagen
+0906         00000000 0000000000000000 0000000000 0     //Sonderkontrolle Fotofahrz.b.Neuanl.
+0908         00000000 0000000000000000 0000000000 0     //Spoc (Shortest possible order cycle)
+0909         00000000 0000000000000000 0000000000 0     //Diagnosedose plus
+0910         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg ohne Übergabeinsp
+0911         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg mit Übergabeinsp
+0912         00000000 0000000000000000 0000000000 0     //OE-Paket
+0914         00000000 0000000000000000 0000000000 0     //LA-Premiumpaket
+0915         00000000 0000000000000000 0000000000 0     //Entfall Außenhautkonservierung
+0916         00000000 0000000000000000 0000000000 0     //Entwicklungsfzg. ohne Konservierung
+0917         00000000 0000000000000000 0000000000 0     //Überseekonservierung
+0919         00000000 0000000000000000 0000000000 S     //ALU-Türen
+0920         00000040 0000000000000000 0000000000 1 ALPINA //Alpina, ohne Brief
+0922         00000000 0000000000000000 0000000000 S     //Alpina, Motorölkühler
+0923         00000000 0000000000000000 0000000000 0     //Schmalere Niere
+0924         00000000 0000000000000000 0000000000 0     //Spiegel mit planem Glas Beifahrers.
+0925         00000000 0000000000000000 0000000000 0     //Versandschutzpaket
+0927         00000000 0000000000000000 0000000000 0     //All Season Bereifung
+0928         00000000 0000000000000000 0000000000 0     //Reifensteuerung
+0929         00000000 0000000000000000 0000000000 0     //Windschutz beigelegt
+0930         00000000 0000000000000000 0000000000 0     //Preisabhängigkeit bei 314,494,520
+0931         00000000 0000000000000000 0000000000 0     //WINTERREIFEN FUER AUTOVERMIETER (10/00)
+0932         00000000 0000000000000000 0000000000 0     //Winterreifen zusätzlich
+0933         00000000 0000000000000000 0000000000 0     //Radkappen für Winterräder
+0934         00000000 0000000000000000 0000000000 0     //Winterreifen auf Alu
+0936         00000000 0000000000000000 0000000000 0     //LM-Räder "SA"
+0937         00000000 0000000000000000 0000000000 0     //LM-Räder "SA" Breitreifen
+0938         00000000 0000000000000000 0000000000 0     //Winterpaket WA
+0940         00000000 0000000000000000 0000000000 0     //Sonderwunsch Ausstattung
+0941         00000000 0000000000000000 0000000000 0     //Sonderwunschabwicklung
+0942         00000000 0000000000000000 0000000000 0     //Storno Sonderwunsch
+0943         00000000 0000000000000000 0000000000 0     //Sonderwunsch Motorsport-Werk
+0944         00000000 0000000000000000 0000000000 0     //Nachträglicher Umbau durch ZS
+0945         00000000 0000000000000000 0000000000 0     //Berücksichtigung Preisabhängigk.
+0946         00000000 0000000000000000 0000000000 0     //Preisabhängigkeit Naturl./459/481
+0947         00000000 0000000000000000 0000000000 0     //Berücksichtigung Seriensitz
+0948         00000000 0000000000000000 0000000000 0     //Kernmodellpaket V5-KA
+0949         00000000 0000000000000000 0000000000 0     //LA-Sportpaket
+0950         00000000 0000000000000000 0000000000 0     //Lateinamerika-Paket
+0951         00000000 0000000000000000 0000000000 0     //Korea-Paket, ab KW 23/02 Sommerpaket
+0952         00000000 0000000000000000 0000000000 0     //China-Paket
+0953         00000000 0000000000000000 0000000000 0     //Taiwan-Paket
+0954         00000000 0000000000000000 0000000000 0     //Business Line Paket
+0955         00000000 0000000000000000 0000000000 0     //Middle-East-Paket II
+0956         00000000 0000000000000000 0000000000 0     //Middle-East-Paket I
+0957         00000000 0000000000000000 0000000000 0     //Hongkong-Paket
+0960         00000000 0000000000000000 0000000000 0     //Lenkwinkelbegrenzung 17 Zoll
+0961         00000000 0000000000000000 0000000000 0     //Sondermotor
+0962         00000000 0000000000000000 0000000000 0     //Sondersteuerung Motorkennfeld
+0963         00000000 0000000000000800 0000000000 1 M52B25 AUT_4_GANG //Thailand Motor M52B24 mit Getriebe THM-R1
+;SA 963  wird beim 528i zugesteuert, da der Typ eher dem Verhalten und der
+;       Ausstattung entspricht als ein 525i (lt. TAISSII für DM62 u. DT62 möglich)
+0964         00000000 0000000000000000 0000000000 0     //SA NAVI DVD bei Auslieferung anfordern
+0965         00000000 0000000000000000 0000000000 0     //SW/angepaßte Tragfeder vorn 25 kg
+0966         00000000 0000000000000000 0000000000 0     //SW/angepaßte Tragfeder vorn 50 kg
+0967         00000000 0000000000000000 0000000000 0     //SW/angepaßte Tragfeder hinten 25 kg
+0968         00000000 0000000000000000 0000000000 0     //SW/angepaßte Tragfeder hinten 50 kg
+0969         00000000 0000000000000000 0000000000 0     //SW/angepaßte Tragfeder hinten 75 kg
+0970         00000000 0000000000000000 0000000000 0     //Businesspaket SA's 430/500/508/522 (534/628) werden zugesteuert
+0972         00000000 0000000000000000 0000000000 0     //Comfort Paket
+0973         00000000 0000000000000000 0000000000 0     //Malaysia Paket, ab KW 23/02 Winterpaket
+0975         00000000 0000000000000000 0000000000 0     //Highline OE
+0976         00000000 0000000000000000 0000000000 0     //Pilot-Paket
+0977         00000000 0000000000000000 0000000000 0     //Exclusive Line
+0979         00000000 0000000000000000 0000000000 0     //Businesspaket II
+0980         00000000 0000000000000000 0000000000 0     //Exclusivpaket
+0981         00000000 0000000000000000 0000000000 0     //Top Comfort Paket
+0983         00000000 0000000000000000 0000000000 0     //Modelljahrescode Export
+0984         00000000 0040000000000000 0000000000 1 SIA_INTERVALL //Intervall f. V1-Region (minderwertiger Treibstoff)
+0985         00000000 0000000000000000 0000000000 0     //US-Radioergänzungssatz
+0986         00000000 0000000000000000 0000000000 0     //Terminprüfung
+0987         00000000 0000000000000000 0000000000 0     //Existenzprüfung
+0988         00000000 4000000000000000 0000000000 1 SIA_KURZ //Service-Intervall stark verkürzt
+0989         00000000 0000000000000000 0000000000 0     //Abgrenzung Modellüberarbeitung
+0990         00000000 0000000000000000 0000000000 0     //Steuerung Anlaufserie
+0991         00000000 0000000000000000 0000000000 0     //Steuerung Vorserie
+0992         00000000 0000000000000000 0000000000 0     //Kennzeichenbefestigung wie US
+0993         00000000 0000000000000000 0000000000 0     //Modelljahrescode (in FgstNr.)
+0994         00000000 0000000000000000 0000000000 0     //besondere Steuerung
+0995         00000000 0000000000000000 0000000000 0     //Änderungssperre
+0996         00000000 0000000000000000 0000000000 S     //Auftragssteuerung HEA ALT
+0997         00000000 0000000000000000 0000000000 0     //Händlerpräsentation Export
+0998         00000000 0000000000000000 0000000000 0     //Anlaufsteuerung intern
+0999         00000000 0000000000000000 0000000000 0     //Pilotprojekt Termintreue
+B TYP         //Neue Bereichskennung für ZEKO!!
+;******************** Vergebene Typschlüssel **************************************
+;DA02        50010000  LIM  N43B20    AUT RL  //518iA Limousine RL (09/01)
+;DA91        50910000  LIM  N43B20    MAN LL  //518i Limousine LL (03/02)
+;DL71        51710000  LIM  M57D30    MAN LL  //530tdi Limousine LL
+;DL72        51720000  LIM  M57D30    MAN RL  //530tdi Limousine RL
+;DL79        51790010  LIM  M57D30    MAN RL CKD INDIEN //530tdi Limousine Indien
+;DL81        51810000  LIM  M57D30    AUT LL  //530tdiA Limousine LL
+;DL82        51820000  LIM  M57D30    AUT RL  //530tdiA Limousine RL
+;DL89        51890010  LIM  M57D30    AUT RL CKD INDIEN //530tdiA Limousine Indien
+;DD11        53110000  LIM  M52B20    MAN LL  //520i Limousine LL (01/96-08/98)
+;DD12        53120000  LIM  M52B20    MAN RL  //520i Limousine RL (06/96-08/98)
+;DD21        53210000  LIM  M52B20    AUT LL  //520iA Limousine LL (03/96-08/98)
+;DD22        53220000  LIM  M52B20    AUT RL  //520iA Limousine RL (06/96-08/98)
+;DD24        53240013  LIM  M52B20    AUT RL  //520iA Limousine Malaysia (03/97-08/98)
+;DD31        53310000  LIM  M52B25    MAN LL  //523i Limousine LL (09/95-08/98)
+;DD32        53320000  LIM  M52B25    MAN RL  //523i Limousine RL (01/96-08/98)
+;DD35        53350013  LIM  M52B25    MAN RL  //523i Limousine Thailand (nie produziert)
+;DD37        53370013  LIM  M52B25    MAN RL  //523i Limousine Indonesien (08/96-03/99)
+;DD41        53410000  LIM  M52B25    AUT LL  //523iA Limousine LL (09/95-08/98)
+;DD42        53420000  LIM  M52B25    AUT RL  //523iA Limousine RL (01/96-08/98)
+;DD44        53440013  LIM  M52B25    AUT RL  //523iA Limousine Malaysia (04/97-08/98)
+;DD45        53450013  LIM  M52B25    AUT RL AUT_4_GANG //523iA Limousine Thailand (M52B24) (03/97-02/99)
+;DD46        53460000  LIM  M52B25    AUT LL  //523iA Limousine Ägypten (04/97-08/98)
+;DD47        53470013  LIM  M52B25    AUT RL  //523iA Limousine Indonesien (08/96-02/99)
+;DD49        53490003  LIM  M52B25    AUT LL  //523iA Limousine Philippinen (09/96-12/98)
+;DD51        53510000  LIM  M52B28    MAN LL  //528i Limousine LL (09/95-08/98)
+;DD52        53520000  LIM  M52B28    MAN RL  //528i Limousine RL (01/96-08/98)
+;DD53        53530000  LIM  M52B28    MAN LL US //528i Limousine US (03/96-08/98)
+;DD59        53590003  LIM  M52B28    MAN LL  //528i Limousine Vietnam (03/96-08/98)
+;DD61        53610000  LIM  M52B28    AUT LL  //528iA Limousine LL (09/95-08/98)
+;DD62        53620000  LIM  M52B28    AUT RL  //528iA Limousine RL (01/96-08/98)
+;DD63        53630000  LIM  M52B28    AUT LL US AUT_4_GANG //528iA Limousine US (03/96-08/98)
+;DD64        53640013  LIM  M52B28    AUT RL  //528iA Limousine Malaysia (nie produziert)
+;DD66        53660013  LIM  M52B28    AUT RL  //528iA Limousine Indonesien (08/96-08/98)
+;DD67        53670006  LIM  M52B28    AUT LL  //528iA Limousine Mexiko (06/96-08/98)
+;DD69        53690003  LIM  M52B28    AUT LL AUT_4_GANG //528iA Limousine Vietnam (nie produziert)
+;DD79        53790010  LIM  M52B25    MAN RL INDIEN //523i Limousine Indien (nie produziert)
+;DD89        53890010  LIM  M52B25    AUT RL INDIEN //523iA Limousine Indien (nie produziert)
+;DE11        54110000  LIM  M62B35    MAN LL  //535i Limousine LL (06/96-08/98)
+;DE12        54120000  LIM  M62B35    MAN RL  //535i Limousine RL (09/96-08/98)
+;DE21        54210000  LIM  M62B35    AUT LL  //535iA Limousine LL (06/96-08/98)
+;DE22        54220000  LIM  M62B35    AUT RL  //535iA Limousine RL (09/96-08/98)
+;DE51        54510000  LIM  M62B44    MAN LL  //540i Limousine LL (06/96-08/98)
+;DE52        54520000  LIM  M62B44    MAN RL  //540i Limousine RL (06/96-08/98)
+;DE53        54530000  LIM  M62B44    MAN LL US //540i Limousine US (06/96-08/98)
+;DE61        54610000  LIM  M62B44    AUT LL  //540iA Limousine LL (03/96-08/98)
+;DE62        54620000  LIM  M62B44    AUT RL  //540iA Limousine RL (06/96-08/98)
+;DE63        54630000  LIM  M62B44    AUT LL US //540iA Limousine US (03/96-08/98)
+;DE67        54670006  LIM  M62B44    AUT LL  //540iA Limousine Mexiko (11/96 - 08/98)
+;DE81        54810000  LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. LL (09/97-08/98)
+;DE82        54820000  LIM  M62B44    AUT RL SICH_FZG //540iA Sicherheitsfzg. RL (03/98-08/98)
+;DE83        54830000  LIM  M62B44    AUT LL US SICH_FZG //540iA Sicherheitsfzg. US (03/98-08/98)
+;DE87        54870000  LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. Mexiko (11/97-01/98)
+;DE91        54910000  LIM  S62B50    MAN LL  //M5 Limousine LL
+;DE92        54920000  LIM  S62B50    MAN RL  //M5 Limousine RL
+;DE93        54930000  LIM  S62B50    MAN LL US //M5 Limousine US
+;DF51 N0998  55510000  LIM  M51D25WA2 MAN LL  //525td Limousine LL
+;DF71 N0998  55710000  LIM  M51D25WA3 MAN LL  //525tds Limousine LL
+;DF72        55720000  LIM  M51D25WA3 MAN RL  //525tds Limousine RL (05/96-08/98)
+;DF79        55790010  LIM  M51D25WA3 MAN RL CKD INDIEN //525tds Limousine Indien (nie produziert)
+;DF81 N0998  55810000  LIM  M51D25WA3 AUT LL  //525tdsA Limousine LL
+;DF82        55820000  LIM  M51D25WA3 AUT RL  //525tdsA Limousine RL (06/86-08/98)
+;DF89        55890010  LIM  M51D25WA3 AUT RL CKD INDIEN //525tdsA Limousine Indien (nie produziert)
+;DG71 N0998  56710000  TOUR M51D25WA3 MAN LL  //525tds Touring LL
+;DG72        56720000  TOUR M51D25WA3 MAN RL  //525tds Touring RL (02/97-08/98)
+;DG81 N0998  56810000  TOUR M51D25WA3 AUT LL  //525tdsA Touring LL
+;DG82        56820000  TOUR M51D25WA3 AUT RL  //525tdsA Touring RL (01/97-08/98)
+;DG91        56910000  TOUR N43B20    MAN LL  //518i Touring LL (03/02)
+;DH11        57110000  TOUR M52B20    MAN LL  //520i Touring LL (03/97-08/98)
+;DH12        57120000  TOUR M52B20    MAN RL  //520i Touring RL (03/97-08/98)
+;DH21        57210000  TOUR M52B20    AUT LL  //520iA Touring LL (03/97-08/98)
+;DH22        57220000  TOUR M52B20    AUT RL  //520iA Touring RL (03/97-08/98)
+;DH31        57310000  TOUR M52B25    MAN LL  //523i Touring LL (03/97-08/98)
+;DH32        57320000  TOUR M52B25    MAN RL  //523i Touring RL (03/97-08/98)
+;DH41        57410000  TOUR M52B25    AUT LL  //523iA Touring LL (03/97-08/98)
+;DH42        57420000  TOUR M52B25    AUT RL  //523iA Touring RL (03/97-08/98)
+;DH51        57510000  TOUR M52B28    MAN LL  //528i Touring LL (11/96-08/98)
+;DH52        57520000  TOUR M52B28    MAN RL  //528i Touring RL (02/97-08/98)
+;DH53        57530000  TOUR M52B28    MAN LL US //528i Touring US (nie produziert)
+;DH61        57610000  TOUR M52B28    AUT LL  //528iA Touring LL (11/96-08/98)
+;DH62        57620000  TOUR M52B28    AUT RL  //528iA Touring RL (02/97-08/98)
+;DH63        57630000  TOUR M52B28    AUT LL US AUT_4_GANG //528iA Touring US (nie produziert)
+;DP71        58710000  TOUR M57D30    MAN LL  //530tdi Touring LL
+;DP72        58720000  TOUR M57D30    MAN RL  //530tdi Touring RL
+;DP81        58810000  TOUR M57D30    AUT LL  //530tdiA Touring LL
+;DP82        58820000  TOUR M57D30    AUT RL  //530tdiA Touring RL
+;DJ51        59510000  TOUR M62B44    MAN LL  //540i Touring LL (04/97-08/98)
+;DJ52        59520000  TOUR M62B44    MAN RL  //540i Touring RL (09/97-08/98)
+;DJ53        59530000  TOUR M62B44    MAN LL US //540i Touring US (nie produziert)
+;DJ61        59610000  TOUR M62B44    AUT LL  //540iA Touring LL (04/97-08/98)
+;DJ62        59620000  TOUR M62B44    AUT RL  //540iA Touring RL (09/97-08/98)
+;DJ63        59630000  TOUR M62B44    AUT LL US //540iA Touring US (nie produziert)
+;DM11        5A110000  LIM  M52B20 TU MAN LL  //520i TÜ Limousine LL
+;DM12        5A120000  LIM  M52B20 TU MAN RL  //520i TÜ Limousine RL
+;DM21        5A210000  LIM  M52B20 TU AUT LL  //520iA TÜ Limousine LL
+;DM22        5A220000  LIM  M52B20 TU AUT RL  //520iA TÜ Limousine RL
+;DM24        5A240013  LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Limousine Malaysia
+;DM26        5A260000  LIM  M52B20 TU AUT LL CKD AEGYPTEN // 520iA TÜ Limousine Ägypten
+;DM31        5A310000  LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL
+;DM32        5A320000  LIM  M52B25 TU MAN RL  //523i TÜ Limousine RL
+;DM35        5A350013  LIM  M52B25 TU MAN RL CKD THAILAND //523i TÜ Limousine Thailand (nie produziert)
+;DM37        5A370013  LIM  M52B25 TU MAN RL CKD INDONESIEN //523i TÜ Limousine Indonesien
+;DM38        5A380010  LIM  M52B25 TU MAN RL CKD INDIEN //523i TÜ Limousine Indien
+;DM41        5A410000  LIM  M52B25 TU AUT LL  //523iA TÜ Limousine LL
+;DM42        5A420000  LIM  M52B25 TU AUT RL  //523iA TÜ Limousine RL
+;DM44        5A440013  LIM  M52B25 TU AUT RL CKD MALAYSIA //523iA TÜ Limousine Malaysia
+;DM45        5A450013  LIM  M52B25 TU AUT RL CKD THAILAND //523iA TÜ Limousine Thailand
+;DM46        5A460000  LIM  M52B25 TU AUT LL CKD AEGYPTEN //523iA TÜ Limousine Ägypten
+;DM47        5A470013  LIM  M52B25 TU AUT RL CKD INDONESIEN //523iA TÜ Limousine Indonesien
+;DM48        5A480010  LIM  M52B25 TU AUT RL CKD INDIEN  //523iA TÜ Limousine Indien
+;DM49        5A490003  LIM  M52B25 TU AUT LL CKD PHILIPPINEN //523iA TÜ Limousine Philippinen
+;DM51        5A510000  LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL
+;DM52        5A520000  LIM  M52B28 TU MAN RL  //528i TÜ Limousine RL
+;DM53        5A530000  LIM  M52B28 TU MAN LL US //528i TÜ Limousine US
+;DM58        5A580000  LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL RUS (06/99)
+;DM59        5A590003  LIM  M52B28 TU MAN LL CKD //528i TÜ Limousine Vietnam(09/98-??)
+;DM61        5A610000  LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL
+;DM62        5A620000  LIM  M52B28 TU AUT RL  //528iA TÜ Limousine RL
+;DM63        5A630000  LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US
+;DM64        5A640013  LIM  M52B28 TU AUT RL CKD MALAYSIA //528iA TÜ Limousine Malaysia
+;DM65        5A650010  LIM  M52B28 TU AUT LL CKD //528iA TÜ Limousine Ägypten (nie produziert)
+;DM66        5A660013  LIM  M52B28 TU AUT RL CKD INDONESIEN //528iA TÜ Limousine Indonesien
+;DM67        5A670006  LIM  M52B28 TU AUT LL CKD MEXICO //528iA TÜ Limousine Mexiko
+;DM68        5A680000  LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL RUS (06/99)
+;DM69        5A690003  LIM  M52B28 TU AUT LL CKD VIETNAM //528iA TÜ Limousine Vietnam
+;DM71        5A710000  LIM  M47D20    MAN LL  //520d Limousine LL
+;DM72        5A720000  LIM  M47D20    MAN RL  //520d Limousine RL (setzt nicht ein)
+;DM81        5A810000  LIM  M47D20    AUT LL  //520dA Limousine LL
+;DM82        5A820000  LIM  M47D20    AUT RL  //520dA Limousine RL (nie produziert)
+;DM87        5A870000  LIM  M52B28 TU AUT LL CKD MEXICO SICH_FZG //528iA Sicherheitsfzg. Mexiko
+;DN11        5B110000  LIM  M62B35 TU MAN LL  //535i TÜ Limousine LL
+;DN12        5B120000  LIM  M62B35 TU MAN RL  //535i TÜ Limousine RL
+;DN21        5B210000  LIM  M62B35 TU AUT LL  //535iA TÜ Limousine LL
+;DN22        5B220000  LIM  M62B35 TU AUT RL  //535iA TÜ Limousine RL
+;DN51        5B510000  LIM  M62B44 TU MAN LL  //540i TÜ Limousine LL
+;DN52        5B520000  LIM  M62B44 TU MAN RL  //540i TÜ Limousine RL
+;DN53        5B530000  LIM  M62B44 TU MAN LL US //540i TÜ Limousine US
+;DN61        5B610000  LIM  M62B44 TU AUT LL  //540iA TÜ Limousine LL
+;DN62        5B620000  LIM  M62B44 TU AUT RL  //540iA TÜ Limousine RL
+;DN63        5B630000  LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US
+;DN67        5B670006  LIM  M62B44 TU AUT LL CKD MEXICO //540iA TÜ Limousine Mexiko
+;DN81        5B810000  LIM  M62B44 TU AUT LL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. LL
+;DN82        5B820000  LIM  M62B44 TU AUT RL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. RL
+;DN83        5B830000  LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+;DN87        5B870000  LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko
+;DP01        5C010000  TOUR M57D25    AUT LL  //525dA Touring LL
+;DP02        5C020000  TOUR M57D25    AUT RL  //525dA Touring RL
+;DR11        5C110000  TOUR M52B20 TU MAN LL  //520i TÜ Touring LL
+;DR12        5C120000  TOUR M52B20 TU MAN RL  //520i TÜ Touring RL
+;DR21        5C210000  TOUR M52B20 TU AUT LL  //520iA TÜ Touring LL
+;DR22        5C220000  TOUR M52B20 TU AUT RL  //520iA TÜ Touring RL
+;DR31        5C310000  TOUR M52B25 TU MAN LL  //523i TÜ Touring LL
+;DR32        5C320000  TOUR M52B25 TU MAN RL  //523i TÜ Touring RL
+;DR41        5C410000  TOUR M52B25 TU AUT LL  //523iA TÜ Touring LL
+;DR42        5C420000  TOUR M52B25 TU AUT RL  //523iA TÜ Touring RL
+;DP51        5C510000  TOUR M52B28 TU MAN LL  //528i TÜ Touring LL
+;DP52        5C520000  TOUR M52B28 TU MAN RL  //528i TÜ Touring RL
+;DP53        5C530000  TOUR M52B28 TU MAN LL US //528i TÜ Touring US
+;DP61        5C610000  TOUR M52B28 TU AUT LL  //528iA TÜ Touring LL
+;DP62        5C620000  TOUR M52B28 TU AUT RL  //528iA TÜ Touring RL
+;DP63        5C630000  TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US
+;DP91        5C910000  TOUR M57D25    MAN LL  //525d Touring LL (03/00)
+;DP92        5C920000  TOUR M57D25    MAN RL  //525d Touring RL (03/00)
+;DR51        5D510000  TOUR M62B44 TU MAN LL  //540i TÜ Touring LL
+;DR52        5D520000  TOUR M62B44 TU MAN RL  //540i TÜ Touring RL
+;DR61        5D610000  TOUR M62B44 TU AUT LL  //540iA TÜ Touring LL
+;DR62        5D620000  TOUR M62B44 TU AUT RL  //540iA TÜ Touring RL
+;DR63        5D630000  TOUR M62B44 TU AUT LL US //540iA TÜ Touring US
+;DR71        5D710000  TOUR M47D20    MAN LL  //520d Touring LL
+;DR72        5D720000  TOUR M47D20    MAN RL  //520d Touring RL (setzt nicht ein)
+;DR81        5D810000  TOUR M47D20    AUT LL  //520dA Touring LL
+;DR82        5D820000  TOUR M47D20    AUT RL  //520dA Touring RL (nie produziert)
+;DL01        5E010000  LIM  M57D25    AUT LL  //525dA Limousine LL
+;DL02        5E020000  LIM  M57D25    AUT RL  //525dA Limousine RL
+;DS11        5E110000  TOUR M54B22    MAN LL  //520i Touring (09/00)
+;DS12        5E120000  TOUR M54B22    MAN RL  //520i Touring (09/00)
+;DS21        5E210000  TOUR M54B22    AUT LL  //520iA Touring (09/00)
+;DS22        5E220000  TOUR M54B22    AUT RL  //520iA Touring (09/00)
+;DS31        5E310000  TOUR M54B25    MAN LL  //523i Touring (09/00)
+;DS32        5E320000  TOUR M54B25    MAN RL  //523i Touring (09/00)
+;DS33        5E330000  TOUR M54B25    MAN LL US //525i Touring US (09/00)
+;DL38        5E380000  LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL RUS
+;DS41        5E410000  TOUR M54B25    AUT LL  //523iA Touring (09/00)
+;DS42        5E420000  TOUR M54B25    AUT RL  //523iA Touring (09/00)
+;DS43        5E430000  TOUR M54B25    AUT LL US //525iA Touring US (09/00)
+;DL48        5E480000  LIM  M52B25 TU AUT LL  //523iA TÜ Limousine LL RUS
+;DS51        5E510000  TOUR M54B30    MAN LL  //530i Touring (09/00)
+;DS52        5E520000  TOUR M54B30    MAN RL  //530i Touring (09/00)
+;DS53        5E530000  TOUR M54B30    MAN LL US //530i Touring US (nie produziert)
+;DS61        5E610000  TOUR M54B30    AUT LL  //530iA Touring (09/00)
+;DS62        5E620000  TOUR M54B30    AUT RL  //530iA Touring (09/00)
+;DS63        5E630000  TOUR M54B30    AUT LL US //530iA Touring US (nie produziert)
+;DL91        5E910000  LIM  M57D25    MAN LL  //525d Limousine LL
+;DL92        5E920000  LIM  M57D25    MAN RL  //525d Limousine RL
+;DT11        5F110000  LIM  M54B22    MAN LL  //520i Limousine (09/00)
+;DT12        5F120000  LIM  M54B22    MAN RL  //520i Limousine (09/00)
+;DT21        5F210000  LIM  M54B22    AUT LL  //520iA Limousine (09/00)
+;DT22        5F220000  LIM  M54B22    AUT RL  //520iA Limousine (09/00)
+;DT27        5F230000  LIM  M54B22    AUT RL CKD INDONESIEN //520iA Limousine Indonesien (03/01)
+;DT24        5F240000  LIM  M54B22    AUT RL CKD MALAYSIA //520iA Limousine Malaysia (12/00)
+;DT26        5F260000  LIM  M54B22    AUT LL CKD AEGYPTEN //520iA Limousine Ägypten (09/00)
+;DT31        5F310000  LIM  M54B25    MAN LL  //523i Limousine (09/00)
+;DT32        5F320000  LIM  M54B25    MAN RL  //523i Limousine (09/00)
+;DT33        5F330000  LIM  M54B25    MAN LL US //525i Limousine US (09/00)
+;DT35        5F350000  LIM  M54B25    MAN LL CKD //523i Limousine Rußland (09/00)
+;DT37        5F370000  LIM  M54B25    MAN RL CKD INDONESIEN //523i Limousine Indonesien (nie produziert)
+;DT38        5F380010  LIM  M54B25    MAN RL CKD INDIEN //523i Limousine Indien (nie produziert)
+;DT41        5F410000  LIM  M54B25    AUT LL  //523iA Limousine (09/00)
+;DT42        5F420000  LIM  M54B25    AUT RL  //523iA Limousine (09/00)
+;DT43        5F430000  LIM  M54B25    AUT LL US //525iA Limousine US (09/00)
+;DT44        5F440000  LIM  M54B25    AUT RL CKD MALAYSIA //523iA Limousine Malaysia (09/00)
+;DT45        5F450000  LIM  M54B25    AUT LL CKD //523iA Limousine Rußland (09/00)
+;DT46        5F460000  LIM  M54B25    AUT LL CKD AEGYPTEN //523iA Limousine Ägypten (09/00)
+;DT47        5F470000  LIM  M54B25    AUT RL CKD INDONESIEN //523iA Limousine Indonesien (09/00)
+;DT48        5F480010  LIM  M54B25    AUT LL CKD VIETNAM //523iA Limousine Vietnam (09/00)
+;DT49        5F490000  LIM  M54B25    AUT LL CKD PHILIPPINEN //523iA Limousine Philippinen (09/00)
+;DT51        5F510000  LIM  M54B30    MAN LL  //530i Limousine (09/00)
+;DT52        5F520000  LIM  M54B30    MAN RL  //530i Limousine (09/00)
+;DT53        5F530000  LIM  M54B30    MAN LL US  //530i Limousine US (09/00)
+;DT55        5F550000  LIM  M54B30    MAN LL CKD //530i Limousine Rußland (09/00)
+;DT59        5F590000  LIM  M54B30    MAN LL CKD VIETNAM //530i Limousine Vietnam (nie produziert)
+;DT61        5F610000  LIM  M54B30    AUT LL  //530iA Limousine (09/00)
+;DT62        5F620000  LIM  M54B30    AUT RL  //530iA Limousine (09/00)
+;DT63        5F630000  LIM  M54B30    AUT LL US //530iA Limousine US (09/00)
+;DT65        5F650000  LIM  M54B30    AUT LL CKD //530iA Limousine Rußland (09/00)
+;DT66        5F660000  LIM  M54B30    AUT RL CKD INDONESIEN //530iA Limousine Indonesien (09/00)
+;DT67        5F670000  LIM  M54B30    AUT LL CKD MEXICO //530iA Limousine Mexico (09/00)
+;DT68        5F680000  LIM  M54B30    AUT RL CKD MALAYSIA //530iA Limousine Malaysia (09/00)
+;DT69        5F690000  LIM  M54B30    AUT LL CKD VIETNAM //530iA Limousine Vietnam (nie produziert)
+;DT87        5F870000  LIM  M54B30    AUT LL CKD MEXICO SICH_FZG //530iA Sicherheitsfzg. Mexiko (09/00)
+;******************** Vergebene Typschlüssel **************************************
+;
+H DD11 V0997 53110000 0000000000000000 0000000000 1 LIM  M52B20    MAN LL  //520i Limousine LL
+DD11         53110000 0000000004000000 0000000000 1 LIM  M52B20    MAN LL  //520i Limousine LL
+H DD12 V0995 53120000 0000000000000000 0000000000 1 LIM  M52B20    MAN RL  //520i Limousine RL
+DD12         53120000 0000000004000080 0000000000 1 LIM  M52B20    MAN RL  //520i Limousine RL
+H DD21 V0996 53210000 0000000000000000 0000000000 1 LIM  M52B20    AUT LL  //520iA Limousine LL
+H DD21 V0997 53210000 0001000000000000 0000000000 1 LIM  M52B20    AUT LL  //520iA Limousine LL
+DD21         53210000 0001000004000000 0000000000 1 LIM  M52B20    AUT LL  //520iA Limousine LL
+H DD22 V0995 53220000 0000000000000000 0000000000 1 LIM  M52B20    AUT RL  //520iA Limousine RL
+H DD22 V0996 53220000 0000000004000080 0000000000 1 LIM  M52B20    AUT RL  //520iA Limousine RL
+DD22         53220000 0001000004000080 0000000000 1 LIM  M52B20    AUT RL  //520iA Limousine RL
+H DD24 V0995 53240000 0000000000000000 0000000000 1 LIM  M52B20    AUT RL  //520iA Limousine Malaysia
+DD24         53240013 0001080004000080 0000000000 1 LIM  M52B20    AUT RL  //520iA Limousine Malaysia
+H DD31 V0995 53310000 0000000000000000 0000000000 1 LIM  M52B25    MAN LL  //523i Limousine LL
+H DD31 V0997 53310000 0000000000000400 0000000000 1 LIM  M52B25    MAN LL  //523i Limousine LL
+DD31         53310000 0000000004000400 0000000000 1 LIM  M52B25    MAN LL  //523i Limousine LL
+H DD32 V0995 53320000 0000000000000000 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine RL
+DD32         53320000 0000000004000480 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine RL
+H DD35 V0995 53350000 0000000000000000 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine Thailand
+DD35         53350013 0000080004000480 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine Thailand
+H DD37 V0995 53370000 0000000000000000 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine Indonesien
+DD37         53370013 0000080004000480 0000000000 1 LIM  M52B25    MAN RL  //523i Limousine Indonesien
+H DD41 V0995 53410000 0000000000000000 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine LL
+H DD41 V0997 53410000 0000000000000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine LL
+DD41         53410000 0000000004000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine LL
+H DD42 V0995 53420000 0000000000000000 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine RL
+DD42         53420000 0000000004000480 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine RL
+H DD44 V0995 53440000 0000000000000000 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine Malaysia
+DD44         53440013 0001080004000480 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine Malaysia
+H DD45 V0995 53450000 0000000000000000 0000000000 1 LIM  M52B25    AUT RL AUT_4_GANG //523iA Limousine Thailand (M52B24)
+DD45         53450013 0000080004000480 0000000000 1 LIM  M52B25    AUT RL AUT_4_GANG //523iA Limousine Thailand (M52B24)
+H DD46 V0995 53460000 0000000000000000 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Ägypten
+H DD46 V0997 53460000 0001000000000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Ägypten
+DD46         53460000 0001000004000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Ägypten
+H DD47 V0995 53470000 0000000000000000 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine Indonesien
+H DD47 V0996 53470013 0000080004000480 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine Indonesien
+DD47         53470013 0001080004000480 0000000000 1 LIM  M52B25    AUT RL  //523iA Limousine Indonesien
+H DD49 V0995 53490000 0000000000000000 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Philippinen
+H DD49 V0996 53490003 0000080000000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Philippinen
+H DD49 V0997 53490003 0001080000000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Philippinen
+DD49         53490003 0001080004000400 0000000000 1 LIM  M52B25    AUT LL  //523iA Limousine Philippinen
+H DD51 V0995 53510000 0000000000000000 0000000000 1 LIM  M52B28    MAN LL  //528i Limousine LL
+DD51         53510000 0000000004001400 0000000000 1 LIM  M52B28    MAN LL  //528i Limousine LL
+H DD52 V0995 53520000 0000000000000000 0000000000 1 LIM  M52B28    MAN RL  //528i Limousine RL
+DD52         53520000 0000000004001480 0000000000 1 LIM  M52B28    MAN RL  //528i Limousine RL
+H DD53 V0995 53530000 0000000000000000 0000000000 1 LIM  M52B28    MAN LL US //528i Limousine US
+H DD53 V0996 53530000 00000A0004025410 0000000000 1 LIM  M52B28    MAN LL US //528i Limousine US
+DD53         53530000 00000A0004025400 0000000000 1 LIM  M52B28    MAN LL US //528i Limousine US
+H DD59 V0995 53590000 0000000000000000 0000000000 1 LIM  M52B28    MAN LL  //528i Limousine Vietnam
+DD59         53590003 0000080004001400 0000000000 1 LIM  M52B28    MAN LL  //528i Limousine Vietnam
+H DD61 V0995 53610000 0000000000000000 0000000000 1 LIM  M52B28    AUT LL  //528iA Limousine LL
+DD61         53610000 0000000004001400 0000000000 1 LIM  M52B28    AUT LL  //528iA Limousine LL
+H DD62 V0995 53620000 0000000000000000 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine RL
+DD62         53620000 0000000004001480 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine RL
+H DD63 V0995 53630000 0000000000000000 0000000000 1 LIM  M52B28    AUT LL US AUT_4_GANG //528iA Limousine US
+H DD63 V0996 53630000 00000A0004025410 0000000000 1 LIM  M52B28    AUT LL US AUT_4_GANG //528iA Limousine US
+DD63         53630000 00000A0004025400 0000000000 1 LIM  M52B28    AUT LL US AUT_4_GANG //528iA Limousine US
+H DD64 V0995 53640000 0000000000000000 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine Malaysia
+DD64         53640013 0001080004001480 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine Malaysia
+H DD66 V0995 53660000 0000000000000000 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine Indonesien
+DD66         53660013 0001080004001480 0000000000 1 LIM  M52B28    AUT RL  //528iA Limousine Indonesien
+H DD67 V0995 53670000 0000000000000000 0000000000 1 LIM  M52B28    AUT LL  //528iA Limousine Mexiko
+DD67         53670006 0001080004001400 0000000000 1 LIM  M52B28    AUT LL  //528iA Limousine Mexiko
+H DD69 V0995 53690000 0000000000000000 0000000000 1 LIM  M52B28    AUT LL AUT_4_GANG //528iA Limousine Vietnam
+DD69         53690003 0000080004001400 0000000000 1 LIM  M52B28    AUT LL AUT_4_GANG //528iA Limousine Vietnam
+H DD79 V0697 53790000 0000000000000000 0000000000 1 LIM  M52B25    MAN RL INDIEN //523i Limousine Indien
+DD79         53790010 0000000004000680 0000000000 1 LIM  M52B25    MAN RL INDIEN //523i Limousine Indien
+H DD89 V0697 53890000 0000000000000000 0000000000 1 LIM  M52B25    AUT RL INDIEN //523iA Limousine Indien
+DD89         53890010 0001000004000680 0000000000 1 LIM  M52B25    AUT RL INDIEN //523iA Limousine Indien
+H DE11 V0995 54110000 0000000000000000 0000000001 1 LIM  M62B35    MAN LL  //535i Limousine LL
+H DE11 V0997 54110000 0000020004000400 0000000001 1 LIM  M62B35    MAN LL  //535i Limousine LL
+DE11         54110000 000002000C000400 0000000801 1 LIM  M62B35    MAN LL  //535i Limousine LL
+H DE12 V0995 54120000 0000000000000000 0000000001 1 LIM  M62B35    MAN RL  //535i Limousine RL
+H DE12 V0997 54120000 0000020004000480 0000000001 1 LIM  M62B35    MAN RL  //535i Limousine RL
+DE12         54120000 000002000C000480 0000000801 1 LIM  M62B35    MAN RL  //535i Limousine RL
+H DE21 V0995 54210000 0000000000000000 0000000001 1 LIM  M62B35    AUT LL  //535iA Limousine LL
+H DE21 V0997 54210000 0001020004000400 0000000001 1 LIM  M62B35    AUT LL  //535iA Limousine LL
+DE21         54210000 000102000C000400 0000000801 1 LIM  M62B35    AUT LL  //535iA Limousine LL
+H DE22 V0995 54220000 0000000000000000 0000000001 1 LIM  M62B35    AUT RL  //535iA Limousine RL
+H DE22 V0997 54220000 0001020004000480 0000000001 1 LIM  M62B35    AUT RL  //535iA Limousine RL
+DE22         54220000 000102000C000480 0000000801 1 LIM  M62B35    AUT RL  //535iA Limousine RL
+H DE51 V0995 54510000 0000000000000000 0000000001 1 LIM  M62B44    MAN LL  //540i Limousine LL
+H DE51 V0997 54510000 0000020004000400 0000000001 1 LIM  M62B44    MAN LL  //540i Limousine LL
+DE51         54510000 000002000C000400 0000000801 1 LIM  M62B44    MAN LL  //540i Limousine LL
+H DE52 V0995 54520000 0000000000000000 0000000001 1 LIM  M62B44    MAN RL  //540i Limousine RL
+H DE52 V0997 54520000 0000020004000480 0000000001 1 LIM  M62B44    MAN RL  //540i Limousine RL
+DE52         54520000 000002000C000480 0000000801 1 LIM  M62B44    MAN RL  //540i Limousine RL
+H DE53 V0995 54530000 0000000000000000 0000000001 1 LIM  M62B44    MAN LL US //540i Limousine US
+H DE53 V0997 54530000 00000A0004024414 0000000081 1 LIM  M62B44    MAN LL US //540i Limousine US
+DE53         54530000 00000A000C024414 0000000881 1 LIM  M62B44    MAN LL US //540i Limousine US
+H DE61 V0995 54610000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL  //540iA Limousine LL
+H DE61 V0997 54610000 0001020004000400 0000000001 1 LIM  M62B44    AUT LL  //540iA Limousine LL
+DE61         54610000 000102000C000400 0000000801 1 LIM  M62B44    AUT LL  //540iA Limousine LL
+H DE62 V0995 54620000 0000000000000000 0000000001 1 LIM  M62B44    AUT RL  //540iA Limousine RL
+H DE62 V0997 54620000 0001020004000480 0000000001 1 LIM  M62B44    AUT RL  //540iA Limousine RL
+DE62         54620000 000102000C000480 0000000801 1 LIM  M62B44    AUT RL  //540iA Limousine RL
+H DE63 V0995 54630000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL US //540iA Limousine US
+H DE63 V0997 54630000 00000A0004024414 0000000081 1 LIM  M62B44    AUT LL US //540iA Limousine US
+DE63         54630000 00000A000C024414 0000000881 1 LIM  M62B44    AUT LL US //540iA Limousine US
+H DE67 V0995 54670000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL  //540iA Limousine Mexiko
+H DE67 V0997 54670006 00010A0004000400 0000000001 1 LIM  M62B44    AUT LL  //540iA Limousine Mexiko
+DE67         54670006 00010A000C000400 0000000801 1 LIM  M62B44    AUT LL  //540iA Limousine Mexiko
+H DE81 V0995 54810000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. LL
+DE81         54810000 00010A0108400401 0000000801 1 LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. LL
+H DE82 V0995 54820000 0000000000000000 0000000001 1 LIM  M62B44    AUT RL SICH_FZG //540iA Sicherheitsfzg. RL
+DE82         54820000 00010A0108408481 0000000801 1 LIM  M62B44    AUT RL SICH_FZG //540iA Sicherheitsfzg. RL
+H DE83 V0995 54830000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+DE83         54830000 00000A0108424405 0000000801 1 LIM  M62B44    AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+H DE87 V0995 54870000 0000000000000000 0000000001 1 LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. Mexiko
+DE87         54870000 00010A0108400401 0000000801 1 LIM  M62B44    AUT LL SICH_FZG //540iA Sicherheitsfzg. Mexiko
+H DE91 V0995 54910000 0000000000000000 0000000001 1 LIM  S62B50    MAN LL  //M5 Limousine LL
+H DE91 V0597 54910000 0000000000000000 0000000001 S LIM  S62B50    MAN LL  //M5 Limousine LL
+H DE91 V1199 54910000 00000A910C5047A0 0000000801 1 LIM  S62B50    MAN LL  //M5 Limousine LL
+H DE91 V0301 54910000 00000A910C5047A0 0000000001 1 LIM  S62B50    MAN LL  //M5 Limousine LL (09/98)
+H DE91 V0901 54910000 00000A910C1047A0 0000000001 1 LIM  S62B50    MAN LL  //M5 Limousine LL (09/98) ab 03/01 ohne SA261 Fondairbag nicht mehr Serie
+DE91         54910000 00000A910C1046A0 0000000001 1 LIM  S62B50    MAN LL  //M5 Limousine LL (09/98) ab 09/01 ohne SA521 Regenlichtsensor nicht mehr Serie
+H DE92 V0995 54920000 0000000000000000 0000000001 1 LIM  S62B50    MAN RL  //M5 Limousine RL
+H DE92 V0797 54920000 0000000000000000 0000000001 S LIM  S62B50    MAN RL  //M5 Limousine RL
+H DE92 V1199 54920000 00000A910C5047A0 0000000801 1 LIM  S62B50    MAN RL  //M5 Limousine RL
+H DE92 V0301 54920000 00000A910C5047A0 0000000001 1 LIM  S62B50    MAN RL  //M5 Limousine RL (01/99)
+H DE92 V0901 54920000 00000A910C1047A0 0000000001 1 LIM  S62B50    MAN RL  //M5 Limousine RL (01/99) ab 03/01 ohne SA261 Fondairbag nicht mehr Serie
+DE92         54920000 00000A910C1046A0 0000000001 1 LIM  S62B50    MAN RL  //M5 Limousine RL (01/99) ab 09/01 ohne SA521 Regenlichtsensor nicht mehr Serie
+H DE93 V0995 54930000 0000000000000000 0000000001 1 LIM  S62B50    MAN LL US //M5 Limousine US
+H DE93 V0797 54930000 0000000000000000 0000000001 S LIM  S62B50    MAN LL US //M5 Limousine US
+H DE93 V0999 54930000 00000A910C504630 0000000801 1 LIM  S62B50    MAN LL US //M5 Limousine US
+H DE93 V1199 54930000 00000A910C104630 0000000801 1 LIM  S62B50    MAN LL US //M5 Limousine US
+H DE93 V0900 54930000 00000A910C104630 0000000001 1 LIM  S62B50    MAN LL US //M5 Limousine US
+H DE93 V0301 54930000 80000A910C504630 0000000001 1 LIM  S62B50    MAN LL US //M5 Lim US (09/99) ab 09/00 Fondairbag deakt
+DE93         54930000 80000A910C104630 0000000001 1 LIM  S62B50    MAN LL US //M5 Lim US (09/99) ab 03/01 ohne SA261 Fondairbag nicht mehr Serie
+H DF51 V0997 55510000 0000000000000000 0000000008 1 LIM  M51D25WA2 MAN LL  //525td Limousine LL
+H DF51 V0998 55510000 0000000004000000 0000000008 1 LIM  M51D25WA2 MAN LL  //525td Limousine LL
+DF51         55510000 0000000004000080 0000000008 1 LIM  M51D25WA2 MAN LL  //525td Limousine LL (03/97-02/00)
+H DF71 V0997 55710000 0000000000000000 0000000008 1 LIM  M51D25WA3 MAN LL  //525tds Limousine LL
+H DF71 V0998 55710000 0000000004000000 0000000008 1 LIM  M51D25WA3 MAN LL  //525tds Limousine LL
+DF71         55710000 0000000004000080 0000000008 1 LIM  M51D25WA3 MAN LL  //525tds Limousine LL (12/95-02/00)
+H DF72 V0997 55720000 0000000000000080 0000000008 1 LIM  M51D25WA3 MAN RL  //525tds Limousine RL
+DF72         55720000 0000000004000080 0000000008 1 LIM  M51D25WA3 MAN RL  //525tds Limousine RL
+H DF79 V0697 55790000 0000000000000000 0000000008 1 LIM  M51D25WA3 MAN RL CKD INDIEN //525tds Limousine Indien
+DF79         55790010 0000000004000280 0000000008 1 LIM  M51D25WA3 MAN RL CKD INDIEN //525tds Limousine Indien
+H DF81 V0997 55810000 0000000000000000 0000000008 1 LIM  M51D25WA3 AUT LL  //525tdsA Limousine LL
+H DF81 V0998 55810000 0000000004000000 0000000008 1 LIM  M51D25WA3 AUT LL  //525tdsA Limousine LL
+DF81         55810000 0000000004000080 0000000008 1 LIM  M51D25WA3 AUT LL  //525tdsA Limousine LL (06/96-02/00)
+H DF82 V0997 55820000 0000000000000080 0000000008 1 LIM  M51D25WA3 AUT RL  //525tdsA Limousine RL
+DF82         55820000 0000000004000080 0000000008 1 LIM  M51D25WA3 AUT RL  //525tdsA Limousine RL
+H DF89 V0697 55890000 0000000000000000 0000000008 1 LIM  M51D25WA3 AUT RL CKD INDIEN //525tdsA Limousine Indien
+DF89         55890010 0000000004000280 0000000008 1 LIM  M51D25WA3 AUT RL CKD INDIEN //525tdsA Limousine Indien
+H DL71 V0497 51710000 0000000000000000 0000000000 1 LIM  M57D30    MAN LL  //530tdi Limousine LL
+H DL71 V1199 51710000 0000000004000480 0000000800 1 LIM  M57D30    MAN LL  //530tdi Limousine LL
+DL71         51710000 0000000004000480 0000000000 1 LIM  M57D30    MAN LL  //530tdi Limousine LL (09/98)
+H DL72 V0497 51720000 0000000000000000 0000000000 1 LIM  M57D30    MAN RL  //530tdi Limousine RL
+H DL72 V1199 51720000 0000000004000480 0000000800 1 LIM  M57D30    MAN RL  //530tdi Limousine RL
+DL72         51720000 0000000004000480 0000000000 1 LIM  M57D30    MAN RL  //530tdi Limousine RL (09/98)
+H DL79 V0497 51790000 0000000000000000 0000000000 1 LIM  M57D30    MAN RL CKD INDIEN //530tdi Limousine Indien
+DL79         51790010 0000000004000680 0000000000 1 LIM  M57D30    MAN RL CKD INDIEN //530tdi Limousine Indien (09/00)
+H DL81 V0497 51810000 0000000000000000 0000000000 1 LIM  M57D30    AUT LL  //530tdiA Limousine LL
+H DL81 V1199 51810000 0001000004000480 0000000800 1 LIM  M57D30    AUT LL  //530tdiA Limousine LL
+DL81         51810000 0001000004000480 0000000000 1 LIM  M57D30    AUT LL  //530tdiA Limousine LL (09/98)
+H DL82 V0497 51820000 0000000000000000 0000000000 1 LIM  M57D30    AUT RL  //530tdiA Limousine RL
+H DL82 V1199 51820000 0001000004000480 0000000800 1 LIM  M57D30    AUT RL  //530tdiA Limousine RL
+DL82         51820000 0001000004000480 0000000000 1 LIM  M57D30    AUT RL  //530tdiA Limousine RL (09/98)
+H DL89 V0497 51890000 0000000000000000 0000000000 1 LIM  M57D30    AUT RL CKD INDIEN //530tdiA Limousine Indien
+DL89         51890010 0000000004000680 0000000000 1 LIM  M57D30    AUT RL CKD INDIEN //530tdiA Limousine Indien (09/00)
+H DG71 V0997 56710000 0000000000000000 0000000008 1 TOUR M51D25WA3 MAN LL  //525tds Touring LL
+H DG71 V0998 56710000 0000000004000000 0000000008 1 TOUR M51D25WA3 MAN LL  //525tds Touring LL
+DG71         56710000 0000000004000080 0000000008 1 TOUR M51D25WA3 MAN LL  //525tds Touring LL (11/96-02/00)
+H DG72 V0997 56720000 0000000000000080 0000000008 1 TOUR M51D25WA3 MAN RL  //525tds Touring RL
+DG72         56720000 0000000004000080 0000000008 1 TOUR M51D25WA3 MAN RL  //525tds Touring RL (02/97-08/98)
+H DG81 V0997 56810000 0000000000000000 0000000008 1 TOUR M51D25WA3 AUT LL  //525tdsA Touring LL
+H DG81 V0998 56810000 0000000004000000 0000000008 1 TOUR M51D25WA3 AUT LL  //525tdsA Touring LL
+DG81         56810000 0000000004000080 0000000008 1 TOUR M51D25WA3 AUT LL  //525tdsA Touring LL (11/96-02/00)
+H DG82 V0997 56820000 0000000000000080 0000000008 1 TOUR M51D25WA3 AUT RL  //525tdsA Touring RL
+DG82         56820000 0000000004000080 0000000008 1 TOUR M51D25WA3 AUT RL  //525tdsA Touring RL (02/97-08/98)
+H DP71 V0497 58710000 0000000000000000 0000000000 1 TOUR M57D30    MAN LL  //530tdi Touring LL
+H DP71 V1199 58710000 0000000004000480 0000000800 1 TOUR M57D30    MAN LL  //530tdi Touring LL
+DP71         58710000 0000000004000480 0000000000 1 TOUR M57D30    MAN LL  //530tdi Touring LL (09/98-12/03)
+H DP72 V0497 58720000 0000000000000000 0000000000 1 TOUR M57D30    MAN RL  //530tdi Touring RL
+H DP72 V1199 58720000 0000000004000480 0000000800 1 TOUR M57D30    MAN RL  //530tdi Touring RL
+DP72         58720000 0000000004000480 0000000000 1 TOUR M57D30    MAN RL  //530tdi Touring RL (09/98-12/03)
+H DP81 V0497 58810000 0000000000000000 0000000000 1 TOUR M57D30    AUT LL  //530tdiA Touring LL
+H DP81 V1199 58810000 0001000004000480 0000000800 1 TOUR M57D30    AUT LL  //530tdiA Touring LL
+DP81         58810000 0001000004000480 0000000000 1 TOUR M57D30    AUT LL  //530tdiA Touring LL (09/98-12/03)
+H DP82 V0497 58820000 0000000000000000 0000000000 1 TOUR M57D30    AUT RL  //530tdiA Touring RL
+H DP82 V1199 58820000 0001000004000480 0000000800 1 TOUR M57D30    AUT RL  //530tdiA Touring RL
+DP82         58820000 0001000004000480 0000000000 1 TOUR M57D30    AUT RL  //530tdiA Touring RL (09/98-12/03)
+H DH11 V0997 57110000 0000000000000000 0000000000 1 TOUR M52B20    MAN LL  //520i Touring LL
+DH11         57110000 0000000004000000 0000000000 1 TOUR M52B20    MAN LL  //520i Touring LL (03/97-08/98)
+H DH12 V0997 57120000 0000000000000080 0000000000 1 TOUR M52B20    MAN RL  //520i Touring RL
+DH12         57120000 0000000004000080 0000000000 1 TOUR M52B20    MAN RL  //520i Touring RL (03/97-08/98)
+H DH21 V0997 57210000 0001000000000000 0000000000 1 TOUR M52B20    AUT LL  //520iA Touring LL
+DH21         57210000 0001000004000000 0000000000 1 TOUR M52B20    AUT LL  //520iA Touring LL (03/97-08/98)
+H DH22 V0997 57220000 0001000000000080 0000000000 1 TOUR M52B20    AUT RL  //520iA Touring RL
+DH22         57220000 0001000004000080 0000000000 1 TOUR M52B20    AUT RL  //520iA Touring RL (03/97-08/98)
+H DH31 V0995 57310000 0000000000000000 0000000000 1 TOUR M52B25    MAN LL  //523i Touring LL
+H DH31 V0997 57310000 0000000000000400 0000000000 1 TOUR M52B25    MAN LL  //523i Touring LL
+DH31         57310000 0000000004000400 0000000000 1 TOUR M52B25    MAN LL  //523i Touring LL (03/97-08/98)
+H DH32 V0995 57320000 0000000000000000 0000000000 1 TOUR M52B25    MAN RL  //523i Touring RL
+H DH32 V0997 57320000 0000000000000480 0000000000 1 TOUR M52B25    MAN RL  //523i Touring RL
+DH32         57320000 0000000004000480 0000000000 1 TOUR M52B25    MAN RL  //523i Touring RL (03/97-08/98)
+H DH41 V0995 57410000 0000000000000000 0000000000 1 TOUR M52B25    AUT LL  //523iA Touring LL
+H DH41 V0997 57410000 0000000000000400 0000000000 1 TOUR M52B25    AUT LL  //523iA Touring LL
+DH41         57410000 0000000004000400 0000000000 1 TOUR M52B25    AUT LL  //523iA Touring LL (03/97-08/98)
+H DH42 V0995 57420000 0000000000000000 0000000000 1 TOUR M52B25    AUT RL  //523iA Touring RL
+H DH42 V0997 57420000 0000000000000480 0000000000 1 TOUR M52B25    AUT RL  //523iA Touring RL
+DH42         57420000 0000000004000480 0000000000 1 TOUR M52B25    AUT RL  //523iA Touring RL (03/97-08/98)
+H DH51 V0995 57510000 0000000000000000 0000000000 1 TOUR M52B28    MAN LL  //528i Touring LL
+DH51         57510000 0000000006001400 0000000000 1 TOUR M52B28    MAN LL  //528i Touring LL (11/96-08/98)
+H DH52 V0995 57520000 0000000000000000 0000000000 1 TOUR M52B28    MAN RL  //528i Touring RL
+DH52         57520000 0000000006001480 0000000000 1 TOUR M52B28    MAN RL  //528i Touring RL (02/97-08/98)
+H DH53 V0995 57530000 0000000000000000 0000000000 1 TOUR M52B28    MAN LL US //528i Touring US
+DH53         57530000 00000A0006021410 0000000000 1 TOUR M52B28    MAN LL US //528i Touring US; nie produziert
+H DH61 V0995 57610000 0000000000000000 0000000000 1 TOUR M52B28    AUT LL  //528iA Touring LL
+DH61         57610000 0000000006001400 0000000000 1 TOUR M52B28    AUT LL  //528iA Touring LL (11/96-08/98)
+H DH62 V0995 57620000 0000000000000000 0000000000 1 TOUR M52B28    AUT RL  //528iA Touring RL
+DH62         57620000 0000000006001480 0000000000 1 TOUR M52B28    AUT RL  //528iA Touring RL (02/97-08/98)
+H DH63 V0995 57630000 0000000000000000 0000000000 1 TOUR M52B28    AUT LL US AUT_4_GANG //528iA Touring US
+DH63         57630000 00000A0006021410 0000000000 1 TOUR M52B28    AUT LL US AUT_4_GANG //528iA Touring US; nie produziert
+H DJ51 V0995 59510000 0000000000000000 0000000001 1 TOUR M62B44    MAN LL  //540i Touring LL
+H DJ51 V0997 59510000 0000020006000400 0000000001 1 TOUR M62B44    MAN LL  //540i Touring LL
+DJ51         59510000 000002000E000400 0000000801 1 TOUR M62B44    MAN LL  //540i Touring LL (04/97-08/98)
+H DJ52 V0995 59520000 0000000000000000 0000000001 1 TOUR M62B44    MAN RL  //540i Touring RL
+H DJ52 V0997 59520000 0000020006000480 0000000001 1 TOUR M62B44    MAN RL  //540i Touring RL
+DJ52         59520000 000002000E000480 0000000801 1 TOUR M62B44    MAN RL  //540i Touring RL (09/97-08/98)
+H DJ53 V0995 59530000 0000000000000000 0000000001 1 TOUR M62B44    MAN LL US //540i Touring US
+H DJ53 V0997 59530000 00000A0006020410 0000000001 1 TOUR M62B44    MAN LL US //540i Touring US
+DJ53         59530000 00000A000E020410 0000000801 1 TOUR M62B44    MAN LL US //540i Touring US; nie produziert
+H DJ61 V0995 59610000 0000000000000000 0000000001 1 TOUR M62B44    AUT LL  //540iA Touring LL
+H DJ61 V0997 59610000 0001020006000400 0000000001 1 TOUR M62B44    AUT LL  //540iA Touring LL
+DJ61         59610000 000102000E000400 0000000801 1 TOUR M62B44    AUT LL  //540iA Touring LL (04/97-08/98)
+H DJ62 V0995 59620000 0000000000000000 0000000001 1 TOUR M62B44    AUT RL  //540iA Touring RL
+H DJ62 V0997 59620000 0001020006000480 0000000001 1 TOUR M62B44    AUT RL  //540iA Touring RL
+DJ62         59620000 000102000E000480 0000000801 1 TOUR M62B44    AUT RL  //540iA Touring RL (09/97-08/98)
+H DJ63 V0995 59630000 0000000000000000 0000000001 1 TOUR M62B44    AUT LL US //540iA Touring US
+H DJ63 V0997 59630000 00000A0006020410 0000000001 1 TOUR M62B44    AUT LL US //540iA Touring US
+DJ63         59630000 00000A000E020410 0000000801 1 TOUR M62B44    AUT LL US //540iA Touring US; nie produziert
+H DM11 V0995 5A110000 0000000000000000 0000000000 1 LIM  M52B20 TU MAN LL  //520i TÜ Limousine LL
+H DM11 V0597 5A110000 0000000000000000 0000000800 S LIM  M52B20 TU MAN LL  //520i TÜ Limousine LL
+H DM11 V1199 5A110000 0000000004000080 0000000800 1 LIM  M52B20 TU MAN LL  //520i TÜ Limousine LL
+H DM11 V0900 5A110000 0000000004000080 0000000000 1 LIM  M52B20 TU MAN LL  //520i TÜ Limousine LL
+DM11         5A110000 0000000004000480 0000000000 1 LIM  M52B20 TU MAN LL  //520i TÜ Lim LL (09/98) ab09/00 Nebelsch
+H DM12 V0995 5A120000 0000000000000000 0000000000 1 LIM  M52B20 TU MAN RL  //520i TÜ Limousine RL
+H DM12 V0597 5A120000 0000000004000080 0000000800 S LIM  M52B20 TU MAN RL  //520i TÜ Limousine RL
+H DM12 V1199 5A120000 0000000004000080 0000000800 1 LIM  M52B20 TU MAN RL  //520i TÜ Limousine RL
+H DM12 V0900 5A120000 0000000004000080 0000000000 1 LIM  M52B20 TU MAN RL  //520i TÜ Limousine RL
+DM12         5A120000 0000000004000480 0000000000 1 LIM  M52B20 TU MAN RL  //520i TÜ Lim RL (09/98) ab09/00 Nebelsch
+H DM21 V0995 5A210000 0000000000000000 0000000000 1 LIM  M52B20 TU AUT LL  //520iA TÜ Limousine LL
+H DM21 V0597 5A210000 0001000000000000 0000000800 S LIM  M52B20 TU AUT LL  //520iA TÜ Limousine LL
+H DM21 V1199 5A210000 0001000004000080 0000000800 1 LIM  M52B20 TU AUT LL  //520iA TÜ Limousine LL
+H DM21 V0900 5A210000 0001000004000080 0000000000 1 LIM  M52B20 TU AUT LL  //520iA TÜ Limousine LL
+DM21         5A210000 0001000004000480 0000000000 1 LIM  M52B20 TU AUT LL  //520iA TÜ Lim LL (09/98) ab09/00 Nebelsch
+H DM22 V0995 5A220000 0000000000000000 0000000000 1 LIM  M52B20 TU AUT RL  //520iA TÜ Limousine RL
+H DM22 V0597 5A220000 0001000004000080 0000000800 S LIM  M52B20 TU AUT RL  //520iA TÜ Limousine RL
+H DM22 V1199 5A220000 0001000004000080 0000000800 1 LIM  M52B20 TU AUT RL  //520iA TÜ Limousine RL
+H DM22 V0900 5A220000 0001000004000080 0000000000 1 LIM  M52B20 TU AUT RL  //520iA TÜ Limousine RL
+DM22         5A220000 0001000004000480 0000000000 1 LIM  M52B20 TU AUT RL  //520iA TÜ Lim RL (09/98) ab09/00 Nebelsch
+H DM24 V0995 5A240000 0000000000000000 0000000000 1 LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Limousine Malaysia
+H DM24 V0597 5A240000 0000000000000000 0000000800 S LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Limousine Malaysia
+H DM24 V1199 5A240013 0001080004000080 0000000800 1 LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Limousine Malaysia
+H DM24 V0900 5A240013 0001080004000080 0000000000 1 LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Limousine Malaysia
+DM24         5A240013 0001080004000480 0000000000 1 LIM  M52B20 TU AUT RL CKD MALAYSIA //520iA TÜ Lim Malaysia (09/98) ab09/00 Nebelsch
+H DM26 V1095 5A260000 0000000000000000 0000000000 1 LIM  M52B20 TU AUT LL CKD AEGYPTEN // 520iA TÜ Limousine Ägypten
+DM26         5A260000 0001000004000080 0000000000 1 LIM  M52B20 TU AUT LL CKD AEGYPTEN // 520iA TÜ Limousine Ägypten (08/99-08/00)
+H DM31 V0995 5A310000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL
+H DM31 V0597 5A310000 0000000000000400 0000000800 S LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL
+H DM31 V1199 5A310000 0000000004000480 0000000800 1 LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL
+DM31         5A310000 0000000004000480 0000000000 1 LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL (09/98)
+H DM32 V0995 5A320000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN RL  //523i TÜ Limousine RL
+H DM32 V0597 5A320000 0000000004000480 0000000800 S LIM  M52B25 TU MAN RL  //523i TÜ Limousine RL
+H DM32 V1199 5A320000 0000000004000480 0000000800 1 LIM  M52B25 TU MAN RL  //523i TÜ Limousine RL
+DM32         5A320000 0000000004000480 0000000000 1 LIM  M52B25 TU MAN RL  //523i TÜ Limousine RL (09/98)
+H DM35 V0995 5A350000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN RL CKD THAILAND //523i TÜ Limousine Thailand
+H DM35 V0597 5A350013 0000080004000480 0000000800 S LIM  M52B25 TU MAN RL CKD THAILAND //523i TÜ Limousine Thailand
+DM35         5A350013 0000080004000480 0000000800 1 LIM  M52B25 TU MAN RL CKD THAILAND //523i TÜ Limousine Thailand
+H DM37 V0995 5A370000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN RL CKD INDONESIEN //523i TÜ Limousine Indonesien
+H DM37 V0597 5A370013 0000080004000480 0000000800 S LIM  M52B25 TU MAN RL CKD INDONESIEN //523i TÜ Limousine Indonesien
+H DM37 V1199 5A370013 0000080004000480 0000000800 1 LIM  M52B25 TU MAN RL CKD INDONESIEN //523i TÜ Limousine Indonesien
+DM37         5A370013 0000080004000480 0000000000 1 LIM  M52B25 TU MAN RL CKD INDONESIEN //523i TÜ Limousine Indonesien (03/99)
+H DM38 V0995 5A380000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN RL CKD INDIEN //523i TÜ Limousine Indien
+H DM38 V0597 5A380010 0000000004000680 0000000800 S LIM  M52B25 TU MAN RL CKD INDIEN //523i TÜ Limousine Indien
+H DM38 V1199 5A380010 0000000004000680 0000000800 1 LIM  M52B25 TU MAN RL CKD INDIEN //523i TÜ Limousine Indien (09/98)
+DM38         5A380010 0000000004000680 0000000000 1 LIM  M52B25 TU MAN RL CKD INDIEN //523i TÜ Limousine Indien (09/98)
+H DM41 V0995 5A410000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT LL  //525iA TÜ Limousine LL
+H DM41 V0597 5A410000 0000000000000400 0000000800 S LIM  M52B25 TU AUT LL  //525iA TÜ Limousine LL
+H DM41 V1199 5A410000 0001000004000480 0000000800 1 LIM  M52B25 TU AUT LL  //525iA TÜ Limousine LL
+DM41         5A410000 0001000004000480 0000000000 1 LIM  M52B25 TU AUT LL  //525iA TÜ Limousine LL (09/98-08/00)
+H DM42 V0995 5A420000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT RL  //525iA TÜ Limousine RL
+H DM42 V0597 5A420000 0000000004000480 0000000800 S LIM  M52B25 TU AUT RL  //525iA TÜ Limousine RL
+H DM42 V1199 5A420000 0001000004000480 0000000800 1 LIM  M52B25 TU AUT RL  //525iA TÜ Limousine RL
+DM42         5A420000 0001000004000480 0000000000 1 LIM  M52B25 TU AUT RL  //525iA TÜ Limousine RL (09/98-08/00)
+H DM44 V0995 5A440000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT RL CKD MALAYSIA //525iA TÜ Limousine Malaysia
+H DM44 V0597 5A440013 0001080004000480 0000000800 S LIM  M52B25 TU AUT RL CKD MALAYSIA //525iA TÜ Limousine Malaysia
+H DM44 V1199 5A440013 0001080004000480 0000000800 1 LIM  M52B25 TU AUT RL CKD MALAYSIA //525iA TÜ Limousine Malaysia
+DM44         5A440013 0001080004000480 0000000000 1 LIM  M52B25 TU AUT RL CKD MALAYSIA //523iA TÜ Limousine Malaysia (09/98-08/00)
+H DM45 V0995 5A450000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT RL CKD THAILAND //523iA TÜ Limousine Thailand
+H DM45 V0597 5A450013 0001080004000480 0000000800 S LIM  M52B25 TU AUT RL CKD THAILAND //523iA TÜ Limousine Thailand
+H DM45 V1199 5A450013 0001080004000480 0000000800 1 LIM  M52B25 TU AUT RL CKD THAILAND //523iA TÜ Limousine Thailand
+DM45         5A450013 0001000004000480 0000000000 1 LIM  M52B25 TU AUT RL CKD THAILAND //523iA TÜ Limousine Thailand (03/99)
+H DM46 V0995 5A460000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT LL CKD //525iA TÜ Limousine Ägypten
+H DM46 V0597 5A460000 0000000000000400 0000000800 S LIM  M52B25 TU AUT LL CKD //525iA TÜ Limousine Ägypten
+H DM46 V1199 5A460000 0001000004000480 0000000800 1 LIM  M52B25 TU AUT LL CKD //525iA TÜ Limousine Ägypten
+DM46         5A460000 0001000004000480 0000000000 1 LIM  M52B25 TU AUT LL CKD AEGYPTEN //525iA TÜ Limousine Ägypten (09/98-08/00)
+H DM47 V0995 5A470000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT RL CKD INDONESIEN //525iA TÜ Limousine Indonesien
+H DM47 V0597 5A470013 0001080004000480 0000000800 S LIM  M52B25 TU AUT RL CKD INDONESIEN //525iA TÜ Limousine Indonesien
+H DM47 V1199 5A470013 0001080004000480 0000000800 1 LIM  M52B25 TU AUT RL CKD INDONESIEN //525iA TÜ Limousine Indonesien
+DM47         5A470013 0001080004000480 0000000000 1 LIM  M52B25 TU AUT RL CKD INDONESIEN //525iA TÜ Limousine Indonesien (03/99)
+H DM48 V0995 5A480000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT RL CKD INDIEN  //525iA TÜ Limousine Indien
+H DM48 V0597 5A480010 0001000004000680 0000000800 S LIM  M52B25 TU AUT RL CKD INDIEN  //525iA TÜ Limousine Indien
+H DM48 V1199 5A480010 0001000004000680 0000000800 1 LIM  M52B25 TU AUT RL CKD INDIEN  //525iA TÜ Limousine Indien (09/98)
+DM48         5A480010 0001000004000680 0000000000 1 LIM  M52B25 TU AUT RL CKD INDIEN  //525iA TÜ Limousine Indien (09/98)
+H DM49 V0995 5A490000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT LL CKD PHILIPPINEN //525iA TÜ Limousine Philippinen
+H DM49 V0597 5A490003 0001080000000400 0000000800 S LIM  M52B25 TU AUT LL CKD PHILIPPINEN //525iA TÜ Limousine Philippinen
+H DM49 V1199 5A490003 0001080004000480 0000000800 1 LIM  M52B25 TU AUT LL CKD PHILIPPINEN //525iA TÜ Limousine Philippinen
+DM49         5A490003 0001080004000480 0000000000 1 LIM  M52B25 TU AUT LL CKD PHILIPPINEN //525iA TÜ Limousine Philippinen (12/98-08/00)
+H DM51 V0995 5A510000 0000000000000000 0000000000 1 LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL
+H DM51 V0597 5A510000 0000000004001400 0000000800 S LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL
+H DM51 V1199 5A510000 0000000004001480 0000000800 1 LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL
+DM51         5A510000 0000000004000480 0000000000 1 LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL (09/98-08/00)
+H DM52 V0995 5A520000 0000000000000000 0000000000 1 LIM  M52B28 TU MAN RL  //528i TÜ Limousine RL
+H DM52 V0597 5A520000 0000000004001480 0000000800 S LIM  M52B28 TU MAN RL  //528i TÜ Limousine RL
+H DM52 V1199 5A520000 0000000004001480 0000000800 1 LIM  M52B28 TU MAN RL  //528i TÜ Limousine RL
+DM52         5A520000 0000000004000480 0000000000 1 LIM  M52B28 TU MAN RL  //528i TÜ Limousine RL (09/98-08/00)
+H DM53 V0995 5A530000 0000000000000000 0000000000 1 LIM  M52B28 TU MAN LL US //528i TÜ Limousine US
+H DM53 V0597 5A530000 0000080004025400 0000000800 S LIM  M52B28 TU MAN LL US //528i TÜ Limousine US
+H DM53 V1199 5A530000 0000080004025400 0000000800 1 LIM  M52B28 TU MAN LL US //528i TÜ Limousine US
+DM53         5A530000 0000080004024400 0000000000 1 LIM  M52B28 TU MAN LL US //528i TÜ Limousine US (09/98-08/00)
+H DM59 V0995 5A590000 0000000000000000 0000000000 1 LIM  M52B28 TU MAN LL CKD //528i TÜ Limousine Vietnam
+H DM59 V0597 5A590003 0000080004001400 0000000800 S LIM  M52B28 TU MAN LL CKD //528i TÜ Limousine Vietnam
+H DM59 V1199 5A590003 0000080004001480 0000000800 1 LIM  M52B28 TU MAN LL CKD //528i TÜ Limousine Vietnam
+DM59         5A590003 0000080004000480 0000000000 1 LIM  M52B28 TU MAN LL CKD //528i TÜ Limousine Vietnam (09/98)
+H DM61 V0995 5A610000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL
+H DM61 V0597 5A610000 0000000004001400 0000000800 S LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL
+H DM61 V1199 5A610000 0001000004001480 0000000800 1 LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL
+DM61         5A610000 0001000004000480 0000000000 1 LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL (09/98-08/00)
+H DM62 V0995 5A620000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT RL  //528iA TÜ Limousine RL
+H DM62 V0597 5A620000 0000000004001480 0000000800 S LIM  M52B28 TU AUT RL  //528iA TÜ Limousine RL
+H DM62 V1199 5A620000 0001000004001480 0000000800 1 LIM  M52B28 TU AUT RL  //528iA TÜ Limousine RL
+DM62         5A620000 0001000004000480 0000000000 1 LIM  M52B28 TU AUT RL  //528iA TÜ Limousine RL (09/98-08/00)
+H DM63 V0995 5A630000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US
+H DM63 V0597 5A630000 0000080004025400 0000000800 S LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US
+H DM63 V0999 5A630000 0000080004025400 0000000800 1 LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US
+H DM63 V1199 5A630000 0400080004025400 0000000800 1 LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US mit GM5
+DM63         5A630000 0400080004024400 0000000000 1 LIM  M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Limousine US mit GM5 (09/98-08/00)
+H DM64 V0995 5A640000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT RL CKD MALAYSIA //528iA TÜ Limousine Malaysia
+H DM64 V0597 5A640013 0001080004001480 0000000800 S LIM  M52B28 TU AUT RL CKD MALAYSIA //528iA TÜ Limousine Malaysia
+H DM64 V1199 5A640013 0001080004001480 0000000800 1 LIM  M52B28 TU AUT RL CKD MALAYSIA //528iA TÜ Limousine Malaysia
+DM64         5A640013 0001080004000480 0000000000 1 LIM  M52B28 TU AUT RL CKD MALAYSIA //528iA TÜ Limousine Malaysia (12/98)
+H DM65 V1095 5A650000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL CKD //528iA TÜ Limousine Ägypten
+DM65         5A650000 0001000004000480 0000000000 1 LIM  M52B28 TU AUT LL CKD //528iA TÜ Limousine Ägypten
+H DM66 V0995 5A660000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT RL CKD INDONESIEN //528iA TÜ Limousine Indonesien
+H DM66 V0597 5A660013 0001080004001480 0000000800 S LIM  M52B28 TU AUT RL CKD INDONESIEN //528iA TÜ Limousine Indonesien
+H DM66 V1199 5A660013 0001080004001480 0000000800 1 LIM  M52B28 TU AUT RL CKD INDONESIEN //528iA TÜ Limousine Indonesien
+DM66         5A660013 0001080004000480 0000000000 1 LIM  M52B28 TU AUT RL CKD INDONESIEN //528iA TÜ Limousine Indonesien (09/98)
+H DM67 V0995 5A670000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL CKD MEXICO //528iA TÜ Limousine Mexiko
+H DM67 V0597 5A670006 0001080004001400 0000000800 S LIM  M52B28 TU AUT LL CKD MEXICO //528iA TÜ Limousine Mexiko
+H DM67 V1199 5A670006 0001000004001480 0000000800 1 LIM  M52B28 TU AUT LL CKD MEXICO //528iA TÜ Limousine Mexiko
+DM67         5A670006 0001000004000480 0000000000 1 LIM  M52B28 TU AUT LL CKD MEXICO //528iA TÜ Limousine Mexiko (09/98-11/00)
+H DM69 V0995 5A690000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL CKD VIETNAM //528iA TÜ Limousine Vietnam
+H DM69 V0597 5A690003 0000080004001400 0000000800 S LIM  M52B28 TU AUT LL CKD VIETNAM //528iA TÜ Limousine Vietnam
+H DM69 V1199 5A690003 0001080004001480 0000000800 1 LIM  M52B28 TU AUT LL CKD VIETNAM //528iA TÜ Limousine Vietnam
+DM69         5A690003 0001080004000480 0000000000 1 LIM  M52B28 TU AUT LL CKD VIETNAM //528iA TÜ Limousine Vietnam (09/98-11/00)
+H DM87 V0995 5A870000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL CKD MEXICO SICH_FZG //528iA Sicherheitsfzg. Mexiko
+H DM87 V1199 5A870000 0001000000001481 0000000800 1 LIM  M52B28 TU AUT LL CKD MEXICO SICH_FZG //528iA Sicherheitsfzg. Mexiko
+DM87         5A870000 0001000000000481 0000000000 1 LIM  M52B28 TU AUT LL CKD MEXICO SICH_FZG //528iA Sicherheitsfzg. Mexiko (02/99)
+H DN11 V0995 5B110000 0000000000000000 0000000000 1 LIM  M62B35 TU MAN LL  //535i TÜ Limousine LL
+H DN11 V0597 5B110000 000000000C000400 0000000801 S LIM  M62B35 TU MAN LL  //535i TÜ Limousine LL
+H DN11 V1199 5B110000 000008800C000480 0000000801 1 LIM  M62B35 TU MAN LL  //535i TÜ Limousine LL
+DN11         5B110000 000008800C000480 0000000001 1 LIM  M62B35 TU MAN LL  //535i TÜ Limousine LL (09/98)
+H DN12 V0995 5B120000 0000000000000000 0000000000 1 LIM  M62B35 TU MAN RL  //535i TÜ Limousine RL
+H DN12 V0597 5B120000 000000000C000480 0000000801 S LIM  M62B35 TU MAN RL  //535i TÜ Limousine RL
+H DN12 V1199 5B120000 000008800C000480 0000000801 1 LIM  M62B35 TU MAN RL  //535i TÜ Limousine RL
+DN12         5B120000 000008800C000480 0000000001 1 LIM  M62B35 TU MAN RL  //535i TÜ Limousine RL (09/98)
+H DN21 V0995 5B210000 0000000000000000 0000000000 1 LIM  M62B35 TU AUT LL  //535iA TÜ Limousine LL
+H DN21 V0597 5B210000 000100000C000400 0000000801 S LIM  M62B35 TU AUT LL  //535iA TÜ Limousine LL
+H DN21 V1199 5B210000 000108800C000480 0000000801 1 LIM  M62B35 TU AUT LL  //535iA TÜ Limousine LL
+DN21         5B210000 000108800C000480 0000000001 1 LIM  M62B35 TU AUT LL  //535iA TÜ Limousine LL (09/98)
+H DN22 V0995 5B220000 0000000000000000 0000000000 1 LIM  M62B35 TU AUT RL  //535iA TÜ Limousine RL
+H DN22 V0597 5B220000 000100000C000480 0000000801 S LIM  M62B35 TU AUT RL  //535iA TÜ Limousine RL
+H DN22 V1199 5B220000 000108800C000480 0000000801 1 LIM  M62B35 TU AUT RL  //535iA TÜ Limousine RL
+DN22         5B220000 000108800C000480 0000000001 1 LIM  M62B35 TU AUT RL  //535iA TÜ Limousine RL (09/98)
+H DN51 V0995 5B510000 0000000000000000 0000000000 1 LIM  M62B44 TU MAN LL  //540i TÜ Limousine LL
+H DN51 V0597 5B510000 000000000C000400 0000000801 S LIM  M62B44 TU MAN LL  //540i TÜ Limousine LL
+H DN51 V1199 5B510000 000008800C000480 0000000801 1 LIM  M62B44 TU MAN LL  //540i TÜ Limousine LL
+DN51         5B510000 000008800C000480 0000000001 1 LIM  M62B44 TU MAN LL  //540i TÜ Limousine LL (09/98)
+H DN52 V0995 5B520000 0000000000000000 0000000000 1 LIM  M62B44 TU MAN RL  //540i TÜ Limousine RL
+H DN52 V0597 5B520000 000000000C000480 0000000801 S LIM  M62B44 TU MAN RL  //540i TÜ Limousine RL
+H DN52 V1199 5B520000 000008800C000480 0000000801 1 LIM  M62B44 TU MAN RL  //540i TÜ Limousine RL
+DN52         5B520000 000008800C000480 0000000001 1 LIM  M62B44 TU MAN RL  //540i TÜ Limousine RL (09/98)
+H DN53 V0995 5B530000 0000000000000000 0000000000 1 LIM  M62B44 TU MAN LL US //540i TÜ Limousine US
+H DN53 V0597 5B530000 000008000C024414 0000000881 S LIM  M62B44 TU MAN LL US //540i TÜ Limousine US
+H DN53 V1199 5B530000 000008800C024414 0000000881 1 LIM  M62B44 TU MAN LL US //540i TÜ Limousine US
+H DN53 V0900 5B530000 000008800C024410 0000000001 1 LIM  M62B44 TU MAN LL US //540i TÜ Limousine US
+DN53         5B530000 00000C900C024410 0000000001 1 LIM  M62B44 TU MAN LL US //540i TÜ Limousine US (09/98)
+H DN61 V0995 5B610000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL  //540iA TÜ Limousine LL
+H DN61 V0597 5B610000 000100000C000400 0000000801 S LIM  M62B44 TU AUT LL  //540iA TÜ Limousine LL
+H DN61 V1199 5B610000 000108800C000480 0000000801 1 LIM  M62B44 TU AUT LL  //540iA TÜ Limousine LL
+DN61         5B610000 000108800C000480 0000000001 1 LIM  M62B44 TU AUT LL  //540iA TÜ Limousine LL (09/98)
+H DN62 V0995 5B620000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT RL  //540iA TÜ Limousine RL
+H DN62 V0597 5B620000 000100000C000480 0000000801 S LIM  M62B44 TU AUT RL  //540iA TÜ Limousine RL
+H DN62 V1199 5B620000 000108800C000480 0000000801 1 LIM  M62B44 TU AUT RL  //540iA TÜ Limousine RL
+DN62         5B620000 000108800C000480 0000000001 1 LIM  M62B44 TU AUT RL  //540iA TÜ Limousine RL (09/98)
+H DN63 V0995 5B630000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US
+H DN63 V0597 5B630000 000008000C024414 0000000881 S LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US
+H DN63 V1199 5B630000 000008800C024414 0000000881 1 LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US
+H DN63 V0900 5B630000 000008800C024410 0000000001 1 LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US
+DN63         5B630000 00000C900C024410 0000000001 1 LIM  M62B44 TU AUT LL US //540iA TÜ Limousine US (09/98)
+H DN67 V0995 5B670000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL CKD MEXICO //540iA TÜ Limousine Mexiko
+H DN67 V0597 5B670006 000108000C000400 0000000801 S LIM  M62B44 TU AUT LL CKD MEXICO //540iA TÜ Limousine Mexiko
+H DN67 V1199 5B670006 000108800C000480 0000000801 1 LIM  M62B44 TU AUT LL CKD MEXICO //540iA TÜ Limousine Mexiko
+DN67         5B670006 000108800C000480 0000000001 1 LIM  M62B44 TU AUT LL CKD MEXICO //540iA TÜ Limousine Mexiko (12/98)
+H DN81 V0995 5B810000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. LL
+H DN81 V0597 5B810000 0001080108400401 0000000801 S LIM  M62B44 TU AUT LL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. LL
+H DN81 V1199 5B810000 0001088108400481 0000000801 1 LIM  M62B44 TU AUT LL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. LL
+DN81         5B810000 0001088108400481 0000000001 1 LIM  M62B44 TU AUT LL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. LL (09/98)
+H DN82 V0995 5B820000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT RL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. RL
+H DN82 V0597 5B820000 0001080108408481 0000000801 S LIM  M62B44 TU AUT RL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. RL
+H DN82 V1199 5B820000 0001088108408481 0000000801 1 LIM  M62B44 TU AUT RL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. RL
+DN82         5B820000 0001088108408481 0000000001 1 LIM  M62B44 TU AUT RL SICH_FZG //540iA TÜ Limousine Sicherheitsfzg. RL (09/98)
+H DN83 V0995 5B830000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+H DN83 V0597 5B830000 0000000000000000 0000000001 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+H DN83 V0999 5B830000 0000088108424405 0000000801 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+H DN83 V1199 5B830000 0000088108024405 0000000801 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+H DN83 V0900 5B830000 0000088108024401 0000000001 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US
+DN83         5B830000 80000C9108424401 0000000001 1 LIM  M62B44 TU AUT LL US SICH_FZG //540iA Sicherheitsfzg. US (09/98)
+H DN87 V0995 5B870000 0000000000000000 0000000000 1 LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko
+H DN87 V0597 5B870000 0000000000000000 0000000001 1 LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko
+H DN87 V1199 5B870000 0001088108000481 0000000801 1 LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko
+H DN87 V0900 5B870000 0001088108000481 0000000001 1 LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko (12/98)
+DN87         5B870000 0001088108400481 0000000001 1 LIM  M62B44 TU AUT LL CKD MEXICO SICH_FZG //540iA Sicherheitsfzg. Mexiko (12/98)
+H DM58 V1095 5A580000 0000000000000000 0000000000 1 LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL RUS
+DM58         5A580000 0000000004000480 0000000000 1 LIM  M52B28 TU MAN LL  //528i TÜ Limousine LL RUS (06/99-10/00)
+H DM68 V1095 5A680000 0000000000000000 0000000000 1 LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL RUS
+DM68         5A680000 0001000004000480 0000000000 1 LIM  M52B28 TU AUT LL  //528iA TÜ Limousine LL RUS (06/99)
+H DM71 V1095 5A710000 0000000000000000 0000000000 1 LIM  M47D20    MAN LL  //520d Limousine LL
+H DM71 V0900 5A710000 0000000004000080 0000000000 1 LIM  M47D20    MAN LL  //520d Limousine LL
+DM71         5A710000 0000000004000480 0000000000 1 LIM  M47D20    MAN LL  //520d Lim LL (3/00) ab09/00 Nebelsch
+H DM72 V1095 5A720000 0000000000000000 0000000000 1 LIM  M47D20    MAN RL  //520d Limousine RL
+DM72         5A720000 0000000004000080 0000000000 1 LIM  M47D20    MAN RL  //520d Limousine RL
+H DM81 V1095 5A810000 0000000000000000 0000000000 1 LIM  M47D20    AUT LL  //520dA Limousine LL
+DM81         5A810000 0000000004000080 0000000000 1 LIM  M47D20    AUT LL  //520dA Limousine LL
+H DM82 V1095 5A820000 0000000000000000 0000000000 1 LIM  M47D20    AUT RL  //520dA Limousine RL
+DM82         5A820000 0000000000000000 0000000000 1 LIM  M47D20    AUT RL  //520dA Limousine RL
+H DL91 V1095 5E910000 0000000000000000 0000000000 1 LIM  M57D25    MAN LL  //525d Limousine LL
+DL91         5E910000 0000000004000480 0000000000 1 LIM  M57D25    MAN LL  //525d Limousine LL (3/00)
+H DL92 V1095 5E920000 0000000000000000 0000000000 1 LIM  M57D25    MAN RL  //525d Limousine RL
+DL92         5E920000 0000000004000480 0000000000 1 LIM  M57D25    MAN RL  //525d Limousine RL (3/00)
+H DL01 V1095 5E010000 0000000000000000 0000000000 1 LIM  M57D25    AUT LL  //525dA Limousine LL
+DL01         5E010000 0001000004000480 0000000000 1 LIM  M57D25    AUT LL  //525dA Limousine LL (3/00)
+H DL02 V1095 5E020000 0000000000000000 0000000000 1 LIM  M57D25    AUT RL  //525dA Limousine RL
+DL02         5E020000 0001000004000480 0000000000 1 LIM  M57D25    AUT RL  //525dA Limousine RL (3/00)
+H DL38 V1095 5E380000 0000000000000000 0000000000 1 LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL RUS
+DL38         5E380000 0000000004000480 0000000000 1 LIM  M52B25 TU MAN LL  //523i TÜ Limousine LL RUS (6/99)
+H DL48 V1095 5E480000 0000000000000000 0000000000 1 LIM  M52B25 TU AUT LL  //523iA TÜ Limousine LL RUS
+DL48         5E480000 0001000004000480 0000000000 1 LIM  M52B25 TU AUT LL  //523iA TÜ Limousine LL RUS (6/99)
+H DR71 V1095 5D710000 0000000000000000 0000000000 1 TOUR M47D20    MAN LL  //520d Touring LL
+H DR71 V0900 5D710000 0000000004000080 0000000000 1 TOUR M47D20    MAN LL  //520d Touring LL
+DR71         5D710000 0000000004000480 0000000000 1 TOUR M47D20    MAN LL  //520d Tour LL (3/00-08/03) ab09/00 Nebelsch
+H DR72 V1095 5D720000 0000000000000000 0000000000 1 TOUR M47D20    MAN RL  //520d Touring RL
+DR72         5D720000 0000000004000080 0000000000 1 TOUR M47D20    MAN RL  //520d Touring RL; nie produziert
+H DR81 V1095 5D810000 0000000000000000 0000000000 1 TOUR M47D20    AUT LL  //520dA Touring LL
+DR81         5D810000 0000000004000080 0000000000 1 TOUR M47D20    AUT LL  //520dA Touring LL; nie produziert
+H DR82 V1095 5D820000 0000000000000000 0000000000 1 TOUR M47D20    AUT RL  //520dA Touring RL
+DR82         5D820000 0000000000000000 0000000000 1 TOUR M47D20    AUT RL  //520dA Touring RL; nie produziert
+H DP91 V1095 5C910000 0000000000000000 0000000000 1 TOUR M57D25    MAN LL  //525d Touring LL
+DP91         5C910000 0000000004000480 0000000000 1 TOUR M57D25    MAN LL  //525d Touring LL (3/00-12/03)
+H DP92 V1095 5C920000 0000000000000000 0000000000 1 TOUR M57D25    MAN RL  //525d Touring RL
+DP92         5C920000 0000000004000480 0000000000 1 TOUR M57D25    MAN RL  //525d Touring RL (3/00-12/03)
+H DP01 V1095 5C010000 0000000000000000 0000000000 1 TOUR M57D25    AUT LL  //525dA Touring LL
+DP01         5C010000 0001000004000480 0000000000 1 TOUR M57D25    AUT LL  //525dA Touring LL (3/00-12/03)
+H DP02 V1095 5C020000 0000000000000000 0000000000 1 TOUR M57D25    AUT RL  //525dA Touring RL
+DP02         5C020000 0001000004000480 0000000000 1 TOUR M57D25    AUT RL  //525dA Touring RL (3/00-12/03)
+H DR11 V0995 5C110000 0000000000000000 0000000000 1 TOUR M52B20 TU MAN LL  //520i TÜ Touring LL
+H DR11 V0597 5C110000 0000000000000000 0000000800 S TOUR M52B20 TU MAN LL  //520i TÜ Touring LL
+H DR11 V1199 5C110000 0000000004000080 0000000800 1 TOUR M52B20 TU MAN LL  //520i TÜ Touring LL
+H DR11 V0900 5C110000 0000000004000080 0000000000 1 TOUR M52B20 TU MAN LL  //520i TÜ Touring LL
+DR11         5C110000 0000000004000480 0000000000 1 TOUR M52B20 TU MAN LL  //520i TÜ Tour LL (09/98-08/01) ab09/00 Nebelsch
+H DR12 V0995 5C120000 0000000000000000 0000000000 1 TOUR M52B20 TU MAN RL  //520i TÜ Touring RL
+H DR12 V0597 5C120000 0000000000000080 0000000800 S TOUR M52B20 TU MAN RL  //520i TÜ Touring RL
+H DR12 V1199 5C120000 0000000004000080 0000000800 1 TOUR M52B20 TU MAN RL  //520i TÜ Touring RL
+H DR12 V0900 5C120000 0000000004000080 0000000000 1 TOUR M52B20 TU MAN RL  //520i TÜ Touring RL
+DR12         5C120000 0000000004000480 0000000000 1 TOUR M52B20 TU MAN RL  //520i TÜ Tour RL (09/98-08/00) ab09/00 Nebelsch
+H DR21 V0995 5C210000 0000000000000000 0000000000 1 TOUR M52B20 TU AUT LL  //520iA TÜ Touring LL
+H DR21 V0597 5C210000 0001000000000000 0000000800 S TOUR M52B20 TU AUT LL  //520iA TÜ Touring LL
+H DR21 V1199 5C210000 0001000004000080 0000000800 1 TOUR M52B20 TU AUT LL  //520iA TÜ Touring LL
+H DR21 V0900 5C210000 0001000004000080 0000000000 1 TOUR M52B20 TU AUT LL  //520iA TÜ Touring LL
+DR21         5C210000 0001000004000480 0000000000 1 TOUR M52B20 TU AUT LL  //520iA TÜ Tour LL (09/98-08/01) ab09/00 Nebelsch
+H DR22 V0995 5C220000 0000000000000000 0000000000 1 TOUR M52B20 TU AUT RL  //520iA TÜ Touring RL
+H DR22 V0597 5C220000 0001000000000080 0000000800 S TOUR M52B20 TU AUT RL  //520iA TÜ Touring RL
+H DR22 V1199 5C220000 0001000004000080 0000000800 1 TOUR M52B20 TU AUT RL  //520iA TÜ Touring RL
+H DR22 V0900 5C220000 0001000004000080 0000000000 1 TOUR M52B20 TU AUT RL  //520iA TÜ Touring RL
+DR22         5C220000 0001000004000480 0000000000 1 TOUR M52B20 TU AUT RL  //520iA TÜ Tour RL (09/98-08/00) ab09/00 Nebelsch
+H DR31 V0995 5C310000 0000000000000000 0000000000 1 TOUR M52B25 TU MAN LL  //523i TÜ Touring LL
+H DR31 V0597 5C310000 0000000000000400 0000000800 S TOUR M52B25 TU MAN LL  //523i TÜ Touring LL
+H DR31 V1199 5C310000 0000000004000480 0000000800 1 TOUR M52B25 TU MAN LL  //523i TÜ Touring LL
+DR31         5C310000 0000000004000480 0000000000 1 TOUR M52B25 TU MAN LL  //523i TÜ Touring LL (09/98-08/00)
+H DR32 V0995 5C320000 0000000000000000 0000000000 1 TOUR M52B25 TU MAN RL  //523i TÜ Touring RL
+H DR32 V0597 5C320000 0000000000000480 0000000800 S TOUR M52B25 TU MAN RL  //523i TÜ Touring RL
+H DR32 V1199 5C320000 0000000004000480 0000000800 1 TOUR M52B25 TU MAN RL  //523i TÜ Touring RL
+DR32         5C320000 0000000004000480 0000000000 1 TOUR M52B25 TU MAN RL  //523i TÜ Touring RL (09/98-08/00)
+H DR41 V0995 5C410000 0000000000000000 0000000000 1 TOUR M52B25 TU AUT LL  //523iA TÜ Touring LL
+H DR41 V0597 5C410000 0000000000000400 0000000800 S TOUR M52B25 TU AUT LL  //523iA TÜ Touring LL
+H DR41 V1199 5C410000 0001000004000480 0000000800 1 TOUR M52B25 TU AUT LL  //523iA TÜ Touring LL
+DR41         5C410000 0001000004000480 0000000000 1 TOUR M52B25 TU AUT LL  //523iA TÜ Touring LL (09/98-08/00)
+H DR42 V0995 5C420000 0000000000000000 0000000000 1 TOUR M52B25 TU AUT RL  //523iA TÜ Touring RL
+H DR42 V0597 5C420000 0000000000000480 0000000800 S TOUR M52B25 TU AUT RL  //523iA TÜ Touring RL
+H DR42 V1199 5C420000 0001000004000480 0000000800 1 TOUR M52B25 TU AUT RL  //523iA TÜ Touring RL
+DR42         5C420000 0001000004000480 0000000000 1 TOUR M52B25 TU AUT RL  //523iA TÜ Touring RL (09/98-08/00)
+H DP51 V0995 5C510000 0000000000000000 0000000000 1 TOUR M52B28 TU MAN LL  //528i TÜ Touring LL
+H DP51 V0597 5C510000 0000000006001400 0000000800 S TOUR M52B28 TU MAN LL  //528i TÜ Touring LL
+H DP51 V1199 5C510000 0000000006001480 0000000800 1 TOUR M52B28 TU MAN LL  //528i TÜ Touring LL
+DP51         5C510000 0000000006000480 0000000000 1 TOUR M52B28 TU MAN LL  //528i TÜ Touring LL (09/98-08/00)
+H DP52 V0995 5C520000 0000000000000000 0000000000 1 TOUR M52B28 TU MAN RL  //528i TÜ Touring RL
+H DP52 V0597 5C520000 0000000006001480 0000000800 S TOUR M52B28 TU MAN RL  //528i TÜ Touring RL
+H DP52 V1199 5C520000 0000000006001480 0000000800 1 TOUR M52B28 TU MAN RL  //528i TÜ Touring RL
+DP52         5C520000 0000000006000480 0000000000 1 TOUR M52B28 TU MAN RL  //528i TÜ Touring RL (09/98-08/00)
+H DP53 V0995 5C530000 0000000000000000 0000000000 1 TOUR M52B28 TU MAN LL US //528i TÜ Touring US
+H DP53 V0597 5C530000 0000080004021410 0000000800 S TOUR M52B28 TU MAN LL US //528i TÜ Touring US
+H DP53 V1199 5C530000 0000080004025410 0000000800 1 TOUR M52B28 TU MAN LL US //528i TÜ Touring US
+DP53         5C530000 0000080004024410 0000000000 1 TOUR M52B28 TU MAN LL US //528i TÜ Touring US (09/98-08/00)
+H DP61 V0995 5C610000 0000000000000000 0000000000 1 TOUR M52B28 TU AUT LL  //528iA TÜ Touring LL
+H DP61 V0597 5C610000 0000000006001400 0000000800 S TOUR M52B28 TU AUT LL  //528iA TÜ Touring LL
+H DP61 V1199 5C610000 0001000006001480 0000000800 1 TOUR M52B28 TU AUT LL  //528iA TÜ Touring LL
+DP61         5C610000 0001000006000480 0000000000 1 TOUR M52B28 TU AUT LL  //528iA TÜ Touring LL (09/98-08/00)
+H DP62 V0995 5C620000 0000000000000000 0000000000 1 TOUR M52B28 TU AUT RL  //528iA TÜ Touring RL
+H DP62 V0597 5C620000 0000000006001480 0000000800 S TOUR M52B28 TU AUT RL  //528iA TÜ Touring RL
+H DP62 V1199 5C620000 0001000006001480 0000000800 1 TOUR M52B28 TU AUT RL  //528iA TÜ Touring RL
+DP62         5C620000 0001000006000480 0000000000 1 TOUR M52B28 TU AUT RL  //528iA TÜ Touring RL (09/98-08/00)
+H DP63 V0995 5C630000 0000000000000000 0000000000 1 TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US
+H DP63 V0597 5C630000 0000080004021410 0000000800 S TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US
+H DP63 V0999 5C630000 0000080004025410 0000000800 1 TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US
+H DP63 V1199 5C630000 0400080004025410 0000000800 1 TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US mit GM5
+DP63         5C630000 0400080004024410 0000000000 1 TOUR M52B28 TU AUT LL US AUT_4_GANG //528iA TÜ Touring US mit GM5 (09/98-08/00)
+H DR51 V0995 5D510000 0000000000000000 0000000000 1 TOUR M62B44 TU MAN LL  //540i TÜ Touring LL
+H DR51 V0597 5D510000 000000000E000400 0000000801 S TOUR M62B44 TU MAN LL  //540i TÜ Touring LL
+H DR51 V1199 5D510000 000008800E000480 0000000801 1 TOUR M62B44 TU MAN LL  //540i TÜ Touring LL
+DR51         5D510000 000008800E000480 0000000001 1 TOUR M62B44 TU MAN LL  //540i TÜ Touring LL (09/98-12/03)
+H DR52 V0995 5D520000 0000000000000000 0000000000 1 TOUR M62B44 TU MAN RL  //540i TÜ Touring RL
+H DR52 V0597 5D520000 000000000E000480 0000000801 S TOUR M62B44 TU MAN RL  //540i TÜ Touring RL
+H DR52 V1199 5D520000 000008800E000480 0000000801 1 TOUR M62B44 TU MAN RL  //540i TÜ Touring RL
+DR52         5D520000 000008800E000480 0000000001 1 TOUR M62B44 TU MAN RL  //540i TÜ Touring RL (09/98-12/03)
+H DR61 V0995 5D610000 0000000000000000 0000000000 1 TOUR M62B44 TU AUT LL  //540iA TÜ Touring LL
+H DR61 V0597 5D610000 000100000E000400 0000000801 S TOUR M62B44 TU AUT LL  //540iA TÜ Touring LL
+H DR61 V1199 5D610000 000108800E000480 0000000801 1 TOUR M62B44 TU AUT LL  //540iA TÜ Touring LL
+DR61         5D610000 000108800E000480 0000000001 1 TOUR M62B44 TU AUT LL  //540iA TÜ Touring LL (09/98-12/03)
+H DR62 V0995 5D620000 0000000000000000 0000000000 1 TOUR M62B44 TU AUT RL  //540iA TÜ Touring RL
+H DR62 V0597 5D620000 000100000E000480 0000000801 S TOUR M62B44 TU AUT RL  //540iA TÜ Touring RL
+H DR62 V1199 5D620000 000108800E000480 0000000801 1 TOUR M62B44 TU AUT RL  //540iA TÜ Touring RL
+DR62         5D620000 000108800E000480 0000000001 1 TOUR M62B44 TU AUT RL  //540iA TÜ Touring RL (09/98-12/03)
+H DR63 V0995 5D630000 0000000000000000 0000000000 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US
+H DR63 V0597 5D630000 000008000E020410 0000000801 S TOUR M62B44 TU AUT LL US //540iA TÜ Touring US
+H DR63 V1199 5D630000 000108800E024410 0000000801 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US
+H DR63 V0900 5D630000 000108800E024410 0000000001 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US
+DR63         5D630000 00010C900E024410 0000000001 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US (09/98-09/03)
+;A DR63 V0303 5D630000 00010C900E024410 0000000001 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US (09/98)
+;A DR63 N0303 5D630000 00010C900F024400 0000000001 1 TOUR M62B44 TU AUT LL US //540iA TÜ Touring US (09/98)
+H DS11 V1095 5E110000 0000000000000000 0000000000 1 TOUR M54B22    MAN LL  //520i Touring
+DS11         5E110000 0000000004000480 0000000000 1 TOUR M54B22    MAN LL  //520i Touring (09/00-12/03)
+H DS12 V1095 5E120000 0000000000000000 0000000000 1 TOUR M54B22    MAN RL  //520i Touring
+DS12         5E120000 0000000004000480 0000000000 1 TOUR M54B22    MAN RL  //520i Touring (09/00-12/03)
+H DS21 V1095 5E210000 0000000000000000 0000000000 1 TOUR M54B22    AUT LL  //520iA Touring
+DS21         5E210000 0001000004000480 0000000000 1 TOUR M54B22    AUT LL  //520iA Touring (09/00-12/03)
+H DS22 V1095 5E220000 0000000000000000 0000000000 1 TOUR M54B22    AUT RL  //520iA Touring
+DS22         5E220000 0001000004000480 0000000000 1 TOUR M54B22    AUT RL  //520iA Touring (09/00-12/03)
+H DS31 V1095 5E310000 0000000000000000 0000000000 1 TOUR M54B25    MAN LL  //525i Touring
+DS31         5E310000 0000000004000480 0000000000 1 TOUR M54B25    MAN LL  //525i Touring (09/00-12/03)
+H DS32 V1095 5E320000 0000000000000000 0000000000 1 TOUR M54B25    MAN RL  //525i Touring
+DS32         5E320000 0000000004000480 0000000000 1 TOUR M54B25    MAN RL  //525i Touring (09/00-12/03)
+H DS33 V1095 5E330000 0000000000000000 0000000000 1 TOUR M54B25    MAN LL US //525i Touring US
+DS33         5E330000 0020041004024400 0000000000 1 TOUR M54B25    MAN LL US //525i Touring US (09/00-09/03)
+H DS41 V1095 5E410000 0000000000000000 0000000000 1 TOUR M54B25    AUT LL  //525iA Touring
+DS41         5E410000 0001000004000480 0000000000 1 TOUR M54B25    AUT LL  //525iA Touring (09/00-12/03)
+H DS42 V1095 5E420000 0000000000000000 0000000000 1 TOUR M54B25    AUT RL  //525iA Touring
+DS42         5E420000 0001000004000480 0000000000 1 TOUR M54B25    AUT RL  //525iA Touring (09/00-12/03)
+H DS43 V1095 5E430000 0000000000000000 0000000000 1 TOUR M54B25    AUT LL US //525iA Touring US
+DS43         5E430000 0020041004024400 0000000000 1 TOUR M54B25    AUT LL US //525iA Touring US (09/00-09/03)
+H DS51 V1095 5E510000 0000000000000000 0000000000 1 TOUR M54B30    MAN LL  //530i Touring
+DS51         5E510000 0000000006000480 0000000000 1 TOUR M54B30    MAN LL  //530i Touring (09/00-12/03)
+H DS52 V1095 5E520000 0000000000000000 0000000000 1 TOUR M54B30    MAN RL  //530i Touring
+DS52         5E520000 0000000006000480 0000000000 1 TOUR M54B30    MAN RL  //530i Touring (09/00-12/03)
+H DS53 V1095 5E530000 0000000000000000 0000000000 1 TOUR M54B30    MAN LL US //530i Touring US
+DS53         5E530000 0020080004024400 0000000000 1 TOUR M54B30    MAN LL US //530i Touring US; nie produziert
+H DS61 V1095 5E610000 0000000000000000 0000000000 1 TOUR M54B30    AUT LL  //530iA Touring
+DS61         5E610000 0001000006000480 0000000000 1 TOUR M54B30    AUT LL  //530iA Touring (09/00-12/03)
+H DS62 V1095 5E620000 0000000000000000 0000000000 1 TOUR M54B30    AUT RL  //530iA Touring
+DS62         5E620000 0001000006000480 0000000000 1 TOUR M54B30    AUT RL  //530iA Touring (09/00-12/03)
+H DS63 V1095 5E630000 0000000000000000 0000000000 1 TOUR M54B30    AUT LL US //530iA Touring US
+DS63         5E630000 0020080004024400 0000000000 1 TOUR M54B30    AUT LL US //530iA Touring US; nie produziert
+H DT11 V1095 5F110000 0000000000000000 0000000000 1 LIM  M54B22    MAN LL  //520i Limousine
+DT11         5F110000 0000000004000480 0000000000 1 LIM  M54B22    MAN LL  //520i Limousine
+H DT12 V1095 5F120000 0000000000000000 0000000000 1 LIM  M54B22    MAN RL  //520i Limousine
+DT12         5F120000 0000000004000480 0000000000 1 LIM  M54B22    MAN RL  //520i Limousine
+H DT21 V1095 5F210000 0000000000000000 0000000000 1 LIM  M54B22    AUT LL  //520iA Limousine
+DT21         5F210000 0001000004000480 0000000000 1 LIM  M54B22    AUT LL  //520iA Limousine
+H DT22 V1095 5F220000 0000000000000000 0000000000 1 LIM  M54B22    AUT RL  //520iA Limousine
+DT22         5F220000 0001000004000480 0000000000 1 LIM  M54B22    AUT RL  //520iA Limousine
+H DT24 V1095 5F240000 0000000000000000 0000000000 1 LIM  M54B22    AUT RL CKD MALAYSIA //520iA Limousine Malaysia
+DT24         5F240000 0001000004000480 0000000000 1 LIM  M54B22    AUT RL CKD MALAYSIA //520iA Limousine Malaysia
+H DT26 V1095 5F260000 0000000000000000 0000000000 1 LIM  M54B22    AUT LL CKD AEGYPTEN //520iA Limousine Ägypten
+DT26         5F260000 0001000004000480 0000000000 1 LIM  M54B22    AUT LL CKD AEGYPTEN //520iA Limousine Ägypten
+H DT27 V1095 5F230000 0000000000000000 0000000000 1 LIM  M54B22    AUT RL CKD INDONESIEN //520iA Limousine Indonesien (03/01)
+DT27         5F230000 0001000004000480 0000000000 1 LIM  M54B22    AUT RL CKD INDONESIEN //520iA Limousine Indonesien (03/01)
+H DT31 V1095 5F310000 0000000000000000 0000000000 1 LIM  M54B25    MAN LL  //525i Limousine
+DT31         5F310000 0000000004000480 0000000000 1 LIM  M54B25    MAN LL  //525i Limousine
+H DT32 V1095 5F320000 0000000000000000 0000000000 1 LIM  M54B25    MAN RL  //525i Limousine
+DT32         5F320000 0000000004000480 0000000000 1 LIM  M54B25    MAN RL  //525i Limousine
+H DT33 V1095 5F330000 0000000000000000 0000000000 1 LIM  M54B25    MAN LL US //525i Limousine US
+DT33         5F330000 0020041004024400 0000000000 1 LIM  M54B25    MAN LL US //525i Limousine US
+H DT35 V1095 5F350000 0000000000000000 0000000000 1 LIM  M54B25    MAN LL CKD //525i Limousine Rußland
+DT35         5F350000 0000000004000480 0000000000 1 LIM  M54B25    MAN LL CKD //525i Limousine Rußland
+H DT37 V1095 5F370000 0000000000000000 0000000000 1 LIM  M54B25    MAN RL CKD INDONESIEN //525i Limousine Indonesien
+DT37         5F370000 0000000004000480 0000000000 1 LIM  M54B25    MAN RL CKD INDONESIEN //525i Limousine Indonesien
+H DT38 V1095 5F380000 0000000000000000 0000000000 1 LIM  M54B25    MAN RL CKD INDIEN //525i Limousine Indien
+DT38         5F380010 0000000004000480 0000000000 1 LIM  M54B25    MAN RL CKD INDIEN //525i Limousine Indien
+H DT41 V1095 5F410000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL  //525iA Limousine
+DT41         5F410000 0001000004000480 0000000000 1 LIM  M54B25    AUT LL  //525iA Limousine
+H DT42 V1095 5F420000 0000000000000000 0000000000 1 LIM  M54B25    AUT RL  //525iA Limousine
+DT42         5F420000 0001000004000480 0000000000 1 LIM  M54B25    AUT RL  //525iA Limousine
+H DT43 V1095 5F430000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL US //525iA Limousine US
+DT43         5F430000 0020041004024400 0000000000 1 LIM  M54B25    AUT LL US //525iA Limousine US
+H DT44 V1095 5F440000 0000000000000000 0000000000 1 LIM  M54B25    AUT RL CKD MALAYSIA //525iA Limousine Malaysia
+DT44         5F440000 0001000004000480 0000000000 1 LIM  M54B25    AUT RL CKD MALAYSIA //525iA Limousine Malaysia
+H DT45 V1095 5F450000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL CKD //525iA Limousine Rußland
+DT45         5F450000 0001000004000480 0000000000 1 LIM  M54B25    AUT LL CKD //525iA Limousine Rußland
+H DT46 V1095 5F460000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL CKD AEGYPTEN //525iA Limousine Ägypten
+DT46         5F460000 0001000004000480 0000000000 1 LIM  M54B25    AUT LL CKD AEGYPTEN //525iA Limousine Ägypten
+H DT47 V1095 5F470000 0000000000000000 0000000000 1 LIM  M54B25    AUT RL CKD INDONESIEN //525iA Limousine Indonesien
+DT47         5F470000 0001000004000480 0000000000 1 LIM  M54B25    AUT RL CKD INDONESIEN //525iA Limousine Indonesien
+H DT48 V1095 5F480000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL CKD VIETNAM //525iA Limousine Vietnam
+DT48         5F480000 0001000004000480 0000000000 1 LIM  M54B25    AUT LL CKD VIETNAM //525iA Limousine Vietnam
+H DT49 V1095 5F490000 0000000000000000 0000000000 1 LIM  M54B25    AUT LL CKD PHILIPPINEN //525iA Limousine Philippinen
+DT49         5F490000 0001000004000480 0000000000 1 LIM  M54B25    AUT LL CKD PHILIPPINEN //525iA Limousine Philippinen
+H DT51 V1095 5F510000 0000000000000000 0000000000 1 LIM  M54B30    MAN LL  //530i Limousine
+DT51         5F510000 0000000004000480 0000000000 1 LIM  M54B30    MAN LL  //530i Limousine
+H DT52 V1095 5F520000 0000000000000000 0000000000 1 LIM  M54B30    MAN RL  //530i Limousine
+DT52         5F520000 0000000004000480 0000000000 1 LIM  M54B30    MAN RL  //530i Limousine
+H DT53 V1095 5F530000 0000000000000000 0000000000 1 LIM  M54B30    MAN LL US //530i Limousine US
+DT53         5F530000 0020041004024400 0000000000 1 LIM  M54B30    MAN LL US //530i Limousine US
+H DT55 V1095 5F550000 0000000000000000 0000000000 1 LIM  M54B30    MAN LL CKD //530i Limousine Rußland
+DT55         5F550000 0000000004000480 0000000000 1 LIM  M54B30    MAN LL CKD //530i Limousine Rußland
+H DT59 V1095 5F590000 0000000000000000 0000000000 1 LIM  M54B30    MAN LL CKD //530i Limousine Vietnam
+DT59         5F590000 0000000004000480 0000000000 1 LIM  M54B30    MAN LL CKD //530i Limousine Vietnam
+H DT61 V1095 5F610000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL  //530iA Limousine
+DT61         5F610000 0001000004000480 0000000000 1 LIM  M54B30    AUT LL  //530iA Limousine
+H DT62 V1095 5F620000 0000000000000000 0000000000 1 LIM  M54B30    AUT RL  //530iA Limousine
+DT62         5F620000 0001000004000480 0000000000 1 LIM  M54B30    AUT RL  //530iA Limousine
+H DT63 V1095 5F630000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL US //530iA Limousine US
+DT63         5F630000 0020041004024400 0000000000 1 LIM  M54B30    AUT LL US //530iA Limousine US
+H DT65 V1095 5F650000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL CKD //530iA Limousine Rußland
+DT65         5F650000 0001000004000480 0000000000 1 LIM  M54B30    AUT LL CKD //530iA Limousine Rußland
+H DT66 V1095 5F660000 0000000000000000 0000000000 1 LIM  M54B30    AUT RL CKD INDONESIEN //530iA Limousine Indonesien
+DT66         5F660000 0001000004000480 0000000000 1 LIM  M54B30    AUT RL CKD INDONESIEN //530iA Limousine Indonesien
+H DT67 V1095 5F670000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL CKD MEXICO //530iA Limousine Mexico
+DT67         5F670000 0021000004000480 0000000000 1 LIM  M54B30    AUT LL CKD MEXICO //530iA Limousine Mexico
+H DT68 V1095 5F680000 0000000000000000 0000000000 1 LIM  M54B30    AUT RL CKD MALAYSIA //530iA Limousine Malaysia
+DT68         5F680000 0001000004000480 0000000000 1 LIM  M54B30    AUT RL CKD MALAYSIA //530iA Limousine Malaysia
+H DT69 V1095 5F690000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL CKD //530iA Limousine Vietnam
+DT69         5F690000 0001000004000480 0000000000 1 LIM  M54B30    AUT LL CKD //530iA Limousine Vietnam
+H DT87 V1095 5F870000 0000000000000000 0000000000 1 LIM  M54B30    AUT LL CKD MEXICO SICH_FZG //530iA Sicherheitsfzg. Mexiko
+H DT87 V1195 5F870000 0021000004000080 0000000000 1 LIM  M54B30    AUT LL CKD MEXICO SICH_FZG //530iA Sicherheitsfzg. Mexiko
+DT87         5F870000 0021000004000480 0000000000 1 LIM  M54B30    AUT LL CKD MEXICO SICH_FZG //530iA Sicherheitsfzg. Mexiko
+H DA91 V1095 50910000 0000000000000000 0000000000 1 LIM  N43B20    MAN LL  //518i Limousine LL (N43 nur als MAN u. LL)
+DA91         50910000 0000000004000480 0000000000 1 LIM  N43B20    MAN LL  //518i Limousine LL (03/02)
+H DG91 V1095 56910000 0000000000000000 0000000000 1 TOUR N43B20    MAN LL  //518i Touring LL
+DG91         56910000 0000000004000480 0000000000 1 TOUR N43B20    MAN LL  //518i Touring LL (03/02)
+C 93

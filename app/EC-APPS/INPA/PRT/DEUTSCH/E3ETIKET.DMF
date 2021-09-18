@@ -1,0 +1,35 @@
+.forbeg
+for_etikett,52,15
+.varbeg
+df_sw_vers,37,3,5,Vx.yz
+df_fzgtyp,15,4,4,tttt
+df_fahrgnr,15,5,7,#######
+df_datum,32,4,10,tt-mm-jjjj
+df_zeit,32,5,8,hh:mm:ss
+df_ekm_gm_txt,3,6,2,GM
+df_ekm_gm_code,6,6,8,12345678
+df_ekm_sa_txt,18,6,2,SA
+df_ekm_sa_code,21,6,16,1234567890123456
+df_ekm_vn_txt,3,7,2,VN
+df_ekm_vn_code,6,7,10,1234567890
+df_ekm_am_txt,18,7,2,AM
+df_ekm_am_code,21,7,10,1234567890
+.varend
+.drmbeg
+                                                    
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄ¿
+³ EIGENDIAGNOSE              ELDI/3 V1.0  ³Nacharb.³
+³ Fzg.typ   : tttt      Datum: tt-mm-jjjj ³        ³
+³ Fahrg.-Nr.: #######   Zeit : hh:mm:ss   ³        ³
+³                                         ÃÄÄÄÄÄÄÄÄ´
+³                                         ³Prfer: ³
+³    Kein Fehler in den Steuerger„ten !   ³        ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÙ
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+.drmend
+.forend

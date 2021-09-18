@@ -1,0 +1,111 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E46.GER
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 06.07.1995 rd V0.01 Erstellung
+//* 17.05.2002 rd V1.18 EKP hinzu
+//* 15.07.2002 rd V1.19 neues DDE5 Script
+//* 24.09.2002 rd V1.20 ALC neu dazu
+//* 24.09.2002 rd V1.21 DDE5 M57 TÜ dazu
+//* 01.10.2002 tm V1.22 'Energiesparmode EIN/AUS' hinzu
+//* 28.02.2003 rd V1.23 NAV_JAP hinzu
+//* 20.03.2003 tm V1.24 Energiesparmode hinzu
+//* 13.08.2003 rd V1.25 Motorvarianten hinzu
+//* 29.09.2003 tm V1.26 Deflation Warning System hinzu
+//* 02.02.2004 rd V1.27 Sitzmemory Beifahrer
+//* 16.02.2004 rd V1.28 Umstellung auf 32-Bit INPA
+//* 18.03.2004 rd V1.29 KLIMA_5B ersetzt IHKA46
+//* 28.04.2004 GA V1.30 Energiesparmode wieder hinzu
+//* 23.06.2004 rd V1.31 Motorvariante geändert
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E46 V1.31
+ENTRY=  EN_E46,Energiesparmode EIN/AUS E46,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=   DDE22,DDE 2.2  für M51,
+ENTRY=   DDE30,DDE 3.0  für M47,
+ENTRY=   DDE40,DDE 4.0  für M57,
+ENTRY=  D50M47,DDE 5.0  für M47 TÜ,
+ENTRY=  D50M57,DDE 5.0  für M57 TÜ,
+ENTRY=,,
+ENTRY=   BMS46,BMS 46   für M43,
+ENTRY=,,
+ENTRY=  ME9_4N,ME  9.2  für N42 / N45,
+ENTRY=ME9NG4TU,ME  9.2 / MEV9 für N46,
+ENTRY=,,
+ENTRY=   MS420,MS 42.0  für M52 TÜ,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  für M54,
+ENTRY=,,
+ENTRY=   MS450,MS 45.0  für M56,
+ENTRY=,,
+ENTRY= MSS54M3,MS  S54  für S54 M3,
+ENTRY=,,
+ENTRY= EKP_DS2,Kraftstoffpumpe EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=   gsds2,GS 8.xx / GS 20,
+ENTRY=,,
+ENTRY=    gs30,Sequentielles Schaltgetriebe SSG,
+ENTRY=,,
+ENTRY=    smg2,Sequentielles M-Getriebe,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=ascdsc46,ASC/DSC,
+ENTRY= dscmk60,DSC MK60,
+ENTRY= absasc5,DSC 5.7,
+ENTRY=    lws5,Lenkwinkelsensor,
+ENTRY=     rdc,Reifendruckkontrollsystem,
+ENTRY=     dws,Deflation Warning System,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=  airbag,Airbag,
+ENTRY=  cvm_II,Cabrioverdeckmodul CVM II,
+ENTRY=     ews,Elektronische Wegfahrsperre EWS,
+ENTRY=klima_5b,Klimaautomatik IHKA,
+ENTRY=   kombi,Kombi-Instrument,
+ENTRY=     lsz,Lichtschaltzentrum LSZ,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multifunktionslenkrad MFL,
+ENTRY=     pdc,Park-Distance-Control,
+ENTRY=     aic,Regensensor AIC,
+ENTRY= rls_ds2,Regen- Lichtsensor RLS,
+ENTRY=     szm,Schaltzentrum Mittelkonsole SZM,
+ENTRY=   shd46,Schiebehebedachmodul SHD,
+ENTRY=    sm46,Sitzmemory Fahrer,
+ENTRY=  b_sm46,Sitzmemory Beifahrer,
+ENTRY=   spmft,Spiegelmemory Fahrer,
+ENTRY=   spmbt,Spiegelmemory Beifahrer,
+ENTRY=     gr2,Tempomat GR2,
+ENTRY=    ueb2,Überrollsensor,
+ENTRY= xenon_l,Xenon Licht links,
+ENTRY= xenon_r,Xenon Licht rechts,
+ENTRY=    zke5,Zentrale Karosserieelektronik ZKE5,
+ENTRY=zuheizer,Zuheizer Diesel,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=bmbt46tn,Bordmonitor Topnavigation,
+ENTRY=bmbt46rn,Bordmonitor Radionavigation,
+ENTRY=bmbt_mir,Bedienteil-MIR,
+ENTRY= bm_wide,Widescreen Monitor,
+ENTRY=     CDC,CD-Wechsler,
+ENTRY=    navi,Navigationsrechner,
+ENTRY= nav_jap,Navigationsrechner Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Spracheingabesystem SES,
+ENTRY= telefon,Telefon,
+ENTRY=videomod,Videomodul,
+

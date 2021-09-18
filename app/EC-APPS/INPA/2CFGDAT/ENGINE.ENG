@@ -1,0 +1,134 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei MOTOR.GER
+//*
+//**********************************************************************
+//*   EA-803
+//**********************************************************************
+//* History:
+//* 15.03.95 rd V0.01 Erstellung
+//* 09.05.06 Wb	V0.01 Umstellung auf EA-803 Belange 
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION= engines V1.23
+ENTRY= CARB, carb interface
+
+[ROOT_4]
+DESCRIPTION= 4 cylinders
+ENTRY= BMS43, BMS for 43 M43,
+ENTRY= BMS46, BMS for 46 M43,
+ENTRY=,,
+ENTRY= ME9_4N, ME 9.2 for N42,
+ENTRY= ME9NG4TU, ME9.2 / MEV9 for N45 / N46,
+ENTRY=,,
+ENTRY= BMSCP, BMS CP for NG
+ENTRY=,,
+ENTRY= MEX17_2, MEV and MED 17.2,
+ENTRY = msd80n43, MSD80 for N43,
+= ENTRY,
+ENTRY= MEVD174k, MEVD1724 BN2000 for N20,
+ENTRY= MEVD1724, MEVD1724 BN20xx for N20,
+
+[ROOT_5]
+DESCRIPTION=
+
+[ROOT_6]
+DESCRIPTION= 6 cylinder Bosch
+ENTRY= D50M57, DDE 5.0 for M57,
+ENTRY=,,
+ENTRY= DME331, DME for 3.31 M50 2.5 l
+ENTRY=,,
+ENTRY= DME338K2, DME for 3.3 S50 M3
+ENTRY=,,
+ENTRY= VNC, VNC for S50 M3
+ENTRY=,,
+ENTRY= MEVD176K, MEVD172 for N55 (BN2000)
+ENTRY= MEVD172, MEVD172 for N55 (BN2010)
+ENTRY=,,
+
+ENTRY=,,
+
+
+
+[ROOT_7]
+DESCRIPTION= 6 cylinder Siemens
+ENTRY= MS430, MS 43.0 for M54,
+ENTRY= MS450, MS 45.0 for M54,
+ENTRY= MS450, MS 45.1 for M56,
+ENTRY=,,
+ENTRY= MSV70, MSV 70.0 for N52,
+ENTRY= MSV70, MSV 70.1 for N51,
+ENTRY=,,
+ENTRY= MSV80, MSV 80,
+ENTRY= MSD80, MSD 80,
+ENTRY= MSD87, MSD for 87 F01
+ENTRY=,,
+ENTRY= MSV90, MSV90 for N52,
+
+[ROOT_8]
+DESCRIPTION=
+[ROOT_9]
+DESCRIPTION= 8 cylinders
+ENTRY= D51M67M, DDE 5.1 ??for M67 master,
+ENTRY= D51M67S, DDE 5.1 ??for M67 slave,
+ENTRY=,,
+ENTRY= DME528, DME 5.2 for M62,
+ENTRY= DME5218, DME for 5.21 M62 MY 98,
+ENTRY= ME72, ME 7.2 for M62 MY 99,
+ENTRY=,,
+ENTRY= ME9_6, ME9.2 for NGV8 series,
+ENTRY= ME9N62_2, ME9.2.2 for N62TUE,
+ENTRY= N62_TUE2, ME9.2.3 for N62TUE,
+ENTRY=,,
+ENTRY= MSD85, MSD85 for N63 (BN2000)
+ENTRY= MSD85L6, MSD85 for N63 (BN2010)
+ENTRY= MSD85L6_EA, MSD85 for N63 (EA versin - BN2010)
+ENTRY= N63tu, MEDV17.2.8 for N63TÜ,
+ENTRY=,,
+ENTRY= MSS52M5, MS S52 for S62 M5,
+ENTRY=,,
+
+[ROOT_10]
+DESCRIPTION=
+[ROOT_11]
+DESCRIPTION= 12 cylinders
+ENTRY= DME5212R, DME 5.2 for M73 right
+ENTRY= DME5212L, DME for 5.2 M73 left,
+ENTRY=,,
+ENTRY= DME521R, DME for 5.21 M73 right MJ 98,
+ENTRY= DME521L, DME for 5.21 M73 left MJ 98,
+ENTRY=,,
+ENTRY= DME521R2, DME for 5.21 M73 right MJ 99,
+ENTRY= DME521L2, DME for 5.21 M73 left MJ 99,
+ENTRY=,,
+ENTRY= N73, N73 for MED 9.2.x,
+ENTRY=,,
+ENTRY= MSD87_C, MSD87 for N74 Master,
+ENTRY=,,
+ENTRY= EML_M70, EML for M70,
+ENTRY= EML3, EML for M73,
+ENTRY=,,
+ENTRY= ETS, Electronic circuit breaker,
+
+[ROOT_12]
+DESCRIPTION=
+[ROOT_13]
+DESCRIPTION= Diesel engines
+ENTRY= DDE50K47, DDE 5.0 for M47 TÜ,
+ENTRY= DDE6M47, DDE 6.0 for M47 TÜ2,
+ENTRY= DDE7n47, DDE7 BN2000 for N47,
+ENTRY= DDE7uds, DDE7 BN2010 for N47,
+ENTRY=,,
+ENTRY= DDE21, DDE 2.1 for M51,
+ENTRY= DDE22, DDE 2.2 for M51,
+ENTRY= DDE40, DDE 4.0 for M57,
+ENTRY= DDE72n57, DDE72 for N57
+ENTRY= DDE73n57, DDE73 for N57
+ENTRY=,,
+ENTRY= DDE41R, DDE 4.1 right for M67,
+ENTRY= DDE41L, DDE 4.1 left for M67,
+ENTRY=,,
+

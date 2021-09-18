@@ -1,0 +1,475 @@
+//**********************************************************************
+//*
+//* Includedatei  für E-65 INPA 
+//*
+//* MO01_INP.SRC  für alle Mostkompenenten ab E65
+//*                                                               
+//*
+//*    ACHTUNG:  ||||->Versionsnummer bei s_steuern_3dB_absenkung()
+//*                     in erster ftextout() eintragen!!!!!!!!!!!!!!!!!!
+//**********************************************************************
+//* History         : 
+//* 25.09.2000 rg V0.01 Ersterstellung Grundumfang
+//* 17.10.2000 GA V0.02 INPAapiFsMode_neu(0x1FF... -> (0xFF...
+//* 12.12.2000 mm V0.03 WakeUp Screen und Menu hinzugefügt
+//* 16.01.2001 GA V0.04 3dB Absenkung aller Lichtwellenleiter eingefügt
+//* 21.02.2001 GA V0.05 von FS_LESEN/LOESCHEN auf IS_ umgestellt
+//* 05.03.2001 GA V0.06 Umbau s_steuern_3dB_alle: erst an alle -3dB nach-
+//*            GA V0.06  einander absetzen, 5Sek. später IS_LESEN
+//* 13.03.2003 fw V0.07 Erweiterung des Ringtestes auf E6X, E8X, E9X
+//* 17.04.2003 fw V0.08 Ruecksprung ins Steuern-Menue (anstatt Hauptmenue)
+//* 16.02.2004 rd V1.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+// **********************
+// *** Steuernmenü    ***
+// *** -3db Absenkung ***
+// **********************
+MENU m_steuern_3dB_absenkung()
+{
+  string fehler_file;
+  int    InputState = 2;
+ 
+  INIT {
+    setmenutitle("@Steuern@");
+  }
+  ITEM( 1 ,"@Einzeltest@")  {
+    viewclose();
+    setscreen( s_steuern_3dB_einzel,FALSE); //Nur Absenkung zum nächsten Steuergerät
+  }
+  ITEM( 2 ,"@Alle@")  {
+    viewclose();
+    setscreen( s_steuern_3dB_alle,FALSE); //Alle Lichtwellenl. werden im Ring einzeln abgesenkt.
+  }
+  ITEM( 3 ,"")  {
+     viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 4 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);    
+  }
+  ITEM( 5 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);  
+  }                                    
+  ITEM( 6 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }                                    
+  ITEM( 7 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 8 ,"")  {
+    viewclose();           
+    setscreen( s_steuern_3dB_absenkung,TRUE);
+  }
+  ITEM( 9 ,"@Druck@")  {
+    printscreen();
+  }
+  ITEM( 10 ,"@Zurück@")  {
+    viewclose();
+    setscreen( s_steuern ,TRUE);
+    setmenu( m_steuern );
+  }
+  ITEM( 20 ,"@Exit@")  {
+    viewclose();
+    exit();
+  }
+}
+
+// **************************
+// *** Steuernscreen      ***
+// **************************
+SCREEN s_steuern_3dB_absenkung()
+{
+  ftextout("@Ansteuern@ @-3dB Absenkung im MOST-Ring@ Version 1.00",1,0,1,0);
+  ftextout("",3,0,0,0);
+  ftextout("@ACHTUNG: Infospeicher werden zuvor gelöscht!@",4,0,0,5);
+  ftextout("< F1 >  @Absenkung von diesem zum nächsten Steuergerät@"    , 7, 5,0,1);
+  ftextout("< F2 >  @Absenkung aller Lichtwellenleiter im Ring@"        , 9, 5,0,1);
+//ftextout("< F3 >  "      , 8, 5,0,1);
+//ftextout("< F4 >  "      ,10, 5,0,1);
+//ftextout("< F5 >  "      ,12, 5,0,1);
+//ftextout("< F6 >  "      ,14, 5,0,1);
+//ftextout("< F7 >  "      ,16, 5,0,1);
+//ftextout("< F8 >         ,18, 5,0,1);
+  ftextout("< F9 >  @Bildschirmdruck@"          ,20, 5,0,1);
+  ftextout("< F10>  @Zurück@"                   ,22, 5,0,1);
+  ftextout("<Shift> + < F10>  @Exit@"           ,22,45,0,1);
+}
+
+// **********************************
+// *** Steuern3dB_AbsenkungScreen ***
+// **********************************
+SCREEN s_steuern_3dB_einzel()
+{
+  int    err_code;
+  string text_var2 = "                                                                    ";
+
+    userboxclose(1);                                                     // IS loeschen
+    viewclose();
+    //Temporäre Datei löschen, falls bei Kommunikation was schief lief, somit wird kein alter Infospeicher angezeigt
+    filedelete("mo_1.tmp",err_code);
+
+    INPAapiJob(sgbd,"IS_LOESCHEN","","");
+    INPAapiCheckJobStatus("OKAY");
+    userboxopen(1,13,20,2,45,"@Status -3 dB Test@","");
+
+    userboxclear(1);
+    INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    userboxftextout(1,text_var,0,0,0,0);
+
+    
+    INPAapiJob(sgbd,"STEUERN_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");  
+    INPAapiJob(sgbd,"STATUS_MOST_3DB","","");
+    INPAapiCheckJobStatus("OKAY");
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    delay(3000);
+    userboxclear(1);
+    userboxftextout(1,text_var,0,0,0,0);
+    delay(5000);
+
+    INPAapiResultText(text_var,"STAT_MOST_3DB",1,"");
+    userboxftextout(1,text_var,0,0,0,0);
+    delay(1000);
+
+
+    viewclose();
+    userboxclear(1);
+    userboxftextout(1,"@Der Infospeicher wird gelesen!@ @... bitte warten@",0,0,0,0);
+
+    INPAapiFsMode_neu(0x1FF,"w","","","IS_LESEN"); // alles Anzeigen
+    INPAapiFsLesen_neu(sgbd,"mo_1.tmp");
+
+    userboxclose(1);
+    viewopen("mo_1.tmp","@Infospeicher lesen@");
+}
+
+// ***************************************
+// *** Steuern3dB_AbsenkungScreen-Alle ***
+// ***************************************
+//Alle Lichtwellenl. werden im Ring einzeln abgesenkt.
+//SGBDen werden über Gruppendateien angesprochen.
+//Infospeicher wird vorher gelöscht!              
+//Status jeder SGBD wird ausgegeben. IS_LESEN einzelner SGBD kann angzeigt werden.
+
+SCREEN s_steuern_3dB_alle()
+{
+
+        string gruppe;
+        string sgbd;
+        string zahl_text;
+        string JOB_STATUS;
+        string VARIANTE;
+        string status_3db_text;
+        string zaehler_text;   // Kein Fehler in den SG´s
+        string zaehler1_text;  // Anzahl gefundener SG's
+        string zaehler2_text;  // Anzahl der nicht gefundenen SG´s
+        string err_txt;
+
+        int    startzeit, stopzeit, laufzeit, minuten, timeout;//in Sekunden
+        int    err_code;
+        int    state;    
+        int    SETS;
+        int    ganz_zahl1;
+        int    zaehler=0;      // Kein Fehler in den SG´s
+        int      zaehler1=0;     // Anzahl gefundener SG's
+        int    zaehler2=0;     // Anzahl der nicht gefundenen SG´s
+        int    zeile=4;        // Startzeile
+        int    anzahl_sg=15;   // Anzahl der Steuergeräte
+
+        bool   fehlerflag;
+        string job_status="???";// für Job_Statuskontrolle
+
+
+        //Temporäre Dateien löschen, falls bei Kommunikation was schief lief, somit wird kein alter Infospeicher angezeigt
+        filedelete("mo_1.tmp",err_code);
+        filedelete("mo_2.tmp",err_code);
+        filedelete("mo_3.tmp",err_code);
+        filedelete("mo_4.tmp",err_code);
+        filedelete("mo_5.tmp",err_code);
+        filedelete("mo_6.tmp",err_code);
+        filedelete("mo_7.tmp",err_code);
+        filedelete("mo_8.tmp",err_code);
+        filedelete("mo_9.tmp",err_code);
+        filedelete("mo_10.tmp",err_code);
+        filedelete("mo_11.tmp",err_code);
+        filedelete("mo_12.tmp",err_code);
+        filedelete("mo_13.tmp",err_code);
+        filedelete("mo_14.tmp",err_code);
+        filedelete("mo_15.tmp",err_code);
+        filedelete("mo_erg.tmp",err_code);
+
+        viewclose();
+
+        fileopen( "mo_erg.tmp", "w");
+        ftextout("Most -3 dB Test",0,0,1,1);  
+        filewrite("Most -3 dB Test");
+        filewrite("------------------------------------------------------------------");
+        filewrite("");
+        fileclose();
+        
+        ganz_zahl = 1;
+        while(ganz_zahl <= anzahl_sg)
+        {  
+   
+           // Reihenfolge muß bei "LINE" wie hier sein. Sonst werden falsche Infospeicher angezeigt
+           if      (ganz_zahl ==  1) gruppe = "D_ASK";     // Audio System Kontroller Kassette, CD, Mini Disc
+           else if (ganz_zahl ==  2) gruppe = "D_KOMBI";   // Intrumentenkombi
+           else if (ganz_zahl ==  3) gruppe = "D_MOSTGW";  // MOST/CAN-Gateway (im MMI)
+           else if (ganz_zahl ==  4) gruppe = "D_CDC";     // Audio CD-Changer
+           else if (ganz_zahl ==  5) gruppe = "D_ANTTU";   // Antennentuner 1, Antennentuner 2
+           else if (ganz_zahl ==  6) gruppe = "D_AMP";     // Top HIFI Verstärker
+           else if (ganz_zahl ==  7) gruppe = "D_SVS";     // Sprachverarbeitungssystem
+           else if (ganz_zahl ==  8) gruppe = "D_NAV";     // Navigation   
+           else if (ganz_zahl ==  9) gruppe = "D_VIDEO";   // Videomodul       
+           else if (ganz_zahl == 10) gruppe = "D_MMC";     // Multimedia Changer
+           else if (ganz_zahl == 11) gruppe = "D_FBI";     // Flexible Bus Interface  (für Japan Telefon und Navj (vom E38))
+           else if (ganz_zahl == 12) gruppe = "D_KHI";     // Kopfhöhrer Interface
+           else if (ganz_zahl == 13) gruppe = "D_TEL";     // Telefon ECE Variante oder US Variante, fehlt, wenn Japantelefon verbaut
+           else if (ganz_zahl == 14) gruppe = "D_HUD";     // Headup Display
+           else if (ganz_zahl == 15) gruppe = "D_RADIO";   // Digital radio
+        
+           INPAapiJob(gruppe,"INITIALISIERUNG","","");            // Init.=kürzeste Job
+           INP1apiResultText(fehlerflag,sgbd,"VARIANTE",0,"");    // SGBD-Namen aus Satz 0 auslesen
+                                                                  // (Nebeninfo: In allen Jobs wird u.a. VARIANTE mitgeliefert)
+           if(sgbd != "")
+           {
+              INP1apiJob(sgbd,"IS_LOESCHEN","","");               // Nicht rausnehmen! Sonst werden alle SGBD als
+              INP1apiJob(sgbd,"STEUERN_MOST_3DB","","");          // 3dB Test ausführen
+              INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+        
+              //Nur wenn Test ausgeführt, soll auch Infospeicher gelesen werden.
+              //Sicherheitshalber da Buskommunikation nicht immer stabil ist (Nov. 2000)
+              //Sonst wäre dies überflüssig!
+              if (fehlerflag == FALSE)
+              {
+                       INP1apiErrorText(err_txt);
+                       zaehler2 = zaehler2+1;
+                       //zeile = zeile - 2;
+              }
+              else
+              {
+                                //ACHTUNG: Falls es ein englisches INPA gibt, muß engl. Übersetzung wie in der engl. SGBD sein!
+                                //Sonst wird die Schleife nur 1 Mal durchgegangen und IO ausgegeben nur weil der Job noch nicht 
+                                //abgearbeitet ist.
+              status_3db_text="@Lichtleistung abgesenkt@";               // Most-Status auslesen         
+                      logik_var=FALSE;  
+                      timeout=8;// in Sekunden
+                      laufzeit=0;
+                      ftextout(sgbd+"                         ",zeile,0,0,0);
+                      ftextout("- - -          ",zeile,45,0,0); //Anzeige das noch was kommt, IO/NIO oder ??? für des Tests.
+        
+                        gettime(text_var);
+                      zahl_text="";
+                      midstr(zahl_text,text_var,3,2);
+                      stringtoint(zahl_text,minuten);
+                      minuten = minuten*60;
+                      midstr(zahl_text,text_var,6,2);     
+                      stringtoint(zahl_text,startzeit);
+                      startzeit = minuten+startzeit;
+        
+                while((status_3db_text == "@Lichtleistung abgesenkt@") && (logik_var==FALSE))  // Test endet mit "Volle Lichtleistung" 
+                {
+                                INP1apiJob(sgbd,"STATUS_MOST_3DB","","");
+                         INPAapiResultText(status_3db_text,"STAT_MOST_3DB",1,"");
+                         ftextout(status_3db_text+"          ",zeile,25,0,0);
+                                        
+                         gettime(text_var);
+                         zahl_text="";
+                         midstr(zahl_text,text_var,3,2);    //Minuten auslesen
+                         stringtoint(zahl_text,minuten);
+                         minuten = minuten*60;
+                         midstr(zahl_text,text_var,6,2);    //Sekunden auslesen
+                         stringtoint(zahl_text,stopzeit);
+                         stopzeit = minuten + stopzeit;     //Zeit in Sek.
+                
+                         laufzeit = stopzeit - startzeit;
+                         if ((laufzeit >= timeout) || (timeout <= (-laufzeit))) logik_var=TRUE;
+                
+                              inttostring(timeout-laufzeit,zahl_text);
+                              ftextout(zahl_text+"           ",zeile,75,0,0); 
+                              //Zur weiteren Sicherheit damit kein IO (da IS vorher gelöscht) bei NIO kommt:
+                              //Falls Kommunikation in while nicht klappt und while sofort verlassen wird, erfolt NIO statt IO.
+                              //Test soll angeblich 5 Sekunde dauern.
+                              //Infospeichereintrag erfolgt, wenn Status wieder "Volle Lichtleistung" ausgibt. 
+                }
+        
+                if (logik_var==TRUE)         ftextout("@Timeout-Abbruch@             ",zeile,25,0,0);
+                        ftextout("                                ",zeile,75,0,0); //Abgelaufene Zeit wieder löschen
+        
+                   delay(2000); // Für sicheren IS-Eintrag (Vorschlag S.Heckmann)
+        
+                INP1apiResultText(fehlerflag,job_status,"JOB_STATUS",1,"");
+                //Nachträglich eingebaut, da manche SGBDen nicht auf aktuellen Stand sind und somit Fehler produzieren.
+                if (fehlerflag == FALSE)
+                        {
+                                        ftextout("???       ",zeile,45,0,0); 
+                                        fileopen( "mo_erg.tmp", "a");
+                                        filewrite(sgbd+": ???");
+                                filewrite("");
+                                                fileclose();
+                        }
+                else
+                {
+                                zaehler1 = zaehler1 + 1;
+                                INP1apiJob(sgbd,"IS_LESEN","","");                  // Erst lesen, wenn "Volle Lichtleistung"
+                                                                       // nach test ausgelesen wurde.
+                                INPAapiResultSets(SETS);                            // Anzahl der Sätze auslesen
+                                INPAapiResultText(JOB_STATUS,"JOB_STATUS",SETS,""); // JOB_STATUS steht im letzten Satz!
+         
+                         INPAapiFsMode_neu(0x1FF,"w","","","IS_LESEN");      // IS_LESEN konfigurieren, w=alles Anzeigen
+                         inttostring(ganz_zahl1,zahl_text);
+                         INPAapiFsLesen_neu(sgbd,"mo_"+zahl_text+".tmp"); // Infospeicher lesen und abspeichern
+                         if (SETS == 1)                                      // nur ein Satz: Kein Fehler!
+                         {                                                   // ACHTUNG: Wegen TEL_ECE,TEL_US werden die
+                                ftextout("@IO@      ",zeile,45,0,0);               // Dateien durchnummeriert
+                                fileopen( "mo_erg.tmp", "a");
+                                filewrite(sgbd+": @IO@");
+                                filewrite("");
+                                fileclose();
+                                }
+                         else
+                         {
+                                zaehler = zaehler+1;
+                                ftextout("@NIO@     ",zeile,45,0,0);
+                                fileopen( "mo_erg.tmp", "a");
+                                filewrite(sgbd+": @NIO@");
+                                filewrite("");
+                                fileclose();
+                                }
+                }
+               
+                ganz_zahl1 = ganz_zahl1+1;
+                        }//fehlerflag == FALSE
+                }//sgbd != ""
+        else
+        {  
+                zaehler2 = zaehler2+1;
+                //zeile = zeile - 2;
+        }
+        ganz_zahl = ganz_zahl+1;
+                inttostring(zaehler, zaehler_text);
+                inttostring(zaehler1, zaehler1_text);
+        //inttostring(zaehler2, zaehler2_text);  
+        ftextout(zaehler_text+" @Fehler@", 28,52,0,0);
+        //ftextout(zaehler2_text+" @SG´s nicht gefunden@  ", 28,60,0,0);
+        //zeile = zeile+2;
+        }
+        if (zaehler1 == 0)
+        {
+                ftextout("@SG´s nicht gefunden@", 28,52,0,0);
+                fileopen( "mo_erg.tmp", "a");
+                filewrite("@SG´s nicht gefunden@");
+                fileclose();
+        }
+        else
+        {
+                fileopen( "mo_erg.tmp", "a");
+                filewrite(zaehler_text+" @Fehler@");
+                fileclose();
+        }
+
+   fileclose();
+        viewopen("mo_erg.tmp","Most -3 dB Test");
+        
+   LINE("D_ASK"      , "mo_1.tmp"   ) {}
+
+   LINE("D_KOMBI"    , "mo_2.tmp"   ) {}
+   
+   LINE("D_MOSTGW"   , "mo_3.tmp"   ) {}         
+
+   LINE("D_CDC"      , "mo_4.tmp"   ) {}         
+
+   LINE("D_ANTTU"    , "mo_5.tmp"   ) {}         
+
+   LINE("D_AMP"      , "mo_6.tmp"   ) {}          
+
+   LINE("D_SVS"      , "mo_7.tmp"   ) {}         
+
+   LINE("D_NAV"      , "mo_8.tmp"   ) {}          
+
+   LINE("D_VIDEO"    , "mo_9.tmp"   ) {}             
+
+   LINE("D_MMC"      , "mo_10.tmp"   ) {}         
+
+   LINE("D_FBI"      , "mo_11.tmp"  ) {}         
+
+   LINE("D_KHI"      , "mo_12.tmp"  ) {}         
+                                    
+   LINE("D_TEL"      , "mo_13.tmp"  ) {}
+   
+   LINE("D_HUD"      , "mo_14.tmp"  ) {}
+   
+   LINE("D_RADIO"    , "mo_13.tmp"  ) {}
+
+}
+// ACHTUNG: Wegen VID, VIDJ und TEL_ECE, TEL_US werden die Dateien durchnummeriert.
+
+
+// *********************************************
+// *** Screen: Steuern des Most WakeUp Modus ***
+// *********************************************
+SCREEN s_steuern_wakeup_ability()
+{
+  ftextout("@Ansteuerung@ @Most@ WakeUp-@Funktion@",1,0,1,0);
+  ftextout("",3,0,0,0);
+
+  LINE("@Most@ WakeUp-@Modus@","")
+  {
+   INPAapiJob(sgbd,"STATUS_ABILITY_TO_WAKE","","");
+   INPAapiCheckJobStatus("OKAY");
+   INPAapiResultText(text_var,"STAT_ABILITY_TO_WAKE",1,"");
+   ftextout("WakeUp @Funktion@: "+text_var,3,0,1,0);
+  }
+}
+
+// ********************************
+// *** Steuernmenü WakeUp Modus ***
+// ********************************
+MENU m_steuern_wakeup_ability()
+{
+  INIT
+  {
+    setmenutitle("@Steuern@ WakeUp-@Modus@");
+  }
+  ITEM( 1 ,"@Modus@")  
+  {
+     inputdigital(logik_var,"WakeUp @Modus@","@Modus@:","OFF","ON");
+     getinputstate(input_state);
+     if (input_state==0)
+     {
+        if (logik_var==FALSE) // Modus: OFF
+        {
+           INPAapiJob(sgbd,"STEUERN_ABILITY_TO_WAKE","off","");
+           INPAapiCheckJobStatus("OKAY");
+        }
+        else                  // Modus: ON
+        {
+           INPAapiJob(sgbd,"STEUERN_ABILITY_TO_WAKE","on","");
+           INPAapiCheckJobStatus("OKAY");
+        }
+     }
+  }
+  ITEM( 9 ,"@Druck@")  
+  {
+    printscreen();
+  }
+  ITEM( 10 ,"@Zurück@")  
+  {
+    viewclose();
+    setscreen( s_steuern ,TRUE);
+    setmenu( m_steuern );
+  }
+  ITEM( 20 ,"@Exit@")  
+  {
+    viewclose();
+    exit();
+  }
+}
+// -- EOF --

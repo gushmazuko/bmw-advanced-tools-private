@@ -1,0 +1,522 @@
+; WINKFPT.TXT
+
+[VERSION]
+Version=5.3.1
+
+[ERROR]
+1=CoapiKfInit: Initialisierungsfehler!
+2=Memoryfehler
+3=SetEvent-Overflow
+4=Datei schreiben
+5=Ablauf: ABLAUF_INFO_ERROR
+6=Verzeichniss konnte nicht ermittelt werden
+7=Datei nicht gefunden
+8=ECU-Pfad nicht gefunden (siehe EDIABAS.INI)
+9=Directory kann nicht geöffnet werden
+10=Zu viele Instanzen!
+11=Datei %s konnte nicht kopiert werden.
+12=COAPI Fehlertextdatei "coapierr.<Sprache>" nicht gefunden
+13=COAPI Fehlertextdatei %s hat keine Version
+14=COAPI Fehlertextdatei %s hat Version %s, COAPI Version ist %s
+15=Folgende Dateien dürfen nur im ..\EDIABAS\bin Verzeichnis stehen und müssen gelöscht werden:
+16=Fehler beim Umstellen der Sprache
+17=Fehler beim Erneuern (erneuten konvertieren) der GDaten
+18=Fehler beim Setzen der Arbeitsverzeichnisse aus "winkfpt.ini"!  Es wird die Defaulteinstellung verwendet!
+19=Fehler beim Setzen der Arbeitsverzeichnisse!  Es wird die vorherige Einstellung verwendet!
+
+
+100=P-SGBD benötigt SG-Adresse
+100b=Zuerst SG-Adresse eingeben
+101=Fahrgestellnummer nicht vorhanden
+SGADRESS_ERROR1=SgAdresse-Fehler
+102=2 Stellen (Hexadezimal) erforderlich
+103=nur Hex-Ziffern
+104=Falsche SG-Adresse: %s
+105=Fehler beim Ermitteln der aktuellen ZBNr
+105b=Prüfe HIS-Datei:
+106=Fehler beim Setzen der Steuergeräteadresse.
+106b=Prüfen Sie: Interface, PABD, P-SGBD
+107=FG-Fehler
+ZUSB_ERROR1=ZUSB-Fehler
+108=7 Stellen erforderlich
+109=nur Ziffern
+110=Fehler bei der Konvertierung der GDATEN-Logistikdateien !!
+111=Kein Import möglich - Zusammenbaudatei (xxx.dat) fehlt !!
+112=SG-Innentemperatur wird nicht unterstützt
+113=Batchsteuerdatei wird schon von einer anderen WinKFPT32-Instanz benutzt: 
+
+
+HWNR_ERROR2=Falsche SG-Hardwarenummer: %s
+HWNR_ERROR4=Prüfung Hardwarenummer
+HWNR_ERROR5=Prüfung historie.bsu + Konfiguration
+200=Fehler beim Lesen der HW-Nummer aus SG oder Logistikdatei
+200b=Überprüfen Sie: Anschluss des SG, Diagnoseleitung, SG-Adresse, Logistikdatei
+201=(BSU nicht möglich)
+202=(BSU nicht möglich, weil historie.bsu nicht gefunden wurde)
+203=(BSU nicht möglich, weil historie.bsu fehlerhaft)
+204=BSU ist möglich, aber nicht aktiviert!!
+205=Prüfung Hardwarereferenz
+205b=Hardwarereferenz konnte nicht vom SG gelesen werden
+206=Das Anwenderinfofeld ist voll
+207=Programmierreihenfolge konnte nicht bestimmt werden!
+208=Liste der zu flashenden Dateien wird nicht kleiner
+208b=Endlosprogrammierung vermutet
+209=AIF kann nicht gelesen werden!
+210=BSU Fehler!
+211=Fehler bei Flashprogrammierung!
+212=Fehler bei Prüfung der Datenkonsistenz ->
+212b=im Programm Datenfile (PAF)
+212c=im Daten Datenfile (DAF)
+
+
+300=Initiales HW-Interface konnte nicht initialisiert werden!
+301=HW-Interface konnte nicht initialisiert werden!
+302=HW-Interface konnte nicht belegt werden!
+303=HW-Interface wird schon von einer WinKFPT32-Instanz benutzt!
+304=Neues HW-Interface konnte nicht belegt werden!
+
+
+400=Ungültiger Parameter für WITH_MOSTFIREWALL:
+400b=Nur ON/OFF erlaubt
+401=Ungültiger Parameter für TESTER_ID:
+401b=Nur Hexzahlen erlaubt
+
+
+500=Falsche SG-Kennung
+501=Falsches Projekt
+502=Falsche Projektvariante
+503=Falscher Programmstand
+
+600=Diagnose: Fehler beim Lesen der Steuergeräte-Identifikation
+600b=Fehler beim Lesen der physikalischen Hardware Nummer
+601=Diagnose: Fehler beim Lesen der SG Innentemperatur
+602=Diagnose: Fehler beim Lesen der Datenreferenz
+603=Diagnose: Fehler beim Lesen der Hardwarereferenz
+604=Diagnose: Fehler beim Lesen des ZIF (Zulieferer Info Feld)
+605=Diagnose: Fehler beim Lesen des ZIF Backup (Zulieferer Info Feld - Backup)
+606=Diagnose: Fehler beim Lesen des SG Programmierstatus
+
+650=Spezial: Fehler beim Lesen der AIF
+651=Spezial: Fehler beim Lesen der SG Baudrate
+652=Spezial: Fehler beim Lesen der Abgleichwerte
+653=Spezial: Fehler beim Schreiben der Abgleichwerte
+654=Spezial: Fehler beim Schalten des VS20-Modes
+655=Spezial: Fehler beim Schalten des DS2-Modes
+
+700=Logistikdatei konnte nicht von Binär nach ASCII konvertiert werden!
+700b=HW-Historie
+700c=Zusammenbaudatei
+700d=ZusBau-Historie
+
+701=Fehler bei der Ermittlung kompatibler HW-Nummern!
+701b=-> HW-Historie bzw. Zusbau-Historie überprüfen.
+702=Fehler SG-Member
+702b=Überprüfen Sie die Syntax von Index/Adresse:
+703=Fehler in Logistikdatei
+704=Fehler beim Ermitteln der ZB-Nummer!
+704b=Überprüfe Zusbau-Datei
+705=Fehler beim Ermitteln der HW- und SW-Nummer aus der ZB-Datei
+706=Fehler beim Bestimmen des Diagnoseprotokolls aus "prgifsel.dat"
+
+800=Fehler beim Aufbau einer Liste
+800b=von Werksdatenpakten (WDP)
+801=Fehler beim Löschen von Werksdatenpaket(en) (WDP)
+802=Fehler beim Export einer Konfiguration von Entwicklungsdateien
+803=Fehler beim Export einer Konfiguration von Werksdaten
+804=Fehler beim Re-Import einer Konfiguration von Entwicklungsdateien
+805=Fehler beim Re-Import einer Konfiguration von Werksdaten
+806=Fehler beim Import von Werksdatenpaket(en)
+
+NO_CABDPAR=Keine CABD-Par
+ERROR=Fehler
+
+[DIALOG]
+OK=OK
+ABBRECHEN=Abbrechen
+ENTFERNEN=Entfernen
+ALLE_ENTFERNEN=Alle Entfernen
+ECU=SG
+PSGBD=P-SGBD
+PABD=PABD
+AIF_INFO=AIF-Info
+EXPORT=Export
+AIF_X_TIMES_PROG=Das Anwenderinfofeld ist noch %d Mal programmierbar
+PROG_SG=SG programmieren?
+MULTIPLE_END=Multiple Programmierung beendet
+MULTIPLE_UPDATE_END=Multiple ZUSB-Update Programmierung beendet
+UPDATE_OK=ZUSB-Update Programmierung OK
+PROG_OK=Programmierung OK
+BSU_OK=Bootsektorupdate OK
+PROG_PROG_OK=Programm-Programmierung OK
+DAT_PROG_OK=Daten-Programmierung OK
+PROG_NOT_POSSIBLE=Programmierung nicht möglich!
+BSU_NOT_ACTIVE=Bootsektorupdate ist nicht aktiv!
+SELECT_INTERFACE=Bitte Interface wählen vor dem Batchbetrieb!
+NO_FILE=Keine Dateien gefunden
+INTERN_ADRESS=P-SGBD verwendet interne Adresse
+NO_INTERFACE=<Kein Interface>
+IMPORT=Import
+LOAD_LAST_KONF=Letzte Konfiguration Laden?
+SAVE_KONF=Aktuelle Konfiguration Speichern?
+SAVE_KONF2=Die Konfiguration in der Ini-Datei speichern?
+IMPORT_DATA=Import Werksdaten
+ERROR_LOG_PATH=Verzeichnis für Error.log Datei
+DEVELOP_EXP_PATH=Basisverzeichnis für den Export von Entwicklungsdaten
+WDP_EXP_PATH=Basisverzeichnis für den Export von Werksdaten
+BASE_WORK_PATH=Basisverzeichnis für WinKFPT-Arbeitsverzeichnisse
+NO_ERROR_LOG_PATH=Verzeichnis für Error.log Datei existiert nicht
+NO_DEVELOP_EXP_PATH=Basisverzeichnis für den Export von Entwicklungsdaten existiert nicht
+YES_DEVELOP_EXP_PATH=Verzeichnis für den Export von Entwicklungsdaten existiert schon
+NO_WDP_EXP_PATH=Basisverzeichnis für den Export von Werksdaten existiert nicht
+YES_WDP_EXP_PATH=Verzeichnis für den Export von Werksdaten existiert schon
+NO_BASE_WORK_PATH=Basisverzeichnis für WinKFPT-Arbeitsverzeichnisse existiert nicht
+NO_VALID_PATH=Pfadname ist ungültig!
+NO_CREATE_PATH=Verzeichnis: "%s" kann nicht angelegt werden!
+ENTER_SGADR=SG-Adresse eingeben
+FILE_WITHOUT_EXT=Dateiname ohne Endung angeben!
+
+INFO_SWITCH_TO_KOMFORT1=Sie betreten den Komfortmodus, es ist jedoch IPS
+INFO_SWITCH_TO_KOMFORT2=als PABD-Format eingestellt. Wenn Sie fortfahren
+INFO_SWITCH_TO_KOMFORT3=wird auf das Format IPO umgestellt.
+INFO_UPDATE1=SG -> ZBNr. aus AIF:
+INFO_UPDATE2=Update -> aktuelle ZBNr.:
+INFO_UPDATE3=Aktuelle ZBNr. programmieren?
+INFO_UPDATE4=Ergebnis - Zusammenbaunummer Update
+DISP_DATEN=Daten-Datei:
+DISP_PROG=Programm-Datei:
+DISP_NAAB=NAAB-Datei:
+FROM_COAPI_INI=aus   <COAPI.INI>
+DISP_DIAG_PROT=Diagnoseprotokoll:
+DISP_HW_INTERFACE=HW-Interface:
+DISP_UNIT=Unit:
+DISP_UPROG=Programmierspannung
+FILE_EXISTS=Datei %s existiert schon!
+OVERWRITE_FILE=Datei überschreiben?
+WIN_IMPORT=WINKFPTool - Import
+INFO_SWITCH_TO_EXPERT1=Die Expertenmoduskonfiguration enthält eine PABD im IPO-Format,
+INFO_SWITCH_TO_EXPERT2=aktuell ist aber noch IPS eingestellt. Soll auf IPO umgestellt werden?
+INFO_SWITCH_TO_EXPERT3=Die Expertenmoduskonfiguration enthält eine PABD im IPS-Format,
+INFO_SWITCH_TO_EXPERT4=aktuell ist aber noch IPO eingestellt. Soll auf IPS umgestellt werden?
+INFO_SWITCH_TO_IPS1=Sie haben sich für das PABD-Format IPS entschieden,
+INFO_SWITCH_TO_IPS2=es ist jedoch schon ein IPO-Datei ausgewählt.
+INFO_SWITCH_TO_IPS3=Möchten Sie wirklich IPS verwenden?
+INFO_SWITCH_TO_IPS4=Das PABD-Format IPS wird verwendet.
+INFO_SWITCH_TO_IPS5=Um mit dem Steuergerät kommunizieren zu können,müssen
+INFO_SWITCH_TO_IPS6=Sie zunächst im Expertenmodus eine neue PABD auswählen.
+INFO_SWITCH_TO_IPO1=Sie haben sich für das PABD-Format IPO entschieden,
+INFO_SWITCH_TO_IPO2=es ist jedoch schon eine IPS-Datei ausgewählt.
+INFO_SWITCH_TO_IPO3=Möchten Sie wirklich IPO verwenden?
+INFO_SWITCH_TO_IPO4=Das PABD-Format IPO wird verwendet.
+INFO_SWITCH_TO_IPO5=Um mit dem Steuergerät kommunizieren zu können,
+INFO_SWITCH_TO_IPO6=müssen Sie zunächst im Expertenmodus eine neue PABD
+INFO_SWITCH_TO_IPO7=auswählen oder den Komfortmodus starten und durch die
+INFO_SWITCH_TO_IPO8=Auswahl einer ZB-Nummer implizit eine neue PABD wählen.
+IMPORT_FLASH_DATA=Import Datensätze/Programmstände/BSU NAAB-Dateien
+IMPORT_SGBD=Import PSGBD
+IMPORT_PABD=Import PABD (Programmier-Ablaufbeschreibungsdateien)
+DIR_EXISTS=Verzeichnis %s existiert schon!
+DEL_REWRITE_DIR=Verzeichnis löschen und neu schreiben?
+DIR_EXISTS_NOT=Verzeichnis %s existiert nicht!
+DIR_CREATE=Verzeichnis %s neu anlegen?
+FILE_EXISTS2=Abbruch! Es existiert eine Datei mit dem Namen des Zielverzeichnisses: %s !
+PLEASE_CHECK=Bitte überprüfen !
+JOB_OK=Job OK!
+ERR_CODE=Code
+ERR_LEVEL=Level
+ERR_MODUL=Modul
+ERR_PROC=Prozedur
+ERR_TEXT=Text
+ERR_INDEX=Index
+START_COMPILER=Start des Compilermodus 
+COMPILER_ERR_FILE=Fehler bei Datei
+FILE=Datei
+COMPILE_SUCCEED=fehlerfrei übersetzt
+NOT_IMPLEMENTED=Die Funktion ist zur Zeit nicht implementiert!
+WARNING_NO_SG_REFERENZ=Warnung! Referenz nicht aus SG auslesbar
+KOMP_DATEN_PROGRAM=Kompatibilität zwischen Daten und Programm kann nicht festgestellt werden!!
+KOMP_PROGRAM_HARDWARE=Kompatibilität zwischen Programm und Hardware kann nicht festgestellt werden!!
+WINKFP_COAPI_FEHLER=Fehler
+EDIABAS_PATH=Achtung!! EDIABAS-Pfad muss im Windowspfad (PATH) eingetragen sein!
+CHECK_SYSTEM_PATH=Prüfe Umgebungsvariable "PATH" in Systemeinstellungen - System
+WDP_LOESCHEN=Werksdaten Löschen
+WDP_ALLE_LOESCHEN=Alle angezeigten Werksdaten löschen?
+WDP_SEL_LOESCHEN=Alle ausgewählten Werksdaten löschen?
+COMMON_LEER=Die COMMON-Dateien HWNR.DA2, KFCONFXX.DA2 und SWTCONFx.DAT werden vollständig geleert!
+COMMON_KORR=Entsprechende Einträge werden aus den COMMON-Dateien HWNR.DA2, KFCONFXX.DA2 und SWTCONFx.DAT entfernt!
+WDP_WAEHLEN=Es sind keine Werksdaten ausgewählt!
+WDP_NICHT_VORHANDEN=Es sind keine gültigen Werksdaten vorhanden!
+EXP_KONF_DEVELOP=Export -> Konfiguration - Entwicklungsdaten
+EXP_KONF_WDP=Export -> Konfiguration - Werksdaten
+EXP_BAS_DIR=Export - Basisverzeichnis:
+IMP_KONF_DEVELOP=Import -> Konfiguration - Entwicklungsdaten
+IMP_KONF_WDP=Import -> Konfiguration - Werksdaten
+WDP_KONFLIKT_TITLE=Import Werksdatenpakete
+WDP_KONFLIKT_T1=WDP-Konflikt!
+WDP_KONFLIKT_T2=Folgende WDPs sind schon vorhanden:
+WDP_IMPORT=Importieren
+WDP_REPLACE=Ersetzen
+WDP_MERGE=Ergänzen
+KONF_NAME=Konfigurationsname:
+BAUREIHE=Baureihe:
+I_STUFE=I-Stufe:
+WERKSDATEN=Werksdaten (SgFamilien):
+EXP_DEV_DATA=Export - Entwicklungsdateien
+EXP_TOOLREL_DATA=Export - Toolrelevante Daten
+IMP_DEVELOP_DATA=Import - Entwicklungsdateien
+IMP_TOOLREL_DATA=Import - Toolrelevante Daten
+INVALID_KONF_NAME=Konfigurationsname "%s" ist ungültig!
+INVALID_BAUREIHE=Baureihe "%s" ist ungültig!
+INVALID_I_STUFE=I-Stufe "%s" ist ungültig!
+INVALID_EXP_PATH=Exportverzeichnis "%s" ist ungültig!
+NO_EXPORT=Kein Export möglich!
+EXIST_BASE_PATH=Überprüfe Konfigurationseinstellung des Basisverzeichnisses "%s" und Bedienereingabe "%s"
+OVERWRITE_DIR=Verzeichnis "%s" überschreiben?
+MIT_ENTWICKLUNGSDATEIEN=Mit Entwicklungsdateien
+OHNE_ENTWICKLUNGSDATEIEN=Ohne Entwicklungsdateien
+MIT_TOOLRELEVANTE_DATEN=Mit Toolrelevante Daten
+OHNE_TOOLRELEVANTE_DATEN=Ohne Toolrelevante Daten
+AKTIVIERT=AKTIVIERT
+NICHT_AKTIVIERT=NICHT AKTIVIERT
+FILTER_DATPROG=Alle (*.paf;*.0pa;*.daf;*.0da;*.baf;*.0ba)|*.paf;*.0pa;*.daf;*.0da;*.baf;*.0ba;*.pbf;*.0pb;*.dbf;*.0db;*.bbf;*.0bb|Progammstände (*.paf;*.0pa)|*.paf;*.0pa;*.pbf;*.0pb|Datensätze (*.daf;*.0da)|*.daf;*.0da;*.dbf;*.0db|BSU NAAB-Dateien (*.baf;*.0ba)|*.baf;*.0ba;*.bbf;*.0bb||
+FILTER_PSGBD=Steuergerätebeschreibungsdateien (*.prg)|*.prg||
+FILTER_PABD=IPS- und IPO-Dateien (*.ips;*.ipo;)|*.ips;*.ipo|IPS-Dateien (*.ips)|*.ips|IPO-Dateien (*.ipo)|*.ipo||
+
+AIF_ENTRIES=Einträge des Anwenderinfofelds:
+ENTRY=Eintrag
+FG_NR=Fahrgestellnummer
+DATUM=Datum
+AENDERUNGS_INDEX=Änderungsindex
+SW_NR=Softwarenummer
+BEHOERDEN_NR=Behördennummer
+ZB_NR=Zusammenbaunummer
+SERIEN_NR=Seriennummer
+PROG_NR=Programmstand
+KM=Kilometer
+HAENDLER_NR=Händlernummer
+ENDE_AIF=Ende des Anwenderinfofelds
+POSS_BAUD=Mögliche Baudraten
+BAUDRATE=Baudrate
+ENDE_BAUD=Ende der Baudratentabelle
+
+DATAREF_ENTRIES=Einträge der Daten-Referenz
+HWREF_ENTRIES=Einträge der HW-Referenz
+ZIF_ENTRIES=Einträge des ZIF
+ZIF_BACKUP_ENTRIES=Einträge des ZIF-Backup
+IDENT_ENTRIES=Einträge der SG-Identifikation
+TEMP_ENTRIES=Einträge der SG-Innentemperatur
+SG_KENNUNG=SG-Kennung
+PROJEKT=Projekt
+PROGRAMMSTAND=Programmstand
+DATENSATZ=Datensatz
+STATUS=Status
+BMW_HW_NR=BMW-Hardwarenummer
+BMW_PROGRAMMSTAND=BMW-Programmstand
+BMW_TEILENR=BMW-Teilenummer
+CODIER_INDEX=Codier-Index
+DIAG_INDEX=Diagnose-Index
+VARIANTEN_INDEX=Varianten-Index
+HERSTELLDATUM=Herstelldatum (TT.MM.JJJJ)
+LIEFERANT_NR=Lieferanten-Nummer
+LIEFERANT=Lieferant
+SW_NR_1=Softwarenummer (message catalogue version)
+SW_NR_2=Softwarenummer (functional software version)
+SW_NR_3=Softwarenummer (operating system version)
+SW_NR_4=Softwarenummer (reserved - currently unused)
+PHYS_HW_NR=Physikalische Hardwarenummer
+SG_INNENTEMP=SG-Innentemperatur
+GRAD_C=Grad C
+
+MENU_DATEI=&Datei
+MENU_ANZEIGE=&Anzeige
+MENU_IMPORT_EXPORT=&Import/Export
+MENU_KOMMUNIKATION=&Kommunikation
+MENU_KONFIGURATION=K&onfiguration
+MENU_HILFE=&Hilfe
+
+MENU_EXIT=&Beenden
+
+MENU_CABIERR=&CABI.ERR
+MENU_ERRORLOG=&ERROR.LOG
+MENU_PABD_PARAMETER=PABD-&Parameter
+MENU_HW_HISTORIE=&HW-Historie
+MENU_ZB_HISTORIE=Z&B-Historie
+MENU_ZB_VORSCHRIFT=&ZB-Vorschrift
+MENU_API_TRACEDATEI=&API-Tracedatei
+MENU_IFH_TRACEDATEI=&IFH-Tracedatei
+MENU_BATCH_MODUS=Batch-&Modus
+
+MENU_IMPORT=&Import
+MENU_WERKSDATEN_IMPORT_EXP_KONF=Exportierte Konfiguration - We&rksdaten
+MENU_ENTWICKLUNGSDATEN_IMPORT_EXP_KONF=Exportierte Konfiguration - &Entwicklugsdaten
+MENU_WERKSDATEN_IMPORT=&Werksdaten
+MENU_DAT_PROG_IMPORT=&Datensätze / Programmstände / BSU NAAB-Dateien
+MENU_PSGBD_IMPORT=P-&SGBD
+MENU_PABD_IMPORT=P&ABD
+
+MENU_EXPORT=&Export
+MENU_WERKSDATEN_KONF_EXPORT=Konfiguration - We&rksdaten
+MENU_ENTWICKLUNGSDATEN_KONF_EXPORT=Konfiguration - &Entwicklungsdaten
+
+MENU_LOESCHEN_WD=&Löschen - Werksdaten
+
+MENU_HW_INTERFACE=HW-&Interface
+MENU_DIAGPROT=Diagnose&protokoll
+
+MENU_INHALT=&Inhalt
+MENU_INFO=Inf&o...
+
+
+MAINFRM_TEXT_SG_ADR=SG-Adresse/Verbauort:
+MAINFRM_TEXT_FG=Fahrgestellnummer :
+MAINFRM_TEXT_ZUSB=Zusammenbaunummer :
+MAINFRM_TEXT_HW=Hardwarenummer :
+MAINFRM_BSU_STATUS=Bootsektorupdate
+
+TITLE_KONFIGURATION="Ini-Optionen"
+KONF_PROGRAMMIERSPANNUNG_ANZEIGEN=Programmierspannung anzeigen
+KONF_SCHNELLE_BAUDRATE=Schnelle Baudrate
+KONF_TEST_CHECKSUMME=Test Checksumme
+KONF_PROGPROG_ERZWINGEN=Programmprogrammierung erzwingen im Komfortmodus
+KONF_BSU_AKTIVIEREN=Bootsektorupdate aktivieren
+KONF_AIF_SCHREIBEN_DATEN=AIF schreiben nach Daten
+KONF_AIF_SCHREIBEN_PROG=AIF schreiben nach Programm
+KONF_AIF_SCHREIBEN_EXP=AIF schreiben im Expertenmodus
+KONF_AIF_SCHREIBEN_KONF=AIF schreiben im Komfortmodus
+KONF_PABD_FORMAT=PABD-Format
+KONF_API_TRACELEVEL=API-Tracelevel
+KONF_IFH_TRACELEVEL=IFH-Tracelevel
+KONF_DIR_ERRORLOG=Verzeichnis für Fehlerausgabe "error.log"
+KONF_DIR_ENTW=Basisverzeichnis für exportierte Konfigurationen - Entwicklungsdaten
+KONF_DIR_WERKSDATEN=Basisverzeichnis für exportierte Konfigurationen - Werksdaten
+KONF_BASIS_WORKDIR=Basisverzeichnis für WinKFPT-Arbeitsverzeichnisse
+
+TITLE_BATCH=WinKFPt Batch Modus Monitor
+BATCH_CONTROLFILE=Steuerdatei:
+BATCH_STATUS=Status:
+BATCH_FEHLER=Fehler:
+BATCH_ABBRUECHE=Abbrüche:
+BATCH_TARGET_IF=Zielinterface:
+BATCH_MODE=Modus:
+BATCH_START=Start
+BATCH_STOP=Stop
+BATCH_DIALOG_ENDE=Dialog schließen
+BATCH_NO_CONTROLFILE_TEXT=keine Steuerdatei angegeben
+BATCH_TEXT_STARTED=gestarted
+BATCH_TEXT_READING=lese Steuerdatei ein
+BATCH_TEXT_RUNNING=Programmierung aktiv
+BATCH_TEXT_SLEEPING=warte auf Steuerdatei
+BATCH_TEXT_PROGRAMMING=warte auf Ende der Programmierung
+BATCH_TEXT_PROGRAMMING_FINISHED=Programmierung beendet
+BATCH_WAIT_TO_STOP=Warte auf Ende des Batchmodus
+BATCH_TEXT_STOPPED=nicht gestarted
+
+TITLE_DIAGPROT=Diagnoseprotokoll auswählen
+
+TITLE_KONFEXP=Konfiguration - Expertenmodus
+KONFEXP_HEADER=Konfigurationseinstellung - Experten-Modus:
+KONFEXP_SGADR=SG-Adresse:
+KONFEXP_DATFILE=Datendatei:
+KONFEXP_PROGFILE=Programmdatei:
+KONFEXP_BSUFILE=BSU NAAB-Datei:
+
+TITLE_FGENTRY=Fahrgestellnummer eingeben
+FGENTRY_FG=FGNR:
+FGENTRY_CS_CHECK=Checksumme berechnen
+
+
+TITLE_HWIF=HW-Interface auswählen
+TITLE_LISTBOX=Auswählen
+
+TITLE_SG_ADR_EINGABE=Steuergeräteadresse eingeben
+SG_ADR=SG-Adresse
+SG_ADR_WERTEBEREICH=Wertebereich: 00 - FF               hexadezimal
+
+TITLE_SHOWERR=COAPI-Fehler
+SHOWERR_NORMAL=Normale Darstellung
+SHOWERR_ERWEITERT=Erweiterte Darstellung
+SHOWERR_COAPILIST=COAPI-Fehlereinträge:
+
+TITLE_SHOWFILE=Datei-Inhalt anzeigen
+
+TITLE_ZUSB_EING=ZUSB eingeben
+ZUSB_EING_ZUSB=ZUSB:
+
+TITLE_ZUSB_AUS=Zusammenbaunummer / Verbauort auswählen
+ZUSB_AUS_SGFAM=Steuergerätefamilie:
+ZUSB_AUS_NR=ZB-Nummer:
+ZUSB_AUS_VERBAUORT=Verbauort:
+
+
+[BATCH]
+MODE_KOMFORT=Komfortmodus
+MODE_EXPERT=Expertenmodus
+MODE_NOT_DEFINED=nicht festgelegt
+PROG_IO=Programmierung i.O.
+PROG_NIO=Programmierung n.i.O. Abbruch
+PROG_FATAL=Programmierung n.i.O. fataler Fehler
+FGNR_SET=Fahrgestellnummer wurde gesetzt.
+ERROR_ACTIVATE_INTERFACE=Fehler: HW-Interface konnte nicht aktiviert werden!
+ERROR_NO_INTERFACE=Fehler: Kein HW-Interface vorhanden!
+INTERFACE_ACTIVATE=HW-Interface wurde aktiviert.
+ERROR_NO_PABD=Fehler: Keine PABD angegeben!
+ERROR_PABD_IPS_NEEDED=Fehler: PABD hat falsches Format: IPS benötigt!
+ERROR_PABD_IPO_NEEDED=Fehler: PABD hat falsches Format: IPO benötigt!
+ERROR_PABD_NOT_FOUND=Fehler: PABD nicht gefunden!
+PABD_SET=PABD wurde gesetzt.
+ERROR_NO_SGBD=Fehler: Keine P-SGBD angegeben!
+ERROR_SGDB_NOT_FOUND=Fehler: P-SGBD nicht gefunden!
+SGBD_SET=P-SGBD wurde gesetzt.
+ERROR_SET_SG_ADRESS=Fehler: SG-Adresse konnte nicht gesetzt werden!
+SG_ADRESS_SET=Steuergeräteadresse wurde gesetzt.
+USE_INTERNAL_ADRESS=Interne Steuergeräteadresse wird verwendet.
+ERROR_SG_NEEDS_ADRESS=Fehler: P-SGBD benötigt SG-Adresse!
+ERROR_SET_PROTOKOLL=Fehler: Diagnoseprotokoll konnte nicht gesetzt werden!
+PROTOKOLL_SET=Diagnoseprotokoll wurde gesetzt.
+ERROR_NEED_DATA=Fehler: NAAB-, Programm- oder Datendatei benötigt!
+ERROR_DATA_FILE_NOT_FOUND=Fehler: Datendatei nicht gefunden!
+ERROR_PROG_FILE_NOT_FOUND=Fehler: Programmdatei nicht gefunden!
+ERROR_NAAB_FILE_NOT_FOUND=Fehler: NAAB-Datei nicht gefunden!
+DATA_SET=Daten- und/oder Programm- und/oder NAAB-Datei wurde gesetzt.
+NAAB_PROG=BSU aktiviert! - NAAB wird programmiert.
+NAAB_NOT_PROG=BSU nicht aktiviert! - NAAB wurde nicht programmiert.
+PROG_PROG=Programm wird programmiert.
+DATA_PROG=Daten werden programmiert.
+UNKNOWN_BATCH_TYPE=Fehler: Batchfiletyp unbekannt.
+BATCH_END=Batch Modus beendet
+NO_ZB_NR=Keine ZB-Nummern in der Steuerdatei gefunden
+
+[FKEYS]
+Komfort_Modus=Komfort-Modus
+Experten_Modus=Experten-Modus
+PABD=PABD
+P_SGBD=P-SGBD
+SG_Adresse=SG-Adresse
+Datendatei=Datendatei
+Programmdatei=Programmdatei
+NAAB_Datei=NAAB-Datei
+FGNR_eingeben=FGNR eingeben
+Fertig=Fertig
+ZUSB_eingeben=ZUSB eingeben
+ZUSB_auswählen=ZUSB auswählen
+ZUSB_update=ZUSB update
+FGNR_eingeben=FGNR eingeben
+Prog_NAAB=Prog. NAAB
+Prog_Programm=Prog. Programm
+Prog_Daten=Prog. Daten
+Programmieren=Programmieren
+Prog_ZBUpdate=Prog. ZB-Update
+Spezial=Spezial
+Diagnose=Diagnose
+Zurück=Zurück
+AIF_lesen=AIF lesen
+SG_Baudraten=SG Baudraten
+Abgleichwerte=Abgleichwerte
+VS20_DS2_Mode=VS20/DS2-Mode
+EWS_Abgleich=EWS-Abgleich
+VS20_Mode=VS20-Mode 
+DS2_Mode=DS2-Mode
+Abgl_lesen=Abgl. lesen
+Abgl_schreiben=Abgl. schreiben
+SG_Status=SG Status
+SG_Ident=SG Ident
+SG_Innentemp=SG Innentemp

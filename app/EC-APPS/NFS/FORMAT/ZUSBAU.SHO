@@ -1,0 +1,62 @@
+; ------------------------------------------------------------
+; DIS-/MoDiC-DME-Kennfeldprogrammierung
+; ATB-Konvertiervorschrift fuer Zusammenbauvorschriftsdatei
+; z.B. M3_1.DAT, MD524.DAT
+; Autor: Stei
+; Datum: 06.04.1993
+; 30.08.1995  Stei  Checksumme steht jetzt auch im Formatstring
+; 27.09.1995  Le    Erweiterung fuer Flash ab KF7.0:
+;                   - Zusaetzlicher Index nach HWNR. 
+;                   Aenderung ZUSBAU.FIX -> ZUSBAU.SHO
+; 04.09.1998  Le    Erweiterung um $VERSIONKFCONF
+; 10.09.1998  Kie   Aenderung der Kommentardefinition von C "$" -> C "$ "
+; 18.01.1999  Le    Aenderung der Kommentardefinition von C "$ " -> C "$ PS10",
+;                   "$VERSIONKFCONF" -> "$ VERSIONKFCONF"
+; 08.02.1999  Le    "$ PS10" kein Kommentar mehr, sondern gueltiger Record
+; 19.07.1999  AR    Neue Vorschriftszeile für Varianten SG DDE2.2
+; ------------------------------------------------------------
+; Kommentardefinitionen
+C ";"
+;
+; PS10-Initstring:
+;$ PS10INIT N00126DFF00003C150459840315500000000000 K
+R "INIT"
+M "$ PS10INIT"
+F "$ PS10INIT +N%S +%*C *"
+N "INITSTRING"
+;
+; Versionszeile:
+;$ VERSIONKFCONF: kfconfaa.dat
+R "VER"
+M "$ VERSIONKFCONF"
+F "$ VERSIONKFCONF: +%S *"
+N "KFNAME"
+;
+; ZB-Vorschriftszeile: 
+;ZB-Nr   TYP-Nr  HW-Nr   SW-Nr     AM          PIN ANZSG CS
+;1703622,1730156,1726171,1703623AA,FFFFFFFFFFD,088,1 5
+R "ZBZEILE"
+M "%7L,%7L,%7L,%9S,%11S,%3B,%1B"
+P "MOD36"
+F "%7L,%7L,%7L,%9S,%11S,%3B,%1B +%*C"
+N "ZBNR,TYPNR,HWNR,SWNR,AM,PIN,ANZSG"
+;
+; ZB-Vorschriftszeile fuer Flash: 
+;ZB-Nr   TYP-Nr  HW-Nr  IX SW-Nr     AM          PIN ANZSG CS
+;1743357,1743388,4380419,A,1743629DA,0FFFFFFFFFD,088,1 H
+R "ZBFLASH"
+M "%7L,%7L,%7L,%C,%9S,%11S,%3B,%1B"
+P "MOD36"
+F "%7L,%7L,%7L,%C,%9S,%11S,%3B,%1B +%*C"
+N "ZBNR,TYPNR,HWNR,INDEX,SWNR,AM,PIN,ANZSG"
+;
+; ZB-Vorschriftszeile fuer DDE22: 
+; HW-Nr Vari ??? CS Pin Anz CS
+;2247891,553E,000,6B,000,1 E
+R "VARIANTE"
+M "%7L,%4S,%*3S,%2S,%3B,%1B"
+P "MOD36"
+F "%7L,%4S,%*3S,%2S,%3B,%1B +%*C"
+N "HWNR,VARIANTE,CS,PIN,ANZSG"
+;
+; ENDE

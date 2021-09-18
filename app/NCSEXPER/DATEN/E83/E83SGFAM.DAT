@@ -1,0 +1,49 @@
+; Baureihen-SGFAM-/ZCS-Datei E83, 21.09.2001, M. Wolf
+;-----------------------------------------------------------------------
+; Datum     Autor   Änderung
+; 26:08:03  R. Hahn GAE integriert
+;
+;
+;
+;
+;
+;-----------------------------------------------------------------------
+
+; SG    CABD     C_SGBD  ZCS FA KOMMENTAR
+S AEWS  A_AEWS3  EWS3     0   0
+S AKMB  A_KMB85  KOMBI85  0   1
+S LWS   A_LWS5   C_LWS5   0   0
+S IHK   A_IHK46  C_IHK    0   0
+S IHKR  A_IHK46  C_IHK    0   0
+S GM5   A_GM5    ZKE5     0   0
+S PDC   A_PDC    PDCACT   0   0
+S GT    A_GT3    VIDEO_GT 0   0
+S TV1   A_TV1    VIDEOMOD 0   0
+S ALSZ  A_ALSZ   C_LSZA   0   1
+S RAD   A_RA_NG  RADIO    0   0
+S EPS   A_EPS    EPS_85_2 0   0
+S RLS   A_RLS    RLS_DS2  0   0
+S SM    A_SM     C_SM     0   0
+S RDC   A_RDC    C_RDC    0   0
+S VGSG  A_E65R   VGSG83   0   0
+S ULF   A_ULF    ULF      0   0
+S SVT   A_SVT    SVT_83   0   0
+S SHD   A_MDS    SD_DS2   0   0
+S ALC   A_ALCDS2 ALC_DS2  0   0
+S DSP   A_DSP85  TOPDSP   0   0
+S TCU   A_TELIB  TELIBUS  0   0
+S 4BMOT A_PL2N46 MEV9N46L 0   0
+S EKP   A_EKP    EKP_DS2  0   0
+S ABG   A_MRS4   MRS4RD   0   0
+S DXC   A_DXC8   DXC8     0   0
+S LSMC  A_SMCDS2 ALC_DS2  0   0
+S RSMC  A_SMCDS2 ALC_DS2  0   0
+S GAE   A_DSPGAE TOPDSP   0   0
+S EKP   A_EKP    EKP2DS2  0   0
+S 6BMOT A_PL2N46 MSV80    0   0
+S 6DMOT A_DMOT   D62M57B0 0   0
+S OC3   A_OC3    OC3      0   0
+S 2LSMC A_SMCDS2 LM2_83   0   0
+S 2RSMC A_SMCDS2 LM2_83   0   0
+S 2SM   A_SM     C_SM     0   0
+S 43DMO A_DMOT   D71N47D0 0   0

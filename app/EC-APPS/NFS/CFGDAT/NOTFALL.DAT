@@ -1,0 +1,47 @@
+; NOTFALL.DAT
+;
+; Liste der für Notfallflashen erlaubten Zusbau-Nummern
+;
+; Datenformat einer Zeile:
+;
+; 1. Integrationsstufe EXXX-XX-XX-XXX
+;    alphanumerisch 14-stellig                  Wildcard ? erlaubt
+;
+;    Integrationsstufe XX.XXXX ( altes Format )
+;    alphanumerisch 4 bis 7-stellig             Wildcard ? erlaubt
+;    Wird ignoriert, muss aber syntaktisch korrekt sein. Es sollte ????-??-??-??? benutzt werden
+;
+; 2. SG-Adresse 2-stellig hex
+;
+; 3. Typschlüssel T + 4-stellig alpanumerisch   Wildcard ? erlaubt  Negation ! erlaubt
+;    Wird ignoriert, muss aber syntaktisch korrekt sein. Es sollte T???? benutzt werden
+;
+; 4. Sonderausstattung S + 3-stellig numerisch  Wildcard ? erlaubt  Negation ! erlaubt
+;    Wird ignoriert, muss aber syntaktisch korrekt sein. Sollte nicht benutzt werden
+;
+; 5. Zusbau-Nummer Z + 7-stellig numerisch
+;
+;
+;
+;
+;
+;
+;
+
+[MUSTER]
+????-??-??-???      0F     T????                          Z6918086
+
+????-??-??-???      02     T????                          Z6918623
+; Zusbau-Nummer 1234567 mit SG-Adresse 0F und
+; Zusbau-Nummer 7654321 mit SG-Adresse 02 kann Notfall programmiert werden
+;
+
+[E65]
+
+[E60]
+
+[RR1]
+
+[E89X]
+
+; EOF

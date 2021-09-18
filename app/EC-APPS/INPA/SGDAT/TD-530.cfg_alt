@@ -1,0 +1,234 @@
+;----------------------------------------------------------------------------------------------------
+; Datei : TD-530.CFG
+; Autor : Günter Straßer / TD-531
+; Datum : 20.03.2006
+;----------------------------------------------------------------------------------------------------
+; Funktionsweise:
+; Mit dieser Datei kann die Funktionsweise des TD-53x INPA Skriptes individualisiert werden.
+; Damit diese wirksam wird muss sich diese Datei im selben Verzeichnis befinden wie die TD-530.IPO
+; Ist die Datei nicht vorhanden, arbeitet das TD-53x INPA Skript im herkömmlichen Modus
+;----------------------------------------------------------------------------------------------------
+
+
+[Parameter]
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest in welchem Verzeichnis INPA die Daten ablegt (by C.Wahl)  //&&eingefuegt
+; Default C:\Fahrzeug.Dat\  (Backslash am Ende wichtig)
+
+ResultDir=C:\Fahrerprobung\Auslesen\
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke beim CheckIn und CheckOut abgearbeitet werden sollen
+
+; Nur Funktionsblöcke aus Konfiguration Rubrik [CheckIn] und [CheckOut] abarbeiten
+; Control=CONFIG  
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, in welchem Modus (automatisch/manuell) das Skript gestartet wird
+
+; Nach dem Starten des Skripts wird automatisch ein CheckIn durchgeführt
+; AutoScript=Auto_CheckIn  
+
+; Nach dem Starten des Skripts wird automatisch ein CheckOut durchgeführt 
+; AutoScript=Auto_CheckOut 
+
+; Nach dem Starten des Skripts werden automatisch die Daten gesichert
+; AutoScript=Auto_Save     
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob bei einem automatischen Ablauf vor der Durchführung zuerst auf einen bestimmten 
+; Klemmenstatus gewartet werden soll
+
+; Warten bis Fahrzeug auf Klemme 15 geschaltet wird
+; WaitForClamp=15 
+
+; Warten bis Fahrzeug auf Klemme R geschaltet wird
+; WaitForClamp=R  
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob nach einem automatischen Ablauf das Skript gleich beendet werden soll
+
+; Skript wird nach der Durchführung eines automatischen Ablaufs beendet
+AutoExit=On  
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt das Arbeitsteam fest, dass bei der Sicherung der Daten über den Archivator mit angegeben wird
+
+; Arbeitsteam Ausleseterminal
+; WorkTeam=AT     
+
+; Arbeitsteam MOST
+; WorkTeam=MOST   
+
+; Arbeitsteam Karosserie CAN
+; WorkTeam=CAN    
+
+; Arbeitsteam Ruhestrom
+; WorkTeam=RS     
+
+; Arbeitsteam Flashen
+; WorkTeam=FLASH  
+
+; Arbeitsteam ZARZ  
+; WorkTeam=ZARZ   
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob die Dateien beim Sichern über den Archivator verschoben oder kopiert werden
+
+; Dateien werden beim Sichern verschoben
+; CopyFiles=Nein 
+
+; Dateien werden beim Sichern kopiert
+; CopyFiles=Ja   
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, ob die Ergebnisdaten in Dateien mit erweiterten Dateinamen abgespeichert werden
+; Momentan nur für kompletten CheckIN und CheckOUT
+;
+; Auswahl besteht zwischen:
+; date:   fügt das Datum in den Dateinamen mit ein
+; time:   fügt die Uhrzeit mit in den Dateinamen ein
+; fgnr:   fügt die Fahrgestellnummer mit ein
+; istufe: fügt istufe mit ein
+; fa:     fügt FA-Auftrag mit ein
+; km:     fügt km-Stand der Anzeige mit ein
+; br:     fügt Baureihe mit ein
+; type:   fügt typ mit ein (CheckIn,CheckOUT)
+;
+; wobei man die verschiedenen Optionen mit _ abgrenzen muss.
+; die Angabe ist beliebig.
+; keine Angabe bedeuted dass die Datei unter der Fahrgestellnummer abgelegt wird
+;
+;  Beispiel für die Angabe:
+;
+;  ExtendedFilename=date_time_fgnr_km_fa_type_br
+;----------------------------------------------------------------------------------------------------
+; ExtendedFilename=On
+ExtendedFilename=date_time_fgnr_br
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke bei Verwendung des Parameters Control=CONFIG durchgeführt beim 
+; CheckIn durchgeführt werden
+[CheckIn]
+
+; Identifikations Daten auslesen
+; ID_DATEN_LESEN=1       
+
+; Programmierstatus auslesen
+; PS_DATEN_LESEN=1       
+
+; Telefondaten auslesen
+; TEL_DATEN_LESEN=1      
+
+; Condition Based Service Daten auslesen
+; CBS_DATEN_LESEN=1      
+
+; Lenkwinkelsensor Offset auslesen
+; LWS_OFFSET_LESEN=1     
+
+; MOST Registry auslesen
+; MOST_REGISTRY_LESEN=1  
+
+; MOST Fehlerbewertung auslesen
+; MOST_DATEN_LESEN=1
+
+; CCC Daten auslesen
+; CCC_DATEN_LESEN=1      
+
+; Sweeping Technology Daten auslesen
+; SWT_DATEN_LESEN=1      
+
+; Fehlerspeicher auslesen
+; FS_LESEN=1             
+
+; Infospeicher auslesen
+; IS_LESEN=1             
+
+; Historyspeicher auslesen
+; HS_LESEN=1             
+
+; CheckControl History auslesen
+; CC_HISTORY_LESEN=1     
+
+; Gateway History auslesen
+; GW_HISTORY_LESEN=1     
+
+; Powermanagement Daten auslesen
+; PM_DATEN_LESEN=1       
+
+; Motor Daten auslesen
+; MOTOR_DATEN_LESEN=1    
+
+; ACC Daten auslesen
+; ACC_DATEN_LESEN=1      
+
+; RPA Daten auslesen
+; RPA_DATEN_LESEN=1      
+
+; FDM Daten auslesen
+; FDM_DATEN_LESEN=1      
+;----------------------------------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------------------------------
+; Legt fest, welche Funktionsblöcke bei Verwendung des Parameters Control=CONFIG durchgeführt beim 
+; CheckOut durchgeführt werden
+[CheckOut]
+
+; Identifikations Daten auslesen
+; ID_DATEN_LESEN=1       
+
+; Programmierstatus auslesen
+; PS_DATEN_LESEN=1       
+
+; Telefondaten setzen
+; TEL_DATEN_SETZEN=1     
+
+; Bluetooth Telefon verbinden
+; TEL_VERBINDEN=1        
+
+; Condition Based Service Daten setzen
+; CBS_DATEN_SETZEN=1     
+
+; MOST Registry setzen
+; MOST_REGISTRY_SETZEN=1 
+
+; Systemzeit der Airbay Komponenten starten
+; SYSTEMZEIT_STARTEN=1   
+
+; Initialisierung der Fahrzeug Komponenten durchführen
+; FAHRZEUG_INIT=1        
+
+; Fehlerspeicher löschen
+; FS_LOESCHEN=1          
+
+; Infospeicher löschen
+; IS_LOESCHEN=1          
+
+; FDM Daten löschen
+; FDM_DATEN_LOESCHEN=1   
+;----------------------------------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------------------------------
+; Legt die Fahrgestellnummern der Fahrzeuge fest, bei denen nach dem CheckIn noch über die in der
+; Datei ERPROBUNGS_EINSTELLUNGEN.TST festgelegten Jobs spezielle Einstellungen für den Erprobungs-
+; betrieb gesetzt werden
+[TestVehicle]
+
+; Anzahl der folgenden Fahrzeuge
+; VehicleCount=2   
+
+; Fahrgestellnummer des 1. Erprobungsfahrzeuges
+; Vehicle1=DR00001 
+
+; Fahrgestellnummer des 2. Erprobungsfahrzeuges
+; Vehicle2=DP00002 
+;----------------------------------------------------------------------------------------------------

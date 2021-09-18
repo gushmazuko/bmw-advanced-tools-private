@@ -1,0 +1,188 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E60.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 02.10.2001 rd V0.01 Erstellung
+//* 02.07.2003 rd V1.00 Serienfreigabe
+//* 27.08.2003 mp V1.01 EKPM60_2 dazu
+//* 10.09.2003 rd V1.02 Sitzmodule geändert
+//* 13.10.2003 rd V1.03 Sitzmodule geändert
+//* 30.10.2003 tm V1.04 Vorübergehend Cabrio Verdeck Modul E64 (Nacharbeit) hinzu
+//* 05.12.2003 rd V1.05 SMG dazu
+//* 11.12.2003 rd V1.06 DXC neu dazu
+//* 16.01.2004 gr V1.07 MSV70 hinzu
+//* 27.01.2004 rd V1.08 Cabrio Verdeck Modul E64 (Nacharbeit) entfernt
+//* 28.01.2004 rd V1.09 MPM_60 neu
+//* 16.02.2004 rd V1.10 Umstellung auf 32-Bit INPA
+//* 19.02.2004 rd V1.11 DDE6 M57 neu
+//* 17.03.2004 rd V1.12 Kommunikationssysteme überarbeitet
+//* 07.07.2004 rd V1.13 EDC hinzu
+//* 01.09.2004 rd V1.14 VGSG hinzu
+//* 01.12.2004 rd V1.15 LM_AHL hinzu
+//* 21.02.2005 gr V1.16 Behördenmodul hinzu
+//* 03.03.2005 nm V1.17 Neue Sitzmodule fuer E60 und E61 hinzu
+//* 21.03.2005 GA V1.18 ACSM dazu
+//* 04.04.2005 GA V1.19 FLA_65, MSV80 dazu
+//* 03.05.2005 MP V1.20 MS_S65_2 hinzu
+//* 10.05.2005 GA V1.21 KGM_E60 dazu
+//* 01.06.2005 MP V1.22 DDE6M47 hinzu
+//* 21.06.2005 GA V1.23 SZL nochmal unter Karosserie aufgeführt, da E60 kein ISIS-System mehr besitzt
+//* 27.06.2005 GA V1.25 RDC_60 dazu
+//* 27.06.2005 GA V1.26 MSD80 dazu
+//* 18.07.2005 GA V1.27 KGM_E60 in KGM_60 umbenannt
+//* 19.09.2005 gr V1.28 ACSM unter Sicherheitmodule und PGS wieder integriert
+//* 28.03.2006 GA V1.29 RDC_60 gegen RDC_GEN2 getauscht
+//* 28.03.2006 GA V1.29 NVC_65, NVE_65 dazu
+//* 12.04.2006 GA V1.30 DDE7N47 dazu
+//* 12.05.2006 WB V1.31 ID-Auslesen hinzu (Weber)
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E60 V1.31
+ENTRY=     EXX,Funktionale Jobs,
+ENTRY=     TD-530,TD-530 I-Stufe/Gesamt FS,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=   MS450,MS  45.0 für M54,
+ENTRY=   MSV70,MSV 70.0 für N52 (NG6),
+ENTRY=   MSV80,MSV 80.0 für N52KP (NG6),
+ENTRY=   MSD80,MSD 80.0 für N43 N53 & N54 mit EWS4/CAS,
+ENTRY=,,
+ENTRY= ME9_N62,ME 9    für N62,
+ENTRY=,,
+ENTRY=  MS_S65,MS S65 für S85,
+ENTRY=  MS_S65_2,MS S65 für S85 ab PU 09/05,
+ENTRY=,,
+ENTRY=  D50M57,DDE 5.0 für M57,
+ENTRY= DDE6M57,DDE 6   für M57TOP / M57TÜ2,
+ENTRY=,,
+ENTRY= D51M67M,DDE 5.1 für M67 Master,
+ENTRY= D51M67S,DDE 5.1 für M67 Slave,
+ENTRY=,,
+ENTRY= DDE6M47,DDE 6.0 für M47 TÜ2,
+ENTRY= DDE7N47,DDE 7   für N47,
+ENTRY=,,
+ENTRY=  VVT_14,Variabler Ventiltrieb Bank 1-4,
+ENTRY=  VVT_58,Variabler Ventiltrieb Bank 5-8,
+ENTRY=,,
+ENTRY=  EKP_60,EKP Kraftstoffpumpe,
+ENTRY=EKPM60_2,EKP Kraftstoffpumpe ab PU 03/04,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY=    GS19,Getriebesteuergerät GS19,
+ENTRY=    GS30,SSG Getriebesteuergerät,
+ENTRY=,,
+ENTRY=  smg_60,Sequentielles M-Getriebe,
+ENTRY=,,
+ENTRY=  VGSG90,Verteilergetriebe 4x,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY= ACC_E65,Adaptive Cruise Control,
+ENTRY=  ARS_60,Aktive Rollstabilisierung,
+ENTRY=  AFS_60,Active Front Steering,
+ENTRY=  DSC_60,Dynamische Stabilitätskontrolle,
+ENTRY=  DSC_87,Dynamische Stabilitätskontrolle E60M5,
+ENTRY=  DXC8_P,Dynamische Stabilitätskontrolle E60-16 ab 03/05 E60 ab 09/05,
+ENTRY=   EDC_K,Elektronische Dämpferkontrolle,
+ENTRY= EHC_E65,Luftfeder,
+ENTRY=RDC_GEN2,Reifen Druck Kontrolle,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY= AHM_E65,Anhängermodul,
+ENTRY=  BEHO60,Behördenmodul,
+ENTRY=  CVM_64,Cabrio Verdeck Modul E64,
+ENTRY=     CAS,Car Access System,
+ENTRY=,,
+ENTRY= DWA_E65,Diebstahlwarnanlage E60/E61,
+ENTRY= SINE_65,DWA Sirene und Neigungsgeber E60/E61,
+ENTRY=  DWA_63,Diebstahlwarnanlage E63/E64,
+ENTRY=,,
+ENTRY= HKL_E65,Heckklappenlift,
+ENTRY=  KOMB60,Intrumentenkombi,
+ENTRY=  KBM_60,Karosserie Basis Modul,
+ENTRY=  IHKA60,Klimabedienteil,
+ENTRY=  LM_AHL,Lichtschaltmodul mit AHL,
+ENTRY=   LM_60,Lichtmodul,
+ENTRY=  ALC_60,Adaptive Light Control,
+ENTRY=  FLA_65,Fernlichtassistent,
+ENTRY=,,
+ENTRY=  MPM_60,Mikro-Powermodul,
+ENTRY= NVC_65,Night Vision Kamera,
+ENTRY= NVE_65,Night Vsion Steuergerät,
+ENTRY=,,
+ENTRY= PDC_E65,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY= RLS_E65,Regen-/Lichtsensor,
+ENTRY=  SZM_60,Schaltzentrum Mittelkonsole,
+ENTRY=     SZL,Schaltzentrum Lenksäule,
+ENTRY=  SHD_MDS,Schiebehebedach,
+ENTRY=,,
+ENTRY=SHZH_E65,Standheizung Zuheizer,
+ENTRY=  EC_E65,Zentrale Bedieneinheit,
+ENTRY= ZGM_E65,Zentrales Gatewaymodul,
+ENTRY=  KGM_60,Karosserie Gatewaymodul,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY= FAS_PLX,Sitzmodul Fahrer (neu)    E60 E61,
+ENTRY= BFS_PLX,Sitzmodul Beifahrer (neu) E60 E61,
+ENTRY= FAS_E65,Sitzmodul Fahrer (alt)    E60 E61,
+ENTRY= BFS_E65,Sitzmodul Beifahrer (alt) E60 E61,
+ENTRY=FAS63_64,Sitzmodul Fahrer          E63 E64,
+ENTRY=  BFS_64,Sitzmodul Beifahrer       E64,
+ENTRY=,,
+ENTRY= ALBV60F,Aktive Lehnenbreitenverstellung Fahrer,
+ENTRY= ALBV60B,Aktive Lehnenbreitenverstellung Beifahrer,
+
+[ROOT_SICHERHEITSMODULE]
+DESCRIPTION=Sicherheits Module
+ENTRY=     ACSM,Airbag ACSM,
+ENTRY=,,
+ENTRY=    SIM,Sicherheits- Informationsmodul,
+ENTRY=    SFZ,Satellit Fahrzeugzentrum,
+ENTRY=    SZL,Satellit Lenksäule,
+ENTRY=   STVL,Türelektronik + Satellit vorne links,
+ENTRY=   STVR,Türelektronik + Satellit vorne rechts,
+ENTRY=   SBSL,Satellit B-Säule links,
+ENTRY=   SBSR,Satellit B-Säule rechts,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  ANT_60,Antennentuner,
+ENTRY= CDC_E65,Audio CD-Changer,
+ENTRY=  MASK60,Audio System Kontroller MASK,
+ENTRY=  ASK_60,Audio System Kontroller CCC,
+ENTRY=,,
+ENTRY=  CCC_60,Car Communication Computer CCC,
+ENTRY=  CCCA60,Car Communication Computer (Application),
+ENTRY=  DAB_60,Digitalradio terrestrisch DAB,
+ENTRY=  IBOC60,Hybrid Radio USA IBOC,
+ENTRY=  SAT_60,digitaler Satellitentuner USA,
+ENTRY= FBI_E65,Flexible Bus Interface,
+ENTRY=  HUD_60,Head Up Display,
+ENTRY= KHI_E65,Kopfhöhrer Interface,
+ENTRY=,,
+ENTRY=  CCCG60,MOST/CAN-Gateway CCC,
+ENTRY=  MCGW60,MOST/CAN-Gateway MASK,
+ENTRY= MMC_E65,Multimedia-Changer,
+ENTRY=  NAV_60,Navigationssystem CCC ECE/US,
+ENTRY=  JNAV60,Navigationssystem Japan,
+;ENTRY= SVS_60,Sprachverarbeitungssystem,
+ENTRY=,,
+ENTRY= TEL_E65,Telefon ECE / US,
+ENTRY=  AMP_60,Top HIFI Verstärker,
+;ENTRY= ULF_60,Universelle Lade-/Freisprecheinrichtung,
+ENTRY= VID_E65,Videomodul,
+ENTRY=  CID_60,Zenrales Info Display,
+ENTRY=  CIDF65,Zenrales Info Display hinten,
+

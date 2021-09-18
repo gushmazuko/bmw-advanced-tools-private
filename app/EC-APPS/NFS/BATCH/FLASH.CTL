@@ -1,0 +1,3 @@
+[ZBNUMMER]
+[BATCH]
+END = ON

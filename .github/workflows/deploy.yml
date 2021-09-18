@@ -1,0 +1,43 @@
+name: "Deploy"
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+
+      # - name: Add msbuild to PATH
+      #   uses: microsoft/setup-msbuild@v1.0.3
+      
+      - name: Build package
+        run: |
+          ${{ secrets.MAKE_INSTALLER_BAT }}
+        shell: cmd
+
+      - name: Create a Release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+      
+      - name: list
+        run: dir
+        shell: cmd
+
+      - name: Upload release binaries
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: "build/*.msi"
+          release-url: ${{ steps.create_release.outputs.upload_url }}
+        

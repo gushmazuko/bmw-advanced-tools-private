@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+    <!-- #### USER-DEFINED VARIABLES THAT DEFINED DURING BUILD #### -->
+    <?define AppVersion="$(var.BUILD_VERSION)" ?>
+    <!-- Upgrade code HAS to be the same for all updates. Once you've chosen it, don't change it. -->
+    <?define UpgradeCode="$(var.BUILD_GUID)" ?>
+    <!-- Project directory -->
+    <?define ProjectDir="$(var.BUILD_PROJECTDIR)" ?>
+
+    <!-- #### USER-DEFINED VARIABLES #### -->
+    <!-- Set to 1 if you want to enable major upgrade -->
+    <?define EnableMajorUpgrade="1" ?>
+    <?define InpaExeName="INPALOAD.exe" ?>
+    <!-- App Info -->
+    <!-- The URL for Add/Remove Programs -->
+    <?define InfoURL="https://github.com/gushmazuko/bmw-advanced-tools" ?>
+    <!-- If your app supports both platform (x86 & x64), you have to create separate MSI. -->
+    <?define Platform="x64" ?>
+    <!-- App Icon -->
+    <?define AppIconSource="images\app.ico" ?>
+    <?define InpaIconSource="images\bmw.ico" ?>
+    <!-- Other resources -->
+    <!-- TopBanner.bmp: 499x58 px -->
+    <?define ImageTopBannerSource="images\TopBanner.bmp" ?>
+    <!-- Dialog.bmp: 499x301 px; Graphical area: 165x301 px -->
+    <?define ImageDialogSource="images\Dialog.bmp" ?>
+    <!-- GUIDs -->
+    <?define GuidInstallLocation="21F7A851-4360-4E56-98EA-C6FB9AA516B8" ?>
+    <?define GuidApplicationShortcut="CB9C4A4C-996F-4746-B0C0-FBDD55B0E47A" ?>
+    <?define GuidApplicationShortcutDesktop="851AC823-1BFE-4569-96EE-4A05C0DC9925" ?>
+    <?define GuidProductId="C68BFB0A-811D-4F46-B8BC-04C41752DAF7" ?>
+    <?define GuidPathVariable="962FBAB0-B10B-416E-BCDF-0FC03D2EEC03" ?>
+    <?define GuidEdibasEnvironmentVariable="6D77E3D6-2972-46A9-9F7C-8AEF3C76C6B7" ?>
+
+    <?define SYSDISK="C:\" ?>
+
+    <!-- #### DO NOT EDIT ANYTHING BELOW THIS LINE #### -->
+    <?if $(var.EnableMajorUpgrade) = 1 ?>
+        <?define ProductId = "*" ?>
+    <?else ?>
+        <?define ProductId = "$(var.GuidProductId)" ?>
+    <?endif ?>
+</Include>

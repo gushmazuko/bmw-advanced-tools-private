@@ -1,0 +1,94 @@
+19.10.2009
+V4.102	  JD Fehlerspeicher für I490, Umwelttexte geändert
+
+08.10.2009 
+V4.101	  JD Neue StatusLesen-Umfänge für TA-Prüfstand
+
+06.10.2009
+v4.011    JD Umwelttexte von Conti, aktueller XBD-Generator
+
+
+28.09.2009 
+V4.011	   Conti/Kasner, Fehler in Umwelttabelle beseitigt.
+	   Alter XBD-Generator wurde verwendet. Nicht kompatibel zum aktuellen.
+
+21.09.2009 
+V4.010     JD   Fehlerorttext geändert: 0x21EE13 auf Anforderung Jan Hesselmann
+
+17.09.2009 JD
+V4.009 JD	Aktueller Fehlerspeicher COnti und Umweltbedingungen.
+
+08.09.2009 JD
+V4.006 
+Fehlerspeichertabellen von Conti, abgestimmt mit BMW
+
+14.08.2009 JD
+V4.005 JD	ETV-Liste 3.5.2, Tests StatusLesen durchgeführt: OK
+		STEUERN_NLM_INFO_ERS_LOESCHEN setzt NLM Historie zurück PST I450 ATS 
+		Fehlerspeicherumfang I450 vollständig
+		
+
+07.08.2009 JD
+V2.100 JD
+Neue StatusLesen Jobs I450
+
+07.08.2009 JD
+V2.010 JD
+Neue Fehlerorte Ebene2 und DSC/OBD
+
+
+07.07.2009 JD
+V2.000 
+Fehlerorte geändert, neu _SPEICHER_LESEN_ASCII für TA-Prüfstand (aus MSD87)
+Keine Funktionsänderung. Version nichtkompatibel geändert. Zustimmung durch Christian Hartenstein, TP-43 und Christoph Müller, VP-33
+
+18.06.2009 JD
+V1.001	Fehlerorte geändert, neu _SPEICHER_LESEN_ASCII für TA-Prüfstand (aus MSD87) 
+
+27.05.2009 JD
+V1.001  Statuslesen neu: 0x63A4, 0x63A5
+
+04.05.2009 JD
+V1.000
+
+03.05.2009 JD
+V0.935	status_lesen, steuern_routine bugfixing entsprechend automatisierten Tests
+
+23.04.2009 JD
+V0.932 	STATUS_ERSTSTARTBEGRENZUNG Datentyp geändert weil Job von Basissoftware ausgeführt wird, 
+	neu STEUERN_EEP_RECALL_DEFAULT, wird von Basissoftware ausgeführt
+
+
+22.04.2009 JD
+V0.931  Fehlerorttexte I400
+
+17.04.209 JD
+V0.930 alle Statuslesen I400
+	PST ab 20.04.2009
+
+
+14.04.2009 JD
+V 0.926 für I370
+status_lesen: 
+	0x6331, 0x632F entfernt
+	0x6313 aus SGBD 0.910 (I350) Übernommen: Status wird von Basissoftware bearbeitet
+	0x6318: Skalierung geändert.
+
+
+24.02.2009 JD
+Umweltbedingung Systemzeit auf unsigned long geändert.
+StatusLesen 0x6310 an EME angepasst.
+
+19.02.2009 JD
+V0.923 enthält die neuen Fehlerorttexte und die Umweltbedingungen Systemstatus und Bordnetzstrom LV
+Getestet mit ATS-Stand 19.02.20009
+
+13.02.2009 JD
+Die SGBD 0.920 enthält die Statusjobs zur I370
+Noch unvollständig sind die Date-IDs
+0x6310, 0x6313, 0x6314, 0x6318, 0x6319, 0x631B
+Diese Status-Variablen sind aus der Basis-Software von Conti und sind noch nicht umgesetzt.
+
+Der Umfang des Fehlerspeichers ist Stand I370.
+
+

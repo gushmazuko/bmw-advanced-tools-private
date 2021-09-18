@@ -1,0 +1,30 @@
+.forbeg
+for_etikett_test,38,16
+.varbeg
+df_fp1,9,1,3,###
+df_fp2,13,1,7,#######
+df_fp3,21,1,7,#######
+df_fp_cs,30,1,1,#
+df_c1,17,3,10,**********
+df_c2,17,4,18,******************
+df_c3,17,5,12,************
+.varend
+.drmbeg
+       {XXX}YYYYYYY{XXXXXXX} *  
+                                   
+           {GM} XXXXXXXX *         
+           {SA} XXXXXXXXXXXXXXXX * 
+           {VN} XXXXXXXXXX *       
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   
+.drmend
+.forend

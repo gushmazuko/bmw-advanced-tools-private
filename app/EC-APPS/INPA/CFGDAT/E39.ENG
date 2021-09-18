@@ -1,0 +1,112 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E39.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 27.07.95 rd V1.00 Erstellung
+//* 27.09.95 rd V1.01 IRIS neu
+//* 12.10.95 rd V1.02 Regensensor neu hinzu
+//* 29.01.96 rd V1.03 IRIS von Karroserie nach Kommunikation
+//* 02.08.96 rd V1.04 RDKS neu dazu
+//* 18.02.97 rd V1.05 8-Zylinder DME 5.21 MJ98 neu dazu
+//* 12.03.97 rd V1.06 rdks wird rdc
+//* 12.05.97 rd V1.07 Videomodul neu
+//* 17.06.97 rd V1.08 Navigationsrechner neu
+//* 02.07.97 rd V1.09 Lenkwinkelsensor neu dazu
+//* 21.08.97 rd V1.10 DDE4.0 und ME7.2 neu dazu
+//* 16.04.98 rd V1.11 ABSASC5 Namen geaendert
+//*                   Zuheizer hinzu
+//* 15.06.98 rd V1.12 SES neu hinzu
+//* 13.10.98 rd V1.13 DWS neu hinzu
+//* 30.11.98 rd V1.14 Text GS 20 hinzu
+//* 09.02.99 rd V1.15 Aktivsitz hinzu
+//* 05.03.99 rd V1.16 SZM hinzu
+//* 09.07.99 rd V1.17 MS 42 neu hinzu
+//* 21.07.99 rd V1.18 Heckklappenmodul neu dazu
+//* 03.03.00 rd V1.19 NAVMK2 durch NAVI ausgetauscht
+//* 23.06.00 rd V1.20 BM_WIDE hinzu
+//* 03.07.00 rd V1.21 MS 43.0 neu dazu
+//* 13.06.2001 rd V1.22 Regen- Lichtsensor dazu
+//* 20.09.2001 rd V1.23 CDC dazu
+//* 28.02.2003 rd V1.24 NAV_JAP Name gleichgezogen mit allen BR
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Select E39 V1.24
+
+[ROOT_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   DDE22,DDE 2.2  for M51,
+ENTRY=,,
+ENTRY=   DDE40,DDE 4.0  für M57,
+ENTRY=,,
+ENTRY=   DME17,DME 1.7  for M43,
+ENTRY=,,
+ENTRY=  DME528,DME 5.2  for M62,
+ENTRY= DME5218,DME 5.21 for M62 MJ 98,
+ENTRY=    ME72,ME  7.2  for M62 MJ 99,
+ENTRY=,,
+ENTRY=   MS410,MS 41.0  for M52,
+ENTRY=   MS411,MS 41.1  for M52 US with OBDII,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx / GS 20,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY=     edc,Electronic damper control EDC,
+ENTRY=     ehc,1-axle Air Suspension EHC
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tire pressure control RDC,
+ENTRY=     dws,Deflation warning system DWS,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  a-sitz,Active seat,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=     hkm,Trunk lid module,
+ENTRY=klima_5B,Air conditioning IHKA IHR
+ENTRY=   kombi,Instrument cluster KOMBI / IKE,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke3,Central body electronics ZKE3,
+ENTRY=zuheizer,Additional heater diesel / Park heating,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bordmoni,On bord monitor,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY=    iris,Integrated Radio Information system IRIS,
+ENTRY= navigat,Navigation system,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=video_gt,Video module graphical component,
+ENTRY=video_tv,Video module TV component,
+ENTRY=videomod,Video module,
+ENTRY=     zis,Multi functional display MID (ZIS),
+

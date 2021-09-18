@@ -1,0 +1,146 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei E70.GER
+//*
+//**********************************************************************
+//*   Gall TI-430
+//**********************************************************************
+//* History:
+//* 10.11.2004 GA V0.01 Erstellung
+//* 15.11.2004 GA V0.02 FOMO_70 in FOMO70 geändert
+//* 22.11.2004 GA V0.03 RSE_70 in RSE geändert
+//* 24.11.2004 GA V0.04 NAV_60, DXC_70 dazu
+//* 23.03.2005 GA V0.05 AMP60 durch AMPH70 ersetzt, AMPT70 dazu
+//* 04.04.2005 GA V0.06 MSV80 dazu
+//* 09.06.2005 GA V0.07 ULF, ZBE: Text und Pos. geändert
+//* 27.06.2005 GA V0.08 AFS_70, ARS_70, EMF_70, EDCSHL, EDCSHR, EDCSVL, EDCSVR, RDC_60, VDM_70 dazu
+//* 16.08.2005 gr V0.09 FRM_87 entfernt
+//* 29.08.2005 GA V0.10 FLA_65 dazu
+//* 27.09.2005 gr V0.11 EHC_E65 in EHC_70 geaendert
+//* 01.02.2006 sj V0.12 MSD80 dazu
+//* 28.03.2006 GA V0.13 RDC_60 gegen RDC_GEN2 getauscht
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Auswahl E70 V0.12
+ENTRY=     EXX,Funktionale Jobs,
+ENTRY=     TD-530,TD-530 I-Stufe/Gesamt FS,
+
+[ROOT_MOTOR]
+DESCRIPTION=Motor
+ENTRY=  D50M57,DDE 5.0  für M57 TÜ,
+ENTRY= DDE6M57,DDE 6    für M57TOP / M57TÜ2,
+ENTRY=,,
+ENTRY=   MSV70,MSV 70.0 für N52 (NG6),
+ENTRY=   MSV80,MSV 80.0 für N52KP (NG6),
+ENTRY=   MSD80,MSD 80.0 für N53 und N54,
+ENTRY= ME9_N62,ME 9     für N62,
+ENTRY=   MSD85,MSD85    für N63,
+ENTRY=,,
+ENTRY=  VVT_500,Variabler Ventiltrieb,
+ENTRY=,,
+ENTRY=EKPM60_2,Elektrische Kraftstoffpumpe,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=Getriebe
+ENTRY= GWS_70,Gangwahlschalter,
+ENTRY=,,
+ENTRY=  GS19,Getriebesteuergerät GS19C,
+ENTRY=VGSG90,Verteilergetriebe 4x,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=Fahrwerk
+ENTRY=  ARS_70,Aktive Rollstabilisierung,
+ENTRY=  AFS_70,Aktivlenkung,
+ENTRY=,,
+ENTRY=  EDCSHL,Dämpferkontrolle / Elektr. hinten links,
+ENTRY=  EDCSHR,Dämpferkontrolle / Elektr. hinten rechts,
+ENTRY=  EDCSVL,Dämpferkontrolle / Elektr. vorn links,
+ENTRY=  EDCSVR,Dämpferkontrolle / Elektr. vorn rechts,
+ENTRY=,,
+ENTRY=  DXC_70,Dyn. Stabilitätskontrolle EHB_3 Allrad,
+ENTRY=,,
+ENTRY=  EHC_70,Einachsluftfederung,
+ENTRY=  EMF_70,Feststellbremse / Elektromechanische,
+ENTRY=,,
+ENTRY=RDC_GEN2,Reifen Druck Kontrolle,
+ENTRY=  VDM_70,Vertical Dynamic Management,
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=Karosserie
+ENTRY=    ACSM,Airbag Steuergerät,
+ENTRY= AHM_E65,Anhängermodul,
+ENTRY=,,
+ENTRY=     CAS,Car Access System,
+ENTRY=  FZD_70,Dach & DWA / Funktionszentrum,
+ENTRY= SINE_65,DWA Sirene und Neigungsgeber,
+ENTRY=,,
+ENTRY=  FLA_65,Fernlichtassistent,
+ENTRY=  FRM_70,Fußraummodul Fahrer FRM_70,
+ENTRY=,,
+ENTRY=  KOMB87,Instrumentenkombi,
+ENTRY=  JBBF70,Junction Box Beifahrer,
+ENTRY=,,
+ENTRY=  FKA_70,Klimaautomatik/ Fond,
+ENTRY=  IHKA70,Klimaautomatik/ -regelung Bedienteil,
+ENTRY=,,
+ENTRY= PDC_E87,Park Distance Control,
+ENTRY=PGS_65_2,Passive Go System,
+ENTRY=,,
+//???ENTRY=  RLS_??,Regen/Licht-Sensor,
+ENTRY=  RFK_70,Rückfahrkamera-System,
+ENTRY=,,
+ENTRY= ZBE_E87,Zentrale Bedieneinheit,
+
+[ROOT_KAROSSERIE_SITZ]
+DESCRIPTION=Sitzmodule
+ENTRY= ALBV60F,Aktive Lehnenbreitenverstellung Fahrer,
+ENTRY= ALBV60B,Aktive Lehnenbreitenverstellung Beifahrer,
+ENTRY=,,
+ENTRY= FAS_PLX,Sitzmodul Fahrer,
+ENTRY= FAH_PLX,Sitzmodul Fahrer Hinten,
+ENTRY= BFS_PLX,Sitzmodul Beifahrer,
+ENTRY= BFH_PLX,Sitzmodul Beifahrer Hinten,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=Kommunikationssysteme
+ENTRY=  ASK_60,Audio System Kontroller CCC,
+ENTRY=,,
+ENTRY= CDC_E65,Changer / Audio,
+ENTRY= MMC_E65,Changer / Multimedia,
+ENTRY=  CCCA60,Computer / CCC (Application),
+ENTRY=  CCC_60,Computer / Infotainment Computer,
+ENTRY=,,
+ENTRY=  HUD_70,Display / Head Up Display,
+ENTRY=  CID_70,Display / Zentrales Info Display Color,
+ENTRY=  FOMO70,Display / Fondmonitor,
+ENTRY=,,
+ENTRY=  ULF_60,Freisprecheinr. / Univer. Lade..  ULF,
+ENTRY=,,
+ENTRY=  CCCG60,Gateway / MOST/CAN CCC,
+ENTRY=CHAMP_GW,Gateway / MOST/CAN (im CHAMP),
+ENTRY=MASK2_GW,Gateway / MOST/CAN MASK (im MASK2),
+ENTRY=,,
+ENTRY=     RSE,Infotainment Fond,
+ENTRY= KHI_E65,Kopfhöhrer Interface,
+ENTRY=,,
+ENTRY=  MASK60,Radio / Analoges Radio,
+ENTRY=  DAB_60,Radio / Digitalradio terrestrisch DAB,
+ENTRY=  IBOC60,Radio / Hybrid Radio USA IBOC,
+ENTRY=,,
+ENTRY=  NAV_60,Navigationssystem (im MASK2),
+ENTRY=  JNAV60,Navigationssystem Japan,
+ENTRY=,,
+ENTRY=  AMPH70,Verstärker / Hifi,
+ENTRY=  AMPT70,Verstärker / TopHifi,
+ENTRY=,,
+ENTRY=  TEL_E65,Telefon,
+ENTRY=  ANT_60,Tuner / Antennentuner,
+ENTRY=  SAT_60,Tuner / Digitaler Satellitentuner  USA,
+ENTRY=,,
+ENTRY= VID_E65,Videomodul,
+
+
+

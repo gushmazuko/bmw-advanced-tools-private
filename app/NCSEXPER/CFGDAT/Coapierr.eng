@@ -1,0 +1,532 @@
+; COAPIERR.TXT
+[VERSION]
+VERSION=3.13.2
+
+[COAPIFEHLER]
+;  000..999: should never be used
+
+; 1000..1019: General errors
+1000 = Error
+1001 = Invalid handle
+1002 = Out of memory
+1003 = Parameter erroneous
+1004 = Buffer too small
+1005 = COAPI error text file not found:
+1006 = COAPI error text file %s has no version
+1007 = COAPI error text file %s has version %s, COAPI version is %s
+1008 = Invalid language suffix "%s"
+1010 = The High Performance Timer is not available (Windows ErrorCode %s), falling back to normal windows timer
+1011 = The counter of the High Performance Timer could not be read (Windows ErrorCode %s)
+
+; 1020..1039: File errors
+1020 = File could not be opened for reading
+1021 = File could not be opened for writing
+1022 = Error during reading from file
+1023 = Error during writing to file
+1024 = Calling paramter of a coapi function erroneous
+1025 = Configuration file %s not found
+
+; 1040..1059: File processing errors (Syntax errors)
+1040 = Error in file processing (general)
+1041 = Error in ZST file processing
+1042 = Error in CVT file processing
+1043 = Error in CBD file processing
+1044 = Error in SGET file processing
+1045 = Error in SWT file processing
+1046 = Error in ZCSUT file processing
+1047 = Error in VM program generation
+
+; 1060..1079: CABD file processing errors (Syntax errors)
+1060 = Error in coding sequence description file (CABD)
+1061 = CABI was not initialized
+1062 = CABD result error (CABD result parameter)
+1063 = CABD parameter error (CABD calling parameter)
+1064 = Internal error in CABD job found
+1065 =  coding sequence description file (CABD) %s not found or erroneous
+
+; 1080..1099: Codingkey- and Vehicle identification number errors
+1080 = Coding key invalid
+1081 = GM key invalid
+1082 = SA key invalid
+1083 = VN key invalid
+1084 = AM key invalid
+1085 = VIN invalid
+1086 = Type series identifier invalid
+
+; 1100..1119
+1100 = The ECU is not covered by ECU detection
+
+; 1120..1139
+1120 = Unused coding data found
+
+; 1140..1159: Keyword errors
+1140 = ASW invalid
+1141 = FSW invalid
+1142 = PSW invalid
+1143 = ECU short identifier invalid
+
+; 1160..1160: Individualization
+1160 = no Individ-FSWs found
+
+; 1170..1179: SGVT errors
+1170 = ECU was excluded (disabled)
+1171 = General error in SGVT sequence
+
+; 1180..1189: AT errors
+1180 = vehicle job is invalid
+1181 = General error in AT sequence
+
+; 1190..1199 BSU errors
+1190 = Bootsectorupdate not possible (maybe not necessary either)
+1191 = The bootsector in the ECU already matches target-HW* and target-ECU-Family
+
+
+; 2000..2019: EDIABAS and SGBD-Call-/Resulterrors
+2000 = Error in EDIABAS or in ECU description file (SGBD)
+2001 = EDIABAS was not initialized
+2002 = Unexpecte EDIABAS result
+2003 = EDIABAS parameter error (SGBD parameter)
+2004 = EDIABAS parameter error, special: binary buffer
+2005 = Internal error in SGBD job found
+2006 = EDIABAS language file %s not found
+
+; 2020..2039: ECU communication errors
+2020 = ECU does not answer
+2021 = Datatransmission to ECU disturbed
+2022 = Battery voltage low or not present
+2023 = Invalid answer telegram
+2024 = Error baudrate not readable
+2025 = Error on clear diagnostic information
+
+; 2040..2059: ECU identification errors
+2040 = Wrong ECU identification (general)
+2041 = Wrong ECU coding index
+2042 = Wrong ECU hardware number
+2043 = Wrong ECU software number
+
+; 2060..2079: Coding errors
+2060 = Coding erroneous (general)
+2061 = Error on writing coding data
+2062 = Error on reading coding data
+2063 = Error on comparing/verfying coding data
+2064 = Error on deleting coding data (e.g. ZCS)
+2065 = ECU checksum error
+
+; 2080..2099: Programing errors  E65 ( TI435, Herr Drexel )
+2080 = Programming state invalid
+2081 = Authentification failed
+2082 = Clear flash failed
+2083 = Prepare flash download failed
+2084 = Flash download failed
+2085 = Flash download completion failed
+2086 = Signature check failed
+2087 = reading UIF failed
+2088 = writing UIF failed
+2089 = switching programming mode failed
+2090 = Authentification format error
+2099 = CPU type invalid
+
+; 3000..3050: COAPIKF internal errors
+3000 = Assembly identification number not found in the files determined by "xxkfconf.da2"
+3001 = Coding error on clear flash
+3002 = Error on clear flash
+3003 = Error U-Batt on clear flash
+3004 = Error on comparing the ISN of the DME and the
+3005 = Error on reading the ISN
+3006 = Error, different start values
+3007 = Error, unknown EWS interface
+3008 = Error, manual gear
+3009 = PS10 InitString not found
+3010 = VERSIONKFCONF not in Zusbau
+3011 = Reference ECU identifier
+3012 = Reference project
+3013 = Reference program
+3014 = Reference project version in new ECU
+3015 = Reference not found in file (e.g. GD834)
+3016 = API32.DLL could not be loaded
+3017 = coapiKfInit() failed
+3018 = apiInit() failed
+3019 = Reference could not be read from ECU (EMS2000)
+3020 = ECU not found in PrgIfSel file (not necessarily an error)
+3021 = general EWS error
+3022 = A mandatory global parameter was not set
+3023 = The PABD had no job for setteing the global diagnostic address.
+3024 = KFCONF not found.
+3025 = SgMember not found
+3026 = End of file reached
+3027 = INFO file not found
+
+; 3051..3099: COAPIKF internal errors of module: Import/Export-Configuration
+3051 = Directory could not be opened:
+3052 = Directory could not be created:
+3053 = Error on writing the export log file
+3054 = Error on analysing the development files
+3055 = Error on analysing the tool relevant data
+3056 = Error on analysing the assembly line data
+3057 = Error on analysing the KMM files
+3058 = Error on copying the development files
+3059 = Error on copying tool relevant data
+3060 = Error on copying assembly line data
+3061 = Error on copying KMM files
+
+;4000..4199: Errorcodes in DAT- Module ( Access to logistic files of Kennfeldprogrammierung )
+4000 = A pointer parameter was a NULL pointer
+4001 = Invalid paramter
+4002 = File not found
+4003 = Error on opening output file
+4004 = Error on reading file
+4005 = Error on writing file
+
+4100 = Error in dlo- or rec-modules
+4101 = Error on conversion ASCII->Hex
+4102 = needed Number %s not found in file %s
+4103 = Error at symbolic placeholders
+4104 = invalid calling parameters
+4105 = no more entry in NWNR.DME/AGS/DAT available
+
+;4200..4300: Errorcodes ATB-Module
+4202 = Format syntax error
+4203 = Overflow
+4204 = File %s not found
+4205 = File %s could not opened for writing
+4206 = Error on reading in file %s, line %s
+4207 = Error on writing file
+4208 = Wrong path
+4209 = %s check sum wrong for this line: %s
+4210 = Version error
+4211 = String syntax error in file to be converted
+4212 = Undefined character
+4213 = Conversion error
+4214 = Wrong conversion name
+4215 = Allocation error
+4216 = Too many records
+4217 = Invlaid check name
+4218 = Syntax error in def-file
+4219 = Undefined key word
+4220 = Unexpected end of block (maybe $REFERENZ is missing)
+4221 = Conversion error in file %s, line %s
+4222 = Number of blocks does not match $BLOCKANZAHL
+4223 = Last line not equal to EOF-record
+4224 = Converted data file has no UIF
+4225 = Converted program file may not contain UIF
+
+;4300..4400: Errorcodes REC-Module
+4301 = End of file
+4302 = File not found
+4303 = Datei could not be opened for writing
+4304 = Error on reading in file
+4305 = Error on writing to file
+4306 = Check sum error
+4307 = Undefined paramater
+4308 = Invalid parameter
+4309 = Too many databytes per record
+
+4320 = Version error
+4321 = Record-ID error
+4322 = Record format neither Fixed nor Short
+4323 = Record-Type unknown( Not B(yte) or W(ord) etc. )
+4324 = Out of memory
+4325 = Too many record-IDs
+
+;4400..4600: Errorcodes NCK-Module (Coding)
+4430 = Runtime error
+4431 = Key word not activated
+4432 = File not found
+4433 = File could not be opened for writing
+4434 = Error on reading file
+4435 = Error on writing file
+4436 = Line type error
+4437 = Operator invalid
+4438 = Key word invalid
+4439 = Function key word invalid
+4440 = Paramater key word invalid
+4441 = Syntax error during conversion
+4442 = Datalength invalid
+4443 = Allocation error
+4444 = Too many records
+4445 = Coding index comparison failed
+4446 = File names not equal
+4447 = Error on analysing a record
+4448 = Error on analysing a formula
+4449 = COAPI_NCK_ANALYSE_AAD_ERR, Job expression invalid
+4450 = Record-ID invalid
+4451 = Error on reading ZCS
+4452 = Error on writing a key word pair (List overflow)
+4453 = Error on reading FSW / PSW
+4454 = Key comparison failed
+4455 = Record not found
+4456 = Error on reading record
+4457 = Error in job expression (AAD empty, ASW not set, invalid character in formula string)
+4458 = Type series invalid
+4459 = CVT invalid (Job expression not present, no true job expression found)
+4460 = Syntax error in def file
+4461 = Undefined key word
+4462 = Undefined key ID
+4463 = String length error
+4464 = ZCS length invalid
+4465 = Decode-Character invalid
+4466 = Encode-Value invalid
+4467 = No data in record
+4468 = Error in record (unspecific error)
+4469 = Key array size error
+4470 = Error on reading job key word
+4471 = Invalid file name in record
+4472 = Basic coding, Clearance info invalid
+4473 = Basic coding, Key word invalid
+4474 = Assembly, Clearance info invalid
+4475 = Assembly, Key word invalid
+4476 = Change, Clearance info invalid
+4477 = Change, Key word invalid
+4478 = Supplementation, Clearance info invalid
+4479 = Supplementation, Key word invalid
+4480 = Part number, Clearance info invalid
+4481 = Part number, Key word invalid
+4482 = History, Clearance info invalid
+4483 = History, Key word invalid
+4484 = Checksum error
+4485 = Filename invalid
+4486 = Coding index invalid
+4487 = HW number invalid
+4488 = SW number invalid
+4489 = Memory orginazation invalid
+4490 = Delivery state invalid
+4491 = Coding data group invalid
+4492 = Manufacturer data group invalid
+4493 = Reserved data group invalid
+4494 = invalid unoccupied1 data group
+4495 = invalid unoccupied2 data group
+4496 = invalid parameter assignment FSW
+4497 = invalid parameter assignment PSW1
+4498 = invalid parameter assignment PSW2 (consecutive line of to PSW1)
+4499 = invalid direct parameter assignment
+4500 = Error at Identification K
+4501 = Error at Identification D
+4502 = Error at Identification X
+4503 = Error at Identifications
+4504 = Mask error
+4505 = Value erroneous
+4506 = found more than one true expression
+4507 = ZUT-ID not found
+4508 = Group invalid
+4509 = Recoding failed (Changeover line for BR not found)
+4510 = Recoding failed (Changeover line for ECU not found)
+4511 = internal Error (ASW Array)
+4512 = Job error
+4513 = COAPI_NCK_SG_ID_INFO_ERR, internal error (ECU Array)
+4514 = Job invalid
+4515 = String error
+4516 = Date comparison failed
+4517 = Time error
+4518 = invalid order line
+4519 = Date error
+4520 = Data limit error
+4521 = Checksum error
+
+;7000 - 7099 failure messages to differentiate failure timne and failure type
+7000  =  Start - <free>
+7001  =  Start - <free>
+7002  =  Start - no answer from ECU (IFH-0009) but gateway o.k.
+7003  =  Start - no answer from ECU an gateway (IFH-0009)
+7004  =  Start - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7005  =  Start - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7006  =  Start - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7007  =  Start - EDIABAS NET-failure (150…199)
+7008  =  Start - EDIABAS API-failure (120…149)
+7009  =  Start - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7010  =  ECU adresses are set - <free>
+7011  =  ECU adresses are set - <free>
+7012  =  ECU adresses are set - no answer from ECU (IFH-0009) but gateway o.k.
+7013  =  ECU adresses are set - no answer from ECU an gateway (IFH-0009)
+7014  =  ECU adresses are set - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7015  =  ECU adresses are set - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7016  =  ECU adresses are set - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7017  =  ECU adresses are set - EDIABAS NET-failure (150…199)
+7018  =  ECU adresses are set - EDIABAS API-failure (120…149)
+7019  =  ECU adresses are set - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7020  =  Ident read - <free>
+7021  =  Ident read - <free>
+7022  =  Ident read - no answer from ECU (IFH-0009) but gateway o.k.
+7023  =  Ident read - no answer from ECU an gateway (IFH-0009)
+7024  =  Ident read - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7025  =  Ident read - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7026  =  Ident read - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7027  =  Ident read - EDIABAS NET-failure (150…199)
+7028  =  Ident read - EDIABAS API-failure (120…149)
+7029  =  Ident read - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7030  =  Programming status read - <free>
+7031  =  Programming status read - <free>
+7032  =  Programming status read - no answer from ECU (IFH-0009) but gateway o.k.
+7033  =  Programming status read - no answer from ECU an gateway (IFH-0009)
+7034  =  Programming status read - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7035  =  Programming status read - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7036  =  Programming status read - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7037  =  Programming status read - EDIABAS NET-failure (150…199)
+7038  =  Programming status read - EDIABAS API-failure (120…149)
+7039  =  Programming status read - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7040  =  Programming mode started - <free>
+7041  =  Programming mode started - <free>
+7042  =  Programming mode started - no answer from ECU (IFH-0009) but gateway o.k.
+7043  =  Programming mode started - no answer from ECU an gateway (IFH-0009)
+7044  =  Programming mode started - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7045  =  Programming mode started - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7046  =  Programming mode started - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7047  =  Programming mode started - EDIABAS NET-failure (150…199)
+7048  =  Programming mode started - EDIABAS API-failure (120…149)
+7049  =  Programming mode started - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7050  =  clear flash done - <free>
+7051  =  clear flash done - <free>
+7052  =  clear flash done - no answer from ECU (IFH-0009) but gateway o.k.
+7053  =  clear flash done - no answer from ECU an gateway (IFH-0009)
+7054  =  clear flash done - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7055  =  clear flash done - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7056  =  clear flash done - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7057  =  clear flash done - EDIABAS NET-failure (150…199)
+7058  =  clear flash done - EDIABAS API-failure (120…149)
+7059  =  clear flash done - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7060  =  Data transfer done - <free>
+7061  =  Data transfer done - <free>
+7062  =  Data transfer done - no answer from ECU (IFH-0009) but gateway o.k.
+7063  =  Data transfer done - no answer from ECU an gateway (IFH-0009)
+7064  =  Data transfer done - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7065  =  Data transfer done - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7066  =  Data transfer done - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7067  =  Data transfer done - EDIABAS NET-failure (150…199)
+7068  =  Data transfer done - EDIABAS API-failure (120…149)
+7069  =  Data transfer done - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7070  =  Signature check done - <free>
+7071  =  Signature check done - <free>
+7072  =  Signature check done - no answer from ECU (IFH-0009) but gateway o.k.
+7073  =  Signature check done - no answer from ECU an gateway (IFH-0009)
+7074  =  Signature check done - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7075  =  Signature check done - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7076  =  Signature check done - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7077  =  Signature check done - EDIABAS NET-failure (150…199)
+7078  =  Signature check done - EDIABAS API-failure (120…149)
+7079  =  Signature check done - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7080  =  Programming status o.k. - <free>
+7081  =  Programming status o.k. - <free>
+7082  =  Programming status o.k. - no answer from ECU (IFH-0009) but gateway o.k.
+7083  =  Programming status o.k. - no answer from ECU an gateway (IFH-0009)
+7084  =  Programming status o.k. - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7085  =  Programming status o.k. - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7086  =  Programming status o.k. - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7087  =  Programming status o.k. - EDIABAS NET-failure (150…199)
+7088  =  Programming status o.k. - EDIABAS API-failure (120…149)
+7089  =  Programming status o.k. - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+7090  =  UIF written - <free>
+7091  =  UIF written - <free>
+7092  =  UIF written - no answer from ECU (IFH-0009) but gateway o.k.
+7093  =  UIF written - no answer from ECU an gateway (IFH-0009)
+7094  =  UIF written - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7095  =  UIF written - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7096  =  UIF written - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7097  =  UIF written - EDIABAS NET-failure (150…199)
+7098  =  UIF written - EDIABAS API-failure (120…149)
+7099  =  UIF written - EDIABAS BIP/SYS/other failures (60…119, 200...)
+
+;7412 - 7439 failure massages in context with the DLE
+7412  =  OPPS-DLE: DLE status timeout - no answer from ECU (IFH-0009) but gateway o.k.
+7413  =  OPPS-DLE: DLE status timeout - no answer from ECU an gateway (IFH-0009)
+7414  =  OPPS-DLE: DLE status timeout - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7415  =  OPPS-DLE: DLE status timeout - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7416  =  OPPS-DLE: DLE status timeout - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7417  =  OPPS-DLE: DLE status timeout - EDIABAS NET-failure (150…199)
+7418  =  OPPS-DLE: DLE status timeout - EDIABAS API-failure (120…149)
+7419  =  OPPS-DLE: DLE status timeout - EDIABAS BIP/SYS/other failure (60…119, 200...)
+
+7422  =  OPPS-DLE: DLE status interface error - no answer from ECU (IFH-0009) but gateway o.k.
+7423  =  OPPS-DLE: DLE status interface error - no answer from ECU an gateway (IFH-0009)
+7424  =  OPPS-DLE: DLE status interface error - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7425  =  OPPS-DLE: DLE status interface error - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7426  =  OPPS-DLE: DLE status interface error - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7427  =  OPPS-DLE: DLE status interface error - EDIABAS NET-failure (150…199)
+7428  =  OPPS-DLE: DLE status interface error - EDIABAS API-failure (120…149)
+7429  =  OPPS-DLE: DLE status interface error - EDIABAS BIP/SYS/other failure (60…119, 200...)
+
+7432  =  OPPS-DLE: DLE status communication error - no answer from ECU (IFH-0009) but gateway o.k.
+7433  =  OPPS-DLE: DLE status communication error - no answer from ECU an gateway (IFH-0009)
+7434  =  OPPS-DLE: DLE status communication error - no answer from ECU (IFH-0009) but gateway o.k., no OPPS/Most
+7435  =  OPPS-DLE: DLE status communication error - no answer from ECU an gateway (IFH-0009), no OPPS/Most
+7436  =  OPPS-DLE: DLE status communication error - EDIABAS IFH-failure (10…59, except IFH-0003 and IFH-0009)
+7437  =  OPPS-DLE: DLE status communication error - EDIABAS NET-failure (150…199)
+7438  =  OPPS-DLE: DLE status communication error - EDIABAS API-failure (120…149)
+7439  =  OPPS-DLE: DLE status communication error - EDIABAS BIP/SYS/other failure (60…119, 200...)
+
+;Other failures in context with the DLE/OPPS: Number 7408 - 7444
+7400  =  OPPS: acquire OPPS-version/access
+7401  =  OPPS: set DNMT, engaging/swith-off
+7402  =  OPPS: acquire DLE-version and DLE-availability
+7403  =  OPPS: DLE-reset
+7404  =  OPPS: initialising DLE
+7405  =  OPPS: DLE STATUS failure
+7406  =  OPPS: DLE FIFO overflow
+7407  =  OPPS: DLE did not finish
+7408  =  OPPS-DLE: DLE_STATUS IFH failure
+7409  =  OPPS-DLE: DLE_STATUS NET failure
+7410  =  OPPS-DLE: DLE_STATUS API failure
+7411  =  OPPS-DLE: other DLE_STATUS failures
+
+7440  =  OPPS-DLE: ECU block programming not o.k.
+7441  =  OPPS-DLE: ECU block programming negative response
+7442  =  OPPS-DLE: ECU block programming false SID
+7443  =  OPPS-DLE: ECU block programming to short frame
+7444  =  OPPS-DLE: ECU block programming no frame
+
+;other failure messages
+7210  =  ECU: reading ident
+7211  =  ECU: reading HW-references
+7212  =  ECU: reading ZIF
+7213  =  ECU: reading ZIF-Backup
+7214  =  ECU: process reset
+7215  =  ECU: reading times
+7216  =  ECU: maximum block length
+7217  =  ECU: reading serial number
+7218  =  ECU: reading random number
+7219  =  ECU: stop diagnosis
+7220  =  ECU: reading physical HW-number
+7221  =  ECU: reading internal temperature
+7228  =  P-SGBD: set flash parameters
+7229  =  P-SGBD: set diagnosis protocol
+
+7900  =  CCC: HOST reset
+7901  =  CCC: start FIB-create
+7902  =  CCC: FIB-create failed
+7903  =  CCC: HOST programming status not o.k. for programming application
+7904  =  MASK: MMI programming status not o.k. for programming
+
+;----------------------------------------------
+; CODE 8000 - 8999 wird von SGC Library belegt.
+;----------------------------------------------
+
+
+[DEBUG]
+VON=9000
+BIS=9999
+TEXT=Debug
+
+[SYMBOLE]
+IDaten=I-Data
+aktiv=active
+CODIERINDEX=CODINGINDEX
+DATEINAME=FILENAME
+Bereichsbezeichnung_fehlt=Range identifier missing
+Ungueltiger_Bereich=Invalid Range
+Umrechnungszeile_nicht_gefunden=Calculation line not found
+IDZeile_nicht_gefunden=ID line not found
+Maskenzeile_nicht_gefunden=Mask line not found
+ProzessID_ausser_Bereich=Process-ID out of range
+BAUREIHE=TYPE SERIES
+ECUPATH_not_found=ECUPATH not found
+EDIABASINIPATH_not_found=EDIABASINIPATH not found
+COAPI_nicht_initialisiert=COAPI not initialized
+
+

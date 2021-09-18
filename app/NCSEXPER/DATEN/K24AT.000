@@ -1,0 +1,917 @@
+// Auftragsdatei: K24AT.000
+//         -350-
+// Erstverw.Kogr.: 61.35
+// Ident-Nummer: 6 933 704.5
+DATUM 11.04.2016
+//
+//                     Kurzz.  Datum        Name
+// Bearbeiter:         EI-73   25.05.2009  B. Haller
+// Geprueft:
+// Verantwortlicher:
+// Verantwortlicher:
+//
+// Bayerische Motoren Werke Aktiengesellschaft
+//   Wiedergabe sowie Vervielfaeltigung dieser Unterlage, Verwertung und
+//   Mitteilung ihres Inhalts nicht gestattet, soweit nicht ausdruecklich
+//   zugestanden. Zuwiderhandlungen verpflichten zu Schadenersatz. Alle
+//   Rechte fuer den Fall der Patenterteilung oder Gebrauchsmuster-
+//   Eintragung vorbehalten.
+//
+//
+// Verteiler:
+//   EE-62    M. Wolf
+//   ET-423
+//
+// Aenderungsdokumentation:
+// NAEL-  Zeichn. xmal/
+// Nr.    Index   Seite Kurzbeschreibung                                                   Datum    Name
+//
+//
+//
+DATEINAME                             K24AT.000
+//
+
+//******************************************************************************
+//Z: aktive Zeitkriteriumzeilen (PUSY-Relevant)
+Z #0815                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand August 2015
+Z #0216                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand Februar 2016
+Z #0616                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juni 2016
+Z #0816                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand August 2016
+Z #1116                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2016
+Z #1216                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Dezember 2016
+Z #0317                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Maerz 2017
+Z #0717                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juli 2017
+Z #1117                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2017
+Z #0318                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Maerz 2018
+Z #0718                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juli 2018
+Z #1118                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2018
+
+//
+//******************************************************************************
+//A: Alte Zeitkriterien (nicht mehr PUSY relevant)
+A #0803                                                                                                                 //-Stand 08.2003
+A #0504                 MAI04                                                                                           //-Stand 05.2004
+A #0106                 MAI04 JAN06                                                                                     //-Stand 01.2006
+A #0806                 MAI04 JAN06 PU06                                                                                //-Stand PU06
+A #0107                 MAI04 JAN06 PU06 JAN07                                                                          //-Stand 01.01.2007
+A #0207                 MAI04 JAN06 PU06 JAN07 FEB07                                                                    //-Stand Februar 2007
+A #0807                 MAI04 JAN06 PU06 JAN07 FEB07 PU07                                                               //-Stand August 2007
+A #0907                 MAI04 JAN06 PU06 JAN07 FEB07 PU07                                                               //-Stand September 2007 nur fuer HO
+A #0108                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08                                                         //-Stand Januar 2008
+A #0308                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08                                                 //-Stand März 2008
+A #0808                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08                                            //-Stand August 2008
+A #0209                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09                                  //-Stand Februar 2009
+A #0809                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09                         //-Stand August 2009
+A #1009                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09                         //-Stand Oktober 2009
+A #0210                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09                         //-Stand Februar 2010
+A #0810                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10                    //-Stand August 2010
+A #0211                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11          //Stand Februar 2011
+A #0811                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11         //Stand August 2011
+A #1111                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11          //Stand November 2011
+A #1211                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11          //Stand Dezember 2011
+A #0212                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12         //Stand Februar 2012
+A #0812                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12        //Stand August 2012
+A #0213                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand Februar 2013
+A #0813                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand August 2013
+A #0214                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand Februar 2014
+A #0814                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand August 2014
+A #0215                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand Februar 2015
+A #0815                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand August 2015
+A #0216                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13        //Stand Februar 2016
+A #0616                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juni 2016
+A #0816                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand August 2016
+A #1116                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2016
+A #1216                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Dezember 2016
+A #0317                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Maerz 2017
+A #0717                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juli 2017
+A #1117                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2017
+A #0318                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Maerz 2018
+A #0718                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand Juli 2018
+A #1118                 MAI04 JAN06 PU06 JAN07 FEB07 PU07 JAN08 MAERZ08 PU08 FEBRUAR09 AUGUST09 PU10 FEBRUAR11 AUGUST11 FEBRUAR12 AUGUST12 FEBRUAR13       //Stand November 2018
+
+//******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//E: aktive Ergänzungszeilen (PUSY-Relevanz für Steuerung SA<100)
+//E CTAD                  CT_ABS_ADVENT                   //nur K25_ADV mit CT-ABS 19.te I-Stufe
+//E TFLA                  TAGF_LICHT_AUS                  //Funktion bei gesetztem Wort nicht aktiv
+//E RL1B                  RUECK_LI_1_BIR                  //
+//E DIHP                  RUECK_LI_FEHL                   //
+//E ESAP                  ESA_POL                         //
+//E ALGO                  TANK_ALGO                       //
+//E ESAM                                                  //Entfall SAM-Ventil
+//E BMKP                  BMKP_ERSATZ                     //Ersatzteilfall BMSK -> BMSKP
+//E SH26                  SH_NADSAD                       //Lieferant NADSAD für Sitzheizung bei K26
+//E BATT                  BATT_ANZEIGE                    //Low Batt Anzeige
+//E MKLR                  MIT_KL_R                        //fuer KBB-Variante mit KL_R nach PU07
+//E 2DSZ                  KOMBI_2D                        //2D-Kombi (K29-HP) als Sonderzubehoer
+//E TILT                  STURZ_SCHALTER                  //Sturzschalter K46
+//E TANK                  BLAS_FORM_TANK                  //Neuer Tank für K26
+//E FOLI                  FOLIENGEBER                     //Steuerung Foliengeber im Tank
+//E 2OEL                  OELNIV                          //Steuerung Dreistufiger Oelniveausensor
+//E HVDO                  HEBEL_VDO                       //Steuerung neues Hebelsystem von VDO
+//E NMAX                                                  //Drehzahlbegrenzung
+//E NHGA                  HEBELALGO_NEU                   //Neuer Hebelgeberalgorithmus
+//E WPFV                  WPF_VORN                        //WP Federbein vorne
+//E WPFH                  WPF_HINTEN                      //WP Federbein hinten
+//E SIRI                  SIRIUS                          //Sirius-Empfängermodul
+//E-Worte aus FA2FP K001 wg. K46
+//E ALRM                                                  //Mehrfachalarm
+//E BBEL                                                  //Sonderzubehör Bodenbeleuchtung
+//E BTOP                                                  //Sonderzubehör Bremslicht Topcase
+//E HBG2                                                  //Helgeber 2
+//E HIL1                                                  //HIL1-test-UX
+//E MAPS                                                  //MAPPS Tankgeber
+//E T24L                                                  //24Liter-Tank
+
+//
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//******************************************************************************
+//H: historische Zeilen (keine PUSY-Relevanz, ehemalige Steuerungen <100)
+H CTAD                  CT_ABS_ADVENT                   //nur K25_ADV mit CT-ABS 19.te I-Stufe
+H TFLA                  TAGF_LICHT_AUS                  //Funktion bei gesetztem Wort nicht aktiv
+H RL1B                  RUECK_LI_1_BIR                  //
+H DIHP                  RUECK_LI_FEHL                   //
+H CTBS                  CONTI_TEVES                     //ContiTeves ABS (andere Zähnezahlen)
+H ESAP                  ESA_POL                         //
+H LEDK                  LED_RUECK_K25                   //
+H ALGO                  TANK_ALGO                       //
+//H ESAM                                                  //Entfall SAM-Ventil
+H BMKP                  BMKP_ERSATZ                     //Ersatzteilfall BMSK -> BMSKP
+H SH26                  SH_NADSAD                       //Lieferant NADSAD für Sitzheizung bei K26
+H BATT                  BATT_ANZEIGE                    //Low Batt Anzeige
+H MKLR                  MIT_KL_R                        //fuer KBB-Variante mit KL_R nach PU07
+H 2DSZ                  KOMBI_2D                        //2D-Kombi (K29-HP) als Sonderzubehoer
+H TILT                  STURZ_SCHALTER                  //Sturzschalter K46
+H TANK                  BLAS_FORM_TANK                  //Neuer Tank für K26
+H FOLI                  FOLIENGEBER                     //Steuerung Foliengeber im Tank
+H 2OEL                  OELNIV                          //Steuerung Dreistufiger Oelniveausensor
+H HVDO                  HEBEL_VDO                       //Steuerung neues Hebelsystem von VDO
+H NMAX                                                  //Drehzahlbegrenzung
+H NHGA                  HEBELALGO_NEU                   //Neuer Hebelgeberalgorithmus
+H WPFV                  WPF_VORN                        //WP Federbein vorne
+H WPFH                  WPF_HINTEN                      //WP Federbein hinten
+H SIRI                  SIRIUS                          //Sirius-Empfängermodul
+//E-Worte aus FA2FP K001 wg. K46
+H ALRM                                                  //Mehrfachalarm
+H BBEL                                                  //Sonderzubehör Bodenbeleuchtung
+H BTOP                                                  //Sonderzubehör Bremslicht Topcase
+H HBG2                                                  //Helgeber 2
+H HIL1                                                  //HIL1-test-UX
+H MAPS                                                  //MAPPS Tankgeber
+H T24L                                                  //24Liter-Tank
+//
+//******************************************************************************
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//K: Kundendienst-Ergänzungszeilen (keine PUSY-Relevanz)
+K LEST                                                  //Leistungssteigerung
+K ESAH                  ESA_HALL                        //Nachrüstung ESA_Hall für Fahrzeuge vor #0806 im Ersatzteilfall für ESA_Poti
+K LEDR                  LED_RUECKL                      //Nachrüstung LED Rückleuchter
+//K ESAM                                                  //Entfall SAM-Ventil
+K RACA                  RACE_CALIB                      //Race Calibration Kit
+K RAPO                  RACE_POWER                      //Race Power Kit
+K BT10                                                  //Bluetooth-Nachrüstung
+K T73U                  USTANK_K73_NEU                  //Tank K73 US neu
+K S161                  AUDIO_NEU                       //ab Audio SW 1.6.1
+K ZSWP                  ZSW_PENNSYLV                    //Zusatzscheinwerfer Pennsylvania
+K CBKD                  CB_DIAGNOSE                     //Custom Bike Diagnose
+K WK27                  WARNKONTAKT                     //Nachrüstung Foliengeberentfall K27MUE
+K ABSP                  ABS_PRO                         //Nachruestung ABS_PRO
+//
+//ACHTUNG: Wegen Ueberschneidung mit KMM sind keine E- und K-Worte zugelassen, die mit "L" oder "P" beginnen
+//*******************************************************************************
+//******************************************************************************
+//SA/LA/PS-Zeilen
+W 028                                                   //Betriebsanleitung Thailaendisch
+W 107                                                   //Funkpruefung f. ABS
+W 113   V0210                                           //BU Behörde USA
+W 113   N0210           US_BEHOERDE                     //BU Behörde USA
+W 114                                                   //BU Cruising light Spanien
+W 115                                                   //Sondermodell Comfort R850R
+W 116                                                   //BU Klebeapplikation Minzgrün
+W 117                                                   //BU Klebeapplikation Schwarz
+W 118                                                   //BU Schriftzug Polizei hochr
+W 119                                                   //BU Schriftzug Police hochre
+W 120                                                   //BU Schriftzug Gandamerie hochre
+W 121                                                   //Klebeapl. Blau
+W 122                                                   //Blinkleuchte Kanada
+W 123                                                   //Motorsteuergerät Japan
+W 124                                                   //BU LED Blitzkennleuchte Blau
+W 125                                                   //BU LED Blitzkennleuchte Rot
+W 126                                                   //BU LED Rundumblitzkennleuchte Blau
+W 127                                                   //BU LED Rundumblitzkennleuchte Rot
+W 128                   SPORT_ABS                       //Race ABS
+W 129                   SPORT_ABS_ASC                   //Race ABS und DTC
+W 130                                                   //Koffer
+W 131                                                   //Dummy, Angleich an K46 BN2020
+W 132                                                   //Komfortsitzbank hoch
+W 133                                                   //Dummy, Angleich an K46 BN2020
+W 134                                                   //Dummy SA
+W 135                   KOMBISCHALTER                   //STEUERUNG BEDIENKONZEP
+W 136                                                   //Chris Pfeiffer Edition
+W 137                   LED_HECKL                       //LED-Heckleuchte
+W 138                   LED_SCHEINW                     //LED-Zusatzscheinwerfer
+W 139                                                   //Paket "Sondermodel 15 Jahre 4V GS" (SA140;SA179;SA562)
+W 140                                                   //Ventildeckelschutz
+W 141                   RADIO_OCE                       //SU Radio OCE
+W 142                   RADIO_JAP                       //SU Radio JAP
+W 143                   BLUETOOTH                       //Steuerung Bluetooth
+W 144                                                   //CA Classic
+W 145                   SPEICHENRAD                     //Speichenräder
+W 146                                                   //
+W 147                                                   //CKD
+W 148                                                   //Leistungsreduzierung für Japan
+W 149                                                   //
+W 156                                                   //Heizpaket
+W 164                                                   //Sitz Grau
+W 165                                                   //Sitz Bronzitbeige
+W 170                                                   //Sondermodell
+W 171                                                   //Tankcover/Heckseitenteil Grau
+W 172                                                   //Tankcover/Heckseitenteil Schwarz
+W 173                   SPORTRAD                        //SA Sportrad
+W 174                                                   //Sportfahrzeug
+W 175                                                   //Entfall Strassenradsatz
+W 176                                                   //Kurzer 1. Gang
+W 177                                                   //Schaltassistent
+W 178                                                   //Motorsteuergerät für die LA TAIWAN
+W 179                                                   //Windschild getoent
+W 17A                                                   //Aluminiumtank 1
+W 17B                                                   //Aluminiumtank 2
+W 180                                                   //Paket Classic
+W 181                   RACE_CALIB_KIT2                 //HP Race Calibration Kit 2
+W 182                   DTC                             //DTC
+W 183                   RACE_POWER_KIT                  //HP Race Power Kit
+W 184                   RACE_CALIB_KIT                  //HP Race Calibration Kit
+W 185                                                   //Seriensitzbank
+W 186                                                   //Sondermodell II
+W 187                                                   //Performance.Kit
+W 188                                                   //Carbon Motorspoiler
+W 189                                                   //Carbon HP Umfänge
+W 190                                                   //
+W 191                                                   //
+W 192                                                   //
+W 193                                                   //
+W 194                                                   //HP Titan Abgasanlage, K46 SZ, nur Nachrüstung in der HO
+W 195                                                   //Motorsteuergeraet Brasilien
+W 196                                                   //Typ- und Hinweisschilder Russland
+W 197                                                   //
+W 198                                                   //Highline Paket
+W 199                                                   //Highline Paket Japan
+W 200                                                   //Sondermodell Black
+W 202                   TAGFAHRLICHT                    //Tagfahrlicht
+W 203                                                   //Dynamic Paket
+W 204                                                   //
+W 205                                                   //Highline Paket Asien
+W 206                                                   //K40 Dynamic
+W 207                                                   //K40 Dynamic Japan
+W 208                                                   //K40 HP
+W 209                                                   //K40 HP Japan
+W 210                                                   //Sondermodell Trophy
+W 211                                                   //K40 HP Asien
+W 212                                                   //
+W 213                                                   //
+W 214                                                   //Highline Paket Kanada
+W 215                                                   //Dynamic Paket Kanada
+W 216                                                   //Dynamic Paket Asien
+W 217                                                   //Sondermodell 90 Jahre
+W 218                   GELAENDE_ABS                    //Gelaendemodus ABS und ASC
+W 219                                                   //
+W 220                                                   //
+W 221                                                   //
+W 222                                                   //
+W 223                                                   //
+W 224                   FAHRMODI_PRO                    //Fahrmodi Pro
+W 225                                                   //
+W 226                                                   //Vorbereitung Trackingsystem
+W 227                                                   //
+W 228                                                   //
+W 229                                                   //Diebstahlschutzmassnahme
+W 230                                                   //
+W 231                                                   //
+W 232                                                   //
+W 233                                                   //
+W 234                                                   //
+W 235                                                   //Dynamik-Paket
+W 236                                                   //
+W 237                                                   //
+W 238                                                   //Dynamik-Paket 1
+W 239                                                   //
+W 240                                                   //
+W 241                                                   //
+W 242                                                   //
+W 243                   BU_FREISCHALT                   //BU Freischaltung elektr. Ausgänge
+W 244                                                   //
+W 245                                                   //Einzelsitz mit Funkkasten niedrig
+W 246                                                   //
+W 247                                                   //Typ- und Hinweisschild China
+W 248                                                   //
+W 249                                                   //
+W 250                                                   //Motorsteuergerät Asien
+W 251                   ASIEN                           //Umfang Asien - ECE
+W 252                                                   //Sitzbank Sport
+W 253                                                   //
+W 254                                                   //
+W 255                                                   //Sondermodell DarkWhite
+W 256                                                   //
+W 257                                                   //
+W 258                                                   //
+W 259                                                   //
+W 260                                                   //
+W 261                                                   //Highline Paket low seat Kanada
+W 262                                                   //Highline Paket low seat
+W 263                                                   //Highline Paket low seat Asien
+W 264                                                   //Highline Paket low seat Japan
+W 265                                                   //Vollentstoerung Digitalfunk
+W 266                                                   //Dummy SA
+W 267                                                   //Dummy SA
+W 268                   AUDIOPL                         //Audioplattform
+W 269                                                   //Vorbereitung Audioplattform
+W 270                   AUDIOPL_US                      //Audioplattform US
+W 271                                                   //
+W 272                                                   //
+W 273                                                   //
+W 274                                                   //Sondermodell III
+W 275                                                   //
+W 276                                                   //Designoption Raeder
+W 277                                                   //
+W 278                                                   //
+W 279                                                   //
+W 280                                                   //SU Betriebsanleitung dänisch
+W 281                                                   //SU Betriebsanleitung finnisch
+W 282                                                   //SU Betriebsanleitung griechisch
+W 283                                                   //SU Betreibsanleitung japanisch
+W 284                                                   //SU Betriebsanleitung polnisch
+W 285                                                   //SU Betriebsanleitung slowenisch
+W 286                                                   //SU Betriebsanleitung slowakisch
+W 287                                                   //SU Betriebsanleitung tschechisch
+W 288                                                   //SU Betriebsanleitung Rumänisch
+W 289                                                   //SU Betriebsanleitung Bulgarisch
+W 28A                                                   //SU Betriebsanleitung Thailaendisch
+W 290                                                   //SU Betriebsanleitung Russisch
+W 291                                                   //SU Betriebsanleitung Koreanisch
+W 292                                                   //SU Betriebsanleitung Türkisch         PN PX860_113 vom 05.03.12
+W 293                                                   //SU Betriebsanleitung Ungarisch        PN PX860_1xx vom
+W 298                                                   //Sitzbank schwarz / weissgrau
+W 299                                                   //Typenschild Brasilien
+W 300                                                   //Typschild Indien                      PN PX860_116 vom 22.03.2012
+W 301                                                   //Typenschild Belgien
+W 302                                                   //Typenschild Frankreich
+W 303                                                   //Typenschild Italien
+W 304                                                   //Typenschild Australien
+W 305                                                   //Typenschild Spanien
+W 306                                                   //Typenschild Kanada
+W 307                                                   //Typenschild Oesterreich
+W 308                                                   //Typenschild Neuseeland
+W 310                                                   //Sicherheitspaket 2 (Classic)
+W 311                                                   //Seitenstrahler rot
+W 313                                                   //Kennzeichenadapter
+W 317                                                   //Halteriemen f. Sitzbank
+W 318                                                   //Spritzschutz vorn
+W 319                                                   //Codierung Kat. Ch
+W 320                   XENON                           //Xenonlicht
+W 321                                                   //Scheinwerfer Linksasymmetrisch
+W 323                                                   //Dauerlicht
+W 324                                                   //Seitenstrahler
+W 325                   SEITENSTRAHLER                  //Seitenstrahler
+W 326                   TACHO_MPH                       //Tachometer MPH
+W 329                                                   //HWS Verstellanweisung
+W 330                   //RDC_DWA                         //RDC und DWA
+W 331                                                   //Bleifreihinweis
+W 334                                                   //Geraeuschschild Australien
+W 335                                                   //Abgas und Geräuscheschild
+W 337                                                   //Shed Kraftstoffanlage
+W 338                                                   //Langzeitgefrierschutz
+W 339                                                   //Schalldämpfer geraeuschreduziert
+W 340                                                   //Kruemmer verchromt
+W 346                                                   //Geräuschreduzierung Sch
+W 347                                                   //Schadstoffreduzierung Sch
+W 350                                                   //Auspuffanlage verchromt
+W 354                                                   //SU Alternative Übersetzung
+W 356                                                   //SA Alternative Übersetzung
+W 358                                                   //SU Sondermodell
+W 359                   PA_BEHOERDE                     //BU Behoerdenpaket
+W 360                                                   //Sondermodell R1150RT SAP
+W 362                                                   //Gleitrohrblende
+W 363                                                   //Cockpit Behoerde
+W 364                                                   //PA Behoerdenauftrag GE
+W 365                   TACHO_KMH                       //Tachometer KMH
+W 366                                                   //SU Verstärkungsblech
+W 368                                                   //Bereifung ohne Dunlop
+W 369                   BEHOERDE                        //Borddaten(Behoerden)-Abweichung zur Serie
+W 370                   TANK_US                         //Kraftstoffbehaelter US
+W 371                                                   //ABS III
+W 372                                                   //Instr.-Kombi KMH BF
+W 373                                                   //Frequenzkonverter für Radio
+W 376                   RADIO_US                        //Radio US
+W 377                                                   //HWS Bereitschaftsdienst
+W 380                                                   //Betriebsanleitung Deutsch
+W 381                                                   //Betriebsanleitung Englisch
+W 382                                                   //Betriebsanleitung Franzoesisch
+W 383                                                   //Betriebsanleitung Spanisch
+W 384                                                   //Betriebsanleitung Italienisch
+W 385                                                   //Betriebsanleitung Schwedisch
+W 386                                                   //Betriebsanleitung Niederlaendisch
+W 387                                                   //Betriebsanleitung Chinesisch
+W 388                                                   //Betriebsanleitung Japanisch
+W 389                                                   //Betriebsanleitung Portugiesisch
+W 390                                                   //Betriebsanleitung Brasilianisch-Portugiesisch
+W 391                                                   //Haendlerverzeichis Uebersee
+W 392                                                   //SU ohne Zusatzscheinwerfer
+W 393                                                   //SU Sondermodell
+W 394                                                   //Halter Motorrad-Navigator
+W 395                   RADIO_ECE                       //SU radio ECE
+W 396                                                   //Mehrwegverpackung Inland
+W 397                                                   //Sonderverpackung Uebersee
+W 401                                                   //ABS Teilintegral
+W 402                                                   //SA Rückenlehne
+W 403                                                   //BU Helmanschluss für Sprachdurchsageanl.
+W 404                                                   //BU Antenne 380 MHz
+W 405                                                   //SU Halbverkleidung
+W 406                                                   //SA Gussraeder
+W 407                                                   //BU City systemkoffer Fernbl
+W 410                                                   //BU City systemkoffer Titans
+W 411                                                   //SA Beifahrersitz
+W 412                                                   //Seitenstrahler VO/GE
+W 413                                                   //Soziuspaket
+W 415                                                   //ABS Vollintegral
+W 416                   ESA                             //Elektr. Suspension Adjustment
+W 417                                                   //Dummy SA
+W 418                                                   //Dummy, Angleich an K46 BN2020
+W 419                                                   //Seitenteil grau
+W 420                                                   //Seitenteil schwarz
+W 423                                                   //PA Zweitfarblackierung
+W 424                                                   //PA Sondermodell K44TÜ
+W 425                                                   //PA Sondermodell Boxer
+W 426                                                   //PA Sondermodell Boxer
+W 427                                                   //PA Sondermodell
+W 428                                                   //PA Sondermodell
+W 429                                                   //PA Tourenpaket
+W 430                                                   //Sicherheitspaket
+W 431                                                   //Ausstattungspaket 1
+W 432                                                   //Ausstattungspaket 2
+W 433                                                   //Ausstattungspaket 3
+W 434                                                   //SA-Paket 4
+W 435                                                   //SA-Paket 5
+W 436                                                   //SA-Paket 1 Asien
+W 437                                                   //SA-Paket 2 Asien
+W 438                                                   //SA-Paket 1 Kanada
+W 439                                                   //SA-Paket 2 Kanada
+W 440                   ABS_ABSCH                       //SU ABS abschaltbar für Fahrsc.
+W 441                                                   //BU Rundumkennleuchte blau
+W 442                                                   //BU Rundumkennleuchte rot
+W 443                                                   //BU LED Blitzleuchte Gelb-Blau
+W 445                                                   //Dummy, Angleich an K46 BN2020
+W 450                                                   //Paket Touring Spezial ECE
+W 460                                                   //Paket Touring Spezial US
+W 461                                                   //Vollentstörung
+W 464                                                   //BU Blitzkennleuchte blau
+W 465                                                   //BU Blitzkennleuchte rot
+W 466                                                   //BU Rundumblitzkennleuchte blau
+W 467                                                   //BU Rundumblitzkennleuchte rot
+W 470                                                   //Paket Touring Spezial Canada (nur für ECE-Typschlüssel)
+W 475                                                   //PA Sondermodell 25 Jah
+W 480                                                   //Paket TouringSPezial Asien (nur für US-Typschlüssel)
+W 481                                                   //BU Kennleuchte blau
+W 482                                                   //BU Kennleuchte rot
+W 486                   BU_SIRENE_EL                    //BU Sirene elektronisch
+W 490                                                   //LCI MJ 2012 K25TÜ
+W 493                   BU_TONSIGNAL_EL                 //BU Tonsignalanlage elektronisch
+W 494                                                   //BU Vorb. tonsignalanlage Fra.
+W 496                                                   //SA Softtouch Sitzbank
+W 499                                                   //Tieferlegung
+W 500                                                   //Sitzbank schwarz mit GS-Prägung
+W 502                   BEHOERDE_KMH                    //BU Tachometer KMH Behoerde
+W 504                   BEHOERDE_MPH                    //BU Tachometer MPH Behoerde
+W 509                                                   //Staerkere Stromversorgung
+W 510                   OELWARNER                       //Oelstandswarner
+W 517                                                   //Schaumstoffgriffe
+W 518                   SITZHEIZUNG                     //Sitzheizung
+W 519                   GRIFFHEIZUNG                    //Heizgriffe
+W 520                   ENTFALL_MEILEN                  //Entfall Meilentacho
+W 521                                                   //BU Anhaltesignalgeber -Bitte Folgen-
+W 522                   //WARNBLINCKER                    //SA Warnblickanlage
+W 523                                                   //BU Antenne 4M-Band
+W 524                   E_ABS                           //ABS elektronisch
+W 525                                                   //ohne ABS elektronisch
+W 527                                                   //PA Individuelle Ergono
+W 528                                                   //PA Individuelle Ergono
+W 530                   RDC                             //RDC
+W 531                                                   //Dummy
+W 532                                                   //BU Drehgriffbremse
+W 533                                                   //Vollverkleidung m. Gleitr
+W 534                                                   //Vollverkleidung
+W 535                                                   //Zusatzinstrumente
+W 536                                                   //BU Zusatzlüfter
+W 537                   BU_ZUSATZBAT                    //BU Zusatzbatterie
+W 538                   TEMPOMAT                        //Cruise-Control
+W 539                   BC_BASIS                        //Bordcomputer
+W 540                   RADIO                           //Radio mit CD-Laufwerk, vorerst nur für K26
+W 541                                                   //Fahrwerk SW
+W 544                                                   //BU Verstärkte Federung
+W 546                                                   //SA Tourenfederung
+W 547                                                   //SA Sportfederung
+W 550                                                   //Dummy, Angleich an K46 BN2020
+W 552                                                   //SA Windschild niederig
+W 553                                                   //SA Windschild hoch
+W 555                                                   //SA ohne Windschild
+W 557                                                   //PA Sondermodell Arktis
+W 558                                                   //SA Windschild Facelift
+W 559                                                   //SA Windschild elektr. verstellbar
+W 560                                                   //Cockpitverkleidung
+W 562                                                   //Zusatzscheinwerfer
+W 563                                                   //SA Doppelhorn
+W 564                                                   //PA Asien-Paket
+W 565                                                   //Motorspoiler schwarz
+W 566                                                   //Motorspoiler silber
+W 567                                                   //PA Sondermodell 75 Jah
+W 568                                                   //SA Antriebsstrang SW
+W 569                                                   //PA Sondermodell 75 Jah
+W 570                   BU_LICHT_ABSCH                  //BU Lichtausschaltung
+W 573                   BU_NEBEL                        //BU Nebelschlussleuchte
+W 577                                                   //PA Avantgarde
+W 578                                                   //PA Avantgarde
+W 579                                                   //PA Ausstaattungspaket
+W 580                                                   //Motorspoiler
+W 581                                                   //Abgasrueckfuehrung SLS
+W 582                                                   //SA katalysator geregelt
+W 583                                                   //SA ohne katalysator geregelt
+W 585                   ALTERN_UEBERS                   //SU Alternative Übersetzung / Entfall zu 10/07
+W 588                                                   //Blinker weiss
+W 589                                                   //Handschutz
+W 590                   LED_BLINKER                     //LED-Blinkleuchte
+W 592                                                   //SA Avantgarde
+W 593                                                   //Lenker Avantgarde
+W 594                                                   //BU Anhaltesignalgeber -Stop Policia-
+W 595                                                   //SA Chrompaket
+W 596                                                   //BU Anhaltesignalgeber -Stop Polizei-
+W 597                                                   //BU Anhaltesignalgeber -Stop Police-
+W 598                                                   //BU Anhaltesignalgeber -Politie Volgen-
+W 599                                                   //BU Sprachdurchsageanlage
+W 5A1                                                   //Side View Assistent
+W 5AA                                                   //Rueckfahrhilfe
+W 5AB                                                   //Steuerung Bremslicht
+W 5AC                                                   //ABS-Pro
+W 600                                                   //Dummy, Angleich an K46 BN2020
+W 602                                                   //SA Soziussitzabdeckung
+W 603                   DWA                             //Diebstahlwarnanlage
+W 604                                                   //SA Lenker Police
+W 605                                                   //... Versorgungsleitung
+W 610                                                   //Sitz hoch
+W 611                                                   //SA lenker hochgezogen
+W 613                                                   //SU verstellenker
+W 615                                                   //... Heizgriffe m. Verstellenk.
+W 617                                                   //SA Zusatz-Hochtonlautsprech.
+W 619                                                   //SA lenker easy rider
+W 620                                                   //SA Lenkungsdaempfer
+W 621                                                   //SA Windschild glarklar
+W 623                                                   //SU verstellwindschild mech.
+W 625                                                   //BU Schriftzug Polizei sw
+W 626                                                   //BU Schriftzug Police
+W 627                                                   //BU schriftzug Polizei
+W 628                                                   //BU Schriftzug Gendarmerie
+W 630                   I_ABS_2                         //Integrall ABS || (2)
+W 631                   ENDURO                          //SA Endurogetriebe
+W 633                                                   //Gelaendebereifung
+W 634                   //T35L                            //Tank Gross
+W 636                                                   //Kippstaender, Hauptständer
+W 637                                                   //Leder-Ausstattung
+W 639                   NORMALBENZIN                    //SA Normalbenzin Bleifrei
+W 640                                                   //Sondermodell 30 Jahre GS
+W 642                                                   //Einzelsitz m. Funktasten
+W 645                   I_ABS                           //ABS Integral
+W 646   V0812           OHNE_ABS                        //Ohne ABS Integral     SA-Entfall zu 01.08.2012, PN PX860_109 vom 15.02.2012
+W 647                                                   //SA Sportgetriebe
+W 648                                                   //Overdrivegetriebe
+W 649                                                   //Dummy, Angleich an K46 BN2020
+W 650                   AUTOSC                          //ASC
+W 651                                                   //SA Spritzschutz hinten
+W 652                                                   //Alu Rohrlenker
+W 655                                                   //Dummy, Angleich an K46 BN2020
+W 659                                                   //SA Spritzschutz hinten gross
+W 660                                                   //BU Koffer für Sonderfahrzeuge LA
+W 661                                                   //SA gepäckablage m. Kofferhalt.
+W 662                                                   //BU Halter f. feuerlöscher
+W 663                                                   //SA City systemkoffer WS
+W 664                                                   //SA City Systemkoffer SW
+W 665                                                   //Gepaeck-Bruecke
+W 666                                                   //BU Feuerloescher mit Halter
+W 667                                                   //SA City Systemkoffer Blanco
+W 668                                                   //Schwarzteile
+W 669                                                   //BU Schutzbuegel vorn für Behoerde
+W 670                                                   //Räder Sonderfarbe
+W 672                                                   //BU Schutzbügel vorn f. Behörde
+W 673                                                   //SA Schutzbuegel Vorn
+W 674                                                   //BU Schutzbügel hinten
+W 679                                                   //SU ohne Koffer
+W 680                                                   //SA Kofferhalterf. Alukoffer
+W 681                                                   //Kofferhalter
+W 682                                                   //BU kofferhalter Li/Re  behoerde
+W 684                                                   //ABS elektronisch Evo
+W 687                                                   //BU ohne Koffer und Halter
+W 689                                                   //BU ohne Koffer und Halter
+W 690                                                   //SA Topcase Halter
+W 691                                                   //SA ohne Sponsorenaufkleber
+W 696                                                   //Topcase groß mit Deckel in Karosseriefarbe inkl. Schielßzylinder in Gleichschließung
+W 6AA                                                   //Dumme wg. K001
+W 6AB                                                   //Dumme wg. K001
+W 6AC                                                   //Intelligenter Notruf
+W 6AE                                                   //Teleservices, Dummy aus K001
+W 700                                                   //SA Topcasetraeger für Alukoffer
+W 701                                                   //SA Leistungsreduzierung 1,5
+W 703                                                   //Leistungsreduzierung 79 KW
+W 708                                                   //SA ohne Vorbereitung Radio
+W 710                                                   //Sonderkontrolle F.Testmasch.Export
+W 711                                                   //SA ohne Kreuzspeichenraeder
+W 712                                                   //Radio
+W 713                                                   //Dummy, Angleich an K46 BN2020
+W 714                                                   //Sonderkontrolle F Fotomaschinen
+W 715                                                   //Sonderkontrolle F Testmaschinen
+W 716                                                   //Neues Model
+W 717                                                   //Termingebundenes Fahrzeug
+W 718                                                   //Fahrzeug fahrfertig Ab Werk Berlin
+W 719                                                   //Abweichung von Serienstand
+W 720                                                   //Leistungsreduzierung 72 KW
+W 723                                                   //SA breitband lautsprecher
+W 725                                                   //Vorbereitung Radio-Einbau m. Lautsprecher
+W 726                                                   //SA Vorbereitung radioeinbau
+W 727                                                   //Entstoerung f. Radio
+//*****************************LA, TAIS-Kennung Y*************************************************
+W 730                   SINGAPUR                        //Singapur-Ausfuehrung
+W 731                                                   //Schweiz-Ausfuehrung
+W 732                   KANADA                          //Kanada-Ausfuehrung
+W 733                                                   //Neuseeland-Ausfuehrung
+W 734                   AUSTRALIEN                      //Australien-Ausfuehrung
+W 735                                                   //Finnland-Ausfuehrung
+W 736                   ENGLAND                         //England-Ausfuehrung
+W 737                                                   //Belgien-Ausfuehrung
+W 738                                                   //Commonwealth-Ausfuehrung
+W 739   V0616                                           //Brasilien-Ausfuehrung
+W 739   N0616           BRASILIEN                       //Brasilien-Ausfuehrung
+W 740                   ARGENTINIEN                     //Argentinien-Ausfuehrung
+W 741   V0810                                           //Frankreich-Ausfuehrung
+W 741   N0810           FRANKREICH                      //Frankreich-Ausfuehrung
+W 742                   JAPAN                           //Japan-Ausfuehrung
+W 743                                                   //Oesterreich-Ausfuehrung
+W 745                                                   //Italien-Ausfuehrung
+W 746                                                   //Spanien,Kanaren-Ausfuehrung
+W 747                                                   //Irland-Ausfuehrung
+W 748                                                   //Inland-Ausfuehrung
+W 750                   TAIWAN                          //Taiwan-Ausfuehrung
+W 751                                                   //Verstellsitzbank anthrazit
+W 752                                                   //SA Doppelbank anthrazit
+W 753                                                   //SU verstellsitzbank
+W 754                                                   //Verstellsitzbank SW
+W 755                                                   //Sitzbank Standardhöhe, Standardpolster
+W 760                   THAILAND                        //Thailand-Ausfuehrung
+//******************************************************************************
+W 761                                                   //SA Ausstattung Canyonbraun
+W 762                                                   //SA Ausstattung Schwarz
+W 763                   //NAVIGATION                      //Navigation
+W 764                                                   //Steckdose
+W 765                                                   //Doppelsteckdose
+W 766                                                   //Komfort-Beifahrersitz
+W 769                                                   //Vorbereitung Radioeinbau
+W 770   V0810                                           //China-Ausfuehrung
+W 770   N0810           CHINA                           //China-Ausfuehrung
+W 771                                                   //Kreuzspeichenrad
+W 772                                                   //.. Kreuzspeichenraeder f. ab
+W 773                                                   //Sitz schwarz
+W 774                                                   //Doppelsitzbank niedrig
+W 775                                                   //SA Komfortsitz
+W 776                                                   //Fahrersitz niedrig
+W 778                                                   //SA Doppelstecksitzbank hoch
+W 779                                                   //SA breitreifen
+W 782                                                   //SA Bereifung Continent +
+W 783                                                   //Bereifung Metzeler
+W 785                                                   //Bereifung Bridgestone
+W 786                                                   //Bereifung Pirelli
+W 787                                                   //Dummy, Angleich an K46 BN2020
+W 788                                                   //Bereifung Michelin
+W 789                                                   //Bereifung Dunlop
+W 790                                                   //SA Rad Dynamic
+W 792                                                   //Dummy SA
+W 797                                                   //SA Verstellsitzbank rot
+W 798                                                   //SA Sitz Sepia
+W 800                                                   //Leistungsreduzierung 35 kW
+W 801                                                   //Leistungsreduzierung 25 kW
+W 850                   TAIWAN_BEH                      //Taiwan-Behördenausfuehrung
+W 851                                                   //LA Russland
+W 852                                                   //LA Indien                     PN PX860_116 vom 22.03.2012
+W 861                                                   //Chris Pfeiffer Edition PA ECE mit mit X590A
+W 862                                                   //Chris Pfeiffer Edition PA Kanada  mit X588A
+W 863                   JAPAN                           //Japan für Sondermodell K44TÜ
+W 877                                                   //Funkvorbereitung
+W 894                                                   //Sicherheitspaket 1
+W 896                                                   //Sicherheitspaket 3
+W 8L3                   SA_KOREA                        //Laendersteuerung 00228
+W 8LJ                                                   //Laendersteuerung 00244
+W 901                                                   //Anlaufunterstuetzung FB
+W 902                                                   //Anlaufunterstuetzung BG1
+W 903                                                   //Anlaufunterstuetzung BG2
+W 904                                                   //Anlaufunterstuetzung VS Pulk2
+W 905                                                   //Anlaufunterstuetzung VS Pulk3
+W 906                                                   //Anlaufunterstuetzung VS DE
+W 907                                                   //Anlaufunterstuetzung VS Pulk4
+W 908                                                   //Sonderbauteile für Funktionsbau oder Prozessserie
+W 909                                                   //Anlaufunterstuetzung Prozesserie
+W 910                                                   //Anlaufunterstuetzung
+W 990                                                   //Steuerung Anlaufserie
+W 991                                                   //Steuerung Vorserie
+W 992                                                   //Steuerung Haendlererstausstattung
+W 993                                                   //EU-1
+W 994                                                   //Erweiterung Serienumfang
+W 995                                                   //Erweiterung SA-Umfang
+W 997                                                   //Auftragssteuerung
+W 998                                                   //Steuerung Sonderfahrzeuge/ Behoerdensteuerung
+W 9C6                                                   //CKD Montage Thailand
+W 9C8                   CKD_BRASILIEN                   //CKD Montage Brasilien
+//
+W XA1                                                   //SABI LED Blitzkennleuchten links rot / rechts blau
+W XAA                                                   //BU Halter Funkbedienteil
+W XAB                                                   //BU Halter Heckanbau universal
+//
+//******************************************************************************
+// TYPSCHLÜSSEL
+//*******************************************************************************
+//
+W 0A06                  K21 K24 K2X ECE K2X_48                                      //K21 ECE   R1200X                   1,17cc R51900  11/13 - 08/16
+W 0A16                  K21 K24 K2X US  K2X_48                                      //K21 US    R1200X                   1,17cc R51900  11/13 - 08/16
+
+W 0B01                  K70 K24 K7X ECE                                  E_ABS      //K70 F700GS  2-Zyl 0,80  K7X_MUE           R71900  06/12 - 07/16
+W 0B11                  K70 K24 K7X US                                   E_ABS      //K70 F700GS  2-Zyl 0,80  K7X_MUE           R71900  06/12 - 07/16
+W 0B21                  K70 K24 K7X ECE CKD_BRASILIEN                    E_ABS      //K70 F700GS  2-Zyl 0,80  K7X_MUE CKD Brasilien R71900  06/16 - 07/16
+W 0B31                  K70 K24 K7X ECE                                  E_ABS      //K70 F700GS  2-Zyl 0,80  K7X_MUE CKD Thailand  R71900  01/15 - 07/16
+
+W 0B06                  K70 K24 K7X ECE                K70_TUE  K7X_TUE  E_ABS      //K70 TÜ F700GS  2-Zyl 0,80  K7X_TUE        R71900  08/16 - 09/18
+W 0B16                  K70 K24 K7X US                 K70_TUE  K7X_TUE  E_ABS      //K70 TÜ F700GS  2-Zyl 0,80  K7X_TUE        R71900  08/16 - 09/18
+W 0B26                  K70 K24 K7X ECE CKD_BRASILIEN  K70_TUE  K7X_TUE  E_ABS      //K70 TÜ F700GS  2-Zyl 0,80  K7X_TUE CKD Brasilien R71900  11/16 - 11/17
+W 0B36                  K70 K24 K7X ECE                K70_TUE  K7X_TUE  E_ABS      //K70 TÜ F700GS  2-Zyl 0,80  K7X_TUE CKD Thailand  R71900  11/16 - 11/17
+
+W 0B03                  K71 K24 K7X ECE                K71_MUE           E_ABS      //K71 MÜ F800ST  2-Zyl 0,8                  R21900  10/12 - 09/16
+W 0B13                  K71 K24 K7X US  LED_US         K71_MUE           E_ABS      //K71 MÜ F800ST  2-Zyl 0,8                  R21900  10/12 - 09/16
+W 0B33                  K71 K24 K7X ECE                K71_MUE           E_ABS      //K71 MÜ F800ST  2-Zyl 0,8  CKD Thailand    R21900  02/15 - 12/15
+
+W 0B53                  K71 K24 K7X ECE                K71_TUE  K7X_TUE  E_ABS      //K71 TÜ F800ST  2-Zyl 0,8                  R71900  11/16 - 10/18
+W 0B63                  K71 K24 K7X US  LED_US         K71_TUE  K7X_TUE  E_ABS      //K71 TÜ F800ST  2-Zyl 0,8                  R71900  11/16 - 10/18
+W 0B83                  K71 K24 K7X ECE                K71_TUE  K7X_TUE  E_ABS      //K71 TÜ F800ST  2-Zyl 0,8  CKD Thailand    R71900  Storniert
+
+W 0B02                  K72 K24 K7X ECE                K72_MUE           E_ABS      //K72 MÜ F800GS  2-Zyl 0,80                 R71900  06/12 - 07/16
+W 0B12                  K72 K24 K7X US                 K72_MUE           E_ABS      //K72 MÜ F800GS  2-Zyl 0,80                 R71900  06/12 - 07/16
+W 0B22                  K72 K24 K7X ECE CKD_BRASILIEN  K72_MUE           E_ABS      //K72 MÜ F800GS  2-Zyl 0,80 CKD Brasilien   R71900  09/12 - 05/16
+W 0B23                  K72 K24 K7X ECE                K72_MUE           E_ABS      //K72 MÜ F800GS  2-Zyl 0,80 CKD Thailand    R71900  01/14 - 07/16
+W 0B32                  K72 K24 K7X ECE CKD_BRASILIEN  K72_MUE           E_ABS      //K72 MÜ F800GS  2-Zyl 0,80 CKD Brasilien   R71900  06/16 - 07/16
+
+W 0B07                  K72 K24 K7X ECE                K72_TUE  K7X_TUE  E_ABS      //K72 TÜ F800GS  2-Zyl 0,80                 R71900  08/16 - 09/18
+W 0B17                  K72 K24 K7X US                 K72_TUE  K7X_TUE  E_ABS      //K72 TÜ F800GS  2-Zyl 0,80                 R71900  08/16 - 09/18
+W 0B27                  K72 K24 K7X ECE CKD_BRASILIEN  K72_TUE  K7X_TUE  E_ABS      //K72 TÜ F800GS  2-Zyl 0,80 CKD Brasilien   R71900  02/17 - 09/18
+W 0B37                  K72 K24 K7X ECE                K72_TUE  K7X_TUE  E_ABS      //K72 TÜ F800GS  2-Zyl 0,80 CKD Thailand    R71900  04/17 - 09/18
+
+W 0B04                  K73 K24 K7X ECE                K73_MUE           E_ABS      //K73 MÜ  F800R   2-Zyl 0,80                R21900  10/14 - 09/16
+W 0B14                  K73 K24 K7X US  LED_US         K73_MUE           E_ABS      //K73 MÜ  F800R   2-Zyl 0,80                R21900  10/14 - 09/16
+W 0B24                  K73 K24 K7X ECE CKD_BRASILIEN  K73_MUE           E_ABS      //K73 MÜ  F800R   2-Zyl 0,80 CKD Brasilien  R21900  10/14 - 05/16
+W 0B34                  K73 K24 K7X ECE                K73_MUE           E_ABS      //K73 MÜ  F800R   2-Zyl 0,80 CKD Thailand   R21900  10/14 - 09/16
+W 0B44                  K73 K24 K7X ECE CKD_BRASILIEN  K73_MUE           E_ABS      //K73 MÜ  F800R   2-Zyl 0,80 CKD Brasilien  R21900  06/16 - 09/16
+
+W 0B54                  K73 K24 K7X ECE                K73_TUE  K7X_TUE  E_ABS      //K73 TÜ  F800R   2-Zyl 0,80                R71900  11/16 - 11/18
+W 0B64                  K73 K24 K7X US  LED_US         K73_TUE  K7X_TUE  E_ABS      //K73 TÜ  F800R   2-Zyl 0,80                R71900  11/16 - 11/18
+W 0B74                  K73 K24 K7X ECE CKD_BRASILIEN  K73_TUE  K7X_TUE  E_ABS      //K73 TÜ  F800R   2-Zyl 0,80 CKD Brasilien  R71900  06/17 - 09/19
+W 0B84                  K73 K24 K7X ECE                K73_TUE  K7X_TUE  E_ABS      //K73 TÜ  F800R   2-Zyl 0,80 CKD Thailand   R71900  08/17 - 09/19
+
+W 0B05                  K75 K24 K7X ECE                                  E_ABS      //K75 F800GS  2-Zyl 0,80                    R71900  03/13 - 05/16
+W 0B15                  K75 K24 K7X US                                   E_ABS      //K75 F800GS  2-Zyl 0,80                    R71900  03/13 - 05/16
+W 0B25                  K75 K24 K7X ECE CKD_BRASILIEN                    E_ABS      //K75 F800GS  2-Zyl 0,80 CKD Braslien       R71900  06/13 - 05/16
+
+W 0B55                  K75 K24 K7X ECE                K75_TUE  K7X_TUE  E_ABS      //K75 TÜ F800GS  2-Zyl 0,80                 R71900  06/16 - 08/18
+W 0B65                  K75 K24 K7X US                 K75_TUE  K7X_TUE  E_ABS      //K75 TÜ F800GS  2-Zyl 0,80                 R71900  06/16 - 08/18
+W 0B75                  K75 K24 K7X ECE CKD_BRASILIEN  K75_TUE  K7X_TUE  E_ABS      //K75 TÜ F800GS  2-Zyl 0,80 CKD Braslien    R71900  12/16 - 08/18
+
+W 9252                  A67         ECE                                             //Rosenbauer Motor, Tragkraftpumpe fuer Feuerwehr
+
+W 9X10                  V98         ECE                                             //Rosenbauer-Motor, Motor aus K21           01.01.2015 - 31.12.2016, Motorbezeichnung lt. VRM: ZZ2B12U0, lt. TAIS A73B12M0
+
+//---------------------- ab hier Dummy-Typschlüssel wg. MÜ/TÜ mit BN2010 (BRV K001)--------------------------------------------------------------------------------------
+
+W 0C04                                                                              //K18 Sport MÜ                              Dummy für K18MÜ, BN2010 --> BRV K001
+W 0C14                                                                              //K18 Sport MÜ                              Dummy für K18MÜ, BN2010 --> BRV K001
+
+W 0C05                                                                              //K19 Touring MÜ                            Dummy für K19MÜ, BN2010 --> BRV K001
+W 0C15                                                                              //K19 Touring MÜ                            Dummy für K19MÜ, BN2010 --> BRV K001
+
+W 0J01                                                                              //K21 TUE                                   Dummy für K21TÜ
+W 0J03                                                                              //K21 TUE                                   Dummy für K21TÜ
+
+W 0D10                                                                              //K46 MÜ2 S1000RR 4-Zyl 0,99                Dummy für K46MÜ2, BN2010 --> BRV K001
+W 0D21                                                                              //K46 MÜ2 S1000RR 4-Zyl 0,99                Dummy für K46MÜ2, BN2010 --> BRV K001
+W 0D30                                                                              //K46 MÜ2 S1000RR 4-Zyl 0,99 CKD Brasilien  Dummy für K46MÜ2, BN2010 --> BRV K001
+W 0D40                                                                              //K46 MÜ2 S1000RR 4-Zyl 0,99 CKD Thailand   Dummy für K46MÜ2, BN2010 --> BRV K001
+
+W 0D50                                                                              //K46 MÜ3 S1000RR 4-Zyl 0,99                Dummy für K46MÜ3, BN2010 --> BRV K001
+W 0D60                                                                              //K46 MÜ3 S1000RR 4-Zyl 0,99                Dummy für K46MÜ3, BN2010 --> BRV K001
+W 0D70                                                                              //K46 MÜ3 S1000RR 4-Zyl 0,99 CKD Brasilien  Dummy für K46MÜ3, BN2010 --> BRV K001
+W 0D80                                                                              //K46 MÜ3 S1000RR 4-Zyl 0,99 CKD Thailand   Dummy für K46MÜ3, BN2010 --> BRV K001
+
+//---------------------- ab hier ausgelaufene Typschlüssel --------------------------------------------------------------------------------------------------------------
+
+W 0131                  K18 K24 K1X ECE                                                                 //K18 ECE   Big Scooter Sport        0,65cc R11900  12/11 - 08/15
+W 0132                  K18 K24 K1X US                                                                  //K18 US    Big Scooter Sport US     0,65cc R11900  12/11 - 08/15
+W 0133                  K19 K24 K1X ECE                                                                 //K19 ECE   Big Scooter Touring      0,65cc R11900  12/11 - 08/15
+W 0134                  K19 K24 K1X US                                                                  //K19 US    Big Scooter Touring US   0,65cc R11900  12/11 - 08/15
+W 0307                  K25 K24 K2X ECE                  K25_BASIS                                      //K25 R1200GS 2-Zyl 1,17                    R25900  11/03 - 10/07
+W 0317                  K25 K24 K2X US  LED_US           K25_BASIS                                      //K25 R1200GS 2-Zyl 1,17                    R25900  01/04 - 10/07
+W 0303                  K25 K24 K2X ECE                  K25_MUE        K25MUE                          //K25 11 R1200GS 2-Zyl 1,17                 R25900  10/07 - 09/09
+W 0313                  K25 K24 K2X US  LED_US           K25_MUE        K25MUE                          //K25 11 R1200GS 2-Zyl 1,17                 R25900  10/07 - 09/09
+W 0450                  K25 K24 K2X ECE                  K25_TUE        TUE                             //K25 31 R1200GS 2-Zyl 1,17                 R25900  10/09 - 08/12
+W 0460                  K25 K24 K2X US                   K25_TUE        TUE                             //K25 31 R1200GS 2-Zyl 1,17                 R25900  10/09 - 08/12
+W 0382                  K25 K24 K2X ECE         ADV      K25_ADV_BASIS                                  //K25 02 Adventure R1200GS 2-Zyl 1,17       R25978  01/06 - 10/07
+W 0397                  K25 K24 K2X US  LED_US  ADV      K25_ADV_BASIS                                  //K25 02 Adventure R1200GS 2-Zyl 1,17       R25978  01/06 - 10/07
+W 0380                  K25 K24 K2X ECE         ADV      K25_ADV_MUE    K25MUE                          //K25 12 Adventure R1200GS 2-Zyl 1,17       R25900  10/07 - 09/09
+W 0390                  K25 K24 K2X US  LED_US  ADV      K25_ADV_MUE    K25MUE                          //K25 12 Adventure R1200GS 2-Zyl 1,17       R25900  10/07 - 10/09
+W 0470  V0812           K25 K24 K2X ECE         ADV      K25_ADV_TUE    TUE                             //K25 32 Adventure R1200GS 2-Zyl 1,17       R25900  10/09 - 08/13
+W 0470  N0812           K25 K24 K2X ECE         ADV      K25_ADV_TUE    TUE  I_ABS_2                    //K25 32 Adventure R1200GS 2-Zyl 1,17       R25900  10/09 - 08/13
+W 0480  V0812           K25 K24 K2X US          ADV      K25_ADV_TUE    TUE                             //K25 32 Adventure R1200GS 2-Zyl 1,17       R25900  10/09 - 08/13
+W 0480  N0812           K25 K24 K2X US          ADV      K25_ADV_TUE    TUE  I_ABS_2                    //K25 32 Adventure R1200GS 2-Zyl 1,17       R25900  10/09 - 08/13
+W 0369                  K25 K24 K2X ECE         HP                                                      //K25 HP R1200GS 2-Zyl 1,17                 R25900  07/05 - 10/07
+W 0389                  K25 K24 K2X US          HP                                                      //K25 HP R1200GS 2-Zyl 1,17                 R25900  08/05 - 10/07
+W 0310                  K25 K24 K2X ECE         MM                                                      //K25 03 MegaMoto R1200                     R25900  05/07 - 07/10
+W 0320                  K25 K24 K2X US          MM                                                      //K25 03 MegaMoto R1200                     R25900  05/07 - 07/10
+//
+W 0367  V0806           K26 K24 K2X ECE         K26_BASIS  I_ABS                                        //K26 02 R900RT 2-Zyl 0,9                   R25900  05/06 - 12/09
+W 0367  N0806           K26 K24 K2X ECE         K26_BASIS  I_ABS_2                                      //K26 02 R900RT 2-Zyl 0,9                   R25900  05/06 - 12/09
+W 0368  V0806           K26 K24 K2X ECE         K26_BASIS  I_ABS                                        //K26 R1200RT 2-Zyl 1,17                    R25900  10/04 - 12/09
+W 0368  N0806           K26 K24 K2X ECE         K26_BASIS  I_ABS_2                                      //K26 R1200RT 2-Zyl 1,17                    R25900  10/04 - 12/09
+W 0387  V0806           K26 K24 K2X US          K26_BASIS  I_ABS                                        //K26 02 R900RT 2-Zyl 0,9                   R25900  05/06 - 12/09
+W 0387  N0806           K26 K24 K2X US          K26_BASIS  I_ABS_2                                      //K26 02 R900RT 2-Zyl 0,9                   R25900  05/06 - 12/09
+W 0388  V0806           K26 K24 K2X US          K26_BASIS  I_ABS                                        //K26 R1200RT 2-Zyl 1,17                    R25900  12/04 - 12/09
+W 0388  N0806           K26 K24 K2X US          K26_BASIS  I_ABS_2                                      //K26 R1200RT 2-Zyl 1,17                    R25900  12/04 - 12/09
+W 0430                  K26 K24 K2X ECE         K26_MUE    I_ABS_2                                      //K26 11 R1200RT 2-Zyl 1,17                 R25900  11/09 - 06/14
+W 0440                  K26 K24 K2X US          K26_MUE    I_ABS_2                                      //K26 11 R1200RT 2-Zyl 1,17                 R25900  11/09 - 06/14
+W 0330                  K26 K24 K2X ECE         K26_MUE    I_ABS_2 SF                                   //K26 11 SF R900RT 2-Zyl 0,9                R25900  02/10 - 12/13
+W 0340                  K26 K24 K2X US          K26_MUE    I_ABS_2 SF                                   //K26 11 SF R900RT 2-Zyl 0,9                R25900  02/10 - 12/13
+
+W 0378                  K27 K24 K2X ECE K2X_48                                                          //K27 R1200R 2-Zyl 1,17                     R25900  07/06 - 10/10
+W 0398                  K27 K24 K2X US  K2X_48                                                          //K27 R1200R 2-Zyl 1,17                     R25900  07/06 - 10/10
+W 0400  V0812           K27 K24 K2X ECE K2X_48  K27_MUE                                                 //K27/11 MUE R1200R 2-Zyl 1,17              R25900  12/10 - 08/14
+W 0400  N0812           K27 K24 K2X ECE K2X_48  K27_MUE    I_ABS_2                                      //K27/11 MUE R1200R 2-Zyl 1,17              R25900  12/10 - 08/14
+W 0490  V0812           K27 K24 K2X US  K2X_48  K27_MUE                                                 //K27/11 MUE R1200R 2-Zyl 1,17              R25900  12/10 - 08/14
+W 0490  N0812           K27 K24 K2X US  K2X_48  K27_MUE    I_ABS_2                                      //K27/11 MUE R1200R 2-Zyl 1,17              R25900  12/10 - 08/14
+//
+W 0328                  K28 K24 K2X ECE                                                                 //K28 R1200RS 2-Zyl 1,17                    R25900  12/04 - 12/07
+W 0338                  K28 K24 K2X US                                                                  //K28 R1200RS 2-Zyl 1,17                    R25900  12/04 - 07/07
+//
+W 0366                  K29 K24 K2X ECE K2X_48                                                          //K29 R1200S 2-Zyl 1,17                     R25900  03/06 - 02/08
+W 0396                  K29 K24 K2X US  K2X_48                                                          //K29 R1200S 2-Zyl 1,17                     R25900  03/06 - 02/08
+W 0458                  K29 K24 K2X ECE K2X_48  HP                                                      //K29 HP HP2RS 2-Zyl 1,17                   R25900  01/08 - 07/10
+W 0468                  K29 K24 K2X US  K2X_48  HP                                                      //K29 HP HP2RS 2-Zyl 1,17                   R25900  01/08 - 07/10
+//
+W 0581  V0806           K40 K24 K4X ECE         K40_BASIS  I_ABS                                        //K40 K1200S 4-Zyl 1,15                     R59900  06/04 - 09/08
+W 0581  N0806           K40 K24 K4X ECE         K40_BASIS  I_ABS_2                                      //K40 K1200S 4-Zyl 1,15                     R59900  06/04 - 09/08
+W 0591  V0806           K40 K24 K4X US          K40_BASIS  I_ABS                                        //K40 K1200S 4-Zyl 1,15 US                  R59900  07/04 - 09/08
+W 0591  N0806           K40 K24 K4X US          K40_BASIS  I_ABS_2                                      //K40 K1200S 4-Zyl 1,15 US                  R59900  07/04 - 09/08
+W 0508                  K40 K24 K4X ECE         K40_MUE    I_ABS_2    K4X_MUE                           //K40 11 K1300S 4-Zyl 1,15                  R59900  10/08 - 12/15
+W 0509                  K40 K24 K4X US          K40_MUE    I_ABS_2    K4X_MUE                           //K40 11 K1300S 4-Zyl 1,15                  R59900  10/08 - 12/15
+//
+W 0D01                  K42 K24 K4X ECE                    SPORT_ABS_ASC                                //K42   HP4 4-Zyl                           R41900  06/12 - 07/14
+W 0D11                  K42 K24 K4X US                     SPORT_ABS_ASC                                //K42   HP4 4-Zyl                           R41900  06/12 - 07/14
+//
+W 0584                  K43 K24 K4X ECE         K43_BASIS                                               //K43 K1200R 4-Zyl 1,15                     R59900  03/05 - 09/08
+W 0594                  K43 K24 K4X US          K43_BASIS                                               //K43 K1200R 4-Zyl 1,15 US                  R59900  03/05 - 09/08
+W 0585                  K43 K24 K4X ECE         K43_HV     HV                                           //K43 HV K1200R 4-Zyl 1,16                  R59900  10/06 - 09/08
+W 0595                  K43 K24 K4X US          K43_HV     HV                                           //K43 HV K1200R 4-Zyl 1,16                  R59900  10/06 - 09/08
+W 0518  V0812           K43 K24 K4X ECE         K43_MUE               K4X_MUE                           //K43 11 K1300R 4-Zyl 1,15                  R59900  10/08 - 12/15
+W 0518  N0812           K43 K24 K4X ECE         K43_MUE    I_ABS_2    K4X_MUE                           //K43 11 K1300R 4-Zyl 1,15                  R59900  10/08 - 12/15
+W 0519  V0812           K43 K24 K4X US          K43_MUE               K4X_MUE                           //K43 11 K1300R 4-Zyl 1,15                  R59900  10/08 - 12/15
+W 0519  N0812           K43 K24 K4X US          K43_MUE    I_ABS_2    K4X_MUE                           //K43 11 K1300R 4-Zyl 1,15                  R59900  10/08 - 12/15
+//
+W 0587  V0806           K44 K24 K4X ECE         K44_BASIS  I_ABS                                        //K44 K1200GT 4-Zyl 1,16                    R59900  01/06 - 10/08
+W 0587  N0806           K44 K24 K4X ECE         K44_BASIS  I_ABS_2                                      //K44 K1200GT 4-Zyl 1,16                    R59900  01/06 - 10/08
+W 0597  V0806           K44 K24 K4X US          K44_BASIS  I_ABS                                        //K44 K1200GT 4-Zyl 1,16 US                 R59900  01/06 - 10/08
+W 0597  N0806           K44 K24 K4X US          K44_BASIS  I_ABS_2                                      //K44 K1200GT 4-Zyl 1,16 US                 R59900  01/06 - 10/08
+W 0538                  K44 K24 K4X ECE         K44_TUE    I_ABS_2                                      //K44 31 K1300GT 4-Zyl 1,16                 R59900  11/08 - 11/10
+W 0539                  K44 K24 K4X US          K44_TUE    I_ABS_2                                      //K44 31 K1300GT 4-Zyl 1,16                 R59900  11/08 - 11/10
+//
+W 0507                  K46 K24 K4X ECE                                                                 //K46 S1000RR 4-Zyl 0,99                    R41900  09/09 - 08/11
+W 0517                  K46 K24 K4X US                                                                  //K46 S1000RR 4-Zyl 0,99                    R41900  10/09 - 08/11
+W 0524  V0812           K46 K24 K4X ECE         K46_MUE                                                 //K46 MÜ S1000RR 4-Zyl 0,99                 R41900  09/11 - 08/14
+W 0524  N0812           K46 K24 K4X ECE         K46_MUE    SPORT_ABS                                    //K46 MÜ S1000RR 4-Zyl 0,99                 R41900  09/11 - 08/14
+W 0534  V0812           K46 K24 K4X US          K46_MUE                                                 //K46 MÜ S1000RR 4-Zyl 0,99                 R41900  09/11 - 08/14
+W 0534  N0812           K46 K24 K4X US          K46_MUE    SPORT_ABS                                    //K46 MÜ S1000RR 4-Zyl 0,99                 R41900  09/11 - 08/14
+//
+W 0216                  K71 K24 K7X ECE                K7X_BASIS                                        //K71 F800S   2-Zyl 0,8                     R21900  03/06 - 07/10
+W 0226                  K71 K24 K7X US  LED_US         K7X_BASIS                                        //K71 F800S   2-Zyl 0,8                     R21900  08/06 - 07/10
+W 0234                  K71 K24 K7X ECE                K7X_BASIS                                        //K71 F800ST  2-Zyl 0,8                     R21900  05/06 - 07/12
+W 0244                  K71 K24 K7X US  LED_US         K7X_BASIS                                        //K71 F800ST  2-Zyl 0,8                     R21900  08/06 - 07/12
+//
+W 0218                  K72 K24 K7X ECE                K7X_BASIS           CC_650                       //K72 F650GS  2-Zyl 0,79                    R21900  11/07 - 05/12
+W 0228                  K72 K24 K7X US                 K7X_BASIS           CC_650                       //K72 F650GS  2-Zyl 0,79                    R21900  01/08 - 05/12
+W 0219                  K72 K24 K7X ECE                K7X_BASIS                                        //K72 F800GS  2-Zyl 0,79                    R21900  11/07 - 05/12
+W 0225                  K72 K24 K7X ECE CKD_BRASILIEN  K7X_BASIS                                        //K72 F800GS  2-Zyl 0,79 CKD Brasilien      R21900  12/10 - 12/12
+W 0229                  K72 K24 K7X US                 K7X_BASIS                                        //K72 F800GS  2-Zyl 0,79                    R21900  01/08 - 05/12
+//
+
+W 0217  V0812           K73 K24 K7X ECE                K7X_BASIS                                        //K73 F800R   2-Zyl 0,80                    R21900  03/09 - 09/14
+W 0217  N0812           K73 K24 K7X ECE                K7X_BASIS            E_ABS                       //K73 F800R   2-Zyl 0,80                    R21900  03/09 - 09/14
+W 0215  V0812           K73 K24 K7X ECE CKD_BRASILIEN  K7X_BASIS                                        //K73 F800R   2-Zyl 0,80 CKD Brasilien      R21900  10/10 - 12/14
+W 0215  N0812           K73 K24 K7X ECE CKD_BRASILIEN  K7X_BASIS            E_ABS                       //K73 F800R   2-Zyl 0,80 CKD Brasilien      R21900  10/10 - 12/14
+W 0224                  K73 K24 K7X ECE                K7X_BASIS            E_ABS                       //K73 F800R   2-Zyl 0,80 CKD Thailand       R21900  09/13 - 03/15
+W 0227  V0812           K73 K24 K7X US  LED_US         K7X_BASIS                                        //K73 F800R   2-Zyl 0,80                    R21900  03/09 - 09/14
+W 0227  N0812           K73 K24 K7X US  LED_US         K7X_BASIS            E_ABS                       //K73 F800R   2-Zyl 0,80                    R21900  03/09 - 09/14
+//--------------------                                                         ---------------

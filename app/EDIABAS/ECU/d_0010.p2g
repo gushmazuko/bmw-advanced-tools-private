@@ -1,0 +1,699 @@
+#line 1 "D_0010.B2G"
+ecu     : D_0010;
+origin  : BMW AG VP-34 K.Weissert;
+revision: 2.79;
+author  : BMW AG VP-34 J.Haupt, BMW TI-538 Drexel;
+comment : DDE21K20, DDE21K21, DM172K20, DM173K20, DM17_2R1, DM331K20, DM33M301, DM33S501, DM5212R0, DM5212R2, DM5212R3, DME331, MS401K20, MS40_1, MS40, DME13_4, DME11_20, DME11_30, DME13_6, DME12_70, DME12_38, DME31, DME31_R, DME33S50, DME17_2L, DME33_8, DME5212R, DDE1, DDE2;
+
+/* ------------------------------------------------------------------
+   Liste aller Varianten:
+
+   DDE1       -
+   DDE2       -
+   DDE21K20   aktuell
+   DDE21K21   aktuell
+
+   DM172K20   aktuell  
+   DM173K20   aktuell
+   DM17_2R1   aktuell
+   DM331K20   aktuell
+   DM33M301   aktuell
+   DM33S501   aktuell
+   DM5212R0   aktuell ALPINA
+   DM5212R2   aktuell
+   DME11_20   -
+   DME11_30   -
+   DME12_38   -
+   DME12_70   -
+   DME13_4    -
+   DME13_6    -
+   DME17_2L   -
+   DME17_4    -
+   DME31      -
+   DME31_R    -
+   DME331     aktuell
+   DME33S50   -
+   DME33_8    -
+   DME5212R   -
+
+   MS40       -
+   MS401K20   aktuell
+   MS40_1     aktuell
+   ------------------------------------------------------------------ */
+
+/***********************************************************************
+;%V ********************************************************************
+;%V Gruppendatei : D_0010
+;%V Steuergeraet : -
+;%V gueltig fuer : Motoren (DME, DDE)
+;%V --------------------------------------------------------------------
+;%V History:       27.07.92   Erstellung                              Ta
+;%V                03.02.93   DDE2-Identifikation: SW-Version *E*    Stb
+;%V                24.03.93   HW_Tabelle erweitert:                  Stb
+;%V                           LINE   "1703400",     "DME33_8"
+;%V                29.03.93   xconnect wird erster Kom.-Befehl        Ta
+;%V                07.05.93   HW_Tabelle erweitert:                   Ta
+;%V                           LINE   "1739648",     "DME13_4"
+;%V                07.05.93   Keine Identifikation mit Konzept 4 mehr Ta
+;%V                02.06.93   HW_Tabelle erweitert:                   Ta
+;%V                           LINE   "1703563",     "DME331"
+;%V                07.05.93   HW_Tabelle erweitert:                   Ta
+;%V                           LINE   "1739648",     "DME17_4" !!!
+;%V                           LINE   "1748837",     "DME33_8"
+;%V                           LINE   "1748006",     "MS40_1"
+;%V                08.07.93   LINE   "1247744",     "DME17_4"         TT
+;%V                           LINE   "1401125",     "DME17_2L" 850CSi
+;%V                           LINE   "1703808",     "DME331" MJ'94 
+;%V                19.07.93   DDE2 auch bei 42h (B)                  Stb
+;%V                05.10.93   LINE   "1403611",     "DME17_2L" 850CSi US TT
+;%V                27.10.93   LINE   "4379387",     "DME33_8" 730i E38 TT
+;%V                07.02.94   LINE   "1247294",     "DME17_4" 518iA hinzu
+;%V                V1.5       LINE   "1740732",     "DME33_8" hinzu  
+;%V                           LINE   "1703820",     "DME33_8" hinzu   TT
+;%V                V1.6       LINE   "1740341",     "DME5212R" hinzu   TT
+;%V                           LINE   "1421977",     "DME33_8" hinzu EB
+;%V                           LINE   "1744050",     "DME33_8" hinzu EB
+;%V                V2.0       E36-Steuergeraete hinzu
+;%V                           folgende Zeilen hinzugefuegt:
+;%V                           ; DME DME33S50
+;%V                           LINE   "1317909",     "DME33S50"
+;%V                           LINE   "1403157",     "DME33S50"
+;%V                           LINE   "1403945",     "DME33S50"
+;%V                           LINE   "1247786",     "DME17_4"  ; E36 CA51/52
+;%V                           LINE   "1247230",     "DME17_4"  ; E36 CA51/52
+;%V                           LINE   "1247228",     "DME17_4"  ; E36 CA53
+;%V                           ; DME M 1.7 4-Zyl M43
+;%V                           LINE   "1247851",     "DME17_4"  ; E36 CA01/02/91/92
+;%V                           LINE   "1247852",     "DME17_4"  ; E36 CA71/72/81/82
+;%V                           LINE   "1247519",     "DME17_4"  ; E36 CA01/02/91/92
+;%V                           LINE   "1247881",     "DME17_4"  ; E36 CA01/02 neu
+;%V                           LINE   "1743248",     "DME17_4"  ; E36
+;%V                           ; DME MS41
+;%V                           LINE   "1744160",     "MS41"
+;%V                           LINE   "1703555",     "MS41"
+;%V                V2.1      LINE   "1740208",     "DME5212R"
+;%V                30.08.94  Div. Stg. Nummern eingebunden           EB
+;%V                V2.2      19.10.94  Zusammenfuehren zweier Staende TT
+;%V                V2.3      25.10.94  EWS Steuergeräte erweitert     We
+;%V                           M73 SGBD DME5212R in DM5212R1 geändert
+;%V                           neues Fehlerspeicherkonzept
+;%V                           LINE   "1744697",     "DM5212R1" ; DME E38  EWS 2  Serie
+;%V                           LINE   "1744698",     "DME331"   ; EWS2 Serie
+;%V                           LINE   "1744597",     "MS40_1"   ; DME MS40.1 mit EWS
+;%V                           LINE   "1743250",     "DME17_4"  ; E36 M42B18 EWS
+;%V                           LINE   "1743251",     "DME17_4"  ; E36 M42B18 EWS
+;%V                           LINE   "1743252",     "DME17_4"  ; E36 M42B18 EWS
+;%V                           LINE   "1743246",     "DME17_4"  ; E36 M43B16   EWS
+;%V                           LINE   "1743247",     "DME17_4"  ; E36 M43B18   EWS
+;%V                           LINE   "1743248",     "DME17_4"  ; E36 M43B18 B EWS
+;%V                           LINE   "1743249",     "DME17_4"  ; E34 M43B18   EWS nach E6409.G
+;%V               V 2.5       Umstellung der Datei auf Best2
+;%V                           Job Diagnoseende entfernt
+;%V                           Freigabe 
+;%V               V 2.51      Neue SG-Nummern DME 17_3 USA E36/7 erweitert  We
+;%V                           DME M 1.73 4-Zyl M43
+;%V                          "4384179",     "DME17_4"    // E36 /7 USA       
+;%V                          "4384995",     "DME17_4"    // E36 /7 USA
+;%V
+;%V               V 2.52      Umstellung EWS SGBD-Namen  DME und DDE21
+;%V                           Erweiterung M43 Südafrika
+;%V                          "4380670",     "DM331K20"  },      // EWS2 nur Vorserie
+;%V                          "1744698",     "DM331K20"  },      // EWS2 Serie
+;%V
+;%V                          "1247229",     "DME17_4"   },      // E36 ZA
+;%V                          "1247293",     "DME17_4"   },      // E36 ZA
+;%V
+;%V                          "1743250",     "DM172K20" },       // E36 M42B18 EWS
+;%V                          "1743251",     "DM172K20" },       // E36 M42B18 EWS
+;%V                          "1743252",     "DM172K20" },       // E36 M42B18 EWS
+;%V
+;%V                          "1743246",     "DM172K20"  },      // E36 M43B16   EWS
+;%V                          "1743247",     "DM172K20"  },      // E36 M43B18   EWS
+;%V                          "1743248",     "DM172K20"  },      // E36 M43B18 B EWS
+;%V                          "1743249",     "DM172K20"  },      // E34 M43B18   EWS nach E6409.G
+;%V
+;%V                          "1744597",     "MS401K20"  },      // DME MS40.1 mit EWS
+;%V
+;%V                          "4380542",     "DM5212R2"  },      //DME E38  EWS 2  Versuchssteuergeräte
+;%V                          "1744697",     "DM5212R2"  }       //DME E38  EWS 2  Serie
+;%V                          "1404735",     "DM33S501"  },      // M3 EWS Serie
+;%V                           // DME 3.3 S38
+;%V                          "1404734",     "DM33M301"  },      // DME 3.3 S38  mit EWS
+;%V               V 2.53
+;%V                          "1403945",     "DM331K20"  },      // geaendert von DME33S50
+;%V
+;%V               V 2.54
+;%V                          Zuweisung "" entfernt
+;%V                          "1743247",     "DME17_2R"  },       // sollte M70 850 CSI  sein ?
+;%V               V 2.55
+;%V                          "1404738",     "DM17_2R1"  },       //  M70 850 CSI mit EWS
+;%V 07.02.95      V 2.56 SP  "1739807"      "DM173K20"           //  E36 M43EG2 B18
+;%V                          "1739855"      "DM173K20"           //  E36 M43EG2 B16
+;%V                          "1743734"      "DM173K20"           //  E34/2 M43CNG B18
+;%V                          "1743733"      "DM173K20"           //  E36/5 M43CNG B16
+;%V
+;%V 17.02.95      V 2.57 We
+;%V                          // DME M 1.73 4-Zyl M43
+;%V                             "4384179",     "DM173K20"  },      //  E36 /7 USA       
+;%V                             "4384995",     "DM173K20"  },      //  E36 /7 USA        
+;%V                       {     "4384179",     "DM173K20"  },      //  E36 /7 USA
+;%V                             "4384995",     "DM173K20"  },      //  E36 /7 USA
+;%V                             "4384995",     "DM173K20"  },      //
+;%V                             "4384149",     "DM173K20"  },      //
+;%V                             "4387490",     "DM173K20"  },      //
+;%V                             "1739807",     "DM173K20"  },      //  E36 M43EG2 B18
+;%V                             "1739855",     "DM173K20"  },      //  E36 M43EG2 B16
+;%V
+;%V                             "4387525",     "DM173K20"  },      //  E34/2 M43CNG B18
+;%V                             "4243399",     "DM173K20"  },      //  E36/5 M43CNG B16
+;%V                             "1743734",     "DM173K20"  },      //  E34/2 M43CNG B18
+;%V                             "1743733",     "DM173K20"  },      //  E36/5 M43CNG B16
+;%V 06.03.95      V 2.58 Sp
+;%V                             "1403699",     "DM33S501"          //  M3 MSS50
+;%V 07.03.95      V 2.59 Sp    Korrektur DM33S501 -> BMSS501 nach D_0012 sowie Nachtrag
+;%V                             "4387516",     "DM173K20"  },      //  E34/2 M43CNG B18
+;%V                             "4387517",     "DM173K20"  },      //  E36/5 M43CNG B16
+;%V 21.03.95      V  2.60 EB    "1427684",     "DM5212R2"  },      //  E38/E31            
+;%V 06.07.95      V  2.61 TT    DDE21K21 EG_Stufe2 Steuergeraete hinzu 
+;%V 07.07.95      V  2.62 We    {   "1432060",     "DM173K20"  },      //
+;%V 21.11.95  We  V2.63 Regenerations-Zeit auf 20ms gesetzt
+;%V 21.11.95  gh  V2.64 SGBD-Namen in 'comment:' eingetragen
+;%V 05.12.95  TT  V2.65 1429554, 1429559 1429560 DM5212R2 Alpina hinzu
+;%V 11.12.95  We  V2.66 {   "1432521",     "DM173K20"  },      //
+;%V 11.12.95  We  V2.66 {   "1432519",     "DM173K20"  },      //
+;%V 16.02.96  We  V2.67 {   "1429633",     "DM5212R3"  }       //Programmstand 14 3/96 Serie
+;%V 16.02.96  We  V2.68 {   "4341013",     "DM5212R3"  },      //Programmstand 14 Vorserie
+;%V 09.05.96  TT  V2.69 { "1729521", "DM173K20" }, // 518g hinzu
+;%V 09.05.96  TT  V2.70 { "1729521", "DM173K20" }, // 518g ersetzt durch
+;%V 09.05.96  TT  V2.70 { "1429521", "DM173K20" }, // 518g 
+;%V 20.05.96  We  V2.71 { "1429523", "DM173K20"  } //  518g  M43 CNG
+;%V 10.07.96  We  V2.72 Alte SGBD-Namen durch neue ersetzt
+;%V 10.07.96  We  V2.72 DME17_4 -> DM172K20 ,  MS40_1 -> MS401K20
+;%V 08.08.96  We  V2.73 Eigene SGBD fuer Alpina B12 DM5212R0
+;%V 09.12.96  We  V2.74 Erweiterung SG-Parameter Nr. 9
+;%V 22.05.97  We  V2.75 Erweiterung Ident fuer DDE 2.1  DDE21K21 = Z
+;%V 23.10.97  We  V2.76 Erweiterung DME17 fuer Recycling
+;%V 12.02.04  MP  V2.77 Änderung des Origin
+;%V 27.11.09  JH  V2.78 1739135, 1247771 DM172K20 hinzu
+;%V 27.11.09  JH  V2.78 Änderung origin und author
+;%V 15.12.10  rd  V2.79 1740208 DM5212R1 auf DM5212R2 geändert
+;%V               V2.79 Im Auftrag von VH-55 Steffen Frank
+;%V *******************<-.-.-.-.-1-.-.-.-.-2-.-.-.-.-3-.-.-.-.-4-.-.-.-.-5>
+;%V
+*/
+
+
+/* ****************************************************************** *
+ * ************************ SG - PARAMETER ************************** *
+ * ****************************************************************** *
+
+;%I Fuer die Kommunikation notwendige Parameter.
+;%I
+;%I        PARAMETER                                HIER
+;%I   *    Konzept                                  2
+;%I           BMW-Konzept 1 / DS1      1
+;%I           BMW-Konzept 2 ISO 9141   2
+;%I           BMW-Konzept IHK          3
+;%I           BMW-Konzept 2 DDE        4
+;%I           BMW-Konzept DS2          6
+;%I   *    Baudrate                                 0
+;%I   *    Reizadresse                              $12
+;%I   *    Wakeup-Zeit in ms                        0
+;%I           0, wenn kein Wakeup
+;%I   *    Idle-Zeit in ms                          0
+;%I   *    Timeout-Zeit                             2000
+;%I           In dieser Zeit muss SG antworten
+;%I   *    Regenerations-Zeit                       500
+;%I           Zeit zwischen den Telegrammen
+;%I PICO:  Telegrammende-Zeit                       500
+;%I           Wartezeit nach dem letzte Byte,
+;%I           nach der auf Telegrammende
+;%I           entschieden wird
+ * .................................................................. */
+
+ int parameter[] = {2,0,0x10,0,0,2000,20,100,0};
+ int awlen[]     = {1,0};
+
+
+
+/* ****************************************************************** */
+/* ************************ SG - TABELLEN *************************** */
+/* ****************************************************************** */
+
+table HW_Tabelle[2][] =
+ {
+{"HARDWARENR",  "VARIANTE"},
+// DME M 1.3 4-Zyl M40
+{   "1717605",     "DME13_4" },
+{   "1721660",     "DME13_4" },
+{   "1721743",     "DME13_4" },
+{   "1722699",     "DME13_4" },
+{   "1727009",     "DME13_4" },
+{   "1721427",     "DME13_4" },
+{   "1727312",     "DME13_4" },
+{   "1727982",     "DME13_4" },
+{   "1727679",     "DME13_4" },
+{   "1727674",     "DME13_4" },
+{   "1734179",     "DME13_4" },
+{   "1727678",     "DME13_4" },
+{   "1727734",     "DME13_4" },
+{   "1734296",     "DME13_4" },
+{   "1739035",     "DME13_4" },
+
+// DME M 1.1 6-Zyl M20
+{   "1714997",     "DME11_20" },
+{   "1714998",     "DME11_20" },
+{   "1714999",     "DME11_20" },
+{   "1722180",     "DME11_20" },
+{   "1722200",     "DME11_20" },
+{   "1722420",     "DME11_20" },
+{   "1722190",     "DME11_20" },
+{   "1722210",     "DME11_20" },
+{   "1722430",     "DME11_20" },
+{   "1722220",     "DME11_20" },
+{   "1730793",     "DME11_20" },
+
+// DME M 1.1 6-Zyl M30
+{   "1708581",     "DME11_30" },
+{   "1708598",     "DME11_30" },
+{   "1718807",     "DME11_30" },
+{   "1720970",     "DME11_30" },
+{   "1720971",     "DME11_30" },
+{   "1720980",     "DME11_30" },
+{   "1720981",     "DME11_30" },
+  
+// DME M 1.3 6-Zyl M20
+{   "1722266",     "DME13_6"  },
+{   "1722269",     "DME13_6"  },
+{   "1722750",     "DME13_6"  },
+
+// DME M 1.3/89 6-Zyl M20
+{   "1726388",     "DME13_6"   },
+{   "1726366",     "DME13_6"   },
+{   "1726367",     "DME13_6"   },
+{   "1726643",     "DME13_6"   },
+{   "1726962",     "DME13_6"   },
+{   "1726101",     "DME13_6"   },
+{   "1726682",     "DME13_6"   },
+{   "1726102",     "DME13_6"   },
+{   "1726600",     "DME13_6"   },
+{   "1726683",     "DME13_6"   },
+{   "1726686",     "DME13_6"   },
+{   "1726837",     "DME13_6"   },
+
+// DME M 1.3/90 6-Zyl M20
+{   "1730550",     "DME13_6"    },
+{   "1730573",     "DME13_6"    },
+{   "1730574",     "DME13_6"    },
+{   "1735363",     "DME13_6"    },
+{   "1730523",     "DME13_6"    },
+{   "1730529",     "DME13_6"    },
+{   "1730576",     "DME13_6"    },
+{   "1730575",     "DME13_6"    },
+{   "1735524",     "DME13_6"    },
+{   "1730525",     "DME13_6"    },
+{   "1730527",     "DME13_6"    },
+{   "1730528",     "DME13_6"    },
+{   "1735335",     "DME13_6"    },
+{   "1735364",     "DME13_6"    },
+{   "1735365",     "DME13_6"    },
+{   "1735366",     "DME13_6"    },
+
+
+// DME M 1.3/89 6-Zyl M30
+{   "1722611",     "DME13_6"     },
+{   "1722612",     "DME13_6"     },
+{   "1726684",     "DME13_6"     },
+{   "1726685",     "DME13_6"     },
+{   "1730396",     "DME13_6"     },
+{   "1730697",     "DME13_6"     },
+
+// DME M 1.2 12-Zyl M70
+{   "1718519",     "DME12_70"     },
+{   "1725694",     "DME12_70"     },
+{   "1729708",     "DME12_70"     },
+
+// DME M 1.2 6-Zyl S38
+{   "1312731",     "DME12_38"   },
+{   "1315258",     "DME12_38"   },
+{   "1315612",     "DME12_38"   },
+{   "1315408",     "DME12_38"   },
+{   "1316941",     "DME12_38"   },
+{   "1317113",     "DME12_38"   },
+
+// DME M 3.1 6-Zyl M50
+{   "1726171",     "DME31"   },
+{   "1730784",     "DME31"   },
+{   "1735614",     "DME31"   },
+
+// DME M 3.1 6-Zyl M50 Ratio
+{   "1738376",     "DME31_R"   },
+{   "1738931",     "DME31_R"   },
+{   "1748037",     "DME31_R"   },
+{   "1748401",     "DME31_R"   },
+
+
+// DME M 3.31 6-Zyl M50
+{   "1703325",     "DME331"    },
+{   "1703326",     "DME331"    },
+{   "1703563",     "DME331"    },      //neu MJ'94
+{   "1738735",     "DME331"    },
+{   "1403945",     "DM331K20"  },      // geaendert von DME33S50
+{   "4380670",     "DM331K20"  },      // EWS2 nur Vorserie
+{   "1744698",     "DM331K20"  },      // EWS2 Serie
+
+// DME DME33S50
+{   "1317909",     "DME33S50"  },
+{   "1403157",     "DME33S50"  },
+{   "1404735",     "DM33S501"  },      // M3 EWS Serie
+
+// DME M 1.7 4-Zyl M40 (E36/E34)
+{   "1247294",     "dm172k20"   },      //neu MJ'94 518i  11-93
+{   "1247744",     "dm172k20"   },      //neu MJ'94 518iA
+{   "1727493",     "dm172k20"   },
+{   "1727491",     "dm172k20"   },
+{   "1734710",     "dm172k20"   },
+{   "1734709",     "dm172k20"   },
+{   "1734801",     "dm172k20"   },
+{   "1739039",     "dm172k20"   },
+{   "1739648",     "dm172k20"   },
+
+// DME M 1.7 4-Zyl M42
+{   "1247228",     "dm172k20"  },       // E36 CA53
+{   "1247230",     "dm172k20"  },       // E36 CA51/52
+{   "1247786",     "dm172k20"  },       // E36 CA51/52
+{   "1721720",     "dm172k20"  },
+{   "1727900",     "dm172k20"  },
+{   "1734060",     "dm172k20"  },
+{   "1734131",     "dm172k20"  },
+{   "1734659",     "dm172k20"  },
+{   "1734501",     "dm172k20"  },
+{   "1739108",     "dm172k20"  },
+{   "1743250",     "DM172K20" },       // E36 M42B18 EWS
+{   "1743251",     "DM172K20" },       // E36 M42B18 EWS
+{   "1743252",     "DM172K20" },       // E36 M42B18 EWS
+
+{   "1739038",     "DM172K20" },       // SIS
+{   "1739041",     "DM172K20" },       // SIS
+{   "1739423",     "DM172K20" },       // SIS
+{   "1739534",     "DM172K20" },       // SIS
+{   "1739678",     "DM172K20" },       // SIS
+{   "1739679",     "DM172K20" },       // SIS
+
+
+// DME M 1.7 4-Zyl M43
+{   "1247519",     "dm172k20"   },      // E36 CA01/02/91/92
+{   "1739135",     "dm172k20"   },      // manuell hinzugefügt Jürgen Haupt VP-34
+{   "1247771",     "dm172k20"   },      // manuell hinzugefügt Jürgen Haupt VP-34
+{   "1247851",     "dm172k20"   },      // E36 CA01/02/91/92
+{   "1247852",     "dm172k20"   },      // E36 CA71/72/81/82
+{   "1247229",     "dm172k20"   },      // E36 ZA
+{   "1247293",     "dm172k20"   },      // E36 ZA
+{   "1247881",     "dm172k20"   },      // E36 CA01/02 neu
+{   "1743246",     "DM172K20"  },      // E36 M43B16   EWS
+{   "1743247",     "DM172K20"  },      // E36 M43B18   EWS
+{   "1743248",     "DM172K20"  },      // E36 M43B18 B EWS
+{   "1743249",     "DM172K20"  },      // E34 M43B18   EWS nach E6409.G
+
+// DME M 1.73 4-Zyl M43
+{   "4384179",     "DM173K20"  },      //  E36 /7 USA       
+{   "4384995",     "DM173K20"  },      //  E36 /7 USA        
+{   "4384995",     "DM173K20"  },      //  
+{   "4384149",     "DM173K20"  },      //  
+{   "4387490",     "DM173K20"  },      //  
+{   "1739807",     "DM173K20"  },      //  E36 M43EG2 B18
+{   "1739855",     "DM173K20"  },      //  E36 M43EG2 B16
+
+{   "4387525",     "DM173K20"  },      //  E34/2 M43CNG B18
+{   "4243399",     "DM173K20"  },      //  E36/5 M43CNG B16
+{   "1743734",     "DM173K20"  },      //  E34/2 M43CNG B18
+{   "1743733",     "DM173K20"  },      //  E36/5 M43CNG B16
+{   "4387516",     "DM173K20"  },      //  E34/2 M43CNG B18
+{   "4387517",     "DM173K20"  },      //  E36/5 M43CNG B16
+{   "1432060",     "DM173K20"  },      //  
+{   "1432521",     "DM173K20"  },      //  
+{   "1432519",     "DM173K20"  },      //
+{   "1429521",     "DM173K20"  },      //  518g  M43 CNG
+{   "1429523",     "DM173K20"  },      //  518g  M43 CNG
+
+// DME M 1.7 12-Zyl M70
+{   "1731991",     "DME17_2L"  },
+{   "1731823",     "DME17_2L"  },
+{   "1733300",     "DME17_2L"  },
+{   "1733404",     "DME17_2L"  },
+{   "1736370",     "DME17_2L"  },
+{   "1736376",     "DME17_2L"  },
+{   "1736586",     "DME17_2L"  },
+{   "1736587",     "DME17_2L"  },
+{   "1736635",     "DME17_2L"  },
+{   "1736636",     "DME17_2L"  },
+{   "1736637",     "DME17_2L"  },
+{   "1736638",     "DME17_2L"  },
+{   "1738703",     "DME17_2L"  },
+{   "1738706",     "DME17_2L"  },
+{   "1401125",     "DME17_2L"  },
+{   "1403611",     "DME17_2L"  },
+{   "1404738",     "DM17_2R1"  },       //  M70 850 CSI mit EWS
+
+// DME MS40
+{   "1735991",     "MS40"      },
+{   "1738600",     "MS40"      },
+
+// DME MS40.1
+{   "1703808",     "MS401K20"  },
+{   "1738775",     "MS401K20"  },
+{   "1748006",     "MS401K20"  },
+{   "1744597",     "MS401K20"  },      // DME MS40.1 mit EWS
+
+// DME 3.3 S38
+{   "1404734",     "DM33M301"  },      // DME 3.3 S38  mit EWS
+
+
+// DME M 3.3 8-Zyl M60
+{   "1317417",     "DME33_8"   },
+{   "1725745",     "DME33_8"   },
+{   "1738627",     "DME33_8"   },
+{   "1748143",     "DME33_8"   },
+{   "1748359",     "DME33_8"   },
+{   "1748428",     "DME33_8"   },
+{   "1703400",     "DME33_8"   },
+{   "1703820",     "DME33_8"   },      //DME E38 2.VS   11-93
+{   "1748837",     "DME33_8"   },      //DME 3 ltr. US  11-93
+{   "4379387",     "DME33_8"   },
+{   "1740732",     "DME33_8"   },      //DME E38  nach E 6898.F
+{   "1421977",     "DME33_8"   },      //DME E34  nach E 6701.F
+{   "1744050",     "DME33_8"   },      //DME E34  nach E 6263.G
+{   "4380525",     "DME33_8"   },      //DME E38  EWS 2 ab EWS Serie DS2 Protokoll
+
+// DME M 5.2 12-Zyl M73
+{   "1740341",     "DME5212R"  },      //DME E38  nach E 6898.F
+{   "1740208",     "DM5212R2"  },      //DME E38  nach E 6635.G
+{   "4380542",     "DM5212R2"  },      //DME E38  EWS 2  Versuchssteuergeräte
+{   "1427684",     "DM5212R2"  },      //DME E38  nach E 6548.H 
+{   "1744697",     "DM5212R2"  },      //DME E38  EWS 2  Serie
+{   "1429554",     "DM5212R0"  },      //DME E38  EWS 2 Alpina
+{   "1429559",     "DM5212R0"  },      //DME E38  EWS 2 Alpina
+{   "1429560",     "DM5212R0"  },      //DME E38  EWS 2 Alpina
+{   "4341013",     "DM5212R3"  },      //Programmstand 14 Vorserie
+{   "1429633",     "DM5212R3"  }       //Programmstand 14 3/96 Serie
+
+};
+
+/* ****************************************************************** */
+/* ************************ SG - JOBS ******************************* */
+/* ****************************************************************** */
+
+/* JOB ************************************************************** *
+
+;%N Jobname   : INITIALISIERUNG
+;%J Parameter : keine
+;%J Ergebnis  : DONE
+;%J    Werte  : 0 : Fehler bei der Initialisierung
+;%J    Werte  : 1 : Initialisierung erfolgreich durchgefuehrt
+;%J
+;%I Zweck : Dieser Job wird vom EDIABAS automatisch beim erstem
+;%I         Zugriff auf eine SGBD aufgerufen. Bei weitern Zugriffen
+;%I         auf die selbe SGBD wird dieser Job nicht mehr aufgerufen.
+;%I         In der INITIALISIERUNG werden alle Funktionen aufgerufen,
+;%I         die nur einmal, vor der Kommunikation mit einem SG
+;%I         notwendig sind.
+;%I
+;%I Hier : 1. Verbindung zum Interface aufbauen
+;%I        2. Setzen des Wiederholungszaehlers fuer Fehler (gleich 2)
+;%I        3. Setzen der SG-Kommunikationsparameter
+;%I
+;%E Auftraggeber      : TP-42
+;%E Autor             : Weber
+;%E Entwicklungsstand : fertig
+;%E Teststand         : SIMED
+;%E Freigabeverantw.  : 
+;%E Freigabedatum     : 
+;%E History           : Erstellung
+;%E
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+job( name      : INITIALISIERUNG;
+     comment   : Einstellen der Kommunikationsparameter;
+     result    : DONE;
+       type    : int;
+       defrslt : ;
+       comment : 1, wenn i.O.;
+   ) {
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .*/
+
+
+
+  open_communication();
+  stop_frequent();
+  set_repeat_counter(2);       
+  set_communication_pars(parameter);
+  DONE = 1;               
+   }
+
+
+/* JOB ************************************************************** *
+
+;%N Jobname   : IDENTIFIKATION
+;%J Parameter : keine
+;%J Ergebnis  : VARIANTE
+;%J    Werte  : Name der Varianten SGBD
+;%J
+;%I Zweck : Mit Hilfe dieses Jobs wird die Steuergeraete-Variante aus
+;%I         einer Steuergeraete-Gruppe (Datei: *.grp) festgestellt.
+;%I         Dieser Job ist zwingender Bestandteil der zugehoerigen
+;%I         Gruppen-Datei.
+;%I
+;%I   z.B.: Familie:      DME;
+;%I         Variante:     DME M 1.7 12-Zyl M70;
+;%I
+;%I Hier wird das 2. SG von 12-Zylindermotoren identifiziert.
+;%I
+;%I Antwort der DME's auf Keybytes lesen (im S0 Register):
+;%I (bei "Keybytes lesen" kommen die Bloecke mit ETX am Ende)
+;%I
+;%I           Block    Daten
+;%I Bosch:    0 -  3 ( 0 -  1): Keybytes
+;%I           4 - 17 ( 7 - 16): HW-Nr. Zulieferer
+;%I          18 - 31 (21 - 30): SW-Nr. Zulieferer
+;%I          32 - 42 (35 - 41): BMW-Teilenummer
+;%I          43 - 49 (46 - 48): BMW-Softwarenummer
+;%I          50 - 56 (53 - 55): Fertigungsdatum
+;%I
+;%I Siemens:  0 -  3 ( 0 -  1): Keybytes
+;%I           4 - 18 ( 7 - 17): HW-Nr. Zulieferer
+;%I          19 - 33 (22 - 32): SW-Nr. Zulieferer
+;%I          34 - 47 (37 - 46): Generationsnummer
+;%I          48 - 58 (51 - 57): laufende Nummer
+;%I          59 - 66 (62 - 65): Fertigungsdatum
+;%I          67 - 77 (70 - 76): BMW-Teilenummer
+;%I
+;%E Auftraggeber      : TP-42
+;%E Autor             : Roland Taubert
+;%E Entwicklungsstand : fertig
+;%E Teststand         : SIMED
+;%E Freigabeverantw.  : 
+;%E Freigabedatum     : 
+;%E History           : Erstellung
+;%E
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+job( name      : IDENTIFIKATION;
+     comment   : Ermittlung der SG Variante;
+     comment   : Zur Gruppe gehoerende Varianten:;
+     result    : VARIANTE;
+       type    : string;
+       defrslt : ;
+       comment : Der zurueckgelieferte Name entspricht dem Namen der;
+       comment : Datei fuer die Varianten-SGBD;
+
+   ) {
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .*/
+
+   unsigned char  antwort[];    /* SG-Antwort */
+   char           hwNummer[];
+   char           variante[];
+
+    recv_keybytes(antwort);
+   
+   if (antwort[6] == 0xf6)
+     {
+       tabset("HW_Tabelle");
+       datacopy(hwNummer, antwort, 35, 7);
+
+// Auswertung SG- DDE ###################################################
+
+       if(antwort[0] ==0x04)                  // DDE Fa. BOSCH
+        {
+        if (tabseek("HARDWARENR",hwNummer))
+         {
+         tabget(variante,"VARIANTE");
+         VARIANTE = variante;
+         return;
+         }
+ 
+   if (antwort[47] == 'A') VARIANTE = "DDE2";    
+   if (antwort[47] == 'B') VARIANTE = "DDE2";   
+   if (antwort[47] == 'D') VARIANTE = "DDE2";
+   if (antwort[47] == 'E') VARIANTE = "DDE2";
+   if (antwort[47] == 'F') VARIANTE = "DDE21K20";
+   if (antwort[47] == 'G') VARIANTE = "DDE21K20";
+   if (antwort[47] == 'H') VARIANTE = "DDE21K20";
+   if (antwort[47] == 'K') VARIANTE = "DDE2";
+   if (antwort[47] == 'L') VARIANTE = "DDE2";
+   if (antwort[47] == 'M') VARIANTE = "DDE2";
+   if (antwort[47] == 'N') VARIANTE = "DDE21K20";
+   if (antwort[47] == 'U') VARIANTE = "DDE21K20";
+   if (antwort[47] == 'V') VARIANTE = "DDE21K21";
+   if (antwort[47] == 'W') VARIANTE = "DDE21K21";
+   if (antwort[47] == 'X') VARIANTE = "DDE21K21";
+   if (antwort[47] == 'Y') VARIANTE = "DDE21K21";
+   if (antwort[47] == 'Z') VARIANTE = "DDE21K21";
+   if (antwort[47] == 's') VARIANTE = "DDE2";
+   if (antwort[47] == 't') VARIANTE = "DDE1";
+ 
+    return;
+
+
+       }
+// Auswertung SG- DME ###################################################
+
+// Suche BMW Nr
+
+       if (tabseek("HARDWARENR",hwNummer))
+       {
+       tabget(variante,"VARIANTE");
+       VARIANTE = variante;
+       return;
+       }
+
+// Wenn nicht gefunden  datareverse
+       datarevers(hwNummer);
+
+       if (tabseek("HARDWARENR",hwNummer))
+       {
+       tabget(variante,"VARIANTE");
+       VARIANTE = variante;
+       return;
+       }
+
+// Wenn noch nicht gefunden dann vieleicht Siemens
+
+
+
+        datacopy(hwNummer, antwort, 70, 7);
+
+       if (tabseek("HARDWARENR",hwNummer))
+       {
+       tabget(variante,"VARIANTE");
+       VARIANTE = variante;
+       return;
+       }
+
+// Immer noch nichts gefunden
+
+     return;
+    } // If antwort[6]
+  } // eoj
+

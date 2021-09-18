@@ -1,0 +1,103 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen GrpCheck.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 12.03.2003 iS V1.05 Aufteilung der Funktionen(SgbdInpaCheck,GroupCheck)
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+//**********************************************************************
+//*
+//* GroupCheck
+//*
+//* Überprüfung der Gruppen-Info
+//*
+//**********************************************************************
+GroupCheck() 
+{ 
+  string err_text;                 // Fehlertext
+  bool   fehlerflag;               // Fehlerflag
+  string temp;
+  int    sgbd_saetze;              // für Funktionen-Suche in SGBD
+  string job_name;                 // JOBNMAE in SGBD
+  int    i;
+
+  fehlerflag=FALSE;
+  i=0;
+   
+  GruppenDateiInfo(gruppe, gruppe_ecu, gruppe_origin, gruppe_revision, gruppe_comment);
+
+  // Vorbelegung der Flags
+  is_lesen_flag = FALSE;
+  speicher_lesen_flag = FALSE;
+
+  INPAapiJob(sgbd,"_JOBS","","");
+
+  INP1apiResultSets(fehlerflag, sgbd_saetze);
+  if (fehlerflag == FALSE)
+  {
+    INP1apiErrorText(err_text);
+    messagebox("@Unerwarteter Fehler@", // sollte nie kommen
+                err_text+". "+CRLF+
+               "@Das Programm wird abgebrochen!@");
+    exit();
+  }
+  i = 1;
+  while ( i <= sgbd_saetze)
+  {
+    INPAapiResultText(job_name,"JOBNAME",i,"");
+    if (job_name == "FS_LESEN" )       fs_lesen_flag=TRUE;
+    if (job_name == "IS_LESEN" )       is_lesen_flag=TRUE;
+    if (job_name == "HS_LESEN" )       hs_lesen_flag=TRUE;
+    if (job_name == "SPEICHER_LESEN" ) speicher_lesen_flag=TRUE;
+
+    if ((fs_lesen_flag == TRUE) &&
+        (is_lesen_flag == TRUE) &&
+        (hs_lesen_flag == TRUE) &&
+        (speicher_lesen_flag) == TRUE) i = sgbd_saetze;
+    i = i + 1;
+  }
+  if (speicher_lesen_parameter == "")  speicher_lesen_flag = FALSE;
+
+  if (speicher_lesen_flag == TRUE)
+  {
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";LAR;");
+    if ( i == -1 ) speicher_lesen_lar_flag = FALSE; else speicher_lesen_lar_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";FLASH;");
+    if ( i == -1 ) speicher_lesen_flash_flag = FALSE; else speicher_lesen_flash_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";UIFM;");
+    if ( i == -1 ) speicher_lesen_uifm_flag = FALSE; else speicher_lesen_uifm_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";ROMI;");
+    if ( i == -1 ) speicher_lesen_romi_flag = FALSE; else speicher_lesen_romi_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMIS;");
+    if ( i == -1 ) speicher_lesen_ramis_flag = FALSE; else speicher_lesen_ramis_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMIL;");
+    if ( i == -1 ) speicher_lesen_ramil_flag = FALSE; else speicher_lesen_ramil_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";NVRAM;");
+    if ( i == -1 ) speicher_lesen_nvram_flag = FALSE; else speicher_lesen_nvram_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";ROMX;");
+    if ( i == -1 ) speicher_lesen_romx_flag = FALSE; else speicher_lesen_romx_flag = TRUE;
+
+    instr(i, 0, ";"+speicher_lesen_parameter+";", ";RAMXX;");
+    if ( i == -1 ) speicher_lesen_ramxx_flag = FALSE; else speicher_lesen_ramxx_flag = TRUE;
+  }
+
+  ds2_flag=FALSE;
+  INP1apiJob(sgbd,"IDENT","","");
+  INP1apiResultText(fehlerflag,temp,"ID_DATUM_KW",1,"");
+  if ((fehlerflag == TRUE) && (temp != "")) ds2_flag=TRUE;
+}
+// -- EOF --

@@ -1,0 +1,76 @@
+Results;SA_Code;Description
+BR;E70_;
+LACK;0475;Saphirschwarz Metallic 
+SA_1;1CA;Selection of COP relevant vehicles
+SA_2;212;National brake system equipment
+SA_3;245;Steering wheel column adjustment, electrical
+SA_4;248;Steering-wheel heating
+SA_5;2C9;Light alloy wheels Star-spoke style 209
+SA_6;2VB;Tyre Pressure Monitor
+SA_7;302;Alarm system
+SA_8;316;Automatic operation of tailgate
+SA_9;319;Integrated universal remote control
+C_TYP;ZW03;E70 M57SD30 LHD US
+SA_10;322;Comfort access system
+SA_11;386;Roof rails
+SA_12;3AH;Rear view camera with Top View
+SA_13;402;Panorama glass roof
+SA_14;417;Roller sunblind for rear side windows, mechanical
+SA_15;423;Floor mats in velour
+SA_16;430;Interior and exterior mirrors with automatic anti-dazzle function
+SA_17;431;Interior rear-view mirror with automatic anti-dazzle function
+SA_18;441;Smoker's package
+SA_19;459;Seat adjustment, electrical with memory
+SA_20;464;Skibag
+SA_21;488;Lumbar support for driver and front passenger
+SA_22;494;Seat heating for driver and front passenger
+SA_23;496;Seat heating for rear seats
+SA_24;4AB;Fine-wood trim burled walnut
+SA_25;4NA;Interior mirror with digital compass
+SA_26;4NB;Automatic air conditioning with 4-zone control
+SA_27;502;Headlight washer system
+SA_28;508;Park distance control
+SA_29;521;Rain sensor
+SA_30;522;Xenon Light
+SA_31;524;Adaptive headlight
+SA_32;544;Cruise control with braking function
+SA_33;563;Lights package
+SA_34;575;Socket in the luggage compartment, including 2nd battery
+SA_35;5AC;High-beam assistant
+SA_36;5DK;Side View
+SA_37;609;Navigation system Professional
+SA_38;610;Head-up display
+SA_39;615;Extended BMW online information
+SA_40;620;Voice control
+SA_41;639;Full preparation package mobile phone USA/CDN including Telematics
+SA_42;645;Radio control US
+SA_43;655;Satellite tuner
+SA_44;677;HiFi system Professional
+SA_45;697;Area code 1 for DVD
+SA_46;6AA;BMW TeleServices
+SA_47;6AB;Control BMW TeleServices
+SA_48;6FL;USB audio interface
+SA_49;6NF;Extended connectivity of the music player in the mobile phone
+SA_50;6NR;BMW Apps
+SA_51;6UH;Traffic Information
+SA_52;6VC;Combox control
+SA_53;761;BMW Individual sun protection glazing
+SA_54;823;Hot-climate version
+SA_55;853;Language version English
+SA_56;876;Radio frequency 315 MHz
+SA_57;8KC;Oil service interval - 24 months / 24,000 km
+SA_58;8S4;Decoding variable light distribution
+SA_59;8SL;Preparation for trailer tow hitch
+SA_60;8SM;VIN, visible from outside
+SA_61;8TN;Daytime driving lights light menu adjustable
+SA_62;9AA;External skin protection
+C_DATE;1011;10.2011
+SA_ANZ;62;
+POLSTER;LUEZ;
+VERSION;02;
+E_WORT_1;A090;AGM battery 90 Ah, plant
+E_WORT_ANZ;1;
+JOB_STATUS;OKAY;
+ZUSBAU_ANZ;0;
+HO_WORT_ANZ;0;
+STANDARD_FA;E70_#1011*ZW03%0475&LUEZ$1CA$212$245$248$2C9$2VB$302$316$319$322$386$3AH$402$417$423$430$431$441$459$464$488$494$496$4AB$4NA$4NB$502$508$521$522$524$544$563$575$5AC$5DK$609$610$615$620$639$645$655$677$697$6AA$6AB$6FL$6NF$6NR$6UH$6VC$761$823$853$876$8KC$8S4$8SL$8SM$8TN$9AA-A090;

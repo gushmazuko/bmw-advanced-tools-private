@@ -1,0 +1,473 @@
+//**********************************************************************
+//*
+//*   Nacharbeitsauswahl INPA
+//*
+//*   Datei BMW_ALT.ENG
+//*
+//**********************************************************************
+//*   Drexel TI-430
+//**********************************************************************
+//* History:
+//* 03.08.1999 rd V0.01 Erstellung
+//* 02.10.2001 rd V1.00 Integration E38
+//* 24.10.2002 rd V1.01 Integration E36
+//* 02.02.2004 rd V1.02 Integration E52
+//* 14.02.2004 rd V1.03 Integration E39
+//* 16.02.2004 rd V1.04 Umstellung auf 32-Bit INPA
+//**********************************************************************
+
+[ROOT]
+DESCRIPTION=Old Models
+
+[ROOT_E31]
+DESCRIPTION=E31
+
+[ROOT_E31_MOTOR]
+DESCRIPTION=Engine
+ENTRY=  DME17R,DME 1.7 for M70 right,
+ENTRY=  DME17L,DME 1.7 for M70 left,
+ENTRY=DME338DS,DME 3.3 for M60,
+ENTRY=DME5212R,DME 5.2 for M73 right,
+ENTRY=DME5212L,DME 5.2 for M73 left,
+ENTRY=  DME528,DME 5.2 for M62,
+ENTRY=,,
+ENTRY= EML_M70,EML     for M70,
+ENTRY=    EML3,EML     for M73,
+
+[ROOT_E31_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,AGS9.22 for M62 / M73,
+ENTRY=    gs9x,GS9.2   for M60,
+
+[ROOT_E31_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS/ASC Mk5 (ABS5 ABD5 ASC5 DSC5),
+ENTRY=   asc_t,ASC + T,
+ENTRY=     ahk,Active rear axle kinematics AHK,
+ENTRY=     edc,Electronic damper control EDC,
+
+[ROOT_E31_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag (ZAE BAE),
+ENTRY=    dwa4,Anti-theft alarm system DWA4,
+ENTRY=     ekm,Elektronic body module EKM,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=    ihka,Automatic air conditioning IHKA,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=    lkm2,Lamp control module LKM2,
+ENTRY=     lsm,Steering column memory LSM,
+ENTRY=     mid,Multi functional display MID,
+ENTRY=   sm_rd,Seat memory,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke2,Central body electronics ZKE2,
+
+[ROOT_E34]
+DESCRIPTION=E34
+
+[ROOT_E34_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   DDE21,DDE 2.1  for M51 E34,
+ENTRY=,,
+ENTRY=   DME17,DME 1.7  for M42 / M43,
+ENTRY=DME338DS,DME 3.3  for M60,
+ENTRY=  DME331,DME 3.31 for M50 2.5 l,
+ENTRY=   MS401,MS 40.1  for M50 2.0 l,
+
+[ROOT_E34_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,AGS7.32 / AGS9.22,
+ENTRY=,,
+ENTRY=   gs41x,GS4.1x,
+ENTRY=  gs7x_k,GS7.x Data field,
+ENTRY=,,
+ENTRY=   jatco,Jatco for M50 Japan / South Africa,
+
+[ROOT_E34_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS/ASC Mk5 (ABS5 ABD5 ASC5 DSC5),
+ENTRY=  abs_uc,ABS µC for M5,
+ENTRY=     edc,Electronic damper control EDC,
+
+[ROOT_E34_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag (ZAE BAE),
+ENTRY=   bc_iv,On board computer BC4,
+ENTRY=    dwa4,Anti-theft alarm system DWA4,
+ENTRY=   ddshd,Double sun roof E34/2,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=    ihka,Automatic air conditioning IHKA,
+ENTRY=    ihkr,Air conditioning IHKR,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=   sm_rd,Seat memory,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke1,Central body electronics ZKE1,
+ENTRY=    zv36,Central locking module,
+
+[ROOT_E36]
+DESCRIPTION=E36
+
+[ROOT_E36_MOTOR]
+DESCRIPTION=Engine
+ENTRY=   DDE21,DDE 2.1  for M51,
+ENTRY=,,
+;ENTRY=   DME13,DME 1.3  for M40,
+ENTRY=   DME17,DME 1.7  for M42 / M43,
+ENTRY=   BMS43,BMS 43   for M43,
+ENTRY=   BMS46,BMS 46   for M43,
+ENTRY=,,
+;ENTRY=DME338K2,DME 3.3  for S50 M3,
+ENTRY=   MSS50,MS  S50  for S50 M3,
+ENTRY= MSS54M3,MS  S54  for S54 M3,
+ENTRY=,,
+ENTRY=  DME331,DME 3.31 for M50 2.5 l,
+ENTRY=  DME524,DME 5.2  for M44,
+ENTRY=   MS401,MS 40.1  for M50 2.0 l,
+ENTRY=   MS410,MS 41.0  for M52,
+ENTRY=   MS411,MS 41.1  for M52 US with OBDII,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=     VNC,VNC      for S50 M3,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_E36_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx,
+ENTRY=,,
+ENTRY=   gs41x,GS4.1x,
+ENTRY=  gs7x_k,GS7.x Data field,
+ENTRY=,,
+ENTRY=   jatco,Jatco for M50 Japan / South Africa,
+ENTRY=,,
+ENTRY=     smg,Sequential M-Gearbox,
+
+[ROOT_E36_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc4,ABS/ASC Mk4 ,
+ENTRY=absasc4g,ABS/ASC Mk4G,
+ENTRY=absasc4g,ABS Mk20 (DS2),
+ENTRY= absasc4,ABS/ASC Mk4G1 (K1),
+ENTRY=ascdsc46,ASC Mk20 / DSC E46,
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY= dscmk60,DSC MK60,
+ENTRY=    lws5,Steering angle sensor,
+
+[ROOT_E36_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=    bc_v,On board computer BC5,
+ENTRY=  uhr_bc,On board computer / Clock UHR/BC E36/7,
+ENTRY=     cvm,Convertible soft top module CVM,
+ENTRY=    dwa4,Anti-theft alarm system DWA4,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=klima_5B,Automatic air conditioning IHKA,
+ENTRY=    ihkr,Air conditioning IHKR,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=   toens,Thermal Oil Level Sensor TOENS,
+ENTRY=    ueb2,Roll over sensor,
+ENTRY=    zke4,Central body electronics ZKE4,
+ENTRY=    zv36,Central locking module ZV36,
+
+[ROOT_E38]
+DESCRIPTION=E38
+
+[ROOT_E38_MOTOR]
+DESCRIPTION=Engine
+;ENTRY=   DDE22,DDE 2.2  for M51,
+ENTRY=   DDE40,DDE 4.0  for M57,
+ENTRY=,,
+;ENTRY=  DDE41R,DDE 4.1  for M67 right,
+;ENTRY=  DDE41L,DDE 4.1  for M67 left,
+ENTRY=,,
+ENTRY=   MS410,MS 41.0  for M52,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=DME338DS,DME 3.3  for M60,
+ENTRY=,,
+ENTRY=  DME528,DME 5.2  for M62,
+;ENTRY= DME5218,DME 5.21 for M62 MJ 98,
+ENTRY=    ME72,ME  7.2  for M62 MJ 99,
+ENTRY=,,
+ENTRY=DME5212R,DME 5.2  for M73 right,
+ENTRY=DME5212L,DME 5.2  for M73 left,
+ENTRY=,,
+;ENTRY= DME521R,DME 5.21 for M73 right MJ 98,
+;ENTRY= DME521L,DME 5.21 for M73 left  MJ 98,
+;ENTRY=,,
+;ENTRY=DME521R2,DME 5.21 for M73 right MJ 99,
+;ENTRY=DME521L2,DME 5.21 for M73 left  MJ 99,
+;ENTRY=,,
+ENTRY=    EML3,EML      for M73,
+ENTRY=,,
+ENTRY=     ETS,Electronic disconnecting switch,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_E38_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,AGS7.32 / GS8.xx / AGS9.22,
+
+[ROOT_E38_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+;ENTRY=     acc,Adaptive Cruise Control ACC,
+ENTRY=     edc,Electronic damper control EDC,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tire pressure control RDC,
+ENTRY=     dws,Deflation warning system DWS,
+
+[ROOT_E38_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  a-sitz,Active seat,
+ENTRY=   ccm38,Check control module CCM,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=klima_A7,Rear compartment air conditioning,
+ENTRY=     rcc,Radio controlled clock,
+ENTRY=     hkm,Trunk lid module,
+ENTRY=klima_5B,Air conditioning IHKA IHKR
+ENTRY=   kombi,Instrument cluster KOMBI / IKE,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=   lme38,Light module LME38,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY=     szm,Middle console center switch,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke3,Central body electronics ZKE3,
+ENTRY=zuheizer,Additional heater diesel / Park Heating,
+
+[ROOT_E38_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bordmoni,On bord monitor,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=  dsp_bt,Dynamic sound processor DSP operation unit,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY= navigat,Navigation system,
+ENTRY=  NAVMK2,Navigation system MK2,
+ENTRY= nav_jap,Navigation system Japan,
+ENTRY=    navi,Navigation computer,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=video_gt,Video module graphical component,
+ENTRY=video_tv,Video module TV component,
+ENTRY=videomod,Video module,
+ENTRY= video_3,Video module 3,
+ENTRY=     zis,Multi functional display MID (ZIS),
+ENTRY=fond_zis,Rear Compartment Information Display,
+ENTRY= FOND_BT,Rear Compartment monitor,
+
+[ROOT_E39]
+DESCRIPTION=E39
+
+[ROOT_E39_MOTOR]
+DESCRIPTION=Engine
+;ENTRY=   DDE22,DDE 2.2  for M51,
+ENTRY=,,
+;ENTRY=   DDE30,DDE 3.0  for M47,
+ENTRY=   DDE40,DDE 4.0  for M57,
+ENTRY=,,
+ENTRY=   DME17,DME 1.7  for M43,
+ENTRY=,,
+ENTRY=  DME528,DME 5.2  for M62,
+;ENTRY= DME5218,DME 5.21 for M62 MJ 98,
+ENTRY=    ME72,ME  7.2  for M62 MJ 99,
+ENTRY=,,
+ENTRY=   MS410,MS 41.0  for M52,
+ENTRY=   MS411,MS 41.1  for M52 US with OBDII,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY= MSS52M5,MS  S52  for S62 M5,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_E39_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=   gsds2,GS8.xx / GS 20,
+
+[ROOT_E39_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY=     edc,Electronic damper control EDC,
+ENTRY=     ehc,1-axle Air Suspension EHC
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tire pressure control RDC,
+ENTRY=     dws,Deflation warning system DWS,
+
+[ROOT_E39_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  a-sitz,Active seat,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY= fern_ss,Remote controls,
+ENTRY=     hkm,Trunk lid module,
+ENTRY=  ihka39,Air conditioning,
+ENTRY=   kombi,Instrument cluster KOMBI / IKE,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    zke3,Central body electronics ZKE3,
+ENTRY=zuheizer,Additional heater diesel / Park heating,
+
+[ROOT_E39_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bordmoni,On bord monitor,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY=    iris,Integrated Radio Information system IRIS,
+ENTRY= navigat,Navigation system,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=video_gt,Video module graphical component,
+ENTRY=video_tv,Video module TV component,
+ENTRY=videomod,Video module,
+ENTRY=     zis,Multi functional display MID (ZIS),
+
+[ROOT_E46]
+DESCRIPTION=E46                               
+[ROOT_MOTOR]
+DESCRIPTION=  Engine
+;ENTRY=   DDE22,DDE 2.2  for M51,
+;ENTRY=   DDE30,DDE 3.0  for M47,
+ENTRY=   DDE40,DDE 4.0  for M57,
+ENTRY=  D50M47,DDE 5.0  for M47 new,
+ENTRY=  D50M57,DDE 5.0  for M57 new,
+ENTRY=,,
+ENTRY=   BMS46,BMS 46   for M43,
+ENTRY=,,
+ENTRY=  ME9_4N,ME  9.2  for N42 / N45,
+ENTRY=ME9NG4TU,ME  9.2 / MEV9 for N46,
+ENTRY=,,
+ENTRY=   MS420,MS 42.0  for M52 new,
+ENTRY=,,
+ENTRY=   MS430,MS 43.0  for M54,
+ENTRY=,,
+ENTRY=   MS450,MS 45.0  for M56,
+ENTRY=,,
+ENTRY= MSS54M3,MS  S54  for S54 M3,
+ENTRY=,,
+ENTRY= EKP_DS2,Fuel pump EKP,
+
+[ROOT_GETRIEBE]
+DESCRIPTION=  Transmission
+ENTRY=   gsds2,GS8.xx / GS 20,
+ENTRY=,,
+ENTRY=    gs30,Sequential Gearbox SSG,
+ENTRY=,,
+ENTRY=    smg2,Sequential M-Gearbox,
+
+[ROOT_FAHRWERK]
+DESCRIPTION=  Chassis
+ENTRY=ascdsc46,ASC/DSC,
+ENTRY= dscmk60,DSC MK60,
+ENTRY= absasc5,DSC 5.7,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     rdc,Tire pressure control,
+ENTRY=     dws,Deflation Warning Syste
+
+[ROOT_KAROSSERIE]
+DESCRIPTION=  Body
+ENTRY=  airbag,Airbag,
+ENTRY=  cvm_II,Convertible soft top module CVM II,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=klima_5b,Air conditioning IHKA,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=     lsz,Light switch center LSZ,
+ENTRY= ALC_DS2,Adaptive Light Control,
+ENTRY=     mfl,Multi functional steering wheel MFL,
+ENTRY=     pdc,Park distance control PDC,
+ENTRY=     aic,Rain sensor AIC,
+ENTRY= rls_ds2,Rain and light sensor RLS,
+ENTRY=     szm,Middle console center switch,
+ENTRY=   shd46,Sunroof module SHD,
+ENTRY=    sm46,Seat memory driver,
+ENTRY=  b_sm46,Seat memory passenger,
+ENTRY=   spmft,Mirror memory driver,
+ENTRY=   spmbt,Mirror memory passenger,
+ENTRY=     gr2,Cruise control GR2,
+ENTRY=    ueb2,Roll over sensor,
+ENTRY= xenon_l,Xenon Lights left,
+ENTRY= xenon_r,Xenon Lights right,
+ENTRY=    zke5,Central body electronics ZKE5,
+ENTRY=zuheizer,Additional heater diesel,
+
+[ROOT_KOMMUNIKATION]
+DESCRIPTION=  Communication systems
+ENTRY=bmbt46tn,On bord monitor Topnavigation,
+ENTRY=bmbt46rn,On bord monitor Radionavigation,
+ENTRY=bmbt_mir,Control panel MIR,
+ENTRY= bm_wide,Widescreen monitor,
+ENTRY=     CDC,CD changer,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY=     ses,Speech input system SES,
+ENTRY= telefon,Telephone,
+ENTRY=videomod,Video module,
+
+
+
+[ROOT_E52]
+DESCRIPTION=E52
+
+[ROOT_E52_MOTOR]
+DESCRIPTION=Engine
+ENTRY= MSS52M5,MS S52 for S62 M5,
+ENTRY=,,
+ENTRY=    CARB,Carb-Interface,
+
+[ROOT_E52_GETRIEBE]
+DESCRIPTION=Transmission
+ENTRY=     smg,Sequential M-Transmission,
+
+[ROOT_E52_FAHRWERK]
+DESCRIPTION=Chassis
+ENTRY= absasc5,ABS5 ASC5 DSC5 DSC3,
+ENTRY=    lws5,Steering angle sensor,
+ENTRY=     dws,Deflation warning system DWS,
+
+[ROOT_E52_KAROSSERIE]
+DESCRIPTION=Body
+ENTRY=  airbag,Airbag,
+ENTRY=  cvm_ii,Convertible soft top module CVM II,
+ENTRY=     elv,Electric steering lock ELV,
+ENTRY=     ews,Electronic vehicle immobilization EWS,
+ENTRY=klima_5B,Air conditioning IHKS,
+ENTRY=   kombi,Instrument cluster,
+ENTRY=   lwr2a,Headlight vertical aim control LWR2A,
+ENTRY=     lcm,Light and check module LCM,
+ENTRY=    zke5,Central body electronics ZKE5,
+
+[ROOT_E52_KOMMUNIKATION]
+DESCRIPTION=Communication systems
+ENTRY=bmbt46rn,On bord monitor Radionavigation,
+ENTRY=     CDC,CD changer,
+ENTRY=     dsp,Dynamic sound processor DSP booster,
+ENTRY=    navi,Navigation computer,
+ENTRY= nav_jap,Navigation computer Japan,
+ENTRY=   radio,Radio,
+ENTRY= telefon,Telephone,

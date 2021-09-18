@@ -1,0 +1,113 @@
+/* trace.css - Copyright BMW AG, created by Softing AG */
+
+tool
+{
+	text-align:right;
+	font-size:xx-small;
+	font-style:italic;
+	display:block;
+	color:gray;
+}
+
+version
+{
+	display:none;
+}
+
+sync
+{
+	display:block;
+	font-size:small;
+}
+
+time
+{
+	display:block;
+	border-style:solid;
+	border-width:thin;
+	margin-top:12pt;
+	margin-bottom:12pt;
+	font-weight:bold;
+	color:white;
+	background-color:black;
+}
+
+trace-api
+{
+	background-color:aqua;
+}
+
+trace-bip
+{
+	background-color:lime;
+}
+
+trace-sys
+{
+	background-color:silver;
+}
+
+trace-ifhn
+{
+	background-color:fuchsia;
+}
+
+trace-ifh
+{
+	background-color:yellow;
+}
+
+trace-other
+{
+	background-color:red;
+}
+
+trace
+{
+}
+
+file
+{	
+	display:block;
+	font-size:small;
+	font-weight:bold;
+	color:gray;
+	text-align:right;
+	float:right;
+}
+
+process
+{
+	display:inline;
+	font-size:xx-small;
+	font-weight:normal;
+	color:gray;
+	text-align:right;
+}
+
+thread
+{
+	display:inline;
+	font-size:xx-small;
+	font-weight:normal;
+	color:gray;
+	text-align:right;
+}
+
+tab
+{
+	float:left;
+	visibility:hidden;
+}
+
+line
+{	
+	margin-left:0em;
+	display:block;
+	text-align:left;
+	font-size:x-small;
+	font-style:normal;
+	white-space:nowrap;
+	font-family:monospace;
+	border-style:none;
+}

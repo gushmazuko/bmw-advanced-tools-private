@@ -1,0 +1,66 @@
+//**********************************************************************
+//*
+//* INPA Library-Funktionen INITEXIT.SRC
+//*
+//* mindestens INPA 5.0.1
+//*
+//**********************************************************************
+//* Drexel TI-430
+//**********************************************************************
+//* History:
+//* 04.07.2000 rd V0.03 Ersterstellung
+//* 25.04.2002 rd V1.00 Freigabe
+//* 24.09.2002 rd V1.01 Scriptinit verlagert
+//* 12.03.2003 iS V1.01 Anpassung SgbdInpaCheck()GroupCheck();
+//* 16.02.2004 rd V2.00 Umstellung auf 32-Bit Version
+//**********************************************************************
+
+// **************************
+// *** inpainit, inpaexit ***
+// **************************
+inpainit()
+{
+  bool   rc;
+
+  INPAapiInit();
+  chrinit();
+
+  // Handle für FS_LESEN
+  StrArrayCreate(rc,f_ort_nr_buffer);
+  if (rc == FALSE)
+  {
+    messagebox("@Unerwarteter Fehler@", // sollte nie kommen
+               "StrArrayCreate(rc,f_ort_nr_buffer). "+CRLF+
+               "@Das Programm wird abgebrochen!@");
+    exit();
+  }
+
+  StrArrayCreate(rc,f_ort_text_buffer);
+  if (rc == FALSE)
+  {
+    messagebox("@Unerwarteter Fehler@", // sollte nie kommen
+               "StrArrayCreate(rc,f_ort_text_buffer). "+CRLF+
+               "@Das Programm wird abgebrochen!@");
+    exit();
+  }
+
+  SgbdInpaCheck();
+  GroupCheck();
+  setmenu(m_main);
+  setscreen(s_main,TRUE);
+  ExtraScript("SaveAs", fs_lesen_save_as_flag);
+  is_lesen_save_as_flag=fs_lesen_save_as_flag;
+  hs_lesen_save_as_flag=fs_lesen_save_as_flag;
+  ScriptInit();
+}
+
+inpaexit()
+{
+  INPAapiEnd();
+
+  // Handle für FS_LESEN
+  StrArrayDestroy(f_ort_nr_buffer);
+  StrArrayDestroy(f_ort_text_buffer);
+}
+
+// -- EOF --
