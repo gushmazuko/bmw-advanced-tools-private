@@ -3,6 +3,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/gushmazuko/bmw-advanced-tools)
 
 ## About
+Updated verson of famous `BMW Standart Tools`. Doesn't require any settings, just install it and enjoy. System Environment variables and OCX are registered automatically.
 
 ### Included software
 
