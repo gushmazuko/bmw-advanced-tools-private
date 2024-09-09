@@ -1,4 +1,4 @@
-# <img src="images/bmw_m_50th_logo.png" width="50" height="50" /> BMW Advanced Tools
+# BMW Advanced Tools
 ![GitHub Build](https://img.shields.io/github/workflow/status/gushmazuko/bmw-advanced-tools/Deploy)
 ![GitHub Release](https://img.shields.io/github/v/release/gushmazuko/bmw-advanced-tools)
 
